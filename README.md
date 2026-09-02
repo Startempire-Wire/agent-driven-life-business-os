@@ -4,7 +4,7 @@
 > governed agent employees, real computers and tools, connected life/business
 > systems, and evidence-backed learning.
 
-- **Contract version:** `1.0.0`
+- **Contract version:** `1.1.0`
 - **Reference stack:** OpenClaw / Wirebot + Focusa + UIAI Engine + Veragensia
 - **Primary contract:** [`AGENTS.md`](./AGENTS.md)
 
@@ -47,6 +47,41 @@ coordination, rollback, provenance, or delivery truth.
 
 Ship the smallest correct solution. Verify it. Improve only where reality proves
 necessary.
+
+## First principles, the Algorithm, and Leverage²
+
+For consequential or stuck work, reason from the function rather than inherited
+form: state the outcome, separate verified truths and hard constraints from
+assumptions, decompose to fundamentals, identify the dominant constraint, rebuild
+the smallest solution, and test it in reality. Routine proven workflows need not be
+re-derived.
+
+Apply the five-step Musk/Isaacson **Algorithm in its fixed order**:
+
+1. **Question every requirement** and attach its named owner/source and rationale.
+2. **Delete parts and processes** before improving them; occasional restoration is
+   evidence that deletion was real. The cited 10% add-back rule is a calibration
+   heuristic, not a safety-risking quota.
+3. **Simplify and optimize** only what survives.
+4. **Accelerate cycle time** only after the first three steps.
+5. **Automate last**, after the process is questioned, reduced, simple, and stable.
+
+The **Wirebot Leverage² Directive** then asks: What matters most now? What is the
+dominant constraint? What is the simplest material advance? What could create
+disproportionate or compounding leverage? Can that leverage itself be leveraged?
+
+Remove effort and waiting at the root. Seek practical leverage across people,
+agents, tools, software, infrastructure, research, distribution, partnerships,
+data, and capital. Turn proven improvements into reusable capability; do not
+prematurely systemize an unproven idea. Use the learning loop
+**Identify → Act → Measure → Keep, Improve, or Remove**.
+
+Priority: **hard invariants and authority → mission outcome → simplicity → constraint removal → leverage → systemization**.
+
+Source trail: [Focusa adoption](https://github.com/Startempire-Wire/focusa/blob/main/docs/current/2026-08-20-elon-5-step-ota-simplification.md),
+[James Clear on first principles](https://jamesclear.com/first-principles), and
+[Corporate Rebels on the Algorithm](https://www.corporate-rebels.com/blog/musks-algorithm-to-cut-bureaucracy).
+The operating rules—not celebrity authority—are normative.
 
 ---
 
@@ -134,28 +169,13 @@ interfaces.
 | **Outcome and correction** | Accepted real-world effect, confidence, dispute, correction, and economics |
 | **Learning and policy change** | Evaluation, reusable skill, approval, versioning, and rollback |
 | **Observability and recovery** | Health, audit, retry, rollback, continuity, and incident response |
-| **Resource and leverage** | Time, money, tokens, capacity, marginal value, and reinvestment |
+| **Resource and leverage** | Time, attention, money, tokens, capacity, marginal value, and compounding reuse |
 
 ### Common object envelope
 
-Durable objects should carry the fields that apply to them:
-
-```yaml
-schema_version: example.v1
-id: stable-identifier
-scope: {tenant_id: client-or-household, project_id: exact-project}
-owner_id: sovereign-or-delegate
-actor_id: human-or-agent
-status: active
-provenance: {source_ref: evidence-ref, observed_at: 2026-01-01T12:00:00Z, trust_class: private}
-authority_ref: capability-or-decision
-related_refs: []
-evidence_refs: []
-correction_or_revocation_ref: null
-```
-
-The exact schema can vary. Stable identity, scope, authority, provenance, state,
-and correction semantics cannot disappear.
+Durable objects carry a schema version, stable ID, tenant/project scope, owner and
+actor, state, source/freshness/trust, authority, evidence, and correction/revocation
+references. Exact schemas vary; those semantics cannot disappear.
 
 ---
 
@@ -179,16 +199,10 @@ the whole portfolio while disclosing only a narrow slice to each worker.
 
 ### Reserved powers
 
-Every deployment should explicitly list actions that remain human-controlled, such
-as:
-
-- destructive or irreversible changes;
-- entering material legal or financial commitments;
-- changing identity, ownership, or governance;
-- granting broad or persistent credentials;
-- publishing sensitive/private information;
-- overriding safety or compliance controls;
-- using emergency or nonrenewable authentication resources.
+Every deployment names human-only powers: destructive/irreversible changes;
+material legal or financial commitments; identity, ownership, or governance;
+broad credentials; sensitive publication; safety overrides; and emergency or
+nonrenewable authentication resources.
 
 ---
 
@@ -217,22 +231,12 @@ retention: minimum_required
 revocation: immediate
 ```
 
-### Capability grant example
+### Capability grant
 
-```yaml
-schema_version: capability_grant.v1
-grant_id: grant-example-001
-subject_id: client-onboarding-specialist
-scope: {tenant_id: client-example, project_id: customer-onboarding}
-resource: crm/customer/approved-record
-actions: [read]
-constraints: {customer_id: customer-123, expires_at: 2026-01-01T13:00:00Z, max_uses: 3}
-evidence_policy: metadata_only
-revocable: true
-```
-
-A capability is not a password. Credentials remain in the owning broker or provider
-boundary; the agent receives the narrow ability to perform an approved action.
+A grant binds a subject and tenant/project scope to named resource actions, limits,
+expiry/use bounds, evidence policy, and revocation. It is not a password:
+credentials remain in the owning broker/provider boundary while the agent receives
+the narrow ability to perform an approved action.
 
 ---
 
@@ -457,7 +461,7 @@ delivery, and recovery scenarios; then review/version before distribution.
 
 Semantic Versioning applies: **major** changes incompatible substrate/safety/
 authority semantics; **minor** adds compatible primitives/adapters/workflows;
-**patch** clarifies or repairs. Validated tags use `agents-contract-v1.0.0`.
+**patch** clarifies or repairs. Validated tags use `agents-contract-v1.1.0`.
 
 ---
 
@@ -479,7 +483,6 @@ authority semantics; **minor** adds compatible primitives/adapters/workflows;
 | **Chief of Staff or employee?** | The Chief of Staff orients/co-ordinates broadly; employees receive narrow jobs, context, capability, budget, and acceptance. Neither self-authorizes. |
 | **Why Focusa?** | It binds project identity, Trajectory, Workpoints, authority, receipts, learning, recovery, and cross-agent continuity to the mission. |
 | **Why UIAI/agent computers?** | Real outcomes often need observable browser/computer hands, diagnostics, and evidence—not API access alone. Machine access still is not authority. |
-| **Can products change?** | Yes. Replacements must preserve identity, capability, evidence, correction, recovery, and tenancy contracts. |
 | **Multiple clients?** | Only with proven isolation across credentials, memory, files, sessions, computers, Workpoints, evidence, audit, retention, and revocation. |
 | **How much autonomy?** | The minimum for the role; expand after real outcomes, safe escalation, repeatability, and economics; revoke when need ends. |
 | **What is done?** | The requested outcome exists on its requested surface and is verified across the applicable source, release, install, configuration, runtime, visual, consumer, and business layers. |
