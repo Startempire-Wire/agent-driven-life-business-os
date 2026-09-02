@@ -4,7 +4,7 @@
 > governed agent employees, real computers and tools, connected life/business
 > systems, and evidence-backed learning.
 
-- **Contract version:** `1.2.0`
+- **Contract version:** `2.0.0`
 - **Reference stack:** OpenClaw / Wirebot + Focusa + UIAI Engine + Veragensia
 - **Primary contract:** [`AGENTS.md`](./AGENTS.md)
 
@@ -45,8 +45,8 @@ existing primitives over new abstractions, and evidence from running systems ove
 theoretical proof. Process is valuable only where it protects authority, safety,
 coordination, rollback, provenance, or delivery truth.
 
-Ship the smallest correct solution. Verify it. Improve only where reality proves
-necessary.
+Ship the smallest correct solution and keep executing while an authorized CallGraph
+or open-Bead/task queue has ready work; `DISCUSS:` changes prose only, never progress. Operator updates must stand alone: never use bare IDs or jargon-only summaries; pair identifiers with plain-language meaning, relevance, state, and next action.
 
 ## First principles, the Algorithm, and Leverage²
 
@@ -472,7 +472,7 @@ delivery, and recovery scenarios; then review/version before distribution.
 
 Semantic Versioning applies: **major** changes incompatible substrate/safety/
 authority semantics; **minor** adds compatible primitives/adapters/workflows;
-**patch** clarifies or repairs. Validated tags use `agents-contract-v1.2.0`.
+**patch** clarifies or repairs. Validated tags use `agents-contract-v2.0.0`.
 
 ---
 
