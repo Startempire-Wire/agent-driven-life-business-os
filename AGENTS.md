@@ -1,10 +1,10 @@
 # AGENTS — Agent-Driven Life & Business Ecosystem Operating Contract
 
-- **Contract version:** 1.1.0
+- **Contract version:** 1.2.0
 - **Portability profile:** versioned core substrate + replaceable adapters
 - **Reference deployment:** Startempire / OpenClaw / Wirebot / Focusa / UIAI
 - **Supported agents:** Claude Code, Letta, OpenCode, Pi, compatible harnesses
-- **Canonical knowledge:** `/root/.agent-kb/` through `agent-kb-api`
+- **Canonical knowledge authority:** `agent-kb-api` via `/usr/local/bin/agent-kb`; `/root/.agent-kb/` is transitional import/export and explicit recovery storage only
 - **Status:** living foundational contract
 - **Last cohesion review:** 2026-09-02
 - **Freshness authority:** verified live runtime + current Agent-KB outrank dated inventory
@@ -807,19 +807,32 @@ while an approved remote endpoint is live. Reconcile against
 `agent-kb doc 01-dual-server-current-authority-and-routing --json`, task scope, and
 exact endpoint evidence before recovery or mutation.
 
-### 10.3 Agent-KB — knowledge and policy authority
+### 10.3 Agent-KB API — canonical knowledge authority
+
+`agent-kb-api` is the default and only normal agent reference for policy, runbooks,
+topology, providers, operator context, and freshness. Use the executable client;
+shell functions or aliases are convenience wrappers, not authority:
 
 ```bash
+agent-kb bootstrap --agent ${AGENT_NAME:-shell} --cwd "$(pwd)" --json
+agent-kb freshness --json
 agent-kb search '<query>' --json
 agent-kb doc <id> --json
-agent-kb freshness --json
 ```
 
-Empty search never proves absence; retrieve known IDs directly. If API is
-unavailable/stale/incomplete, use `/root/.agent-kb/` read-only and fail closed on
-policy-sensitive mutation. Core authority: `SAFETY_RULES`, `PROCEDURES`,
-`SERVICES`, `DEVOPS_POLICIES`, `BEADS_POLICY`, `COMMANDS`, and the current routing
-map.
+The required query order is **bootstrap → freshness → search → direct_doc**. Inspect
+`source`, `freshness`, `stale`, `index_generation`, and `fallback_used`; normal
+policy-sensitive work requires an authenticated, fresh, authoritative response.
+Empty search never proves absence; retrieve known IDs directly.
+
+`/root/.agent-kb/` is not a normal knowledge interface. It is transitional
+Markdown storage for API import/export and an explicitly invoked, read-only,
+bounded recovery path only. Never read it directly in normal agent execution,
+never treat it as fresher than the API, and fail closed on policy-sensitive
+mutation when API authority is unavailable, unauthorized, stale, incomplete, or
+marked degraded. Migration completion requires direct-file hot-path scans to be
+clean, consumer parity tests green, and approved offline recovery before storage
+removal.
 
 ### 10.4 UIAI-first web and visual work
 
@@ -932,7 +945,7 @@ blocker, or process ceremony.
 1. Run the nonrenewable-resource preflight; its failure blocks provider auth.
 2. Immediately verify current-harness Focusa tools/adapter and real daemon
    liveness. Healthy daemon alone is insufficient; missing tools enters Recovery.
-3. Refresh operator awareness and Agent-KB bootstrap/freshness.
+3. Refresh operator awareness and the Agent-KB API bootstrap/freshness gate.
 4. Derive Sir V3's exact project, then pass the full Focusa gate.
 5. Check time, cwd/root/owner, `git status`/`git diff`, and project-local `bd ready`.
    Resume only matching continuity.
@@ -981,7 +994,7 @@ Use this compact map, then live-discover exact subcommands and authority:
 |---|---|---|
 | Executive cockpit / portfolio | `wb` | delegated coordination; not self-expanding authority |
 | Governed work | native `focusa_*`, then `focusa` recovery CLI | exact project/attachment/Trajectory/Workpoint |
-| Knowledge/policy | `agent-kb` | read authority; not mutation or runtime proof |
+| Knowledge/policy | `agent-kb-api` via `/usr/local/bin/agent-kb` | canonical read authority; API-first gate; local Markdown only explicit degraded recovery; not mutation authority |
 | Browser/visual | UIAI tools / `wb vision` | pixels for visual claims; no credential authority |
 | Server health/safety | `guardian`, `wb health/doctor` | diagnose before service mutation |
 | cPanel/account | `whmapi1`, `uapi`, `as-user` | preserve account ownership and quota |
@@ -1003,13 +1016,17 @@ never rely on stale addresses. Mobile/Discord capabilities remain bounded and
 planned surfaces are not active authority. Veragensia guide:
 `agent-kb doc 13-veragensia-gui-lab-agent-cloud-computer-operational-guide --json`.
 
-Canonical references:
+Canonical references (retrieve through the API, never by direct file read):
 
 - `agent-kb doc SAFETY_RULES --json`
 - `agent-kb doc PROCEDURES --json`
 - `agent-kb doc SERVICES --json`
 - `agent-kb doc DEVOPS_POLICIES --json`
 - `agent-kb doc BEADS_POLICY --json`
-- `/root/.agent-kb/AGENT_KB_API_USAGE.md`
-- `/root/.agent-kb/SENSITIVE_LOCAL_PUSH_POLICY.md`
+- `agent-kb doc agent-kb-api-usage --json`
+- `agent-kb doctor --json`
 - `pi --help`
+
+Transitional storage and recovery runbook: `/root/.agent-kb/` (read-only and
+explicitly invoked only when the API gate is red). Migration tracker: Wirebot
+Core issue #13.

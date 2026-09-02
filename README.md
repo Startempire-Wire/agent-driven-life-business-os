@@ -4,7 +4,7 @@
 > governed agent employees, real computers and tools, connected life/business
 > systems, and evidence-backed learning.
 
-- **Contract version:** `1.1.0`
+- **Contract version:** `1.2.0`
 - **Reference stack:** OpenClaw / Wirebot + Focusa + UIAI Engine + Veragensia
 - **Primary contract:** [`AGENTS.md`](./AGENTS.md)
 
@@ -50,11 +50,10 @@ necessary.
 
 ## First principles, the Algorithm, and Leverage²
 
-For consequential or stuck work, reason from the function rather than inherited
-form: state the outcome, separate verified truths and hard constraints from
-assumptions, decompose to fundamentals, identify the dominant constraint, rebuild
-the smallest solution, and test it in reality. Routine proven workflows need not be
-re-derived.
+For consequential or stuck work, reason from function rather than inherited form:
+state the outcome, separate truths/constraints from assumptions, decompose to
+fundamentals, identify the dominant constraint, rebuild the smallest solution, and
+test it in reality. Routine proven workflows need not be re-derived.
 
 Apply the five-step Musk/Isaacson **Algorithm in its fixed order**:
 
@@ -78,10 +77,22 @@ prematurely systemize an unproven idea. Use the learning loop
 
 Priority: **hard invariants and authority → mission outcome → simplicity → constraint removal → leverage → systemization**.
 
-Source trail: [Focusa adoption](https://github.com/Startempire-Wire/focusa/blob/main/docs/current/2026-08-20-elon-5-step-ota-simplification.md),
-[James Clear on first principles](https://jamesclear.com/first-principles), and
-[Corporate Rebels on the Algorithm](https://www.corporate-rebels.com/blog/musks-algorithm-to-cut-bureaucracy).
+Sources: [Focusa adoption](https://github.com/Startempire-Wire/focusa/blob/main/docs/current/2026-08-20-elon-5-step-ota-simplification.md),
+[James Clear](https://jamesclear.com/first-principles), and
+[Corporate Rebels](https://www.corporate-rebels.com/blog/musks-algorithm-to-cut-bureaucracy).
 The operating rules—not celebrity authority—are normative.
+
+---
+
+## API-first knowledge migration
+
+`agent-kb-api` is canonical. Agents use executable `agent-kb` in this order:
+`bootstrap → freshness → search → direct_doc`; responses must be authenticated,
+fresh, provenance-bearing, and checked for `fallback_used`/`stale`. Shell helpers
+are convenience only. `/root/.agent-kb` Markdown is transitional import/export and
+explicit degraded recovery—not a normal read path—and is removable only after
+structured storage, parity, consumer tests, rollback, and offline recovery are
+proven. Tracker: Wirebot Core issue #13.
 
 ---
 
@@ -461,39 +472,28 @@ delivery, and recovery scenarios; then review/version before distribution.
 
 Semantic Versioning applies: **major** changes incompatible substrate/safety/
 authority semantics; **minor** adds compatible primitives/adapters/workflows;
-**patch** clarifies or repairs. Validated tags use `agents-contract-v1.1.0`.
+**patch** clarifies or repairs. Validated tags use `agents-contract-v1.2.0`.
 
 ---
 
 ## Anti-patterns
 
-- One omnipotent agent holding every credential and every client's context.
-- Chat or dashboards replacing project authority, delivery, or outcome evidence.
-- Installed tools treated as authorized; agents inventing identity or continuity.
-- Adapters creating parallel authority stores; source described as live prematurely.
-- Scaling agents/process before tenant isolation, acceptance, and economics hold.
+Avoid omnipotent agents, ambient cross-client context, dashboards replacing authority
+or proof, adapters creating parallel truth, and scaling before isolation, acceptance,
+and economics hold.
 
----
+## Questions answered by the contract
 
-## Frequently asked questions
-
-| Question | Answer |
-|---|---|
-| **Is this a software framework?** | Not alone. It is a portable contract/architecture; products implement its relationships and invariants. |
-| **Chief of Staff or employee?** | The Chief of Staff orients/co-ordinates broadly; employees receive narrow jobs, context, capability, budget, and acceptance. Neither self-authorizes. |
-| **Why Focusa?** | It binds project identity, Trajectory, Workpoints, authority, receipts, learning, recovery, and cross-agent continuity to the mission. |
-| **Why UIAI/agent computers?** | Real outcomes often need observable browser/computer hands, diagnostics, and evidence—not API access alone. Machine access still is not authority. |
-| **Multiple clients?** | Only with proven isolation across credentials, memory, files, sessions, computers, Workpoints, evidence, audit, retention, and revocation. |
-| **How much autonomy?** | The minimum for the role; expand after real outcomes, safe escalation, repeatability, and economics; revoke when need ends. |
-| **What is done?** | The requested outcome exists on its requested surface and is verified across the applicable source, release, install, configuration, runtime, visual, consumer, and business layers. |
+This is a portable contract, not a framework: Focusa governs identity/work, UIAI
+supplies observable hands, and employees remain narrow. Multi-client use requires
+proven isolation; autonomy expands only after accepted outcomes and safe,
+repeatable economics.
 
 ---
 
 ## Final principle
 
-A trustworthy agent ecosystem is not built by giving a model everything. It is
-built by connecting **sovereign intent** to **bounded authority**, **scoped work**,
-**observable execution**, **durable proof**, **human correction**, and
-**compounding learning**.
-
-Build the smallest useful loop. Prove it in reality. Then scale what works.
+A trustworthy ecosystem connects **sovereign intent** to **bounded authority**,
+**scoped work**, **observable execution**, **durable proof**, **human correction**,
+and **compounding learning**. Build the smallest useful loop, prove it in reality,
+and scale what works.
