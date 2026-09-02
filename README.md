@@ -4,7 +4,7 @@
 > governed agent employees, real computers and tools, connected life/business
 > systems, and evidence-backed learning.
 
-- **Contract version:** `2.0.0`
+- **Contract version:** `2.0.1`
 - **Reference stack:** OpenClaw / Wirebot + Focusa + UIAI Engine + Veragensia
 - **Primary contract:** [`AGENTS.md`](./AGENTS.md)
 
@@ -472,7 +472,7 @@ delivery, and recovery scenarios; then review/version before distribution.
 
 Semantic Versioning applies: **major** changes incompatible substrate/safety/
 authority semantics; **minor** adds compatible primitives/adapters/workflows;
-**patch** clarifies or repairs. Validated tags use `agents-contract-v2.0.0`.
+**patch** clarifies or repairs. Validated tags use `agents-contract-v2.0.1`.
 
 ---
 

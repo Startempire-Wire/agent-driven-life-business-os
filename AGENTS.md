@@ -1,6 +1,6 @@
 # AGENTS — Agent-Driven Life & Business Ecosystem Operating Contract
 
-- **Contract version:** 2.0.0
+- **Contract version:** 2.0.1
 - **Portability profile:** versioned core substrate + replaceable adapters
 - **Reference deployment:** Startempire / OpenClaw / Wirebot / Focusa / UIAI
 - **Supported agents:** Claude Code, Letta, OpenCode, Pi, compatible harnesses
@@ -988,7 +988,10 @@ Default operational update (nonterminal whenever work remains):
 ### Final-response guard — no reply-stop
 
 Before sending a final response, resolve the active CallGraph and project-local
-open-Bead/task queue and prove one of these conditions:
+open-Bead/task queue. A queue read that errors, times out, is stale or mismatched,
+or lacks a typed successful result is **unreadable, not empty**: enter Recovery,
+continue independent work, and never use it to prove exhaustion. Then prove one of
+these conditions:
 
 1. the requested outcome is complete and no authorized node is ready, running, or
    retryable;
