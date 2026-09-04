@@ -6,8 +6,10 @@
 
 - **Contract version:** `3.0.0`
 - **Reference stack:** OpenClaw / Wirebot + Focusa + UIAI Engine + Veragensia
+- **Supported agent examples:** Claude Code, Letta, OpenCode, Pi, compatible harnesses
 - **Primary agent contract:** [`AGENTS.md`](./AGENTS.md)
 - **Architecture authority constitution:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
+- **Cryptographic authority profile:** [`CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md)
 
 ---
 
@@ -66,10 +68,11 @@ can be valuable, but it remains advisory until the deployment owner explicitly
 promotes it or a valid owner-delegated authority does so.
 
 AI authority is also identity-bound rather than name-bound. A future authority AI
-must have a canonical identity SHA-256, public-key fingerprint, and an owner-rooted
-signed delegation with exact scope, allowed decision classes, validity/revocation,
-and non-transitive delegation by default. The word `Wirebot`, a process/service
-account, repository, token, or model prompt never creates authority by itself.
+uses separate cryptographic objects for stable principal identity, authority
+constitution, and current runtime attestation as specified in
+[`CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md). A
+matching name, process/service account, repository, token, hash, or model prompt
+never creates authority by itself.
 
 ## Outcomes Over Process
 
@@ -212,7 +215,8 @@ interfaces.
 | Primitive | Required meaning |
 |---|---|
 | **Canonical Owner Principal / sovereign principal** | Root architecture authority, values, consent, correction rights, reserved powers, and delegation root |
-| **Owner authority identity** | Versioned owner manifest, deterministic identity SHA-256, key fingerprint, scope, revocation, and authority-transfer semantics |
+| **Owner authority identity** | Versioned owner principal manifest, deterministic identity SHA-256, key fingerprint, scope, revocation, and authority-transfer semantics |
+| **AI authority identity** | Stable AI principal hash kept separate from constitution/runtime attestation; owner-rooted signed delegation required |
 | **Identity and tenancy** | Stable client, principal, project, environment, and lifecycle boundaries |
 | **Source and provenance** | Where information came from, when, its trust class, freshness, and supersession; provenance is not authority |
 | **Context and memory** | Private, source-aware retrieval with retention and bounded disclosure |
@@ -438,9 +442,9 @@ narrated. Surface the uncertainty that changes a decision, then return to work.
 Do not begin with dozens of agents and every connector. Begin with one useful,
 auditable loop.
 
-1. **Owner constitution:** establish the Canonical Owner Principal, create the Owner
-   Authority Manifest, bind owner GitHub/account/tenant scope, reserved powers,
-   authority transfer, and AI delegation policy.
+1. **Owner constitution:** establish the Canonical Owner Principal, create the
+   stable owner principal manifest/key, bind owner GitHub/account/tenant scope,
+   reserved powers, authority transfer, constitution hash, and AI delegation policy.
 2. **Context:** connect only mission-required sources with provenance, freshness,
    ownership, disclosure, briefing, and correction rules.
 3. **Governance:** create the exact Focusa project, canonical Trajectory, current
@@ -457,9 +461,10 @@ auditable loop.
 A minimum viable system therefore has:
 
 ```text
-1 canonical owner + 1 owner authority manifest
-+ 1 client/tenant + 1 project + 1 Trajectory + 1 Workpoint
-+ 1 agent role + 1 real connector + 1 verified outcome loop
+1 canonical owner + 1 stable owner principal identity
++ 1 authority constitution + 1 client/tenant + 1 project
++ 1 Trajectory + 1 Workpoint + 1 agent role
++ 1 real connector + 1 verified outcome loop
 ```
 
 ---
@@ -483,8 +488,8 @@ private operating state.
 
 | Reference binding | Client-specific replacement |
 |---|---|
-| Verious Smith III / Sir V3 owner binding | Client Canonical Owner Principal + new Owner Authority Manifest |
-| Startempire owner key/scope/delegation refs | Client-owned keys, owner identity digest, GitHub/account/tenant scope, revocation and transfer policy |
+| Verious Smith III / Sir V3 owner binding | Client Canonical Owner Principal + new stable owner principal manifest/key |
+| Startempire owner/constitution/delegation refs | Client-owned principal digest, key fingerprint, constitution hash, GitHub/account/tenant scope, revocation and transfer policy |
 | Startempire tenant/project IDs | Customer-owned stable identifiers |
 | Agent-KB/Context Core | Approved private knowledge and policy authority |
 | OpenClaw/Wirebot | Approved Chief-of-Staff runtime/interface; no AI architecture authority without owner delegation |
@@ -496,7 +501,7 @@ private operating state.
 
 ### Never copy
 
-- the reference owner's authority identity, private key, delegated AI authority, or
+- the reference owner's authority principal, private key, delegated AI authority, or
   GitHub/tenant authority scope;
 - credentials, tokens, cookies, recovery artifacts, or device state;
 - private operator/client memory;
@@ -509,10 +514,12 @@ private operating state.
 ### Portable export checklist
 
 - [ ] Core contract version selected.
-- [ ] Canonical Owner Principal and Owner Authority Manifest created.
-- [ ] Owner identity SHA-256 and public-key fingerprint established.
+- [ ] Canonical Owner Principal and stable owner principal manifest created.
+- [ ] Owner principal SHA-256 and public-key fingerprint established.
+- [ ] Authority constitution hash established.
 - [ ] GitHub/account/tenant scope bound explicitly.
-- [ ] Any AI architecture delegate has a valid owner-rooted signed delegation.
+- [ ] Any AI architecture delegate has a stable principal identity plus a valid owner-rooted signed delegation.
+- [ ] Runtime-attestation policy defined for authority-capable AI.
 - [ ] Principal, tenant, project, and ownership identities replaced.
 - [ ] Local products/paths/endpoints moved into deployment configuration.
 - [ ] Trust classes, reserved powers, retention, and revocation defined.
@@ -529,24 +536,30 @@ private operating state.
 
 ```text
 .
-├── README.md                         # Explanatory architecture and adoption guide
-├── AGENTS.md                         # Normative operating contract for agents and harnesses
-└── OWNER_AUTHORITY_CONSTITUTION.md   # Portable owner identity + architecture authority root
+├── README.md                            # Explanatory architecture and adoption guide
+├── AGENTS.md                            # Normative operating contract for agents and harnesses
+├── OWNER_AUTHORITY_CONSTITUTION.md      # Portable owner identity + architecture authority root
+├── CRYPTOGRAPHIC_AUTHORITY_PROFILE.md   # Principal/constitution/runtime hashing + delegation profile
+└── tests/
+    └── architecture-authority-policy-static-test.sh
 ```
 
 `README.md` explains the system. `AGENTS.md` governs agent behavior.
 `OWNER_AUTHORITY_CONSTITUTION.md` governs who may create canonical architecture.
-Volatile runtime state, credentials, customer data, and private operational
-runbooks do not belong in this portable repository.
+`CRYPTOGRAPHIC_AUTHORITY_PROFILE.md` governs how owner/AI identities, constitutions,
+runtimes, and delegations are cryptographically distinguished. Volatile runtime
+state, credentials, customer data, and private operational runbooks do not belong
+in this portable repository.
 
 ## Using and versioning `AGENTS.md`
 
-Read the owner constitution and AGENTS contract before deployment; preserve the
-portable core; create a new owner binding for the destination; replace client
-bindings; install AGENTS through the harness's canonical instruction mechanism;
-mechanically validate hard stops; exercise green, degraded, wrong-project,
-correction, auth, delivery, owner-mismatch, external-proposal, delegated-AI, and
-recovery scenarios; then review/version before distribution.
+Read the owner constitution, cryptographic profile, and AGENTS contract before
+deployment; preserve the portable core; create a new owner binding for the
+destination; replace client bindings; install AGENTS through the harness's
+canonical instruction mechanism; mechanically validate hard stops; exercise green,
+degraded, wrong-project, correction, auth, delivery, owner-mismatch,
+external-proposal, delegated-AI, runtime-attestation, and recovery scenarios; then
+review/version before distribution.
 
 Semantic Versioning applies: **major** changes incompatible substrate/safety/
 authority semantics; **minor** adds compatible primitives/adapters/workflows;
@@ -561,8 +574,9 @@ alone does not assert that a matching Git tag has been published.
 
 Avoid omnipotent agents, ambient cross-client context, dashboards replacing authority
 or proof, adapters creating parallel truth, issue/PR/customer provenance being
-mistaken for architecture authority, AI identity by name alone, and scaling before
-isolation, acceptance, and economics hold.
+mistaken for architecture authority, AI identity by name alone, mutable runtime
+state being confused with stable AI identity, and scaling before isolation,
+acceptance, and economics hold.
 
 ## Questions answered by the contract
 
@@ -580,5 +594,6 @@ A trustworthy ecosystem connects **owner-rooted sovereign intent** to **bounded
 authority**, **scoped work**, **observable execution**, **durable proof**, **human
 correction**, and **compounding learning**. Architecture authority remains rooted
 in the deployment's Canonical Owner Principal; runtime systems and agents earn only
-the authority explicitly delegated to them. Build the smallest useful loop, prove
-it in reality, and scale what works.
+the authority explicitly delegated to them. Stable principal identity, authority
+constitution, and runtime attestation remain cryptographically separate. Build the
+smallest useful loop, prove it in reality, and scale what works.
