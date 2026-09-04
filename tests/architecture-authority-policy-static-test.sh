@@ -42,7 +42,7 @@ grep -Fq 'No active Wirebot architecture-authority hash is declared by this docu
   || fail "anti-fabrication rule for Wirebot authority hash missing"
 pass "cryptographic authority identity/runtime separation is structurally complete"
 
-grep -Fq '**Contract version:** 3.0.0' "$AGENTS" \
+grep -Fq '**Contract version:** 3.1.0' "$AGENTS" \
   || fail "AGENTS contract major version not advanced"
 grep -Fq 'ARCHITECTURE AUTHORITY HARD STOP' "$AGENTS" \
   || fail "AGENTS architecture hard stop missing"
