@@ -4,9 +4,10 @@
 > governed agent employees, real computers and tools, connected life/business
 > systems, and evidence-backed learning.
 
-- **Contract version:** `2.0.1`
+- **Contract version:** `3.0.0`
 - **Reference stack:** OpenClaw / Wirebot + Focusa + UIAI Engine + Veragensia
-- **Primary contract:** [`AGENTS.md`](./AGENTS.md)
+- **Primary agent contract:** [`AGENTS.md`](./AGENTS.md)
+- **Architecture authority constitution:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 
 ---
 
@@ -33,6 +34,42 @@ separates:
 1. **portable core contracts** that any person or business can adopt;
 2. **replaceable adapters** for products, providers, and vertical systems;
 3. **runtime state** that must be discovered live rather than copied from docs.
+
+## Owner-rooted architecture authority
+
+The portable system now makes one distinction explicit that must never be blurred:
+
+```text
+Canonical Owner Principal
+    = constitutional / architecture authority root
+
+Focusa + Agent-KB + business systems
+    = scoped operational/domain truth
+
+UIAI Engine + Veragensia + tools
+    = execution and observation
+
+AI Chief of Staff / workers
+    = delegated reasoning and action
+```
+
+Every deployment establishes a **Canonical Owner Principal** through the portable
+[`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md). For the
+Startempire reference deployment that owner is **Verious Smith III (Sir V3)**. A
+client deployment replaces that binding with its own legitimate owner; it does not
+inherit Startempire authority.
+
+A GitHub username, organization, issue, PR, commit, customer request, contributor,
+email, forwarded analysis, test result, model output, or deployed implementation is
+**provenance/evidence, not architecture authority**. Technical input from any source
+can be valuable, but it remains advisory until the deployment owner explicitly
+promotes it or a valid owner-delegated authority does so.
+
+AI authority is also identity-bound rather than name-bound. A future authority AI
+must have a canonical identity SHA-256, public-key fingerprint, and an owner-rooted
+signed delegation with exact scope, allowed decision classes, validity/revocation,
+and non-transitive delegation by default. The word `Wirebot`, a process/service
+account, repository, token, or model prompt never creates authority by itself.
 
 ## Outcomes Over Process
 
@@ -86,7 +123,8 @@ The operating rules—not celebrity authority—are normative.
 
 ## API-first knowledge migration
 
-`agent-kb-api` is canonical. Agents use executable `agent-kb` in this order:
+`agent-kb-api` is canonical **for knowledge retrieval in its domain**, not for
+constitutional architecture. Agents use executable `agent-kb` in this order:
 `bootstrap → freshness → search → direct_doc`; responses must be authenticated,
 fresh, provenance-bearing, and checked for `fallback_used`/`stale`. Shell helpers
 are convenience only. `/root/.agent-kb` Markdown is transitional import/export and
@@ -99,8 +137,8 @@ proven. Tracker: Wirebot Core issue #13.
 ## The system at a glance
 
 ```text
-SOVEREIGN HUMAN / BUSINESS OWNER
-  values · goals · consent · correction · reserved powers
+CANONICAL OWNER PRINCIPAL / SOVEREIGN HUMAN OR BUSINESS OWNER
+  architecture · values · goals · consent · correction · reserved powers
        ↓
 PRIVATE CONTEXT + AI CHIEF OF STAFF
   signals · memory · synthesis · recommendations · exceptions
@@ -134,10 +172,10 @@ A client can replace an adapter while preserving its contract.
 
 | Layer | Startempire reference | Responsibility |
 |---|---|---|
-| Sovereign principal | Sir V3 / authorized client owner | Goals, values, consent, corrections, reserved powers |
-| AI Chief of Staff | OpenClaw + Wirebot/`wb` | Orient, synthesize, recommend, delegate, observe, escalate |
-| Knowledge/context | Context Core + Agent-KB | Private memory, policy, topology, source-aware retrieval |
-| Governance/cohesion | Focusa | Project identity, Trajectory, Workpoints, authority, evidence, learning |
+| Canonical Owner Principal / sovereign principal | Verious Smith III (Sir V3); client deployments bind their own owner | Root architecture authority, goals, values, consent, corrections, reserved powers, AI delegation |
+| AI Chief of Staff | OpenClaw + Wirebot/`wb` | Orient, synthesize, recommend, delegate, observe, escalate; no architecture authority by name |
+| Knowledge/context | Context Core + Agent-KB | Private memory, policy, topology, source-aware retrieval; domain knowledge authority only |
+| Governance/cohesion | Focusa | Project identity, Trajectory, Workpoints, Context Authority, evidence, learning; operational authority only |
 | Agent computer | Veragensia | Provisioned, streamable, revocable execution environment |
 | Browser/computer control | UIAI Engine | Observation, interaction, diagnostics, visual evidence |
 | Agent workforce | Build agents, specialists, Pi workers, humans | Bounded execution under role contracts |
@@ -149,9 +187,16 @@ A client can replace an adapter while preserving its contract.
 
 ### Division of responsibility
 
-- The **Chief of Staff** coordinates; it does not silently become every worker.
-- **Focusa** governs work; it does not become every product, CRM, or memory store.
-- **UIAI Engine** supplies hands and eyes; machine access is not business authority.
+- The **Canonical Owner Principal** defines constitutional architecture and the
+  root delegation boundary.
+- The **Chief of Staff** coordinates; it does not silently become every worker or
+  architecture authority.
+- **Focusa** governs work; it does not become every product, CRM, memory store, or
+  owner of organizational architecture.
+- **Agent-KB** may be canonical for source-aware knowledge retrieval without
+  becoming constitutional architecture authority.
+- **UIAI Engine** supplies hands and eyes; machine access is not business or
+  architecture authority.
 - **Agent employees** execute scoped jobs; a role is not permission to access
   everything the Chief of Staff knows.
 - **Business systems** remain authoritative for their own records.
@@ -166,9 +211,10 @@ interfaces.
 
 | Primitive | Required meaning |
 |---|---|
-| **Sovereign principal** | The person or entity with final authority, values, consent, and correction rights |
+| **Canonical Owner Principal / sovereign principal** | Root architecture authority, values, consent, correction rights, reserved powers, and delegation root |
+| **Owner authority identity** | Versioned owner manifest, deterministic identity SHA-256, key fingerprint, scope, revocation, and authority-transfer semantics |
 | **Identity and tenancy** | Stable client, principal, project, environment, and lifecycle boundaries |
-| **Source and provenance** | Where information came from, when, its trust class, freshness, and supersession |
+| **Source and provenance** | Where information came from, when, its trust class, freshness, and supersession; provenance is not authority |
 | **Context and memory** | Private, source-aware retrieval with retention and bounded disclosure |
 | **Intent and Trajectory** | Desired state, current state, gap, constraints, and next direction |
 | **Capability and policy** | Who may do what, to which resource, for how long, under which conditions |
@@ -187,6 +233,10 @@ interfaces.
 Durable objects carry a schema version, stable ID, tenant/project scope, owner and
 actor, state, source/freshness/trust, authority, evidence, and correction/revocation
 references. Exact schemas vary; those semantics cannot disappear.
+
+Architectural decisions additionally carry owner/delegated-authority provenance so
+the system can distinguish **who proposed a decision** from **who had authority to
+make it canonical**.
 
 ---
 
@@ -208,9 +258,13 @@ A capable AI Chief of Staff performs five loops:
 Broad context does not imply broad execution. The Chief of Staff may understand
 the whole portfolio while disclosing only a narrow slice to each worker.
 
+A Chief of Staff also does not gain architecture authority merely from broad
+context. If the deployment wants an AI to make canonical architecture decisions,
+that AI must satisfy the owner-rooted cryptographic delegation contract.
+
 ### Reserved powers
 
-Every deployment names human-only powers: destructive/irreversible changes;
+Every deployment names owner/human-only powers: destructive/irreversible changes;
 material legal or financial commitments; identity, ownership, or governance;
 broad credentials; sensitive publication; safety overrides; and emergency or
 nonrenewable authentication resources.
@@ -248,6 +302,9 @@ A grant binds a subject and tenant/project scope to named resource actions, limi
 expiry/use bounds, evidence policy, and revocation. It is not a password:
 credentials remain in the owning broker/provider boundary while the agent receives
 the narrow ability to perform an approved action.
+
+A capability grant is operational authority; it is not automatically architecture
+authority.
 
 ---
 
@@ -296,6 +353,9 @@ A commit is not a release. A release is not an installed runtime. An endpoint is
 not a customer experience. “Done” means the requested destination and behavior are
 verified with the appropriate runtime, visual, consumer, and outcome evidence.
 
+Likewise, implemented/deployed architecture is not evidence that its proposer had
+authority to make it canonical.
+
 ---
 
 ## Replaceable vertical adapters
@@ -329,11 +389,14 @@ redefine it.
 - Never automate with a nonrenewable resource.
 - Never retrieve, inspect, request, expose, test, or use recovery codes.
 - Transport, root, browser, CDP, machine, or API access is not authorization.
+- Repository ownership/admin permission alone is not a self-authenticating human
+  architecture identity; architecture uses the owner constitution.
 - Use renewable, revocable, least-privilege credentials and capabilities.
 - Keep client credentials, memory, files, sessions, evidence, and audit records
   isolated.
 - Never use one tenant's ambient context or authority for another.
-- Unknown renewability, ownership, or consent fails closed.
+- Unknown renewability, ownership, consent, or architecture-authority provenance
+  fails closed.
 - Public demo environments remain credential-free.
 - Corrections and revocations are first-class durable events.
 
@@ -359,6 +422,7 @@ Decision quality requires epistemic integrity:
 
 - distinguish observed facts, source statements, inferences, assumptions, and
   unverified claims;
+- distinguish source/proposal provenance from authority provenance;
 - expose material uncertainty and knowledge gaps where they affect action;
 - cross-check high-impact claims against authoritative sources or running behavior;
 - correct errors immediately and preserve the correction trail;
@@ -374,8 +438,9 @@ narrated. Surface the uncertainty that changes a decision, then return to work.
 Do not begin with dozens of agents and every connector. Begin with one useful,
 auditable loop.
 
-1. **Constitution:** name the principal/client; record goals, trust classes,
-   reserved powers, auth, retention, correction, and revocation.
+1. **Owner constitution:** establish the Canonical Owner Principal, create the Owner
+   Authority Manifest, bind owner GitHub/account/tenant scope, reserved powers,
+   authority transfer, and AI delegation policy.
 2. **Context:** connect only mission-required sources with provenance, freshness,
    ownership, disclosure, briefing, and correction rules.
 3. **Governance:** create the exact Focusa project, canonical Trajectory, current
@@ -392,7 +457,8 @@ auditable loop.
 A minimum viable system therefore has:
 
 ```text
-1 principal + 1 client/tenant + 1 project + 1 Trajectory + 1 Workpoint
+1 canonical owner + 1 owner authority manifest
++ 1 client/tenant + 1 project + 1 Trajectory + 1 Workpoint
 + 1 agent role + 1 real connector + 1 verified outcome loop
 ```
 
@@ -417,10 +483,11 @@ private operating state.
 
 | Reference binding | Client-specific replacement |
 |---|---|
-| Sir V3 | Authorized principal(s) and preferred address |
+| Verious Smith III / Sir V3 owner binding | Client Canonical Owner Principal + new Owner Authority Manifest |
+| Startempire owner key/scope/delegation refs | Client-owned keys, owner identity digest, GitHub/account/tenant scope, revocation and transfer policy |
 | Startempire tenant/project IDs | Customer-owned stable identifiers |
 | Agent-KB/Context Core | Approved private knowledge and policy authority |
-| OpenClaw/Wirebot | Approved Chief-of-Staff runtime/interface |
+| OpenClaw/Wirebot | Approved Chief-of-Staff runtime/interface; no AI architecture authority without owner delegation |
 | Focusa | Focusa deployment and exact project governance |
 | Veragensia/UIAI | Approved computer/browser execution environment |
 | Provider adapters | Customer-owned calendar, CRM, finance, code, and operations systems |
@@ -429,16 +496,23 @@ private operating state.
 
 ### Never copy
 
+- the reference owner's authority identity, private key, delegated AI authority, or
+  GitHub/tenant authority scope;
 - credentials, tokens, cookies, recovery artifacts, or device state;
 - private operator/client memory;
 - tenant IDs, project attachments, or old Workpoints;
 - machine paths, ports, hostnames, or runtime health claims as standing truth;
 - permissions merely because the reference deployment possessed them;
+- issue/PR/contributor/customer authorship as architecture authority;
 - incident snapshots as permanent architecture.
 
 ### Portable export checklist
 
 - [ ] Core contract version selected.
+- [ ] Canonical Owner Principal and Owner Authority Manifest created.
+- [ ] Owner identity SHA-256 and public-key fingerprint established.
+- [ ] GitHub/account/tenant scope bound explicitly.
+- [ ] Any AI architecture delegate has a valid owner-rooted signed delegation.
 - [ ] Principal, tenant, project, and ownership identities replaced.
 - [ ] Local products/paths/endpoints moved into deployment configuration.
 - [ ] Trust classes, reserved powers, retention, and revocation defined.
@@ -455,45 +529,56 @@ private operating state.
 
 ```text
 .
-├── README.md   # Explanatory architecture and adoption guide
-└── AGENTS.md   # Normative operating contract for agents and harnesses
+├── README.md                         # Explanatory architecture and adoption guide
+├── AGENTS.md                         # Normative operating contract for agents and harnesses
+└── OWNER_AUTHORITY_CONSTITUTION.md   # Portable owner identity + architecture authority root
 ```
 
-`README.md` explains the system. `AGENTS.md` governs agent behavior. Volatile
-runtime state, credentials, customer data, and private operational runbooks do not
-belong in this portable repository.
+`README.md` explains the system. `AGENTS.md` governs agent behavior.
+`OWNER_AUTHORITY_CONSTITUTION.md` governs who may create canonical architecture.
+Volatile runtime state, credentials, customer data, and private operational
+runbooks do not belong in this portable repository.
 
 ## Using and versioning `AGENTS.md`
 
-Read it before deployment; preserve the portable core; replace client bindings;
-install it through the harness's canonical instruction mechanism; mechanically
-validate hard stops; exercise green, degraded, wrong-project, correction, auth,
-delivery, and recovery scenarios; then review/version before distribution.
+Read the owner constitution and AGENTS contract before deployment; preserve the
+portable core; create a new owner binding for the destination; replace client
+bindings; install AGENTS through the harness's canonical instruction mechanism;
+mechanically validate hard stops; exercise green, degraded, wrong-project,
+correction, auth, delivery, owner-mismatch, external-proposal, delegated-AI, and
+recovery scenarios; then review/version before distribution.
 
 Semantic Versioning applies: **major** changes incompatible substrate/safety/
 authority semantics; **minor** adds compatible primitives/adapters/workflows;
-**patch** clarifies or repairs. Validated tags use `agents-contract-v2.0.1`.
+**patch** clarifies or repairs. Version `3.0.0` introduces the explicit owner-rooted
+architecture-authority constitution and cryptographically delegated AI-authority
+boundary. Validated snapshots use `agents-contract-v<version>`; the version string
+alone does not assert that a matching Git tag has been published.
 
 ---
 
 ## Anti-patterns
 
 Avoid omnipotent agents, ambient cross-client context, dashboards replacing authority
-or proof, adapters creating parallel truth, and scaling before isolation, acceptance,
-and economics hold.
+or proof, adapters creating parallel truth, issue/PR/customer provenance being
+mistaken for architecture authority, AI identity by name alone, and scaling before
+isolation, acceptance, and economics hold.
 
 ## Questions answered by the contract
 
-This is a portable contract, not a framework: Focusa governs identity/work, UIAI
-supplies observable hands, and employees remain narrow. Multi-client use requires
-proven isolation; autonomy expands only after accepted outcomes and safe,
-repeatable economics.
+This is a portable contract, not a framework: the deployment owner roots
+architecture authority; Focusa governs scoped identity/work; Agent-KB governs its
+knowledge domain; UIAI supplies observable hands; and employees remain narrow.
+Multi-client use requires proven isolation; autonomy and delegated architecture
+authority expand only through explicit owner-controlled contracts.
 
 ---
 
 ## Final principle
 
-A trustworthy ecosystem connects **sovereign intent** to **bounded authority**,
-**scoped work**, **observable execution**, **durable proof**, **human correction**,
-and **compounding learning**. Build the smallest useful loop, prove it in reality,
-and scale what works.
+A trustworthy ecosystem connects **owner-rooted sovereign intent** to **bounded
+authority**, **scoped work**, **observable execution**, **durable proof**, **human
+correction**, and **compounding learning**. Architecture authority remains rooted
+in the deployment's Canonical Owner Principal; runtime systems and agents earn only
+the authority explicitly delegated to them. Build the smallest useful loop, prove
+it in reality, and scale what works.
