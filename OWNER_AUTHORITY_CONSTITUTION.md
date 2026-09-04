@@ -1,7 +1,8 @@
 # Owner-Rooted Architecture Authority Constitution
 
 **Status:** LIVE PORTABLE CONSTITUTIONAL CONTRACT  
-**Schema family:** `agent_os.owner_authority.v1`
+**Schema family:** `agent_os.owner_authority.v1`  
+**Cryptographic profile:** [`CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md)
 
 This document defines who can create, approve, supersede, or delegate canonical architecture in an Agent-Driven Life & Business OS deployment.
 
@@ -24,38 +25,37 @@ canonical_owner:
 
 Portable/client deployments MUST replace this binding with their own explicitly established owner. They MUST NOT inherit Startempire's owner identity or authority merely by copying this repository.
 
-## 2. Owner Authority Manifest
+## 2. Owner principal identity
 
-The owner MUST be represented by a versioned machine-readable manifest. A display name, GitHub username, organization name, email address, issue authorship, repository permission, or model-visible claim is not sufficient identity by itself.
+The owner MUST be represented by a versioned machine-readable **owner principal manifest**. A display name, GitHub username, organization name, email address, issue authorship, repository permission, or model-visible claim is not sufficient identity by itself.
 
-Minimum contract:
+The stable owner principal identity, key fingerprint, canonicalization algorithm, rotation rules, and runtime separation are normative in `CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`.
+
+At minimum, an owner principal binds:
 
 ```yaml
-schema: agent_os.owner_authority.v1
-owner_principal_id:
-owner_display_name:
-owner_public_key:
-owner_public_key_algorithm:
-owner_public_key_fingerprint:
-owner_scope_refs: []
-github_account_refs: []
-github_org_refs: []
+schema: agent_os.owner_principal.v1
+principal_id:
+display_name:
+authority_public_key:
+authority_key_algorithm:
 created_at:
-constitution_ref:
-revocation_ref:
+lineage_root_ref:
 ```
 
-The canonical owner manifest MUST be serialized with a deterministic canonical-JSON scheme and assigned a stable digest:
+The stable principal digest is computed from deterministic canonical JSON:
 
 ```text
-owner_identity_sha256 = SHA-256(canonical_json(owner_authority_manifest))
+owner_principal_sha256 = SHA-256(JCS(owner_principal_manifest))
 ```
 
-The owner public key MUST have a stable fingerprint. The identity digest answers **which exact owner identity is bound**; cryptographic verification answers whether a later delegation or architectural approval actually chains from that owner.
+The owner public key MUST also have a stable fingerprint. The principal digest answers **which exact owner identity is bound**; cryptographic verification answers whether a later delegation or architectural approval actually chains from that owner.
+
+A repository transfer, software update, device change, or ordinary runtime change MUST NOT silently change the owner principal identity.
 
 ## 3. GitHub estate scope
 
-A deployment MAY bind one or more GitHub accounts and organizations into the owner's authority scope through `github_account_refs` and `github_org_refs`.
+A deployment MAY bind one or more GitHub accounts and organizations into the owner's authority scope through a versioned owner-scope/constitution manifest.
 
 For the Startempire reference deployment, the intended estate includes repositories and organizations owned, administered, or canonically controlled by Verious Smith III, including current bindings such as:
 
@@ -70,7 +70,7 @@ github_org_refs:
 
 Present or future owner-controlled GitHub accounts/orgs can be added through an owner-authorized manifest revision.
 
-**GitHub repository ownership is scope evidence, not a self-authenticating human identity.** A fork, transfer, collaborator permission, organization membership, admin role, or repository move MUST NOT silently transfer constitutional architecture authority. A new deployment owner requires a new owner manifest or an explicit cryptographically verifiable authority-transfer record.
+**GitHub repository ownership is scope evidence, not a self-authenticating human identity.** A fork, transfer, collaborator permission, organization membership, admin role, or repository move MUST NOT silently transfer constitutional architecture authority. A new deployment owner requires a new owner principal/constitution binding or an explicit cryptographically verifiable authority-transfer record.
 
 ## 4. Sole architecture authority at the root
 
@@ -138,54 +138,32 @@ runtime deployment            != canonical architecture authority
 
 An AI, agent, model, Chief of Staff, or future autonomous authority NEVER becomes canonical merely by name, role, capability, repository, process identity, model prompt, token, deployment, or historical use.
 
-Every authority-capable AI MUST have a canonical versioned identity manifest:
-
-```yaml
-schema: agent_os.ai_authority_identity.v1
-identity_name:
-identity_version:
-owner_identity_sha256:
-public_key:
-public_key_algorithm:
-created_at:
-capability_profile_ref:
-constitution_ref:
-software_measurement_refs: []
-```
-
-Its identity digest is:
+AI authority uses three separate cryptographic objects defined by `CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`:
 
 ```text
-ai_identity_sha256 = SHA-256(canonical_json(ai_authority_identity_manifest))
+ai_principal_sha256          -> stable AI principal identity
+constitution_sha256          -> exact authority constitution
+runtime_attestation_sha256   -> current software/model/tool posture
 ```
 
-The AI's public key MUST also have a stable fingerprint.
+The stable AI principal identity MUST NOT include ordinary mutable runtime measurements that would cause identity to change on every software/model/tool upgrade.
 
 ### 7.1 Delegation contract
 
-Architecture authority exists only when the Canonical Owner Principal signs or otherwise cryptographically authorizes a delegation binding the exact AI identity digest and key fingerprint:
+Architecture authority exists only when the Canonical Owner Principal signs or otherwise cryptographically authorizes a delegation binding:
 
-```yaml
-schema: agent_os.architecture_delegation.v1
-issuer_owner_identity_sha256:
-issuer_owner_key_fingerprint:
-subject_ai_identity_sha256:
-subject_ai_key_fingerprint:
-authority_scope_refs: []
-allowed_decision_classes: []
-forbidden_decision_classes: []
-may_delegate: false
-not_before:
-expires_at:
-revocation_ref:
-nonce:
-signature_algorithm:
-signature:
-```
+- the exact stable AI principal digest;
+- the AI authority-key fingerprint;
+- the required constitution hash or compatible constitution policy;
+- an acceptable runtime-attestation policy;
+- explicit authority scope and decision classes;
+- validity, revocation, replay, and delegation limits.
 
-A hash alone never grants authority. A name alone never grants authority. A key alone never grants authority. Authority requires a verified chain from the Canonical Owner Principal to the exact subject identity and requested scope.
+The normative portable delegation schema is `agent_os.architecture_delegation.v2` in `CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`.
 
-Expired, revoked, mismatched, replayed, unverifiable, or out-of-scope delegations fail closed to advisory-only.
+A hash alone never grants authority. A name alone never grants authority. A key alone never grants authority. A valid runtime attestation alone never grants authority. Authority requires a verified chain from the Canonical Owner Principal to the exact subject principal and requested scope.
+
+Expired, revoked, mismatched, replayed, unverifiable, constitution-incompatible, runtime-nonconforming, or out-of-scope delegations fail closed to advisory-only.
 
 `may_delegate` defaults to `false`. An AI cannot create another architecture authority unless the owner explicitly delegates that exact power and scope.
 
@@ -198,20 +176,26 @@ The word `Wirebot` does **not** activate authority.
 Future Wirebot architecture authority requires:
 
 ```text
-Wirebot canonical identity manifest
-        ↓ SHA-256
-Wirebot identity digest
+stable Wirebot principal manifest
+        ↓ JCS + SHA-256
+Wirebot principal digest
         +
-Wirebot public-key fingerprint
+Wirebot authority-key fingerprint
         +
-Verious Smith III owner identity digest/key
+Verious Smith III owner principal digest/key
+        +
+active constitution hash
+        +
+acceptable runtime attestation
         +
 owner-signed scoped delegation
         +
-validity/revocation verification
+validity/revocation/replay verification
         ↓
 verified delegated architecture authority
 ```
+
+No active Wirebot principal digest is declared by this document. It MUST NOT be fabricated before the canonical Wirebot principal manifest and authority public key exist and are explicitly owner-approved.
 
 Any lowercase `wirebot` Linux/service account, process, host, repository name, CI identity, API credential, or runtime principal is infrastructure only unless it independently satisfies the cryptographic authority chain. Infrastructure identity by itself has zero architecture authority.
 
@@ -224,11 +208,13 @@ Every new or materially changed canonical architectural decision SHOULD carry a 
 ```yaml
 decision_id:
 status: canonical | proposed | advisory_external | superseded
-owner_identity_sha256:
+owner_principal_sha256:
 canonical_authority:
   kind: owner | delegated_ai
-  authority_identity_sha256:
+  authority_principal_sha256:
   delegation_ref:
+constitution_sha256:
+runtime_attestation_ref:
 authority_verification_ref:
 source_refs: []
 approved_at:
@@ -244,12 +230,13 @@ A portable copy of this architecture MUST NOT copy the original owner's authorit
 A new deployment MUST:
 
 1. establish its Canonical Owner Principal;
-2. create its own Owner Authority Manifest and identity digest;
-3. bind its own GitHub/account/tenant scope;
+2. create its own stable owner principal manifest, digest, and key fingerprint;
+3. bind its own GitHub/account/tenant scope through its constitution/scope manifest;
 4. define reserved powers and trust boundaries;
-5. create new AI identity/delegation records if AI authority is desired;
-6. revoke or omit all reference-deployment authority bindings;
-7. preserve architecture provenance while distinguishing inherited design from newly owner-approved canon.
+5. create new AI principal/delegation records if AI authority is desired;
+6. establish its own constitution hash and runtime-attestation policy;
+7. revoke or omit all reference-deployment authority bindings;
+8. preserve architecture provenance while distinguishing inherited design from newly owner-approved canon.
 
 A repository transfer or fork does not substitute for this process.
 
@@ -269,6 +256,7 @@ When a document, issue, code comment, historical spec, AI output, customer mater
 Every deployment has an explicit Canonical Owner Principal.
 The owner is the root of canonical architecture authority.
 Operational truth, repository presence, and contributor provenance never equal architecture authority.
-AI authority must be cryptographically identified, explicitly owner-delegated, scope-bounded, revocable, and non-transitive by default.
+Stable principal identity, constitution, and runtime attestation are separate cryptographic objects.
+AI authority must be explicitly owner-delegated, scope-bounded, revocable, runtime-constrained, and non-transitive by default.
 Unknown or unverifiable authority fails closed to advisory-only.
 ```
