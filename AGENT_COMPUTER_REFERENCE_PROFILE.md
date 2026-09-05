@@ -1,6 +1,6 @@
 # Agent Computer Reference Profile
 
-**Status:** portable reference integration contract, 2026-09-04.
+**Status:** portable reference integration contract, revised 2026-09-05.
 **Architecture authority:** deployment Canonical Owner Principal under `OWNER_AUTHORITY_CONSTITUTION.md`.
 **Startempire binding:** Verious Smith III.
 
@@ -18,9 +18,12 @@ For Startempire, the canonical detailed specifications live in `Startempire-Wire
 - Doc 194 — trusted human control, Secure Attention and DesktopObservation/control leases;
 - Doc 195 — stable ResourceRefs, runtime incarnation and state transfer;
 - Doc 196 — platform trust, genesis, supply chain and runtime attestation;
-- Doc 197 — voice-native Agent Computer and Audio UI.
+- Doc 197 — voice-native Agent Computer and Audio UI;
+- Doc 199 — Ambient Operator, Companion sync, mobile/wearable edge, and Omarchy integration.
 
-Focusa `docs/181-focusa-voice-conversation-expression-and-auditable-interaction-spec.md` owns the reference Voice/Conversation/Conversation-Ledger semantics.
+Focusa Specs 181–184 own the reference Conversation, Project Foreman, Radar and Ambient Operator semantics.
+
+Portable Ambient Operator behavior is summarized separately in [`AMBIENT_OPERATOR_REFERENCE_PROFILE.md`](./AMBIENT_OPERATOR_REFERENCE_PROFILE.md).
 
 A client deployment may replace products while preserving the portable contracts in this repository.
 
@@ -36,6 +39,8 @@ A supported full Startempire Veragensia Agent Computer deliberately composes:
 6. **Voice/Conversation service** — trusted Audio UI bound to Focusa Voice/Conversation semantics, making keyboard and mouse optional peripherals in a full `voice_complete` profile.
 7. **Veragensia session/shell integration** — host Agent Computer lifecycle, application composition, interruption, containment, review and recovery.
 
+A personal/ambient profile may additionally bind a paired **Ambient Operator Companion**: mobile/wearable presence, meeting/conversation capture, Radar attention, Project Foreman/Chief-of-Staff routing and offline/private synchronization. The Companion remains a surface of the same governed system rather than a second cognitive store.
+
 This list is a reference implementation binding, not portable vendor vocabulary. The portable requirement is that a deployment provide equivalent governed cognition, work presentation, agent harness, computer/browser execution, **machine-enforceable capability boundaries**, trusted human intervention, voice/nonvisual operation, attributable conversation history, Evidence, and host lifecycle contracts.
 
 ## 3. Authority and enforcement boundaries
@@ -47,7 +52,7 @@ Canonical Owner Principal
     constitutional architecture authority
 
 Focusa daemon/core
-    scoped cognitive/operational/conversation semantics
+    scoped cognitive/operational/conversation/Foreman/Radar semantics
 
 Focusa Desktop
     presenter over Focusa operations
@@ -59,10 +64,13 @@ UIAI Engine
     browser/computer runtime authority in its execution domain
 
 Veragensia
-    Agent Computer host + machine enforcement + trusted control + audio integration
+    Agent Computer host + machine enforcement + trusted control + audio/sync integration
+
+Ambient Companion
+    paired mobile/wearable interaction endpoint
 ```
 
-A UI, harness, runtime, repository, service account, root shell, Unix UID, browser session, voiceprint or deployment does not gain constitutional or application authority merely because it exists or is a default component.
+A UI, harness, runtime, repository, service account, root shell, Unix UID, browser session, voiceprint, paired phone, wearable or deployment does not gain constitutional or application authority merely because it exists or is a default component.
 
 ### Portable enforcement invariant
 
@@ -160,7 +168,31 @@ A user should be able to ask:
 
 and traverse the relevant utterances, corrections, actions and outcomes.
 
-## 7. Capability-first profiles
+## 7. Ambient Operator relationship
+
+The portable **Ambient Operator** pattern extends the same governed system beyond the desktop.
+
+It distinguishes:
+
+```text
+Chief of Staff
+    broad owner-authorized life/business intelligence
+
+Project Foreman
+    one exact project/Workstream's persistent operating intelligence
+
+Radar
+    scoped proactive observation/attention
+
+Ambient Companion
+    phone/earbuds/wearable interaction and presence edge
+```
+
+The Companion may provide context-only, wake-word, conversation, meeting, private-note or execution-supervision modes, but must preserve the separate ownership/retention/authority boundaries in `AMBIENT_OPERATOR_REFERENCE_PROFILE.md`.
+
+A mobile or wearable endpoint never becomes a new project brain merely because it is always nearby.
+
+## 8. Capability-first profiles
 
 Life/business roles should request capabilities rather than hardcode packages wherever practical.
 
@@ -176,13 +208,14 @@ needs:
   - crm
 interaction:
   voice_complete: true
+  ambient_operator: true
 ```
 
 The Agent Computer may satisfy those needs using desktop-native applications, Agent Apps, web applications through UIAI, headless services, or remote specialist runtimes according to policy and platform.
 
 Exact application pins remain valid when a workflow/customer requires them.
 
-## 8. Elastic workforce relationship
+## 9. Elastic workforce relationship
 
 A request such as:
 
@@ -203,7 +236,7 @@ Elastic creation itself requires a bounded topology grant equivalent: permitted 
 
 Infrastructure placement never grants broader business or application authority.
 
-## 9. Human/agent collaboration
+## 10. Human/agent collaboration
 
 The reference Veragensia implementation provides Agent Assist semantics such as observe, guide, shared control and delegated control.
 
@@ -213,9 +246,9 @@ Human takeover must fence stale agent input. Returning control must reconcile wh
 
 Remote-control transport is not permission.
 
-Voice-complete profiles expose the same takeover/stop/continue semantics through speech.
+Voice-complete and Ambient profiles expose the same takeover/stop/continue semantics through speech/mobile controls without creating a separate permission path.
 
-## 10. Stable resource and runtime identity
+## 11. Stable resource and runtime identity
 
 Portable deployments must not use paths, PIDs, window titles, browser target IDs or container names as if they were durable identity.
 
@@ -230,7 +263,7 @@ stable logical resource
 
 Restarts, migrations and restores invalidate or rebind stale runtime references explicitly. Local/cloud replicas cannot silently overwrite each other. Filesystem/process rollback is distinct from reversal of external real-world effects.
 
-## 11. Platform/workload trust
+## 12. Platform/workload trust
 
 A deployment should distinguish:
 
@@ -248,7 +281,7 @@ Trust posture may range from an owner-controlled developer machine to signed/mea
 
 Software/image/app descriptors do not self-attest their own trust or Agentability.
 
-## 12. Software catalog boundary
+## 13. Software catalog boundary
 
 The exact best applications for coding, office work, notes/knowledge, communications, meetings, CRM, finance, media, data and vertical workflows are deliberately not frozen here.
 
@@ -256,7 +289,7 @@ Future software evaluation should choose applications using measured agentabilit
 
 Do not promote a software package into portable architecture merely because it appears in one reference image.
 
-## 13. Telemetry boundary
+## 14. Telemetry boundary
 
 The reference implementation may use Veragensia's privacy-tiered telemetry/improvement plane.
 
@@ -271,9 +304,11 @@ Telemetry schemas should use field allowlists and cardinality limits so filename
 
 Voice quality can be measured through content-free metrics such as ASR correction rate, barge-in latency, TTS-start latency, speaker-attribution uncertainty, voice-task success and keyboard/mouse fallback rate.
 
+Ambient telemetry may also measure content-free sync/wake/route metrics, but raw audio, transcript, precise location and owner-life context remain separate privacy domains.
+
 Telemetry may identify improvement candidates. It is evidence, not owner authority or automatic policy change.
 
-## 14. Full-profile acceptance direction
+## 15. Full-profile acceptance direction
 
 A portable deployment should not claim equivalent full Agent Computer behavior until applicable evidence proves:
 
@@ -285,10 +320,17 @@ A portable deployment should not claim equivalent full Agent Computer behavior u
 6. group agent conversation preserves speaker/principal attribution;
 7. spoken instructions trace through actions to Evidence/Receipts;
 8. conversation/transcript history survives restart under its retention policy without becoming canonical memory;
-9. conversation/audio content remains outside generic telemetry by default.
+9. conversation/audio content remains outside generic telemetry by default;
+10. Chief-of-Staff vs Project Foreman routing preserves exact project scope;
+11. Radar attention is scoped/deduplicated and cannot self-authorize work;
+12. mobile/wearable sync is authenticated, replay-safe, idempotent and acknowledged;
+13. raw owner-life context such as exact GPS does not become project cognition by default;
+14. mobile OS suspension/background restrictions are surfaced honestly.
 
-## 15. Drift rule
+## 16. Drift rule
 
 When this document and canonical Veragensia specifications conflict for the Startempire implementation, use the newer owner-authorized Veragensia architecture for Agent Computer implementation details and update this portable reference accordingly.
+
+For Ambient behavior, also consult `AMBIENT_OPERATOR_REFERENCE_PROFILE.md` and the canonical Focusa 181–184 ownership model.
 
 Do not silently copy temporary implementation quirks, public-demo trust assumptions, customer identities or infrastructure topology into this portable substrate.
