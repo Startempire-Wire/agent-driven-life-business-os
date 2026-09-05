@@ -10,6 +10,7 @@
 - **Primary agent contract:** [`AGENTS.md`](./AGENTS.md)
 - **Architecture authority constitution:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Cryptographic authority profile:** [`CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md)
+- **Agent Computer reference profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
 
 ---
 
@@ -179,14 +180,21 @@ A client can replace an adapter while preserving its contract.
 | AI Chief of Staff | OpenClaw + Wirebot/`wb` | Orient, synthesize, recommend, delegate, observe, escalate; no architecture authority by name |
 | Knowledge/context | Context Core + Agent-KB | Private memory, policy, topology, source-aware retrieval; domain knowledge authority only |
 | Governance/cohesion | Focusa | Project identity, Trajectory, Workpoints, Context Authority, evidence, learning; operational authority only |
-| Agent computer | Veragensia | Provisioned, streamable, revocable execution environment |
-| Browser/computer control | UIAI Engine | Observation, interaction, diagnostics, visual evidence |
+| Governed desktop presenter | Focusa Desktop | Default human work/cognition presentation in supported full Veragensia profiles; presenter over Focusa authority |
+| Reference Focusa harness | Pi + Focusa Pi extension | Default/reference Focusa-aware agent harness; fundamental reference integration, no parallel cognitive authority |
+| Agent computer | Veragensia | Provisioned, streamable, revocable execution environment and host integration |
+| Browser/computer control | UIAI Engine + Cockpit/browser surfaces | Canonical first-party browser/computer observation, interaction, diagnostics, oversight, visual evidence |
 | Agent workforce | Build agents, specialists, Pi workers, humans | Bounded execution under role contracts |
 | Outcome ledger | WINS | Plan → Ship → Prove, corrections, confidence, economics |
 | Outbound distribution | Wire Launch | Governed campaign execution and evidence |
 | Inbound opportunity | WorkRouter | Provenance, qualification, matching, routing, outcomes |
 | Portable trust | MeriFolio | Evidence-backed identity and selective disclosure |
 | Health/recovery | Guardian + Focusa receipts + Wirebot audit | Diagnostics, audit, checkpoints, recovery |
+
+The full Startempire Agent Computer composition is intentionally documented in
+[`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md). It
+references the canonical Veragensia implementation specs rather than forking them
+into this portable repository.
 
 ### Division of responsibility
 
@@ -196,10 +204,15 @@ A client can replace an adapter while preserving its contract.
   architecture authority.
 - **Focusa** governs work; it does not become every product, CRM, memory store, or
   owner of organizational architecture.
+- **Focusa Desktop** presents governed Focusa state/operations; it does not become
+  a second reducer, memory store, or authority.
+- **Pi** is the reference/default Focusa harness integration; that reference role
+  does not make canonical Focusa state Pi-private or exclude compatible harnesses.
 - **Agent-KB** may be canonical for source-aware knowledge retrieval without
   becoming constitutional architecture authority.
 - **UIAI Engine** supplies hands and eyes; machine access is not business or
-  architecture authority.
+  architecture authority. It is deliberately listed as a canonical first-party
+  Agent Computer execution surface rather than treated as an incidental browser.
 - **Agent employees** execute scoped jobs; a role is not permission to access
   everything the Chief of Staff knows.
 - **Business systems** remain authoritative for their own records.
@@ -494,7 +507,7 @@ private operating state.
 | Agent-KB/Context Core | Approved private knowledge and policy authority |
 | OpenClaw/Wirebot | Approved Chief-of-Staff runtime/interface; no AI architecture authority without owner delegation |
 | Focusa | Focusa deployment and exact project governance |
-| Veragensia/UIAI | Approved computer/browser execution environment |
+| Focusa Desktop / Pi / Veragensia / UIAI | Approved governed work presenter, reference/compatible harness, computer/browser execution environment |
 | Provider adapters | Customer-owned calendar, CRM, finance, code, and operations systems |
 | Credential broker | Customer-approved renewable authentication authority |
 | WINS/outcome ledger | Customer outcome, correction, and evidence store |
@@ -540,6 +553,7 @@ private operating state.
 ├── AGENTS.md                            # Normative operating contract for agents and harnesses
 ├── OWNER_AUTHORITY_CONSTITUTION.md      # Portable owner identity + architecture authority root
 ├── CRYPTOGRAPHIC_AUTHORITY_PROFILE.md   # Principal/constitution/runtime hashing + delegation profile
+├── AGENT_COMPUTER_REFERENCE_PROFILE.md  # Startempire Veragensia composition binding without duplicating implementation specs
 └── tests/
     └── architecture-authority-policy-static-test.sh
 ```
@@ -547,19 +561,21 @@ private operating state.
 `README.md` explains the system. `AGENTS.md` governs agent behavior.
 `OWNER_AUTHORITY_CONSTITUTION.md` governs who may create canonical architecture.
 `CRYPTOGRAPHIC_AUTHORITY_PROFILE.md` governs how owner/AI identities, constitutions,
-runtimes, and delegations are cryptographically distinguished. Volatile runtime
-state, credentials, customer data, and private operational runbooks do not belong
-in this portable repository.
+runtimes, and delegations are cryptographically distinguished.
+`AGENT_COMPUTER_REFERENCE_PROFILE.md` binds the portable substrate to the Startempire
+Veragensia reference composition while leaving detailed Agent Computer architecture
+canonical in the Veragensia repository. Volatile runtime state, credentials,
+customer data, and private operational runbooks do not belong in this portable repository.
 
 ## Using and versioning `AGENTS.md`
 
-Read the owner constitution, cryptographic profile, and AGENTS contract before
-deployment; preserve the portable core; create a new owner binding for the
-destination; replace client bindings; install AGENTS through the harness's
-canonical instruction mechanism; mechanically validate hard stops; exercise green,
-degraded, wrong-project, correction, auth, delivery, owner-mismatch,
-external-proposal, delegated-AI, runtime-attestation, and recovery scenarios; then
-review/version before distribution.
+Read the owner constitution, cryptographic profile, Agent Computer reference, and
+AGENTS contract before deployment; preserve the portable core; create a new owner
+binding for the destination; replace client bindings; install AGENTS through the
+harness's canonical instruction mechanism; mechanically validate hard stops;
+exercise green, degraded, wrong-project, correction, auth, delivery,
+owner-mismatch, external-proposal, delegated-AI, runtime-attestation, and recovery
+scenarios; then review/version before distribution.
 
 Semantic Versioning applies: **major** changes incompatible substrate/safety/
 authority semantics; **minor** adds compatible primitives/adapters/workflows;
@@ -582,9 +598,11 @@ acceptance, and economics hold.
 
 This is a portable contract, not a framework: the deployment owner roots
 architecture authority; Focusa governs scoped identity/work; Agent-KB governs its
-knowledge domain; UIAI supplies observable hands; and employees remain narrow.
-Multi-client use requires proven isolation; autonomy and delegated architecture
-authority expand only through explicit owner-controlled contracts.
+knowledge domain; Focusa Desktop presents governed work; Pi is the reference Focusa
+harness; UIAI supplies observable hands; Veragensia hosts the Agent Computer; and
+employees remain narrow. Multi-client use requires proven isolation; autonomy and
+delegated architecture authority expand only through explicit owner-controlled
+contracts.
 
 ---
 
