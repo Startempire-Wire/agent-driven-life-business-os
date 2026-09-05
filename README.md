@@ -24,6 +24,9 @@ for real life or business. A durable system also needs:
 - explicit goals and authority;
 - bounded roles for human and AI workers;
 - safe access to browsers, computers, APIs, and business systems;
+- **machine-enforceable boundaries so policy cannot be bypassed by ambient OS access;**
+- **natural human interaction that does not require a keyboard or mouse;**
+- attributable, auditable conversation across humans and multiple agents;
 - proof that work produced the requested outcome;
 - correction, revocation, recovery, and learning loops;
 - strict isolation between clients, projects, and trust classes.
@@ -35,7 +38,7 @@ It is based on a working Startempire reference architecture and intentionally
 separates:
 
 1. **portable core contracts** that any person or business can adopt;
-2. **replaceable adapters** for products, providers, and vertical systems;
+2. **replaceable adapters** for products, providers, speech systems, and vertical systems;
 3. **runtime state** that must be discovered live rather than copied from docs.
 
 ## Owner-rooted architecture authority
@@ -49,8 +52,11 @@ Canonical Owner Principal
 Focusa + Agent-KB + business systems
     = scoped operational/domain truth
 
-UIAI Engine + Veragensia + tools
-    = execution and observation
+Veragensia + UIAI Engine + tools
+    = enforced execution and observation
+
+Voice / UI / API surfaces
+    = modalities into the same authority
 
 AI Chief of Staff / workers
     = delegated reasoning and action
@@ -63,17 +69,18 @@ client deployment replaces that binding with its own legitimate owner; it does n
 inherit Startempire authority.
 
 A GitHub username, organization, issue, PR, commit, customer request, contributor,
-email, forwarded analysis, test result, model output, or deployed implementation is
-**provenance/evidence, not architecture authority**. Technical input from any source
-can be valuable, but it remains advisory until the deployment owner explicitly
-promotes it or a valid owner-delegated authority does so.
+email, forwarded analysis, test result, model output, voiceprint, speaker-recognition
+result, or deployed implementation is **provenance/evidence, not architecture
+authority**. Technical input from any source can be valuable, but it remains
+advisory until the deployment owner explicitly promotes it or a valid owner-delegated
+authority does so.
 
 AI authority is also identity-bound rather than name-bound. A future authority AI
 uses separate cryptographic objects for stable principal identity, authority
 constitution, and current runtime attestation as specified in
 [`CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md). A
-matching name, process/service account, repository, token, hash, or model prompt
-never creates authority by itself.
+matching name, process/service account, repository, token, hash, model prompt, or
+synthetic voice never creates authority by itself.
 
 ## Outcomes Over Process
 
@@ -144,11 +151,17 @@ proven. Tracker: Wirebot Core issue #13.
 CANONICAL OWNER PRINCIPAL / SOVEREIGN HUMAN OR BUSINESS OWNER
   architecture · values · goals · consent · correction · reserved powers
        ↓
+NATURAL HUMAN INTERACTION
+  voice · visual UI · text · touch · API · assistive modalities
+       ↓
 PRIVATE CONTEXT + AI CHIEF OF STAFF
   signals · memory · synthesis · recommendations · exceptions
        ↓
 GOVERNANCE / COHESION
   tenant · project · Trajectory · capabilities · Workpoints · budgets
+       ↓
+MACHINE-ENFORCED EXECUTION
+  workload identity · resource identity · containment · control leases
        ↓
 HUMAN TEAM + AGENT EMPLOYEES + COMPUTERS / TOOLS
        ↓
@@ -179,11 +192,12 @@ A client can replace an adapter while preserving its contract.
 | Canonical Owner Principal / sovereign principal | Verious Smith III (Sir V3); client deployments bind their own owner | Root architecture authority, goals, values, consent, corrections, reserved powers, AI delegation |
 | AI Chief of Staff | OpenClaw + Wirebot/`wb` | Orient, synthesize, recommend, delegate, observe, escalate; no architecture authority by name |
 | Knowledge/context | Context Core + Agent-KB | Private memory, policy, topology, source-aware retrieval; domain knowledge authority only |
-| Governance/cohesion | Focusa | Project identity, Trajectory, Workpoints, Context Authority, evidence, learning; operational authority only |
-| Governed desktop presenter | Focusa Desktop | Default human work/cognition presentation in supported full Veragensia profiles; presenter over Focusa authority |
+| Governance/cohesion | Focusa | Project identity, Trajectory, Workpoints, Context Authority, Evidence, learning, Expression and conversation semantics; operational authority only |
+| Voice/conversation provenance | Focusa Expression Engine + Voice/Conversation primitive | Semantic expression, attributable utterances, transcript correction lineage, group conversation, Conversation Ledger; conversation is not memory |
+| Governed desktop presenter | Focusa Desktop | Default human work/cognition/conversation presentation in supported full Veragensia profiles; presenter over Focusa authority |
 | Reference Focusa harness | Pi + Focusa Pi extension | Default/reference Focusa-aware agent harness; fundamental reference integration, no parallel cognitive authority |
-| Agent computer | Veragensia | Provisioned, streamable, revocable execution environment and host integration |
-| Browser/computer control | UIAI Engine + Cockpit/browser surfaces | Canonical first-party browser/computer observation, interaction, diagnostics, oversight, visual evidence |
+| Agent computer + enforcement | Veragensia | Provisioned/streamable host, workload enforcement, secure attention, resource/runtime identity, audio UI, lifecycle and human control reserve |
+| Browser/computer control | UIAI Engine + Cockpit/browser surfaces | Canonical first-party browser/computer observation, interaction, diagnostics, control-lease/takeover, visual evidence |
 | Agent workforce | Build agents, specialists, Pi workers, humans | Bounded execution under role contracts |
 | Outcome ledger | WINS | Plan → Ship → Prove, corrections, confidence, economics |
 | Outbound distribution | Wire Launch | Governed campaign execution and evidence |
@@ -202,10 +216,13 @@ into this portable repository.
   root delegation boundary.
 - The **Chief of Staff** coordinates; it does not silently become every worker or
   architecture authority.
-- **Focusa** governs work; it does not become every product, CRM, memory store, or
-  owner of organizational architecture.
-- **Focusa Desktop** presents governed Focusa state/operations; it does not become
-  a second reducer, memory store, or authority.
+- **Focusa** governs work and conversation semantics; it does not become every
+  product, CRM, memory store, or owner of organizational architecture.
+- **Conversation history** is attributable provenance/audit; it does not become
+  canonical memory, policy, Workpoint, ontology, or knowledge merely because it is
+  extensive and durable.
+- **Focusa Desktop** presents governed Focusa state/operations/conversation; it does
+  not become a second reducer, memory store, or authority.
 - **Pi** is the reference/default Focusa harness integration; that reference role
   does not make canonical Focusa state Pi-private or exclude compatible harnesses.
 - **Agent-KB** may be canonical for source-aware knowledge retrieval without
@@ -213,6 +230,10 @@ into this portable repository.
 - **UIAI Engine** supplies hands and eyes; machine access is not business or
   architecture authority. It is deliberately listed as a canonical first-party
   Agent Computer execution surface rather than treated as an incidental browser.
+- **Veragensia** turns semantic grants into machine restrictions; root/UID/container
+  access is not a substitute for a scoped capability.
+- **Voice/audio** is an interaction modality into the same operations. A voiceprint,
+  TTS voice, wake word, or speech provider does not create identity or permission.
 - **Agent employees** execute scoped jobs; a role is not permission to access
   everything the Chief of Staff knows.
 - **Business systems** remain authoritative for their own records.
@@ -231,12 +252,19 @@ interfaces.
 | **Owner authority identity** | Versioned owner principal manifest, deterministic identity SHA-256, key fingerprint, scope, revocation, and authority-transfer semantics |
 | **AI authority identity** | Stable AI principal hash kept separate from constitution/runtime attestation; owner-rooted signed delegation required |
 | **Identity and tenancy** | Stable client, principal, project, environment, and lifecycle boundaries |
+| **Workload / execution identity** | Which exact executable/runtime is acting, on which node/incarnation, independently of conceptual agent identity |
+| **Platform/runtime attestation** | Explicit software/image/policy/boot trust posture; evidence for eligibility, never authority by itself |
 | **Source and provenance** | Where information came from, when, its trust class, freshness, and supersession; provenance is not authority |
 | **Context and memory** | Private, source-aware retrieval with retention and bounded disclosure |
+| **Conversation lineage** | Attributable utterances, speaker/agent refs, ASR hypotheses/corrections, expression/spoken-output links, action/evidence relationships; not automatic memory |
 | **Intent and Trajectory** | Desired state, current state, gap, constraints, and next direction |
 | **Capability and policy** | Who may do what, to which resource, for how long, under which conditions |
+| **Machine enforcement** | Deterministic translation of allowed capability into actual filesystem/network/device/input/credential/resource restrictions |
+| **Stable resource + revision** | Durable logical resource identity, expected revision, replica and current locator; path/PID/window name is not durable identity |
+| **Human control lease / secure attention** | Protected stop/takeover/approval path with one active actuator holder, fencing, reconciliation and re-observation |
+| **Modality parity** | Important supported outcomes remain available through applicable voice/nonvisual/visual/text surfaces using the same canonical operations |
 | **Work unit** | Scoped objective, owner, dependencies, budget, and done-condition |
-| **Orchestration** | Selection, sequencing, delegation, pause/resume, and escalation |
+| **Orchestration** | Selection, sequencing, delegation, pause/resume, escalation, and bounded topology/fanout |
 | **Execution adapter** | Typed tool, computer, browser, or API action with diagnostics |
 | **Workforce role** | Job, supervisor, tools, limits, quality bar, escalation, and revocation |
 | **Evidence and receipt** | Actor, authority, target, action, result, time, and supporting references |
@@ -266,7 +294,7 @@ A capable AI Chief of Staff performs five loops:
 2. **Recommend** — expose priorities, trade-offs, uncertainty, assumptions, and the
    shortest reliable path.
 3. **Govern** — translate approved intent into exact projects, Trajectories,
-   Workpoints, tasks, capabilities, budgets, and acceptance criteria.
+   Workpoints, tasks, capabilities, budgets, enforcement requirements, and acceptance criteria.
 4. **Delegate** — route each work unit to the owning person, business system, or
    agent employee with only the context and authority required.
 5. **Observe and learn** — collect receipts, verify outcomes, escalate exceptions,
@@ -279,6 +307,9 @@ A Chief of Staff also does not gain architecture authority merely from broad
 context. If the deployment wants an AI to make canonical architecture decisions,
 that AI must satisfy the owner-rooted cryptographic delegation contract.
 
+The Chief of Staff may be spoken to naturally. Voice changes the interface, not its
+scope, delegation, or reserved powers.
+
 ### Reserved powers
 
 Every deployment names owner/human-only powers: destructive/irreversible changes;
@@ -286,13 +317,17 @@ material legal or financial commitments; identity, ownership, or governance;
 broad credentials; sensitive publication; safety overrides; and emergency or
 nonrenewable authentication resources.
 
+Voice-complete deployments provide a trusted, non-keyboard path for permitted human
+approvals but do not use voice recognition alone as universal authorization.
+
 ---
 
 ## Agents as employees
 
 An agent employee is a **governed role**, not a personality with ambient access.
 Start with one narrow job and real work. Expand only after safe escalation,
-consumer acceptance, repeatable evidence, and useful economics.
+consumer acceptance, repeatable evidence, useful economics, and enforceable runtime
+boundaries.
 
 ### Employment packet example
 
@@ -321,7 +356,8 @@ credentials remain in the owning broker/provider boundary while the agent receiv
 the narrow ability to perform an approved action.
 
 A capability grant is operational authority; it is not automatically architecture
-authority.
+authority and is not fully enforced until the execution environment has compiled
+and verified the corresponding machine restrictions.
 
 ---
 
@@ -368,7 +404,8 @@ source → released → installed → configured → deployed → visible → ac
 
 A commit is not a release. A release is not an installed runtime. An endpoint is
 not a customer experience. “Done” means the requested destination and behavior are
-verified with the appropriate runtime, visual, consumer, and outcome evidence.
+verified with the appropriate runtime, visual/nonvisual, consumer, and outcome
+evidence.
 
 Likewise, implemented/deployed architecture is not evidence that its proposer had
 authority to make it canonical.
@@ -378,8 +415,8 @@ authority to make it canonical.
 ## Replaceable vertical adapters
 
 Vertical adapters connect real systems to the substrate. They may evolve without
-changing sovereignty, identity, authority, Workpoint, receipt, or correction
-semantics.
+changing sovereignty, identity, authority, Workpoint, conversation, receipt, or
+correction semantics.
 
 | Vertical | Example systems |
 |---|---|
@@ -390,12 +427,16 @@ semantics.
 | Workforce | Hiring, role packets, scheduling, reviews, payroll, contractors |
 | Market | Research, campaigns, social, opportunities, partnerships, community |
 | Infrastructure | Cloud, cPanel, containers, databases, networking, observability |
+| Speech/audio | ASR, TTS, speech-to-speech, microphone arrays, remote/mobile audio endpoints |
 
 Every adapter declares its owner/source, schema/version, tenant/project and trust
 scope, capabilities/consent, renewable authentication, typed inputs/outputs,
 idempotency, budgets, evidence/redaction, and failure/retry/rollback/revoke/teardown
 behavior. An adapter may consume substrate authority; it must never silently
 redefine it.
+
+Speech providers are render/capture adapters. They do not become canonical speaker,
+conversation, memory, authority, or settlement stores.
 
 ---
 
@@ -405,17 +446,18 @@ redefine it.
 
 - Never automate with a nonrenewable resource.
 - Never retrieve, inspect, request, expose, test, or use recovery codes.
-- Transport, root, browser, CDP, machine, or API access is not authorization.
+- Transport, root, browser, CDP, machine, UID, container, device, or API access is not authorization.
+- A semantic grant must be backed by machine enforcement for a fully governed execution claim.
 - Repository ownership/admin permission alone is not a self-authenticating human
   architecture identity; architecture uses the owner constitution.
+- Voice recognition, voiceprint, speaker label or synthetic voice is not authorization.
 - Use renewable, revocable, least-privilege credentials and capabilities.
-- Keep client credentials, memory, files, sessions, evidence, and audit records
-  isolated.
-- Never use one tenant's ambient context or authority for another.
-- Unknown renewability, ownership, consent, or architecture-authority provenance
-  fails closed.
+- Keep client credentials, memory, files, sessions, conversations, evidence, and audit records isolated.
+- Never use one tenant's ambient context, conversation, microphone/audio stream, or authority for another.
+- Unknown renewability, ownership, consent, speaker attribution, or architecture-authority provenance fails closed where consequential.
 - Public demo environments remain credential-free.
 - Corrections and revocations are first-class durable events.
+- Human stop/takeover/secure-attention resources remain protected from agent workload exhaustion.
 
 ### Trust classes
 
@@ -424,9 +466,11 @@ A practical deployment distinguishes at least:
 1. **Public** — safe for unrestricted disclosure.
 2. **Customer-authorized** — scoped to a tenant and approved purpose.
 3. **Private operator** — personal/portfolio context unavailable to customers.
-4. **Credential-bearing** — isolated broker/provider boundary; never ordinary
-   context.
+4. **Credential-bearing** — isolated broker/provider boundary; never ordinary context.
 5. **Emergency/break-glass** — operator-only, non-automatable resources.
+
+Platform/workload trust is separately declared; a public/private data class is not a
+boot/runtime attestation class.
 
 Shared infrastructure is acceptable only when these boundaries are enforced and
 proven end to end.
@@ -440,9 +484,12 @@ Decision quality requires epistemic integrity:
 - distinguish observed facts, source statements, inferences, assumptions, and
   unverified claims;
 - distinguish source/proposal provenance from authority provenance;
+- distinguish speech hypothesis from accepted transcript and interpreted intent;
 - expose material uncertainty and knowledge gaps where they affect action;
+- expose uncertain speaker attribution where it affects authority or meaning;
 - cross-check high-impact claims against authoritative sources or running behavior;
 - correct errors immediately and preserve the correction trail;
+- preserve transcript/speaker correction lineage rather than rewriting prior observations;
 - never present partial knowledge as complete or speculation as fact.
 
 Do not turn truthfulness into response theater. Routine internal checks need not be
@@ -461,14 +508,18 @@ auditable loop.
 2. **Context:** connect only mission-required sources with provenance, freshness,
    ownership, disclosure, briefing, and correction rules.
 3. **Governance:** create the exact Focusa project, canonical Trajectory, current
-   Workpoint, capabilities, budget, done-condition, evidence, and escalation.
-4. **Hands:** provide a private agent computer/browser or typed API; prove
-   diagnostics, rollback, revocation, teardown, and brokered credentials.
-5. **First employee:** hire one narrow role with minimum context/capability/budget;
-   test success, ambiguity, denial, retry, escalation, and correction.
-6. **Outcome loop:** complete real work; prove producer, consumer, runtime, visual,
-   and business outcomes as applicable; measure value and risk.
-7. **Compound:** version repeated success, retire stale access/process, and add
+   Workpoint, capabilities, budget, done-condition, Evidence, and escalation.
+4. **Hands:** provide a private Agent Computer/browser or typed API; prove workload
+   identity, machine enforcement, diagnostics, rollback, revocation, teardown, and
+   brokered credentials.
+5. **Interaction:** if the deployment claims voice completeness, prove a useful
+   workflow without keyboard/pointer, with attributable conversation/transcript
+   lineage and trusted stop/approval.
+6. **First employee:** hire one narrow role with minimum context/capability/budget;
+   test success, ambiguity, denial, retry, escalation, correction, and enforcement.
+7. **Outcome loop:** complete real work; prove producer, consumer, runtime,
+   visual/nonvisual, and business outcomes as applicable; measure value and risk.
+8. **Compound:** version repeated success, retire stale access/process, and add
    roles/connectors/tenants only after isolation and economics hold.
 
 A minimum viable system therefore has:
@@ -477,8 +528,12 @@ A minimum viable system therefore has:
 1 canonical owner + 1 stable owner principal identity
 + 1 authority constitution + 1 client/tenant + 1 project
 + 1 Trajectory + 1 Workpoint + 1 agent role
-+ 1 real connector + 1 verified outcome loop
++ 1 real connector + 1 enforceable execution boundary
++ 1 verified outcome loop
 ```
+
+Voice completeness is an additional profile claim, not required for every minimal
+headless/special-purpose deployment.
 
 ---
 
@@ -488,7 +543,10 @@ A minimum viable system therefore has:
 |---|---|
 | **Daily** | Refresh context/health → brief commitments, customers, cash, risks, opportunities → select Workpoint → delegate bounded work → observe exceptions → verify outcome/corrections |
 | **Weekly** | Review outcomes over activity → compare expected/actual value and cost → revoke stale grants/process → promote proven skills → reallocate → expand only where evidence supports it |
-| **Incident** | Stop affected mutation → preserve state/evidence → recover with exact identity/scope → fix canonical root cause → verify consumer/rollback behavior → add durable prevention |
+| **Incident** | Stop affected mutation → preserve state/evidence/conversation refs → recover with exact identity/scope → fix canonical root cause → verify consumer/rollback behavior → add durable prevention |
+
+These loops may be conducted conversationally. Spoken control does not weaken their
+identity, authority, evidence, or settlement requirements.
 
 ---
 
@@ -506,8 +564,9 @@ private operating state.
 | Startempire tenant/project IDs | Customer-owned stable identifiers |
 | Agent-KB/Context Core | Approved private knowledge and policy authority |
 | OpenClaw/Wirebot | Approved Chief-of-Staff runtime/interface; no AI architecture authority without owner delegation |
-| Focusa | Focusa deployment and exact project governance |
-| Focusa Desktop / Pi / Veragensia / UIAI | Approved governed work presenter, reference/compatible harness, computer/browser execution environment |
+| Focusa | Focusa deployment and exact project/conversation governance |
+| Focusa Desktop / Pi / Veragensia / UIAI | Approved governed presenter, compatible/reference harness, enforceable Agent Computer and browser/computer execution environment |
+| Voice/Conversation adapter set | Customer-approved ASR/TTS/audio endpoints preserving portable utterance/participant/transcript semantics |
 | Provider adapters | Customer-owned calendar, CRM, finance, code, and operations systems |
 | Credential broker | Customer-approved renewable authentication authority |
 | WINS/outcome ledger | Customer outcome, correction, and evidence store |
@@ -516,10 +575,10 @@ private operating state.
 
 - the reference owner's authority principal, private key, delegated AI authority, or
   GitHub/tenant authority scope;
-- credentials, tokens, cookies, recovery artifacts, or device state;
-- private operator/client memory;
+- credentials, tokens, cookies, recovery artifacts, device state, voiceprints, or biometric speaker material;
+- private operator/client memory or private conversation/audio history;
 - tenant IDs, project attachments, or old Workpoints;
-- machine paths, ports, hostnames, or runtime health claims as standing truth;
+- machine paths, ports, hostnames, runtime IDs, or health claims as standing truth;
 - permissions merely because the reference deployment possessed them;
 - issue/PR/contributor/customer authorship as architecture authority;
 - incident snapshots as permanent architecture.
@@ -533,14 +592,17 @@ private operating state.
 - [ ] GitHub/account/tenant scope bound explicitly.
 - [ ] Any AI architecture delegate has a stable principal identity plus a valid owner-rooted signed delegation.
 - [ ] Runtime-attestation policy defined for authority-capable AI.
+- [ ] Node/workload/execution identity and enforcement policy defined.
 - [ ] Principal, tenant, project, and ownership identities replaced.
 - [ ] Local products/paths/endpoints moved into deployment configuration.
 - [ ] Trust classes, reserved powers, retention, and revocation defined.
-- [ ] Credentials excluded and secret scan passed.
+- [ ] Credentials and private conversation/audio excluded and secret/privacy scan passed.
 - [ ] Focusa project, Trajectory, Workpoint, and task agree.
-- [ ] Agent roles and capabilities are client-scoped.
+- [ ] Conversation/transcript retention and speaker-attribution policy defined if voice is enabled.
+- [ ] Agent roles and capabilities are client-scoped and machine-enforced.
 - [ ] Producer and consumer tests pass.
 - [ ] Recovery and teardown are proven.
+- [ ] Voice-complete claims pass a no-keyboard/no-pointer workflow when applicable.
 - [ ] First real outcome is independently accepted.
 
 ---
@@ -553,7 +615,7 @@ private operating state.
 ├── AGENTS.md                            # Normative operating contract for agents and harnesses
 ├── OWNER_AUTHORITY_CONSTITUTION.md      # Portable owner identity + architecture authority root
 ├── CRYPTOGRAPHIC_AUTHORITY_PROFILE.md   # Principal/constitution/runtime hashing + delegation profile
-├── AGENT_COMPUTER_REFERENCE_PROFILE.md  # Startempire Veragensia composition binding without duplicating implementation specs
+├── AGENT_COMPUTER_REFERENCE_PROFILE.md  # Startempire Veragensia composition including enforcement + voice-native invariants
 └── tests/
     └── architecture-authority-policy-static-test.sh
 ```
@@ -565,7 +627,8 @@ runtimes, and delegations are cryptographically distinguished.
 `AGENT_COMPUTER_REFERENCE_PROFILE.md` binds the portable substrate to the Startempire
 Veragensia reference composition while leaving detailed Agent Computer architecture
 canonical in the Veragensia repository. Volatile runtime state, credentials,
-customer data, and private operational runbooks do not belong in this portable repository.
+customer data, private conversations/audio, and private operational runbooks do not
+belong in this portable repository.
 
 ## Using and versioning `AGENTS.md`
 
@@ -574,8 +637,9 @@ AGENTS contract before deployment; preserve the portable core; create a new owne
 binding for the destination; replace client bindings; install AGENTS through the
 harness's canonical instruction mechanism; mechanically validate hard stops;
 exercise green, degraded, wrong-project, correction, auth, delivery,
-owner-mismatch, external-proposal, delegated-AI, runtime-attestation, and recovery
-scenarios; then review/version before distribution.
+owner-mismatch, external-proposal, delegated-AI, runtime-attestation, enforcement,
+voice/speaker-ambiguity where applicable, and recovery scenarios; then
+review/version before distribution.
 
 Semantic Versioning applies: **major** changes incompatible substrate/safety/
 authority semantics; **minor** adds compatible primitives/adapters/workflows;
@@ -588,30 +652,37 @@ alone does not assert that a matching Git tag has been published.
 
 ## Anti-patterns
 
-Avoid omnipotent agents, ambient cross-client context, dashboards replacing authority
-or proof, adapters creating parallel truth, issue/PR/customer provenance being
-mistaken for architecture authority, AI identity by name alone, mutable runtime
-state being confused with stable AI identity, and scaling before isolation,
-acceptance, and economics hold.
+Avoid omnipotent agents, ambient cross-client context, ambient same-UID/root access
+presented as governance, dashboards replacing authority or proof, adapters creating
+parallel truth, issue/PR/customer provenance being mistaken for architecture
+authority, AI identity by name alone, voice identity by sound alone, transcript
+history being mistaken for memory/authority, mutable runtime state being confused
+with stable AI/resource identity, unbounded recursive fleet spawning, and scaling
+before isolation, acceptance, human-control survivability, and economics hold.
 
 ## Questions answered by the contract
 
 This is a portable contract, not a framework: the deployment owner roots
-architecture authority; Focusa governs scoped identity/work; Agent-KB governs its
-knowledge domain; Focusa Desktop presents governed work; Pi is the reference Focusa
-harness; UIAI supplies observable hands; Veragensia hosts the Agent Computer; and
-employees remain narrow. Multi-client use requires proven isolation; autonomy and
-delegated architecture authority expand only through explicit owner-controlled
-contracts.
+architecture authority; Focusa governs scoped identity/work/conversation semantics;
+Agent-KB governs its knowledge domain; Focusa Desktop presents governed work; Pi is
+the reference Focusa harness; UIAI supplies observable hands; Veragensia hosts and
+enforces the Agent Computer and supplies trusted voice/audio integration; and
+employees remain narrow. Multi-client use requires proven isolation; voice and
+other modalities route into the same authority; autonomy and delegated architecture
+authority expand only through explicit owner-controlled contracts.
 
 ---
 
 ## Final principle
 
-A trustworthy ecosystem connects **owner-rooted sovereign intent** to **bounded
-authority**, **scoped work**, **observable execution**, **durable proof**, **human
-correction**, and **compounding learning**. Architecture authority remains rooted
-in the deployment's Canonical Owner Principal; runtime systems and agents earn only
-the authority explicitly delegated to them. Stable principal identity, authority
-constitution, and runtime attestation remain cryptographically separate. Build the
-smallest useful loop, prove it in reality, and scale what works.
+A trustworthy ecosystem connects **owner-rooted sovereign intent**—spoken or
+otherwise—to **bounded authority**, **machine-enforced capability**, **scoped work**,
+**observable execution**, **durable attributable conversation**, **durable proof**,
+**human correction**, and **compounding learning**. Architecture authority remains
+rooted in the deployment's Canonical Owner Principal; runtime systems and agents
+earn only the authority explicitly delegated to them. Stable principal identity,
+resource/runtime identity, authority constitution, and runtime attestation remain
+distinct. The human should be able to speak naturally instead of operating the
+computer mechanically, while the system still proves exactly who acted, under what
+authority, on what resource, and what happened. Build the smallest useful loop,
+prove it in reality, and scale what works.
