@@ -42,8 +42,8 @@ grep -Fq 'No active Wirebot architecture-authority hash is declared by this docu
   || fail "anti-fabrication rule for Wirebot authority hash missing"
 pass "cryptographic authority identity/runtime separation is structurally complete"
 
-grep -Fq '**Contract version:** 3.1.0' "$AGENTS" \
-  || fail "AGENTS contract major version not advanced"
+grep -Fq '**Contract version:** 3.2.0' "$AGENTS" \
+  || fail "AGENTS contract version is not the expected reconciled release"
 grep -Fq 'ARCHITECTURE AUTHORITY HARD STOP' "$AGENTS" \
   || fail "AGENTS architecture hard stop missing"
 grep -Fq 'OWNER_AUTHORITY_CONSTITUTION.md' "$AGENTS" \
@@ -56,7 +56,7 @@ pass "primary agent contract enforces owner-rooted architecture authority"
 
 grep -Fq 'Architecture authority constitution' "$README" \
   || fail "README does not surface architecture authority constitution"
-grep -Fq 'provenance/evidence, not architecture authority' "$README" \
+python3 -c 'import sys; text=" ".join(open(sys.argv[1]).read().split()); sys.exit(0 if "provenance/evidence, not architecture authority" in text else 1)' "$README" \
   || fail "README provenance boundary missing"
 grep -Fq 'Verious Smith III (Sir V3)' "$README" \
   || fail "README Startempire owner binding missing"

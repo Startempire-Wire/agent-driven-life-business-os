@@ -15,3 +15,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify owner-rooted architecture authority
         run: bash tests/architecture-authority-policy-static-test.sh
+      - name: Verify portable collaboration contract
+        run: python3 tests/collaboration-contract-test.py
