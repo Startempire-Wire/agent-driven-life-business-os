@@ -119,9 +119,10 @@ tone, language, verbosity, initiative preferences, cadence, and interface withou
 weakening hard boundaries. Use an existing shared working plan where useful; no
 particular document provider, dashboard, or new parallel authority store is required.
 
-See [behavioral acceptance scenarios](./docs/01-collaboration-behavior-scenarios.md).
-The automated checks protect document consistency; actual model behavior requires
-rehearsal in each deployed harness, not a claim inferred from static tests.
+Use the short [collaboration review checklist](./docs/01-collaboration-behavior-scenarios.md)
+when changing these rules. Review the diff and run `git diff --check`; this documentation
+repository needs no CI or wording-only test suite. Actual agent behavior must be
+observed in the deployed harness, not inferred from document checks.
 
 ## First principles, the Algorithm, and Leverage²
 
@@ -643,8 +644,8 @@ private operating state.
 ├── OWNER_AUTHORITY_CONSTITUTION.md      # Portable owner identity + architecture authority root
 ├── CRYPTOGRAPHIC_AUTHORITY_PROFILE.md   # Principal/constitution/runtime hashing + delegation profile
 ├── AGENT_COMPUTER_REFERENCE_PROFILE.md  # Startempire Veragensia composition including enforcement + voice-native invariants
-└── tests/
-    └── architecture-authority-policy-static-test.sh
+└── docs/
+    └── 01-collaboration-behavior-scenarios.md # Short human review checklist
 ```
 
 `README.md` explains the system. `AGENTS.md` governs agent behavior.
