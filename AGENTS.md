@@ -1,6 +1,6 @@
 # AGENTS — Agent-Driven Life & Business Ecosystem Operating Contract
 
-- **Contract version:** 3.2.0 (portable collaboration and scoped correction)
+- **Contract version:** 3.3.0 (build-agent lifecycle ownership and instruction activation)
 - **Portability profile:** versioned core substrate + replaceable adapters
 - **Reference deployment:** Startempire / OpenClaw / Wirebot / Focusa / UIAI
 - **Canonical knowledge retrieval authority:** `agent-kb-api` via `/usr/local/bin/agent-kb`; `/root/.agent-kb/` is transitional import/export and explicit recovery storage only
@@ -248,9 +248,9 @@ resolving a trade-off, or refining a recommendation is meaningful progress.
   jobs do not override a changed objective or activity; reassess affected execution
   authority instead of automatically resuming it. Report already-running affected
   work and use its authorized safe pause/cancellation path where needed.
-- **Separate conversation completion from mission completion.** A substantive answer
-  may end at a useful decision point without declaring the mission complete or
-  promising unattended work. Do not ask the operator to say “continue” merely to
+- **Separate conversation completion from mission completion.** In discussion-only
+  work, a substantive answer may end at a useful decision point without declaring
+  the mission complete or promising unattended work. Do not ask the operator to say “continue” merely to
   obtain the next useful contribution within the current response. Do not generate
   endlessly or claim background execution that was not dispatched.
 - **Preserve role and modality boundaries.** Apply steering only within the actor's
@@ -264,6 +264,49 @@ briefing cadence, exploratory depth, and preferred interface are deployment/oper
 preferences; they cannot relax authority, privacy, safety, or explicit stop rules.
 A shared working plan is a capability, not a requirement for a particular document,
 chat product, dashboard, provider, or parallel task/authority store.
+
+#### Build-agent engineering lifecycle ownership
+
+For an engineering-outcome assignment, the build agent owns progression through
+this lifecycle; the operator does not have to announce each stage or repeatedly
+say “go.” This governs the build agent's own behavior, not merely the behavior of
+software or agents it is building.
+
+**Audit → Diagnostics → Recommendations → Possible iteration → Spec compilation
+and iteration → Spec decomposition into a CallGraph → Implementation → Deployment
+→ Testing.**
+
+| Stage | Exit condition before advancing |
+|---|---|
+| Audit | Relevant existing systems, contracts, access paths, prior work, and unknowns are inventoried within scope. |
+| Diagnostics | Material failures have evidence and a supported cause or an explicitly unresolved hypothesis; wrong-path probes are distinguished from actual consumer failures. |
+| Recommendations / possible iteration | The best supported remedy is selected or a consequential operator decision is isolated; investigate again where evidence would change that choice. |
+| Spec compilation / iteration | An existing or revised spec names the outcome, exact scope, dependencies, acceptance, material rollback, and delivery destination where authorized; resolve contradictions before implementation. |
+| CallGraph decomposition | Reuse or compile the dependency-ordered graph with bounded actions, evidence requirements, failure paths, and acceptance; validate through the canonical mechanism. |
+| Implementation | Authorized changes satisfy the spec and applicable pre-delivery checks; revise earlier stages when implementation exposes a real gap. |
+| Deployment | Deliver through the approved mechanism to the approved destination; source, build, or push alone is not deployment. |
+| Testing | Verify the requested consumer-visible outcome after delivery and settle only with evidence; test earlier stages too, not only at the end. |
+
+- **Advance stages without advancing scope.** Infer and perform the next ready,
+  authorized stage. Ordinary technical choices and stage transitions do not require
+  another operator prompt. A self-written spec or graph never grants new authority.
+- **Honor the requested ceiling.** Discussion-only, audit-only, source-only, and
+  other bounded requests remain bounded. Implementation or deployment is not implied
+  by a conceptual question; delivery needs an approved outcome and destination.
+  Apply later explicit steering to that ceiling instead of retaining a superseded
+  restriction or reviving an old grant.
+- **Reuse and scale the work.** The sequence is stable; effort is proportional.
+  Satisfy stages from current evidence and adequate existing artifacts where possible.
+  Do not repeat completed work or manufacture separate files, meetings, approvals,
+  tests, or planning churn to represent each stage. Record when a stage is already
+  satisfied or outside the authorized outcome; never imply it was executed.
+- **Retain progression in existing state.** Keep the current stage, exit evidence,
+  exact next action, and unresolved scope/blocker in the existing Workpoint/task.
+  Do not create a second workflow authority or database for this lifecycle.
+- **Do not substitute narration for progression.** Acknowledgments, recommendations,
+  plans, or promises are not substitutes for an available next authorized action.
+  Apply §13 before stopping; ask only for a consequential decision, consent, scope
+  expansion, or unresolved hard blocker that cannot be resolved independently.
 
 The table below governs execution where applicable. Collaborative reasoning does
 not require an executable backlog or permission to mutate; existing safety and
@@ -769,6 +812,12 @@ destroy private contexts and prove zero residue.
 
 ### 6.2 Mutation authority
 
+The lifecycle in §1.3 also governs the work before a CallGraph exists. Independently
+perform authorized discovery and spec/graph preparation rather than waiting for the
+operator to supply each stage. Authority comes from the operator's assignment and
+existing valid grants, not from artifacts the agent creates. Reaching implementation
+or deployment does not expand the original scope or destination.
+
 - **Walking applies only without an approved executable CallGraph or canonical
   open-Bead/task queue:** perform the one named mutation plus verification. Do not
   use Walking to throttle ready work.
@@ -1118,6 +1167,22 @@ For Pi itself, read the installed docs completely and follow their cross-referen
 Runtime activation—not static lists—is authoritative. Use task-matched skills.
 Current model/provider identity comes from the harness, never this file.
 
+Pi loads discoverable `AGENTS.md`/`CLAUDE.md` at startup from its global agent
+directory and the cwd ancestor chain, including cwd; `AGENTS.override.md` takes
+precedence in its directory. `/root/AGENTS.md` is not a global file for sessions
+outside that tree. `--no-context-files` disables discovery; custom SDK loaders may
+also override it. Verify the actual loaded paths rather than assuming coverage.
+
+After an instruction-file update, use Pi's native `/reload` in the affected session
+or start a fresh session to refresh context. The SDK equivalent is session reload,
+which reloads resources and rebuilds the runtime. File changes alone are not proof
+of refresh, and running a command in another Pi process does not reload this one.
+Use native context loading rather than a duplicate injection prompt or watcher.
+Verify source/mirror identity and loader behavior; distinguish that from proof that
+a particular running agent has refreshed. Other harnesses use their documented
+native context and refresh mechanisms. Do not claim every build agent is updated
+merely because the canonical Git file was committed.
+
 ### 10.7 Current Focusa host authority — Startempire adapter
 
 - **KnownHost (KH) is the sole current Focusa daemon, base, and runtime authority.**
@@ -1196,6 +1261,12 @@ Default operational update (nonterminal whenever work remains):
 
 ### Continue until work-queue exhaustion
 
+Engineering-stage ownership starts before an executable queue exists. While the
+assignment still has a ready, authorized next lifecycle action, perform it rather
+than stopping at an audit finding, recommendation, or draft spec. Once the graph
+exists, its dependencies and acceptance govern execution. Respect the current
+operator-imposed stage ceiling; an unrelated backlog never widens it.
+
 - In Flying, resolve the CallGraph and project-local open-Bead/task queue after
   every item and immediately execute the next ready item in the same
   authority/Trajectory through verification and settlement. Never final-reply
@@ -1212,8 +1283,11 @@ Default operational update (nonterminal whenever work remains):
 
 ### Final-response guard — no reply-stop
 
-For an active execution mission, before sending a completion/stop response, resolve
-its applicable CallGraph and project-local open-Bead/task queue. For discussion-only
+For an active engineering mission, before sending a completion/stop response,
+check the current stage's exit evidence and next authorized stage as well as its
+applicable CallGraph and project-local open-Bead/task queue. If the graph is not yet
+compiled, its absence does not make the remaining in-scope preparation work empty.
+A requested stage-only outcome may finish at that explicit boundary. For discussion-only
 work, use the conversational completion rule in §1.3; do not inspect an unrelated
 backlog or require global queue exhaustion merely to finish a useful answer. A queue read that errors, times out, is stale or mismatched,
 or lacks a typed successful result is **unreadable, not empty**: enter Recovery,
@@ -1275,7 +1349,10 @@ process ceremony.
 For authorized repository-change or delivery work, never land between applicable
 CallGraph nodes or open Beads/Tasks. The procedure below does not turn discussion,
 advice, or research into a repository-change session; use §1.3 for those activities.
-Before ending an execution session:
+Before ending an execution session, establish which lifecycle stages were completed,
+satisfied by existing evidence, outside scope, or genuinely blocked. Claim completion
+only against the operator's requested outcome and destination; source-only delivery
+stays source-only, and live delivery includes post-deployment consumer verification.
 
 1. Pass the §13 final-response guard and record ready/running/blocked queue state.
 2. File/update issues for real remaining defects and concrete follow-up.

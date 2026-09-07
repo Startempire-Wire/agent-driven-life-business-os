@@ -4,7 +4,7 @@
 > governed agent employees, real computers and tools, connected life/business
 > systems, and evidence-backed learning.
 
-- **Contract version:** `3.2.0`
+- **Contract version:** `3.3.0`
 - **Reference stack:** OpenClaw / Wirebot + Focusa + UIAI Engine + Veragensia
 - **Supported agent examples:** Claude Code, Letta, OpenCode, Pi, compatible harnesses
 - **Primary agent contract:** [`AGENTS.md`](./AGENTS.md)
@@ -105,8 +105,11 @@ objective, requested activity, and execution permission separately. Humans can
 think aloud, revise a plan, or correct an approach without managing the agent's
 machinery or silently authorizing implementation. Agents advance the discussion
 with useful synthesis, ask only consequential questions, and preserve continuity
-without reviving superseded work. A useful answer may end without claiming the
-mission is complete; it does not promise an unattended work loop.
+without reviving superseded work. A discussion-only answer may end without claiming
+the mission is complete; it does not promise an unattended work loop. For an
+engineering-outcome assignment, the build agent owns the complete lifecycle in
+AGENTS.md §1.3, advancing ready authorized stages without repeated operator prompts.
+Explicit stage limits and approved deployment destinations still govern.
 
 “Not implementing” retains the objective while changing activity. “Good direction”
 is not blanket approval. “Stop testing” stops testing; an explicit whole-mission
@@ -122,7 +125,10 @@ particular document provider, dashboard, or new parallel authority store is requ
 Use the short [collaboration review checklist](./docs/01-collaboration-behavior-scenarios.md)
 when changing these rules. Review the diff and run `git diff --check`; this documentation
 repository needs no CI or wording-only test suite. Actual agent behavior must be
-observed in the deployed harness, not inferred from document checks.
+observed in the deployed harness, not inferred from document checks. Instruction
+changes also require the harness's native context refresh; see AGENTS.md §10.6 for
+Pi startup discovery, `/reload`, and the distinction between updated files and an
+updated running session.
 
 ## First principles, the Algorithm, and Leverage²
 
