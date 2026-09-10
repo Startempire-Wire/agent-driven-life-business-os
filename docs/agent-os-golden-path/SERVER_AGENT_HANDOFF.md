@@ -13,7 +13,8 @@ Start here:
 3. `CRYPTOGRAPHIC_AUTHORITY_PROFILE.md` where identity/delegation is relevant
 4. `AGENT_COMPUTER_REFERENCE_PROFILE.md`
 5. `AGENT_OS_GOLDEN_PATH.md`
-6. `docs/agent-os-golden-path/0.1.0.md`
+6. The current candidate linked by `AGENT_OS_GOLDEN_PATH.md`, including its base phase definitions.
+7. `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` — reuse this ordered list rather than creating another task tree.
 
 The Golden Path `0.1.0` is deliberately a candidate prepared outside the server. **Do not treat deployment assumptions in it as live truth.** You have the environment access required to turn it into a reality-grounded next version.
 

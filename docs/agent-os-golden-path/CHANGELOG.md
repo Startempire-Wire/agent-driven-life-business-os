@@ -2,6 +2,21 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.1.1-candidate — 2026-09-10
+
+### Clarified
+
+- Phase numbering is coverage, not permission to delay prerequisite authority, security, budgets, evidence or safe proving.
+- Fresh setup, partial adoption, repair and upgrade have different preconditions and retry/recovery obligations.
+- Executable claims require real owning interfaces and consumer checks; unsupported mandatory phases cannot become "not applicable."
+- Source-starter public-app defaults are not private-system defaults; instruction refresh and agent-tool usability require separate checks.
+- Added one dependency-ordered task list with acceptance, authority boundaries and candidate owner mappings for all fourteen phases.
+- Updated entry points to the current candidate and task list; preserved `0.1.0` unchanged.
+
+### Evidence scope and compatibility
+
+Patch clarification over `0.1.0`; no renamed phases, new runtime schema or replaced subsystem authority. The current candidate references the base definitions rather than duplicating them. Evidence covers repository/candidate/handoff review, public starter inspection, and existing instruction-loading observations. No installer, production change, customer test or full-system verification is claimed. The handoff's implemented-slice milestone and subsequent reality-grounded version remain outstanding.
+
 ## 0.1.0-candidate — 2026-09-08
 
 Initial portable candidate.

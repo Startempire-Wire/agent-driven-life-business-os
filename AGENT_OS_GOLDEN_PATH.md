@@ -2,11 +2,12 @@
 
 > A versioned, executable deployment and operations doctrine for turning a fresh environment into a verified, agent-native Life & Business OS.
 
-- **Golden Path version:** `0.1.0-candidate`
+- **Golden Path version:** `0.1.1-candidate`
 - **Foundational contract:** [`AGENTS.md`](./AGENTS.md) — currently `3.3.0`
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Reference Agent Computer profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
-- **Current version snapshot:** [`docs/agent-os-golden-path/0.1.0.md`](./docs/agent-os-golden-path/0.1.0.md)
+- **Current version snapshot:** [`docs/agent-os-golden-path/0.1.1.md`](./docs/agent-os-golden-path/0.1.1.md) — clarification over the unchanged 0.1.0 phases
+- **Ordered tasks:** [`implementation and iteration list`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 - **Server build-agent handoff:** [`docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md`](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md)
 - **Changelog:** [`docs/agent-os-golden-path/CHANGELOG.md`](./docs/agent-os-golden-path/CHANGELOG.md)
 
@@ -117,7 +118,7 @@ A deployment adapter may change commands and products while preserving this cont
 13 Launch, acceptance, handoff and ongoing operation
 ```
 
-The normative `0.1.0` candidate is in [`docs/agent-os-golden-path/0.1.0.md`](./docs/agent-os-golden-path/0.1.0.md).
+The current candidate is [0.1.1](./docs/agent-os-golden-path/0.1.1.md), read together with its unchanged [0.1.0 phase definitions](./docs/agent-os-golden-path/0.1.0.md). Phase numbers are coverage labels; actual execution follows dependencies, with authority, security, budgets and recovery established before dependent actions.
 
 ## Versioning model
 
@@ -177,4 +178,4 @@ These names are illustrative, not currently canonical CLI requirements. First re
 
 ## Immediate next step
 
-The first server-side iteration is defined in [`SERVER_AGENT_HANDOFF.md`](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md): reconcile this `0.1.0` candidate against the real Startempire reference environment and current authorized customer environments, then publish the next version from direct operational knowledge while implementing the smallest high-leverage executable slice.
+Follow the [ordered task list](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md) to fulfill [`SERVER_AGENT_HANDOFF.md`](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md). The first documentation review is captured in `0.1.1`; live reconciliation and the first implemented, behaviorally verified slice are still outstanding. Select the reference profile and inputs next, then map the phases to existing systems rather than creating a new installer framework. Published candidate wording is not full end-to-end acceptance.

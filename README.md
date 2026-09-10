@@ -11,6 +11,8 @@
 - **Architecture authority constitution:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Cryptographic authority profile:** [`CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md)
 - **Agent Computer reference profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
+- **Agent-driven setup:** [Golden Path](./AGENT_OS_GOLDEN_PATH.md) — candidate, not yet a verified installer
+- **Setup iteration tasks:** [ordered implementation list](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 
 ---
 
