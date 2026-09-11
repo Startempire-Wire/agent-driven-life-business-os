@@ -1,6 +1,6 @@
 # Golden Path — the interwoven doctrine (single iterable source)
 
-- Date: 2026-09-10 (iteration 8 — gap fill: Cloudflare DNS standard, CoS access list, spend/reconcile owners; open items recorded)
+- Date: 2026-09-10 (iteration 9 — machine placement, worker lifecycle mechanics, coverage-map reconciliation)
 - **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with the agent performing routine setup rather than directing the owner to operate the computer. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
 - **Locked invariants** (every revision derives from these):
   1. **Agent-operated setup.** The agent inspects, executes, verifies and recovers through existing tools. The owner supplies goals, business knowledge, consequential choices and required approvals—not routine command execution. Ask only when those inputs are genuinely needed; reuse answers and batch questions where practical.
@@ -50,7 +50,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Consent.** This stage *designs* the consent surface for the whole deployment: one batched owner moment per provider (Stage 1 providers including OpenAI device access/Pro billing, OpenCode Go/OpenRouter; gh/cf-wrangler device approvals; OVH; GitHub/Tailscale; Google/gog; the client's website/DNS access; voice samples; employee role batch; any AV/security exclusions). Batch known approvals to reduce interruptions; later discoveries may require a new consequential choice or approval. Do not require owner involvement for routine agent-executable work.
 
-**Check.** The engagement record answers: owner (verified, not assumed), machines in scope, accounts in scope, consents required (enumerated, with providers), and what must not be touched. A second agent reading it reaches the same conclusions. The record also names the **first useful CoS outcome** — the concrete, owner-visible result the build-out must produce first — and tallies designed owner moments per stage so the batch stays measurable.
+**Check.** The engagement record answers: owner (verified, not assumed), machines in scope, accounts in scope, consents required (enumerated, with providers), and what must not be touched. A second agent reading it reaches the same conclusions. The record also names the **first useful CoS outcome** — the concrete, owner-visible result the build-out must produce first (for example: one owner-approved correspondence drafted and sent, a recurring report produced, or the week's schedule published) — and tallies designed owner moments per stage so the batch stays measurable.
 
 **Exit.** Engagement record + consent surface exist and define the deployment's owner moments; later asks stay consequential-only.
 
@@ -115,7 +115,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 4 — Mesh + identity
 
-**Steps.** Create GitHub (if none — the CoS backup repo from Stage 2 may already have forced this); use GitHub to authenticate Tailscale; install Tailscale on all machines; connected machines allow agents to surf between.
+**Steps.** Create GitHub (if none — the CoS backup repo from Stage 2 may already have forced this); use GitHub to authenticate Tailscale; install Tailscale on all machines; connected machines allow agents to surf between. **Placement rule:** the CoS and its schedules run cloud-primary (after Stage 6); machine-local build agents serve the machines they sit on; when the primary workstation is off, cloud work continues and machine-local work waits or routes to another enrolled machine.
 
 **Owner mechanism.** GitHub account (renewable credentials only — device OAuth/SSH/app, never recovery codes); Tailscale OAuth via GitHub; Tailscale install per platform.
 
@@ -167,7 +167,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 7 — Operating plane
 
-**Steps.** OpenClaw as Chief of Staff (now cloud-primary from Stage 6); create the business owner voice profile for correspondence; create systems of common tasks; create crons for regular workflows; set up virtual employees through **CRIST role packets**: long-running employees get full packets (context, role, spec, tasks, permissions, tool allowances); short-term workers get lightweight worker-role packets spun up and retired per need. **Permissions and tool allowances are explicit per role** — Focusa grants plus provider tool surfaces (UIAI browser, gog scopes, rbw access classes, computer-use permissions). Type each piece of work by its shape: fixed schedule with deterministic steps → cron; recurring judgment or multi-system coordination → persistent employee; bounded one-off effort → temporary worker with expiry and cleanup; occasional steps a human simply runs → documented procedure, not automation. The audit decides; templates only accelerate.
+**Steps.** OpenClaw as Chief of Staff (now cloud-primary from Stage 6); create the business owner voice profile for correspondence; create systems of common tasks; create crons for regular workflows; set up virtual employees through **CRIST role packets**: long-running employees get full packets (context, role, spec, tasks, permissions, tool allowances); short-term workers get lightweight worker-role packets spun up and retired per need. **Permissions and tool allowances are explicit per role** — Focusa grants plus provider tool surfaces (UIAI browser, gog scopes, rbw access classes, computer-use permissions). Type each piece of work by its shape: fixed schedule with deterministic steps → cron; recurring judgment or multi-system coordination → persistent employee; bounded one-off effort → temporary worker with expiry and cleanup; occasional steps a human simply runs → documented procedure, not automation. The audit decides; templates only accelerate. **Mechanics:** a temporary worker's lightweight packet carries its bounded scope, expiry and cleanup duties — grants revoked, receipts archived, access removed at end of job; a persistent employee activates only after its packet is approved (batched), starts with limited scope, and rolls back by disabling its crons and revoking its grants — receipts preserved either way.
 
 **Owner mechanism.** OpenClaw chief-of-staff surface (administering from the cloud), **owner-facing web UI at the client's subdomain**; voice profile pipeline; task/employee provisioning per existing role/permission contracts. Local build agents (browser + computer use) remain the hands on client machines; the CoS delegates across the tailnet.
 
@@ -199,17 +199,17 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 |---|---|
 | 0 Identity/owner/profile | Stage 0 (engagement record, owner binding) |
 | 1 Scaffold/baseline | Stage 1 (workstation substrate) + Stage 2 (CoS genesis) |
-| 2 State ownership | Stage 5 + optimization loop (state map maintained there) |
-| 3 Derived/freshness | Stage 1 (agent-kb bootstrap) + tracking loop (freshness checks) |
+| 2 State ownership | Stage 2 (folder vs owned services) + Stage 3 (substrate) + Stage 5 (audit state) + Stage 6 (source vs private-state relocation) + optimization loop (state map maintained there) |
+| 3 Derived/freshness | Stage 1 (agent-kb bootstrap) + Stage 5 (audit findings carry timestamps) + tracking loop (freshness checks) |
 | 4 Identity/auth/tenancy | Stage 0 consent design + Stage 4 (mesh identity) + Stage 7 (employee principals) |
 | 5 Agent runtime/surfaces | Stage 1 (harnesses) + Stage 2 (CoS genesis, CRIST role) + Stage 6 (ascension) + Stage 7 (CRIST employee/worker roles) |
 | 6 Network/routes | Stage 4 (tailnet) + Stage 3/6 (private control plane) + Stage 6 (client-website subdomain via wrangler DNS control) |
 | 7 Discovery/documentation | Stage 1 (bootstrap) + Stage 5 (documentation + owner-knowledge interview corpus) + Stage 8 (documented deployment) |
-| 8 Agent surface | Stage 1 (UIAI browser parity + computer use) + Stage 2/6 (Svelte CoS UI at the client subdomain) + Stage 5 (gog) + per-stage checks as machine-readable checks |
-| 9 Observability/evidence/cost | Stage 3 (control plane) + Stage 7 (receipts) + tracking loop |
+| 8 Agent surface | Stage 1 (UIAI browser parity + computer use) + Stage 2/6 (Svelte CoS UI at the client subdomain) + Stage 5 (gog) + per-stage checks (acceptance descriptions until GP-06 binds them) |
+| 9 Observability/evidence/cost | Stage 0 (spend envelope) + Stage 3 (control plane) + Stage 7 (receipts) + Stage 8 (spend visibility/reconciliation) + tracking loop |
 | 10 Secrets/permissions/revocation | Stage 1 (Bitwarden/rbw + secrets consolidation) + Stage 0 (consent design) + Stage 7 (role grants, tool allowances) |
 | 11 Entitlements/licensing | Client-profile overlay (provider subscriptions; client licensing where applicable) — applied via Stage 0 consent design, not a separate stage |
-| 12 Tests/CI/deploy/rollback | Per-stage checks + Stage 2/6 (git-backed portability) + optimization loop's verification path |
+| 12 Tests/CI/deploy/rollback | Per-stage checks + Stage 2/6 (git-backed portability, staged cutover and DNS-transfer rollback) + optimization loop's verification path |
 | 13 Launch/acceptance/handoff | Stage 8 + replacement-agent test in GP-13 |
 
 ## Task ledger (execution tracking)
@@ -259,13 +259,15 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 - The optimization loop runs on the deployed system (heartbeats visible, scars feeding back, doctrine versioning advancing).
 - A replacement agent continues from durable references; no secrets or private client data in this doc.
 
-## Findings and evidence limits (iterations 5–8)
+## Findings and evidence limits (iterations 5–9)
+
+- Iteration 9 (2026-09-10): placement rule woven into Stage 4 (cloud CoS runs schedules; machine-local agents wait or reroute when a workstation is off); temporary-worker lifecycle and employee-activation rollback defined in Stage 7; Stage 0 first-outcome examples added; coverage map reconciled — state ownership now spans Stages 2/3/5/6, spend visibility joins row 9, and stage checks are labeled acceptance descriptions until GP-06 binds them. Remaining planning gap: absent-prerequisite variations (client without a website for the CoS subdomain; client without Google Workspace for gog).
 
 - Operator specifics woven, second pass (2026-09-10): the CoS ships as a **Svelte UI living at a subdomain of the client's website** (deployed at ascension via wrangler); **cf CLI/wrangler and gh CLI installed early** — device-approval flows when absent locally — giving build agents CLI access and **full DNS control**; **OpenAI device access + developer mode enabled early**; model strategy = **OpenAI Pro for premium work plus OpenCode Go and OpenRouter for cheaper-model lanes**.
 - Agent-centric pass (2026-09-10, iteration 7): invariant 1 reworded to agent-operated setup; 'everything in the browser' restated as a verified capability target; secret-entry requires verified environmental isolation; Stage 2 no longer assumes OpenClaw must run locally from the folder; relocation moves source through git and private state through its owning mechanisms; consent surface is primary but not exhaustive; audit schema seeded; Stage 8 defines the owner's week-one working test.
 - Scar provenance: observed scars come from operator-reported friction (AV/script blocking, missing terminal, missing Node, scattered secrets, missed verification windows); others (correspondence-style drift, cron heartbeats, per-role denials) are hypothesized defaults to validate in real runs — not claimed incidents.
 - Flesh-out pass (2026-09-10): Stage 0 names the first useful CoS outcome and tallies owner moments; Stage 2 defines the minimal workspace start and first capability; Stage 5 adds the core interview prompts; Stage 7 adds the cron/employee/worker/procedure decision rule. Interview prompts and examples are planning defaults — refined by real runs, never fixed exams. Version-stream metadata is consolidated in this document (the separate changelog entry for the planning stream was withdrawn) to keep this the single iterable record.
-- Gap-fill pass (2026-09-10, iteration 8): **Cloudflare is the DNS of choice** — agent tooling, non-negotiable; zones elsewhere (Porkbun precedent) transfer to Cloudflare during the build. **CoS UI access starts restricted** to the Canonical Owner Principal and the business's primary owner/operator. **Spend visibility and reconciliation belong to the same two people**, recorded through existing evidence surfaces. Open planning items for future iterations: multi-machine agent distribution (which machine runs what; primary workstation off), explicit rollback paths for employee activation and cutover, and coverage-map reconciliation against the 14-phase list.
+- Gap-fill pass (2026-09-10, iteration 8): **Cloudflare is the DNS of choice** — agent tooling, non-negotiable; zones elsewhere (Porkbun precedent) transfer to Cloudflare during the build. **CoS UI access starts restricted** to the Canonical Owner Principal and the business's primary owner/operator. **Spend visibility and reconciliation belong to the same two people**, recorded through existing evidence surfaces. Open planning item for future iterations: absent-prerequisite variations (client without a website to host the CoS subdomain; client without Google Workspace for gog).
 - 0.1.1 status corrected: it is superseded planning input — retained for lineage, not an active candidate.
 - Operator refinements woven (2026-09-10): dependencies and independent lanes are explicit without mandatory per-step tags; **secrets consolidation** added to Stage 1 (browser imports, old managers, sticky notes → one vault, rbw as the single retrieval surface); the audit gains an **owner-knowledge interview lane** for what no system shows (undocumented processes, schedules, tribal knowledge); **CRIST (Focusa Spec 135B)** integrated — CoS genesis runs the CRIST interview, long-running employees get full role packets, short-term workers get lightweight packets, permissions and tool allowances explicit per role.
 
