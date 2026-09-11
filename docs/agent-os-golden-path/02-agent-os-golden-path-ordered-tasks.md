@@ -1,6 +1,6 @@
 # Golden Path — the interwoven doctrine (single iterable source)
 
-- Date: 2026-09-10 (iteration 10 — mechanism split: deterministic vs probabilistic execution)
+- Date: 2026-09-10 (iteration 11 — deterministic library vehicle: proposed cross-platform client app)
 - **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with the agent performing routine setup rather than directing the owner to operate the computer. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
 - **Locked invariants** (every revision derives from these):
   1. **Agent-operated setup.** The agent inspects, executes, verifies and recovers through existing tools. The owner supplies goals, business knowledge, consequential choices and required approvals—not routine command execution. Ask only when those inputs are genuinely needed; reuse answers and batch questions where practical.
@@ -37,6 +37,8 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 **Dependencies and parallel work.** Start each action when its actual prerequisites are ready: GitHub access before remote backup, authorized mailbox access before email verification, and a working cloud runtime before cutover. Move prerequisite setup earlier when needed; stage numbers are not a rigid schedule. Independent per-machine preparation and interviews/documentation can overlap provider waits. Serialize conflicting account, DNS and state changes. On interruption, verify existing results and resume missing work through existing tracking/execution tools—no additional runner, mandatory S/P tagging or assumed universal check command.
 
 **Mechanism split (deterministic vs probabilistic).** Every step is classified before it runs. **Deterministic** steps get owning code — official installers, provider APIs, forms, scripts — executed idempotently with the agent as *supervisor*: run, read exit codes and checks, intervene only on failure. **Probabilistic** steps keep the agent's judgment in the loop — browser flows with no API, CAPTCHA/bot-checks, the CRIST interview, audit significance calls, role design, exception recovery — with owner moments batched around them. Deterministic parts are written once and reused across clients; the agent's scarce attention is reserved for the parts that actually need it. GP-06's binding pass makes this split explicit per step.
+
+**Proposed vehicle for the deterministic library (planning idea, not built).** A single cross-platform desktop app (Tauri — Windows/macOS) downloaded once per client, connecting to the cloud Agent Operator over a scoped, revocable per-client identity. It would package the deterministic steps as one signed, AV-friendly installer instead of script chains; render the owner moments as real forms (secret entry and approvals typed locally, values going directly to the vault or provider — the agent-driven-browser problem disappears); expose a typed command surface the Agent Computer invokes for deterministic work; and report receipts and heartbeats to the operator's existing surfaces. Conditions before it becomes the default: prove the plain-script path first (GP-06); code-signing/notarization cost accepted in the spend envelope; per-client scoped revocable tokens, least-privilege command surface, governed update channel; and it never becomes a second OS — it orchestrates existing owners (Bitwarden importers, official installers, Cloudflare API, Tailscale), never replaces them. *Scar guard: an unmanaged local endpoint with ambient access is the failure mode — the app is a governed endpoint, not an open remote agent.*
 
 ---
 
@@ -261,7 +263,9 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 - The optimization loop runs on the deployed system (heartbeats visible, scars feeding back, doctrine versioning advancing).
 - A replacement agent continues from durable references; no secrets or private client data in this doc.
 
-## Findings and evidence limits (iterations 5–10)
+## Findings and evidence limits (iterations 5–11)
+
+- Iteration 11 (2026-09-10): operator proposed a **Tauri-based Windows/macOS client app** as the vehicle for the deterministic library — one download, connects to the cloud Agent Operator, hosts owner-moment forms locally, exposes a typed command surface for the AC, reports receipts. Woven as a proposed vehicle with explicit conditions (script path proven first, signing cost in spend envelope, scoped revocable tokens, no second OS). Not a build authorization.
 
 - Iteration 10 (2026-09-10): **mechanism split** woven — deterministic steps (installs, provisioning, git, DNS via Cloudflare API, crons, checks, receipts) get owning idempotent code with the agent supervising; probabilistic steps (API-less browser flows, bot-checks/CAPTCHA, interview, audit judgment, role design, recovery) keep agent-in-the-loop with batched owner moments. GP-06's done-condition updated to produce that split as its binding output. This is the operator's mental model now encoded in the spine.
 
