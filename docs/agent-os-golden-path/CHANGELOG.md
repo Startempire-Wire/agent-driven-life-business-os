@@ -2,25 +2,6 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
-## 0.1.2-candidate — 2026-09-10 (planning stream, unreleased)
-
-### Changed
-
-- Agent-centric rewording: setup is agent-operated; the owner supplies goals, business knowledge, consequential choices and approvals — not command execution.
-- Consent surface is designed and batched at Stage 0 but no longer promises a fixed ask count; consequential discoveries may add asks.
-- Stage 2: the folder carries directives/soul/configuration; runtime memory and task state remain with owning services; the OpenClaw-local assumption is removed.
-- Ascension: source moves through git; private state moves through its owning backup/migration mechanisms.
-- Correspondence style derives from approved examples and feedback; audio samples optional.
-- Scar provenance marked: observed (operator-reported) vs hypothesized defaults pending real runs.
-
-### Reclassified
-
-- `0.1.1` is superseded planning input, retained for lineage; the ordered-tasks working document is the single iterable planning source toward 0.2.0.
-
-### Evidence scope
-
-Documentation iteration only: no installer, live reconciliation, customer rollout or end-to-end acceptance is claimed. GP-03 remains in progress; GP-04 onward are future work, not authorization to begin.
-
 ## 0.1.1-candidate — 2026-09-10
 
 ### Clarified
