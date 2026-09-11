@@ -1,6 +1,6 @@
 # Golden Path — the interwoven doctrine (single iterable source)
 
-- Date: 2026-09-10 (iteration 7 — agent-centric pass; scar provenance; 0.1.1 reclassified; flesh-out)
+- Date: 2026-09-10 (iteration 8 — gap fill: Cloudflare DNS standard, CoS access list, spend/reconcile owners; open items recorded)
 - **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with the agent performing routine setup rather than directing the owner to operate the computer. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
 - **Locked invariants** (every revision derives from these):
   1. **Agent-operated setup.** The agent inspects, executes, verifies and recovers through existing tools. The owner supplies goals, business knowledge, consequential choices and required approvals—not routine command execution. Ask only when those inputs are genuinely needed; reuse answers and batch questions where practical.
@@ -40,7 +40,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 0 — Engage: engagement, authority, consent design
 
-**Steps.** Open the engagement; establish the Canonical Owner Principal for this deployment (owner constitution, portable owner binding); agree the outcome, scope and data boundaries; enumerate the **consent surface** for this client; record what exists (machines, accounts, software) before touching anything.
+**Steps.** Open the engagement; establish the Canonical Owner Principal for this deployment (owner constitution, portable owner binding); agree the outcome, scope, data boundaries and the **spend envelope** — plans, subscriptions, hosting — with visibility and reconciliation owned by the Canonical Owner Principal and the business's primary owner/operator; enumerate the **consent surface** for this client; record what exists (machines, accounts, software) before touching anything.
 
 **Owner mechanism.** Owner constitution + `OWNER_AUTHORITY_CONSTITUTION.md` pattern; Focusa project identity for the engagement; existing audit/engagement docs.
 
@@ -56,7 +56,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 1 — Workstation substrate
 
-**Steps.** Install Pi; connect the **model strategy**: OpenAI Pro plan for premium work, with OpenCode Go and OpenRouter provisioned for cheaper-model lanes (OpenAI device access and developer mode enabled early); install **gh CLI and cf CLI/wrangler early** — via device-approval flows where the customer machine lacks them — giving build agents (local and server) CLI access and **full DNS control**; download Focusa; **download UIAI Engine early**; set up Bitwarden (shared vault); set up rbw for agent-side secret retrieval; **discover and consolidate the client's scattered secrets** into the vault (browser-saved passwords, old managers, sticky notes, whatever exists).
+**Steps.** Install Pi; connect the **model strategy**: OpenAI Pro plan for premium work, with OpenCode Go and OpenRouter provisioned for cheaper-model lanes (OpenAI device access and developer mode enabled early); install **gh CLI and cf CLI/wrangler early** — via device-approval flows where the customer machine lacks them — giving build agents (local and server) CLI access and **full DNS control** — **Cloudflare is the DNS of choice** (its agent tooling is the reason; non-negotiable), and when a client's DNS lives elsewhere (e.g., a prior client on Porkbun) the zone transfers to Cloudflare as part of the build; download Focusa; **download UIAI Engine early**; set up Bitwarden (shared vault); set up rbw for agent-side secret retrieval; **discover and consolidate the client's scattered secrets** into the vault (browser-saved passwords, old managers, sticky notes, whatever exists).
 
 **Why UIAI early (woven rationale).** UIAI Engine is added at substrate time, not later, because it is what gives the local build agents browser tools to do **everything in the browser a human can do** — and the agents also perform **computer use from Pi**. Together with Focusa governance, this is what makes ACITL real on the client machine: from Stage 1 onward, the agents — not the owner — are capable hands on the workstation.
 
@@ -149,17 +149,19 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Steps.** Move the **git-backed** CoS folder to the VPS; OpenClaw runs there; from the cloud it **administers the entire tailnet primarily** — employees, crons, workflows, machine agents. Deploy the **Svelte CoS UI** to a **subdomain of the client's website** (e.g. `cos.<client-domain>`) via wrangler — using the DNS control installed in Stage 1. The CoS now lives web-reachable at its own address: runtime on the VPS, UI on the client subdomain.
 
+**UI access (woven rule).** The CoS interface is never open-by-default. Access is initially restricted to the Canonical Owner Principal (Verious Smith III in the reference deployment) and the business's primary owner/operator; broader access is a later, explicit decision. The authentication mechanism rides the deployment's existing auth surfaces, chosen per deployment.
+
 **Why through git (woven rationale).** The Stage 2 design pays off here: ascension moves source through git (push from workstation / clone on VPS); runtime and private state use their owning transfer mechanisms. History, reviewability and rollback travel with the CoS; the local folder becomes a mirror/backup, no longer the admin point.
 
 **Owner mechanism.** Git remote (already in place from Stage 2); OpenClaw's canonical install/run path on the VPS; tailnet routing from Stage 4.
 
 **Law.** Phase 5 (runtime/execution surfaces: the CoS role continues across relocation; worker continuity preserved — a runtime move must not erase canonical continuity), Phase 6 (cloud-primary administration over the private tailnet; nothing public exposed), Phase 12 (delivery: the relocation is a deployment with verification, not a copy).
 
-**Scars.** Relocation by copy-paste loses git history and diverges state → default: move via git only; verify history intact after clone. Post-relocation limbo ("is it local or cloud now?") → default: one explicit cutover; the VPS is primary, the local folder is mirror/backup. *Client's website DNS not on Cloudflare* → default: migrate DNS or use an alternate route **only with owner consent**; never assume zone access. Check: CoS healthy on the VPS; `git log` intact; tailnet administration answers from the cloud; a test orchestration issued from the VPS reaches an enrolled machine.
+**Scars.** Relocation by copy-paste loses git history and diverges state → default: source moves via git; verify history intact after clone; private state moves through its owning mechanisms. Post-relocation limbo ("is it local or cloud now?") → default: one explicit cutover; the VPS is primary, the local folder is mirror/backup and remains the rollback until the cloud path proves itself. *Client's website DNS not on Cloudflare* → default: **transfer the zone to Cloudflare** — the standing choice, non-negotiable; the transfer is a consented, staged change with the old zone records preserved for rollback; never assume zone access before the transfer completes. Check: CoS healthy on the VPS; `git log` intact; tailnet administration answers from the cloud; a test orchestration issued from the VPS reaches an enrolled machine.
 
 **Consent.** None new — designed in Stage 0.
 
-**Check.** From the VPS, the CoS reaches every enrolled machine; from the workstation, the AC reaches the CoS. Cloud-primary administration is proven in both directions. The subdomain resolves from the public internet and the **Svelte CoS UI answers there**.
+**Check.** From the VPS, the CoS reaches every enrolled machine; from the workstation, the AC reaches the CoS. Cloud-primary administration is proven in both directions. The subdomain resolves from the public internet and the **Svelte CoS UI answers there**, with access authenticated and limited to the designed access list.
 
 **Exit.** OpenClaw administers the tailnet from the cloud primarily; the local genesis folder is a synced mirror.
 
@@ -181,7 +183,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 8 — Ongoing operation and handoff
 
-**Steps.** "This is just the beginning": hand off from build-out to life. Working means the owner's week-one reality: the agent operates the routine work, the owner approves and informs, and the first useful CoS outcome named in Stage 0 is delivered. Document the deployment; verify the replacement-agent test; establish the optimization loop (below) as the operating rhythm.
+**Steps.** "This is just the beginning": hand off from build-out to life. Working means the owner's week-one reality: the agent operates the routine work, the owner approves and informs, and the first useful CoS outcome named in Stage 0 is delivered. Spend (plans, subscriptions, hosting) stays visible to and reconciled by the Canonical Owner Principal and the business's primary owner/operator; the agent records costs in the deployment's existing evidence surfaces and flags variances — no separate billing dashboard. Document the deployment; verify the replacement-agent test; establish the optimization loop (below) as the operating rhythm.
 
 **Law.** Phase 13 (acceptance/handoff) and the replacement-agent test: a fresh agent orients from durable state — engagement record, Agent-KB, Focusa evidence, this doctrine's per-deployment record — not from the builder's memory.
 
@@ -257,12 +259,13 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 - The optimization loop runs on the deployed system (heartbeats visible, scars feeding back, doctrine versioning advancing).
 - A replacement agent continues from durable references; no secrets or private client data in this doc.
 
-## Findings and evidence limits (iterations 5–7)
+## Findings and evidence limits (iterations 5–8)
 
 - Operator specifics woven, second pass (2026-09-10): the CoS ships as a **Svelte UI living at a subdomain of the client's website** (deployed at ascension via wrangler); **cf CLI/wrangler and gh CLI installed early** — device-approval flows when absent locally — giving build agents CLI access and **full DNS control**; **OpenAI device access + developer mode enabled early**; model strategy = **OpenAI Pro for premium work plus OpenCode Go and OpenRouter for cheaper-model lanes**.
 - Agent-centric pass (2026-09-10, iteration 7): invariant 1 reworded to agent-operated setup; 'everything in the browser' restated as a verified capability target; secret-entry requires verified environmental isolation; Stage 2 no longer assumes OpenClaw must run locally from the folder; relocation moves source through git and private state through its owning mechanisms; consent surface is primary but not exhaustive; audit schema seeded; Stage 8 defines the owner's week-one working test.
 - Scar provenance: observed scars come from operator-reported friction (AV/script blocking, missing terminal, missing Node, scattered secrets, missed verification windows); others (correspondence-style drift, cron heartbeats, per-role denials) are hypothesized defaults to validate in real runs — not claimed incidents.
 - Flesh-out pass (2026-09-10): Stage 0 names the first useful CoS outcome and tallies owner moments; Stage 2 defines the minimal workspace start and first capability; Stage 5 adds the core interview prompts; Stage 7 adds the cron/employee/worker/procedure decision rule. Interview prompts and examples are planning defaults — refined by real runs, never fixed exams. Version-stream metadata is consolidated in this document (the separate changelog entry for the planning stream was withdrawn) to keep this the single iterable record.
+- Gap-fill pass (2026-09-10, iteration 8): **Cloudflare is the DNS of choice** — agent tooling, non-negotiable; zones elsewhere (Porkbun precedent) transfer to Cloudflare during the build. **CoS UI access starts restricted** to the Canonical Owner Principal and the business's primary owner/operator. **Spend visibility and reconciliation belong to the same two people**, recorded through existing evidence surfaces. Open planning items for future iterations: multi-machine agent distribution (which machine runs what; primary workstation off), explicit rollback paths for employee activation and cutover, and coverage-map reconciliation against the 14-phase list.
 - 0.1.1 status corrected: it is superseded planning input — retained for lineage, not an active candidate.
 - Operator refinements woven (2026-09-10): dependencies and independent lanes are explicit without mandatory per-step tags; **secrets consolidation** added to Stage 1 (browser imports, old managers, sticky notes → one vault, rbw as the single retrieval surface); the audit gains an **owner-knowledge interview lane** for what no system shows (undocumented processes, schedules, tribal knowledge); **CRIST (Focusa Spec 135B)** integrated — CoS genesis runs the CRIST interview, long-running employees get full role packets, short-term workers get lightweight packets, permissions and tool allowances explicit per role.
 
