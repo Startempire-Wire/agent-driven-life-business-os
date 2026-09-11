@@ -1,6 +1,6 @@
 # Golden Path — the interwoven doctrine (single iterable source)
 
-- Date: 2026-09-10 (iteration 9 — machine placement, worker lifecycle mechanics, coverage-map reconciliation)
+- Date: 2026-09-10 (iteration 10 — mechanism split: deterministic vs probabilistic execution)
 - **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with the agent performing routine setup rather than directing the owner to operate the computer. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
 - **Locked invariants** (every revision derives from these):
   1. **Agent-operated setup.** The agent inspects, executes, verifies and recovers through existing tools. The owner supplies goals, business knowledge, consequential choices and required approvals—not routine command execution. Ask only when those inputs are genuinely needed; reuse answers and batch questions where practical.
@@ -35,6 +35,8 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 ```
 
 **Dependencies and parallel work.** Start each action when its actual prerequisites are ready: GitHub access before remote backup, authorized mailbox access before email verification, and a working cloud runtime before cutover. Move prerequisite setup earlier when needed; stage numbers are not a rigid schedule. Independent per-machine preparation and interviews/documentation can overlap provider waits. Serialize conflicting account, DNS and state changes. On interruption, verify existing results and resume missing work through existing tracking/execution tools—no additional runner, mandatory S/P tagging or assumed universal check command.
+
+**Mechanism split (deterministic vs probabilistic).** Every step is classified before it runs. **Deterministic** steps get owning code — official installers, provider APIs, forms, scripts — executed idempotently with the agent as *supervisor*: run, read exit codes and checks, intervene only on failure. **Probabilistic** steps keep the agent's judgment in the loop — browser flows with no API, CAPTCHA/bot-checks, the CRIST interview, audit significance calls, role design, exception recovery — with owner moments batched around them. Deterministic parts are written once and reused across clients; the agent's scarce attention is reserved for the parts that actually need it. GP-06's binding pass makes this split explicit per step.
 
 ---
 
@@ -223,7 +225,7 @@ One ordered ledger; task IDs are reused when work enters the existing task/CallG
 | GP-03 | in_progress | GP-02 | This woven doctrine: stages 0–8 carry law/scars/consent/checks. Done when the operator's process, dependencies and open specifics are reviewed as a coherent planning draft. Exact live bindings remain GP-06 work, not a prerequisite for GP-03. |
 | GP-04 | planned | GP-03 | Live estate reconciliation through approved read-only routes; configured/reachable/usable-by-agent/verified classified with evidence; consent-surface inventory validated against Stage 0's design. |
 | GP-05 | planned | GP-04 | State-ownership map: every material store has canonical owner, scope, freshness, backup, recovery; no synchronization store. |
-| GP-06 | planned | GP-05 | Every spine step bound to real existing commands/APIs — including git-backed CoS genesis/ascension bindings and ACITL bindings (which steps the AC executes; which are AC-driven-owner-typed; where grants live). No invented commands. |
+| GP-06 | planned | GP-05 | Every spine step classified **deterministic** (bound to an owning script/API/form — idempotent, agent-supervised) or **probabilistic** (bound to ACITL judgment and batched owner moments), then bound to real existing commands/APIs — including git-backed CoS genesis/ascension bindings and ACITL bindings (which steps the AC executes; which are AC-driven-owner-typed; where grants live). No invented commands. |
 | GP-07 | planned | GP-06 | Design reviewed against normal/partial/denied/interrupted runs; zero-human-turns test applied per step; smallest unresolved implementation backlog produced. |
 | GP-08 | planned | GP-07 | First highest-leverage slice selected from observed gaps (prefer restoring an existing capability). Owning repo, surfaces, authority, acceptance, rollback recorded. |
 | GP-09 | planned | GP-08 | Slice implemented/tested in its owning subsystem; deployed only to its approved proving destination; positive/denial/retry/failure behaviors proven. |
@@ -259,7 +261,9 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 - The optimization loop runs on the deployed system (heartbeats visible, scars feeding back, doctrine versioning advancing).
 - A replacement agent continues from durable references; no secrets or private client data in this doc.
 
-## Findings and evidence limits (iterations 5–9)
+## Findings and evidence limits (iterations 5–10)
+
+- Iteration 10 (2026-09-10): **mechanism split** woven — deterministic steps (installs, provisioning, git, DNS via Cloudflare API, crons, checks, receipts) get owning idempotent code with the agent supervising; probabilistic steps (API-less browser flows, bot-checks/CAPTCHA, interview, audit judgment, role design, recovery) keep agent-in-the-loop with batched owner moments. GP-06's done-condition updated to produce that split as its binding output. This is the operator's mental model now encoded in the spine.
 
 - Iteration 9 (2026-09-10): placement rule woven into Stage 4 (cloud CoS runs schedules; machine-local agents wait or reroute when a workstation is off); temporary-worker lifecycle and employee-activation rollback defined in Stage 7; Stage 0 first-outcome examples added; coverage map reconciled — state ownership now spans Stages 2/3/5/6, spend visibility joins row 9, and stage checks are labeled acceptance descriptions until GP-06 binds them. Remaining planning gap: absent-prerequisite variations (client without a website for the CoS subdomain; client without Google Workspace for gog).
 
