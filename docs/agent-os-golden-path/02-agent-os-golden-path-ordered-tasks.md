@@ -1,81 +1,88 @@
-# Golden Path — ordered implementation and iteration tasks
+# Golden Path — iterable working doc (essence, spine, scars, tasks)
 
-- Date: 2026-09-10
-- Goal: an authorized replacement agent can set up, adopt, repair and operate our Life & Business OS end to end, without the original builder's memory.
-- Starting point: upstream `3658ecc` and the [server handoff](SERVER_AGENT_HANDOFF.md).
-- Current candidate: [0.1.1](0.1.1.md), incorporating the unchanged [0.1.0 phase definitions](0.1.0.md).
-- Current acceptance: documentation review only; no installer, customer rollout or full-system acceptance is claimed.
+- Date: 2026-09-10 (iteration 2)
+- Locked essence: an end-to-end instruction set that lets an agent **fully execute** a ground-up build-out of the Human Life & Business Agent OS on **current brownfield workstations** — with **zero human turns** during setup.
+- Loop paradigm: **ACITL — Agent Computer In The Loop.** The Agent Computer (Veragensia, with remote access) is the loop's hands; the owner is the **grantor**, not the courier. (Operator-originated paradigm, 2026-09-10.)
+- Source spine: the operator's **proven as-built client deployment sequence** (below), not an abstract phase model.
+- Method adopted from the starter: its **essence only** — pre-made decisions (defaults), paid-for failures (scars), embedded proof (checks), dependency-true order. Its stack, phases, and public-app specifics are not copied. Verbatim reference: `https://burcs.dev/starter.md`.
+- Published lineage: [0.1.0](0.1.0.md) phases remain the coverage scaffold; [0.1.1](0.1.1.md) clarifications stand. Working iteration targets **0.2.0** built from the spine + live reconciliation.
+- Current acceptance: iteration/documentation only. No installer, customer rollout, or end-to-end acceptance is claimed.
 
-## One task list, not another control plane
+## One working doc, not another control plane
 
-This is the single ordered project-local list for this assignment. Initial inspection found no project-local Beads database and no open upstream issues representing it. Do not use the parent directory's task database. Reuse these IDs when admitting executable work to the existing task/CallGraph system; link that record here rather than maintaining a second execution ledger. Runtime receipts remain with their canonical owners.
+This is the single iterable project-local artifact for the Golden Path work. Reuse task IDs when admitting executable work to existing task/CallGraph systems; link records here. No second execution ledger. `ready` means dependencies satisfied, not permission to mutate infrastructure — operational changes still resolve their own authority, capability, acceptance and rollback.
 
-`ready` means dependencies are satisfied, not permission to mutate infrastructure. The current requested pass is draft iteration and planning. Operational changes need their exact repository/environment, capability, acceptance and rollback resolved before execution. An upstream suggestion is not an installation, credential, purchase or production-deployment grant.
+## Locked design decisions (inputs to every revision)
+
+1. **Zero human turns bar.** A step passes when a fresh agent, holding granted credentials, executes it without asking. Anything failing the test either gets an authorized automation path or is classified irreducible-human — exact, batched, minimal.
+2. **ACITL.** The Agent Computer replaces the human courier. The owner consents once per surface; the AC drives the screens. Secret-entry moments are **AC-driven, owner-typed**: the AC opens the form remotely, the owner types the secret once, and the agent never sees or stores it. Authority origin stays with the owner; nonrenewable assets stay owner-only.
+3. **Brownfield-first.** The path starts on the client's existing computer, audits what is present, and builds out. It never assumes a clean machine, never imports another deployment's private state, and distinguishes pre-existing from newly created resources.
+4. **Starter essence, not starter content.** Every spine step carries: defaults (decisions already made), scars (real failures with fixes), one embedded check (proves done, not "typed"), and dependency-true ordering. Phase numbering is coverage, never permission or schedule.
+5. **Reuse-first.** Existing installers/CLIs own every step (Pi, Focusa lifecycle, UIAI, rbw, gog, GitHub/Tailscale auth flows, OpenClaw, provisioning). The Golden Path names which mechanism owns which step; it does not replace them.
+
+## The as-built spine (source: operator's client deployments)
+
+The proven manual sequence, restated as the spine with step classes:
+
+| Stage | Steps (operator's sequence) | Class |
+|---|---|---|
+| 1. Workstation substrate | Install Pi; connect OpenAI subscription or OpenRouter; download Focusa; download UIAI Engine; set up Bitwarden (shared vault); set up rbw (agent-side secret retrieval) | Mixed: installs = AC-with-grant; provider account/billing consent = owner-typed once; Bitwarden master pw = AC-driven, owner-typed |
+| 2. Remote control plane | OVH VPS account; respond to verification emails; browser login to VPS | AC-with-grant after one consent (email access, credentials); billing/verification screens = one owner moment |
+| 3. Mesh + identity | GitHub (create if none); GitHub authenticates Tailscale; Tailscale on all machines; connected machines let agents surf between | AC-with-grant (GitHub/Tailscale auth via granted renewable routes); machine installs = AC on managed machines, owner-assisted on machines the AC cannot reach |
+| 4. Knowledge + audit | Document all; gog CLI across G Suite for audits | AC-with-grant (gog OAuth consent once) |
+| 5. Operating plane | OpenClaw on VPS as Chief of Staff; full business audit to categorize the business; create business owner voice profile (correspondence); create systems of common tasks; create crons for regular workflows; set up virtual employees with role-based toolsets and permissions | AC-executed with granted tools; voice profile needs owner-supplied samples = one owner moment |
+| 6. Ongoing operation | "This is just the beginning" — the path hands off to operation, not to a finish line | Handoff contract; replacement agent continues from durable state |
+
+The consent surface is the enumerated set of owner moments above — the target is a few named moments per provider, not scattered asks. Any step still requiring the human as courier is unexercised automation to be built, not a permanent gate.
+
+## Scar ledger (paid-for failures — standing iteration input)
+
+Operator-fed deployment scars. Each becomes: observed failure → default → check → consent boundary. Exclusions/security changes are grant moments, never silent.
+
+| Scar (Windows brownfield) | Default | Check |
+|---|---|---|
+| Antivirus / script blocking kills installers, npm lifecycle scripts, downloaded scripts | Signed official installers only; no silent exclusions | Installer completes; signed binary runs; script executes where authorized |
+| No proper terminal | Windows Terminal + PowerShell 7; WSL-vs-native decided once, not per machine | Terminal opens; agent harness runs in it |
+| No node/npm | Official Node installer; PATH set | `node -v` and `npm -v` succeed in the agent's shell |
+| UAC/elevation prompts scattered | Batch into one elevation moment | Count elevation prompts per deployment = 1 |
+| PowerShell execution policy / Defender ASR blocks agent scripts | Per-script unblock; blanket policy change needs owner consent | Agent's authorized scripts execute; unrelated scripts stay blocked |
+
+Feeding rule: the operator feeds scars as found; each is encoded once here, then referenced by spine steps. Nothing enters the portable repo that names a private client.
 
 ## Ordered tasks
 
 | ID | Status | Depends on | Task and done-condition |
 |---|---|---|---|
-| GP-01 | done | — | Pull upstream without overwriting local work; read the candidate, root guide and handoff; locate an existing task owner. Evidence: clean fast-forward to `3658ecc`; four new docs; no matching open issues or project-local task database. |
-| GP-02 | done | GP-01 | Compare the starter method; publish this list and the first clarification candidate with explicit limits. Done means lineage preserved, links checked and review findings recorded—not deployed behavior. |
-| GP-03 | ready | GP-02 | Establish the exact reference-owner setup profile and input/acceptance matrix. Inspect canonical owner, Agent Computer and provisioning contracts; distinguish new setup, existing adoption, repair and upgrade. List required inputs, their source, validation, permissible defaults and irreducible human actions. Resolve conflicting instructions and source/mirror drift without overwriting concurrent policy changes. |
-| GP-04 | planned | GP-03 | Reconcile the live estate through approved read-only routes. For each subsystem record source-stated, implemented, configured, reachable, usable by the intended agent, and behaviorally verified separately, with scoped evidence/freshness. Consult existing Wirebot access/operability work before creating any replacement tasks. Private deployment details stay in Agent-KB/runtime evidence. |
-| GP-05 | planned | GP-04 | Map material state ownership: domain, scope, canonical owner, writers/readers, store role, consistency, freshness, backup and recovery. Reuse the handoff taxonomy. Every ambiguity has a named resolution owner; do not introduce a synchronization database. |
-| GP-06 | planned | GP-05 | Bind all fourteen phases to actual existing operations, inputs, dependencies, checks, failure handling and recovery. Every applicable phase has a verified binding or an explicit gap; no invented command names. Resolve first-install/bootstrap prerequisites without circular dependency on an uninstalled control plane. |
-| GP-07 | planned | GP-06 | Review the executable design against normal, partial, denied and interrupted runs. Reuse the existing task/CallGraph executor and validate its dependency graph. Confirm no second capability registry, task store, universal installer or memory layer is needed. Produce the smallest unresolved implementation backlog. |
-| GP-08 | planned | GP-07 | Select the first highest-leverage slice from observed gaps. Prefer restoration/reuse of an existing capability over a new aggregate dashboard. Record owning repo, exact changed surfaces, execution/deployment authority, consumer acceptance and material rollback. Do not preselect a new manifest or service merely because the handoff mentions one. |
-| GP-09 | planned | GP-08 | Implement and test that slice in the owning subsystem, then deploy only to its approved proving destination. Demonstrate positive authorized operation, relevant denial behavior, retry safety and observable failure. A source commit alone leaves this task open. |
-| GP-10 | planned | GP-09 | Run a bounded reference-owner end-to-end workflow through the actual Chief-of-Staff/worker tool path. Demonstrate a useful user-visible result plus the underlying scoped receipt. Shell reachability or direct administrator access is insufficient proof of agent usability. Publish the first evidence-grounded milestone version (normally `0.2.0`) with its limited scope; do not wait for every profile. |
-| GP-11 | planned | GP-10 | Prove reproducibility: authorized fresh setup, adoption of partial state, unchanged rerun, interruption/restart and rollback/forward repair. Verify no duplicate resources, private-state import or hidden manual repair; exercise backup restoration where material. |
-| GP-12 | planned | GP-11 | Repeat the relevant path in an explicitly authorized isolated client profile with synthetic principals. Verify authorized functionality AND cross-tenant denial, independent owner binding, revocation and no sovereign fallback. No real customer mutation solely to obtain proof. |
-| GP-13 | planned | GP-12 | Have a replacement agent run from documented entry points and durable state without original-session memory. Reconcile every acceptance row, unresolved gap and consumer evidence reference. Publish the next appropriate version and an honest handoff; do not promote unknown/blocked rows to complete. |
+| GP-01 | done | — | Pull upstream docs; read candidate, root guide, handoff; locate task owner. Evidence: fast-forward to `3658ecc`; four docs; no duplicate ledger. |
+| GP-02 | done | GP-01 | Compare starter method; publish iteration list and first clarification; record findings. Done = lineage preserved, links checked. |
+| GP-03 | ready | GP-02 | Distill the **as-built spine** (above) into the essential spine draft: per step — class, owning mechanism, granted authority, check, scar references, irreducible-human moments. Replace the abstract profile-matrix framing. Reference-owner profile becomes a sub-case of the same spine. |
+| GP-04 | planned | GP-03 | Reconcile the live estate through approved read-only routes; classify configured/reachable/usable-by-agent/verified separately with evidence; inventory **consent surfaces** (every current human moment and its grant path). Reuse existing audit work. |
+| GP-05 | planned | GP-04 | Map material state ownership: domain, scope, canonical owner, writers/readers, store role, consistency, freshness, backup, recovery. No synchronization store. |
+| GP-06 | planned | GP-05 | Bind all fourteen phases and every spine step to actual existing operations — including **ACITL bindings**: which steps the AC executes, which are AC-driven-owner-typed, where grants come from. No invented command names. |
+| GP-07 | planned | GP-06 | Review the executable design against normal, partial, denied and interrupted runs; apply the zero-human-turns test per step; reuse the existing task/CallGraph executor. Produce the smallest unresolved implementation backlog. |
+| GP-08 | planned | GP-07 | Select the first highest-leverage slice from observed gaps; prefer restoring/reusing an existing capability over new aggregates. Record owning repo, changed surfaces, execution authority, consumer acceptance, rollback. |
+| GP-09 | planned | GP-08 | Implement and test that slice in its owning subsystem; deploy only to its approved proving destination. Positive path, denial behavior, retry safety, observable failure. Source commit alone leaves this open. |
+| GP-10 | planned | GP-09 | Run a bounded end-to-end workflow through the actual Chief-of-Staff/worker path, including an **ACITL moment** (agent computer executes a consented action remotely). Prove user-visible result + scoped receipt. |
+| GP-11 | planned | GP-10 | Prove reproducibility on brownfield: fresh build-out, adoption of partial state, unchanged rerun, interruption/restart, rollback. No duplicate resources; no private-state import; pre-existing resources preserved. |
+| GP-12 | planned | GP-11 | Repeat in an explicitly authorized isolated client profile with synthetic principals: authorized function AND cross-tenant denial; consent surface batched as designed; secrets never transit agent storage. |
+| GP-13 | planned | GP-12 | Replacement agent runs from documented entry points and durable state; reconcile acceptance rows; publish the reality-grounded next version (normally `0.2.0`) and honest handoff. |
 
-The order is dependency-driven. Independent inspection may run in parallel after scope is established; completing an unrelated easy row must not displace a ready acceptance-critical action. New findings amend this list rather than spawn parallel plans.
+## Completion criteria
 
-## GP-03/06 implementation-map starting points
+- Every spine step: explicit class, existing execution binding, embedded check; no undocumented manual prerequisite.
+- Consent surface enumerated and batched; secret-entry moments are AC-driven-owner-typed; agent never holds owner secrets.
+- Defaults, scars and checks present per step; scars encoded once and reused.
+- Fresh, partial, rerun, interrupted and recovery paths behave as specified on brownfield machines.
+- Authorized function and unauthorized-scope denial both proven; no sovereign fallback.
+- No secrets or private client data in this doc; receipts attributable.
+- A replacement agent continues from durable references, not session memory.
 
-These are source-stated candidate owners to inspect, **not claims of installed capability or final execution order**. The actual bindings and private endpoints belong in their owning operational references.
+## Findings and evidence limits (iteration 2)
 
-| Phase | Candidate owning surface(s) | Required binding/proof before acceptance |
-|---|---|---|
-| 0 Identity/profile | Owner constitution; existing deployment identity and Focusa project identity | Correct owner, deployment, profile, scope and action grant; no inferred tenant identity. |
-| 1 Baseline | Existing provisioning and Agent Computer lifecycle | Inspect-before-create; exact source/state/config owners; clean and partial setup behavior. |
-| 2 State | Agent-KB, Focusa, Context Core, memory, business systems and provisioning owners | One owner per fact class/scope, with reader/writer and recovery map. |
-| 3 Freshness | Each canonical writer and its consumers | Changed state becomes visible within its documented tolerance; unknown is not empty. |
-| 4 Identity/session | Existing gateway, login, tenant and credential authorities | Intended principal works; foreign/unknown principal fails; revocation works. |
-| 5 Agent execution | Wirebot/OpenClaw; Focusa; worker harness; UIAI/Veragensia | Actual registered tools, bounded real action and restart/worker-replacement continuity. |
-| 6 Routing | Existing private networking, edge and service owners | Correct backend from the agent's network position; private controls remain private. |
-| 7 Knowledge | Agent-KB and subsystem documentation | Fresh authenticated orientation; explicit degraded recovery and instruction refresh. |
-| 8 Discovery | Existing Focusa, UIAI, CLI/API/MCP catalogs | Discover schema and invoke the narrowest authorized operation without guessing. |
-| 9 Evidence/cost | Existing Focusa/UIAI/WINS and service observability | Request through user-visible result, attributable cost and durable receipt. |
-| 10 Controls | Credential authority, secret injection and budget owners | Renewable authorization, scoped exposure, cancellation/limits and revocation before dependent action. |
-| 11 Entitlement | Existing licensing and commercial provisioning | Installed-system licenses resolved; commercial lifecycle only where the selected profile requires it. |
-| 12 Delivery | Owning subsystem's canonical release/install/repair mechanism | Known installed revision, consumer compatibility, bounded rollout and recovery. |
-| 13 Acceptance | Intended human surface plus replacement agent | Useful outcome, repeatability, evidence and maintainable handoff—not just green components. |
+- Locked 2026-09-10: essence = end-to-end agent-executed ground-up build-out, zero human turns; ACITL replaces Human-In-The-Loop; brownfield-first; starter essence adopted (defaults/scars/checks/order), stack not imported.
+- Source spine: operator's as-built client sequence (this doc, stages 1–6). Treat as the 0.2.0 content source, alongside live reconciliation.
+- Tooling defects found while working (filed, not doctrine blockers): UIAI browser result delivery broken (uiai-engine #224), `wb --format json doctor` JSON banner (wirebot-core #31), `fetch_content` signal error (wirebot-core #32), stale session fingerprint (focusa #599), `focusa_decide` over-validation (#600), Focus State frame unavailable (#601).
+- Starter verbatim markdown retrieved from `https://burcs.dev/starter.md` after the UIAI delivery defect (fallback per AGENTS §10.4); saved at `/tmp/burcs-starter-verbatim.md`.
+- No live reconciliation, installer, customer rollout or end-to-end acceptance has occurred. GP-04 onward remains open.
 
-Reference-specific invariants: KnownHost remains the current reference Focusa authority; remote compute/display must not create another reference writer. Client installations resolve their own owner and authority. Full owner capability and member isolation are complementary tests, not excuses for blanket restrictions. Client replication follows demonstrated reference-owner usefulness.
-
-## Iteration protocol
-
-For each pass: identify the dominant open requirement → inspect its owning source → propose the smallest correction → review against actual behavior → update the candidate and this list → proceed to the next ready item. Record assumptions and source limits at the affected claim. Ask only for choices that materially affect owner authority, scope, consent, cost, data safety or destination.
-
-Preserve superseded snapshots. A clarification-only candidate is not the handoff's promised implementation milestone. Do not label the draft "perfect": use these completion criteria instead:
-
-- Every applicable phase has explicit inputs, dependencies, an existing execution binding and a consumer check; no undocumented manual prerequisite.
-- Optional phases have a profile-backed reason; missing mandatory capabilities are blocked/unknown, never silently skipped.
-- Fresh, partial, rerun, interrupted and recovery paths behave as specified.
-- Both authorized functionality and unauthorized-scope denial are proven.
-- No secret/customer payload is exported; receipts and resource costs are attributable.
-- One real owner workflow works through the intended agent and human surfaces.
-- A replacement agent can reproduce and maintain the result from durable references.
-- Unresolved mandatory requirements prevent acceptance; optional limitations are explicit.
-
-## First review findings and evidence limits
-
-- `0.1.0` already has valuable phase purposes/checks/recovery guidance, but portable implementation directions are not executable bindings.
-- Phase numbering can mislead a literal executor into treating auth, secrets, budgets and observability as late additions. The clarification makes them prerequisites of dependent actions.
-- The source starter is app/Cloudflare-specific. Reuse its explicit checks and gotchas, not its purchases, stack, public CORS, telemetry or alert thresholds for private systems.
-- Existing instruction-loader work demonstrates why updated files, refreshed context and usable native tools require separate verification. The current source/mirror revision mismatch needs reconciliation in GP-03, not an automatic overwrite.
-- No live all-system inventory, customer setup or end-to-end acceptance was performed in this documentation pass. GP-04 onward remains open.
-
-Sources: [starter reference](https://burcs.dev/starter), fetched 2026-09-10; [0.1.0](0.1.0.md); [server handoff](SERVER_AGENT_HANDOFF.md); [foundational contract](../../AGENTS.md); [Agent Computer profile](../../AGENT_COMPUTER_REFERENCE_PROFILE.md). Detailed runtime evidence remains in the existing scoped evidence/knowledge surfaces.
+Sources: operator as-built process and scars (2026-09-10); [0.1.0](0.1.0.md); [0.1.1](0.1.1.md); [server handoff](SERVER_AGENT_HANDOFF.md); starter verbatim reference.
