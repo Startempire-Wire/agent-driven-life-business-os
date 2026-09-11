@@ -1,10 +1,10 @@
 # Golden Path — the interwoven doctrine (single iterable source)
 
-- Date: 2026-09-10 (iteration 3 — woven, not appended)
+- Date: 2026-09-10 (iteration 4 — Chief-of-Staff genesis and cloud ascension woven into the spine)
 - **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with zero human turns during setup. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
 - **Locked invariants** (every revision derives from these):
   1. **Zero human turns.** A step passes when a fresh agent, holding granted credentials, executes it without asking. Failures get an authorized automation path or are classified as an owner moment — exact, batched, minimal.
-  2. **ACITL.** The Agent Computer (Veragensia, remote access) is the loop's hands. The owner is the grantor. Secret entry is AC-driven, owner-typed: the AC opens the form, the owner types once, the agent never sees or stores the secret.
+  2. **ACITL with its execution model.** The Agent Computer (Veragensia, remote access) is the loop's hands; the owner is the grantor. The hands themselves are concrete: **OpenClaw (Chief of Staff) orchestrates the build-out, using Focusa for governed work and UIAI Engine plus local build agents as hands to navigate the web, log in to websites, and fully build out the system.** UIAI is added early precisely so build agents can do *everything in the browser a human can do*; agents also perform computer use from Pi. Secret entry is AC-driven, owner-typed: the AC opens the form, the owner types once, the agent never sees or stores the secret.
   3. **Brownfield-first.** Start on the client's existing computer; audit what exists; build out. Never assume a clean machine; distinguish pre-existing from newly created resources.
   4. **Starter essence.** Defaults are pre-made decisions; scars are paid-for failures attached to the step that pays them; every step has one embedded check; order is dependency-true. Phase numbering is coverage, never schedule.
   5. **Reuse-first.** Existing mechanisms own every step (Pi, Focusa lifecycle, UIAI, rbw, gog, GitHub/Tailscale auth, OpenClaw, provisioning). This doctrine names owners; it never replaces them.
@@ -16,13 +16,15 @@
 Everything is staged on the **spine** — the operator's proven deployment sequence. Each stage weaves together, in one place: what happens (steps + step class), which existing mechanism owns it, what law applies (phase invariants), what scars it pays (with defaults/checks), what owner moments it contains (consent design), and what proves it (stage check). The 14-phase scaffold is a coverage index at the end — proving nothing was dropped — not a second structure. Tasks, optimization, and tracking close the loop.
 
 ```text
-Stage 0  Engage — engagement, access, owner consent design
-Stage 1  Workstation substrate
-Stage 2  Remote control plane
-Stage 3  Mesh + identity
-Stage 4  Knowledge + audit
-Stage 5  Operating plane
-Stage 6  Ongoing operation (handoff)
+Stage 0  Engage — engagement, authority, consent design
+Stage 1  Workstation substrate — Pi, model provider, Focusa, UIAI Engine early (browser + computer use), secrets
+Stage 2  Chief of Staff genesis — local desktop folder, git-backed from day one
+Stage 3  Cloud landing — OVH VPS account, verification, login (substrate ready, no CoS yet)
+Stage 4  Mesh + identity — GitHub, Tailscale on all machines, agents surf between
+Stage 5  Knowledge + audit — document all, gog across G Suite, business categorization
+Stage 6  Chief of Staff ascends — relocate the git-backed folder to the VPS; cloud-primary administration
+Stage 7  Operating plane — voice profile, systems of common tasks, crons, virtual employees
+Stage 8  Ongoing operation and handoff
 → Coverage map (14 phases) → Task ledger → Optimization & tracking loop
 ```
 
@@ -44,19 +46,21 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Scars.** Client machines carry prior admin accounts, stale AV, and unknown software; assuming a clean machine produces duplicate installs and broken personalization. Default: audit before install, always; record pre-existing state and reuse it.
 
-**Consent.** This stage *designs* the consent surface for the whole deployment: one batched owner moment per provider (below), plus any client-specific exclusions. The count of owner moments is fixed here — later stages may not invent new asks.
+**Consent.** This stage *designs* the consent surface for the whole deployment: one batched owner moment per provider (Stage 1 providers; OVH; GitHub/Tailscale; Google/gog; voice samples; employee role batch; any AV/security exclusions). The count of owner moments is fixed here — later stages may not invent new asks.
 
-**Check.** The engagement record answers: owner (verified, not assumed), machines in scope, accounts in scope, consents required (enumerated, with their providers), and what must not be touched. A second agent reading it reaches the same conclusions.
+**Check.** The engagement record answers: owner (verified, not assumed), machines in scope, accounts in scope, consents required (enumerated, with providers), and what must not be touched. A second agent reading it reaches the same conclusions.
 
 **Exit.** Engagement record + consent surface exist and are the only owner moments for the whole build-out.
 
 # Stage 1 — Workstation substrate
 
-**Steps.** Install Pi; connect the model provider (OpenAI subscription or OpenRouter); download Focusa; download UIAI Engine; set up Bitwarden (shared vault); set up rbw for agent-side secret retrieval.
+**Steps.** Install Pi; connect the model provider (OpenAI subscription or OpenRouter); download Focusa; **download UIAI Engine early**; set up Bitwarden (shared vault); set up rbw for agent-side secret retrieval.
 
-**Owner mechanism.** Pi installer; provider signup; Focusa install lifecycle (`focusa` installer/update path); UIAI install; Bitwarden app + rbw CLI. Each installs through its own official route — this doctrine sequences and checks them, never forks them.
+**Why UIAI early (woven rationale).** UIAI Engine is added at substrate time, not later, because it is what gives the local build agents browser tools to do **everything in the browser a human can do** — and the agents also perform **computer use from Pi**. Together with Focusa governance, this is what makes ACITL real on the client machine: from Stage 1 onward, the agents — not the owner — are capable hands on the workstation.
 
-**Law.** Phase 1 (scaffold: inspect first, idempotent, discoverable locations), Phase 3 (freshness: `agent-kb bootstrap` establishes knowledge freshness from the start), Phase 7 (discovery: agent orients from documented entry points, not tribal memory), Phase 10 (secrets: Bitwarden holds secrets; rbw retrieves exact approved fields; nothing secret in config).
+**Owner mechanism.** Pi installer; provider signup; Focusa install lifecycle; UIAI install; Bitwarden app + rbw CLI. Each installs through its own official route — this doctrine sequences and checks them, never forks them.
+
+**Law.** Phase 1 (scaffold: inspect first, idempotent, discoverable locations), Phase 3 (freshness: `agent-kb bootstrap` establishes knowledge freshness from the start), Phase 5 (execution surfaces: browser and computer actuation under the same authority/evidence rules), Phase 7 (discovery: agent orients from documented entry points), Phase 10 (secrets: Bitwarden holds secrets; rbw retrieves exact approved fields; nothing secret in config).
 
 **Scars (Windows brownfield).**
 - *AV/script blocking kills installers, npm lifecycle scripts, downloaded scripts* → signed official installers only; no silent exclusions. Check: installer completes; signed binary runs.
@@ -67,47 +71,65 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Consent.** Provider account/billing (OpenAI/OpenRouter) = one owner-typed moment through an AC-opened browser. Bitwarden master password = AC-driven, owner-typed, never seen by the agent. AV exclusions, if any = owner consent item with named scope.
 
-**Check.** From a cold shell, the agent runs: Pi answers a model round-trip; `focusa` status is healthy; UIAI health responds; `rbw` retrieves an exact approved field (value never printed); `agent-kb bootstrap` returns fresh knowledge state.
+**Check.** From a cold shell, the agent runs: Pi answers a model round-trip; `focusa` status is healthy; UIAI health responds; **a build agent performs one real browser action and one computer-use action a human would otherwise do**; `rbw` retrieves an exact approved field (value never printed); `agent-kb bootstrap` returns fresh knowledge state.
 
-**Exit.** Workstation substrate is agent-operable: the AC on this machine can run the harness, retrieve renewable secrets, and reach the knowledge plane — with the owner's typed moments already spent.
+**Exit.** Workstation substrate is agent-operable: the AC on this machine can run the harness, drive the browser and computer, retrieve renewable secrets, and reach the knowledge plane — with the owner's typed moments already spent.
 
-# Stage 2 — Remote control plane
+# Stage 2 — Chief of Staff genesis (local, git-backed)
 
-**Steps.** Create the OVH VPS account; respond to verification emails; log in via browser to the VPS; install OpenClaw on the VPS as Chief of Staff.
+**Steps.** Create the Chief of Staff as a **desktop folder**; `git init` and back it up to GitHub from day one; initialize OpenClaw locally; the CoS working state — directives, soul, memory/config, task state — lives in this folder and nowhere else yet.
 
-**Owner mechanism.** OVH provisioning; email verification via the client's consented mailbox (gog, Stage 4 — dependency: consent ordered before it is needed); OpenClaw install per its canonical path on the VPS.
+**Why git-backed first (woven rationale).** The folder is **portable by design**: it relocates to the VPS in Stage 6. Version control from day one means the CoS's identity and state survive machine loss, are reviewable, and move without loss. The genesis folder *is* the Chief of Staff until ascension.
 
-**Law.** Phase 2 (state ownership: VPS runtime is *coordination/execution*, not canonical truth), Phase 5 (agent runtime: CoS role explicit; worker isolation), Phase 6 (routes: private control plane stays private), Phase 10 (renewable-only authentication for automated access; verification emails are owner-consented automation, not recovery codes).
+**Owner mechanism.** Plain git + the owner's GitHub account (renewable routes only); OpenClaw initialization per its canonical path.
 
-**Scars.** Verification emails missed/expired mid-flow → default: the AC monitors the consented mailbox and completes verifications within their window. Check: VPS reachable, verified, logged in without further owner action. Kernel/OS defaults on fresh VPS lack the agent's toolchain → default: provision through the deployment's documented provisioning path, not ad-hoc apt historics. Check: `wb` (or the deployment's CLI) healthy on the VPS.
+**Law.** Phase 2 (state ownership: this folder is the CoS's canonical state until ascension — after which git history remains its provenance), Phase 12 (version control is part of the delivery path from the start, not an afterthought), Phase 10 (no secrets inside the folder — references only).
+
+**Scars.** Local-only CoS state lost on machine failure or a rushed relocation done by copy-paste → default: git remote backup from day one; relocation later goes *through git*, never by copying folders. Check: the repo pushes and a fresh clone on a second machine boots the same CoS state — the clone test *is* the portability check.
+
+**Consent.** GitHub repository creation under the owner's account = one owner moment (Stage 0 surface).
+
+**Check.** The CoS answers an orchestration round-trip locally (via Focusa governance + build agents); the folder is committed and pushed; the remote is in sync.
+
+**Exit.** The Chief of Staff runs locally, its state is version-controlled and portable, and its remote is current.
+
+# Stage 3 — Cloud landing (control-plane substrate)
+
+**Steps.** Create the OVH VPS account; respond to verification emails; log in via browser to the VPS. The VPS is **landed here, not yet hosting the CoS** — it becomes the relocation target (Stage 6).
+
+**Owner mechanism.** OVH provisioning; email verification via the client's consented mailbox (gog, Stage 5 — dependency: consent ordered before it is needed).
+
+**Law.** Phase 2 (state ownership: the VPS is execution/coordination substrate, not canonical truth), Phase 6 (routes: private control plane stays private), Phase 10 (renewable-only authentication for automated access; verification emails are owner-consented automation, not recovery codes).
+
+**Scars.** Verification emails missed/expired mid-flow → default: the AC monitors the consented mailbox and completes verifications within their window. Check: VPS reachable, verified, logged in without further owner action. Fresh VPS lacks the agent toolchain → default: provision through the deployment's documented provisioning path, not ad-hoc package archaeology. Check: the deployment's CLI is healthy on the VPS.
 
 **Consent.** VPS account creation/billing + mailbox consent = owner moments (designed in Stage 0). Everything after them is AC-executed.
 
-**Check.** From the workstation, the AC: SSHes to the VPS on granted credentials, confirms OpenClaw healthy, and confirms the control plane answers only on the private route.
+**Check.** From the workstation, the AC: SSHes to the VPS on granted credentials and confirms the substrate is ready to receive the CoS.
 
-**Exit.** Chief of Staff runs on the VPS; the workstation agent reaches it over the private route; zero owner turns after the designed moments.
+**Exit.** The control-plane substrate is landed, verified, and waiting — zero owner turns after the designed moments.
 
-# Stage 3 — Mesh + identity
+# Stage 4 — Mesh + identity
 
-**Steps.** Create GitHub (if none); use GitHub to authenticate Tailscale; install Tailscale on all machines; connected machines allow agents to surf between.
+**Steps.** Create GitHub (if none — the CoS backup repo from Stage 2 may already have forced this); use GitHub to authenticate Tailscale; install Tailscale on all machines; connected machines allow agents to surf between.
 
 **Owner mechanism.** GitHub account (renewable credentials only — device OAuth/SSH/app, never recovery codes); Tailscale OAuth via GitHub; Tailscale install per platform.
 
 **Law.** Phase 4 (identity: machine identity is not authority; each machine joins under the deployment's tailnet, named explicitly), Phase 6 (routing: the tailnet is the private control plane; nothing private is exposed publicly for convenience), Phase 10 (renewable ladder).
 
-**Scars.** GitHub MFA prompts mid-flow halt automation → default: device OAuth / approved renewable routes only; MFA consent batched into the owner moment. Machines that missed tailnet join "look online" but are unreachable → default: verify from both sides. Check: `tailscale status` agrees on every machine; agent can reach the VPS over the tailnet and cannot reach unenrolled machines.
+**Scars.** GitHub MFA prompts mid-flow halt automation → default: device OAuth / approved renewable routes only; MFA consent batched into the owner moment. Machines that missed tailnet join "look online" but are unreachable → default: verify from both sides. Check: `tailscale status` agrees on every machine; agents reach the VPS over the tailnet and cannot reach unenrolled machines.
 
-**Consent.** GitHub account creation/auth + Tailscale approval = owner moments (Stage 0 surface).
+**Consent.** GitHub account auth + Tailscale approval = owner moments (Stage 0 surface).
 
 **Check.** The AC demonstrates: workstation → VPS over tailnet; second enrolled machine reachable; unenrolled host unreachable. Mesh surfacing proven in both directions.
 
 **Exit.** All in-scope machines enrolled; agents move between them under granted identity; no public exposure of private services.
 
-# Stage 4 — Knowledge + audit
+# Stage 5 — Knowledge + audit
 
 **Steps.** Document all; set up gog CLI across the G Suite products; run the full business audit to categorize the business.
 
-**Owner mechanism.** Agent-KB/bootstrap + Focusa evidence for documentation; gog CLI with Google OAuth consent.
+**Owner mechanism.** Agent-KB/bootstrap + Focusa evidence for documentation; gog CLI with Google OAuth consent. The local CoS (Stage 2) orchestrates; build agents (browser via UIAI, computer use via Pi) execute the reading and documentation.
 
 **Law.** Phase 7 (discovery/documentation: docs derive from canonical sources; runtime facts carry freshness), Phase 9 (evidence: the audit produces attributable findings, not anecdotes), Phase 3 (freshness: audit results carry timestamps and re-derive from canonical sources).
 
@@ -115,27 +137,45 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Consent.** Google OAuth consent = one owner moment (Stage 0 surface). The audit itself is agent-executed.
 
-**Check.** The AC produces the categorization (business details, systems of common tasks candidates, communication surfaces, recurring workflows) with source handles — and the operator can see the same categorization in a durable artifact (Agent-KB/Wiki record), not just in chat.
+**Check.** The CoS produces the categorization (business details, systems-of-common-tasks candidates, communication surfaces, recurring workflows) with source handles — and the operator can see the same categorization in a durable artifact (Agent-KB/Wiki record), not just in chat.
 
 **Exit.** Business categorization exists as durable, attributable knowledge; gog operates under granted scopes.
 
-# Stage 5 — Operating plane
+# Stage 6 — Chief of Staff ascends (relocate to the cloud)
 
-**Steps.** OpenClaw as Chief of Staff (from Stage 2); create the business owner voice profile for correspondence; create systems of common tasks; create crons for regular workflows; set up virtual employees with role-based toolsets and permissions.
+**Steps.** Move the **git-backed** CoS folder to the VPS; OpenClaw runs there; from the cloud it **administers the entire tailnet primarily** — employees, crons, workflows, machine agents.
 
-**Owner mechanism.** OpenClaw chief-of-staff surface; voice profile pipeline; task/employee provisioning per existing role/permission contracts.
+**Why through git (woven rationale).** The Stage 2 design pays off here: ascension is a `git` operation (push from workstation / clone on VPS), never a folder copy. History, reviewability and rollback travel with the CoS; the local folder becomes a mirror/backup, no longer the admin point.
+
+**Owner mechanism.** Git remote (already in place from Stage 2); OpenClaw's canonical install/run path on the VPS; tailnet routing from Stage 4.
+
+**Law.** Phase 5 (runtime/execution surfaces: the CoS role continues across relocation; worker continuity preserved — a runtime move must not erase canonical continuity), Phase 6 (cloud-primary administration over the private tailnet; nothing public exposed), Phase 12 (delivery: the relocation is a deployment with verification, not a copy).
+
+**Scars.** Relocation by copy-paste loses git history and diverges state → default: move via git only; verify history intact after clone. Post-relocation limbo ("is it local or cloud now?") → default: one explicit cutover; the VPS is primary, the local folder is mirror/backup. Check: CoS healthy on the VPS; `git log` intact; tailnet administration answers from the cloud; a test orchestration issued from the VPS reaches an enrolled machine.
+
+**Consent.** None new — designed in Stage 0.
+
+**Check.** From the VPS, the CoS reaches every enrolled machine; from the workstation, the AC reaches the CoS. Cloud-primary administration is proven in both directions.
+
+**Exit.** OpenClaw administers the tailnet from the cloud primarily; the local genesis folder is a synced mirror.
+
+# Stage 7 — Operating plane
+
+**Steps.** OpenClaw as Chief of Staff (now cloud-primary from Stage 6); create the business owner voice profile for correspondence; create systems of common tasks; create crons for regular workflows; set up virtual employees with role-based toolsets and permissions.
+
+**Owner mechanism.** OpenClaw chief-of-staff surface (administering from the cloud); voice profile pipeline; task/employee provisioning per existing role/permission contracts. Local build agents (browser + computer use) remain the hands on client machines; the CoS delegates across the tailnet.
 
 **Law.** Phase 5 (runtime/execution surfaces: role-based employees, exact scopes, no sovereign fallback), Phase 4 (each virtual employee is an explicit principal with scoped grants), Phase 9 (evidence: crons and employees leave receipts), Phase 11 (entitlements only where the client profile has them), Phase 12 (delivery: changes to employees/crons land through the deployment's own release path).
 
 **Scars.** Voice profile trained on wrong sample quality → default: owner records the consented sample once, pipeline validates before use. Crons silently dying → default: every cron writes a heartbeat/receipt; missing heartbeats surface as alerts, not silence. Employees with ambient tool access → default: per-role toolsets and permissions enumerated at creation; least privilege. Check each: voice round-trip verified; cron heartbeat visible; employee executes its one representative action and cannot act outside its scope.
 
-**Consent.** Voice samples = one owner moment. Employee role definitions = agent-proposed, owner-approved once as a batch (this is a design decision, not a repetitive ask).
+**Consent.** Voice samples = one owner moment. Employee role definitions = agent-proposed, owner-approved once as a batch (a design decision, not a repetitive ask).
 
-**Check.** One representative recurring workflow runs end-to-end: cron fires → employee executes through granted tools → receipt lands → owner-visible result. The denial test: the employee cannot act outside its role.
+**Check.** One representative recurring workflow runs end-to-end: cron fires (cloud) → CoS delegates to an employee → employee executes through granted tools on the target machine → receipt lands → owner-visible result. The denial test: the employee cannot act outside its role.
 
-**Exit.** The operating plane runs the first real workflows with evidence, under scoped roles.
+**Exit.** The operating plane runs the first real workflows with evidence, under scoped roles, administered from the cloud.
 
-# Stage 6 — Ongoing operation and handoff
+# Stage 8 — Ongoing operation and handoff
 
 **Steps.** "This is just the beginning": hand off from build-out to life. Document the deployment; verify the replacement-agent test; establish the optimization loop (below) as the operating rhythm.
 
@@ -152,19 +192,19 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 | 0.1.0 phase | Carried by |
 |---|---|
 | 0 Identity/owner/profile | Stage 0 (engagement record, owner binding) |
-| 1 Scaffold/baseline | Stage 1 (workstation substrate) |
-| 2 State ownership | Stage 4 + optimization loop (state map maintained there) |
+| 1 Scaffold/baseline | Stage 1 (workstation substrate) + Stage 2 (CoS genesis) |
+| 2 State ownership | Stage 5 + optimization loop (state map maintained there) |
 | 3 Derived/freshness | Stage 1 (agent-kb bootstrap) + tracking loop (freshness checks) |
-| 4 Identity/auth/tenancy | Stage 0 consent design + Stage 3 (mesh identity) + Stage 5 (employee principals) |
-| 5 Agent runtime/surfaces | Stage 1 (harnesses) + Stage 2 (OpenClaw) + Stage 5 (employees) |
-| 6 Network/routes | Stage 3 (tailnet) + Stage 2 (private control plane) |
-| 7 Discovery/documentation | Stage 1 (bootstrap) + Stage 6 (documented deployment) |
-| 8 Agent surface | Stage 1 (UIAI) + Stage 4 (gog) + per-stage checks as machine-readable checks |
-| 9 Observability/evidence/cost | Stage 2 (control plane) + Stage 5 (receipts) + tracking loop |
-| 10 Secrets/permissions/revocation | Stage 1 (Bitwarden/rbw) + Stage 0 (consent design) + Stage 5 (role grants) |
+| 4 Identity/auth/tenancy | Stage 0 consent design + Stage 4 (mesh identity) + Stage 7 (employee principals) |
+| 5 Agent runtime/surfaces | Stage 1 (harnesses) + Stage 2 (CoS genesis) + Stage 6 (ascension) + Stage 7 (employees) |
+| 6 Network/routes | Stage 4 (tailnet) + Stage 3/6 (private control plane) |
+| 7 Discovery/documentation | Stage 1 (bootstrap) + Stage 5 (documentation) + Stage 8 (documented deployment) |
+| 8 Agent surface | Stage 1 (UIAI browser parity + computer use) + Stage 5 (gog) + per-stage checks as machine-readable checks |
+| 9 Observability/evidence/cost | Stage 3 (control plane) + Stage 7 (receipts) + tracking loop |
+| 10 Secrets/permissions/revocation | Stage 1 (Bitwarden/rbw) + Stage 0 (consent design) + Stage 7 (role grants) |
 | 11 Entitlements/licensing | Client-profile overlay (provider subscriptions; client licensing where applicable) — applied via Stage 0 consent design, not a separate stage |
-| 12 Tests/CI/deploy/rollback | Per-stage checks + optimization loop's verification path |
-| 13 Launch/acceptance/handoff | Stage 6 + replacement-agent test in GP-13 |
+| 12 Tests/CI/deploy/rollback | Per-stage checks + Stage 2/6 (git-backed portability) + optimization loop's verification path |
+| 13 Launch/acceptance/handoff | Stage 8 + replacement-agent test in GP-13 |
 
 ## Task ledger (execution tracking)
 
@@ -174,15 +214,15 @@ One ordered ledger; task IDs are reused when work enters the existing task/CallG
 |---|---|---|---|
 | GP-01 | done | — | Upstream docs pulled/read; lineage `3658ecc`; no duplicate ledger. |
 | GP-02 | done | GP-01 | Starter essence compared; first clarification published; findings recorded. |
-| GP-03 | in_progress | GP-02 | This woven doctrine: stages carry law/scars/consent/checks. Done when stages 0–6 above are each bound to real mechanisms in GP-06's pass and scars stop being append-only. |
+| GP-03 | in_progress | GP-02 | This woven doctrine: stages 0–8 carry law/scars/consent/checks. Done when each stage is bound to real mechanisms in GP-06's pass. |
 | GP-04 | planned | GP-03 | Live estate reconciliation through approved read-only routes; configured/reachable/usable-by-agent/verified classified with evidence; consent-surface inventory validated against Stage 0's design. |
 | GP-05 | planned | GP-04 | State-ownership map: every material store has canonical owner, scope, freshness, backup, recovery; no synchronization store. |
-| GP-06 | planned | GP-05 | Every spine step bound to real existing commands/APIs including ACITL bindings (which steps the AC executes; which are AC-driven-owner-typed; where grants live). No invented commands. |
+| GP-06 | planned | GP-05 | Every spine step bound to real existing commands/APIs — including git-backed CoS genesis/ascension bindings and ACITL bindings (which steps the AC executes; which are AC-driven-owner-typed; where grants live). No invented commands. |
 | GP-07 | planned | GP-06 | Design reviewed against normal/partial/denied/interrupted runs; zero-human-turns test applied per step; smallest unresolved implementation backlog produced. |
 | GP-08 | planned | GP-07 | First highest-leverage slice selected from observed gaps (prefer restoring an existing capability). Owning repo, surfaces, authority, acceptance, rollback recorded. |
 | GP-09 | planned | GP-08 | Slice implemented/tested in its owning subsystem; deployed only to its approved proving destination; positive/denial/retry/failure behaviors proven. |
 | GP-10 | planned | GP-09 | Bounded end-to-end workflow through the real CoS/worker path including an ACITL consent moment; user-visible result + scoped receipt proven. |
-| GP-11 | planned | GP-10 | Brownfield reproducibility: fresh build-out, partial adoption, rerun, interruption, rollback — no duplicates, no private-state import. |
+| GP-11 | planned | GP-10 | Brownfield reproducibility: fresh build-out, partial adoption, rerun, interruption, rollback — including the Stage 2→6 git-backed relocation path; no duplicates, no private-state import. |
 | GP-12 | planned | GP-11 | Isolated client profile with synthetic principals: function AND cross-tenant denial; consent surface batched as designed; secrets never transit agent storage. |
 | GP-13 | planned | GP-12 | Replacement agent orients and continues from durable state; acceptance rows reconciled; **0.2.0 published from evidence**; honest handoff. |
 
@@ -205,14 +245,15 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 
 - Every spine step: class, owning mechanism, law, scars, consent design, embedded check, exit — no undocumented manual prerequisite.
 - Consent surface fixed at Stage 0; secret-entry is AC-driven-owner-typed; the agent never holds owner secrets; nonrenewable assets untouched.
+- CoS state is git-backed from day one; ascension preserves history; cloud-primary tailnet administration is verified.
 - Fresh/partial/rerun/interrupted/recovery paths behave as specified on real brownfield machines.
 - Function AND denial proven; no sovereign fallback; receipts attributable.
 - The optimization loop runs on the deployed system (heartbeats visible, scars feeding back, doctrine versioning advancing).
 - A replacement agent continues from durable references; no secrets or private client data in this doc.
 
-## Findings and evidence limits (iteration 3)
+## Findings and evidence limits (iteration 4)
 
-- Operator directive (2026-09-10): all content must be **properly interwoven, not appended**; end state = a fully documented working process and system, continually optimizable and tracked. This iteration restructured the doc onto the spine accordingly.
+- Operator key facts woven in (2026-09-10): the Chief of Staff **starts as a desktop folder backed by git**, then **moves to the VPS later**, where OpenClaw **administers the entire tailnet from the cloud primarily**; OpenClaw uses Focusa and UIAI Engine plus local build agents to navigate the web, log in to websites, and fully build out the system; UIAI Engine is added **early** to give local build agents tools to do everything in the browser a human can do; agents also do **computer use from Pi**. The spine now carries CoS genesis (Stage 2) and ascension (Stage 6) as first-class stages.
 - Locked invariants unchanged: zero human turns, ACITL, brownfield-first, starter essence (defaults/scars/checks/order), reuse-first.
 - Still documentation-iteration only: no installer, live reconciliation, customer rollout, or end-to-end acceptance has occurred. GP-04 onward open.
 - Tooling defects filed this week (not doctrine blockers): uiai-engine #224 (browser delivery), wirebot-core #31/#32, focusa #599/#600/#601.
