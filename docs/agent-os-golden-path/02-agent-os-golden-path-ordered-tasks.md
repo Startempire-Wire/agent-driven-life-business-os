@@ -1,10 +1,10 @@
 # Golden Path — the interwoven doctrine (single iterable source)
 
-- Date: 2026-09-10 (iteration 6 — Svelte CoS web surface, CLI/DNS control, model strategy)
-- **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with zero human turns during setup. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
+- Date: 2026-09-10 (iteration 7 — agent-centric pass; scar provenance; 0.1.1 reclassified)
+- **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with the agent performing routine setup rather than directing the owner to operate the computer. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
 - **Locked invariants** (every revision derives from these):
-  1. **Zero human turns.** A step passes when a fresh agent, holding granted credentials, executes it without asking. Failures get an authorized automation path or are classified as an owner moment — exact, batched, minimal.
-  2. **ACITL with its execution model.** The Agent Computer (Veragensia, remote access) is the loop's hands; the owner is the grantor. The hands themselves are concrete: **OpenClaw (Chief of Staff) orchestrates the build-out, using Focusa for governed work and UIAI Engine plus local build agents as hands to navigate the web, log in to websites, and fully build out the system.** UIAI is added early precisely so build agents can do *everything in the browser a human can do*; agents also perform computer use from Pi. Secret entry is AC-driven, owner-typed: the AC opens the form, the owner types once, the agent never sees or stores the secret.
+  1. **Agent-operated setup.** The agent inspects, executes, verifies and recovers through existing tools. The owner supplies goals, business knowledge, consequential choices and required approvals—not routine command execution. Ask only when those inputs are genuinely needed; reuse answers and batch questions where practical.
+  2. **ACITL with its execution model.** The Agent Computer (Veragensia, remote access) is the loop's hands; the owner is the grantor. The hands themselves are concrete: **OpenClaw (Chief of Staff) orchestrates the build-out, using Focusa for governed work and UIAI Engine plus local build agents as hands to navigate the web, log in to websites, and fully build out the system.** UIAI is added early so build agents approach *everything in the browser a human can do*, verified capability by capability; agents also perform computer use from Pi. Secret entry is AC-driven, owner-typed: the AC opens the form, the owner types once; entry stays secret-safe only where the environment is verified to isolate it from DOM inspection, recordings and screenshots.
   3. **Brownfield-first.** Start on the client's existing computer; audit what exists; build out. Never assume a clean machine; distinguish pre-existing from newly created resources.
   4. **Starter essence.** Defaults are pre-made decisions; scars are paid-for failures attached to the step that pays them; every step has one embedded check; order is dependency-true. Phase numbering is coverage, never schedule.
   5. **Reuse-first.** Existing mechanisms own every step (Pi, Focusa lifecycle, UIAI, rbw, gog, GitHub/Tailscale auth, OpenClaw, provisioning). This doctrine names owners; it never replaces them.
@@ -34,7 +34,7 @@ Per-stage anatomy (identical shape every stage):
 STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 ```
 
-**Dependency model (woven, not flat).** Every step carries a dependency tag: **S** (serial — later steps depend on it) or **P** (parallel-ready — safe to run while the S-path waits). The doctrine's standing lanes: mesh enrollment runs per machine; while verification emails or DNS wait, knowledge/documentation work proceeds; workstation substrate installs are independent of cloud landing and mesh work. The resumable-checkpoint idea from the optimization pass rides on this: one command runs all stage checks and reports the current frontier, so an interrupted build-out resumes from the last green check.
+**Dependencies and parallel work.** Start each action when its actual prerequisites are ready: GitHub access before remote backup, authorized mailbox access before email verification, and a working cloud runtime before cutover. Move prerequisite setup earlier when needed; stage numbers are not a rigid schedule. Independent per-machine preparation and interviews/documentation can overlap provider waits. Serialize conflicting account, DNS and state changes. On interruption, verify existing results and resume missing work through existing tracking/execution tools—no additional runner, mandatory S/P tagging or assumed universal check command.
 
 ---
 
@@ -48,19 +48,19 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Scars.** Client machines carry prior admin accounts, stale AV, and unknown software; assuming a clean machine produces duplicate installs and broken personalization. Default: audit before install, always; record pre-existing state and reuse it.
 
-**Consent.** This stage *designs* the consent surface for the whole deployment: one batched owner moment per provider (Stage 1 providers including OpenAI device access/Pro billing, OpenCode/OpenRouter; gh/cf-wrangler device approvals; OVH; GitHub/Tailscale; Google/gog; the client's website/DNS access; voice samples; employee role batch; any AV/security exclusions). The count of owner moments is fixed here — later stages may not invent new asks.
+**Consent.** This stage *designs* the consent surface for the whole deployment: one batched owner moment per provider (Stage 1 providers including OpenAI device access/Pro billing, OpenCode Go/OpenRouter; gh/cf-wrangler device approvals; OVH; GitHub/Tailscale; Google/gog; the client's website/DNS access; voice samples; employee role batch; any AV/security exclusions). Batch known approvals to reduce interruptions; later discoveries may require a new consequential choice or approval. Do not require owner involvement for routine agent-executable work.
 
 **Check.** The engagement record answers: owner (verified, not assumed), machines in scope, accounts in scope, consents required (enumerated, with providers), and what must not be touched. A second agent reading it reaches the same conclusions.
 
-**Exit.** Engagement record + consent surface exist and are the only owner moments for the whole build-out.
+**Exit.** Engagement record + consent surface exist and define the deployment's owner moments; later asks stay consequential-only.
 
 # Stage 1 — Workstation substrate
 
-**Steps.** Install Pi; connect the **model strategy**: OpenAI Pro plan for premium work, with OpenCode and OpenRouter provisioned for cheaper-model lanes (OpenAI device access and developer mode enabled early); install **gh CLI and cf CLI/wrangler early** — via device-approval flows where the customer machine lacks them — giving build agents (local and server) CLI access and **full DNS control**; download Focusa; **download UIAI Engine early**; set up Bitwarden (shared vault); set up rbw for agent-side secret retrieval; **discover and consolidate the client's scattered secrets** into the vault (browser-saved passwords, old managers, sticky notes, whatever exists).
+**Steps.** Install Pi; connect the **model strategy**: OpenAI Pro plan for premium work, with OpenCode Go and OpenRouter provisioned for cheaper-model lanes (OpenAI device access and developer mode enabled early); install **gh CLI and cf CLI/wrangler early** — via device-approval flows where the customer machine lacks them — giving build agents (local and server) CLI access and **full DNS control**; download Focusa; **download UIAI Engine early**; set up Bitwarden (shared vault); set up rbw for agent-side secret retrieval; **discover and consolidate the client's scattered secrets** into the vault (browser-saved passwords, old managers, sticky notes, whatever exists).
 
 **Why UIAI early (woven rationale).** UIAI Engine is added at substrate time, not later, because it is what gives the local build agents browser tools to do **everything in the browser a human can do** — and the agents also perform **computer use from Pi**. Together with Focusa governance, this is what makes ACITL real on the client machine: from Stage 1 onward, the agents — not the owner — are capable hands on the workstation.
 
-**Owner mechanism.** Pi installer; provider signup (OpenAI/OpenCode/OpenRouter); gh CLI and cf CLI/wrangler device-approval installs; Focusa install lifecycle; UIAI install; Bitwarden app + rbw CLI. Each installs through its own official route — this doctrine sequences and checks them, never forks them.
+**Owner mechanism.** Pi installer; provider signup (OpenAI/OpenCode Go/OpenRouter); gh CLI and cf CLI/wrangler device-approval installs; Focusa install lifecycle; UIAI install; Bitwarden app + rbw CLI. Each installs through its own official route — this doctrine sequences and checks them, never forks them.
 
 **Law.** Phase 1 (scaffold: inspect first, idempotent, discoverable locations), Phase 3 (freshness: `agent-kb bootstrap` establishes knowledge freshness from the start), Phase 5 (execution surfaces: browser and computer actuation under the same authority/evidence rules), Phase 7 (discovery: agent orients from documented entry points), Phase 10 (secrets: Bitwarden holds secrets; rbw retrieves exact approved fields; nothing secret in config).
 
@@ -73,23 +73,23 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 - *Secrets scattered in multiple places* — browser saves, old password managers, sticky notes and other odd storage → default: Bitwarden importers for browser/manager sources; non-digital sources are owner-typed in one batched session; consolidate and dedupe; **rbw becomes the single retrieval surface** afterward. Check: `rbw` retrieves a secret that previously lived only in the browser or on paper; browser stores are no longer the sole source.
 - *Customer machine lacks gh/cf/wrangler, and auth prompts hang mid-flow* → default: install both CLIs early via **device-approval flows**, batched into the consent sitting; never interactive-password flows. Check: `gh auth status` and `wrangler whoami` succeed from the local agent shell.
 
-**Consent.** OpenAI device access + developer mode + Pro billing = owner moments; OpenCode/OpenRouter accounts = owner moments; gh/wrangler device approvals = batched device-flow moments. Provider account/billing (OpenAI/OpenRouter) = one owner-typed moment through an AC-opened browser. Bitwarden master password = AC-driven, owner-typed, never seen by the agent. Non-digital secrets (sticky notes, physical) = owner-typed batch at consolidation. AV exclusions, if any = owner consent item with named scope.
+**Consent.** OpenAI device access + developer mode + Pro billing = owner moments; OpenCode Go/OpenRouter accounts = owner moments; gh/wrangler device approvals = batched device-flow moments. Provider account/billing (OpenAI/OpenRouter) = one owner-typed moment through an AC-opened browser. Bitwarden master password = AC-driven, owner-typed, never seen by the agent. Non-digital secrets (sticky notes, physical) = owner-typed batch at consolidation. AV exclusions, if any = owner consent item with named scope.
 
 **Check.** From a cold shell, the agent runs: Pi answers a model round-trip; `focusa` status is healthy; UIAI health responds; **a build agent performs one real browser action and one computer-use action a human would otherwise do**; `gh auth status` and `wrangler whoami` succeed from the local shell; `rbw` retrieves an exact approved field **including one consolidated from the client's scattered sources** (value never printed); `agent-kb bootstrap` returns fresh knowledge state.
 
-**Exit.** Workstation substrate is agent-operable and **secret-consolidated**: the AC on this machine can run the harness, drive the browser and computer, retrieve renewable secrets through the single rbw surface, and reach the knowledge plane — with the owner's typed moments already spent.
+**Exit.** Workstation substrate is agent-operable and **secret-consolidated**: the AC on this machine can run the harness, drive the browser and computer, retrieve renewable secrets through the approved retrieval surface, and reach the knowledge plane — with the owner's typed moments already spent.
 
 # Stage 2 — Chief of Staff genesis (local, git-backed)
 
-**Steps.** Create the Chief of Staff as a **desktop folder**; `git init` and back it up to GitHub from day one; initialize OpenClaw locally; **run the CRIST project-genesis interview (Focusa Spec 135B)** so the CoS exists as an approved agent role — context ingested from source-linked material, role composed, spec and tasks derived — with the interview corpus persisted for continuous growth. The CoS working state — directives, soul, memory/config, task state — lives in this folder and nowhere else yet. The folder also carries the **Svelte CoS web UI** — the interface through which the CoS will live at a subdomain of the client's website (deployed at ascension, Stage 6). The UI is a *surface* of the CoS; state remains in the git-backed folder.
+**Steps.** Create the Chief of Staff as a **desktop folder**; `git init` and back it up to GitHub from day one; initialize the CoS workspace (OpenClaw runs where the deployment's chosen path puts it — locally now, cloud-primary later); **run the CRIST project-genesis interview (Focusa Spec 135B)** so the CoS exists as an approved agent role — context ingested from source-linked material, role composed, spec and tasks derived — with the interview corpus persisted for continuous growth. The folder carries the CoS's directives, soul and configuration; runtime memory and task state remain with their owning services until the deployment design moves them. The folder also carries the **Svelte CoS web UI** — the interface through which the CoS will live at a subdomain of the client's website (deployed at ascension, Stage 6). The UI is a *surface* of the CoS; state remains in the git-backed folder.
 
 **Why git-backed first (woven rationale).** The folder is **portable by design**: it relocates to the VPS in Stage 6. Version control from day one means the CoS's identity and state survive machine loss, are reviewable, and move without loss. The genesis folder *is* the Chief of Staff until ascension.
 
 **Owner mechanism.** Plain git + the owner's GitHub account (renewable routes only); OpenClaw initialization per its canonical path.
 
-**Law.** Phase 2 (state ownership: this folder is the CoS's canonical state until ascension — after which git history remains its provenance), Phase 12 (version control is part of the delivery path from the start, not an afterthought), Phase 10 (no secrets inside the folder — references only).
+**Law.** Phase 2 (state ownership: this folder is the CoS's canonical home until ascension — after which git history remains its provenance), Phase 12 (version control is part of the delivery path from the start, not an afterthought), Phase 10 (no secrets inside the folder — references only).
 
-**Scars.** Local-only CoS state lost on machine failure or a rushed relocation done by copy-paste → default: git remote backup from day one; relocation later goes *through git*, never by copying folders. Check: the repo pushes and a fresh clone on a second machine boots the same CoS state — the clone test *is* the portability check.
+**Scars.** Local-only CoS state lost on machine failure or a rushed relocation done by copy-paste → default: git remote backup from day one; relocation later moves source through git and private state through its owning mechanisms. Check: the repo pushes and a fresh clone on a second machine boots the same CoS state — the clone test *is* the portability check.
 
 **Consent.** GitHub repository creation under the owner's account = one owner moment (Stage 0 surface).
 
@@ -99,7 +99,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 3 — Cloud landing (control-plane substrate)
 
-**Steps.** Create the OVH VPS account; respond to verification emails; log in via browser to the VPS. The VPS is **landed here, not yet hosting the CoS** — it becomes the relocation target (Stage 6).
+**Steps.** Create the OVH VPS account; respond to verification emails; log in via browser to the VPS. The VPS is **landed here, not yet hosting the CoS** — it becomes the relocation target (Stage 6). Size, OS and hardening are per-client decisions recorded in the engagement record, not defaults invented here.
 
 **Owner mechanism.** OVH provisioning; email verification via the client's consented mailbox (gog, Stage 5 — dependency: consent ordered before it is needed).
 
@@ -111,7 +111,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Check.** From the workstation, the AC: SSHes to the VPS on granted credentials and confirms the substrate is ready to receive the CoS.
 
-**Exit.** The control-plane substrate is landed, verified, and waiting — zero owner turns after the designed moments.
+**Exit.** The control-plane substrate is landed, verified, and waiting; no owner involvement beyond the designed moments.
 
 # Stage 4 — Mesh + identity
 
@@ -131,7 +131,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 5 — Knowledge + audit
 
-**Steps.** Document all; set up gog CLI across the G Suite products; run the full business audit to categorize the business — on **two lanes**: (1) machine-visible sources (gog, filesystem, existing docs, browser-accessible systems), and (2) an **owner-knowledge interview for what no system shows** — undocumented processes, informal schedules, tribal rules, things the owner simply tells and no tool can discover. The interview is structured (CRIST interview style) and its answers feed roles, crons and processes directly.
+**Steps.** Document all; set up gog CLI across the G Suite products; run the full business audit to categorize the business — on **two lanes**: (1) machine-visible sources (gog, filesystem, existing docs, browser-accessible systems), and (2) an **owner-knowledge interview for what no system shows** — undocumented processes, informal schedules, tribal rules, things the owner simply tells and no tool can discover. The interview is structured (CRIST interview style) and its answers feed roles, crons and processes directly. Core audit categories: people and roles, processes and schedules, tools and systems, communication surfaces, recurring work, money flows, exceptions and tribal rules — deepened as evidence raises questions; interview answers are first-class findings, cited like source handles, never re-collected once recorded.
 
 **Owner mechanism.** Agent-KB/bootstrap + Focusa evidence for documentation; gog CLI with Google OAuth consent. The local CoS (Stage 2) orchestrates; build agents (browser via UIAI, computer use via Pi) execute the reading and documentation.
 
@@ -149,7 +149,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Steps.** Move the **git-backed** CoS folder to the VPS; OpenClaw runs there; from the cloud it **administers the entire tailnet primarily** — employees, crons, workflows, machine agents. Deploy the **Svelte CoS UI** to a **subdomain of the client's website** (e.g. `cos.<client-domain>`) via wrangler — using the DNS control installed in Stage 1. The CoS now lives web-reachable at its own address: runtime on the VPS, UI on the client subdomain.
 
-**Why through git (woven rationale).** The Stage 2 design pays off here: ascension is a `git` operation (push from workstation / clone on VPS), never a folder copy. History, reviewability and rollback travel with the CoS; the local folder becomes a mirror/backup, no longer the admin point.
+**Why through git (woven rationale).** The Stage 2 design pays off here: ascension moves source through git (push from workstation / clone on VPS); runtime and private state use their owning transfer mechanisms. History, reviewability and rollback travel with the CoS; the local folder becomes a mirror/backup, no longer the admin point.
 
 **Owner mechanism.** Git remote (already in place from Stage 2); OpenClaw's canonical install/run path on the VPS; tailnet routing from Stage 4.
 
@@ -171,9 +171,9 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Law.** Phase 5 (runtime/execution surfaces: role-based employees, exact scopes, no sovereign fallback), Phase 4 (each virtual employee is an explicit principal with scoped grants), Spec 135B (CRIST: role composition, interview corpus, approved profiles for agents), Phase 9 (evidence: crons and employees leave receipts), Phase 11 (entitlements only where the client profile has them), Phase 12 (delivery: changes to employees/crons land through the deployment's own release path).
 
-**Scars.** Voice profile trained on wrong sample quality → default: owner records the consented sample once, pipeline validates before use. Crons silently dying → default: every cron writes a heartbeat/receipt; missing heartbeats surface as alerts, not silence. Employees with ambient tool access → default: per-role toolsets and permissions enumerated at creation; least privilege; **no employee exists without an approved role packet naming its allowances**. Check each: voice round-trip verified; cron heartbeat visible; employee executes its one representative action and cannot act outside its scope.
+**Scars.** Correspondence-style drift → default: build the style profile from approved correspondence examples and owner feedback; audio samples only if the owner chooses; validate against real messages before use. Crons silently dying → default: every cron writes a heartbeat/receipt; missing heartbeats surface as alerts, not silence. Employees with ambient tool access → default: per-role toolsets and permissions enumerated at creation; least privilege; **no employee exists without an approved role packet naming its allowances**. Check each: voice round-trip verified; cron heartbeat visible; employee executes its one representative action and cannot act outside its scope.
 
-**Consent.** Voice samples = one owner moment. Employee role definitions = agent-proposed, owner-approved once as a batch (a design decision, not a repetitive ask).
+**Consent.** Correspondence-style review = one owner moment; audio samples only if chosen. Employee role definitions = agent-proposed, owner-approved once as a batch (a design decision, not a repetitive ask).
 
 **Check.** One representative recurring workflow runs end-to-end: cron fires (cloud) → CoS delegates to an employee → employee executes through granted tools on the target machine → receipt lands → owner-visible result. The denial test: the employee cannot act outside its role.
 
@@ -181,7 +181,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 8 — Ongoing operation and handoff
 
-**Steps.** "This is just the beginning": hand off from build-out to life. Document the deployment; verify the replacement-agent test; establish the optimization loop (below) as the operating rhythm.
+**Steps.** "This is just the beginning": hand off from build-out to life. Working means the owner's week-one reality: the agent operates the routine work, the owner approves and informs, and the first useful CoS outcome named in Stage 0 is delivered. Document the deployment; verify the replacement-agent test; establish the optimization loop (below) as the operating rhythm.
 
 **Law.** Phase 13 (acceptance/handoff) and the replacement-agent test: a fresh agent orients from durable state — engagement record, Agent-KB, Focusa evidence, this doctrine's per-deployment record — not from the builder's memory.
 
@@ -191,7 +191,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 ---
 
-## Coverage map — spine stages ↔ 0.1.0 phases (proves nothing was dropped)
+## Coverage map — spine stages ↔ 0.1.0 phases (coverage aid, not implementation proof)
 
 | 0.1.0 phase | Carried by |
 |---|---|
@@ -218,7 +218,7 @@ One ordered ledger; task IDs are reused when work enters the existing task/CallG
 |---|---|---|---|
 | GP-01 | done | — | Upstream docs pulled/read; lineage `3658ecc`; no duplicate ledger. |
 | GP-02 | done | GP-01 | Starter essence compared; first clarification published; findings recorded. |
-| GP-03 | in_progress | GP-02 | This woven doctrine: stages 0–8 carry law/scars/consent/checks. Done when each stage is bound to real mechanisms in GP-06's pass. |
+| GP-03 | in_progress | GP-02 | This woven doctrine: stages 0–8 carry law/scars/consent/checks. Done when the operator's process, dependencies and open specifics are reviewed as a coherent planning draft. Exact live bindings remain GP-06 work, not a prerequisite for GP-03. |
 | GP-04 | planned | GP-03 | Live estate reconciliation through approved read-only routes; configured/reachable/usable-by-agent/verified classified with evidence; consent-surface inventory validated against Stage 0's design. |
 | GP-05 | planned | GP-04 | State-ownership map: every material store has canonical owner, scope, freshness, backup, recovery; no synchronization store. |
 | GP-06 | planned | GP-05 | Every spine step bound to real existing commands/APIs — including git-backed CoS genesis/ascension bindings and ACITL bindings (which steps the AC executes; which are AC-driven-owner-typed; where grants live). No invented commands. |
@@ -247,23 +247,26 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 
 ## Completion criteria (whole doctrine)
 
-- Every spine step: class, owning mechanism, law, scars, consent design, embedded check, exit — no undocumented manual prerequisite. Steps carry S/P dependency tags; the resumable frontier is machine-reportable.
-- Consent surface fixed at Stage 0; secret-entry is AC-driven-owner-typed; **all consolidated secrets retrieve through rbw only**; the agent never holds owner secrets; nonrenewable assets untouched.
+- Every spine step: class, owning mechanism, law, scars, consent design, embedded check, exit — no undocumented manual prerequisite. Dependencies are explicit where they matter; existing tracking preserves verified progress and the next action without a separate runner.
+- Known consent needs are batched; necessary new approvals remain possible. Consolidated renewable credentials use scoped rbw retrieval or the approved provider-native credential mechanism; secret values stay out of chat, Git and evidence; nonrenewable assets remain untouched.
 - **Every agent role — CoS, long-running employees, short-term workers — exists as an approved CRIST role packet with explicit permissions and tool allowances**; audit findings cite live sources or interview references.
-- The CoS is web-reachable at the client's subdomain (Svelte UI), runtime cloud-primary; model lanes provisioned (premium for CoS/high-stakes, economy via OpenCode/OpenRouter for build agents).
+- The CoS is web-reachable at the client's subdomain (Svelte UI), runtime cloud-primary; model lanes provisioned (premium for CoS/high-stakes, economy via OpenCode Go/OpenRouter for build agents).
 - CoS state is git-backed from day one; ascension preserves history; cloud-primary tailnet administration is verified.
 - Fresh/partial/rerun/interrupted/recovery paths behave as specified on real brownfield machines.
 - Function AND denial proven; no sovereign fallback; receipts attributable.
 - The optimization loop runs on the deployed system (heartbeats visible, scars feeding back, doctrine versioning advancing).
 - A replacement agent continues from durable references; no secrets or private client data in this doc.
 
-## Findings and evidence limits (iteration 5)
+## Findings and evidence limits (iterations 5–7)
 
-- Operator specifics woven, second pass (2026-09-10): the CoS ships as a **Svelte UI living at a subdomain of the client's website** (deployed at ascension via wrangler); **cf CLI/wrangler and gh CLI installed early** — device-approval flows when absent locally — giving build agents CLI access and **full DNS control**; **OpenAI device access + developer mode enabled early**; model strategy = **OpenAI Pro for premium work plus OpenCode and OpenRouter for cheaper-model lanes**.
-- Operator refinements woven (2026-09-10): steps carry **S/P dependency tags** (some depend on others, some don't — parallel lanes named); **secrets consolidation** added to Stage 1 (browser imports, old managers, sticky notes → one vault, rbw as the single retrieval surface); the audit gains an **owner-knowledge interview lane** for what no system shows (undocumented processes, schedules, tribal knowledge); **CRIST (Focusa Spec 135B)** integrated — CoS genesis runs the CRIST interview, long-running employees get full role packets, short-term workers get lightweight packets, permissions and tool allowances explicit per role.
+- Operator specifics woven, second pass (2026-09-10): the CoS ships as a **Svelte UI living at a subdomain of the client's website** (deployed at ascension via wrangler); **cf CLI/wrangler and gh CLI installed early** — device-approval flows when absent locally — giving build agents CLI access and **full DNS control**; **OpenAI device access + developer mode enabled early**; model strategy = **OpenAI Pro for premium work plus OpenCode Go and OpenRouter for cheaper-model lanes**.
+- Agent-centric pass (2026-09-10, iteration 7): invariant 1 reworded to agent-operated setup; 'everything in the browser' restated as a verified capability target; secret-entry requires verified environmental isolation; Stage 2 no longer assumes OpenClaw must run locally from the folder; relocation moves source through git and private state through its owning mechanisms; consent surface is primary but not exhaustive; audit schema seeded; Stage 8 defines the owner's week-one working test.
+- Scar provenance: observed scars come from operator-reported friction (AV/script blocking, missing terminal, missing Node, scattered secrets, missed verification windows); others (correspondence-style drift, cron heartbeats, per-role denials) are hypothesized defaults to validate in real runs — not claimed incidents.
+- 0.1.1 status corrected: it is superseded planning input — retained for lineage, not an active candidate.
+- Operator refinements woven (2026-09-10): dependencies and independent lanes are explicit without mandatory per-step tags; **secrets consolidation** added to Stage 1 (browser imports, old managers, sticky notes → one vault, rbw as the single retrieval surface); the audit gains an **owner-knowledge interview lane** for what no system shows (undocumented processes, schedules, tribal knowledge); **CRIST (Focusa Spec 135B)** integrated — CoS genesis runs the CRIST interview, long-running employees get full role packets, short-term workers get lightweight packets, permissions and tool allowances explicit per role.
 
 - Operator key facts woven in (2026-09-10): the Chief of Staff **starts as a desktop folder backed by git**, then **moves to the VPS later**, where OpenClaw **administers the entire tailnet from the cloud primarily**; OpenClaw uses Focusa and UIAI Engine plus local build agents to navigate the web, log in to websites, and fully build out the system; UIAI Engine is added **early** to give local build agents tools to do everything in the browser a human can do; agents also do **computer use from Pi**. The spine now carries CoS genesis (Stage 2) and ascension (Stage 6) as first-class stages.
-- Locked invariants unchanged: zero human turns, ACITL, brownfield-first, starter essence (defaults/scars/checks/order), reuse-first.
+- Locked invariants evolved: zero-human-turns reworded to agent-operated setup in iteration 7; ACITL, brownfield-first, starter essence (defaults/scars/checks/order), reuse-first unchanged.
 - Still documentation-iteration only: no installer, live reconciliation, customer rollout, or end-to-end acceptance has occurred. GP-04 onward open.
 - Tooling defects filed this week (not doctrine blockers): uiai-engine #224 (browser delivery), wirebot-core #31/#32, focusa #599/#600/#601.
 

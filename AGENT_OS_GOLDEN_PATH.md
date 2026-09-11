@@ -2,11 +2,11 @@
 
 > A versioned, executable deployment and operations doctrine for turning a fresh environment into a verified, agent-native Life & Business OS.
 
-- **Golden Path version:** `0.1.1-candidate`
+- **Golden Path version:** `0.1.2-candidate` (working planning stream)
 - **Foundational contract:** [`AGENTS.md`](./AGENTS.md) — currently `3.3.0`
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Reference Agent Computer profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
-- **Current version snapshot:** [`docs/agent-os-golden-path/0.1.1.md`](./docs/agent-os-golden-path/0.1.1.md) — clarification over the unchanged 0.1.0 phases
+- **Current working source:** [`docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md) — planning iterations toward 0.2.0; [`0.1.1.md`](./docs/agent-os-golden-path/0.1.1.md) retained as superseded planning input
 - **Ordered tasks:** [`implementation and iteration list`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 - **Server build-agent handoff:** [`docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md`](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md)
 - **Changelog:** [`docs/agent-os-golden-path/CHANGELOG.md`](./docs/agent-os-golden-path/CHANGELOG.md)
