@@ -1,6 +1,6 @@
 # Golden Path — the interwoven doctrine (single iterable source)
 
-- Date: 2026-09-10 (iteration 5 — dependency lanes, secrets consolidation, owner-knowledge interview, CRIST role packets)
+- Date: 2026-09-10 (iteration 6 — Svelte CoS web surface, CLI/DNS control, model strategy)
 - **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with zero human turns during setup. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
 - **Locked invariants** (every revision derives from these):
   1. **Zero human turns.** A step passes when a fresh agent, holding granted credentials, executes it without asking. Failures get an authorized automation path or are classified as an owner moment — exact, batched, minimal.
@@ -48,7 +48,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Scars.** Client machines carry prior admin accounts, stale AV, and unknown software; assuming a clean machine produces duplicate installs and broken personalization. Default: audit before install, always; record pre-existing state and reuse it.
 
-**Consent.** This stage *designs* the consent surface for the whole deployment: one batched owner moment per provider (Stage 1 providers; OVH; GitHub/Tailscale; Google/gog; voice samples; employee role batch; any AV/security exclusions). The count of owner moments is fixed here — later stages may not invent new asks.
+**Consent.** This stage *designs* the consent surface for the whole deployment: one batched owner moment per provider (Stage 1 providers including OpenAI device access/Pro billing, OpenCode/OpenRouter; gh/cf-wrangler device approvals; OVH; GitHub/Tailscale; Google/gog; the client's website/DNS access; voice samples; employee role batch; any AV/security exclusions). The count of owner moments is fixed here — later stages may not invent new asks.
 
 **Check.** The engagement record answers: owner (verified, not assumed), machines in scope, accounts in scope, consents required (enumerated, with providers), and what must not be touched. A second agent reading it reaches the same conclusions.
 
@@ -56,11 +56,11 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 1 — Workstation substrate
 
-**Steps.** Install Pi; connect the model provider (OpenAI subscription or OpenRouter); download Focusa; **download UIAI Engine early**; set up Bitwarden (shared vault); set up rbw for agent-side secret retrieval; **discover and consolidate the client's scattered secrets** into the vault (browser-saved passwords, old managers, sticky notes, whatever exists).
+**Steps.** Install Pi; connect the **model strategy**: OpenAI Pro plan for premium work, with OpenCode and OpenRouter provisioned for cheaper-model lanes (OpenAI device access and developer mode enabled early); install **gh CLI and cf CLI/wrangler early** — via device-approval flows where the customer machine lacks them — giving build agents (local and server) CLI access and **full DNS control**; download Focusa; **download UIAI Engine early**; set up Bitwarden (shared vault); set up rbw for agent-side secret retrieval; **discover and consolidate the client's scattered secrets** into the vault (browser-saved passwords, old managers, sticky notes, whatever exists).
 
 **Why UIAI early (woven rationale).** UIAI Engine is added at substrate time, not later, because it is what gives the local build agents browser tools to do **everything in the browser a human can do** — and the agents also perform **computer use from Pi**. Together with Focusa governance, this is what makes ACITL real on the client machine: from Stage 1 onward, the agents — not the owner — are capable hands on the workstation.
 
-**Owner mechanism.** Pi installer; provider signup; Focusa install lifecycle; UIAI install; Bitwarden app + rbw CLI. Each installs through its own official route — this doctrine sequences and checks them, never forks them.
+**Owner mechanism.** Pi installer; provider signup (OpenAI/OpenCode/OpenRouter); gh CLI and cf CLI/wrangler device-approval installs; Focusa install lifecycle; UIAI install; Bitwarden app + rbw CLI. Each installs through its own official route — this doctrine sequences and checks them, never forks them.
 
 **Law.** Phase 1 (scaffold: inspect first, idempotent, discoverable locations), Phase 3 (freshness: `agent-kb bootstrap` establishes knowledge freshness from the start), Phase 5 (execution surfaces: browser and computer actuation under the same authority/evidence rules), Phase 7 (discovery: agent orients from documented entry points), Phase 10 (secrets: Bitwarden holds secrets; rbw retrieves exact approved fields; nothing secret in config).
 
@@ -71,16 +71,17 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 - *UAC prompts scattered* → batch elevation into one moment. Check: elevation prompts per build-out = 1.
 - *PowerShell execution policy / Defender ASR blocks agent scripts* → per-script unblock; blanket policy change is a consent item, never silent. Check: authorized scripts execute; unrelated scripts stay blocked.
 - *Secrets scattered in multiple places* — browser saves, old password managers, sticky notes and other odd storage → default: Bitwarden importers for browser/manager sources; non-digital sources are owner-typed in one batched session; consolidate and dedupe; **rbw becomes the single retrieval surface** afterward. Check: `rbw` retrieves a secret that previously lived only in the browser or on paper; browser stores are no longer the sole source.
+- *Customer machine lacks gh/cf/wrangler, and auth prompts hang mid-flow* → default: install both CLIs early via **device-approval flows**, batched into the consent sitting; never interactive-password flows. Check: `gh auth status` and `wrangler whoami` succeed from the local agent shell.
 
-**Consent.** Provider account/billing (OpenAI/OpenRouter) = one owner-typed moment through an AC-opened browser. Bitwarden master password = AC-driven, owner-typed, never seen by the agent. Non-digital secrets (sticky notes, physical) = owner-typed batch at consolidation. AV exclusions, if any = owner consent item with named scope.
+**Consent.** OpenAI device access + developer mode + Pro billing = owner moments; OpenCode/OpenRouter accounts = owner moments; gh/wrangler device approvals = batched device-flow moments. Provider account/billing (OpenAI/OpenRouter) = one owner-typed moment through an AC-opened browser. Bitwarden master password = AC-driven, owner-typed, never seen by the agent. Non-digital secrets (sticky notes, physical) = owner-typed batch at consolidation. AV exclusions, if any = owner consent item with named scope.
 
-**Check.** From a cold shell, the agent runs: Pi answers a model round-trip; `focusa` status is healthy; UIAI health responds; **a build agent performs one real browser action and one computer-use action a human would otherwise do**; `rbw` retrieves an exact approved field **including one consolidated from the client's scattered sources** (value never printed); `agent-kb bootstrap` returns fresh knowledge state.
+**Check.** From a cold shell, the agent runs: Pi answers a model round-trip; `focusa` status is healthy; UIAI health responds; **a build agent performs one real browser action and one computer-use action a human would otherwise do**; `gh auth status` and `wrangler whoami` succeed from the local shell; `rbw` retrieves an exact approved field **including one consolidated from the client's scattered sources** (value never printed); `agent-kb bootstrap` returns fresh knowledge state.
 
 **Exit.** Workstation substrate is agent-operable and **secret-consolidated**: the AC on this machine can run the harness, drive the browser and computer, retrieve renewable secrets through the single rbw surface, and reach the knowledge plane — with the owner's typed moments already spent.
 
 # Stage 2 — Chief of Staff genesis (local, git-backed)
 
-**Steps.** Create the Chief of Staff as a **desktop folder**; `git init` and back it up to GitHub from day one; initialize OpenClaw locally; **run the CRIST project-genesis interview (Focusa Spec 135B)** so the CoS exists as an approved agent role — context ingested from source-linked material, role composed, spec and tasks derived — with the interview corpus persisted for continuous growth. The CoS working state — directives, soul, memory/config, task state — lives in this folder and nowhere else yet.
+**Steps.** Create the Chief of Staff as a **desktop folder**; `git init` and back it up to GitHub from day one; initialize OpenClaw locally; **run the CRIST project-genesis interview (Focusa Spec 135B)** so the CoS exists as an approved agent role — context ingested from source-linked material, role composed, spec and tasks derived — with the interview corpus persisted for continuous growth. The CoS working state — directives, soul, memory/config, task state — lives in this folder and nowhere else yet. The folder also carries the **Svelte CoS web UI** — the interface through which the CoS will live at a subdomain of the client's website (deployed at ascension, Stage 6). The UI is a *surface* of the CoS; state remains in the git-backed folder.
 
 **Why git-backed first (woven rationale).** The folder is **portable by design**: it relocates to the VPS in Stage 6. Version control from day one means the CoS's identity and state survive machine loss, are reviewable, and move without loss. The genesis folder *is* the Chief of Staff until ascension.
 
@@ -146,7 +147,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 6 — Chief of Staff ascends (relocate to the cloud)
 
-**Steps.** Move the **git-backed** CoS folder to the VPS; OpenClaw runs there; from the cloud it **administers the entire tailnet primarily** — employees, crons, workflows, machine agents.
+**Steps.** Move the **git-backed** CoS folder to the VPS; OpenClaw runs there; from the cloud it **administers the entire tailnet primarily** — employees, crons, workflows, machine agents. Deploy the **Svelte CoS UI** to a **subdomain of the client's website** (e.g. `cos.<client-domain>`) via wrangler — using the DNS control installed in Stage 1. The CoS now lives web-reachable at its own address: runtime on the VPS, UI on the client subdomain.
 
 **Why through git (woven rationale).** The Stage 2 design pays off here: ascension is a `git` operation (push from workstation / clone on VPS), never a folder copy. History, reviewability and rollback travel with the CoS; the local folder becomes a mirror/backup, no longer the admin point.
 
@@ -154,11 +155,11 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Law.** Phase 5 (runtime/execution surfaces: the CoS role continues across relocation; worker continuity preserved — a runtime move must not erase canonical continuity), Phase 6 (cloud-primary administration over the private tailnet; nothing public exposed), Phase 12 (delivery: the relocation is a deployment with verification, not a copy).
 
-**Scars.** Relocation by copy-paste loses git history and diverges state → default: move via git only; verify history intact after clone. Post-relocation limbo ("is it local or cloud now?") → default: one explicit cutover; the VPS is primary, the local folder is mirror/backup. Check: CoS healthy on the VPS; `git log` intact; tailnet administration answers from the cloud; a test orchestration issued from the VPS reaches an enrolled machine.
+**Scars.** Relocation by copy-paste loses git history and diverges state → default: move via git only; verify history intact after clone. Post-relocation limbo ("is it local or cloud now?") → default: one explicit cutover; the VPS is primary, the local folder is mirror/backup. *Client's website DNS not on Cloudflare* → default: migrate DNS or use an alternate route **only with owner consent**; never assume zone access. Check: CoS healthy on the VPS; `git log` intact; tailnet administration answers from the cloud; a test orchestration issued from the VPS reaches an enrolled machine.
 
 **Consent.** None new — designed in Stage 0.
 
-**Check.** From the VPS, the CoS reaches every enrolled machine; from the workstation, the AC reaches the CoS. Cloud-primary administration is proven in both directions.
+**Check.** From the VPS, the CoS reaches every enrolled machine; from the workstation, the AC reaches the CoS. Cloud-primary administration is proven in both directions. The subdomain resolves from the public internet and the **Svelte CoS UI answers there**.
 
 **Exit.** OpenClaw administers the tailnet from the cloud primarily; the local genesis folder is a synced mirror.
 
@@ -166,7 +167,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Steps.** OpenClaw as Chief of Staff (now cloud-primary from Stage 6); create the business owner voice profile for correspondence; create systems of common tasks; create crons for regular workflows; set up virtual employees through **CRIST role packets**: long-running employees get full packets (context, role, spec, tasks, permissions, tool allowances); short-term workers get lightweight worker-role packets spun up and retired per need. **Permissions and tool allowances are explicit per role** — Focusa grants plus provider tool surfaces (UIAI browser, gog scopes, rbw access classes, computer-use permissions).
 
-**Owner mechanism.** OpenClaw chief-of-staff surface (administering from the cloud); voice profile pipeline; task/employee provisioning per existing role/permission contracts. Local build agents (browser + computer use) remain the hands on client machines; the CoS delegates across the tailnet.
+**Owner mechanism.** OpenClaw chief-of-staff surface (administering from the cloud), **owner-facing web UI at the client's subdomain**; voice profile pipeline; task/employee provisioning per existing role/permission contracts. Local build agents (browser + computer use) remain the hands on client machines; the CoS delegates across the tailnet.
 
 **Law.** Phase 5 (runtime/execution surfaces: role-based employees, exact scopes, no sovereign fallback), Phase 4 (each virtual employee is an explicit principal with scoped grants), Spec 135B (CRIST: role composition, interview corpus, approved profiles for agents), Phase 9 (evidence: crons and employees leave receipts), Phase 11 (entitlements only where the client profile has them), Phase 12 (delivery: changes to employees/crons land through the deployment's own release path).
 
@@ -200,9 +201,9 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 | 3 Derived/freshness | Stage 1 (agent-kb bootstrap) + tracking loop (freshness checks) |
 | 4 Identity/auth/tenancy | Stage 0 consent design + Stage 4 (mesh identity) + Stage 7 (employee principals) |
 | 5 Agent runtime/surfaces | Stage 1 (harnesses) + Stage 2 (CoS genesis, CRIST role) + Stage 6 (ascension) + Stage 7 (CRIST employee/worker roles) |
-| 6 Network/routes | Stage 4 (tailnet) + Stage 3/6 (private control plane) |
+| 6 Network/routes | Stage 4 (tailnet) + Stage 3/6 (private control plane) + Stage 6 (client-website subdomain via wrangler DNS control) |
 | 7 Discovery/documentation | Stage 1 (bootstrap) + Stage 5 (documentation + owner-knowledge interview corpus) + Stage 8 (documented deployment) |
-| 8 Agent surface | Stage 1 (UIAI browser parity + computer use) + Stage 5 (gog) + per-stage checks as machine-readable checks |
+| 8 Agent surface | Stage 1 (UIAI browser parity + computer use) + Stage 2/6 (Svelte CoS UI at the client subdomain) + Stage 5 (gog) + per-stage checks as machine-readable checks |
 | 9 Observability/evidence/cost | Stage 3 (control plane) + Stage 7 (receipts) + tracking loop |
 | 10 Secrets/permissions/revocation | Stage 1 (Bitwarden/rbw + secrets consolidation) + Stage 0 (consent design) + Stage 7 (role grants, tool allowances) |
 | 11 Entitlements/licensing | Client-profile overlay (provider subscriptions; client licensing where applicable) — applied via Stage 0 consent design, not a separate stage |
@@ -249,6 +250,7 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 - Every spine step: class, owning mechanism, law, scars, consent design, embedded check, exit — no undocumented manual prerequisite. Steps carry S/P dependency tags; the resumable frontier is machine-reportable.
 - Consent surface fixed at Stage 0; secret-entry is AC-driven-owner-typed; **all consolidated secrets retrieve through rbw only**; the agent never holds owner secrets; nonrenewable assets untouched.
 - **Every agent role — CoS, long-running employees, short-term workers — exists as an approved CRIST role packet with explicit permissions and tool allowances**; audit findings cite live sources or interview references.
+- The CoS is web-reachable at the client's subdomain (Svelte UI), runtime cloud-primary; model lanes provisioned (premium for CoS/high-stakes, economy via OpenCode/OpenRouter for build agents).
 - CoS state is git-backed from day one; ascension preserves history; cloud-primary tailnet administration is verified.
 - Fresh/partial/rerun/interrupted/recovery paths behave as specified on real brownfield machines.
 - Function AND denial proven; no sovereign fallback; receipts attributable.
@@ -257,6 +259,7 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 
 ## Findings and evidence limits (iteration 5)
 
+- Operator specifics woven, second pass (2026-09-10): the CoS ships as a **Svelte UI living at a subdomain of the client's website** (deployed at ascension via wrangler); **cf CLI/wrangler and gh CLI installed early** — device-approval flows when absent locally — giving build agents CLI access and **full DNS control**; **OpenAI device access + developer mode enabled early**; model strategy = **OpenAI Pro for premium work plus OpenCode and OpenRouter for cheaper-model lanes**.
 - Operator refinements woven (2026-09-10): steps carry **S/P dependency tags** (some depend on others, some don't — parallel lanes named); **secrets consolidation** added to Stage 1 (browser imports, old managers, sticky notes → one vault, rbw as the single retrieval surface); the audit gains an **owner-knowledge interview lane** for what no system shows (undocumented processes, schedules, tribal knowledge); **CRIST (Focusa Spec 135B)** integrated — CoS genesis runs the CRIST interview, long-running employees get full role packets, short-term workers get lightweight packets, permissions and tool allowances explicit per role.
 
 - Operator key facts woven in (2026-09-10): the Chief of Staff **starts as a desktop folder backed by git**, then **moves to the VPS later**, where OpenClaw **administers the entire tailnet from the cloud primarily**; OpenClaw uses Focusa and UIAI Engine plus local build agents to navigate the web, log in to websites, and fully build out the system; UIAI Engine is added **early** to give local build agents tools to do everything in the browser a human can do; agents also do **computer use from Pi**. The spine now carries CoS genesis (Stage 2) and ascension (Stage 6) as first-class stages.
