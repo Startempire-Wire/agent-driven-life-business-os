@@ -390,11 +390,19 @@ A site name or loaded script does not prove end-to-end functionality. Exact surf
 relationships and source limits are in the [topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html).
 
 The operated Golden Path offering belongs under Wirebot without absorbing the
-independent component products. Its proposed Tauri wrapper carries the operated
-process and support connection; it has no standalone wrapped-app mode. DIY users
-retain independent component use under those component licenses. The operator's
-wrapped-process IP, structural service tether and full engagement/support economics
-remain in the [single Golden Path doctrine](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md), not a second pricing table here or an assumed price for Wirebot tiers.
+independent component products. **Full AITL Setup is the existing scalable middle
+path:** it is delivered remotely through the operated service without requiring the
+Canonical Owner Principal on site. Its customer endpoint is the same proposed Tauri
+app used throughout the wrapped process—not a separate tier-specific app. The app
+carries deterministic setup, local owner moments, evidence and the support
+connection; the Agent Operator, Chief of Staff and Agent Computers supply the
+operated side. Personal owner presence is the scarce premium layer over that same
+system, and scaled Full AITL adoption increases demand for it. The Tauri
+implementation remains unfinished; Full AITL Setup itself is not a newly invented
+offer. DIY users retain independent component use under component licenses, while
+the wrapped app has no standalone mode. The operator's wrapped-process IP,
+structural service tether and engagement/support economics remain in the [single
+Golden Path doctrine](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md), not a second pricing table here or an assumed price for Wirebot tiers.
 
 For implementation details, see the owning Wirebot [runtime contract](https://github.com/Startempire-Wire/wirebot-core/blob/main/docs/TIER_RUNTIME_CONTRACT.md),
 [client-owned deployment blueprint](https://github.com/Startempire-Wire/wirebot-core/blob/main/docs/SOVEREIGN_WHITE_LABEL_DEPLOYMENT.md)

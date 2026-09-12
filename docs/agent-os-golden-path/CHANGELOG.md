@@ -6,6 +6,7 @@ This changelog tracks the Golden Path version stream independently from the repo
 
 ### Recorded work and bounded evidence
 
+- **Full AITL delivery ladder corrected:** Full AITL Setup is the established scalable remote middle path; the scarce personal-presence engagement layers over the same system, and both use the same proposed wrapped Tauri app. The app remains unfinished, but the delivery path is not new. Public Full AITL pricing remains withheld pending operational proof.
 - **Ordered ledger reconciled:** GP-01–03 planning/lineage work is done; GP-04–07 estate, ownership, bindings and run review remain in progress with bounded reference evidence. GP-08/09 remain in progress; documentation never substitutes for their acceptance tests.
 - **Field provenance woven into the spine:** `field_repeated` / `field_observed` / `derived` labels per stage, reconciling the ~65% field-derived estimate; orthogonally recorded against implementation-state vocabulary.
 - **Founder-dependency test encoded and applied:** every step audited for genuine constitutional authority vs productizable procedure; preserved owner moments identified (Stage 4 authority, Stage 7 role approvals, Stage 8 benefit review).
