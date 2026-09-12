@@ -2,6 +2,26 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.0-candidate — 2026-09-12
+
+### Executed with evidence (not prose claims)
+
+- **Ordered task ledger executed live:** GP-01 through GP-07 completed on the reference estate with verified components and evidence handles (substrate, state ownership, phase→reality binding).
+- **Field provenance woven into the spine:** `field_repeated` / `field_observed` / `derived` labels per stage, reconciling the ~65% field-derived estimate; orthogonally recorded against implementation-state vocabulary.
+- **Founder-dependency test encoded and applied:** every step audited for genuine constitutional authority vs productizable procedure; preserved owner moments identified (Stage 4 authority, Stage 7 role approvals, Stage 8 benefit review).
+- **HITL reconciled:** human authority is foundational, supervision conditional — verification follows the owning systems' completion architecture (Focusa/UIAI), referenced not duplicated.
+- **Top-10 value additions woven** into their spine stages; 14 remaining candidates parked with explicit inclusion triggers.
+- **Slice 1 — substrate check as owning code** (`scripts/substrate-bootstrap.sh`): idempotent, value-free, fail-closed; 10/10 components verified live; missing-component failure exit 1 and install-route denial (never executes) both proven by injected-fault test.
+- **Slice 2 — Stage 2 provisioning bound** to the canonical `wb provision`/`wb sovereign` command surface (root invocation gotcha and dry-run/confirm gates recorded); capability existed, binding was missing.
+- **Slice 3 — knowledge-plane auth provisioned** for agent accounts: KB bearer token group-readable (root:wirebot 0440, matching the estate's existing token pattern); freshness/doctor/search verified live under the agent account.
+- **State-ownership map** (12 store classes, one canonical owner each) and **phase→reality mapping** (nine stage blocks with verified commands and mechanism classes) added to the handoff.
+
+### Honest limits
+
+- Windows substrate path is proof-gated on a real client machine (AV/UAC scars recorded); per-client grants and operated-run bindings remain proposed until executed.
+- First sovereign-tier member provision is unproven end-to-end (surface verified; deferred to an authorized run).
+- 0.2.0 is a candidate until the operator confirms release.
+
 ## 0.1.1-candidate — 2026-09-10
 
 ### Clarified
