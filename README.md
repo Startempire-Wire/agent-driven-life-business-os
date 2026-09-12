@@ -4,9 +4,10 @@
 > governed agent employees, real computers and tools, connected life/business
 > systems, and evidence-backed learning.
 
-- **Contract version:** `3.3.0`
+- **Repository contract version:** `3.3.0` (the checked-in `AGENTS.md`; host-local policy can differ and is not silently synchronized here)
+- **README scope:** explanatory architecture and adoption guide; expanded 2026-09-12, not a live capability or fleet inventory
 - **Reference stack:** OpenClaw / Wirebot + Focusa + UIAI Engine + Veragensia
-- **Supported agent examples:** Claude Code, Letta, OpenCode, Pi, compatible harnesses
+- **Agent integration examples:** Claude Code, Letta, OpenCode, Pi and compatible harnesses; suitability and native governance integration must be verified in the actual deployment
 - **Primary agent contract:** [`AGENTS.md`](./AGENTS.md)
 - **Architecture authority constitution:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Cryptographic authority profile:** [`CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md)
@@ -16,6 +17,28 @@
 - **Setup iteration tasks:** [ordered implementation list](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 
 ---
+
+## Reading this repository
+
+**ADLBOS** means **Agent-Driven Life & Business OS**. It describes how a human,
+Chief of Staff, workers, computers and existing systems cooperate; it is not a new
+kernel, a replacement for every application, or proof that all described features
+are deployed. The Startempire reference is concrete enough to guide engineering,
+but client deployments retain their own owners, context, infrastructure and choices.
+
+| If you need to understand… | Start here |
+|---|---|
+| Purpose, responsibilities and connections | This README: [system loop](#the-system-at-a-glance), [reference roles](#reference-implementation), [handoffs](#how-the-handoffs-connect) |
+| Which actions an agent may take | [AGENTS.md](./AGENTS.md) and the deployment's current authority/grants |
+| Who can decide architecture, and how identity is verified | [Owner constitution](./OWNER_AUTHORITY_CONSTITUTION.md) and [cryptographic profile](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md) |
+| What an Agent Computer profile requires | [Agent Computer reference profile](./AGENT_COMPUTER_REFERENCE_PROFILE.md); feature-specific implementation and proof remain with its owners |
+| How to adopt or operate the system | [Golden Path](./AGENT_OS_GOLDEN_PATH.md), its [working doctrine/task ledger](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md), and [server handoff](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md) |
+| How the products and deployment choices relate | [Reference modes and surfaces](#reference-modes-and-surfaces) and the [topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html) |
+| What exists versus what still needs proof | [Evidence and implementation state](#evidence-and-implementation-state); live operational sources for the actual deployment |
+
+These documents have different jobs. An architectural requirement, example object,
+source file, passing test and installed working feature are not interchangeable.
+Examples below explain contracts; they do not establish a second schema registry.
 
 ## Why this exists
 
@@ -43,6 +66,14 @@ separates:
 1. **portable core contracts** that any person or business can adopt;
 2. **replaceable adapters** for products, providers, speech systems, and vertical systems;
 3. **runtime state** that must be discovered live rather than copied from docs.
+
+The desired result is not maximum automation or maximum component count. It is
+more capacity for meaningful life and business work: fewer missed commitments,
+less routine coordination, useful customer delivery, better decisions and preserved
+human attention and wellbeing. A component earns its place by improving that loop.
+Protect genuine owner judgment; reduce dependence on the owner for uncaptured,
+repeated procedure. Measure the benefit in the engagement, rather than assuming
+that more agents, dashboards or infrastructure mean more value.
 
 ## Owner-rooted architecture authority
 
@@ -221,12 +252,16 @@ or authority.
 
 ## Reference implementation
 
-The product names below are a concrete implementation, not mandatory vocabulary.
-A client can replace an adapter while preserving its contract.
+The names below map the **reference responsibilities**, not a blanket statement of
+installed completeness. A client can replace an adapter while preserving its
+contract. Full enforcement, desktop, voice and conversation requirements come from
+the named profiles and need their own consumer/runtime proof; listing them here
+does not certify that every deployment implements them.
 
 | Layer | Startempire reference | Responsibility |
 |---|---|---|
 | Canonical Owner Principal / sovereign principal | Verious Smith III (Sir V3); client deployments bind their own owner | Root architecture authority, goals, values, consent, corrections, reserved powers, AI delegation |
+| Community and distribution | Startempire Wire + Startempire Wire Network | Relationships, opportunities, member-site/extension integration and distribution; not mandatory network participation for all product buyers |
 | AI Chief of Staff | OpenClaw + Wirebot/`wb` | Orient, synthesize, recommend, delegate, observe, escalate; no architecture authority by name |
 | Knowledge/context | Context Core + Agent-KB | Private memory, policy, topology, source-aware retrieval; domain knowledge authority only |
 | Governance/cohesion | Focusa | Project identity, Trajectory, Workpoints, Context Authority, Evidence, learning, Expression and conversation semantics; operational authority only |
@@ -241,6 +276,7 @@ A client can replace an adapter while preserving its contract.
 | Inbound opportunity | WorkRouter | Provenance, qualification, matching, routing, outcomes |
 | Portable trust | MeriFolio | Evidence-backed identity and selective disclosure |
 | Health/recovery | Guardian + Focusa receipts + Wirebot audit | Diagnostics, audit, checkpoints, recovery |
+| Repeatable adoption and support | Golden Path + diagnostic prototype + proposed Tauri experience | Capture repeated work and expose applicable gaps; not automatic enrollment, a universal local install or completed production intake |
 
 The full Startempire Agent Computer composition is intentionally documented in
 [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md). It
@@ -252,7 +288,8 @@ into this portable repository.
 - The **Canonical Owner Principal** defines constitutional architecture and the
   root delegation boundary.
 - The **Chief of Staff** coordinates; it does not silently become every worker or
-  architecture authority.
+  architecture authority. Portfolio awareness does not make it a global project
+  foreman: project execution resolves its own scoped workstream and responsible role.
 - **Focusa** governs work and conversation semantics; it does not become every
   product, CRM, memory store, or owner of organizational architecture.
 - **Conversation history** is attributable provenance/audit; it does not become
@@ -277,6 +314,93 @@ into this portable repository.
 - **Receipts and outcomes** connect the layers without duplicating authority.
 
 ---
+
+## How the handoffs connect
+
+The system is cohesive because each owner exposes a bounded result the next owner
+can use—not because every system shares a database or becomes a feature of Focusa.
+The same principle applies to life, business and market work.
+
+| Handoff | What crosses the boundary | What remains with the owner |
+|---|---|---|
+| Human → Chief of Staff | Goals, constraints, preferences, corrections and approved context | Reserved decisions and authority; discussion does not automatically authorize execution |
+| Sources → knowledge/context → Chief of Staff | Relevant records or summaries with provenance, scope and freshness | Original business records, private memory and access controls; retrieval is not ownership transfer |
+| Chief of Staff → governed work | Requested outcome, exact scope, resources, acceptance and existing permission | Architecture authority and policy; a generated task cannot mint a grant |
+| Governed work → worker/tool | Bounded action, necessary context, capability, budget and evidence requirements | Credential values and unrelated tenant context; a worker sees only what the job needs |
+| Tool → evidence/completion mechanism | Actual result, affected object, errors and durable proof references | Acceptance and settlement follow the owning contract; dispatch is not completion |
+| Accepted result → business record / W.I.N.S. where applicable | The outcome and supporting references under the relevant product rules | The diagnostic is not automatically a business-score event; no universal approval policy is inferred |
+| Experience → learning → next work | A tested improvement, correction or reusable procedure | Owner approval where required; observations cannot silently rewrite architecture or policy |
+
+### A concrete operating loop
+
+Consider an owner asking for a preparation brief before a customer meeting:
+
+1. The Chief of Staff establishes the desired brief and the permitted customer,
+   calendar and document scope. Missing context is distinguished from a negative fact.
+2. Existing knowledge/context adapters retrieve only the relevant sources; the CRM
+   remains the customer-record owner and the calendar remains the schedule owner.
+3. The agent can synthesize the brief in the requested discussion/drafting mode.
+   If the request also authorizes a calendar change or outbound message, those are
+   separately scoped actions using the existing execution and permission path.
+4. A worker uses the appropriate API or approved computer/browser context. It does
+   not get the owner's entire inbox or vault merely because a meeting is involved.
+5. The consumer-visible brief or authorized change is checked. A returned tool
+   success without the expected document/event/message is not enough.
+6. The owner can correct the result. Useful, repeatable preparation steps become
+   candidates for reuse only after they work; private client contents do not become
+   a reusable template or another client's memory.
+
+This is an illustrative flow, not a newly deployed feature. The point is the
+connection between existing responsibilities. The same pattern can support a
+weekly business review, an approved recurring report or a narrow operational task
+without adding a new orchestration or evidence system.
+
+### Keep the identities distinct
+
+A **principal** owns or acts; a **tenant** bounds data and access; a **project**
+bounds an objective; a **workstream/Workpoint** identifies execution continuity and
+its current action. An **agent role** names a worker's job; a **runtime** executes
+agents; a **machine** hosts workloads; an **Agent Computer** supplies computer-use
+capabilities. A website is an access surface, not necessarily any of these objects.
+
+Bind the relevant references through the owning contracts instead of collapsing
+them into one ID. A customer may have multiple machines or remotely provided
+capabilities. A stable machine hash can help correlate observations, but cannot
+prove a customer relationship, ownership, authority, uniqueness or enrollment.
+Scope and consent survive any approved cross-project or cross-tenant connection.
+
+## Reference modes and surfaces
+
+These are distinctions already present in the ecosystem, not a new mode engine or
+a license to combine every option:
+
+| Dimension | Questions it answers | What it does not imply |
+|---|---|---|
+| Purchase / participation | Wirebot Direct or network bundle; which benefits were bought? | Direct is not DIY, and shared billing infrastructure does not require network participation |
+| Runtime isolation | Shared or dedicated execution boundary? | A personal bot identity is not necessarily a dedicated process or computer |
+| Hosting / operation | Platform-managed or client-owned infrastructure; who operates it? | Managed Sovereign does not require self-hosting; client-owned infrastructure can still be managed by agreement |
+| Federation / sharing | Which independently scoped participants may exchange what? | Pooled private memory, inherited owner authority or an already functioning federation in every installation |
+| Interface / access | Web, extension, channels, individual components or a proposed operated wrapper? | The interface does not create entitlement, deployment scope or credential-use permission |
+
+The reference product doors are **Focusa.dev and Wirebot.chat**. The separately
+named **os.focusa.dev** hosts the Veragensia Agent Computer by operator direction;
+its public-door credential restrictions remain. The Wirebot gateway, W.I.N.S.
+application, parent community and network distribution sites have their own roles.
+A site name or loaded script does not prove end-to-end functionality. Exact surface
+relationships and source limits are in the [topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html).
+
+The operated Golden Path offering belongs under Wirebot without absorbing the
+independent component products. Its proposed Tauri wrapper carries the operated
+process and support connection; it has no standalone wrapped-app mode. DIY users
+retain independent component use under those component licenses. The operator's
+wrapped-process IP, structural service tether and full engagement/support economics
+remain in the [single Golden Path doctrine](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md), not a second pricing table here or an assumed price for Wirebot tiers.
+
+For implementation details, see the owning Wirebot [runtime contract](https://github.com/Startempire-Wire/wirebot-core/blob/main/docs/TIER_RUNTIME_CONTRACT.md),
+[client-owned deployment blueprint](https://github.com/Startempire-Wire/wirebot-core/blob/main/docs/SOVEREIGN_WHITE_LABEL_DEPLOYMENT.md)
+and [productization route](https://github.com/Startempire-Wire/wirebot-core/blob/main/docs/PRODUCTIZATION_ROUTE.md).
+Historical hypothetical pricing in source documents does not supersede approved
+engagement terms. Public website planning and delivery are separate work.
 
 ## The portable substrate
 
@@ -368,6 +492,9 @@ boundaries.
 
 ### Employment packet example
 
+Illustrative field relationships only; use the owning system's versioned role schema
+for execution rather than implementing this example as another authority store.
+
 ```yaml
 schema_version: agent_role.v1
 role_id: client-onboarding-specialist
@@ -409,6 +536,10 @@ completion, and a passing producer test is not proof that the consuming system o
 customer received the outcome.
 
 ### Receipt example
+
+Illustrative receipt shape, not a replacement for Focusa or another owning
+completion mechanism's actual contract. References connect the records without
+copying their private payloads.
 
 ```json
 {
@@ -534,10 +665,59 @@ narrated. Surface the uncertainty that changes a decision, then return to work.
 
 ---
 
+## Evidence and implementation state
+
+Read architectural requirements, source implementations and deployment evidence as
+separate layers. An owner-approved direction can be settled while implementation
+is unfinished; an implementation can be present without being loaded, configured
+or proven for the requested consumer.
+
+| Evidence class | What it supports | What remains to prove |
+|---|---|---|
+| Owner-approved contract / reference profile | Intended responsibilities, boundaries and acceptance requirements | Implemented behavior and actual deployment conformance |
+| Source / configuration exists | A mechanism or configured route can be inspected | Native loading, correct scope, effective configuration and authorized use |
+| Bounded test passes | That test's inputs and asserted behavior | Other platforms, failure paths, consumer integration and field applicability |
+| Runtime / consumer proof | The tested outcome in the named scope and environment | Untested tenants, platforms or conditions; later changes may invalidate evidence |
+| Accepted outcome and reuse evidence | Useful effect and a basis for repeating the procedure | New scope or broader rollout still needs its own permission and checks |
+
+**Repository snapshot, 2026-09-12:** the portable contracts and Golden Path planning
+exist; the Golden Path targets **0.2.0-candidate**, not a released complete installer.
+Its two scripts are partial prototypes. The checker covers ten CLI presence/version
+checks and three health paths, not the whole ecosystem. Linux reference/local HTTP
+sink behavior was tested; production diagnostic intake, client rollout and
+macOS/Windows acceptance are not established by those tests. See the
+[working ledger](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md#task-ledger-execution-tracking)
+and [changelog](./docs/agent-os-golden-path/CHANGELOG.md) for authoritative task status
+and bounded evidence. This README does not re-declare their tasks complete.
+
+### Diagnostic observations, readiness and acceptance
+
+Start with the desired outcome and actual engagement. A relevant capability can be
+local, remotely provided, not required, blocked or unknown; those applicability
+states describe the needed workflow, not capabilities the current scripts already
+implement. A managed-service customer does not need every server CLI installed on
+their laptop. A local process check cannot verify a remote consumer path.
+
+The intended flow is **outcome → applicable checks → observations → relevant gaps →
+existing governed work → recheck → usable result**. It feeds the owning setup and
+support mechanisms; it is not a fleet registry, identity system or enrollment act.
+Receiver ownership, permitted data, client binding, retention, isolation and durable
+readback must be established before production reports are sent there.
+
+Readiness should first expose required capabilities working, blocked and untested.
+An optional later percentage needs a meaningful denominator and must not hide a
+critical blocker. W.I.N.S. business outcomes are a different concern; missing a
+local tool is not automatically a negative business score. The existing
+[candidate list](./docs/agent-os-golden-path/03-agent-os-golden-path-future-addition-candidates.md)
+holds future scoring, extension and site work rather than silently activating it.
+
 ## Minimum viable client deployment
 
 Do not begin with dozens of agents and every connector. Begin with one useful,
-auditable loop.
+auditable loop. These are functional obligations for an adopted governed system,
+not a command to reinstall a complete reference stack on every customer device.
+Brownfield adoption preserves existing working systems and discovers which
+capabilities already satisfy the engagement, locally or remotely.
 
 1. **Owner constitution:** establish the Canonical Owner Principal, create the
    stable owner principal manifest/key, bind owner GitHub/account/tenant scope,
@@ -652,9 +832,20 @@ private operating state.
 ├── AGENTS.md                            # Normative operating contract for agents and harnesses
 ├── OWNER_AUTHORITY_CONSTITUTION.md      # Portable owner identity + architecture authority root
 ├── CRYPTOGRAPHIC_AUTHORITY_PROFILE.md   # Principal/constitution/runtime hashing + delegation profile
-├── AGENT_COMPUTER_REFERENCE_PROFILE.md  # Startempire Veragensia composition including enforcement + voice-native invariants
+├── AGENT_COMPUTER_REFERENCE_PROFILE.md  # Reference composition and required proof boundaries
+├── AGENT_OS_GOLDEN_PATH.md              # Adoption/operations entry and version target
+├── scripts/
+│   ├── substrate-bootstrap.sh          # Partial CLI checker; install routes printed, not executed
+│   └── brownfield-audit.sh              # Report prototype; not production intake or enrollment
 └── docs/
-    └── 01-collaboration-behavior-scenarios.md # Short human review checklist
+    ├── 01-collaboration-behavior-scenarios.md # Short human review checklist
+    └── agent-os-golden-path/
+        ├── 0.1.0.md / 0.1.1.md        # Versioned planning lineage
+        ├── 02-agent-os-golden-path-ordered-tasks.md # Single working doctrine and ledger
+        ├── 03-agent-os-golden-path-future-addition-candidates.md # Parked/withdrawn candidates
+        ├── 04-agent-os-golden-path-ecosystem-topology-map.html # Offline relationship visual
+        ├── SERVER_AGENT_HANDOFF.md     # Scoped continuation and mechanism references
+        └── CHANGELOG.md               # Work/evidence limits; not deployment proof
 ```
 
 `README.md` explains the system. `AGENTS.md` governs agent behavior.
