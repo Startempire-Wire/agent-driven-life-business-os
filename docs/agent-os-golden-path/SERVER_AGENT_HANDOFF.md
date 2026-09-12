@@ -250,11 +250,11 @@ Stage 1 — Workstation substrate
 
 Stage 2 — CoS genesis
   components: git + GitHub; OpenClaw gateway user dirs; CRIST Spec 135B; Svelte CoS UI (surface)
-  verified commands: git init/remote/push, gh repo create (owner account), bd 0.2.16; gateway provisioning config present
-  checks: push + fresh-clone boot test; CRIST role packet approved
-  class: deterministic (git mechanics) | CRIST interview probabilistic
-  gotchas: runtime memory/task state stays with owning services; no secrets in folder
-  gaps: exact gateway user-provisioning command not yet bound
+  verified commands: git init/remote/push, gh repo create (owner account), bd 0.2.16; sudo wb provision up [user_id] [tier] (--dry-run supported; provision list verified live 2026-09-12); sudo wb sovereign provision [user_id] --confirm + sovereign gateway/rotate-token (surface verified; 0 members provisioned)
+  checks: push + fresh-clone boot test; CRIST role packet approved; wb provision status before/after
+  class: deterministic (git mechanics + wb provision pipeline) | CRIST interview probabilistic
+  gotchas: provisioning lifecycle commands must run as root (wb -> as-user -> runuser design); wb provision list has no --format json (table only); runtime memory/task state stays with owning services; no secrets in folder
+  gaps: first sovereign-tier member provision unproven end-to-end (surface verified; execution deferred to an authorized run)
 
 Stage 3 — Cloud landing
   components: OVH VPS + provisioning mechanism (wirebot-provisioning, live)
