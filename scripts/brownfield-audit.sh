@@ -1,29 +1,35 @@
 #!/usr/bin/env bash
 # Brownfield audit — one bounded system-shape report, value-free, pretty in all forms.
-# v3 (GP-08/09): python-built JSON (injection-safe), strict args, combinable flags,
-# HTTPS enforced except loopback, fine-grained score with per-component breakdown,
-# service-shape section, and deterministic commentary throughout.
+# v4 (GP-08/09 gap closure): environment + resources + network from the owning
+# checker, service layer per init kind, setup-state detection, report identity
+# chain, services folded into the score, installer-ready plan passthrough.
 # The readiness score is substrate readiness only — never a W.I.N.S. business
 # outcome. An observation is not enrollment; a fingerprint is not identity.
 # Exit codes: 0 clean, 1 missing components, 3 present-but-unhealthy,
 #             2 delivery failure (--post), 64 usage, 65 helper/data failure,
-#             66 refused endpoint.
+#             66 refused endpoint, 67 concurrent-run lock held.
 set -uo pipefail
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SUB="$DIR/substrate-bootstrap.sh"
-MODE_PRINT=1; MODE_JSON=0; MODE_POST=0; LABEL=""; ENDPOINT="${AUDIT_ENDPOINT:-}"; TOKEN="${AUDIT_TOKEN:-}"
+MODE_PRINT=1; MODE_JSON=0; MODE_POST=0; LABEL=""; ENDPOINT="${AUDIT_ENDPOINT:-}"; TOKEN="${AUDIT_TOKEN:-}"; OUTPUT=""
+
+if command -v flock >/dev/null 2>&1; then
+  exec 9>/tmp/agent-os-audit.$(id -u).lock
+  flock -n 9 || { echo "another audit run holds the lock; refusing concurrent run" >&2; exit 67; }
+fi
 
 while [ $# -gt 0 ]; do
   case "$1" in
     --post) MODE_POST=1; shift ;;
     --json) MODE_JSON=1; shift ;;
     --no-print) MODE_PRINT=0; shift ;;
+    --output) [ $# -ge 2 ] || { echo "--output requires a path" >&2; exit 64; }; OUTPUT="$2"; shift 2 ;;
     --label)
       if [ $# -lt 2 ] || [ -z "${2:-}" ]; then echo "--label requires a value" >&2; exit 64; fi
       LABEL="$2"; shift 2 ;;
     -h|--help)
-      echo "usage: brownfield-audit.sh [--post] [--json] [--no-print] [--label NAME]"
+      echo "usage: brownfield-audit.sh [--post] [--json] [--no-print] [--output FILE] [--label NAME]"
       echo "env: AUDIT_ENDPOINT (https URL; http only for 127.0.0.1/localhost), AUDIT_TOKEN (optional bearer)"
       exit 0 ;;
     *) echo "unknown arg: $1" >&2; exit 64 ;;
@@ -60,70 +66,33 @@ fi
 fp="$(printf %s "$fp_source" | (sha256sum 2>/dev/null || shasum -a 256) | awk '{print $1}')"
 fp="sha256:${fp:-unavailable}"
 
-# --- public OS metadata only ---
-os_name="-"
-if [ -r /etc/os-release ]; then os_name="$(. /etc/os-release && echo "${PRETTY_NAME:--}")"; fi
+os_name="-"; [ -r /etc/os-release ] && os_name="$(. /etc/os-release && echo "${PRETTY_NAME:--}")"
 os_type="$(uname -s 2>/dev/null || echo '-')"
 os_kernel="$(uname -r 2>/dev/null || echo '-')"
 
-# --- environment detection: platform facts that drive installer-UI route selection ---
-# value-free: presence/kind only, no unrelated package versions, no network probes.
-os_id="-"; os_version="-"
-if [ -r /etc/os-release ]; then
-  os_id="$(. /etc/os-release && echo "${ID:--}")"
-  os_version="$(. /etc/os-release && echo "${VERSION_ID:--}")"
-fi
-os_arch="$(uname -m 2>/dev/null || echo '-')"
-
-init_kind="unknown"
-if command -v systemctl >/dev/null 2>&1 && systemctl is-system-running >/dev/null 2>&1; then init_kind="systemd"
-elif [ -d /run/systemd/system ]; then init_kind="systemd"
-elif command -v launchctl >/dev/null 2>&1; then init_kind="launchd"
-elif [ -f /sbin/openrc ] || command -v rc-service >/dev/null 2>&1; then init_kind="openrc"
-fi
-
-virt_kind="-"
-if command -v systemd-detect-virt >/dev/null 2>&1; then
-  virt_kind="$(systemd-detect-virt 2>/dev/null || echo none)"
-fi
-container="no"
-[ -f /.dockerenv ] && container="yes"
-[ -f /proc/vz ] && container="yes" && [ "$virt_kind" = "-" ] && virt_kind="openvz"
-
-pkg_managers=""
-for pm in apt-get dnf yum brew winget apk zypper; do
-  command -v "$pm" >/dev/null 2>&1 && pkg_managers="$pkg_managers $pm"
-done
-command -v npm >/dev/null 2>&1 && pkg_managers="$pkg_managers npm"
-command -v cargo >/dev/null 2>&1 && pkg_managers="$pkg_managers cargo"
-pkg_managers="$(printf '%s' "$pkg_managers" | sed 's/^ //')"
-[ -n "$pkg_managers" ] || pkg_managers="-"
-
-env_file="$(mktemp)"
-ENV_TYPE="$os_type" ENV_ID="$os_id" ENV_VERSION="$os_version" ENV_KERNEL="$os_kernel" \
-ENV_ARCH="$os_arch" ENV_INIT="$init_kind" ENV_VIRT="$virt_kind" ENV_CONTAINER="$container" \
-ENV_PKGS="$pkg_managers" python3 -c '
-import json,os
-env={"platform":{"os":os.environ["ENV_TYPE"],"distro_id":os.environ["ENV_ID"],"distro_version":os.environ["ENV_VERSION"],"kernel":os.environ["ENV_KERNEL"],"arch":os.environ["ENV_ARCH"]},
- "init":os.environ["ENV_INIT"],
- "virtualization":os.environ["ENV_VIRT"],
- "container":os.environ["ENV_CONTAINER"]=="yes",
- "package_managers":os.environ["ENV_PKGS"].split() if os.environ["ENV_PKGS"]!="-" else [],
- "commentary":"presence/kind facts only; drives installer-UI route selection per platform (apt vs brew vs npm vs runbook)"}
-print(json.dumps(env))
-' > "$env_file"
-env_json="$(cat "$env_file")"; rm -f "$env_file"
-
-# --- service-shape section: known agent-OS units, active state only (value-free) ---
+# --- service-shape section: state per detected init system (value-free) ---
 SERVICES=(
   "focusa-daemon" "context-core" "agent-kb-api" "wirebot-scoreboard" "openclaw-gateway"
   "wbt" "mem0-wirebot" "letta-wirebot" "letta-relay" "agent-audit" "agent-kb-refresh"
   "cloudflared-wirebot" "cloudflared-agent-audit" "wirebot-wbt"
 )
 svc_tmp="$(mktemp)"; trap 'rm -f "$svc_tmp"' EXIT
-if command -v systemctl >/dev/null 2>&1; then
+svc_domain="none"
+if [ "$(uname -s)" = "Darwin" ] && command -v launchctl >/dev/null 2>&1; then
+  svc_domain="launchd"
   for s in "${SERVICES[@]}"; do
-    state="$(systemctl is-active "$s.service" 2>/dev/null || true)"
+    state="absent"; note="not found in launchctl list"
+    if launchctl list 2>/dev/null | grep -q "$s"; then
+      state="loaded"; note="present in launchctl list (loaded label; not a health guarantee)"
+    fi
+    SVC_NAME="$s" SVC_STATE="$state" SVC_NOTE="$note" python3 -c '
+import json,os
+print(json.dumps({"service":os.environ["SVC_NAME"],"state":os.environ["SVC_STATE"],"commentary":os.environ["SVC_NOTE"]}))' >> "$svc_tmp"
+  done
+elif command -v systemctl >/dev/null 2>&1; then
+  svc_domain="systemd"
+  for s in "${SERVICES[@]}"; do
+    state="$(timeout 5 systemctl is-active "$s.service" 2>/dev/null || true)"
     case "$state" in
       active)   note="unit active; observed running (observation, not a health guarantee)" ;;
       inactive|failed) note="unit exists but is not active" ;;
@@ -131,26 +100,53 @@ if command -v systemctl >/dev/null 2>&1; then
     esac
     SVC_NAME="$s" SVC_STATE="$state" SVC_NOTE="$note" python3 -c '
 import json,os
-print(json.dumps({"service":os.environ["SVC_NAME"],"state":os.environ["SVC_STATE"],"commentary":os.environ["SVC_NOTE"]}))
-' >> "$svc_tmp"
+print(json.dumps({"service":os.environ["SVC_NAME"],"state":os.environ["SVC_STATE"],"commentary":os.environ["SVC_NOTE"]}))' >> "$svc_tmp"
+  done
+else
+  for s in "${SERVICES[@]}"; do
+    SVC_NAME="$s" SVC_STATE="unknown" SVC_NOTE="no supported init detection on this host" python3 -c '
+import json,os
+print(json.dumps({"service":os.environ["SVC_NAME"],"state":os.environ["SVC_STATE"],"commentary":os.environ["SVC_NOTE"]}))' >> "$svc_tmp"
   done
 fi
 services_json="$(python3 -c 'import json,sys;print(json.dumps([json.loads(l) for l in sys.stdin if l.strip()]))' < "$svc_tmp")"
 
-# --- component data from the owning checker (reused, not duplicated) ---
+# --- setup-state detection: fresh vs partially configured vs configured ---
+setup_state="fresh"; setup_notes=""
+fcount=0
+[ -d "$HOME/.focusa" ] && fcount=$((fcount+1))
+[ -d "$HOME/.beads" ] && fcount=$((fcount+1))
+[ -f "$HOME/AGENTS.md" ] && fcount=$((fcount+1))
+[ -n "$(git config --global user.email 2>/dev/null)" ] && fcount=$((fcount+1))
+case "$fcount" in
+  0) setup_state="fresh"; setup_notes="no agent-OS markers found (no ~/.focusa, ~/.beads, AGENTS.md, git identity)" ;;
+  1|2) setup_state="partial"; setup_notes="$fcount of 4 agent-OS markers present" ;;
+  *) setup_state="configured"; setup_notes="$fcount of 4 agent-OS markers present" ;;
+esac
+
+# --- component + plan data from the owning checker (reused, not duplicated) ---
 sub_json="$("$SUB" --check --json 2>/dev/null)"
 sub_exit=$?
 if [ -z "$sub_json" ]; then echo "substrate check produced no data" >&2; exit 65; fi
 case "$sub_exit" in 0|1|3) ;; *) echo "substrate check failed (exit $sub_exit)" >&2; exit 65 ;; esac
 
+# --- report identity chain (dedup + diffing for the future receiver) ---
+cache_dir="$HOME/.cache/agent-os-audit"; mkdir -p "$cache_dir" 2>/dev/null || true
+prev_id=""; prev_hash=""
+if [ -r "$cache_dir/last.json" ]; then
+  prev_id="$(python3 -c 'import json;print(json.load(open("'$cache_dir'/last.json")).get("report_id",""))' 2>/dev/null || true)"
+  prev_hash="$(python3 -c 'import json;print(json.load(open("'$cache_dir'/last.json")).get("report_hash",""))' 2>/dev/null || true)"
+fi
+
 # --- build the full report in one python pass (no shell interpolation into JSON) ---
 report="$(SUB_EXIT="$sub_exit" LABEL="$LABEL" FP="$fp" FP_DESC="$fp_desc" \
-OS_TYPE="$os_type" OS_KERNEL="$os_kernel" OS_NAME="$os_name" SERVICES_JSON="$services_json" ENV_JSON="$env_json" \
+OS_NAME="$os_name" SERVICES_JSON="$services_json" SVC_DOMAIN="$svc_domain" SETUP_STATE="$setup_state" \
+SETUP_NOTES="$setup_notes" PREV_ID="$prev_id" PREV_HASH="$prev_hash" \
 python3 -c '
-import json,os,sys,datetime
+import json,os,sys,datetime,uuid
 sub=json.loads(sys.stdin.read())
 services=json.loads(os.environ["SERVICES_JSON"])
-env=json.loads(os.environ["ENV_JSON"])
+env=sub["environment"]
 CRITICAL={"pi","focusa","agent-kb"}
 points=0.0; present=0; missing=0; healthy=0; unhealthy=0; blockers=[]; notes=[]; offpath=[]
 for c in sub["components"]:
@@ -164,18 +160,34 @@ for c in sub["components"]:
         points+=0.3; unhealthy+=1
         if c["critical"]: blockers.append({"component":c["component"],"reason":"critical component unhealthy"})
     else: points+=0.7
-    if c.get("resolved_path") and "/" in c["resolved_path"]:
+    if c.get("resolved_path"):
         import shutil
-        if shutil.which(c["component"]) is None: offpath.append({"component":c["component"],"resolved_path":c["resolved_path"]})
+        if shutil.which(c["component"]) is None: offpath.append(c["component"])
 total=len(sub["components"])
-score=round(100*points/total) if total else 0
+comp_score=round(100*points/total) if total else 0
+services_active=sum(1 for s in services if s["state"]=="active")
+services_known=sum(1 for s in services if s["state"]!="absent")
+svc_score=round(100*services_active/services_known) if services_known else 0
+score=round(0.8*comp_score+0.2*svc_score)
 capped=False
 if blockers and score>40: score=40; capped=True
 breakdown=[{"component":c["component"],"score_points":c["score_points"],"critical":c["critical"]} for c in sub["components"]]
-services_active=sum(1 for s in services if s["state"]=="active")
-services_known=sum(1 for s in services if s["state"]!="absent")
 
-# deterministic commentary: verdict, then the specific things an operator would act on
+res=env.get("resources",{}); net=env.get("network",{})
+# feasibility gates: things that would make an install run fail regardless of plan
+try:
+    res_disk=int(res.get("disk_avail_mb") or -1)
+    if 0<=res_disk<2048:
+        blockers.append({"component":"disk","reason":"only %d MB free under home; installs may fail" % res_disk})
+except (TypeError,ValueError):
+    pass
+if net.get("tcp443")=="failed":
+    notes.append("github.com:443 unreachable — installs will fail until network is fixed")
+if net.get("dns")=="failed":
+    notes.append("DNS resolution failing — install sources unresolvable")
+if env.get("clock_ntp")=="no":
+    notes.append("clock not NTP-synchronized — TLS/certificate operations may fail")
+
 if not blockers and missing==0 and unhealthy==0:
     verdict="Substrate complete and responsive; all scored components healthy."
 elif blockers:
@@ -184,78 +196,105 @@ else:
     verdict="Substrate usable; non-critical gaps noted below."
 if missing: notes.append(f"{missing} component(s) absent: "+", ".join(c["component"] for c in sub["components"] if not c["present"]))
 if unhealthy: notes.append(f"{unhealthy} component(s) present but unhealthy: "+", ".join(c["component"] for c in sub["components"] if c["health"]=="unhealthy"))
-for o in offpath: notes.append(f"{o['component']} is installed off PATH at {o['resolved_path']} — works here, but shells/tools using bare PATH lookups will miss it")
-if missing and not offpath:
-    pass
-notes.append(f"{services_active} of {len(services)} known agent-OS service units active ({services_known} present on host); states are observations, not health proofs")
+for o in offpath: notes.append(f"{o} is installed off PATH — shells using bare PATH lookups will miss it; add the directory to PATH or symlink")
+notes.append(f"{services_active} of {len(services)} known agent-OS service units active ({services_known} present, {os.environ["SVC_DOMAIN"]}); states are observations, not health proofs")
+notes.append(f"setup state: {os.environ["SETUP_STATE"]} ({os.environ["SETUP_NOTES"]})")
 if capped: notes.append("score capped at 40 because a critical component is missing or unhealthy — the cap keeps blockers visible")
-notes.append("readiness_score is substrate readiness only; it is not a W.I.N.S. business outcome and observations are not enrollment")
+notes.append("readiness_score is substrate+runtime readiness only; it is not a W.I.N.S. business outcome and observations are not enrollment")
 
+report_id=str(uuid.uuid4())
 report={
- "schema":"agent-os-brownfield-audit.v3",
+ "schema":"agent-os-brownfield-audit.v4",
+ "report_id":report_id,
  "generated_at":datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+ "previous_report_id":os.environ["PREV_ID"] or None,
+ "previous_report_hash":os.environ["PREV_HASH"] or None,
  "machine_fingerprint":os.environ["FP"],
  "fingerprint_method":"sha256("+os.environ["FP_DESC"]+")",
  "label":os.environ["LABEL"],
- "os":{"type":os.environ["OS_TYPE"],"kernel":os.environ["OS_KERNEL"],"name":os.environ["OS_NAME"]},
+ "os":{"name":os.environ["OS_NAME"]},
  "environment":env,
  "audit":{"tool":"substrate-bootstrap.sh","mode":"value-free","checker_exit":int(os.environ["SUB_EXIT"])},
+ "setup_state":{"state":{"fresh":"fresh","partial":"partial","configured":"configured"}[os.environ["SETUP_STATE"]],"note":os.environ["SETUP_NOTES"]},
  "components":sub["components"],
- "install_plan":sub.get("install_plan",[]),
  "services":services,
+ "install_plan":sub.get("install_plan",[]),
  "readiness_score":{
    "score":score,
-   "scale":"0-100 substrate readiness",
-   "formula":"healthy=1.0, present+n/a=0.7, present+unhealthy=0.3, missing=0; averaged over all components; capped at 40 when any critical component (pi, focusa, agent-kb) is missing or unhealthy",
+   "scale":"0-100 substrate+runtime readiness",
+   "formula":"components (80%): healthy=1.0, present+n/a=0.7, present+unhealthy=0.3, missing=0 averaged; runtime (20%): active/known service units; capped at 40 when any critical component is missing or unhealthy",
    "score_capped":capped,
+   "component_score":comp_score,"service_score":svc_score,
+   "services_active":services_active,"services_known":services_known,
    "components_total":total,"present":present,"missing":missing,"healthy":healthy,"unhealthy":unhealthy,
    "blockers":blockers,
    "breakdown":breakdown,
    "not":"W.I.N.S. business outcome; observations are not enrollment"},
  "commentary":{"verdict":verdict,"notes":notes}}
+import hashlib
+rh=hashlib.sha256(json.dumps(report,sort_keys=True).encode()).hexdigest()
+report["report_hash"]="sha256:"+rh
+os.makedirs(os.path.expanduser("~/.cache/agent-os-audit"),exist_ok=True)
+json.dump({"report_id":report_id,"report_hash":report["report_hash"]},open(os.path.expanduser("~/.cache/agent-os-audit/last.json"),"w"))
 print(json.dumps(report,indent=2))
 ' <<< "$sub_json")" || { echo "report build failed" >&2; exit 65; }
+
+emit() {
+  if [ -n "$OUTPUT" ]; then printf '%s\n' "$report" > "$OUTPUT"; fi
+}
+emit
 
 if [ "$MODE_JSON" = "1" ]; then
   printf '%s\n' "$report"
 fi
 if [ "$MODE_PRINT" = "1" ]; then
-  # human view is rendered FROM the same report object — one source, no drift
   printf '%s' "$report" | python3 -c '
 import json,sys
 r=json.load(sys.stdin)
 rs=r["readiness_score"]
 print("=" * 62)
 print("AGENT-OS BROWNFIELD AUDIT — " + r["generated_at"])
+print("report: " + r["report_id"] + ("" if not r["previous_report_id"] else "  (prev: " + r["previous_report_id"] + ")"))
 print(("label: " + r["label"]) if r["label"] else "label: (none)")
-print("host: " + r["os"]["name"] + " | kernel " + r["os"]["kernel"])
-print("fingerprint: " + r["machine_fingerprint"] + " (" + r["fingerprint_method"] + "; pseudonymous, not identity)")
+print("host: " + r["os"]["name"] + " | fingerprint " + r["machine_fingerprint"][:20] + "… (pseudonymous, not identity)")
+print("setup state: " + r["setup_state"]["state"] + " — " + r["setup_state"]["note"])
 print("=" * 62)
 print()
-print("READINESS SCORE: %d/100  (substrate only — not a W.I.N.S. business outcome)" % rs["score"])
+print("READINESS SCORE: %d/100  (substrate+runtime — not a W.I.N.S. outcome)" % rs["score"])
+print("  component score %d/100 | service score %d/100 (0.8×comp + 0.2×svc)" % (rs["component_score"], rs["service_score"]))
 if rs["score_capped"]: print("  score capped at 40: a critical component is missing or unhealthy")
 print("  components: %d total | %d present | %d missing | %d healthy | %d unhealthy" % (rs["components_total"], rs["present"], rs["missing"], rs["healthy"], rs["unhealthy"]))
 if rs["blockers"]:
     print("  BLOCKERS:")
     for b in rs["blockers"]: print("    - %s: %s" % (b["component"], b["reason"]))
 print()
+e=r["environment"]; p=e["platform"]
+print("ENVIRONMENT")
+print("  platform: %s (%s %s) %s | virt %s | wsl %s" % (p["os"], p["distro_id"], p["distro_version"], p["arch"], e["virtualization"], "yes" if e.get("wsl") else "no"))
+print("  init: %s | container: %s" % (e["init"], "yes" if e["container"] else "no"))
+print("  package managers: %s" % (", ".join(e["package_managers"]) if e["package_managers"] else "none detected"))
+print("  resources: disk %s MB free | mem %s MB available" % (e["resources"]["disk_avail_mb"], e["resources"]["mem_avail_mb"]))
+print("  network: dns %s | tcp443 %s | clock ntp %s" % (e["network"]["dns"], e["network"]["tcp443"], e["clock_ntp"]))
+print()
 print("COMPONENTS")
 for c in r["components"]:
     st = "missing" if not c["present"] else "ok"
-    crit = " [critical]" if c["critical"] else ""
-    print("  %-8s %-10s%s health=%-9s points=%.1f" % (st, c["component"], crit, c["health"], c["score_points"]))
-    print("      version: " + c["version"])
+    tag = " [base]" if c["base"] else (" [critical]" if c["critical"] else "")
+    print("  %-8s %-10s%-13s health=%-9s points=%.1f" % (st, c["component"], tag, c["health"], c["score_points"]))
+    print("      version: %s | %s" % (c["version"], c["commentary"]))
     if c["resolved_path"]: print("      found:   " + c["resolved_path"])
-    print("      route:   " + c["route"])
-    print("      note:    " + c["commentary"])
+    print("      route(%s, order %d, admin=%s): %s" % (c["route_kind"], c["order"], "yes" if c["requires_admin"] else "no", c["route"]))
 print()
-print("ENVIRONMENT")
-e=r["environment"]; p=e["platform"]
-print("  platform: %s (%s %s) %s/%s" % (p["os"], p["distro_id"], p["distro_version"], p["arch"], e["virtualization"]))
-print("  init: %s | container: %s" % (e["init"], "yes" if e["container"] else "no"))
-print("  package managers: %s" % (", ".join(e["package_managers"]) if e["package_managers"] else "none detected"))
+plan=r["install_plan"]
+if plan:
+    print("INSTALL PLAN (operator-authorized execution only; base-only apply supported)")
+    for e2 in plan:
+        print("  [%d] %-10s (%s, admin=%s%s) %s" % (e2["order"], e2["component"], e2["route_kind"], "yes" if e2["requires_admin"] else "no", ", after "+",".join(e2["depends_on"]) if e2["depends_on"] else "", e2["route"]))
+        print("      verify after install: %s" % e2["verify_cmd"])
+else:
+    print("INSTALL PLAN: nothing missing")
 print()
-print("SERVICES (systemd units, observed state)")
+print("SERVICES (observed state)")
 for s in r["services"]:
     print("  %-10s %-22s %s" % (s["state"], s["service"], s["commentary"]))
 print()
@@ -280,7 +319,6 @@ if [ "$MODE_POST" = "1" ]; then
     exit 2
   fi
 fi
-# exit mirrors substrate truth: 1 missing, 3 present-but-unhealthy, 0 clean
 case "$sub_exit" in
   1) exit 1 ;;
   3) exit 3 ;;
