@@ -184,6 +184,28 @@ Do **not** solve ambiguity by creating another synchronization store.
 
 If duplicate canonical ownership truly exists, identify the narrowest correction at the proper owner.
 
+**State ownership map — reference deployment (drafted 2026-09-12 from live read-only reconciliation; generalized form, no tenant private state).** One canonical owner per store; anything else holding a copy is DERIVED/CACHE with a re-derive path; no synchronization store.
+
+```text
+STORE                                        ROLE        CANONICAL OWNER                 SCOPE KEY            WRITERS->READERS                          FRESHNESS/CONSISTENCY           BACKUP/RECOVERY
+source code repositories                     CANONICAL   GitHub (orgs + owner account)   repo + branch        approved pushers -> clones, CI            git history authoritative        remote is the backup; recovery = clone
+CoS workspace folders                        CANONICAL   OpenClaw gateway per user       user id              gateway + agents -> CoS runtime           folder canonical until ascension git-backed (Stage 2); services hold runtime state
+Focusa state (per deployment)                CANONICAL   that deployment's Focusa        project/continuity   typed APIs/reducer -> harness tools       append-only; event timestamps   Focusa backup/restore mechanisms
+Agent-KB knowledge                           CANONICAL   agent-kb-api master             doc ids              ingestion/refresh -> agents via CLI       API-authoritative; index_generation   refresh jobs + transitional-storage policy
+secrets (vault)                              CANONICAL   Bitwarden                       field refs           vault clients -> scoped rbw retrieval     vault authoritative             provider backup; agents never copy values
+DNS zones                                    CANONICAL   Cloudflare (DNS of choice)      zone id              cf/wrangler approved auth -> agents       API-authoritative at change     zone export before change; staged-transfer rollback
+hosting/site estate (cPanel/WordPress)       CANONICAL   each cPanel account             account user         as-user + per-site tools -> granted agents per-account                     hosting backup policy + incident runbooks
+business records (mail/calendar/drive/site)  CANONICAL   the owning business system      tenant/account       owning tools -> agents with granted scopes owning-system authoritative     record timestamps; provider-native export
+memory/conversation/audit stores             CANONICAL   the owning memory/audit service tenant + session    service APIs -> scoped agents             service authoritative           service timestamps + service backup policy
+evidence/receipts                            EVIDENCE    Focusa evidence surfaces        evidence_ref ids     typed capture -> replacement agents       append-only; capture timestamps Focusa store backup
+crons/jobs/queues                            COORDINATION owning runtime (OpenClaw/Focusa bg) job ids         schedulers/executors -> agents            receipt-backed completion       receipts preserved; idempotent rerun
+worktrees/sessions/scratch                   EPHEMERAL   owning runtime                  session/worktree id  agents -> agents                          disposable                      discard after verification
+```
+
+Overlap check per Step 2: Focusa state is the only canonical store for governed work/evidence; Agent-KB is canonical only for knowledge; CoS folders are canonical only for identity/directives (runtime memory/task state stays with owning services); business systems stay canonical for their records. No store duplicates another's canonical ownership; no new synchronization store created.
+
+Verified live 2026-09-12 on the reference estate (read-only): tailnet mesh healthy (cloud VPS ping ~5 ms); GitHub organizations and 43 owner-account repos enumerated; 50 Cloudflare zones answered via approved auth; operated CoS user instances present; provisioning mechanism live on the network estate. Per-tenant enumeration continues under GP-04; evidence refs in Focusa (`gp04-virtual-execution-proof-20260912`, `gp04-bounded-reconciliation-20260911`).
+
 ---
 
 # Step 3 — Map every Golden Path phase to reality
