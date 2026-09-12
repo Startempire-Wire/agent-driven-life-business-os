@@ -18,6 +18,7 @@ for a in "$@"; do
 done
 
 # name|version-cmd|health-cmd (optional, exit-code only)|official route
+# NOTE: health commands must not contain '|' — pipe-using checks are dispatched below.
 COMPONENTS=(
   "git|git --version|-|official git package or git-scm.com installer"
   "pi|pi --version|-|npm install -g @earendil-works/pi-coding-agent"
@@ -28,7 +29,7 @@ COMPONENTS=(
   "gog|gog version|-|official gog release binary"
   "bd|bd --version|-|official beads install"
   "tailscale|tailscale version|tailscale status|official tailscale install script"
-  "agent-kb|agent-kb version 2>/dev/null|agent-kb freshness --json 2>/dev/null | grep -q '\"status\": *\"ok\"'|canonical KB deployment install"
+  "agent-kb|agent-kb version 2>/dev/null|-|canonical KB deployment install"
 )
 
 out="["; first=1; missing=0
@@ -36,10 +37,17 @@ for c in "${COMPONENTS[@]}"; do
   IFS='|' read -r name vcmd hcmd route <<< "$c"
   if command -v "$name" >/dev/null 2>&1; then
     ver=$($vcmd 2>/dev/null | head -n1); [ -n "$ver" ] || ver="-"
-    if [ "$hcmd" != "-" ]; then
+    health="n/a"
+    if [ "$name" = "agent-kb" ]; then
+      # freshness CLI exits non-zero on unknown freshness even when status is ok;
+      # health must parse status, not the raw exit code.
+      if agent-kb freshness --json 2>/dev/null | grep -q '"status": *"ok"'; then
+        health="healthy"
+      else
+        health="unhealthy"
+      fi
+    elif [ "$hcmd" != "-" ]; then
       if $hcmd >/dev/null 2>&1; then health="healthy"; else health="unhealthy"; fi
-    else
-      health="n/a"
     fi
     st="ok"
   else
