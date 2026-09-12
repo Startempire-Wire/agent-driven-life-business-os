@@ -1,6 +1,6 @@
 # Golden Path — the interwoven doctrine (single iterable source)
 
-- Date: 2026-09-11 (iteration 22 — top-ten value additions woven into their spine stages; the value-pass paragraph is now an index; parked candidates unchanged in 03-doc)
+- Date: 2026-09-11 (iteration 23 — field provenance woven per stage; founder-dependency test applied; human supervision made conditional; GP-03 done, GP-04 reconciliation started)
 - **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with the agent performing routine setup rather than directing the owner to operate the computer. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
 - **Locked invariants** (every revision derives from these):
   1. **Agent-operated setup.** The agent inspects, executes, verifies and recovers through existing tools. The owner supplies goals, business knowledge, consequential choices and required approvals—not routine command execution. Ask only when those inputs are genuinely needed; reuse answers and batch questions where practical.
@@ -48,9 +48,17 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Top-ten additions from the value pass (2026-09-11, planning intent — binding waits for GP-06+).** The ten are woven into their spine stages below — the **urgency-aware approval digest** and **pre-visit preparation cycle** (Stage 0/engagement economics), **value-free readiness checks** and the **enrollment/actuation qualification diagnostic** (Stage 1), the **consented personal-life lane** and **correction impact handling** (Stage 5), the **daily executive briefing** and **client-specific workflow acceptance tests** (Stage 7), the **owner-benefit review** (Stage 8), and **operator cockpit client-health projection** (tracking loop). The remaining fourteen candidates from the value pass are parked in [03-agent-os-golden-path-future-addition-candidates.md](03-agent-os-golden-path-future-addition-candidates.md) with explicit inclusion triggers — parked items never self-promote.
 
+**Field provenance (orthogonal to implementation state).** Implementation-state labels (canonical / implemented / installed-deployed / verified / planned / obsolete / unknown — defined in the server handoff) stay the status axis; each stage also carries a field-provenance label: `field_repeated` (materially equivalent practice across multiple real customer deployments), `field_observed` (performed or observed in at least one real deployment), `derived` (generalized from field experience, not itself repeated), `proposed` (new design without deployment experience). Operator estimate 2026-09-11: roughly 65% of this path was synthesized from hands-on work across the first five customer deployments — an estimate to reconcile, not a proven percentage. This pass reconciles it structurally: the nine-stage spine and its scars are field-derived, while the 2026-09 product layers (client-app vehicle, engagement economics, top-ten value additions) are proposed. Labels cite only corroborating live infrastructure, commits, receipts, Focusa evidence or operator statement; customer private state never enters this portable repo. Scars keep their own provenance discipline: **observed** scars were paid for in real deployments, **hypothesized** defaults await a real run — never treated as equally battle-tested.
+
+**Founder-dependency test.** Every material step depending on the operator personally is tested: does it require the Canonical Owner Principal because of genuine constitutional authority, reserved judgment or an unavoidable physical requirement — or merely because the procedure has not been captured and productized? Genuine authority is preserved; trained-operator procedure is made explicit; agent-performable work moves to agents under existing authority; repeated deterministic work becomes owning code. Ranked by repeated burden, owner/operator interruption, customer value, reuse and compounding — minimum unnecessary dependence, never maximum automation. Applied 2026-09-11: the consent surface's owner moments survive as genuine authority (payments, secret entry, role-packet approval, site-visit judgment, spend reconciliation); substrate/cloud-landing provisioning is already productized through the existing provisioning mechanism; the remaining founder-side dependency is engagement capacity itself, which the pricing and visit bounds already govern.
+
+**Human authority is foundational; human supervision is conditional.** The owner remains the constitutional authority root — reserved powers, correction, stop/takeover, delegation and revocation — but a human is not routinely required to inspect or approve completed agent work. Verification follows the canonical completion architecture of the owning systems: governed worker evidence → independent authorized verifier/judge → proof-gated review → repair or canonical completion/receipt → continue. Canonical owners: Focusa (governed work, evidence, receipts, settlement) and UIAI Engine (browser/computer execution and EPWA proof surfaces); this doctrine references them and never duplicates their schemas. Human review is required only where policy, reserved powers, ambiguity, risk, law, customer preference or an explicit authority contract requires it — setup and constitutional owner moments are preserved as designed. No HITL does not mean no verification: routine checking becomes governed machine verification. North-star transition: founder performs setup → agent assists the founder → agent performs setup with consequential owner moments → repeatable Agent OS installs itself through this path → the resulting workforce operates, verifies, repairs and continues under owner-defined policy without a human manager in the routine loop.
+
 ---
 
 # Stage 0 — Engage: engagement, authority, consent design
+
+*Field provenance: `field_repeated` — every real engagement began with engagement, authority and consent work (operator-reported across client deployments).*
 
 **Steps.** Open the engagement; establish the Canonical Owner Principal for this deployment (owner constitution, portable owner binding); agree the outcome, scope, data boundaries and the **spend envelope** — plans, subscriptions, hosting — with visibility and reconciliation owned by the Canonical Owner Principal and the business's primary owner/operator; enumerate the **consent surface** for this client; record what exists (machines, accounts, software) before touching anything.
 
@@ -67,6 +75,8 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 **Exit.** Engagement record + consent surface exist and define the deployment's owner moments; later asks stay consequential-only.
 
 # Stage 1 — Workstation substrate
+
+*Field provenance: `field_repeated` — substrate installs recur across client machines; the observed scars below were paid for on real machines.*
 
 **Steps.** Install Pi; connect the **model strategy**: OpenAI Pro plan for premium work, with OpenCode Go and OpenRouter provisioned for cheaper-model lanes (OpenAI device access and developer mode enabled early); install **gh CLI and cf CLI/wrangler early** — via device-approval flows where the customer machine lacks them — giving build agents (local and server) CLI access and **full DNS control** — **Cloudflare is the DNS of choice** (its agent tooling is the reason; non-negotiable), and when a client's DNS lives elsewhere (e.g., a prior client on Porkbun) the zone transfers to Cloudflare as part of the build; download Focusa; **download UIAI Engine early**; set up Bitwarden (shared vault); set up rbw for agent-side secret retrieval; **discover and consolidate the client's scattered secrets** into the vault (browser-saved passwords, old managers, sticky notes, whatever exists).
 
@@ -93,6 +103,8 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 2 — Chief of Staff genesis (local, git-backed)
 
+*Field provenance: `field_repeated` — the git-backed genesis-folder pattern is the reference deployment's own working pattern and runs as operated per-client CoS instances.*
+
 **Steps.** Create the Chief of Staff as a **desktop folder**; `git init` and back it up to GitHub from day one; initialize the CoS workspace (OpenClaw runs where the deployment's chosen path puts it — locally now, cloud-primary later); **run the CRIST project-genesis interview (Focusa Spec 135B)** so the CoS exists as an approved agent role — context ingested from source-linked material, role composed, spec and tasks derived — with the interview corpus persisted for continuous growth. The folder carries the CoS's directives, soul and configuration; runtime memory and task state remain with their owning services until the deployment design moves them. The workspace starts minimal: the engagement/consent record (Stage 0), the CRIST interview corpus, directives/soul drafts and the first-outcome definition — everything else earns its place. The first capability is proven here: the CoS completes one bounded, owner-visible task through the build agents using this context. The folder also carries the **Svelte CoS web UI** — the interface through which the CoS will live at a subdomain of the client's website (deployed at ascension, Stage 6). The UI is a *surface* of the CoS; state remains in the git-backed folder.
 
 **Why git-backed first (woven rationale).** The folder is **portable by design**: it relocates to the VPS in Stage 6. Version control from day one means the CoS's identity and state survive machine loss, are reviewable, and move without loss. The genesis folder *is* the Chief of Staff until ascension.
@@ -111,6 +123,8 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 3 — Cloud landing (control-plane substrate)
 
+*Field provenance: `field_observed` — cloud landing and provisioning automation exist in live infrastructure; per-client variation unresolved.*
+
 **Steps.** Create the OVH VPS account; respond to verification emails; log in via browser to the VPS. The VPS is **landed here, not yet hosting the CoS** — it becomes the relocation target (Stage 6). Size, OS and hardening are per-client decisions recorded in the engagement record, not defaults invented here.
 
 **Owner mechanism.** OVH provisioning; email verification via the client's consented mailbox (gog, Stage 5 — dependency: consent ordered before it is needed).
@@ -126,6 +140,8 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 **Exit.** The control-plane substrate is landed, verified, and waiting; no owner involvement beyond the designed moments.
 
 # Stage 4 — Mesh + identity
+
+*Field provenance: `field_repeated` — the Tailscale/GitHub mesh is standing practice across the reference deployment and client builds.*
 
 **Steps.** Create GitHub (if none — the CoS backup repo from Stage 2 may already have forced this); use GitHub to authenticate Tailscale; install Tailscale on all machines; connected machines allow agents to surf between. **Placement rule:** the CoS and its schedules run cloud-primary (after Stage 6); machine-local build agents serve the machines they sit on; when the primary workstation is off, cloud work continues and machine-local work waits or routes to another enrolled machine.
 
@@ -143,6 +159,8 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 5 — Knowledge + audit
 
+*Field provenance: `field_observed` — the knowledge plane (gog/Agent-KB/wiki) is reference practice; per-client audit lanes are `derived` from it.*
+
 **Steps.** Document all; set up gog CLI across the G Suite products; run the full business audit to categorize the business — on **three lanes**: (1) machine-visible sources (gog, filesystem, existing docs, browser-accessible systems); (2) an **owner-knowledge interview for what no system shows** — undocumented processes, informal schedules, tribal rules, things the owner simply tells and no tool can discover; and (3) a **separately consented personal-life lane** — personal commitments, household administration, important dates and the owner's definition of a good week — kept under its own consent boundary so life context never mixes with business disclosure. The interview is structured (CRIST interview style) and its answers feed roles, crons and processes directly. Core audit categories: people and roles, processes and schedules, tools and systems, communication surfaces, recurring work, money flows, exceptions and tribal rules — deepened as evidence raises questions; interview answers are first-class findings, cited like source handles — recorded once, reused, never silently re-collected: when a fact or rule changes, **correction impact handling** identifies the affected roles and workflows, updates the authorized context once, and shows what changed. Core interview prompts (deepened per client, never a fixed exam): what a good week looks like; who does what and who approves; which recurring tasks eat the most time; where money comes in and goes out; how clients and staff communicate; what breaks when the owner is away; what was abandoned because it hurt too much; what should have been automated years ago; what must never be delegated.
 
 **Owner mechanism.** Agent-KB/bootstrap + Focusa evidence for documentation; gog CLI with Google OAuth consent. The local CoS (Stage 2) orchestrates; build agents (browser via UIAI, computer use via Pi) execute the reading and documentation.
@@ -158,6 +176,8 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 **Exit.** Business categorization exists as durable, attributable knowledge; gog operates under granted scopes.
 
 # Stage 6 — Chief of Staff ascends (relocate to the cloud)
+
+*Field provenance: `field_observed` — relocation/authority-move was performed in the reference deployment; per-client ascension is `derived`.*
 
 **Steps.** Move the **git-backed** CoS folder to the VPS; OpenClaw runs there; from the cloud it **administers the entire tailnet primarily** — employees, crons, workflows, machine agents. Deploy the **Svelte CoS UI** to a **subdomain of the client's website** (e.g. `cos.<client-domain>`) via wrangler — using the DNS control installed in Stage 1. The CoS now lives web-reachable at its own address: runtime on the VPS, UI on the client subdomain.
 
@@ -179,6 +199,8 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 7 — Operating plane
 
+*Field provenance: `field_observed` — crons, employees and voice operate in the reference deployment; CRIST role packets are `derived` from the owning spec.*
+
 **Steps.** OpenClaw as Chief of Staff (now cloud-primary from Stage 6); create the business owner voice profile for correspondence; create systems of common tasks; create crons for regular workflows; produce the **daily executive briefing** — priorities, important changes, blocked work and the decisions that actually need the owner — from existing receipts and state; set up virtual employees through **CRIST role packets**: long-running employees get full packets (context, role, spec, tasks, permissions, tool allowances); short-term workers get lightweight worker-role packets spun up and retired per need. **Permissions and tool allowances are explicit per role** — Focusa grants plus provider tool surfaces (UIAI browser, gog scopes, rbw access classes, computer-use permissions). Type each piece of work by its shape: fixed schedule with deterministic steps → cron; recurring judgment or multi-system coordination → persistent employee; bounded one-off effort → temporary worker with expiry and cleanup; occasional steps a human simply runs → documented procedure, not automation. The audit decides; templates only accelerate. **Mechanics:** a temporary worker's lightweight packet carries its bounded scope, expiry and cleanup duties — grants revoked, receipts archived, access removed at end of job; a persistent employee activates only after its packet is approved (batched), starts with limited scope, and rolls back by disabling its crons and revoking its grants — receipts preserved either way.
 
 **Owner mechanism.** OpenClaw chief-of-staff surface (administering from the cloud), **owner-facing web UI at the client's subdomain**; voice profile pipeline; task/employee provisioning per existing role/permission contracts. Local build agents (browser + computer use) remain the hands on client machines; the CoS delegates across the tailnet.
@@ -187,7 +209,7 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 **Scars.** Correspondence-style drift → default: build the style profile from approved correspondence examples and owner feedback; audio samples only if the owner chooses; validate against real messages before use. Crons silently dying → default: every cron writes a heartbeat/receipt; missing heartbeats surface as alerts, not silence. *Change breaks a real workflow silently* → default: client-specific **workflow acceptance tests** — approved examples of the client's actual workflows with expected results — rerun after model, tool or process changes; a failing example blocks the change, not the client's workday. Check: at least one real-workflow example passes after every relevant change. Employees with ambient tool access → default: per-role toolsets and permissions enumerated at creation; least privilege; **no employee exists without an approved role packet naming its allowances**. Check each: voice round-trip verified; cron heartbeat visible; employee executes its one representative action and cannot act outside its scope.
 
-**Consent.** Correspondence-style review = one owner moment; audio samples only if chosen. Employee role definitions = agent-proposed, owner-approved once as a batch (a design decision, not a repetitive ask).
+**Consent.** Correspondence-style review = one owner moment; audio samples only if chosen. Employee role definitions = agent-proposed, owner-approved once as a batch (setup-time reserved judgment; routine operation is then policy-governed machine verification — human authority is foundational, human supervision is conditional).
 
 **Check.** One representative recurring workflow runs end-to-end: cron fires (cloud) → CoS delegates to an employee → employee executes through granted tools on the target machine → receipt lands → owner-visible result. The denial test: the employee cannot act outside its role.
 
@@ -195,7 +217,9 @@ STEPS → OWNER MECHANISM → LAW → SCARS → CONSENT → CHECK → EXIT
 
 # Stage 8 — Ongoing operation and handoff
 
-**Steps.** "This is just the beginning": hand off from build-out to life. Working means the owner's week-one reality: the agent operates the routine work, the owner approves and informs, and the first useful CoS outcome named in Stage 0 is delivered. An **owner-benefit review** — completed outcomes, effort saved and remaining friction, with measured results labeled honestly — stays visible in the CoS UI as the standing record of what the operated process delivers. Spend (plans, subscriptions, hosting) stays visible to and reconciled by the Canonical Owner Principal and the business's primary owner/operator; the agent records costs in the deployment's existing evidence surfaces and flags variances — no separate billing dashboard. Document the deployment; verify the replacement-agent test; establish the optimization loop (below) as the operating rhythm.
+*Field provenance: `derived` — operating rhythm is documented from operator direction; the replacement-agent test is `proposed` until GP-13 proves it.*
+
+**Steps.** "This is just the beginning": hand off from build-out to life. Working means the owner's week-one reality: the agent operates the routine work under policy-governed completion — machine verification through the deployment's completion/evidence mechanisms (Focusa evidence/receipts/settlement; UIAI EPWA proof where visual), human review only where policy, reserved powers, ambiguity, risk, law or customer preference requires it — the owner is informed rather than supervising, and the first useful CoS outcome named in Stage 0 is delivered. An **owner-benefit review** — completed outcomes, effort saved and remaining friction, with measured results labeled honestly — stays visible in the CoS UI as the standing record of what the operated process delivers. Spend (plans, subscriptions, hosting) stays visible to and reconciled by the Canonical Owner Principal and the business's primary owner/operator; the agent records costs in the deployment's existing evidence surfaces and flags variances — no separate billing dashboard. Document the deployment; verify the replacement-agent test; establish the optimization loop (below) as the operating rhythm.
 
 **Law.** Phase 13 (acceptance/handoff) and the replacement-agent test: a fresh agent orients from durable state — engagement record, Agent-KB, Focusa evidence, this doctrine's per-deployment record — not from the builder's memory.
 
@@ -232,8 +256,8 @@ One ordered ledger; task IDs are reused when work enters the existing task/CallG
 |---|---|---|---|
 | GP-01 | done | — | Upstream docs pulled/read; lineage `3658ecc`; no duplicate ledger. |
 | GP-02 | done | GP-01 | Starter essence compared; first clarification published; findings recorded. |
-| GP-03 | in_progress | GP-02 | This woven doctrine: stages 0–8 carry law/scars/consent/checks. Done when the operator's process, dependencies and open specifics are reviewed as a coherent planning draft. Exact live bindings remain GP-06 work, not a prerequisite for GP-03. |
-| GP-04 | planned | GP-03 | Live estate reconciliation through approved read-only routes; configured/reachable/usable-by-agent/verified classified with evidence; consent-surface inventory validated against Stage 0's design. |
+| GP-03 | done | GP-02 | This woven doctrine: stages 0–8 carry law/scars/consent/checks. Completed through iteration 23 — coherent planning draft with field provenance, founder-dependency test and conditional-supervision reconciliation. Live bindings remain GP-06 work. |
+| GP-04 | in_progress | GP-03 | Live estate reconciliation through approved read-only routes; configured/reachable/usable-by-agent/verified classified with evidence; consent-surface inventory validated against Stage 0's design. Bounded first reconciliation 2026-09-11: daemon/KB health verified, operated CoS accounts located, provisioning mechanism live, customer-site agent-instructions file confirmed; evidence captured in Focusa; full estate enumeration continues. |
 | GP-05 | planned | GP-04 | State-ownership map: every material store has canonical owner, scope, freshness, backup, recovery; no synchronization store. |
 | GP-06 | planned | GP-05 | Every spine step classified **deterministic** (bound to an owning script/API/form — idempotent, agent-supervised) or **probabilistic** (bound to ACITL judgment and batched owner moments), then bound to real existing commands/APIs — including git-backed CoS genesis/ascension bindings and ACITL bindings (which steps the AC executes; which are AC-driven-owner-typed; where grants live). No invented commands. |
 | GP-07 | planned | GP-06 | Design reviewed against normal/partial/denied/interrupted runs; zero-human-turns test applied per step; smallest unresolved implementation backlog produced. |
@@ -272,7 +296,9 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 - The optimization loop runs on the deployed system (heartbeats visible, scars feeding back, doctrine versioning advancing).
 - A replacement agent continues from durable references; no secrets or private client data in this doc.
 
-## Findings and evidence limits (iterations 5–22)
+## Findings and evidence limits (iterations 5–23)
+
+- Iteration 23 (2026-09-11): operator corrected the premise — ~65% of the path (operator estimate) derives from hands-on work across the first five customer deployments; field provenance (`field_repeated`/`field_observed`/`derived`/`proposed`) woven per stage, orthogonally to implementation state; founder-dependency test applied (consent surface survives as genuine authority; provisioning already productized; remaining founder dependency is engagement capacity); HITL reconciled — human supervision is conditional, not a standing requirement (Stage 7/8 wording fixed; README/AGENTS.md scanned clean). Bounded GP-04 reconciliation begun with evidence in Focusa.
 
 - Iteration 22 (2026-09-11): operator directed the top ten be **woven into their spine stages** — Stage 0 (digest, pre-visit cycle), Stage 1 (value-free readiness, rerunnable qualification diagnostic), Stage 5 (personal-life lane, correction impact handling), Stage 7 (daily briefing, workflow acceptance tests), Stage 8 (owner-benefit review), tracking loop (cockpit projection), completion criteria; the value-pass paragraph became an index to avoid duplicated authority. Parked doc unchanged.
 
