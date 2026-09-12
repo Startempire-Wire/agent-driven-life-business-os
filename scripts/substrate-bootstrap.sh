@@ -13,7 +13,7 @@
 #   - home-path redaction (paths render as ~), single-run flock, --output FILE
 set -uo pipefail
 
-MODE="check"; JSON=0; OUTPUT=""; APPLY=0; CONFIRM=0; TOTAL=16
+MODE="check"; JSON=0; OUTPUT=""; APPLY=0; CONFIRM=0; DRYRUN=0; TOTAL=16
 while [ $# -gt 0 ]; do
   case "$1" in
     --check) MODE=check; shift ;;
@@ -25,10 +25,12 @@ while [ $# -gt 0 ]; do
       [ "$2" = "base" ] || { echo "only --apply base is supported; heavier installs stay operator-run" >&2; exit 64; }
       APPLY=1; MODE=apply; shift 2 ;;
     --yes) CONFIRM=1; shift ;;
+    --dry-run) DRYRUN=1; shift ;;
     -h|--help)
-      echo "usage: substrate-bootstrap.sh [--check|--install|--apply base] [--json] [--output FILE] [--yes]"
-      echo "  --apply base --yes  installs ONLY missing base primitives (python3, node, npm, git, curl)"
-      echo "                      via the detected package manager; requires root/sudo for admin routes."
+      echo "usage: substrate-bootstrap.sh [--check|--install|--apply base] [--json] [--output FILE] [--yes] [--dry-run]"
+      echo "  --apply base --yes        installs ONLY missing base primitives (python3, node, npm, git, curl)"
+      echo "                            via the detected package manager; requires root/sudo for admin routes."
+      echo "  --apply base --dry-run    prints the exact install commands that would run; executes nothing."
       echo "  All non-base components are always print-routes-only; heavier installs are operator-authorized runs."
       exit 0 ;;
     *) echo "unknown arg: $1" >&2; exit 64 ;;
@@ -140,6 +142,7 @@ progress() { printf '\rworking... [%d/%d] %s        ' "$1" "$TOTAL" "$2" >&2; }
 for c in "${COMPONENTS[@]}"; do
   IFS='|' read -r name vcmd hcmd route critical kind base order priv deps <<< "$c"
   idx=$((idx+1)); progress "$idx" "$name"
+  bin_path=""; ver="-"; health="n/a"; st="missing"; vargs=""
   bin_path="$(find_bin "$name" 2>/dev/null || true)"
   if [ -n "$bin_path" ]; then
     vargs="${vcmd#"$name" }"
@@ -197,15 +200,21 @@ rows_json="$(python3 -c 'import json,sys;print(json.dumps([json.loads(l) for l i
 printf '\rworking... [16/16] done                    \n' >&2
 
 # --- base-primitive apply (operator-authorized; base only) ---
+# --- base-primitive apply (operator-authorized; base only; --dry-run shows commands) ---
 apply_result="not-requested"
 if [ "$MODE" = "apply" ]; then
-  if [ "$CONFIRM" != "1" ]; then
-    echo "REFUSED: --apply base requires --yes (explicit operator confirmation)" >&2
+  if [ "$CONFIRM" != "1" ] && [ "$DRYRUN" != "1" ]; then
+    echo "REFUSED: --apply base requires --yes (execute) or --dry-run (preview)" >&2
     exit 64
   fi
   if [ "$missing_base" = "0" ]; then
-    apply_result="all base primitives present; nothing to install"
-    echo "APPLY: $apply_result"
+    if [ "$DRYRUN" = "1" ]; then
+      apply_result="dry-run: all base primitives present; nothing to install"
+      echo "DRY-RUN: $apply_result"
+    else
+      apply_result="all base primitives present; nothing to install"
+      echo "APPLY: $apply_result"
+    fi
   else
     applied=""; failed=""
     pkg=""
@@ -217,15 +226,32 @@ if [ "$MODE" = "apply" ]; then
     if [ -z "$pkg" ]; then
       echo "APPLY FAILED: no supported package manager detected for $os_id (dnf/apt-get/brew)" >&2
       apply_result="failed: no supported package manager"
+    elif [ "$DRYRUN" = "1" ]; then
+      echo "DRY-RUN: no packages will be installed; the following commands WOULD run on an operator-authorized execution:"
+      for c in "${COMPONENTS[@]}"; do
+        IFS='|' read -r name vcmd hcmd route critical kind base order priv deps <<< "$c"
+        [ "$base" = "true" ] || continue
+        find_bin "$name" >/dev/null 2>&1 && continue
+        case "$name" in
+          npm) find_bin node >/dev/null 2>&1 || continue ;;  # node's install provides npm; listed once under node
+          node) target="nodejs" ;;
+          python3) target="python3" ;;
+          git) target="git" ;;
+          curl) target="curl" ;;
+        esac
+        admin="user-local"; [ "$priv" = "admin" ] && admin="requires root/sudo"
+        echo "  DRY-RUN: $pkg $target   # $name ($admin)"
+      done
+      apply_result="dry-run: commands printed; nothing executed"
     else
       echo "APPLY: installing missing base primitives via '$pkg' (admin routes need root/sudo)"
       for c in "${COMPONENTS[@]}"; do
         IFS='|' read -r name vcmd hcmd route critical kind base order priv deps <<< "$c"
         [ "$base" = "true" ] || continue
         find_bin "$name" >/dev/null 2>&1 && continue
-        # npm depends on node; nodejs package provides both on RHEL/Debian families
+        # npm depends on node; nodejs package provides both — listed/installed once under node
         case "$name" in
-          npm) find_bin node >/dev/null 2>&1 && continue ;;  # npm comes with node; node handled below
+          npm) continue ;;  # node's install provides npm; node entry covers it when node is missing
           node) target="nodejs" ;;
           python3) target="python3" ;;
           git) target="git" ;;
