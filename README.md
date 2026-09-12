@@ -11,7 +11,8 @@
 - **Architecture authority constitution:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Cryptographic authority profile:** [`CRYPTOGRAPHIC_AUTHORITY_PROFILE.md`](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md)
 - **Agent Computer reference profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
-- **Agent-driven setup:** [Golden Path](./AGENT_OS_GOLDEN_PATH.md) — candidate, not yet a verified installer
+- **Agent-driven setup:** [Golden Path](./AGENT_OS_GOLDEN_PATH.md) — 0.2.0 candidate with partial prototype proof, not a verified installer or client rollout
+- **Ecosystem relationships:** [intent-led doctrine](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md#ecosystem-fit--preserve-the-parts-strengthen-the-connections) · [topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html) — products, deployment distinctions and diagnostic flow; not a new registry
 - **Setup iteration tasks:** [ordered implementation list](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 
 ---

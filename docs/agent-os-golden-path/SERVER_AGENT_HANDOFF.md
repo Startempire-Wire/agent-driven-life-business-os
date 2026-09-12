@@ -4,7 +4,7 @@
 
 You are the on-server build agent with direct access to the real Startempire/Wirebot environment and the currently authorized customer Agent OS environments.
 
-Your mission is to **reconcile, improve, and begin executing** the portable Agent OS Golden Path prepared in this repository.
+Your mission is to **reconcile and improve** the portable Agent OS Golden Path, then execute only the next authorized stage. Current operator steering controls the activity; this handoff is not a standing grant to implement or deploy every candidate.
 
 Start here:
 
@@ -16,7 +16,15 @@ Start here:
 6. The current candidate linked by `AGENT_OS_GOLDEN_PATH.md`, including its base phase definitions.
 7. `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` — reuse this ordered list rather than creating another task tree.
 
-The Golden Path `0.1.0` is deliberately a candidate prepared outside the server. **Do not treat deployment assumptions in it as live truth.** You have the environment access required to turn it into a reality-grounded next version.
+The `0.1.0` scaffold is historical input; the current working source targets **0.2.0-candidate**. **Do not treat deployment assumptions as live truth.** Iteration 32 reconciles existing products and boundaries; it does not implement the outstanding diagnostic/intake work.
+
+## Current cohesion handoff — iteration 32
+
+Read [ecosystem fit](02-agent-os-golden-path-ordered-tasks.md#ecosystem-fit--preserve-the-parts-strengthen-the-connections) and the [topology visual](04-agent-os-golden-path-ecosystem-topology-map.html) before selecting a receiver or interpreting a mode. Preserve the existing nine stages, economics and component/wrapped-app distinction. Focusa.dev + Wirebot.chat are the named product doors; os.focusa.dev is a separate Agent Computer surface. No directory, fingerprint enrollment or assumed five-machine fleet exists by virtue of this plan.
+
+The existing ledger remains the only task list: GP-04–07 and GP-08/09 are in progress. Help/list reads are not provisioning lifecycle proof. The diagnostic is a ten-CLI/three-health-path prototype: Linux reference/local HTTP sink tests only, no real receiver or client rollout. Missing-label/flag handling, JSON safety, bounded checks, remote/applicability coverage, truthful status/privacy and authorized receiver readback remain implementation work. A readable shared KB token proves account access, not scoped client grants. First identify applicable engagement requirements and the existing data/identity owner; do not force observations into W.I.N.S. or invent a fleet store.
+
+Current change scope: documentation/topology reconciliation, local validation and normal repository landing. No script implementation, credential/host changes or public website deployment in this pass. Historical command examples below require fresh scope and evidence before use.
 
 ---
 
@@ -229,7 +237,7 @@ The portable Golden Path should capture **contracts, selection rules, profiles, 
 
 Deployment-private/current facts stay with live operational authority.
 
-**Phase→reality mapping (GP-06 first pass, 2026-09-12).** Commands marked **verified** were executed live on the reference estate during GP-04/GP-05 reconciliation; no invented commands. Mechanism class follows the spine's deterministic/probabilistic split. Reference-deployment bindings are verified; per-client bindings stay proposed until a real operated run proves them (GP-09+).
+**Phase→reality mapping (GP-06 first pass, 2026-09-12; evidence labels reconciled in iteration 32).** These are historical reference observations and candidate bindings, not permission to replay commands. Presence/status/help/list evidence proves only the inspected surface, not every listed mutation, lifecycle or per-client outcome. Mechanism class follows the existing spine; exact bindings and consumer proofs remain GP-06/09 work. Versions and endpoint reachability require fresh checks.
 
 ```text
 Stage 0 — Engage
@@ -245,12 +253,12 @@ Stage 1 — Workstation substrate
   verified commands: pi --version, focusa status --agent --json, gh auth status, wrangler whoami, rbw --version, agent-kb freshness --json
   class: deterministic installs via official installers (agent-supervised); secret consolidation + billing = owner-typed moments
   gotchas: AV/script blocking, missing terminal/Node, UAC batching (observed scars); offline endpoints = unknown-until-reachable
-  gaps: substrate install chain not yet owning scripts — GP-08 productization candidate
-  recovery: rerun official installer idempotently
+  gaps: checker prototype exists; install execution, UIAI/OpenClaw coverage, applicability/remote checks and hardening remain GP-08/09 work
+  recovery: reconcile current state, then use the owning official installer/recovery path under its grant
 
 Stage 2 — CoS genesis
   components: git + GitHub; OpenClaw gateway user dirs; CRIST Spec 135B; Svelte CoS UI (surface)
-  verified commands: git init/remote/push, gh repo create (owner account), bd 0.2.16; sudo wb provision up [user_id] [tier] (--dry-run supported; provision list verified live 2026-09-12); sudo wb sovereign provision [user_id] --confirm + sovereign gateway/rotate-token (surface verified; 0 members provisioned)
+  binding candidates: git init/remote/push, gh repo create, bd; wb provision up [user_id] [tier] and wb sovereign provision [user_id] --confirm (help/list inspected only; no provisioning mutation or recovery proven)
   checks: push + fresh-clone boot test; CRIST role packet approved; wb provision status before/after
   class: deterministic (git mechanics + wb provision pipeline) | CRIST interview probabilistic
   gotchas: provisioning lifecycle commands must run as root (wb -> as-user -> runuser design); wb provision list has no --format json (table only); runtime memory/task state stays with owning services; no secrets in folder

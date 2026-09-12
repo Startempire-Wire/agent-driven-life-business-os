@@ -1,12 +1,13 @@
 # Agent OS Golden Path
 
-> A versioned, executable deployment and operations doctrine for turning a fresh environment into a verified, agent-native Life & Business OS.
+> A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage is still partial.
 
-- **Golden Path version:** `0.1.2-candidate` (working planning stream)
+- **Golden Path target:** `0.2.0-candidate` (planning plus partial prototype proof; not a published release)
 - **Foundational contract:** [`AGENTS.md`](./AGENTS.md) — currently `3.3.0`
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Reference Agent Computer profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
 - **Current working source:** [`docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md) — planning iterations toward 0.2.0; [`0.1.1.md`](./docs/agent-os-golden-path/0.1.1.md) retained as superseded planning input
+- **Ecosystem fit:** [approved intent-led relationships](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md#ecosystem-fit--preserve-the-parts-strengthen-the-connections) and [responsive topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html) — reference views, not a fleet registry or proof of live deployment
 - **Ordered tasks:** [`implementation and iteration list`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 - **Server build-agent handoff:** [`docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md`](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md)
 - **Changelog:** [`docs/agent-os-golden-path/CHANGELOG.md`](./docs/agent-os-golden-path/CHANGELOG.md)
@@ -23,6 +24,8 @@ The Golden Path is therefore both:
 
 1. a concise human-readable operating doctrine; and
 2. the upstream specification for increasingly executable installer/doctor/provisioning automation.
+
+The process adapts to the engagement: local and remote capabilities are checked where applicable, not installed everywhere by default. Purchase/participation, runtime isolation, hosting/operation, federation and interfaces are different dimensions. The existing doctrine owns their interpretation; no new mode system is introduced. The audit prototype is an observation source, not enrollment or a W.I.N.S. score.
 
 ## Relationship to the foundational contract
 
