@@ -147,11 +147,15 @@ peers=d.get("Peer") or {}
 rows=[]
 for p in peers.values():
     rows.append({"hostname":p.get("HostName","-"),"os":p.get("OS","-"),
-                 "online":bool(p.get("Online"))})
+                 "online":bool(p.get("Online")),
+                 "dns_name":p.get("DNSName","").rstrip(".")})
 rows.sort(key=lambda r:(not r["online"], r["hostname"]))
 me=d.get("Self") or {}
-print(json.dumps({"self":me.get("HostName","-"),"peers":rows}))')"
+print(json.dumps({"self":me.get("HostName","-"),
+                  "self_dns":me.get("DNSName","").rstrip("."),
+                  "peers":rows}))')"
     mesh_self="$(printf '%s' "$mesh_json" | python3 -c 'import json,sys;print(json.load(sys.stdin).get("self","-"))' 2>/dev/null || echo -)"
+    mesh_self_dns="$(printf '%s' "$mesh_json" | python3 -c 'import json,sys;print(json.load(sys.stdin).get("self_dns",""))' 2>/dev/null || echo)"
     mesh_online="$(printf '%s' "$mesh_json" | python3 -c 'import json,sys;print(sum(1 for p in json.load(sys.stdin)["peers"] if p["online"]))' 2>/dev/null || echo 0)"
     mesh_total="$(printf '%s' "$mesh_json" | python3 -c 'import json,sys;print(len(json.load(sys.stdin)["peers"]))' 2>/dev/null || echo 0)"
   fi
@@ -311,7 +315,7 @@ print(json.dumps(out,indent=2))' "$rows_json" \
        ENV_ARCH="$os_arch" ENV_INIT="$init_kind" ENV_VIRT="$virt_kind" ENV_CONT="$container" \
        ENV_WSL="$is_wsl" ENV_PKGS="$pkg_managers" ENV_DISK="$disk_avail_mb" ENV_MEM="$mem_avail_mb" \
        ENV_DNS="$net_dns" ENV_TCP="$net_tcp443" ENV_NTP="$clock_ntp" \
-       ENV_MESH="$mesh_json" ENV_SELF="$mesh_self" \
+       ENV_MESH="$mesh_json" ENV_SELF="$mesh_self" ENV_SELFDNS="$mesh_self_dns" \
        python3 -c '
 import json,os
 env={"platform":{"os":os.environ["ENV_OS"],"distro_id":os.environ["ENV_ID"],

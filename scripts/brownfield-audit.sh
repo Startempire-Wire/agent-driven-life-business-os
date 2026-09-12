@@ -191,10 +191,13 @@ case "$sub_exit" in 0|1|3) ;; *) echo "substrate check failed (exit $sub_exit)" 
 
 # --- report identity chain (dedup + diffing for the future receiver) ---
 cache_dir="$HOME/.cache/agent-os-audit"; mkdir -p "$cache_dir" 2>/dev/null || true
+# sweep runs write to their own chain file so they never corrupt a machine's
+# own audit history (BFA_CACHE_FILE, default last.json)
+CACHE_FILE="${BFA_CACHE_FILE:-last.json}"
 prev_id=""; prev_hash=""
-if [ -r "$cache_dir/last.json" ]; then
-  prev_id="$(python3 -c 'import json,sys;print(json.load(sys.stdin).get("report_id",""))' < "$cache_dir/last.json" 2>/dev/null || true)"
-  prev_hash="$(python3 -c 'import json,sys;print(json.load(sys.stdin).get("report_hash",""))' < "$cache_dir/last.json" 2>/dev/null || true)"
+if [ -r "$cache_dir/$CACHE_FILE" ]; then
+  prev_id="$(python3 -c 'import json,sys;print(json.load(sys.stdin).get("report_id",""))' < "$cache_dir/$CACHE_FILE" 2>/dev/null || true)"
+  prev_hash="$(python3 -c 'import json,sys;print(json.load(sys.stdin).get("report_hash",""))' < "$cache_dir/$CACHE_FILE" 2>/dev/null || true)"
 fi
 
 # --- build the full report in one python pass (no shell interpolation into JSON) ---
@@ -287,7 +290,7 @@ report={
 rh=hashlib.sha256(json.dumps(report,sort_keys=True).encode()).hexdigest()
 report["report_hash"]="sha256:"+rh
 os.makedirs(os.path.expanduser("~/.cache/agent-os-audit"),exist_ok=True)
-json.dump({"report_id":report_id,"report_hash":report["report_hash"]},open(os.path.expanduser("~/.cache/agent-os-audit/last.json"),"w"))
+json.dump({"report_id":report_id,"report_hash":report["report_hash"]},open(os.path.expanduser("~/.cache/agent-os-audit/")+(os.environ.get("BFA_CACHE_FILE") or "last.json"),"w"))
 print(json.dumps(report,indent=2))
 PYEOF
 python3 "$PYTMP/build_report.py" > "$PYTMP/report.json" || { echo "report build failed" >&2; exit 65; }
@@ -303,24 +306,38 @@ if [ "$SWEEP" = "1" ]; then
 sub=json.load(sys.stdin)
 m=sub["environment"].get("mesh") or {}
 for p in m.get("peers",[]):
-    print("%s|%s|%s" % (p["hostname"], p["os"], "online" if p["online"] else "offline"))')"
-  while IFS='|' read -r hostname mos state; do
+    print("%s|%s|%s|%s" % (p["hostname"], p["os"], "online" if p["online"] else "offline", p.get("dns_name","")))')"
+  local_hash_sub="$(sha256sum "$DIR/substrate-bootstrap.sh" | awk '{print $1}')"
+  local_hash_audit="$(sha256sum "$DIR/brownfield-audit.sh" | awk '{print $1}')"
+  while IFS='|' read -r hostname mos state dnsname; do
     [ -n "$hostname" ] || continue
+    target="${dnsname:-$hostname}"   # MagicDNS FQDN; tailscale-ssh auth needs no keys
     if [ "$state" != "online" ]; then
       printf '%s\n' "$(H="$hostname" OSV="$mos" python3 -c 'import json,os;print(json.dumps({"hostname":os.environ["H"],"os":os.environ["OSV"],"state":"offline","status":"offline","report":None,"error":None}))')" >> "$remote_rows_tmp"
       echo "  sweep: $hostname offline — recorded" >&2
       continue
     fi
+    # device classes that cannot host an ssh audit session
+    case "$mos" in
+      android|ios|ipados)
+        printf '%s\n' "$(H="$hostname" OSV="$mos" python3 -c 'import json,os;print(json.dumps({"hostname":os.environ["H"],"os":os.environ["OSV"],"state":"online","status":"not-sshable","report":None,"error":"mobile device class; no ssh audit surface"}))')" >> "$remote_rows_tmp"
+        echo "  sweep: $hostname is $mos — no ssh audit surface, recorded" >&2
+        continue ;;
+    esac
     remote_json=""
-    if ssh -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKeyChecking=accept-new "$MESH_SSH_USER@$hostname" "mkdir -p ~/.agent-os-sweep" 2>/dev/null \
-       && ssh -o BatchMode=yes "$MESH_SSH_USER@$hostname" "cat > ~/.agent-os-sweep/substrate-bootstrap.sh" < "$DIR/substrate-bootstrap.sh" 2>/dev/null \
-       && ssh -o BatchMode=yes "$MESH_SSH_USER@$hostname" "cat > ~/.agent-os-sweep/brownfield-audit.sh" < "$DIR/brownfield-audit.sh" 2>/dev/null \
-       && remote_json="$(timeout 150 ssh -o BatchMode=yes "$MESH_SSH_USER@$hostname" "chmod +x ~/.agent-os-sweep/*.sh && bash ~/.agent-os-sweep/brownfield-audit.sh --json --no-print --label sweep" 2>/dev/null)" \
+    if ssh -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKeyChecking=accept-new "$MESH_SSH_USER@$target" "mkdir -p ~/.agent-os-sweep" 2>/dev/null \
+       && ssh -o BatchMode=yes "$MESH_SSH_USER@$target" "cat > ~/.agent-os-sweep/substrate-bootstrap.sh" < "$DIR/substrate-bootstrap.sh" 2>/dev/null \
+       && ssh -o BatchMode=yes "$MESH_SSH_USER@$target" "cat > ~/.agent-os-sweep/brownfield-audit.sh" < "$DIR/brownfield-audit.sh" 2>/dev/null \
+       && remote_hash_sub="$(ssh -o BatchMode=yes "$MESH_SSH_USER@$target" 'sha256sum ~/.agent-os-sweep/substrate-bootstrap.sh' 2>/dev/null | awk '{print $1}')" \
+       && remote_hash_audit="$(ssh -o BatchMode=yes "$MESH_SSH_USER@$target" 'sha256sum ~/.agent-os-sweep/brownfield-audit.sh' 2>/dev/null | awk '{print $1}')" \
+       && [ "$remote_hash_sub" = "$local_hash_sub" ] && [ "$remote_hash_audit" = "$local_hash_audit" ] \
+       && remote_json="$(timeout 150 ssh -o BatchMode=yes "$MESH_SSH_USER@$target" "chmod +x ~/.agent-os-sweep/*.sh && BFA_CACHE_FILE=last-sweep.json bash ~/.agent-os-sweep/brownfield-audit.sh --json --no-print --label sweep" 2>/dev/null || true)" \
+       && [ -n "$remote_json" ] \
        && printf '%s' "$remote_json" | python3 -m json.tool >/dev/null 2>&1; then
       printf '%s\n' "$(H="$hostname" OSV="$mos" RJ="$remote_json" python3 -c 'import json,os;print(json.dumps({"hostname":os.environ["H"],"os":os.environ["OSV"],"state":"online","status":"audited","report":json.loads(os.environ["RJ"]),"error":None}))')" >> "$remote_rows_tmp"
-      echo "  sweep: $hostname audited" >&2
+      echo "  sweep: $hostname audited (scripts hash-verified)" >&2
     else
-      printf '%s\n' "$(H="$hostname" OSV="$mos" EU="ssh transport or remote run failed for $MESH_SSH_USER@$hostname (BatchMode; key access required)" python3 -c 'import json,os;print(json.dumps({"hostname":os.environ["H"],"os":os.environ["OSV"],"state":"online","status":"ssh-failed","report":None,"error":os.environ["EU"]}))')" >> "$remote_rows_tmp"
+      printf '%s\n' "$(H="$hostname" OSV="$mos" EU="ssh transport, script-hash verification or remote run failed for $MESH_SSH_USER@$target" python3 -c 'import json,os;print(json.dumps({"hostname":os.environ["H"],"os":os.environ["OSV"],"state":"online","status":"ssh-failed","report":None,"error":os.environ["EU"]}))')" >> "$remote_rows_tmp"
       echo "  sweep: $hostname FAILED (ssh) — recorded, not silent" >&2
     fi
   done <<< "$peers_lines"
