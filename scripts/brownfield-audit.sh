@@ -81,15 +81,37 @@ cat > "$PYTMP/build_fleet.py" <<'PYEOF'
 import json,os,datetime
 rows=[json.loads(l) for l in open(os.environ["RRT"]) if l.strip()]
 local=json.loads(os.environ["LR"])
-fleet={"schema":"agent-os-fleet-audit.v1",
+# --- cumulative fleet readiness score ---
+# established rules: meaningful denominator, unreachable machines count against
+# readiness (0 contribution), blockers stay visible, never a W.I.N.S. outcome.
+total_machines=1+len(rows)   # local machine + every discovered peer
+local_score=local.get("readiness_score",{}).get("score",0)
+audited=[r for r in rows if r["status"]=="audited"]
+peer_scores=[r["report"]["readiness_score"]["score"] for r in audited]
+score_sum=local_score+sum(peer_scores)
+fleet_score=round(score_sum/total_machines) if total_machines else 0
+unreachable=[r for r in rows if r["status"] in ("offline","ssh-failed")]
+fleet_blockers=list(local.get("readiness_score",{}).get("blockers",[]))
+for r in audited:
+    for b in r["report"]["readiness_score"].get("blockers",[]):
+        fleet_blockers.append({"machine":r["hostname"],**b})
+fleet={"schema":"agent-os-fleet-audit.v2",
  "generated_at":datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
  "local_report_id":local.get("report_id"),
  "ssh_user":os.environ["MSU"],
  "machines":rows,
- "summary":{"total":len(rows),"audited":sum(1 for r in rows if r["status"]=="audited"),
+ "summary":{"total":len(rows),"audited":len(audited),
   "offline":sum(1 for r in rows if r["status"]=="offline"),
   "failed":sum(1 for r in rows if r["status"]=="ssh-failed"),
   "self":sum(1 for r in rows if r["status"]=="skipped-self")},
+ "fleet_score":{
+   "score":fleet_score,"scale":"0-100 cumulative fleet readiness",
+   "formula":"sum of audited machine scores (local + remote) divided by ALL discovered machines (1 + peers); offline/ssh-failed machines contribute 0 so unseen machines cannot hide behind the number",
+   "score_sum":score_sum,"local_score":local_score,"peer_scores":peer_scores,
+   "machines_total":total_machines,"machines_audited":1+len(audited),
+   "machines_unseen":total_machines-(1+len(audited)),
+   "blockers":fleet_blockers,
+   "not":"W.I.N.S. business outcome; an unprobed machine is a 0, not a pass"},
  "policy":"sweep is read-only discovery+audit; remote installs always require their own operator-authorized run"}
 print(json.dumps(fleet,indent=2))
 PYEOF
@@ -101,6 +123,13 @@ s=f["summary"]
 print()
 print("=" * 62)
 print("FLEET SWEEP — %s (ssh user: %s)" % (f["generated_at"], f["ssh_user"]))
+fs=f.get("fleet_score",{})
+print("  CUMULATIVE FLEET READINESS: %d/100" % fs.get("score",0))
+print("  formula: %s" % fs.get("formula",""))
+print("  audited %d/%d machines | unseen %d contribute 0" % (fs.get("machines_audited",0), fs.get("machines_total",0), fs.get("machines_unseen",0)))
+if fs.get("blockers"):
+    print("  FLEET BLOCKERS:")
+    for b in fs["blockers"]: print("    - %s%s: %s" % (b.get("component",""), " ("+b["machine"]+")" if b.get("machine") else "", b["reason"]))
 print("  machines: %d | audited: %d | offline: %d | failed: %d | self: %d" % (s["total"], s["audited"], s["offline"], s["failed"], s["self"]))
 for m in f["machines"]:
     line = "  %-12s %-24s %s" % (m["status"], m["hostname"], m["os"])
@@ -111,6 +140,7 @@ for m in f["machines"]:
         line += "  (" + m["error"][:60] + ")"
     print(line)
 print("  fleet policy: read-only audit; remote installs need their own authorized run")
+print("  fleet score is substrate readiness across machines; not a W.I.N.S. outcome")
 PYEOF
 
 svc_tmp="$(mktemp)"
