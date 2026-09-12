@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Startempire Wire Ecosystem — Topology Map v2 (draft for double-check)</title>
+<style>
+  :root{color-scheme:dark}
+  *{box-sizing:border-box}
+  body{background:#0b0e14;color:#dbe2ef;font-family:ui-sans-serif,system-ui,'Segoe UI',Arial,sans-serif;margin:0;padding:24px;line-height:1.45}
+  h1{font-size:1.35rem;margin:0 0 4px}
+  h2{font-size:1.05rem;margin:22px 0 8px;color:#9fb6ff}
+  .sub{color:#8fa0bf;font-size:.85rem;margin-bottom:18px}
+  .layer{border:1px solid #26314a;border-radius:12px;padding:12px 14px;margin:10px 0;background:#101625}
+  .layer .tag{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#8fa0bf;margin-bottom:6px}
+  .lane{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .box{border:1px solid #33415e;border-radius:9px;padding:8px 10px;background:#151d31;min-width:210px;flex:1}
+  .box b{display:block;font-size:.92rem;color:#eaf1ff}
+  .box small{color:#9db0d0;display:block;margin-top:3px;font-size:.8rem}
+  .identity{border-color:#3d5a8c}.network{border-color:#2f6f6a}.fabric{border-color:#8c5a3d}
+  .partner{border-color:#6b5a9e}.power{border-color:#3d6b8c}.sovereign{border-color:#a8843d}
+  .audit{border-color:#b0563f;background:#1c1520}.computer{border-color:#c47f3d}
+  .flow{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;color:#b9c8e6;background:#0e1420;border:1px dashed #33415e;border-radius:9px;padding:10px 12px;white-space:pre-wrap;margin:8px 0}
+  .pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.75rem;margin:2px 4px 2px 0;border:1px solid #33415e;background:#151d31}
+  .amber{border-color:#a8843d;color:#e8c979}.blue{border-color:#3d5a8c;color:#9fc1ff}.green{border-color:#2f6f6a;color:#8fd8c9}
+  .orange{border-color:#c47f3d;color:#ffc98a}
+  table{border-collapse:collapse;width:100%;font-size:.84rem;margin-top:6px}
+  th,td{border:1px solid #26314a;padding:6px 9px;text-align:left;vertical-align:top}
+  th{color:#9fb6ff;font-weight:600;background:#131a2b}
+  footer{color:#7285a5;font-size:.78rem;margin-top:20px}
+</style>
+</head>
+<body>
+<h1>Startempire Wire Ecosystem — Full Topology Map <span style="font-size:.8rem;color:#e8c979">v2</span></h1>
+<div class="sub">Draft visual for operator double-check · 2026-09-12 · v2: os.focusa.dev corrected to Agent Computer door (Veragensia) + Surface &amp; Agent-Computer directory added · not yet doctrine</div>
+
+<h2>Layer stack</h2>
+
+<div class="layer identity">
+  <span class="tag">Layer 0 · Identity &amp; Membership (auth root)</span>
+  <div class="lane">
+    <div class="box"><b>startempirewire.com</b><small>Parent membership site. Relaunch waitlist LIVE. MemberPress roles: Free / FreeWire / Wire / ExtraWire / Sovereign. Issues ecosystem-wide identity via Ring Leader.</small></div>
+    <div class="box"><b>Ring Leader auth relay</b><small>sewn/v1/auth/token → MemberPress → JWT. Extension/Connect trust Ring Leader's tier assignment. Auth: WP primary · BuddyBoss · Discord · OAuth/OIDC.</small></div>
+  </div>
+</div>
+
+<div class="layer network">
+  <span class="tag">Layer 1 · Distribution &amp; Network</span>
+  <div class="lane">
+    <div class="box"><b>startempirewire.network</b><small>Software distribution + docs + promotion. "Sales-focused ecosystem… accountable execution and meaningful distribution advantage." Tier-aware distribution; Mobile app: coming soon.</small></div>
+    <div class="box"><b>Ring Leader plugin</b><small>Messenger of the parent site; endpoints; data distribution to member surfaces; central business list; registration moderation; network statistics.</small></div>
+    <div class="box"><b>SWN Connect Plugin</b><small>On multiple member sites — receives tier-scoped content/data via Ring Leader.</small></div>
+    <div class="box"><b>SWN Chrome Extension</b><small>Member's first tab; Ring Leader JWT auth; loads scoreboard + checklist + Wirebot chat.</small></div>
+  </div>
+</div>
+
+<div class="layer partner">
+  <span class="tag">Layer 2 · Operating partner — Wirebot</span>
+  <div class="lane">
+    <div class="box"><b>wirebot.chat (product door)</b><small>"AI business operating partner — not just a chat window." Pillars: Execution Scoreboard · 3-Layer Memory · Daily Accountability · Network + Standalone Paths · Managed Sovereign Runtime. Options: Wirebot Direct vs SEW Network.</small></div>
+    <div class="box"><b>helm.wirebot.chat (gateway)</b><small>OpenClaw, CF tunnel → :18789. Tools: recall, remember, business_state, checklist, score. claude-sonnet-4 primary / haiku fallback.</small></div>
+    <div class="box"><b>3-layer memory</b><small>memory-core (workspace) · Mem0 (facts) · Letta (structured state).</small></div>
+    <div class="box"><b>Tier/runtime policy contract</b><small>Wire/ExtraWire: managed shared runtime. Sovereign: dedicated runtime boundary (managed unless separately contracted).</small></div>
+  </div>
+</div>
+
+<div class="layer power">
+  <span class="tag">Layer 3 · Power layer</span>
+  <div class="lane">
+    <div class="box"><b>Focusa</b><small>Governance + authority: ProjectIdentity, Trajectory, Workpoints, evidence/receipts, background jobs (:8787, tailnet-exposed). Control plane for governed agent work.</small></div>
+    <div class="box"><b>UIAI Engine</b><small>Browser/computer hands: sessions, reads, screenshots, diagnostics, EPWA evidence. Open gap: artifact delivery blocked (issue #224).</small></div>
+    <div class="box"><b>Agent-KB</b><small>Canonical knowledge retrieval (:8791; agent accounts provisioned 2026-09-12).</small></div>
+    <div class="box"><b>OpenClaw CoS runtime</b><small>Per-user Chief-of-Staff runtime on managed hosts (gateway + plugins + work queue + memory bridge).</small></div>
+  </div>
+</div>
+
+<div class="layer fabric">
+  <span class="tag">Layer 4 · Measurement fabric — W.I.N.S.</span>
+  <div class="lane">
+    <div class="box"><b>Scoreboard (wins.wirebot.chat)</b><small>Go + SQLite (WAL) + Svelte PWA. CF tunnel → :8100 (KH). Multi-tenant /{randID}; Ring Leader webhook → POST /v1/tenants. API-first.</small></div>
+    <div class="box"><b>Execution Score model</b><small>Shipping 40% · Distribution 25% · Revenue 20% · Systems 15%. Verification: STRONG / MEDIUM / WEAK / SELF_REPORTED. AI-submitted events land <i>pending</i> until operator approves.</small></div>
+    <div class="box"><b>Integrations</b><small>GitHub + Stripe webhooks, RSS/YouTube pollers, WB CLI, Wirebot tools. /v1/scoreboard · /v1/events · /v1/feed · /v1/season · /v1/intent · /v1/tenants · /v1/webhooks/* · /{randID}/v1/*.</small></div>
+  </div>
+</div>
+
+<div class="layer computer">
+  <span class="tag">Layer 5 · Agent Computer plane (the hands, public door)</span>
+  <div class="lane">
+    <div class="box"><b>os.focusa.dev — Veragensia Agent Computer</b><small><b>Full agent computer on the public door</b> (live-verified: shell loads veragensia-voice.js; universal touch gamepad; streaming desktop observed earlier). This is the cloud computer agents drive — execution surface, not a static display. Boundary rule preserved: <b>no credentials on the public door</b> — the computer executes, the vault/identity stays off it.</small></div>
+    <div class="box"><b>Client Agent Computers (5 brownfield, sovereign lane)</b><small>Per-client computers the operator's agents drive during setup/support visits. Enrollment signal: the brownfield audit's one-way fingerprint (see directory below).</small></div>
+    <div class="box"><b>Pi + harness agents</b><small>Pi coding agents (computer use), CoS-orchestrated; ACITL: Veragensia hands + UIAI browser + Pi computer use under OpenClaw CoS orchestration.</small></div>
+  </div>
+</div>
+
+<div class="layer sovereign">
+  <span class="tag">Layer 6 · Sovereign deployment lane (operator-run, today)</span>
+  <div class="lane">
+    <div class="box"><b>Agent OS Golden Path</b><small>Nine stages; field provenance per stage; founder-dependency test; conditional supervision (machine verification via owning completion architecture).</small></div>
+    <div class="box"><b>Engagement economics (settled)</b><small>$250k flat / 5 visits / ≤5h · support floor $450k/yr · DIY component path · wrapped process = operator IP.</small></div>
+    <div class="box"><b>Wrapped Tauri app (proposed)</b><small>Signed AV-friendly installer packaging the deterministic library; owner moments as forms; <b>audit as first-run diagnostic</b>; branded walkthroughs; remote-support entry.</small></div>
+    <div class="box"><b>Deterministic library (started)</b><small>substrate-bootstrap.sh · brownfield-audit.sh · provisioning bindings (wb provision/sovereign).</small></div>
+  </div>
+</div>
+
+<h2>Surface &amp; Agent-Computer directory</h2>
+<div class="layer computer">
+  <span class="tag">One row per computer/surface — who, what, transport, mode, authority boundary</span>
+  <table>
+    <tr><th>Surface / computer</th><th>Hosts</th><th>Transport</th><th>Mode served</th><th>Authority boundary</th></tr>
+    <tr><td><b>os.focusa.dev</b></td><td>Veragensia Agent Computer (streaming desktop, voice, touch)</td><td>Public HTTPS</td><td>Sovereign (operator hands) + power layer</td><td>Execution surface; no credentials on the public door; does not mint architecture authority</td></tr>
+    <tr><td><b>helm.wirebot.chat</b></td><td>OpenClaw Wirebot gateway</td><td>CF tunnel → :18789</td><td>All member + sovereign modes</td><td>Tier/runtime policy contract governs</td></tr>
+    <tr><td><b>wins.wirebot.chat</b></td><td>Scoreboard PWA + event API</td><td>CF tunnel → :8100 (KH)</td><td>Network + Direct + sovereign cockpit (private tenants)</td><td>Auth: WP admin / API key / Ring Leader JWT / free-tier; AI events pending-gated</td></tr>
+    <tr><td><b>startempirewire.com</b></td><td>Membership + identity root</td><td>Public</td><td>All (identity for everything)</td><td>Relaunch waitlist live; auth source of truth</td></tr>
+    <tr><td><b>startempirewire.network</b></td><td>Distribution + Ring Leader + downloads</td><td>Public</td><td>Network member mode</td><td>Tier-aware distribution</td></tr>
+    <tr><td><b>KH managed host</b></td><td>Focusa daemon (:8787) · Agent-KB (:8791) · scoreboard (:8100) · context-core (:7400) · CoS runtimes</td><td>Loopback + Tailscale tailnet</td><td>Operator cockpit + governance plane</td><td>Operator/admin only; scoped tokens for agents</td></tr>
+    <tr><td><b>Client Agent Computers (5)</b></td><td>Brownfield machines + CoS where contracted</td><td>Tailnet / contracted tether</td><td>Sovereign (operator-run visits + support)</td><td>Enrolled via audit fingerprint; scoped ingest credentials; owner consent moments preserved</td></tr>
+  </table>
+  <div style="margin-top:8px"><span class="pill orange">DRY rule: this directory MAPS the fleet; owning registries (Focusa ProjectIdentity/capability registry, daemon registry) remain the governance source of truth — the map references, never replaces</span></div>
+</div>
+
+<h2>Audit &amp; intake — one diagnostic, three intake paths</h2>
+<div class="layer audit">
+  <span class="tag">Per-mode fit — no forcing</span>
+  <div class="flow">                    ┌──────────────────────────────────────────────┐
+                    │  brownfield-audit.sh  (the ONE diagnostic)    │
+                    │  substrate presence/health · one-way fp ·     │
+                    │  value-free shaped report (v1 schema)         │
+                    └───────┬──────────────┬───────────────┬───────┘
+                            │              │               │
+          SOVEREIGN MODE    │              │  MEMBER MODE  │   DIRECT / DIY MODE
+                            ▼              ▼               ▼
+      ┌───────────────────────┐  ┌──────────────────────┐  ┌──────────────────────┐
+      │ OPERATOR PRIVATE      │  │ ONBOARDING /          │  │ LOCAL PRE-FLIGHT     │
+      │ COCKPIT + SUPPORT     │  │ INTEGRATION DIAGNOSTIC│  │ + user-configured    │
+      │ INTAKE                │  │ (Connect / extension) │  │ endpoint             │
+      │ + FLEET DIRECTORY     │  │ help-not-score default│  │                      │
+      │ ENROLLMENT            │  │ consent-gated         │  │                      │
+      │ (fingerprint = the    │  │                       │  │                      │
+      │  client computer's    │  │                       │  │                      │
+      │  directory entry)     │  │                       │  │                      │
+      └───────────────────────┘  └──────────────────────┘  └──────────────────────┘
+</div>
+  <div><span class="pill orange">Key v2 insight: the audit's fingerprint is the ENROLLMENT SIGNAL of the client Agent-Computer directory — intake and directory are the same act</span></div>
+  <div style="margin-top:6px"><span class="pill amber">readiness score = deliberate product decision later (rubric), never a default</span>
+  <span class="pill blue">Chrome extension = network-side seat for the evaluation surface</span>
+  <span class="pill green">Tauri = sovereign/Direct carrier (first-run diagnostic)</span></div>
+</div>
+
+<h2>Cross-layer flows</h2>
+<div class="flow">MEMBERSHIP:  subscribe (startempirewire.com) → Ring Leader webhook → wins tenant ({randID})
+             → Ring Leader JWT → ext/Connect auth → Wirebot tab → pairing (22 questions)
+
+EXECUTION:   Wirebot Scan/Select → Run → Win → evidence → W.I.N.S. events (verification tiers)
+             → Execution Score → seasons
+
+SOVEREIGN:   engagement → substrate check → wb provision/sovereign → CoS genesis → KB+context
+             → identity/authority → first agent → verification → operations → benefit review
+             audit runs: qualification · post-stage · pre-visit · support readiness
+
+HANDS:       Veragensia Agent Computer (os.focusa.dev) + client computers + UIAI browser
+             + Pi computer use — orchestrated by OpenClaw CoS, governed by Focusa
+
+AUDIT INTAKE (proposed, pending double-check):
+             sovereign → private cockpit tenant + Focusa evidence + fleet-directory enrollment
+             member    → onboarding/integration diagnostic (consent-gated)
+             direct/DIY→ local pre-flight / user-configured endpoint
+</div>
+
+<footer>v2 draft 2026-09-12. Corrections from v1: os.focusa.dev reclassified from "display door" to <b>Agent Computer door (Veragensia)</b> per operator direction + live verification (veragensia-voice.js in the served shell); Surface &amp; Agent-Computer directory added; audit fingerprint connected as the directory enrollment signal. Built from docs/bigpicture.mdx, live site texts, live estate verification, and the Golden Path doctrine. Correct anything that reads wrong — this map double-checks the per-mode intake analysis before it enters doctrine.</footer>
+</body>
+</html>
