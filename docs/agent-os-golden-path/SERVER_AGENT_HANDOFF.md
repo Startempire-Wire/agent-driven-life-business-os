@@ -229,6 +229,78 @@ The portable Golden Path should capture **contracts, selection rules, profiles, 
 
 Deployment-private/current facts stay with live operational authority.
 
+**Phase→reality mapping (GP-06 first pass, 2026-09-12).** Commands marked **verified** were executed live on the reference estate during GP-04/GP-05 reconciliation; no invented commands. Mechanism class follows the spine's deterministic/probabilistic split. Reference-deployment bindings are verified; per-client bindings stay proposed until a real operated run proves them (GP-09+).
+
+```text
+Stage 0 — Engage
+  components: owner-constitution pattern; Focusa project identity/genesis; Agent-KB bootstrap
+  verified commands: focusa project identity/verify, focusa project bootstrap, agent-kb bootstrap
+  class: deterministic (identity/records) | probabilistic (consent-design judgment)
+  gotchas: consent surface primary-not-exhaustive; tenant identity never inferred
+  gaps: per-client engagement records not KB-indexed (tribal lineage)
+  evidence: gp04 refs; focusa project verify completed
+
+Stage 1 — Workstation substrate
+  components: Pi harness 0.85.1; Focusa install lifecycle; UIAI Engine; Bitwarden+rbw 1.15.0; gh; wrangler 4.86.0; gog 0.34.1; Agent-KB
+  verified commands: pi --version, focusa status --agent --json, gh auth status, wrangler whoami, rbw --version, agent-kb freshness --json
+  class: deterministic installs via official installers (agent-supervised); secret consolidation + billing = owner-typed moments
+  gotchas: AV/script blocking, missing terminal/Node, UAC batching (observed scars); offline endpoints = unknown-until-reachable
+  gaps: substrate install chain not yet owning scripts — GP-08 productization candidate
+  recovery: rerun official installer idempotently
+
+Stage 2 — CoS genesis
+  components: git + GitHub; OpenClaw gateway user dirs; CRIST Spec 135B; Svelte CoS UI (surface)
+  verified commands: git init/remote/push, gh repo create (owner account), bd 0.2.16; gateway provisioning config present
+  checks: push + fresh-clone boot test; CRIST role packet approved
+  class: deterministic (git mechanics) | CRIST interview probabilistic
+  gotchas: runtime memory/task state stays with owning services; no secrets in folder
+  gaps: exact gateway user-provisioning command not yet bound
+
+Stage 3 — Cloud landing
+  components: OVH VPS + provisioning mechanism (wirebot-provisioning, live)
+  verified: tailnet ping to VPS ~5 ms; provisioning plugin live on network estate
+  class: deterministic (account/API/form); verification-email = AC-monitored probabilistic
+  gotchas: verification windows expire; fresh VPS lacks agent toolchain
+  recovery: re-provision via documented provisioning path
+  gaps: per-client VPS profiles are engagement decisions (sizes/OS)
+
+Stage 4 — Mesh + identity
+  components: Tailscale + GitHub OAuth
+  verified commands: tailscale status/ping, gh auth status
+  class: deterministic installs + renewable OAuth consent moments
+  gotchas: offline devices = unknown-until-reachable (macbook ~15d last seen)
+  recovery: renewable re-auth per ladder
+
+Stage 5 — Knowledge + audit
+  components: gog 0.34.1; Agent-KB; wiki; UIAI browser
+  verified commands: gog version, agent-kb search/doc/freshness
+  class: gog OAuth consent = owner moment; machine-visible reads deterministic; interview probabilistic
+  gotchas: audit-from-memory drift; interview answers change-aware (correction impact handling)
+  gaps: first real client audit pending
+
+Stage 6 — CoS ascension
+  components: git; OpenClaw canonical install path on VPS; wrangler for subdomain UI
+  verified commands: git clone on VPS, wrangler whoami (auth live; 50 zones enumerated)
+  class: deterministic (git/DNS API) + consented staged zone transfer
+  gotchas: copy-paste relocation loses history; one explicit cutover event
+  recovery: local runtime remains rollback until cloud proves
+
+Stage 7 — Operating plane
+  components: OpenClaw CoS (cloud-primary); Focusa bg/crons; CRIST role packets
+  verified commands: focusa bg status, wb --format json version (0.5.0-747), gateway config present
+  class: deterministic (crons/receipts/heartbeats) | role design + exception recovery probabilistic
+  gotchas: silent cron death -> heartbeats; change breaks real workflows -> client-specific acceptance tests
+  gaps: first real client workflow run pending (GP-10)
+
+Stage 8 — Ongoing operation
+  components: Focusa evidence/receipts/settlement; UIAI EPWA proof surfaces; optimization loop
+  verified: focusa evidence/workpoint tools live (evidence captured this session)
+  class: machine verification under policy-governed completion; human review conditional (iteration 23)
+  gaps: replacement-agent test pending (GP-13)
+```
+
+Confidence: reference-estate bindings verified live 2026-09-12; the deterministic-library productization (Stage 1 install chain, gateway provisioning command binding) is the dominant remaining gap — GP-08 selection input.
+
 ---
 
 # Step 4 — Evaluate the Agent Surface as an OS-level capability
