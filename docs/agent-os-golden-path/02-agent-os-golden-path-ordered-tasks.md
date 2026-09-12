@@ -1,6 +1,6 @@
 # Golden Path — the interwoven doctrine (single iterable source)
 
-- Date: 2026-09-11 (iteration 23 — field provenance woven per stage; founder-dependency test applied; human supervision made conditional; GP-03 done, GP-04 reconciliation started)
+- Date: 2026-09-12 (iteration 24 — GP-04 estate enumeration verified live; GP-05 state-ownership map drafted into the server handoff Step 2; no synchronization store)
 - **The artifact:** one process an agent executes to build out the Human Life & Business Agent OS on a current brownfield client workstation, end to end, with the agent performing routine setup rather than directing the owner to operate the computer. Everything below is one woven design: the spine stages carry the law, the scars, the checks, the consent design, and the tracking loop — not parallel sections.
 - **Locked invariants** (every revision derives from these):
   1. **Agent-operated setup.** The agent inspects, executes, verifies and recovers through existing tools. The owner supplies goals, business knowledge, consequential choices and required approvals—not routine command execution. Ask only when those inputs are genuinely needed; reuse answers and batch questions where practical.
@@ -258,7 +258,7 @@ One ordered ledger; task IDs are reused when work enters the existing task/CallG
 | GP-02 | done | GP-01 | Starter essence compared; first clarification published; findings recorded. |
 | GP-03 | done | GP-02 | This woven doctrine: stages 0–8 carry law/scars/consent/checks. Completed through iteration 23 — coherent planning draft with field provenance, founder-dependency test and conditional-supervision reconciliation. Live bindings remain GP-06 work. |
 | GP-04 | in_progress | GP-03 | Live estate reconciliation through approved read-only routes; configured/reachable/usable-by-agent/verified classified with evidence; consent-surface inventory validated against Stage 0's design. Bounded first reconciliation 2026-09-11: daemon/KB health verified, operated CoS accounts located, provisioning mechanism live, customer-site agent-instructions file confirmed; evidence captured in Focusa; full estate enumeration continues. |
-| GP-05 | planned | GP-04 | State-ownership map: every material store has canonical owner, scope, freshness, backup, recovery; no synchronization store. |
+| GP-05 | in_progress | GP-04 | State-ownership map: every material store has canonical owner, scope, freshness, backup, recovery; no synchronization store. First map drafted into the server handoff (Step 2) 2026-09-12, verified against the live reference estate; overlap check recorded; per-tenant enumeration continues. |
 | GP-06 | planned | GP-05 | Every spine step classified **deterministic** (bound to an owning script/API/form — idempotent, agent-supervised) or **probabilistic** (bound to ACITL judgment and batched owner moments), then bound to real existing commands/APIs — including git-backed CoS genesis/ascension bindings and ACITL bindings (which steps the AC executes; which are AC-driven-owner-typed; where grants live). No invented commands. |
 | GP-07 | planned | GP-06 | Design reviewed against normal/partial/denied/interrupted runs; zero-human-turns test applied per step; smallest unresolved implementation backlog produced. |
 | GP-08 | planned | GP-07 | First highest-leverage slice selected from observed gaps (prefer restoring an existing capability). Owning repo, surfaces, authority, acceptance, rollback recorded. |
@@ -296,7 +296,9 @@ Tracking surfaces (all existing, nothing new built): Focusa workpoint/evidence f
 - The optimization loop runs on the deployed system (heartbeats visible, scars feeding back, doctrine versioning advancing).
 - A replacement agent continues from durable references; no secrets or private client data in this doc.
 
-## Findings and evidence limits (iterations 5–23)
+## Findings and evidence limits (iterations 5–24)
+
+- Iteration 24 (2026-09-12): operator authorized proceeding — GP-04 enumeration verified live (tailnet, GitHub orgs/repos, 50 Cloudflare zones, CoS instances, provisioning estate; all read-only), and the GP-05 state-ownership map drafted into the handoff Step 2 with one canonical owner per store and no synchronization store. GP-06 binding (handoff Step 3 format) is next.
 
 - Iteration 23 (2026-09-11): operator corrected the premise — ~65% of the path (operator estimate) derives from hands-on work across the first five customer deployments; field provenance (`field_repeated`/`field_observed`/`derived`/`proposed`) woven per stage, orthogonally to implementation state; founder-dependency test applied (consent surface survives as genuine authority; provisioning already productized; remaining founder dependency is engagement capacity); HITL reconciled — human supervision is conditional, not a standing requirement (Stage 7/8 wording fixed; README/AGENTS.md scanned clean). Bounded GP-04 reconciliation begun with evidence in Focusa.
 
