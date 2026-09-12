@@ -14,11 +14,12 @@ This changelog tracks the Golden Path version stream independently from the repo
 - **Slice 1 — substrate check as owning code** (`scripts/substrate-bootstrap.sh`): idempotent, value-free, fail-closed; presence + version verified live for all ten components; functional health verified for the three that expose checks (focusa, tailscale, agent-kb); missing-component failure exit 1 and install-route denial (never executes) both proven by injected-fault test.
 - **Slice 2 — Stage 2 provisioning bound** to the canonical `wb provision`/`wb sovereign` command surface (root invocation gotcha and dry-run/confirm gates recorded); capability existed, binding was missing.
 - **Slice 3 — knowledge-plane auth provisioned** for agent accounts: KB bearer token group-readable (root:wirebot 0440, matching the estate's existing token pattern); freshness/doctor/search verified live under the agent account.
+- **Slice 4 — brownfield audit script** (`scripts/brownfield-audit.sh`): value-free client-system audit reusing the owning substrate checker; one-way sha256 machine fingerprint for uniqueness; operator-supplied label only; POST delivery to an operator-deployed endpoint with optional bearer (token never printed); explicit NOT REPORTED without endpoint. Verified locally and against a local throwaway sink (HTTP 200); no raw machine id reaches the report. This is the productized enrollment/actuation qualification diagnostic from the Stage 1 value additions.
 - **State-ownership map** (12 store classes, one canonical owner each) and **phase→reality mapping** (nine stage blocks with verified commands and mechanism classes) added to the handoff.
 
 ### Honest limits
 
-- Windows substrate path is proof-gated on a real client machine (AV/UAC scars recorded); per-client grants and operated-run bindings remain proposed until executed.
+- Windows substrate path is proof-gated on a real client machine (AV/UAC scars recorded); per-client grants and operated-run bindings remain proposed until executed. The brownfield audit covers bash (Linux/macOS) systems only; a Windows audit path is future work in the same proof-gated lane.
 - First sovereign-tier member provision is unproven end-to-end (surface verified; deferred to an authorized run).
 - 0.2.0 is a candidate until the operator confirms release.
 
