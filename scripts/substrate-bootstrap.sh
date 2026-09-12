@@ -133,6 +133,30 @@ if command -v timedatectl >/dev/null 2>&1; then
   if timedatectl show -p NTPSynchronized 2>/dev/null | grep -q yes; then clock_ntp="yes"; else clock_ntp="no"; fi
 fi
 
+# --- network mesh discovery: connected machines via tailscale (value-free) ---
+# hostname/os/online only; no IPs, no keys, no routes. Observation, not enrollment.
+mesh_json='[]'; mesh_self='-'; mesh_online=0; mesh_total=0
+if command -v tailscale >/dev/null 2>&1; then
+  MESH_RAW="$(timeout 15 tailscale status --json 2>/dev/null)" || MESH_RAW=""
+  if [ -n "$MESH_RAW" ]; then
+    mesh_json="$(printf '%s' "$MESH_RAW" | python3 -c '
+import json,sys
+try: d=json.load(sys.stdin)
+except Exception: print("[]"); raise SystemExit
+peers=d.get("Peer") or {}
+rows=[]
+for p in peers.values():
+    rows.append({"hostname":p.get("HostName","-"),"os":p.get("OS","-"),
+                 "online":bool(p.get("Online"))})
+rows.sort(key=lambda r:(not r["online"], r["hostname"]))
+me=d.get("Self") or {}
+print(json.dumps({"self":me.get("HostName","-"),"peers":rows}))')"
+    mesh_self="$(printf '%s' "$mesh_json" | python3 -c 'import json,sys;print(json.load(sys.stdin).get("self","-"))' 2>/dev/null || echo -)"
+    mesh_online="$(printf '%s' "$mesh_json" | python3 -c 'import json,sys;print(sum(1 for p in json.load(sys.stdin)["peers"] if p["online"]))' 2>/dev/null || echo 0)"
+    mesh_total="$(printf '%s' "$mesh_json" | python3 -c 'import json,sys;print(len(json.load(sys.stdin)["peers"]))' 2>/dev/null || echo 0)"
+  fi
+fi
+
 # --- component checks ---
 tmp="$(mktemp)"; trap 'rm -f "$tmp"' EXIT
 missing=0; unhealthy=0; missing_base=0; idx=0
@@ -287,6 +311,7 @@ print(json.dumps(out,indent=2))' "$rows_json" \
        ENV_ARCH="$os_arch" ENV_INIT="$init_kind" ENV_VIRT="$virt_kind" ENV_CONT="$container" \
        ENV_WSL="$is_wsl" ENV_PKGS="$pkg_managers" ENV_DISK="$disk_avail_mb" ENV_MEM="$mem_avail_mb" \
        ENV_DNS="$net_dns" ENV_TCP="$net_tcp443" ENV_NTP="$clock_ntp" \
+       ENV_MESH="$mesh_json" ENV_SELF="$mesh_self" \
        python3 -c '
 import json,os
 env={"platform":{"os":os.environ["ENV_OS"],"distro_id":os.environ["ENV_ID"],
@@ -296,7 +321,8 @@ env={"platform":{"os":os.environ["ENV_OS"],"distro_id":os.environ["ENV_ID"],
  "package_managers":os.environ["ENV_PKGS"].split() if os.environ["ENV_PKGS"] else [],
  "resources":{"disk_avail_mb":os.environ["ENV_DISK"],"mem_avail_mb":os.environ["ENV_MEM"]},
  "network":{"dns":os.environ["ENV_DNS"],"tcp443":os.environ["ENV_TCP"]},"clock_ntp":os.environ["ENV_NTP"],
- "commentary":"presence/kind facts; resources, network and clock gates drive install-plan feasibility"}
+ "mesh":json.loads(os.environ["ENV_MESH"]),
+ "commentary":"presence/kind facts; resources, network and clock gates drive install-plan feasibility; mesh lists connected machines (hostname/os/online only, no IPs/keys/routes)"}
 print(json.dumps(env))')"
   [ -n "$OUTPUT" ] && cp <(python3 -c 'import json,sys;rows=json.loads(sys.argv[1])' "$rows_json") "$OUTPUT" 2>/dev/null || true
 else

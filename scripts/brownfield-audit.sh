@@ -275,6 +275,13 @@ print("  init: %s | container: %s" % (e["init"], "yes" if e["container"] else "n
 print("  package managers: %s" % (", ".join(e["package_managers"]) if e["package_managers"] else "none detected"))
 print("  resources: disk %s MB free | mem %s MB available" % (e["resources"]["disk_avail_mb"], e["resources"]["mem_avail_mb"]))
 print("  network: dns %s | tcp443 %s | clock ntp %s" % (e["network"]["dns"], e["network"]["tcp443"], e["clock_ntp"]))
+mesh=e.get("mesh") or {}
+if mesh.get("peers") is not None:
+    online=sum(1 for p in mesh["peers"] if p["online"])
+    print("  mesh (%s self): %d connected machines, %d online" % (mesh.get("self","-"), online, len(mesh["peers"])))
+    for p in mesh["peers"]:
+        print("    %-6s %-28s %s" % ("online" if p["online"] else "offline", p["hostname"], p["os"]))
+    print("  (mesh discovery is observation via tailscale; per-machine audits need authorized remote runs)")
 print()
 print("COMPONENTS")
 for c in r["components"]:
