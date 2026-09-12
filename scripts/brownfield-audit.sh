@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # Brownfield audit — one bounded system-shape report, value-free, pretty in all forms.
-# v4 (GP-08/09 gap closure): environment + resources + network from the owning
-# checker, service layer per init kind, setup-state detection, report identity
-# chain, services folded into the score, installer-ready plan passthrough.
+# v5: adds --sweep (discover software shapes on each connected mesh machine over ssh).
 # The readiness score is substrate readiness only — never a W.I.N.S. business
 # outcome. An observation is not enrollment; a fingerprint is not identity.
 # Exit codes: 0 clean, 1 missing components, 3 present-but-unhealthy,
@@ -12,7 +10,9 @@ set -uo pipefail
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SUB="$DIR/substrate-bootstrap.sh"
-MODE_PRINT=1; MODE_JSON=0; MODE_POST=0; LABEL=""; ENDPOINT="${AUDIT_ENDPOINT:-}"; TOKEN="${AUDIT_TOKEN:-}"; OUTPUT=""
+MODE_PRINT=1; MODE_JSON=0; MODE_POST=0; SWEEP=0; LABEL=""
+ENDPOINT="${AUDIT_ENDPOINT:-}"; TOKEN="${AUDIT_TOKEN:-}"; OUTPUT=""
+MESH_SSH_USER="${MESH_SSH_USER:-}"
 
 if command -v flock >/dev/null 2>&1; then
   exec 9>/tmp/agent-os-audit.$(id -u).lock
@@ -22,6 +22,7 @@ fi
 while [ $# -gt 0 ]; do
   case "$1" in
     --post) MODE_POST=1; shift ;;
+    --sweep) SWEEP=1; shift ;;
     --json) MODE_JSON=1; shift ;;
     --no-print) MODE_PRINT=0; shift ;;
     --output) [ $# -ge 2 ] || { echo "--output requires a path" >&2; exit 64; }; OUTPUT="$2"; shift 2 ;;
@@ -29,8 +30,9 @@ while [ $# -gt 0 ]; do
       if [ $# -lt 2 ] || [ -z "${2:-}" ]; then echo "--label requires a value" >&2; exit 64; fi
       LABEL="$2"; shift 2 ;;
     -h|--help)
-      echo "usage: brownfield-audit.sh [--post] [--json] [--no-print] [--output FILE] [--label NAME]"
+      echo "usage: brownfield-audit.sh [--sweep] [--post] [--json] [--no-print] [--output FILE] [--label NAME]"
       echo "env: AUDIT_ENDPOINT (https URL; http only for 127.0.0.1/localhost), AUDIT_TOKEN (optional bearer)"
+      echo "     MESH_SSH_USER (remote user for --sweep; default: current user)"
       exit 0 ;;
     *) echo "unknown arg: $1" >&2; exit 64 ;;
   esac
@@ -43,7 +45,7 @@ if [ "$MODE_POST" = "1" ]; then
     echo "NOT REPORTED: no AUDIT_ENDPOINT configured (report printed locally only)" >&2
     MODE_POST=0
   elif printf '%s' "$ENDPOINT" | grep -qi '^https://'; then
-    : # approved transport
+    :
   elif printf '%s' "$ENDPOINT" | grep -qi '^http://\(127\.0\.0\.1\|localhost\)'; then
     echo "WARNING: local-loopback HTTP endpoint (testing only; not durable intake)" >&2
   else
@@ -67,8 +69,6 @@ fp="$(printf %s "$fp_source" | (sha256sum 2>/dev/null || shasum -a 256) | awk '{
 fp="sha256:${fp:-unavailable}"
 
 os_name="-"; [ -r /etc/os-release ] && os_name="$(. /etc/os-release && echo "${PRETTY_NAME:--}")"
-os_type="$(uname -s 2>/dev/null || echo '-')"
-os_kernel="$(uname -r 2>/dev/null || echo '-')"
 
 # --- service-shape section: state per detected init system (value-free) ---
 SERVICES=(
@@ -76,39 +76,68 @@ SERVICES=(
   "wbt" "mem0-wirebot" "letta-wirebot" "letta-relay" "agent-audit" "agent-kb-refresh"
   "cloudflared-wirebot" "cloudflared-agent-audit" "wirebot-wbt"
 )
-svc_tmp="$(mktemp)"; trap 'rm -f "$svc_tmp"' EXIT
+PYTMP="$(mktemp -d)"
+cat > "$PYTMP/build_fleet.py" <<'PYEOF'
+import json,os,datetime
+rows=[json.loads(l) for l in open(os.environ["RRT"]) if l.strip()]
+local=json.loads(os.environ["LR"])
+fleet={"schema":"agent-os-fleet-audit.v1",
+ "generated_at":datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+ "local_report_id":local.get("report_id"),
+ "ssh_user":os.environ["MSU"],
+ "machines":rows,
+ "summary":{"total":len(rows),"audited":sum(1 for r in rows if r["status"]=="audited"),
+  "offline":sum(1 for r in rows if r["status"]=="offline"),
+  "failed":sum(1 for r in rows if r["status"]=="ssh-failed"),
+  "self":sum(1 for r in rows if r["status"]=="skipped-self")},
+ "policy":"sweep is read-only discovery+audit; remote installs always require their own operator-authorized run"}
+print(json.dumps(fleet,indent=2))
+PYEOF
+
+cat > "$PYTMP/render_fleet.py" <<'PYEOF'
+import json,sys
+f=json.load(sys.stdin)
+s=f["summary"]
+print()
+print("=" * 62)
+print("FLEET SWEEP — %s (ssh user: %s)" % (f["generated_at"], f["ssh_user"]))
+print("  machines: %d | audited: %d | offline: %d | failed: %d | self: %d" % (s["total"], s["audited"], s["offline"], s["failed"], s["self"]))
+for m in f["machines"]:
+    line = "  %-12s %-24s %s" % (m["status"], m["hostname"], m["os"])
+    if m["status"] == "audited":
+        r = m["report"]; rs = r["readiness_score"]
+        line += "  score=%d setup=%s" % (rs["score"], r["setup_state"]["state"])
+    elif m["error"]:
+        line += "  (" + m["error"][:60] + ")"
+    print(line)
+print("  fleet policy: read-only audit; remote installs need their own authorized run")
+PYEOF
+
+svc_tmp="$(mktemp)"
+remote_rows_tmp="$(mktemp)"
+trap 'rm -rf "$PYTMP" "$svc_tmp" "$remote_rows_tmp"' EXIT
 svc_domain="none"
-if [ "$(uname -s)" = "Darwin" ] && command -v launchctl >/dev/null 2>&1; then
-  svc_domain="launchd"
-  for s in "${SERVICES[@]}"; do
-    state="absent"; note="not found in launchctl list"
+[ "$(uname -s)" = "Darwin" ] && command -v launchctl >/dev/null 2>&1 && svc_domain="launchd"
+command -v systemctl >/dev/null 2>&1 && svc_domain="systemd"
+for s in "${SERVICES[@]}"; do
+  state="unknown"; note="no supported init detection on this host"
+  if [ "$svc_domain" = "launchd" ]; then
     if launchctl list 2>/dev/null | grep -q "$s"; then
       state="loaded"; note="present in launchctl list (loaded label; not a health guarantee)"
+    else
+      state="absent"; note="not found in launchctl list"
     fi
-    SVC_NAME="$s" SVC_STATE="$state" SVC_NOTE="$note" python3 -c '
-import json,os
-print(json.dumps({"service":os.environ["SVC_NAME"],"state":os.environ["SVC_STATE"],"commentary":os.environ["SVC_NOTE"]}))' >> "$svc_tmp"
-  done
-elif command -v systemctl >/dev/null 2>&1; then
-  svc_domain="systemd"
-  for s in "${SERVICES[@]}"; do
-    state="$(timeout 5 systemctl is-active "$s.service" 2>/dev/null || true)"
-    case "$state" in
-      active)   note="unit active; observed running (observation, not a health guarantee)" ;;
-      inactive|failed) note="unit exists but is not active" ;;
-      *)        state="absent"; note="no such unit on this host" ;;
+  elif [ "$svc_domain" = "systemd" ]; then
+    st="$(timeout 5 systemctl is-active "$s.service" 2>/dev/null || true)"
+    case "$st" in
+      active) state="active"; note="unit active; observed running (observation, not a health guarantee)" ;;
+      inactive|failed) state="$st"; note="unit exists but is not active" ;;
+      *) state="absent"; note="no such unit on this host" ;;
     esac
-    SVC_NAME="$s" SVC_STATE="$state" SVC_NOTE="$note" python3 -c '
-import json,os
-print(json.dumps({"service":os.environ["SVC_NAME"],"state":os.environ["SVC_STATE"],"commentary":os.environ["SVC_NOTE"]}))' >> "$svc_tmp"
-  done
-else
-  for s in "${SERVICES[@]}"; do
-    SVC_NAME="$s" SVC_STATE="unknown" SVC_NOTE="no supported init detection on this host" python3 -c '
-import json,os
-print(json.dumps({"service":os.environ["SVC_NAME"],"state":os.environ["SVC_STATE"],"commentary":os.environ["SVC_NOTE"]}))' >> "$svc_tmp"
-  done
-fi
+  fi
+  printf '%s' "$(SVC_NAME="$s" SVC_STATE="$state" SVC_NOTE="$note" python3 -c 'import json,os;print(json.dumps({"service":os.environ["SVC_NAME"],"state":os.environ["SVC_STATE"],"commentary":os.environ["SVC_NOTE"]}))')" >> "$svc_tmp"
+  printf '\n' >> "$svc_tmp"
+done
 services_json="$(python3 -c 'import json,sys;print(json.dumps([json.loads(l) for l in sys.stdin if l.strip()]))' < "$svc_tmp")"
 
 # --- setup-state detection: fresh vs partially configured vs configured ---
@@ -134,17 +163,18 @@ case "$sub_exit" in 0|1|3) ;; *) echo "substrate check failed (exit $sub_exit)" 
 cache_dir="$HOME/.cache/agent-os-audit"; mkdir -p "$cache_dir" 2>/dev/null || true
 prev_id=""; prev_hash=""
 if [ -r "$cache_dir/last.json" ]; then
-  prev_id="$(python3 -c 'import json;print(json.load(open("'$cache_dir'/last.json")).get("report_id",""))' 2>/dev/null || true)"
-  prev_hash="$(python3 -c 'import json;print(json.load(open("'$cache_dir'/last.json")).get("report_hash",""))' 2>/dev/null || true)"
+  prev_id="$(python3 -c 'import json,sys;print(json.load(sys.stdin).get("report_id",""))' < "$cache_dir/last.json" 2>/dev/null || true)"
+  prev_hash="$(python3 -c 'import json,sys;print(json.load(sys.stdin).get("report_hash",""))' < "$cache_dir/last.json" 2>/dev/null || true)"
 fi
 
 # --- build the full report in one python pass (no shell interpolation into JSON) ---
-report="$(SUB_EXIT="$sub_exit" LABEL="$LABEL" FP="$fp" FP_DESC="$fp_desc" \
-OS_NAME="$os_name" SERVICES_JSON="$services_json" SVC_DOMAIN="$svc_domain" SETUP_STATE="$setup_state" \
-SETUP_NOTES="$setup_notes" PREV_ID="$prev_id" PREV_HASH="$prev_hash" \
-python3 -c '
-import json,os,sys,datetime,uuid
-sub=json.loads(sys.stdin.read())
+export SUB_JSON="$sub_json" SUB_EXIT="$sub_exit" LABEL="$LABEL" FP="$fp" FP_DESC="$fp_desc" \
+  OS_NAME="$os_name" SERVICES_JSON="$services_json" SVC_DOMAIN="$svc_domain" \
+  SETUP_STATE="$setup_state" SETUP_NOTES="$setup_notes" PREV_ID="$prev_id" PREV_HASH="$prev_hash"
+
+cat > "$PYTMP/build_report.py" <<'PYEOF'
+import json,os,sys,datetime,uuid,hashlib
+sub=json.loads(os.environ["SUB_JSON"])
 services=json.loads(os.environ["SERVICES_JSON"])
 env=sub["environment"]
 CRITICAL={"pi","focusa","agent-kb"}
@@ -172,9 +202,7 @@ score=round(0.8*comp_score+0.2*svc_score)
 capped=False
 if blockers and score>40: score=40; capped=True
 breakdown=[{"component":c["component"],"score_points":c["score_points"],"critical":c["critical"]} for c in sub["components"]]
-
 res=env.get("resources",{}); net=env.get("network",{})
-# feasibility gates: things that would make an install run fail regardless of plan
 try:
     res_disk=int(res.get("disk_avail_mb") or -1)
     if 0<=res_disk<2048:
@@ -187,7 +215,6 @@ if net.get("dns")=="failed":
     notes.append("DNS resolution failing — install sources unresolvable")
 if env.get("clock_ntp")=="no":
     notes.append("clock not NTP-synchronized — TLS/certificate operations may fail")
-
 if not blockers and missing==0 and unhealthy==0:
     verdict="Substrate complete and responsive; all scored components healthy."
 elif blockers:
@@ -197,14 +224,13 @@ else:
 if missing: notes.append(f"{missing} component(s) absent: "+", ".join(c["component"] for c in sub["components"] if not c["present"]))
 if unhealthy: notes.append(f"{unhealthy} component(s) present but unhealthy: "+", ".join(c["component"] for c in sub["components"] if c["health"]=="unhealthy"))
 for o in offpath: notes.append(f"{o} is installed off PATH — shells using bare PATH lookups will miss it; add the directory to PATH or symlink")
-notes.append(f"{services_active} of {len(services)} known agent-OS service units active ({services_known} present, {os.environ["SVC_DOMAIN"]}); states are observations, not health proofs")
-notes.append(f"setup state: {os.environ["SETUP_STATE"]} ({os.environ["SETUP_NOTES"]})")
+notes.append(f"{services_active} of {len(services)} known agent-OS service units active ({services_known} present, {os.environ['SVC_DOMAIN']}); states are observations, not health proofs")
+notes.append(f"setup state: {os.environ['SETUP_STATE']} ({os.environ['SETUP_NOTES']})")
 if capped: notes.append("score capped at 40 because a critical component is missing or unhealthy — the cap keeps blockers visible")
 notes.append("readiness_score is substrate+runtime readiness only; it is not a W.I.N.S. business outcome and observations are not enrollment")
-
 report_id=str(uuid.uuid4())
 report={
- "schema":"agent-os-brownfield-audit.v4",
+ "schema":"agent-os-brownfield-audit.v5",
  "report_id":report_id,
  "generated_at":datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
  "previous_report_id":os.environ["PREV_ID"] or None,
@@ -215,100 +241,71 @@ report={
  "os":{"name":os.environ["OS_NAME"]},
  "environment":env,
  "audit":{"tool":"substrate-bootstrap.sh","mode":"value-free","checker_exit":int(os.environ["SUB_EXIT"])},
- "setup_state":{"state":{"fresh":"fresh","partial":"partial","configured":"configured"}[os.environ["SETUP_STATE"]],"note":os.environ["SETUP_NOTES"]},
+ "setup_state":{"state":{"fresh":"no agent-OS markers","partial":"partially configured","configured":"agent-OS markers present"}[os.environ["SETUP_STATE"]],"note":os.environ["SETUP_NOTES"]},
  "components":sub["components"],
  "services":services,
  "install_plan":sub.get("install_plan",[]),
  "readiness_score":{
-   "score":score,
-   "scale":"0-100 substrate+runtime readiness",
+   "score":score,"scale":"0-100 substrate+runtime readiness",
    "formula":"components (80%): healthy=1.0, present+n/a=0.7, present+unhealthy=0.3, missing=0 averaged; runtime (20%): active/known service units; capped at 40 when any critical component is missing or unhealthy",
-   "score_capped":capped,
-   "component_score":comp_score,"service_score":svc_score,
+   "score_capped":capped,"component_score":comp_score,"service_score":svc_score,
    "services_active":services_active,"services_known":services_known,
    "components_total":total,"present":present,"missing":missing,"healthy":healthy,"unhealthy":unhealthy,
-   "blockers":blockers,
-   "breakdown":breakdown,
+   "blockers":blockers,"breakdown":breakdown,
    "not":"W.I.N.S. business outcome; observations are not enrollment"},
  "commentary":{"verdict":verdict,"notes":notes}}
-import hashlib
 rh=hashlib.sha256(json.dumps(report,sort_keys=True).encode()).hexdigest()
 report["report_hash"]="sha256:"+rh
 os.makedirs(os.path.expanduser("~/.cache/agent-os-audit"),exist_ok=True)
 json.dump({"report_id":report_id,"report_hash":report["report_hash"]},open(os.path.expanduser("~/.cache/agent-os-audit/last.json"),"w"))
 print(json.dumps(report,indent=2))
-' <<< "$sub_json")" || { echo "report build failed" >&2; exit 65; }
+PYEOF
+python3 "$PYTMP/build_report.py" > "$PYTMP/report.json" || { echo "report build failed" >&2; exit 65; }
+report="$(cat "$PYTMP/report.json")"
 
-emit() {
-  if [ -n "$OUTPUT" ]; then printf '%s\n' "$report" > "$OUTPUT"; fi
-}
-emit
+# --- sweep: run this audit on every mesh machine over ssh (operator's mesh) ---
+# Offline peers listed as offline; ssh failures recorded, never silent. Read-only.
+fleet_json=""
+if [ "$SWEEP" = "1" ]; then
+  command -v ssh >/dev/null 2>&1 || { echo "SWEEP FAILED: ssh not present" >&2; exit 65; }
+  [ -n "$MESH_SSH_USER" ] || MESH_SSH_USER="$(id -un 2>/dev/null || echo root)"
+  peers_lines="$(printf '%s' "$sub_json" | python3 -c 'import json,sys
+sub=json.load(sys.stdin)
+m=sub["environment"].get("mesh") or {}
+for p in m.get("peers",[]):
+    print("%s|%s|%s" % (p["hostname"], p["os"], "online" if p["online"] else "offline"))')"
+  while IFS='|' read -r hostname mos state; do
+    [ -n "$hostname" ] || continue
+    if [ "$state" != "online" ]; then
+      printf '%s\n' "$(H="$hostname" OSV="$mos" python3 -c 'import json,os;print(json.dumps({"hostname":os.environ["H"],"os":os.environ["OSV"],"state":"offline","status":"offline","report":None,"error":None}))')" >> "$remote_rows_tmp"
+      echo "  sweep: $hostname offline — recorded" >&2
+      continue
+    fi
+    remote_json=""
+    if ssh -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKeyChecking=accept-new "$MESH_SSH_USER@$hostname" "mkdir -p ~/.agent-os-sweep" 2>/dev/null \
+       && ssh -o BatchMode=yes "$MESH_SSH_USER@$hostname" "cat > ~/.agent-os-sweep/substrate-bootstrap.sh" < "$DIR/substrate-bootstrap.sh" 2>/dev/null \
+       && ssh -o BatchMode=yes "$MESH_SSH_USER@$hostname" "cat > ~/.agent-os-sweep/brownfield-audit.sh" < "$DIR/brownfield-audit.sh" 2>/dev/null \
+       && remote_json="$(timeout 150 ssh -o BatchMode=yes "$MESH_SSH_USER@$hostname" "chmod +x ~/.agent-os-sweep/*.sh && bash ~/.agent-os-sweep/brownfield-audit.sh --json --no-print --label sweep" 2>/dev/null)" \
+       && printf '%s' "$remote_json" | python3 -m json.tool >/dev/null 2>&1; then
+      printf '%s\n' "$(H="$hostname" OSV="$mos" RJ="$remote_json" python3 -c 'import json,os;print(json.dumps({"hostname":os.environ["H"],"os":os.environ["OSV"],"state":"online","status":"audited","report":json.loads(os.environ["RJ"]),"error":None}))')" >> "$remote_rows_tmp"
+      echo "  sweep: $hostname audited" >&2
+    else
+      printf '%s\n' "$(H="$hostname" OSV="$mos" EU="ssh transport or remote run failed for $MESH_SSH_USER@$hostname (BatchMode; key access required)" python3 -c 'import json,os;print(json.dumps({"hostname":os.environ["H"],"os":os.environ["OSV"],"state":"online","status":"ssh-failed","report":None,"error":os.environ["EU"]}))')" >> "$remote_rows_tmp"
+      echo "  sweep: $hostname FAILED (ssh) — recorded, not silent" >&2
+    fi
+  done <<< "$peers_lines"
+  fleet_json="$(RRT="$remote_rows_tmp" LR="$report" MSU="$MESH_SSH_USER" python3 "$PYTMP/build_fleet.py")"
+fi
 
 if [ "$MODE_JSON" = "1" ]; then
   printf '%s\n' "$report"
+  [ -n "$fleet_json" ] && printf '%s\n' "$fleet_json"
 fi
 if [ "$MODE_PRINT" = "1" ]; then
-  printf '%s' "$report" | python3 -c '
-import json,sys
-r=json.load(sys.stdin)
-rs=r["readiness_score"]
-print("=" * 62)
-print("AGENT-OS BROWNFIELD AUDIT — " + r["generated_at"])
-print("report: " + r["report_id"] + ("" if not r["previous_report_id"] else "  (prev: " + r["previous_report_id"] + ")"))
-print(("label: " + r["label"]) if r["label"] else "label: (none)")
-print("host: " + r["os"]["name"] + " | fingerprint " + r["machine_fingerprint"][:20] + "… (pseudonymous, not identity)")
-print("setup state: " + r["setup_state"]["state"] + " — " + r["setup_state"]["note"])
-print("=" * 62)
-print()
-print("READINESS SCORE: %d/100  (substrate+runtime — not a W.I.N.S. outcome)" % rs["score"])
-print("  component score %d/100 | service score %d/100 (0.8×comp + 0.2×svc)" % (rs["component_score"], rs["service_score"]))
-if rs["score_capped"]: print("  score capped at 40: a critical component is missing or unhealthy")
-print("  components: %d total | %d present | %d missing | %d healthy | %d unhealthy" % (rs["components_total"], rs["present"], rs["missing"], rs["healthy"], rs["unhealthy"]))
-if rs["blockers"]:
-    print("  BLOCKERS:")
-    for b in rs["blockers"]: print("    - %s: %s" % (b["component"], b["reason"]))
-print()
-e=r["environment"]; p=e["platform"]
-print("ENVIRONMENT")
-print("  platform: %s (%s %s) %s | virt %s | wsl %s" % (p["os"], p["distro_id"], p["distro_version"], p["arch"], e["virtualization"], "yes" if e.get("wsl") else "no"))
-print("  init: %s | container: %s" % (e["init"], "yes" if e["container"] else "no"))
-print("  package managers: %s" % (", ".join(e["package_managers"]) if e["package_managers"] else "none detected"))
-print("  resources: disk %s MB free | mem %s MB available" % (e["resources"]["disk_avail_mb"], e["resources"]["mem_avail_mb"]))
-print("  network: dns %s | tcp443 %s | clock ntp %s" % (e["network"]["dns"], e["network"]["tcp443"], e["clock_ntp"]))
-mesh=e.get("mesh") or {}
-if mesh.get("peers") is not None:
-    online=sum(1 for p in mesh["peers"] if p["online"])
-    print("  mesh (%s self): %d connected machines, %d online" % (mesh.get("self","-"), online, len(mesh["peers"])))
-    for p in mesh["peers"]:
-        print("    %-6s %-28s %s" % ("online" if p["online"] else "offline", p["hostname"], p["os"]))
-    print("  (mesh discovery is observation via tailscale; per-machine audits need authorized remote runs)")
-print()
-print("COMPONENTS")
-for c in r["components"]:
-    st = "missing" if not c["present"] else "ok"
-    tag = " [base]" if c["base"] else (" [critical]" if c["critical"] else "")
-    print("  %-8s %-10s%-13s health=%-9s points=%.1f" % (st, c["component"], tag, c["health"], c["score_points"]))
-    print("      version: %s | %s" % (c["version"], c["commentary"]))
-    if c["resolved_path"]: print("      found:   " + c["resolved_path"])
-    print("      route(%s, order %d, admin=%s): %s" % (c["route_kind"], c["order"], "yes" if c["requires_admin"] else "no", c["route"]))
-print()
-plan=r["install_plan"]
-if plan:
-    print("INSTALL PLAN (operator-authorized execution only; base-only apply supported)")
-    for e2 in plan:
-        print("  [%d] %-10s (%s, admin=%s%s) %s" % (e2["order"], e2["component"], e2["route_kind"], "yes" if e2["requires_admin"] else "no", ", after "+",".join(e2["depends_on"]) if e2["depends_on"] else "", e2["route"]))
-        print("      verify after install: %s" % e2["verify_cmd"])
-else:
-    print("INSTALL PLAN: nothing missing")
-print()
-print("SERVICES (observed state)")
-for s in r["services"]:
-    print("  %-10s %-22s %s" % (s["state"], s["service"], s["commentary"]))
-print()
-print("VERDICT: " + r["commentary"]["verdict"])
-for n in r["commentary"]["notes"]:
-    print("  - " + n)
-'
+  printf '%s' "$report" | python3 "$PYTMP/render_human.py"
+  if [ -n "$fleet_json" ]; then
+    printf '%s' "$fleet_json" | python3 "$PYTMP/render_fleet.py"
+  fi
 fi
 
 if [ "$MODE_POST" = "1" ]; then
