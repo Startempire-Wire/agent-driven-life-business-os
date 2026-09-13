@@ -3,12 +3,13 @@
 > A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage is still partial.
 
 - **Golden Path target:** `0.2.0-candidate` (planning plus partial prototype proof; not a published release)
-- **Foundational contract:** [`AGENTS.md`](./AGENTS.md) — currently `3.3.0`
+- **Foundational contract:** [`AGENTS.md`](./AGENTS.md) — currently `3.3.0`; owner-approved reconciliation with the deployment’s later `3.4.0` contract is tracked in ADLBOS issue #8
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Reference Agent Computer profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
 - **Current working source:** [`docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md) — planning iterations toward 0.2.0; [`0.1.1.md`](./docs/agent-os-golden-path/0.1.1.md) retained as superseded planning input
 - **Ecosystem fit:** [approved intent-led relationships](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md#ecosystem-fit--preserve-the-parts-strengthen-the-connections) and [responsive topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html) — reference views, not a fleet registry or proof of live deployment
 - **Ordered tasks:** [`implementation and iteration list`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
+- **Seamless-autonomy gaps:** [`current handoff and dependency audit`](./docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md)
 - **Server build-agent handoff:** [`docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md`](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md)
 - **Changelog:** [`docs/agent-os-golden-path/CHANGELOG.md`](./docs/agent-os-golden-path/CHANGELOG.md)
 

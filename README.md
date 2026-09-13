@@ -36,6 +36,7 @@ but client deployments retain their own owners, context, infrastructure and choi
 | How the products and deployment choices relate | [Reference modes and surfaces](#reference-modes-and-surfaces), the [topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html), and the [product UI options audit](./docs/agent-os-golden-path/06-wirebot-product-ui-options-inventory-and-consolidation-audit.md) |
 | How reusable AI employee roles/tasks are composed | [Composable AI Workforce Catalogue and Client Assignment Matrix](./docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md) |
 | How the proposed Wirebot app may integrate Startempire Wire | [Wirebot Application Family and Startempire Wire Integration Architecture](./docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md) |
+| Which handoffs still block seamless autonomous execution | [Golden Path Seamless-Autonomy Gap Audit](./docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md) |
 | What exists versus what still needs proof | [Evidence and implementation state](#evidence-and-implementation-state); live operational sources for the actual deployment |
 
 These documents have different jobs. An architectural requirement, example object,

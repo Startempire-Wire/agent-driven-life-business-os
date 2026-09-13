@@ -2,6 +2,17 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.0-candidate — 2026-09-13
+
+### Recorded work and bounded evidence
+
+- **Seamless-autonomy handoff audit added:** reviewed the complete current Golden Path against the operation contract, parity audit, composable workforce, layered memory, proposed Wirebot Web/PWA/Desktop/Mobile family, Startempire Wire, AI Draftees, Focusa, UIAI, W.I.N.S., Veragensia and executable scripts. Recorded 44 observed handoff gaps without presenting candidate architecture as implementation.
+- **Autonomy ladder and critical dependency trains added:** defined bounded A0–A6 semantics and ordered the work around executable project governance, client execution packets, worker runtime, professional application shell, evidence/W.I.N.S. closure, recovery and lifecycle economics.
+- **Golden Path extended through GP-22:** added client execution-contract compilation, autonomous worker runtime proof, unified evidence-to-W.I.N.S. closure, a Wirebot application-family Community vertical slice, replacement/offboarding/economics and machine-executable project governance.
+- **Owning defects and execution issues filed:** ADLBOS #3–#10 cover lifecycle economics, the client execution contract, Wirebot application vertical slice, autonomous runtime, evidence/W.I.N.S., portable contract drift, executable Golden Path governance and CLI-versus-runtime inventory truth; Focusa #608 covers the current Work Loop scope mismatch; Wirebot Core #34 covers topology-aware doctor verdicts.
+- **Wirebot Desktop retained explicitly:** the audit treats it as a first-class proposed application-family lane while preserving the observed truth that no canonical source, release, installation or customer proof exists yet.
+- **Bounded reference-machine inventory added:** distinguished command presence, service/runtime health, adapter state, account binding, entitlement and fleet visibility; recorded additional infrastructure/media/database tools without treating presence as worker authority.
+
 ## 0.2.0-candidate — 2026-09-12
 
 ### Recorded work and bounded evidence
