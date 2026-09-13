@@ -315,7 +315,8 @@ into this portable repository.
 - **Voice/audio** is an interaction modality into the same operations. A voiceprint,
   TTS voice, wake word, or speech provider does not create identity or permission.
 - **Agent employees** execute scoped jobs; a role is not permission to access
-  everything the Chief of Staff knows.
+  everything the Chief of Staff knows. Stateful workers may use an architecture similar to Wirebot Core Memory, but whether stores or records are shared remains an explicit unresolved design choice; isolation is the default until proven otherwise.
+- **Golden Path tools** are assigned to workers through a verified capability inventory. Installation or presence does not grant use, credentials, data scope or authority.
 - **Business systems** remain authoritative for their own records.
 - **Receipts and outcomes** connect the layers without duplicating authority.
 

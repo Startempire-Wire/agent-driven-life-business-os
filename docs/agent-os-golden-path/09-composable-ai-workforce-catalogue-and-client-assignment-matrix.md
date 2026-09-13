@@ -66,6 +66,27 @@ Every profile uses CRIST “to some degree”; no profile bypasses Context, Role
 
 “Stateful employee” means state is stored in approved client/project systems with provenance, retention and revocation. It never means trusting a model transcript or leaving an uncontrolled process alive indefinitely.
 
+### 4.1 Relationship to current Wirebot memory
+
+**Operator-directed boundary:** stateful workers should use an architecture similar to Wirebot’s current state/Core Memory model. It is **TBD whether they share Wirebot’s actual stores or records**. No profile receives ambient access to the operator’s, manager’s, another worker’s or another client’s memory.
+
+Current source/document evidence describes a layered model:
+
+| Current layer | Observed responsibility | Evidence/status boundary |
+|---|---|---|
+| Context Core | deterministic current operator state, events, guidance and controlled actions | current `wb doctor` reports service/port active; not a worker-memory store by itself |
+| OpenClaw native memory | workspace Markdown plus indexed retrieval | documented current model; current host reports local unit inactive and configured remote gateway reachable |
+| Wirebot Memory Bridge | turn hooks, Mem0 fact extraction, Letta sync, `MEMORY.md`, wiki tools and audit | source exists; dependency health varies and does not prove end-to-end delivery |
+| Scoreboard memory review/delivery | approval/correction queue and durable jobs to Mem0, `MEMORY.md`, fact YAML, Wiki and Letta | source/docs define retry, backoff, dead-letter and trace behavior; live full-path proof remains required |
+| Mem0 | semantic recall | current host reports local service inactive and port 8200 closed |
+| Letta | structured/long-term state and archival | current host reports local unit inactive but configured remote port reachable; reachability is not semantic health |
+| Wiki/Agent-KB | source-aware durable knowledge | distinct from episodic worker memory and from architecture authority |
+| Focusa | project/work governance: Trajectory, Workpoints, tasks, evidence, receipts and continuation | distinct from general personal/business memory |
+
+Current `wb memory` also exposes a hardcoded single-operator namespace in CLI paths. Multi-client/stateful-worker architecture is therefore not operationally settled. Wirebot Core issue #33 tracks the required architecture and isolation work.
+
+Before general activation, compare isolated per-worker stores, client-shared memory with role-scoped projections, manager-owned context for stateless crew, project/workstream partitions and federated retrieval. Define canonical ownership, write admission, approval, correction, confidence, retention, expiry, deletion, conflict resolution, migration and cross-tenant denial. Similar architecture does not imply shared storage.
+
 ## 5. Activation modes
 
 | Mode | Mechanism | Suitable work | Hard boundary |
@@ -162,19 +183,13 @@ Observed through `focusa_tool_describe` on 2026-09-13:
 | `focusa_metacog_retrieve` | “Best safe search tool for past learning signals relevant to the current ask. Use this before planning or reflection.” | learning and quality workers |
 | `focusa_browser_workflow_plan` | “Plan a governed UIAI/WebMCP read, action, diagnostics, evidence, and cleanup sequence.” | browser, UX and acceptance workers |
 
-#### Code-level boundary quotations and registry discrepancy
-
-Two live discovery descriptors currently return the Scratchpad purpose text for unrelated tools. This is observed registry drift and must not be copied as truth:
-
-- `focusa_workset_projection` and `focusa_credentials_verify` returned: “Write working notes to /tmp/pi-scratch/ — agent's notebook, no Focus State. Transfer crystallized decision to focusa_decide when done.”
-
-The underlying code provides the usable boundary:
+#### Code-level boundary quotations
 
 - `crates/focusa-cli/src/commands/workset.rs:18`: “Read the deterministic replay projection.”
 - `crates/focusa-api/src/routes/credentials.rs:3-5`: “Secret-free by construction: the route never sees or returns secret values — only requirement verdicts, grant lifecycle states, and redacted provider descriptors.”
 - `crates/focusa-core/src/credential_authority.rs:5-7`: “model/public projections carry NO account identifier and NO secret value — agents request ROLES, never vault item names or raw values unless the operator deliberately permits it.”
 
-Until the descriptor drift is fixed and released, workforce code should use exact schemas plus underlying implementation/spec evidence for these two tools rather than trusting the incorrect `purpose` field.
+These implementation quotations constrain workforce composition alongside the live schemas and specifications.
 
 ### 6.4 Required per-assignment tool evidence
 
@@ -192,12 +207,39 @@ cli_commands: []
 side_effect_profile: exact-live-value
 scope_requirement: exact-live-value
 authority_requirement: exact-live-value
-verification_status: verified | discrepant | unavailable
+verification_status: verified | blocked | unavailable
 verified_at: rfc3339-time
-discrepancy_refs: []
+evidence_issue_refs: []
 ```
 
-The source quotation is evidence of advertised intent, not proof of correctness. Compare it with schemas, applicable Focusa specs and implementation for consequential assignments. `discrepant` or `unavailable` blocks automatic activation of the affected capability; it does not license the composer to invent semantics. The full 140-plus-tool registry should be generated from progressive discovery rather than manually frozen in this document.
+The source quotation is evidence of advertised intent, not proof of correctness. Compare it with schemas, applicable Focusa specs and implementation for consequential assignments. `blocked` or `unavailable` prevents automatic activation of the affected capability; it does not license the composer to invent semantics. The full 140-plus-tool registry should be generated from progressive discovery rather than manually frozen in this document.
+
+### 6.5 Golden Path toolchain assignment
+
+The current `substrate-bootstrap.sh` baseline inventories 16 components. Its contract is conservative: base primitives may be installed only through explicit confirmed Base Apply; non-base components remain route-only. Presence never grants a worker authority.
+
+| Golden Path tool | Canonical function | Eligible profiles | Typical task packs/work | Assignment boundary |
+|---|---|---|---|---|
+| `git` | source history and collaboration | REC-01, ENG-01, DOC-01, REL-01 | repository reconnaissance, implementation, documentation, release | exact repository/branch; no destructive history operations |
+| `curl` | bounded HTTP/API diagnostics | API-01, INT-01, TST-01, HLT-01 | endpoint discovery, contract and health checks | never substitutes for auth, typed clients or browser pixel proof |
+| `python3` | scripts, validators and data transformation | ENG-01, TST-01, REC-01, REL-01, TLS-01 | audits, schema tests, migrations and release checks | reviewed bounded script; no secret output or broad rewrites |
+| `node` | JavaScript/TypeScript runtime | ENG-01, TST-01, EXT-01, VIS-01, REL-01 | web/extension build, test and tooling | project-pinned versions and exact package boundary |
+| `npm` | Node package/build command surface | ENG-01, TST-01, EXT-01, REL-01, TLS-01 | install from approved lockfile, build and test | dependency installation requires explicit project authority |
+| `pi` | reference coding-agent harness | ENG-01, REC-01, SPC-01, CGP-01 | scoped engineering and specification sessions | harness access is not project/tool authority |
+| `focusa` | governance, work, evidence and continuation | all governed profiles; especially COS-01, FRM-01, DSP-01, AUT-01, EVD-01 | CRIST, Workpoints, execution, evidence, receipts and recovery | exact project/continuity/Workpoint and live tool evidence |
+| `rbw` | approved vault retrieval adapter | SEC-01, CRED-01, SET-01 | exact credential-role fulfillment | exact approved field only; no vault enumeration or raw secret narration |
+| `gh` | GitHub repository/issue/release interface | REC-01, ENG-01, DOC-01, REL-01, SUP-01 | issue triage, source collaboration and approved release paths | existing approved auth/repository; no repo/visibility/branch expansion |
+| `wrangler` | Cloudflare developer/edge CLI | DEP-01, REL-01, INT-01, SEC-01 | approved worker/site deployment and diagnostics | exact account/zone/project grant; DNS mutation is consequential |
+| `gog` | Google workspace adapter | EAA-01, TMP-01, COM-01, KB-01, ONB-01 | mail, calendar, documents and collaboration | exact account/service scopes; current missing account remains unavailable |
+| `bd` | project-local Beads task ledger | FRM-01, DSP-01, ENG-01, SUP-01 | task readiness, dependencies, assignment and closure | project-local only; task provenance is not architecture authority |
+| `tailscale` | approved private network/transport | HLT-01, RCV-01, VER-01, SEC-01, DEP-01 | device reachability, private service routing and recovery | transport never grants service/data authority |
+| `agent-kb` | canonical source-aware knowledge retrieval | KB-01, RES-01, INV-01, DOC-01, COS-01 | policy/runbook/topology research | bootstrap → freshness → search → direct document; no raw-store hot path |
+| `openclaw` | Wirebot/Chief-of-Staff runtime | COS-01, DSP-01, SET-01, CST-01, VER-01 | assistant runtime, channels, skills and delegated work | client identity, tier, channel, skill and memory scope required |
+| `uiai` | UIAI Engine CLI/runtime entry | BRW-01, UXA-01, VIS-01, ACC-01, RES-01, EVD-UI-01 | browser research/action, diagnostics and visual evidence | UIAI-first workflow; API/CLI first-party routes precede browser/CUA |
+
+Additional installed tools—including `wb`, WordPress/WP-CLI adapters, Guardian, container engines, platform CLIs, databases, media tools and customer business systems—must enter the same inventory before assignment. The Golden Path audit emits the actual per-machine set; the catalogue must never infer availability from this baseline.
+
+Each inventory row must record component/version, source/manager, install stage, owning product, health, platform, API/CLI operations, consequence class, credentials, data scopes, eligible/prohibited profiles, task packs, upgrade/rollback and evidence receipts. New tools remain unassigned until this mapping is complete.
 
 ## 7. Master workforce profile grid
 
@@ -259,6 +301,8 @@ In compact bundle cells, a prefix applies across slash-separated names until a c
 | DEP-01 | Deployment Engineer | install/configure approved release on exact destination | F-EXEC/SCOPE/EVID/SEC | Full/Inherited | S/checkpointed | authorized delivery | no |
 | ACC-01 | Consumer Acceptance Tester | verify installed behavior on exact customer/operator surface | F-EVID/WP, U-SESSION/READ/ACT/DIAG/EVID | Inherited | F/receipt-only | post-deploy | no |
 | API-01 | Operation Catalogue Curator | maintain product-owned operations and federated discovery projection | F-DISC/DOC/RUNTIME/EVID | Full/Inherited | P/stateful registry | ready task/scheduled audit | conditional |
+| WPA-01 | WordPress Domain Adapter Engineer | expose existing WordPress-owned business functions through versioned app-ready operations | F-DOC/SCOPE/EVID, U-DIAG | Full/Inherited | C/checkpointed | ready task | no |
+| FED-01 | Federation Contract Engineer | design and verify minimum cross-node identity, capability, projection and revocation contracts | F-DOC/SEC/EVID/RUNTIME | Full | C/checkpointed | ready task | no |
 
 ### 7.5 Infrastructure, security and recovery
 
@@ -272,7 +316,8 @@ In compact bundle cells, a prefix applies across slash-separated names until a c
 | DEV-01 | Device Pairing Specialist | pair/list/revoke devices with exact scope and receipts | F-SEC/EVID | Delta | F/receipt-only | on-demand | no |
 | SMS-01 | Scoped Communications/OTP Broker | health, exact thread/send or renewable OTP injection under separate grants | F-SEC/EVID | Full/Delta | F/receipt-only | event/manual | no |
 | RESRC-01 | Resource Performance Steward | monitor memory/token/bloat pressure and apply approved resource posture | F-RESOURCE/DX/EVID | Deterministic | P/stateful metrics | scheduled/event | yes |
-| BCK-01 | Checkpoint and Continuity Steward | checkpoint, resume, transfer and verify continuation state | F-WP/LINeAGE/EVID | Inherited | P/stateful refs | event/threshold | yes |
+| BCK-01 | Checkpoint and Continuity Steward | checkpoint, resume, transfer and verify continuation state | F-WP/LINEAGE/EVID | Inherited | P/stateful refs | event/threshold | yes |
+| TLS-01 | Golden Path Toolchain Steward | inventory, verify, map, upgrade and revoke installed tools without granting ambient use | F-DISC/SCOPE/EVID/DX | Full/Delta | P/stateful inventory | onboarding/event/scheduled | yes |
 | VER-01 | Veragensia Agent Computer Steward | manage qualified device capabilities, operation registry and governed execution handoffs | F-SCOPE/SEC/EVID/RESOURCE/BROWSER | Full | P/stateful device refs | event/supervised | conditional |
 
 ### 7.6 Customer lifecycle and business operations
@@ -343,6 +388,8 @@ OCDD is a useful tag/lens for administrative task packs. It does not replace CRI
 | TP-PROCURE-01 | Approved purchasing and gifts | recipient/purpose, budget, vendor policy | options; approved order and receipt | EAA-01 | on-demand | payment, address and purchase require explicit confirmation |
 | TP-PRESENT-01 | Presentation production | audience, message, evidence, brand assets | reviewed deck, source manifest and export | DOC-01, VIS-01, EAA-01 | campaign | claims and third-party media require verification/rights |
 | TP-ANALYTICS-01 | Basic business reporting | authorized sales, delivery, task and marketing data | reconciled dashboard/report and anomalies | EAA-01, CST-01, OUT-01 | scheduled | source freshness and calculation definition must remain visible |
+| TP-TOOLS-01 | Golden Path toolchain onboarding/lifecycle | approved machine profile, actual inventory, platform, owner and install authority | installed-or-routed component, version/health proof, profile assignments, rollback/revoke record | TLS-01, SET-01, SEC-01, TST-01 | onboarding/event | install only through approved owner route; presence and login never grant use |
+| TP-ADAPTER-01 | Client business-system adapter onboarding | approved system, tenant, operations, data and credential-role requirements | versioned adapter mapping, least-capability grant, tests and revocation path | INT-01, API-01, TLS-01, SEC-01 | campaign | customer system remains canonical owner; no screen scraping for first-party integrations |
 
 ### 8.3 Genericization map from specific duty lists
 
@@ -373,7 +420,7 @@ After the Golden Path audit, classify every profile for that client:
 | Excluded | unnecessary, duplicative, prohibited or outside client scope |
 | Unknown | audit evidence is insufficient; do not guess |
 
-### 8.1 Selection dimensions
+### 9.1 Selection dimensions
 
 Score fit qualitatively before assignment:
 
@@ -392,7 +439,7 @@ Score fit qualitatively before assignment:
 
 A high automation score does not override consent, authority or human-reserved work.
 
-### 8.2 Default assignment algorithm
+### 9.2 Default assignment algorithm
 
 1. Read verified audit gaps, active goals, systems, task history and owner constraints.
 2. Group repeated work by outcome and canonical owner.
@@ -569,16 +616,18 @@ The output is one portfolio architecture with distinct product responsibilities�
 ## 15. First implementation slices
 
 1. Validate this catalogue against current Focusa and UIAI live registries.
-2. Complete the integrated AI Draftees/Wirebot/Focusa/UIAI/Veragensia product relook before selecting the Workforce Composer owner or UX.
-3. Create the private `client.workforce-roster.v1` and reusable task-pack schemas plus validators.
-4. Map Golden Path audit findings to assignment states without automatic activation.
-5. Convert existing client-specific duty lists into generic task packs plus private overlays.
-6. Pilot `GPA-01` Golden Path Audit Specialist and `ROS-01` Client Roster Designer on one existing client.
-7. Spin each pilot as a bounded Silent Session under one accepted task set.
-8. Capture accepted outcomes, costs, escalation quality and missing capability gaps.
-9. Refine profiles; then offer the roster review to existing clients.
-10. Implement scheduling only after on-demand pilots are repeatably accepted.
-11. Implement the graphical Workforce Composer only after API/CLI contracts and the product owner are settled.
+2. Generate the complete Golden Path per-machine tool inventory and profile/task assignment map, including every newly installed tool.
+3. Settle and prove the stateful-worker memory architecture tracked in Wirebot Core issue #33; do not infer shared storage.
+4. Complete the integrated AI Draftees/Wirebot/Focusa/UIAI/Veragensia product relook before selecting the Workforce Composer owner or UX.
+5. Create the private `client.workforce-roster.v1`, tool-evidence and reusable task-pack schemas plus validators.
+6. Map Golden Path audit findings to assignment states without automatic activation.
+7. Convert existing client-specific duty lists into generic task packs plus private overlays.
+8. Pilot `GPA-01` Golden Path Audit Specialist and `ROS-01` Client Roster Designer on one existing client.
+9. Spin each pilot as a bounded Silent Session under one accepted task set.
+10. Capture accepted outcomes, costs, escalation quality and missing capability gaps.
+11. Refine profiles; then offer the roster review to existing clients.
+12. Implement scheduling only after on-demand pilots are repeatably accepted.
+13. Implement the graphical Workforce Composer only after API/CLI contracts and the product owner are settled.
 
 ## 16. Completion boundary
 
