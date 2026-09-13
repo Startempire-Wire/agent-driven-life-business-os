@@ -1,7 +1,7 @@
 # Wirebot product UI inventory and consolidation audit
 
 - **Audit date:** 2026-09-13
-- **Scope:** Focusa Desktop, Focusa Menubar, Focusa browser extension, UIAI Cockpit, UIAI evidence/FPV PWAs, Wirebot browser extension, Wirebot Desktop/mobile, W.I.N.S. screens, Veragensia, and their public sales/access doors
+- **Scope:** Startempire Wire and AI Draftees, Focusa Desktop, Focusa Menubar, Focusa browser extension, UIAI Cockpit, UIAI evidence/FPV PWAs, Wirebot browser extension, proposed Wirebot Desktop/mobile, W.I.N.S. screens, Veragensia, and their public sales/access doors
 - **Status vocabulary:** `implemented` means source exists; `runtime-observed` means a current service/tool was observed; `released` or `customer-ready` requires separate distribution and consumer proof
 - **Decision posture:** this is an inventory and options paper, not a final architecture declaration. Only explicitly operator-confirmed directions are marked confirmed; all other placements remain candidates.
 
@@ -9,7 +9,10 @@
 
 ### Operator-confirmed direction
 
-- The interface previously described as the Golden Path “wrapped process” is now named **Wirebot Desktop**.
+- During this 2026-09-13 documentation effort, the operator first introduced **Wirebot Desktop** as a proposed professional application direction. No prior canonical Wirebot Desktop product/source was proven; older references to wrappers or generic desktop possibilities must not be rewritten as that product.
+- The full Startempire Wire ecosystem should be integrated professionally into the proposed Wirebot Web/PWA/Desktop/Mobile application family through correct product boundaries and structured endpoints where suitable.
+- WordPress REST endpoints are candidate domain adapters for Startempire Wire modules; the app must not become an iframe collection or visually automate its own first-party websites.
+- Community members may receive an inexpensive, useful Wirebot experience; exact tier mapping, capabilities and pricing remain unresolved.
 - Wirebot Direct subscription screens and the existing W.I.N.S. mobile/PWA screens should be considered for one consolidated Wirebot experience.
 - The W.I.N.S. PWA should be developed into a mobile app rather than remaining only a browser-installable PWA.
 - Wirebot Direct, Full AITL Setup and the personal-presence engagement use the **same Wirebot app**, not tier-specific Tauri applications.
@@ -125,6 +128,18 @@
 - **Current status:** extensive specification and implementation source exists; the repository explicitly distinguishes its public proving ground from a completed native release. Current source checkout has uncommitted state/cache artifacts, so live/release claims require separate proof.
 - **Boundary:** Veragensia is the execution environment and Agent Computer—not another Wirebot customer dashboard. Wirebot Desktop/mobile may request governed work from Veragensia and display receipts; it does not absorb the OS, UIAI Cockpit, or Veragensia’s trust controls.
 
+### 2.10 Startempire Wire and AI Draftees
+
+- **Existing product context:** Wirebot Core already documents a dual track: standalone `wirebot.chat` users and Startempire Wire network members sharing the runtime/skills substrate. Its current tier contract names Free/Public, FreeWire, Wire, ExtraWire and Sovereign.
+- **Current website substrate:** Startempire Wire is substantially WordPress-based, with first-party membership, network, feed/signal, listing/opportunity, pitch, Draftees, provisioning, Discord/PWA and related plugin sources. Source presence does not certify every route or deployed experience.
+- **AI Draftees source:** `/home/startempirewire/public_html/wp-content/plugins/wire-draftees/`, inspected clean `main` at `cad3e12`, plugin header version `0.1.0`. Existing source/docs cover profiles, departments, skills/integrations, availability, hire, dispatch, messages/disputes, W.I.N.S., browse/profile/My Draftees/admin and scheduled bridges.
+- **AI Draftees status:** its principal product document remains `Draft v1` dated 2026-02-12. Current customer readiness, live browser quality, checkout, endpoint completeness and API/CLI parity were not proven here.
+- **Historical boundary:** AI Draftees predates the Wirebot Desktop idea. Its WordPress UX is evidence to audit, not an intentional decision about the newly proposed app.
+- **Current endpoint evidence:** AI Draftees registers a `wire-draftees/v1` REST namespace; the Ring Leader source registers `sewn/v1`. Endpoint-by-endpoint schemas, authentication, entitlements, receipts and consumer proof remain to be inventoried.
+- **Direction:** preserve useful product/domain truth, then decide whether AI Draftees remains a public marketplace, becomes an app module, shares headless contracts with a private Workforce Composer, or is retired after migration.
+
+See [Wirebot Application Family and Startempire Wire Integration Architecture](./10-wirebot-application-family-startempire-wire-integration-architecture.md).
+
 ## 3. Public doors and transaction surfaces
 
 These are product entrances, not replacements for the applications:
@@ -158,7 +173,9 @@ This model is documented but a production Wirebot Direct estate was not establis
 | UIAI Cockpit | full browser/computer/evidence operator workspace | bounded evidence viewer, session status, approved controls | a copied UIAI engine inside Wirebot |
 | UIAI Evidence PWA | evidence packets, verification, sharing, redaction | customer evidence inbox/viewer | a Wirebot-owned evidence authority |
 | Wirebot extension | browser/network context and side-panel access | companion/deep-link to customer workspace | the complete desktop/mobile app |
-| Wirebot Desktop/mobile | consolidated customer operating partner and setup/support workspace | all entitlement-selected Wirebot modules | Focusa Desktop, Cockpit or Veragensia |
+| Startempire Wire website | public community, network, discovery, commerce and domain-owned WordPress experiences | native modules, shared contracts or governed deep links | a duplicated app backend or universal private tenant authority |
+| AI Draftees | currently implemented public profile/hire/dispatch/W.I.N.S. domain evidence pending relook | marketplace/profile modules or shared contracts with Workforce Composer | automatic proof of the future workforce UX or runtime authority |
+| Wirebot Desktop/mobile | proposed consolidated customer operating partner and setup/support workspace | all entitlement-selected Wirebot modules | Focusa Desktop, Cockpit, Veragensia or a WordPress wrapper |
 | Veragensia | Agent Computer OS/execution and human-control reserve | governed machine/session status and receipts | a customer subscription UI |
 
 ## 6. Options and tradeoffs
@@ -293,6 +310,8 @@ CUA is never the normal integration among Focusa, UIAI, Wirebot, W.I.N.S. or Ver
 ### 6.8 Portfolio integration posture
 
 For each outside UI, choose independently between deep link, shared contract/module, bounded embedded view, or full embedding. “One customer experience” does not require one executable containing every professional tool. Focusa Desktop, UIAI Cockpit, extensions and Veragensia keep their own canonical responsibilities unless an explicit later decision changes a boundary.
+
+The operator has now directed that the full Startempire Wire ecosystem receive an intentional, professional relationship to the proposed Wirebot application family. That does not settle which experiences become native modules or how AI Draftees evolves. Use the separate [integration architecture options paper](./10-wirebot-application-family-startempire-wire-integration-architecture.md) and current product evidence before selecting an implementation.
 
 ## 7. Gap and wrinkle register
 

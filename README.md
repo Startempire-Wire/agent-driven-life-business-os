@@ -33,7 +33,9 @@ but client deployments retain their own owners, context, infrastructure and choi
 | Who can decide architecture, and how identity is verified | [Owner constitution](./OWNER_AUTHORITY_CONSTITUTION.md) and [cryptographic profile](./CRYPTOGRAPHIC_AUTHORITY_PROFILE.md) |
 | What an Agent Computer profile requires | [Agent Computer reference profile](./AGENT_COMPUTER_REFERENCE_PROFILE.md); feature-specific implementation and proof remain with its owners |
 | How to adopt or operate the system | [Golden Path](./AGENT_OS_GOLDEN_PATH.md), its [working doctrine/task ledger](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md), and [server handoff](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md) |
-| How the products and deployment choices relate | [Reference modes and surfaces](#reference-modes-and-surfaces) and the [topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html) |
+| How the products and deployment choices relate | [Reference modes and surfaces](#reference-modes-and-surfaces), the [topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html), and the [product UI options audit](./docs/agent-os-golden-path/06-wirebot-product-ui-options-inventory-and-consolidation-audit.md) |
+| How reusable AI employee roles/tasks are composed | [Composable AI Workforce Catalogue and Client Assignment Matrix](./docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md) |
+| How the proposed Wirebot app may integrate Startempire Wire | [Wirebot Application Family and Startempire Wire Integration Architecture](./docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md) |
 | What exists versus what still needs proof | [Evidence and implementation state](#evidence-and-implementation-state); live operational sources for the actual deployment |
 
 These documents have different jobs. An architectural requirement, example object,
@@ -299,6 +301,8 @@ into this portable repository.
   extensive and durable.
 - **Focusa Desktop** presents governed Focusa state/operations/conversation; it does
   not become a second reducer, memory store, or authority.
+- The proposed **Wirebot Web/PWA/Desktop/Mobile family** is a newly directed professional customer application shell, not a proven current product. It may integrate Startempire Wire through domain-owned structured operations; it does not turn WordPress pages into runtime authority or copy every backend.
+- **Startempire Wire and AI Draftees** retain their observed community/marketplace domain evidence while their future app relationship is re-evaluated; older WordPress UX does not settle the new application architecture.
 - **Pi** is the reference/default Focusa harness integration; that reference role
   does not make canonical Focusa state Pi-private or exclude compatible harnesses.
 - **Agent-KB** may be canonical for source-aware knowledge retrieval without
