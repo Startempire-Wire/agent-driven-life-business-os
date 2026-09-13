@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://startempire-wire.github.io/agent-driven-life-business-os/contracts/agent-operation.v1.schema.json",
+  "title": "Agent Operation Contract v1",
+  "description": "Portable descriptor for one canonical operation shared by API, CLI, UI, and agent adapters.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "operation_id",
+    "owner",
+    "summary",
+    "consequence_class",
+    "authority",
+    "input_schema_ref",
+    "output_schema_ref",
+    "idempotency",
+    "receipt",
+    "errors",
+    "recovery",
+    "api",
+    "cli",
+    "discovery"
+  ],
+  "properties": {
+    "schema_version": { "const": "agent.operation.v1" },
+    "operation_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]*(\\.[a-z][a-z0-9_-]*){2,}$",
+      "maxLength": 160
+    },
+    "owner": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 240 },
+    "consequence_class": {
+      "enum": ["read", "mutate", "destructive", "external_commitment"]
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_capabilities", "exact_scope_fields", "confirmation"],
+      "properties": {
+        "required_capabilities": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "uniqueItems": true
+        },
+        "exact_scope_fields": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "uniqueItems": true
+        },
+        "confirmation": { "enum": ["none", "required", "high_consequence"] }
+      }
+    },
+    "input_schema_ref": { "$ref": "#/$defs/ref" },
+    "output_schema_ref": { "$ref": "#/$defs/ref" },
+    "idempotency": { "enum": ["none", "optional", "required"] },
+    "receipt": { "enum": ["none", "result", "durable"] },
+    "errors": { "$ref": "#/$defs/ref" },
+    "recovery": { "$ref": "#/$defs/ref" },
+    "api": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transport", "method", "route"],
+      "properties": {
+        "transport": { "enum": ["http", "local_socket", "rpc", "application_protocol"] },
+        "method": { "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "invoke"] },
+        "route": { "type": "string", "minLength": 1, "maxLength": 500 }
+      }
+    },
+    "cli": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["argv_prefix", "input", "output"],
+      "properties": {
+        "argv_prefix": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string", "minLength": 1, "maxLength": 120 }
+        },
+        "input": { "enum": ["flags", "stdin_json", "flags_or_stdin_json"] },
+        "output": { "const": "json" }
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["catalog", "introduced_in", "deprecated_in"],
+      "properties": {
+        "catalog": { "$ref": "#/$defs/ref" },
+        "introduced_in": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$"
+        },
+        "deprecated_in": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "ref": { "type": "string", "minLength": 1, "maxLength": 500 }
+  }
+}

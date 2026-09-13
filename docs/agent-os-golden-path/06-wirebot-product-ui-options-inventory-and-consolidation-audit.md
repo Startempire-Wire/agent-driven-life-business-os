@@ -237,7 +237,7 @@ A separate stock-ChromeOS matrix then proves customer-access routes through PWA,
 
 ### 6.7 Agent-operation-complete baseline
 
-This is a default product requirement, not an optional accessibility layer. A first-party feature is incomplete when a human can operate it only through pixels, pointer gestures or private UI logic.
+The normative, testable requirements live in the [Agent-Operation-Complete Software Contract](./07-agent-operation-complete-software-contract.md). This is a default product requirement, not an optional accessibility layer. A first-party feature is incomplete when a human can operate it only through pixels, pointer gestures or private UI logic.
 
 For every consequential UI action and readable state, the canonical feature owner provides:
 

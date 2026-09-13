@@ -1,0 +1,33 @@
+{
+  "schema_version": "agent.operation.v1",
+  "operation_id": "wirebot.workspace.inspect",
+  "owner": "wirebot-core",
+  "summary": "Inspect one authorized Wirebot workspace.",
+  "consequence_class": "read",
+  "authority": {
+    "required_capabilities": ["workspace_read"],
+    "exact_scope_fields": ["tenant_id", "workspace_id"],
+    "confirmation": "none"
+  },
+  "input_schema_ref": "contracts/examples/wirebot-workspace-inspect-input.v1.json",
+  "output_schema_ref": "contracts/examples/wirebot-workspace-inspect-output.v1.json",
+  "idempotency": "none",
+  "receipt": "result",
+  "errors": "wirebot.errors.v1",
+  "recovery": "wirebot.workspace.inspect.recovery.v1",
+  "api": {
+    "transport": "http",
+    "method": "GET",
+    "route": "/v1/workspaces/{workspace_id}"
+  },
+  "cli": {
+    "argv_prefix": ["wb", "workspace", "inspect"],
+    "input": "flags",
+    "output": "json"
+  },
+  "discovery": {
+    "catalog": "wirebot.operation-catalog.v1",
+    "introduced_in": "0.2.0",
+    "deprecated_in": null
+  }
+}
