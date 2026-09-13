@@ -16,6 +16,8 @@
 - Full AITL Setup is the established scalable middle path; it is not a newly invented offer.
 - UIAI’s complete Evidence PWA will be integrated into **UIAI Cockpit**.
 - Veragensia must remain visible as a first-class product/runtime in the portfolio inventory.
+- Because Veragensia’s first native reference Agent Computer targets Chromebook hardware, every ecosystem application UI should work fully and coherently on the **Veragensia Chromebook baseline**.
+- Every product is **agent-operation complete by default**: all consequential UI actions and readable state have complete, versioned API and CLI routes. Computer-use automation (CUA) is the absolute last resort.
 
 ### Decisions intentionally deferred
 
@@ -197,7 +199,83 @@ The confirmed requirement is complete Evidence PWA integration in Cockpit. Its a
 | PWA plus desktop Tauri only | Lowest immediate cost and preserves instant mobile delivery | Does not satisfy the confirmed native-mobile direction |
 | Separate native mobile framework consuming shared contracts | Best platform-specific UX where needed | Highest engineering/release duplication; risks divergence from desktop/W.I.N.S. |
 
-### 6.6 Portfolio integration posture
+### 6.6 Veragensia Chromebook portfolio baseline
+
+This baseline exists **because of Veragensia**. Its first native reference Agent Computer is Chromebook hardware, so that machine must be capable of presenting and operating the full ecosystem: Focusa Desktop, UIAI Cockpit and Evidence PWA, the Focusa and Wirebot browser extensions, Wirebot Desktop/mobile-compatible screens, W.I.N.S., and Veragensia’s own controls.
+
+Two test lanes must remain distinct:
+
+1. **Primary ecosystem lane — Veragensia on Chromebook hardware:** firmware/OS conversion has produced the supported Veragensia/Omarchy Linux Agent Computer. Linux/Tauri, browser/PWA and extension routes can participate in one integrated desktop.
+2. **Secondary customer-access lane — stock ChromeOS:** unconverted consumer or managed Chromebooks use Chrome/PWA, Android and permitted Crostini routes. Success here does not prove the Veragensia-native system, and Veragensia-native success does not prove managed ChromeOS compatibility.
+
+“Every app UI works fully on the Veragensia Chromebook” is the primary acceptance target, while the packaging route remains product-specific. Four routes are available and may be combined:
+
+| Route | Advantages | Costs/risks | Best candidate uses |
+|---|---|---|---|
+| Responsive web/PWA | Native ChromeOS fit; instant updates; touch/mouse/keyboard; lowest installation friction | Browser storage/background limits; weaker filesystem, secure storage and OS integration; managed service required | Wirebot/W.I.N.S., UIAI Evidence/FPV views, read-focused Focusa surfaces |
+| Android application on ChromeOS | Native store/update path; mobile and Chromebook reuse; better notifications/secure storage than PWA | Chromebook Android compatibility varies; window/keyboard behavior needs explicit QA; not every enterprise Chromebook enables Play Store | Wirebot Mobile, customer evidence and communication surfaces |
+| Linux/Tauri through Crostini | Desktop code reuse and broad native capabilities on supported x86_64/ARM Linux environments | Linux enablement is user/admin friction; not universal on managed devices; packaging, display integration and updates need proof | Focusa Desktop and UIAI Cockpit professional/operator use |
+| Veragensia-native Chromebook | Deepest Agent Computer integration, secure attention and governed execution | Firmware/device compatibility, destructive installation and hardware qualification; intentionally specialized rather than a general customer prerequisite | Veragensia reference Agent Computer |
+
+#### Per-surface Chromebook audit
+
+| Surface | Candidate Chromebook route | Current evidence | Gap to “fully working” |
+|---|---|---|---|
+| Focusa Desktop | Linux/Tauri inside Veragensia; optional responsive web projection for stock ChromeOS | current app is a macOS-shaped Tauri menubar preview | Veragensia Linux window/tray adaptation, package/install, secure storage, pairing, notifications and full functional parity are unproven |
+| Focusa browser extension | Chrome Manifest V3 | concept document only | no manifest, implementation, permission audit, store/release or Chromebook proof |
+| UIAI Cockpit | Linux/Tauri inside Veragensia plus browser/PWA access where appropriate | Tauri source and extensive specifications exist | no proven Veragensia Chromebook package; current local source check fails; input, windowing, capture, evidence and control behavior need device proof |
+| UIAI Evidence/FPV PWA | Chrome PWA | FPV is documented implemented and runtime EPWA envelopes were observed | installability, offline/readback, touch layout and admissible customer-scope publication need Chromebook proof |
+| Wirebot browser extension | Chrome Manifest V3 | v0.2.2 manifest/build source exists | store/current-install proof, source reconciliation and real Chromebook browser testing absent |
+| Wirebot/W.I.N.S. | Linux/Tauri or shared web frontend inside Veragensia; PWA/Android for stock ChromeOS | responsive Svelte screens and PWA assumptions exist | canonical source extraction, auth, native adapters, Veragensia integration, install/update and full device acceptance absent |
+| Veragensia | native Chromebook/Omarchy on qualified hardware | Docs 186–189 specify Chromebook-first v0.1 and a Dell CC11260 reference path | explicitly proposed/not released; firmware, hardware, installer and full work-cycle evidence remain open |
+
+#### Proposed Veragensia Chromebook acceptance contract—not yet adopted
+
+On the qualified Veragensia Chromebook, prove the integrated portfolio: boot/login; Focusa Desktop launch and daemon pairing; UIAI Cockpit launch, browser/computer control and Evidence PWA use; installation and operation of both browser extensions; Wirebot/W.I.N.S. customer workspace; governed handoff to Veragensia execution; shared identity/scope resolution without ambient authority; keyboard, touch and pointer use; file handoff; notifications; camera/microphone where applicable; secure credential storage; offline/degraded behavior; update/rollback; deep links; evidence readback; and sign-out/revocation with zero residue. Measure cold start, idle/active memory, CPU pressure and concurrent-app behavior against the qualified hardware profile. Pixel inspection and real-device consumer testing are required.
+
+A separate stock-ChromeOS matrix then proves customer-access routes through PWA, Android, Chrome extension or permitted Crostini. The primary ecosystem goal is **complete integrated operation on the Veragensia Agent Computer**, not an unsupported claim that macOS/Windows bundles execute directly on ChromeOS.
+
+### 6.7 Agent-operation-complete baseline
+
+This is a default product requirement, not an optional accessibility layer. A first-party feature is incomplete when a human can operate it only through pixels, pointer gestures or private UI logic.
+
+For every consequential UI action and readable state, the canonical feature owner provides:
+
+- one versioned operation contract and stable operation identifier;
+- strict machine-readable input/output schemas;
+- authenticated, scoped API and documented CLI routes;
+- the same authority, entitlement, confirmation and consequence classification across UI, API and CLI;
+- idempotency/replay behavior for mutations;
+- durable evidence/receipt references;
+- bounded errors, diagnostics and recovery guidance;
+- capability discovery, version negotiation and deprecation policy;
+- producer, API-consumer, CLI-consumer and UI-parity tests;
+- headless operation without visually controlling the UI.
+
+The UI, API and CLI are adapters over the same owning service/operation. They do not maintain parallel business logic, state stores or permission rules. Layout may remain presentation-specific, but underlying state, selections, commands, exports, approvals and outcomes remain agent-readable and agent-operable.
+
+#### Automation fallback ladder
+
+1. **Canonical structured operation:** typed application operation, API, CLI, MCP/ACP binding or stable application protocol.
+2. **Structured platform interface:** D-Bus, accessibility object model, DOM/WebMCP or another semantic interface only when no canonical operation exists.
+3. **CUA absolute last resort:** visual recognition, pointer coordinates and keyboard emulation only when no structured route exists and the exact action is authorized.
+
+CUA is never the normal integration among Focusa, UIAI, Wirebot, W.I.N.S. or Veragensia. Every first-party CUA fallback creates a named API/CLI parity defect, records why no structured operation was available, captures evidence and has bounded retry/stop behavior. UIAI can execute CUA safely; its availability does not make CUA the preferred route.
+
+#### Current API/CLI parity audit
+
+| Surface | Existing structured foundation | Current gap |
+|---|---|---|
+| Focusa Desktop | extensive Focusa daemon API and CLI/tool operations | no complete Desktop UI-action → operation → CLI parity ledger |
+| Focusa browser extension | concept references Focusa operations | no implementation, API/CLI surface or parity tests |
+| UIAI Cockpit | UIAI HTTP/MCP/tool APIs and a UIAI CLI entry exist | full Cockpit UI/API/CLI parity unproven; current checkout check fails |
+| UIAI Evidence/FPV | current UIAI tools and web routes expose typed session/evidence operations | CLI parity and complete Cockpit/Wirebot consumer proof remain open |
+| Wirebot extension | WordPress REST, websocket and extension APIs exist in parts | no complete operation registry or CLI parity |
+| Wirebot/W.I.N.S. | scoreboard HTTP handlers and broad `wb` CLI families exist | screen-level operation schemas and parity coverage incomplete |
+| Wirebot Desktop/mobile | intended to consume managed services | no app or consolidated operation/parity contract exists |
+| Veragensia | Agent App Resolver and semantic operation registry prefer structured operations | full installed-app API/CLI inventory and reference-Chromebook parity proof incomplete |
+
+### 6.8 Portfolio integration posture
 
 For each outside UI, choose independently between deep link, shared contract/module, bounded embedded view, or full embedding. “One customer experience” does not require one executable containing every professional tool. Focusa Desktop, UIAI Cockpit, extensions and Veragensia keep their own canonical responsibilities unless an explicit later decision changes a boundary.
 
@@ -247,19 +325,28 @@ For each outside UI, choose independently between deep link, shared contract/mod
 28. **Wirebot extension drift:** local source is ahead of remote and publication is unverified; reconcile before treating it as the customer extension.
 29. **Veragensia release truth:** public proving-ground/source existence must not be presented as a finished native Agent Computer release.
 30. **Audit scripts:** current Golden Path scripts detect substrate/runtime components, not the five/six product UI installations. Add UI detection only after package IDs and release contracts exist.
+31. **Veragensia Chromebook integration profile:** Veragensia has Chromebook-first specifications, but no release profile currently installs, launches and proves the complete Focusa/UIAI/Wirebot/extension UI portfolio together.
+32. **Two Chromebook lanes:** stock ChromeOS and Veragensia/Omarchy on Chromebook hardware have different security, packaging and administration models; neither currently proves the other.
+33. **Reference-hardware capacity:** concurrent Focusa Desktop, UIAI Cockpit, Wirebot and browser/extension operation has no measured CPU/memory/startup baseline on the qualified Chromebook.
+34. **Operation registry completeness:** no cross-product catalogue proves that every first-party UI action and readable state maps to canonical API and CLI operations.
+35. **Parity test matrix:** UI/API/CLI producer and consumer tests are incomplete across the portfolio.
+36. **CUA dependency ledger:** first-party workflows do not yet consistently classify CUA fallback as a defect requiring a structured replacement.
 
 ## 8. Candidate sequence after the open decisions
 
-1. Record the product family, source owner, W.I.N.S. owner and entitlement schema.
-2. Establish a clean `wirebot-core` implementation worktree and extract W.I.N.S. screens behind typed session/API interfaces.
-3. Build one responsive Wirebot web shell from those canonical modules.
-4. Package and prove desktop targets with Tauri.
-5. Add native adapters and package the same frontend for iOS/Android; preserve the PWA as a derived web target.
-6. Implement Direct provisioning on the initial managed runtime/VPS with tenant isolation and capacity evidence.
-7. Implement engagement/payment/scheduling binding and Full AITL setup modules.
-8. Integrate the UIAI customer evidence viewer while completing the full Evidence PWA integration in Cockpit.
-9. Integrate Veragensia remote Agent Computer status, governed actions and receipts.
-10. Run one paid pilot end to end before activating revised Full AITL/Direct pricing or claiming customer readiness.
+1. Record the product family, source owner, W.I.N.S. owner, entitlement schema and agent-operation-complete contract.
+2. Inventory every UI action against its canonical API and CLI operation; file explicit parity/CUA gaps before consolidating screens.
+3. Establish a clean `wirebot-core` implementation worktree and extract W.I.N.S. screens behind typed session/API interfaces.
+4. Build one responsive Wirebot web shell from those canonical modules.
+5. Package and prove desktop targets with Tauri.
+6. Add native adapters and package the same frontend for iOS/Android; preserve the PWA as a derived web target.
+7. Implement Direct provisioning on the initial managed runtime/VPS with tenant isolation and capacity evidence.
+8. Implement engagement/payment/scheduling binding and Full AITL setup modules.
+9. Integrate the UIAI customer evidence viewer while completing the full Evidence PWA integration in Cockpit.
+10. Select and prove the supported Chromebook route for each UI against the shared acceptance contract.
+11. Integrate Veragensia remote Agent Computer status, governed actions and receipts.
+12. Prove every accepted workflow headlessly through API and CLI before permitting CUA fallback.
+13. Run one paid pilot end to end before activating revised Full AITL/Direct pricing or claiming customer readiness.
 
 ## 9. Audit evidence and limits
 

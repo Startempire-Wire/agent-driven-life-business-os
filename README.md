@@ -278,6 +278,8 @@ does not certify that every deployment implements them.
 | Health/recovery | Guardian + Focusa receipts + Wirebot audit | Diagnostics, audit, checkpoints, recovery |
 | Repeatable adoption and support | Golden Path + diagnostic prototype + proposed Tauri experience | Capture repeated work and expose applicable gaps; not automatic enrollment, a universal local install or completed production intake |
 
+**Agent-operation complete is the default.** Every first-party UI action and readable state must derive from a canonical versioned operation with complete API and CLI routes, shared authority/entitlement semantics, machine-readable results and parity evidence. Computer-use automation (CUA) is the absolute last resort; a first-party workflow that requires visual clicking because its structured operation is missing carries an explicit API/CLI parity defect.
+
 The full Startempire Agent Computer composition is intentionally documented in
 [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md). It
 references the canonical Veragensia implementation specs rather than forking them
