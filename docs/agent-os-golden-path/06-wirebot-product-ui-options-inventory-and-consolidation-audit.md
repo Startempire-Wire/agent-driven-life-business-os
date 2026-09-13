@@ -268,7 +268,7 @@ CUA is never the normal integration among Focusa, UIAI, Wirebot, W.I.N.S. or Ver
 |---|---|---|
 | Focusa Desktop | extensive Focusa daemon API and CLI/tool operations | no complete Desktop UI-action → operation → CLI parity ledger |
 | Focusa browser extension | concept references Focusa operations | no implementation, API/CLI surface or parity tests |
-| UIAI Cockpit | UIAI HTTP/MCP/tool APIs and a UIAI CLI entry exist | full Cockpit UI/API/CLI parity unproven; current checkout check fails |
+| UIAI Cockpit | UIAI HTTP/MCP/tool APIs and an engine executable entry exist | no supported complete UIAI CLI was proven; full Cockpit parity is unproven and the current checkout check fails |
 | UIAI Evidence/FPV | current UIAI tools and web routes expose typed session/evidence operations | CLI parity and complete Cockpit/Wirebot consumer proof remain open |
 | Wirebot extension | WordPress REST, websocket and extension APIs exist in parts | no complete operation registry or CLI parity |
 | Wirebot/W.I.N.S. | scoreboard HTTP handlers and broad `wb` CLI families exist | screen-level operation schemas and parity coverage incomplete |

@@ -208,7 +208,7 @@ Stock ChromeOS compatibility remains a separate matrix for PWA, Android, Chrome-
 | Focusa daemon/CLI | broad API, CLI and native tool surface | partial; Desktop UI parity ledger absent |
 | Focusa Desktop | Tauri preview consuming Focusa services | unmapped as a complete UI/API/CLI product |
 | Focusa browser extension | concept document | unmapped/unimplemented |
-| UIAI Engine | HTTP/OpenAPI, MCP/tools and CLI entry | substantial foundation; full operation parity not audited |
+| UIAI Engine | HTTP/OpenAPI, MCP/tools and engine executable entry | substantial foundation; no supported complete CLI was proven and full operation parity is not audited |
 | UIAI Cockpit | Tauri/Svelte UI over UIAI services | partial; UI/API/CLI mapping and current build health incomplete |
 | UIAI FPV/Evidence PWA | typed session/evidence routes and implemented runtime envelopes | partial; CLI and consumer acceptance incomplete |
 | Wirebot `wb` | broad CLI families and service clients | partial; canonical operation catalogue incomplete |
@@ -217,7 +217,7 @@ Stock ChromeOS compatibility remains a separate matrix for PWA, Android, Chrome-
 | Wirebot Desktop/mobile | intended shared application family | not implemented |
 | Veragensia | agentability model, resolver and semantic-operation registry | partial; registry invocation and integrated product parity incomplete |
 
-Source presence is not conformance. Each row requires operation-level evidence.
+Source presence is not conformance. Each row requires operation-level evidence. The living first-pass inventory is the [Wirebot Ecosystem Agent-Operation Parity Audit](./08-wirebot-ecosystem-agent-operation-parity-audit.md).
 
 ## 13. Minimum implementation sequence
 
