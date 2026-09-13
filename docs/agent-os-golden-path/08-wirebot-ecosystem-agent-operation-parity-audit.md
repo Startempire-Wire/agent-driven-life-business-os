@@ -271,7 +271,39 @@ Options to evaluate later:
 
 No option is selected here.
 
-## 9. Cross-product priority gaps
+## 9. Operation-catalogue and CLI ownership options
+
+Agent-operation completeness does not by itself decide where the catalogues or CLI commands live. Current source evidence shows Focusa already owns a generated Focusa Agent Operation Registry, while Veragensia owns its semantic native-system operation registry. The options must preserve those real domain boundaries.
+
+### 9.1 Catalogue topology
+
+| Option | Description | Advantages | Costs/risks | Dependencies |
+|---|---|---|---|---|
+| A. Product-owned catalogues + federated projection | Focusa, UIAI, Wirebot and Veragensia own their operations; Wirebot/Agent Computer exposes a read-only joined discovery view | strongest canonical ownership; independent release/versioning; avoids one god registry; fits existing evidence | federation, conflict and version negotiation are real work; agents may need several endpoints | shared descriptor projection, namespace rules, discovery joins, compatibility tests |
+| B. Focusa owns the global catalogue | move all operations into Focusa’s generated registry | mature authority/tool machinery; one agent discovery surface | makes product capabilities depend on Focusa release/availability; risks confusing work governance with domain ownership | explicit owner delegation, external-provider lifecycle and outage design |
+| C. Veragensia owns the global catalogue | treat Agent Computer registry as universal software registry | natural installed-device discovery; strong local capability fit | remote/cloud/business operations do not belong to device OS; other platforms become awkward | remote operation model, server authority and non-Veragensia support |
+| D. UIAI owns the global catalogue | expose everything through UIAI tools | powerful execution/tool discovery and evidence | confuses execution adapter with domain owner; encourages CUA/tool mediation where direct APIs exist | authority transfer and non-browser domain coverage |
+| E. ADLBOS owns one central catalogue | portable contract repository becomes operational registry | cross-portfolio visibility and portability | creates a new runtime authority and duplicates live products; highest drift risk | full lifecycle service, release process and ownership migration |
+
+**Evidence-based lean, not a decision:** evaluate A first. Product-owned canonical catalogues plus a federated, value-free discovery projection match current ownership and minimize authority collapse. The shared `agent.operation.v1` schema should remain a portability/conformance projection, not a new runtime owner.
+
+### 9.2 CLI topology
+
+| Option | Description | Advantages | Costs/risks |
+|---|---|---|---|
+| A. Product-native complete CLIs only | `focusa`, `uiai`, `wb` and `veragens` each expose their own full operations | clear ownership and independent support | agents must discover several clients; cross-product workflows need orchestration |
+| B. Native CLIs + `wb` delegating façade | every owner retains a complete CLI; `wb` offers selected joined workflows by invoking canonical APIs/contracts | one convenient operator entry without sacrificing owner parity | façade can drift or hide errors unless generated/tested; must not shell-scrape text |
+| C. One generated universal CLI | generate commands from the federated catalogue | maximal consistency and machine discoverability | namespace/UX complexity; lowest-common-denominator pressure; central generator becomes critical dependency |
+
+**Evidence-based lean, not a decision:** B is the most compatible with the current ecosystem if `wb` remains a consumer/delegator rather than a second implementation. Product-native CLI completeness remains mandatory under every option; an umbrella CLI cannot compensate for a missing owning CLI.
+
+### 9.3 API access topology
+
+Direct product APIs, an authenticated local Agent Computer gateway and a Wirebot remote orchestration gateway can coexist. A gateway must preserve the underlying operation ID, owner, scope, authority verdict, typed error and receipt. Proxying does not transfer canonical ownership and must not silently widen capability.
+
+No catalogue, CLI or gateway option changes the rule that CUA is last resort.
+
+## 10. Cross-product priority gaps
 
 ### P0 — contract ownership
 
@@ -297,6 +329,6 @@ No option is selected here.
 14. Add sales/setup lifecycle operations.
 15. Record and retire first-party `structured_interface_gap` entries.
 
-## 10. Acceptance rule
+## 11. Acceptance rule
 
 A surface remains incomplete until all in-scope operations reach **accepted** under the Agent-Operation-Complete Software Contract. A beautiful UI, a large route count, a CLI help listing, an operation descriptor, a passing producer test or successful CUA demonstration is not enough by itself.
