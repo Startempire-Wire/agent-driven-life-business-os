@@ -1,7 +1,7 @@
 # Wirebot product UI inventory and consolidation audit
 
 - **Audit date:** 2026-09-13
-- **Scope:** Focusa Desktop, Focusa browser extension, UIAI Cockpit, UIAI evidence/FPV PWAs, Wirebot browser extension, Wirebot Desktop/mobile, W.I.N.S. screens, Veragensia, and their public sales/access doors
+- **Scope:** Focusa Desktop, Focusa Menubar, Focusa browser extension, UIAI Cockpit, UIAI evidence/FPV PWAs, Wirebot browser extension, Wirebot Desktop/mobile, W.I.N.S. screens, Veragensia, and their public sales/access doors
 - **Status vocabulary:** `implemented` means source exists; `runtime-observed` means a current service/tool was observed; `released` or `customer-ready` requires separate distribution and consumer proof
 - **Decision posture:** this is an inventory and options paper, not a final architecture declaration. Only explicitly operator-confirmed directions are marked confirmed; all other placements remain candidates.
 
@@ -35,14 +35,26 @@
 ### 2.1 Focusa Desktop
 
 - **Canonical owner:** `Startempire-Wire/focusa`
-- **Current source:** `apps/menubar/`
-- **Technology/identity:** SvelteKit + Tauri 2; package `focusa-menubar`; product `Focusa`; identifier `com.focusa.menubar`; source version `0.9.121-dev`
-- **Purpose:** human presentation over Focusa daemon authority—focus, Workpoints, Trajectory, project/runtime state, device pairing, and governed work surfaces
-- **Current status:** implemented preview, explicitly “not flagship”; macOS menubar/window form is the proven source shape, not a general customer Wirebot app. The audit check could not run because the routed build environment lacked `svelte-kit`; this is an unverified build, not proof of a code failure.
-- **Observed gaps in owning docs:** native app lifecycle, Keychain persistence, Developer ID/notarization, Apple Silicon/Gatekeeper/TCC acceptance, and launch readiness
-- **Boundary:** Focusa Desktop owns mission/governance presentation. It is not Wirebot Desktop, UIAI Cockpit, W.I.N.S., or the customer’s Life and Business OS shell.
+- **Recovered source:** `apps/desktop/` on `origin/local/spec158-desktop-pivot-audit-2026-08-04`; absent from current `main`
+- **Technology/identity:** SvelteKit + Tauri 2; package `focusa-desktop`; product `Focusa Desktop`; identifier `com.focusa.desktop`; branch source version `0.9.143`; 1440×900 resizable primary window
+- **Origin:** spun out of the Spec 135 Mission Canvas series through the Spec 158 desktop pivot after the complete rich Canvas proved unsuitable as a Pi TUI-first product. Commit `1367ee5c9` introduced the real Desktop shell on 2026-08-04.
+- **Purpose:** primary rich Focusa cognitive cockpit and professional workspace—Mission Canvas, generated surfaces, Work Rail, context control, global prompt/editor, Agent TUI inner surface, evidence and governed operations. Pi remains a thin agent/runtime/control surface rather than the owner of the rich desktop experience.
+- **Separation proof:** commit `16c1a6e44` added a typed **Desktop-to-Menubar bridge**, explicitly treating Desktop and Menubar as cooperating applications. They are not aliases.
+- **Implementation evidence:** the recovered branch contains 159 Desktop files across 139 Desktop-touching commits. Commit `9234daee0` added a canonical Spec 135 operation registry; later commit `e02b39430` described 25 live plus eight preview operations.
+- **Current status:** substantial implemented branch source exists, but it is not in current `main`; the branch is 339 commits ahead and 2,032 behind current main. A dependency-free archived `npm test` attempt stopped on the first shell contract because the current source no longer contained the expected `UIAI Engine browser proof` label, proving branch/test drift. No current release, installed-runtime or supported-branch acceptance was proven. Source recovery must not be mistaken for active product release.
+- **Boundary:** Focusa Desktop owns rich mission/governance presentation. It is not Focusa Menubar, Wirebot Desktop, UIAI Cockpit, W.I.N.S. or the customer’s Life and Business OS shell.
 
-### 2.2 Focusa browser extension
+### 2.2 Focusa Menubar
+
+- **Canonical owner:** `Startempire-Wire/focusa`
+- **Current source:** `apps/menubar/` on current `main`
+- **Technology/identity:** SvelteKit + Tauri 2; package `focusa-menubar`; product `Focusa`; identifier `com.focusa.menubar`; current source version `0.9.186`; 340×480 fixed companion window
+- **Purpose:** lightweight status/control companion for focus, Workpoints, Trajectory, project/runtime state, pairing, sync, proof and governed work controls
+- **Current status:** substantial current-main implementation with updater configuration and tests. The earlier audit check could not run because the routed build environment lacked `svelte-kit`; this is an unverified build, not proof of a source failure.
+- **Observed gaps:** current release/install acceptance, Linux tray/window adaptation, complete UI/API/CLI mapping and operation of the Desktop bridge against a reconciled Desktop source
+- **Boundary:** Menubar may summarize/control Desktop and daemon state, but it does not replace the full Desktop cognitive cockpit.
+
+### 2.3 Focusa browser extension
 
 - **Canonical owner:** `Startempire-Wire/focusa`
 - **Current definition:** `docs/174-focusa-agent-workforce-extension-concept.md`
@@ -51,7 +63,7 @@
 - **Boundary:** do not confuse this with the implemented Focusa Pi extension, UIAI browser tools, or the Wirebot/Startempire Wire extension.
 - **Gap:** implementation owner, manifest, permission model, origin isolation, release channel, store listing, and consumer proof remain absent.
 
-### 2.3 UIAI Cockpit
+### 2.4 UIAI Cockpit
 
 - **Canonical owner:** `WPUIAI/uiai-engine`
 - **Current source:** `apps/cockpit/`
@@ -61,7 +73,7 @@
 - **Current status:** substantial implementation exists; the inspected checkout is one commit ahead and 515 behind its remote with extensive uncommitted/untracked work, so it is not safe evidence of current upstream or installed-runtime parity. `npm run check` executed and reported nine unresolved imports/types across the current local hardening/profile work; tests did not run after the check failure.
 - **Boundary:** Cockpit owns the full operator-grade UIAI and evidence workspace. Wirebot consumes bounded capabilities and evidence views; it does not absorb Cockpit.
 
-### 2.4 UIAI FPV and Evidence PWA modules
+### 2.5 UIAI FPV and Evidence PWA modules
 
 - **Canonical owner:** UIAI Engine
 - **FPV PWA:** the UIAI first-person-view PWA is documented as implemented: tokenized `/m/{token}` sessions, read-only by default, optional audited controls
@@ -69,7 +81,7 @@
 - **Confirmed placement:** the complete Evidence PWA is integrated into UIAI Cockpit. Whether Wirebot also contains a bounded evidence viewer, shared Evidence PWA module or the complete Cockpit remains under comparison.
 - **Wrinkle:** FPV live-session viewing and portable Evidence Share packets are distinct products/contracts and must not be collapsed into one generic “PWA.”
 
-### 2.5 Wirebot browser extension
+### 2.6 Wirebot browser extension
 
 - **Canonical source owner observed:** `Startempire-Wire/Startempire-Wire-Network` (local checkout `startempire-wire-network-ext`)
 - **Technology/identity:** Svelte extension; Manifest V3; package `startempire-wire-network-extension`; current manifest/package version `0.2.2`
@@ -78,7 +90,7 @@
 - **Naming wrinkle:** public manifest and repository identity say “Startempire Wire Network,” while business discussion calls it “Wirebot Extension.” Its product name, network role, and Wirebot role need one explicit decision.
 - **Boundary:** browser-context, network/community and web-page interaction remain extension-specific; the extension should deep-link/share context with Wirebot Desktop/mobile rather than reproduce the complete application.
 
-### 2.6 Wirebot Desktop and Wirebot Mobile
+### 2.7 Wirebot Desktop and Wirebot Mobile
 
 - **Product owner:** Wirebot
 - **Current doctrine owner:** `Startempire-Wire/agent-driven-life-business-os`
@@ -96,7 +108,7 @@
 - **Personal-presence engagement:** the same app/system plus the Canonical Owner Principal’s scarce judgment and presence; never another application
 - **Sovereign/dedicated operation:** changes runtime/isolation and service agreement, not the customer app
 
-### 2.7 W.I.N.S. screens and PWA
+### 2.8 W.I.N.S. screens and PWA
 
 - **Canonical product role:** outcome and operating portal—Plan → Ship → Prove, conversation, goals, work, evidence and economics
 - **Current Wirebot source:** `wirebot-core/cmd/scoreboard/ui/`, a Svelte 5/Vite frontend with Dashboard, Chat, Focus, Portfolio, Season, Talk, Feed, Score, Onboarding, Pairing, System Status and other modules
@@ -105,7 +117,7 @@
 - **Confirmed product direction:** W.I.N.S. screens become part of Wirebot Desktop/mobile. The implementation method—direct wrapping, extraction into shared modules, or a shared remote frontend—remains undecided and is weighed below.
 - **Code wrinkle:** the current scoreboard `App.svelte` is large and mixes navigation, state and many product surfaces. Extraction needs explicit API/session seams before Tauri/mobile packaging.
 
-### 2.8 Veragensia
+### 2.9 Veragensia
 
 - **Canonical owner:** `Startempire-Wire/veragensia`
 - **Product identity:** Focusa Agent OS / Agent Computer substrate built from Omarchy plus Focusa, UIAI Engine, browser/extension integration and human-control boundaries
@@ -140,7 +152,8 @@ This model is documented but a production Wirebot Direct estate was not establis
 
 | Surface | Must remain canonical for | May appear inside Wirebot app as | Must not become |
 |---|---|---|---|
-| Focusa Desktop | Focusa mission/governance presentation | bounded project, goal, Workpoint and approval views | the Wirebot customer shell |
+| Focusa Desktop | rich Focusa Mission Canvas/cognitive cockpit and professional workspace | bounded project, goal, Workpoint, Canvas, evidence and approval views | Focusa Menubar or the Wirebot customer shell |
+| Focusa Menubar | lightweight Focusa status/control companion | summarized project, Workpoint, pairing, sync and work controls | the complete rich Desktop workspace |
 | Focusa browser extension | Focusa browser-adjacent workforce/capture | deep links and context handoff | a duplicate Wirebot extension |
 | UIAI Cockpit | full browser/computer/evidence operator workspace | bounded evidence viewer, session status, approved controls | a copied UIAI engine inside Wirebot |
 | UIAI Evidence PWA | evidence packets, verification, sharing, redaction | customer evidence inbox/viewer | a Wirebot-owned evidence authority |
@@ -221,7 +234,8 @@ Two test lanes must remain distinct:
 
 | Surface | Candidate Chromebook route | Current evidence | Gap to “fully working” |
 |---|---|---|---|
-| Focusa Desktop | Linux/Tauri inside Veragensia; optional responsive web projection for stock ChromeOS | current app is a macOS-shaped Tauri menubar preview | Veragensia Linux window/tray adaptation, package/install, secure storage, pairing, notifications and full functional parity are unproven |
+| Focusa Desktop | Linux/Tauri inside Veragensia; optional responsive projection for stock ChromeOS | recovered `apps/desktop` branch source is a full-window Tauri cognitive cockpit | current-main reconciliation, Linux package/install, secure storage, release and complete device parity are unproven |
+| Focusa Menubar | Linux/Tauri tray/companion inside Veragensia | current-main macOS-shaped Tauri companion exists | Linux tray/window adaptation, Desktop bridge, package/install and full device parity are unproven |
 | Focusa browser extension | Chrome Manifest V3 | concept document only | no manifest, implementation, permission audit, store/release or Chromebook proof |
 | UIAI Cockpit | Linux/Tauri inside Veragensia plus browser/PWA access where appropriate | Tauri source and extensive specifications exist | no proven Veragensia Chromebook package; current local source check fails; input, windowing, capture, evidence and control behavior need device proof |
 | UIAI Evidence/FPV PWA | Chrome PWA | FPV is documented implemented and runtime EPWA envelopes were observed | installability, offline/readback, touch layout and admissible customer-scope publication need Chromebook proof |
@@ -266,7 +280,8 @@ CUA is never the normal integration among Focusa, UIAI, Wirebot, W.I.N.S. or Ver
 
 | Surface | Existing structured foundation | Current gap |
 |---|---|---|
-| Focusa Desktop | extensive Focusa daemon API and CLI/tool operations | no complete Desktop UI-action → operation → CLI parity ledger |
+| Focusa Desktop | recovered source includes a Spec 135 operation registry over Focusa daemon operations | branch/main reconciliation and complete Desktop UI-action → API → CLI parity remain unproven |
+| Focusa Menubar | current app consumes extensive Focusa daemon API and tool operations | no complete Menubar UI-action → API → CLI parity ledger or reconciled Desktop bridge proof |
 | Focusa browser extension | concept references Focusa operations | no implementation, API/CLI surface or parity tests |
 | UIAI Cockpit | UIAI HTTP/MCP/tool APIs and an engine executable entry exist | no supported complete UIAI CLI was proven; full Cockpit parity is unproven and the current checkout check fails |
 | UIAI Evidence/FPV | current UIAI tools and web routes expose typed session/evidence operations | CLI parity and complete Cockpit/Wirebot consumer proof remain open |
@@ -324,7 +339,7 @@ For each outside UI, choose independently between deep link, shared contract/mod
 27. **UIAI checkout drift:** inspected local UIAI source is far behind remote with substantial local work; establish a clean authoritative checkout before implementation review.
 28. **Wirebot extension drift:** local source is ahead of remote and publication is unverified; reconcile before treating it as the customer extension.
 29. **Veragensia release truth:** public proving-ground/source existence must not be presented as a finished native Agent Computer release.
-30. **Audit scripts:** current Golden Path scripts detect substrate/runtime components, not the five/six product UI installations. Add UI detection only after package IDs and release contracts exist.
+30. **Audit scripts:** current Golden Path scripts detect substrate/runtime components, not the complete product UI installation set. Add UI detection only after package IDs and release contracts exist.
 31. **Veragensia Chromebook integration profile:** Veragensia has Chromebook-first specifications, but no release profile currently installs, launches and proves the complete Focusa/UIAI/Wirebot/extension UI portfolio together.
 32. **Two Chromebook lanes:** stock ChromeOS and Veragensia/Omarchy on Chromebook hardware have different security, packaging and administration models; neither currently proves the other.
 33. **Reference-hardware capacity:** concurrent Focusa Desktop, UIAI Cockpit, Wirebot and browser/extension operation has no measured CPU/memory/startup baseline on the qualified Chromebook.

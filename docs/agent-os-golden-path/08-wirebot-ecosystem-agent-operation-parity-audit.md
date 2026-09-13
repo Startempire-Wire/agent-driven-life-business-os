@@ -16,7 +16,8 @@ This ledger identifies which first-party UI and business-operation families alre
 | Surface | Human UI exists | Structured API foundation | CLI foundation | Canonical operation catalogue | First-party normal path free of CUA | Audit state |
 |---|---:|---:|---:|---:|---:|---|
 | Focusa daemon/core | yes, multiple consumers | strong | strong | strong but not mapped here exhaustively | yes in principle | partial parity evidence |
-| Focusa Desktop | preview | strong underlying daemon | strong underlying CLI | UI mapping incomplete | likely, unproven | unmapped UI parity |
+| Focusa Desktop | substantial recovered branch source | strong underlying daemon | strong underlying CLI | Spec 135 Desktop registry exists on branch | likely, unproven | branch/main and UI parity unresolved |
+| Focusa Menubar | substantial current-main companion | strong underlying daemon | strong underlying CLI | UI mapping incomplete | likely, unproven | unmapped companion parity |
 | Focusa browser extension | concept only | conceptual | conceptual | no | n/a | not implemented |
 | UIAI Engine | service/tools | strong HTTP/MCP/tool surface | no supported complete CLI proven | broad tool registry | CUA is itself a product capability | partial product parity |
 | UIAI Cockpit | preview/substantial local source | service bridge | no complete CLI proven | 16-card manifest, 5 cards lack contract refs | unproven | partial/unhealthy checkout |
@@ -52,10 +53,32 @@ Open parity work:
 
 ### 3.2 Focusa Desktop
 
-Observed UI families in `apps/menubar`:
+Focusa Desktop is the rich primary workspace recovered at `apps/desktop/` on `origin/local/spec158-desktop-pivot-audit-2026-08-04`, not the Menubar app. The Spec 135/158 pivot moved the complete Mission Canvas out of a Pi TUI-first implementation while retaining Pi as a thin control/runtime surface.
+
+Observed evidence:
+
+- commit `1367ee5c9` introduced the real Desktop shell;
+- Tauri product `Focusa Desktop`, identifier `com.focusa.desktop`, branch version `0.9.143`;
+- Mission Canvas, generated-surface renderer, Work Rail/contributions, global prompt editor, Context Control, Agent TUI inner surface and offline projection support;
+- commit `9234daee0` added the typed Spec 135 operation registry;
+- commit `16c1a6e44` added an explicit Desktop-to-Menubar bridge;
+- 159 files and 139 Desktop-touching commits exist on the recovered branch.
+
+Gaps:
+
+- the Desktop tree is absent from current `main`;
+- the recovered branch is 339 commits ahead and 2,032 behind current main;
+- daemon/API evolution, operation IDs and package dependencies need reconciliation without replaying stale behavior;
+- no current release, installed-runtime, signing/update or Veragensia acceptance was proven;
+- the archived dependency-free test suite currently stops on its first shell-contract assertion: expected `UIAI Engine browser proof` text is absent from the source under test;
+- complete Desktop control/state → canonical API → supported CLI parity remains unproven.
+
+### 3.3 Focusa Menubar
+
+Observed current-main UI families in `apps/menubar`:
 
 - Focus bubble;
-- Mission Canvas;
+- Mission Canvas summary/control;
 - Trajectory;
 - Workpoint;
 - Proof;
@@ -65,17 +88,18 @@ Observed UI families in `apps/menubar`:
 - Device Pairing;
 - Settings.
 
-The shared client has bounded request helpers, bearer-token handling, scope headers, write detection and normalized tool results. This is a strong adapter foundation.
+Current source identifies package `focusa-menubar`, Tauri identifier `com.focusa.menubar`, version `0.9.186` and a 340×480 fixed companion panel. Its client has bounded request helpers, bearer-token handling, scope headers, write detection and normalized tool results.
 
 Gaps:
 
-- no generated ledger mapping every control/read state to an operation ID;
+- no generated ledger mapping every Menubar control/read state to an operation ID;
 - local saved-connection/settings actions are not reconciled with supported CLI operations;
 - notification, tray/window, startup and update actions need Linux/Veragensia operation contracts;
 - current build validation was unavailable in the routed environment because `svelte-kit` was absent;
-- macOS-shaped menubar assumptions need explicit Veragensia Linux adaptation.
+- the historical Desktop bridge has not been proven against current main and the recovered Desktop branch;
+- macOS-shaped Menubar assumptions need explicit Veragensia Linux adaptation.
 
-### 3.3 Focusa browser extension
+### 3.4 Focusa browser extension
 
 Only a concept document was found. No Chrome manifest, executable source, supported API, CLI, operation catalogue, store package or Chromebook proof was found.
 

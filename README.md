@@ -389,7 +389,7 @@ named **os.focusa.dev** hosts the Veragensia Agent Computer by operator directio
 its public-door credential restrictions remain. The Wirebot gateway, W.I.N.S.
 application, parent community and network distribution sites have their own roles.
 A site name or loaded script does not prove end-to-end functionality. Exact surface
-relationships and source limits are in the [topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html). The current [cross-product UI inventory and options audit](./docs/agent-os-golden-path/06-wirebot-product-ui-options-inventory-and-consolidation-audit.md) distinguishes Focusa Desktop, Focusa browser extension, UIAI Cockpit and Evidence PWA, Wirebot browser extension, Wirebot Desktop/mobile, W.I.N.S. screens and Veragensia while preserving unresolved choices for explicit evaluation.
+relationships and source limits are in the [topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html). The current [cross-product UI inventory and options audit](./docs/agent-os-golden-path/06-wirebot-product-ui-options-inventory-and-consolidation-audit.md) distinguishes Focusa Desktop, Focusa Menubar, Focusa browser extension, UIAI Cockpit and Evidence PWA, Wirebot browser extension, Wirebot Desktop/mobile, W.I.N.S. screens and Veragensia while preserving unresolved choices for explicit evaluation.
 
 The operated Golden Path offering belongs under Wirebot without absorbing the
 independent component products. **Full AITL Setup is the existing scalable middle

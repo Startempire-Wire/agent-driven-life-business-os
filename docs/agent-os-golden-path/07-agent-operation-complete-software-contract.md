@@ -188,16 +188,17 @@ The qualified Veragensia Chromebook is the first integrated product proving grou
 
 1. boot and owner login;
 2. machine-readable installed-capability inventory;
-3. Focusa Desktop launch, pairing and complete API/CLI/UI parity;
-4. UIAI Cockpit launch and structured browser/computer/evidence operations;
-5. Focusa and Wirebot browser-extension discovery and supported operations;
-6. Wirebot/W.I.N.S. workspace operation through UI, API and CLI;
-7. governed handoff from Wirebot intent to Focusa authority to UIAI/Veragensia execution;
-8. complete headless execution of the accepted workflow without CUA;
-9. explicit CUA fallback proof for one external legacy application, without normalizing it;
-10. receipt/evidence readback, revocation and zero-residue teardown;
-11. concurrent CPU, memory, startup and pressure measurements on qualified hardware;
-12. real-device pixel, keyboard, pointer and touch verification.
+3. Focusa Desktop launch and complete API/CLI/UI parity;
+4. Focusa Menubar launch, daemon/Desktop pairing and complete companion parity;
+5. UIAI Cockpit launch and structured browser/computer/evidence operations;
+6. Focusa and Wirebot browser-extension discovery and supported operations;
+7. Wirebot/W.I.N.S. workspace operation through UI, API and CLI;
+8. governed handoff from Wirebot intent to Focusa authority to UIAI/Veragensia execution;
+9. complete headless execution of the accepted workflow without CUA;
+10. explicit CUA fallback proof for one external legacy application, without normalizing it;
+11. receipt/evidence readback, revocation and zero-residue teardown;
+12. concurrent CPU, memory, startup and pressure measurements on qualified hardware;
+13. real-device pixel, keyboard, pointer and touch verification.
 
 Stock ChromeOS compatibility remains a separate matrix for PWA, Android, Chrome-extension and permitted Crostini routes.
 
@@ -206,7 +207,8 @@ Stock ChromeOS compatibility remains a separate matrix for PWA, Android, Chrome-
 | Surface | Structured foundation observed | Completion status |
 |---|---|---|
 | Focusa daemon/CLI | broad API, CLI and native tool surface | partial; Desktop UI parity ledger absent |
-| Focusa Desktop | Tauri preview consuming Focusa services | unmapped as a complete UI/API/CLI product |
+| Focusa Desktop | recovered Spec 135/158 Tauri cognitive-cockpit source with operation registry on a divergent branch | substantial but absent from current main; reconciliation, release and complete parity unproven |
+| Focusa Menubar | current-main Tauri companion consuming Focusa services | substantial but unmapped as a complete companion UI/API/CLI product |
 | Focusa browser extension | concept document | unmapped/unimplemented |
 | UIAI Engine | HTTP/OpenAPI, MCP/tools and engine executable entry | substantial foundation; no supported complete CLI was proven and full operation parity is not audited |
 | UIAI Cockpit | Tauri/Svelte UI over UIAI services | partial; UI/API/CLI mapping and current build health incomplete |
