@@ -83,6 +83,16 @@ COMPONENTS=(
   "uiai|uiai --version|-|official UIAI Engine install per owning runbook|false|runbook|false|3|admin|"
 )
 
+# --- runtime/adapter probes (issue #10) --------------------------------------
+# A missing product-native CLI is a parity defect, not proof that the runtime,
+# service/endpoint, adapter or authority is absent. These probes classify the
+# runtime independently of CLI presence: they never trigger installs.
+# name|endpoint|note
+RUNTIME_PROBES=(
+  "uiai|${UIAI_ENGINE_URL:-http://127.0.0.1:7456}/health|typed adapter/service; healthy JSON reports status healthy"
+  "openclaw|${OPENCLAW_GATEWAY_URL:-http://127.0.0.1:18789}/health|remote gateway; healthy JSON reports ok true / status live"
+)
+
 # --- environment detection (value-free presence/kind facts) ---
 os_type="$(uname -s 2>/dev/null || echo '-')"
 os_arch="$(uname -m 2>/dev/null || echo '-')"
@@ -187,13 +197,28 @@ for c in "${COMPONENTS[@]}"; do
     bin_path=""; ver="-"; health="n/a"; st="missing"; missing=$((missing+1))
     [ "$base" = "true" ] && missing_base=$((missing_base+1))
   fi
+
+  # Runtime/adapter classification (independent of CLI presence) — issue #10.
+  runtime_state="none"; runtime_endpoint="-"; runtime_healthy="no"
+  for rp in "${RUNTIME_PROBES[@]}"; do
+    IFS='|' read -r rname rendpoint rnote <<< "$rp"
+    [ "$rname" = "$name" ] || continue
+    runtime_endpoint="$rendpoint"
+    rbody="$($TIMEOUT_CMD curl -sS --max-time 5 "$rendpoint" 2>/dev/null || true)"
+    if printf '%s' "$rbody" | grep -Eq '"(status|ok)"[[:space:]]*:[[:space:]]*("healthy"|true|"live"|"ok")'; then
+      runtime_state="runtime_healthy"; runtime_healthy="yes"
+    else
+      runtime_state="endpoint_unreachable"
+    fi
+  done
   if [ "$MODE" = "install" ] && [ "$st" = "missing" ]; then
     echo "INSTALL ROUTE (not executed; requires operator-authorized deployment run): $name -> $route"
   fi
   COMP_NAME="$name" COMP_PRESENT="$st" COMP_VERSION="$ver" COMP_HEALTH="$health" \
   COMP_ROUTE="$route" COMP_CRITICAL="$critical" COMP_KIND="$kind" COMP_BASE="$base" \
   COMP_ORDER="$order" COMP_PRIV="$priv" COMP_DEPS="$deps" COMP_PATH="$bin_path" \
-  COMP_VARGS="$vargs" \
+  COMP_VARGS="$vargs" COMP_RT_STATE="$runtime_state" COMP_RT_ENDPOINT="$runtime_endpoint" \
+  COMP_RT_HEALTHY="$runtime_healthy" \
   python3 -c '
 import json,os
 present=os.environ["COMP_PRESENT"]!="missing";health=os.environ["COMP_HEALTH"]
@@ -214,12 +239,25 @@ else: note="present; no health probe defined (n/a, not assumed healthy)"
 if path:
     import re
     path=re.sub(r"^/home/[^/]+", "~", path); path=re.sub(r"^/Users/[^/]+", "~", path)
+rt_state=os.environ["COMP_RT_STATE"];rt_ep=os.environ["COMP_RT_ENDPOINT"];rt_healthy=os.environ["COMP_RT_HEALTHY"]=="yes"
+runtime={"state":rt_state,"endpoint":rt_ep if rt_ep!="-" else None,"healthy":rt_healthy}
+# remediation ownership per issue #10: never auto-install a runtime when a
+# healthy remote/service already exists; CLI parity is a product-native CLI task.
+if present:
+    remediation_owner="none"
+elif rt_healthy:
+    remediation_owner="product_native_cli_parity (operator-authorized CLI install only; runtime stays remote — do not auto-install)"
+elif rt_state=="endpoint_unreachable":
+    remediation_owner="runtime/service owner on the configured endpoint (verify topology before any local install)"
+else:
+    remediation_owner="local operator" if base else "install route above (operator-authorized)"
 row={"component":os.environ["COMP_NAME"],"present":present,"version":os.environ["COMP_VERSION"],
  "health":health,"route":os.environ["COMP_ROUTE"],"critical":critical,"base":base,
  "route_kind":os.environ["COMP_KIND"],"order":int(os.environ["COMP_ORDER"]),
  "requires_admin":os.environ["COMP_PRIV"]=="admin","depends_on":deps,
  "verify_cmd":(os.environ["COMP_NAME"]+" "+os.environ["COMP_VARGS"]).strip(),
- "resolved_path":path or None,"score_points":pts,"commentary":note}
+ "resolved_path":path or None,"score_points":pts,"commentary":note,
+ "runtime":runtime,"remediation_owner":remediation_owner}
 print(json.dumps(row))
 ' >> "$tmp"
 done
@@ -304,10 +342,11 @@ rows=json.loads(sys.argv[1])
 plan=[{"component":r["component"],"route":r["route"],"route_kind":r["route_kind"],
        "critical":r["critical"],"base":r["base"],"order":r["order"],
        "requires_admin":r["requires_admin"],"depends_on":r["depends_on"],
-       "verify_cmd":r["verify_cmd"]} for r in rows if not r["present"]]
+       "verify_cmd":r["verify_cmd"]} for r in rows if not r["present"]
+       and r["runtime"]["state"]!="runtime_healthy"]
 plan.sort(key=lambda e:(e["order"], e["component"]))
 env=json.loads(sys.argv[2])
-out={"schema":"agent-os-substrate-check.v4","environment":env,"components":rows,
+out={"schema":"agent-os-substrate-check.v5","environment":env,"components":rows,
      "install_plan":plan,
      "install_policy":"--apply base --yes installs ONLY base primitives; every other route is printed for an operator-authorized run"}
 print(json.dumps(out,indent=2))' "$rows_json" \
@@ -340,6 +379,10 @@ for r in json.load(sys.stdin):
     print("    version: %s | route(%s, order %d, admin=%s): %s" % (r["version"], r["route_kind"], r["order"], "yes" if r["requires_admin"] else "no", r["route"]))
     if r["resolved_path"]: print("    found: %s" % r["resolved_path"])
     if r["depends_on"]: print("    depends on: %s" % ", ".join(r["depends_on"]))
+    rt = r.get("runtime") or {}
+    if rt.get("state") and rt["state"] != "none":
+        print("    runtime: %s (endpoint %s, healthy=%s)" % (rt["state"], rt.get("endpoint") or "-", str(rt.get("healthy")).lower()))
+    print("    remediation owner: %s" % r.get("remediation_owner", "local operator"))
 '
 fi
 
