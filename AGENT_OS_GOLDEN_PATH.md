@@ -1,95 +1,185 @@
 # Agent OS Golden Path
 
-> A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage is still partial.
+> A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage remains partial; the field-tested deployment spine remains valuable, while current product ownership is reconciled against the live ecosystem architecture.
 
-- **Golden Path target:** `0.2.0-candidate` (planning plus partial prototype proof; not a published release)
-- **Foundational contract:** [`AGENTS.md`](./AGENTS.md) — currently `3.3.0`; owner-approved reconciliation with the deployment’s later `3.4.0` contract is tracked in ADLBOS issue #8
+- **Golden Path target:** `0.2.0-candidate`
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
+- **Current cross-product architecture:** [`CURRENT_ECOSYSTEM_ARCHITECTURE.md`](./CURRENT_ECOSYSTEM_ARCHITECTURE.md)
+- **Foundational operating contract:** [`AGENTS.md`](./AGENTS.md)
 - **Reference Agent Computer profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
-- **Current working source:** [`docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md) — planning iterations toward 0.2.0; [`0.1.1.md`](./docs/agent-os-golden-path/0.1.1.md) retained as superseded planning input
-- **Ecosystem fit:** [approved intent-led relationships](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md#ecosystem-fit--preserve-the-parts-strengthen-the-connections) and [responsive topology visual](./docs/agent-os-golden-path/04-agent-os-golden-path-ecosystem-topology-map.html) — reference views, not a fleet registry or proof of live deployment
-- **Ordered tasks:** [`implementation and iteration list`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
-- **Seamless-autonomy gaps:** [`current handoff and dependency audit`](./docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md)
-- **Server build-agent handoff:** [`docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md`](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md)
-- **Changelog:** [`docs/agent-os-golden-path/CHANGELOG.md`](./docs/agent-os-golden-path/CHANGELOG.md)
+- **Field-tested working spine:** [`docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
+- **Composable workforce catalogue:** [`docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md`](./docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md)
+- **Current Wirebot application integration architecture:** [`docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md`](./docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md)
+- **Current cross-product gap audit:** [`docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md`](./docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md)
 
 ## Purpose
 
-The foundational repository defines *what the Agent-Driven Life & Business OS is and what must remain true*. The Golden Path defines the complementary operational question:
+ADLBOS defines the portable laws and deployment doctrine for a human-owned life/business operating system. The Golden Path answers:
 
-> **How does an authorized agent reliably take an environment from zero or partial state to a working, secure, observable, agent-native, recoverable system — and prove each phase actually works?**
+> **How does an authorized agent take a real environment from zero or partial state to a working, secure, observable, agent-native, recoverable system using the existing product owners—and prove it works?**
 
-The pattern is inspired by the structural discipline of `burcs.dev/starter`: an end-to-end checklist organized as ordered phases with exact implementation guidance, objective checks, and real failure modes. It is **not** a prescription to copy Burcs' Cloudflare stack. The portable idea is the method.
+The Golden Path is not another runtime, application, workforce database, task system or commercial tier.
 
-The Golden Path is therefore both:
+It is the repeatable implementation doctrine for composing the ecosystem correctly.
 
-1. a concise human-readable operating doctrine; and
-2. the upstream specification for increasingly executable installer/doctor/provisioning automation.
+## Architecture relationship
 
-The process adapts to the engagement: local and remote capabilities are checked where applicable, not installed everywhere by default. Purchase/participation, runtime isolation, hosting/operation, federation and interfaces are different dimensions. The existing doctrine owns their interpretation; no new mode system is introduced. The audit prototype is an observation source, not enrollment or a W.I.N.S. score.
+Current product/system ownership is defined by `CURRENT_ECOSYSTEM_ARCHITECTURE.md`.
 
-## Relationship to the foundational contract
-
-This Golden Path is subordinate to the repository's existing authority, safety, isolation, truth, evidence, and collaboration contracts.
-
-It MUST NOT:
-
-- create a second architecture authority;
-- replace Focusa, Agent-KB, UIAI Engine, Veragensia, Wirebot, OpenClaw, or other canonical owners of concerns that already exist;
-- turn deployment documentation into canonical runtime truth;
-- copy private Startempire/customer state into the portable repository;
-- weaken tenant/project/owner isolation to simplify provisioning;
-- invent another task, memory, evidence, or mission ledger when a canonical one already exists.
-
-It SHOULD make existing primitives easier for agents to discover, provision, operate, verify, repair, and reproduce.
-
-## Core design principles
-
-### 1. Allowlist, do not rely on denylist
-
-Public surfaces, capabilities, tools, filesystem scopes, network scopes, and mutations are explicit. Nothing becomes reachable or authorized merely because it was not forbidden.
-
-### 2. One source of truth per kind of state
-
-Before adding storage or synchronization, classify the state and name its canonical owner. Other representations must be projections, caches, indexes, evidence, coordination state, or ephemeral runtime state.
-
-Recommended taxonomy:
+The core chain is:
 
 ```text
-CANONICAL
-DERIVED
-CACHE
-INDEX
-COORDINATION
-EVIDENCE
-EPHEMERAL
+Canonical Owner Principal
+        ↓
+Operating Partner / Chief of Staff
+Wirebot implementation family; customer-named presentation allowed
+        ↓
+Focusa governed work
+Project → Workstream → Foreman → Workpoint
+        ↓
+Focusa Workforce
+operate / steer / inspect workforce
+        ↓
+UIAI + Veragensia + Pi/agents/workcells
+        ↓
+Evidence / receipts
+        ↓
+accepted outcome / W.I.N.S.
 ```
 
-Never treat eventual consistency as a hidden substitute for authoritative reads.
+Optional Startempire Wire federation and MeriFolio portable-trust projections remain outside the private critical execution path unless explicitly engaged.
 
-### 3. Staging/proving path exists from the beginning
+## Current reconciliation of historical Golden Path material
 
-Consequential changes need a bounded non-production or isolated proving route appropriate to the deployment. Production must not be the first place a change is exercised merely because automation can reach it.
+The detailed Stage 0–8 working spine in `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` contains field-derived process, scars, checks, customer setup sequence and real deployment learning. Preserve those operational lessons.
 
-### 4. Config is reconstructable; secrets are not committed
+However, some September 10–13 productization assumptions predate the current Wirebot App and Focusa Workforce architecture. When those older passages conflict with current ownership, apply this rule:
 
-Machine-reconstructable identifiers, manifests, service topology, schemas, and non-secret configuration should be versionable where appropriate. Credentials and private runtime data remain in their canonical secret/private stores and are injected or referenced at runtime.
+```text
+CURRENT_ECOSYSTEM_ARCHITECTURE.md
+    owns current cross-product/product ownership
 
-### 5. Boring beats clever
+02-agent-os-golden-path-ordered-tasks.md
+    owns field-tested deployment sequence, scars and operational learning
+```
 
-Prefer simple, observable, replaceable components and explicit failure semantics over magical orchestration. Existing primitives beat new frameworks. A recoverable five-step flow beats a sophisticated opaque one.
+In particular:
 
-### 6. Agents are first-class operators and users
+- `Startempire-Wire/Wirebot-App` is now the current Wirebot application-family implementation, rather than an unresolved hypothetical app repository;
+- Focusa Workforce is the specialist browser-resident workforce-operations surface;
+- Wirebot's Workforce Composer designs/commissions roles and assignments; Focusa Workforce operates active governed work;
+- a proposed Tauri wrapper may remain a future packaging/support adapter but is not the product identity or architecture root;
+- per-client branded routes may present Wirebot App but should not create separate Chief-of-Staff application implementations;
+- Operator Deployment is an implementation/deployment offer mapped onto existing dimensions, not a new authority/runtime tier;
+- `Sovereign` describes ownership/isolation/authority posture, not automatically DIY, self-hosted, unmanaged or non-networked;
+- Startempire Wire federation remains explicit and optional;
+- multi-daemon aggregation inside one Operator is called a fleet/aggregation, not sovereign federation.
 
-Every mature deployment should expose enough machine-readable capability, identity, scope, health, documentation, and recovery information that an authorized replacement agent can orient and operate without undocumented tribal knowledge.
+## Foundational laws
 
-### 7. Checks prove behavior, not paperwork
+### 1. One source of truth per concern
 
-Every phase has an objective check against the running or built system. A file, route, schema, commit, push, deployment, or agent assertion is not automatically proof of the requested outcome.
+Before adding storage, workflow, schema or UI state, identify the existing canonical owner.
 
-## The phase contract
+Other representations are one of:
 
-Every Golden Path phase uses the same structure:
+```text
+projection
+cache
+index
+coordination state
+evidence
+ephemeral runtime state
+```
+
+Never create a second mission/work/authority database because a UI needs a convenient model.
+
+### 2. Identity is layered
+
+Keep distinct:
+
+```text
+Canonical Owner Principal
+Operating Partner Principal
+optional Architecture Authority Principal
+worker/agent identity
+runtime/session identity
+machine/body identity
+```
+
+A customer can call their partner `Spock` while the underlying implementation family remains Wirebot. Branding does not grant authority or change canonical identity automatically.
+
+### 3. Composition is not operation
+
+Wirebot/ADLBOS Workforce Composer answers:
+
+```text
+What organization/role should exist?
+What should it own?
+What tools/data/budget/authority should it receive?
+```
+
+Focusa Workforce answers:
+
+```text
+Who is working?
+What are they doing?
+What is blocked?
+What needs the owner?
+What is proven?
+Where is it executing?
+```
+
+### 4. Chief of Staff is not global Foreman
+
+The Operating Partner owns portfolio-level orientation and delegation.
+
+The Focusa Foreman owns responsibility for one Workstream's state, frontier, delegation and acceptance path.
+
+Broad partner context never implies broad worker disclosure.
+
+### 5. Capability is not authority
+
+Keep separate:
+
+```text
+supported
+entitled
+activated/connected
+authorized
+consented for this effect
+```
+
+Buying or enabling a product must never silently widen runtime authority.
+
+### 6. Federation is explicit
+
+A sovereign Operator remains useful and complete without Startempire federation.
+
+Federation never means pooled private memory, inherited owner authority, ambient files/messages/projects, shared credentials or automatic remote control.
+
+### 7. API/operation complete
+
+Every consequential first-party UI action should map to one canonical versioned operation with API/CLI/tool parity where applicable.
+
+Normal first-party integration must not require computer-use automation. CUA is a fallback for legacy/external systems and an explicit parity defect when used between first-party products.
+
+### 8. Evidence is not outcome
+
+Preserve:
+
+```text
+activity
+  != Evidence
+  != verification
+  != settlement
+  != accepted life/business outcome
+  != portable standing
+```
+
+## Golden Path phase contract
+
+Each deployment phase retains the same useful shape:
 
 ```text
 PURPOSE
@@ -101,85 +191,139 @@ RECOVERY / ROLLBACK
 EXIT CONDITION
 ```
 
-A deployment adapter may change commands and products while preserving this contract.
+The field-tested Stage 0–8 spine remains the operational ordering aid:
+
+```text
+0 Engage
+1 Workstation substrate
+2 Operating Partner genesis
+3 Cloud landing where applicable
+4 Mesh + identity
+5 Knowledge + audit
+6 Primary runtime/administration cutover
+7 Operating plane + workforce
+8 Ongoing operation + handoff
+```
+
+Actual work follows prerequisites rather than rigid phase numbers.
+
+## Operator Deployment mapping
+
+Operator Deployment is represented by existing independent dimensions:
+
+```text
+purchase/participation
+runtime isolation
+hosting/operation
+federation/sharing
+interface/access
+```
+
+A typical customer Operator deployment may combine:
+
+```text
+customer Canonical Owner Principal
++ customer-named Wirebot Operating Partner
++ dedicated/private Focusa
++ Focusa Workforce
++ UIAI where entitled/needed
++ private/customer infrastructure
++ optional Veragensia Agent Computers/bodies
++ optional Startempire federation
+```
+
+No new mode engine is required.
+
+## Workforce activation path
+
+The canonical organizational path is:
+
+```text
+audit / observed deficiency
+  → proposed role or staffing change
+  → Workforce Composer
+  → CRIST / assignment packet
+  → owner/governance acceptance
+  → Focusa authority/work binding
+  → active Workforce projection
+  → execution
+  → Evidence / receipt
+  → accepted outcome
+```
+
+Draftees may provide candidates. MeriFolio may later provide portable trust. Neither becomes the local work authority.
+
+## Shared ecosystem contracts
+
+Cross-product seams belong at the ADLBOS portable layer and should be implemented as minimal reference envelopes, not another orchestration service.
+
+Required families are defined in `CURRENT_ECOSYSTEM_ARCHITECTURE.md`:
+
+```text
+operator.partner_profile.v1
+operator.surface_handoff.v1
+operator.attention.v1
+operator.correlation.v1
+operator.capability_posture.v1
+operator.closure.v1
+```
+
+Product repositories own adapters and behavior behind those references.
 
 ## Current phase map
 
+The 0–13 coverage map remains useful:
+
 ```text
-0  Identity, ownership, deployment profile, domains
-1  Scaffold and environment baseline
-2  State ownership and canonical stores
-3  Derived state, cache, indexes, freshness
-4  Human/agent identity, auth, sessions, tenancy
+0  Identity, ownership, deployment profile
+1  Environment baseline
+2  State ownership
+3  Derived state / freshness
+4  Human/agent identity, auth, tenancy
 5  Agent runtime and execution surfaces
-6  Network, domains, staging and production routes
-7  Human + machine discovery and documentation
-8  Agent surface and interoperability
-9  Observability, evidence, analytics and cost
-10 Secrets, permissions, limits, budgets and revocation
-11 Entitlements, licensing, billing/BYOK where applicable
-12 Tests, migration, CI/CD, deploy, rollback and repair
-13 Launch, acceptance, handoff and ongoing operation
+6  Network/routes
+7  Discovery/documentation
+8  Agent surfaces/interoperability
+9  Observability/evidence/cost
+10 Secrets/permissions/budgets/revocation
+11 Entitlements/licensing
+12 Tests/migration/deploy/rollback
+13 Launch/acceptance/handoff
 ```
 
-The current candidate is [0.1.1](./docs/agent-os-golden-path/0.1.1.md), read together with its unchanged [0.1.0 phase definitions](./docs/agent-os-golden-path/0.1.0.md). Phase numbers are coverage labels; actual execution follows dependencies, with authority, security, budgets and recovery established before dependent actions.
+These are coverage labels, not a second workflow engine.
 
-## Versioning model
+## Current priorities
 
-The Golden Path has its own semantic version stream so it can evolve faster than the foundational OS contract.
+The next architectural closures are not additional products. They are seams:
 
-- **PATCH (`0.1.x`)** — clarifications, corrected checks, additional gotchas, non-structural refinements.
-- **MINOR (`0.x.0`)** — new phase capability, new portable contract, materially improved executable workflow, backwards-compatible profile expansion.
-- **MAJOR (`x.0.0`)** — breaking change to phase semantics, state/authority assumptions, or compatibility contract.
+1. Operating Partner principal + white-label presentation;
+2. Chief-of-Staff → Focusa/Foreman delegation;
+3. Workforce Composer → governed assignment → Workforce lifecycle;
+4. shared `Needs You` attention projection;
+5. exact surface handoff between Wirebot/Workforce/UIAI/Veragensia;
+6. cross-product correlation envelope;
+7. capability/entitlement/activation posture;
+8. Evidence → settlement → accepted outcome/W.I.N.S. closure;
+9. sovereign federation account/link/revoke proof;
+10. executable Focusa binding for Golden Path/task-ledger work without another task authority.
 
-Version snapshots under `docs/agent-os-golden-path/` are immutable after they are superseded except for obvious non-semantic repair such as broken links. A new iteration gets a new file and a changelog entry. This root file points to the current candidate/adopted version.
+## Iteration discipline
 
-Status vocabulary:
+For each Golden Path improvement:
 
 ```text
-candidate   proposed upstream contract awaiting meaningful live reconciliation
-adopted     accepted portable contract
-implemented behavior exists in at least one reference environment
-verified    behavior has direct acceptance evidence in named scope
-deprecated  retained for lineage but no longer current
+1. Read current owner/architecture contracts.
+2. Inspect actual runtime/product state.
+3. Reuse the owning product's primitive.
+4. Implement the smallest useful vertical slice.
+5. Verify running behavior.
+6. Record real scars and recovery lessons.
+7. Update the owning document rather than stacking a parallel architecture.
 ```
 
-A document version and a deployment's implementation version are distinct. Documentation never proves deployment.
+Do not preserve obsolete product assumptions merely because they are older. Do not discard proven deployment learning merely because the product surface evolved.
 
-## Iteration loop
+## Completion principle
 
-Each meaningful iteration follows:
-
-```text
-1. Read current Golden Path + foundational authority contracts.
-2. Inspect authoritative live environment(s).
-3. Reconcile portable doctrine against what actually exists.
-4. Reuse existing primitives; identify genuine gaps only.
-5. Implement the smallest useful vertical slice.
-6. Run behavioral checks and collect evidence.
-7. Record real gotchas/recovery lessons.
-8. Publish the portable delta as the next Golden Path version.
-9. Keep deployment-private details in their proper runtime/knowledge stores.
-```
-
-The server agent is expected to improve this artifact, not merely consume it.
-
-## Future executable shape
-
-The Golden Path should progressively become machine-executable without prematurely inventing a framework. A future adapter may expose operations resembling:
-
-```text
-agent-os inspect
-agent-os plan <profile>
-agent-os provision <profile>
-agent-os verify <phase|all>
-agent-os status
-agent-os doctor
-agent-os repair
-```
-
-These names are illustrative, not currently canonical CLI requirements. First reuse existing Wirebot/Focusa/UIAI/Veragensia/OpenClaw/provisioning/Beads/Agent-KB capabilities. Consolidate only where a stable repeated orchestration gap is proven.
-
-## Immediate next step
-
-Follow the [ordered task list](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md) to fulfill [`SERVER_AGENT_HANDOFF.md`](./docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md). The first documentation review is captured in `0.1.1`; live reconciliation and the first implemented, behaviorally verified slice are still outstanding. Select the reference profile and inputs next, then map the phases to existing systems rather than creating a new installer framework. Published candidate wording is not full end-to-end acceptance.
+The Golden Path is successful when a replacement authorized agent can orient from durable state, identify the owner and operating partner, discover the applicable products/capabilities, continue governed work through the existing owners, and produce an owner-visible verified outcome without relying on undocumented builder memory.
