@@ -63,6 +63,7 @@ runtime deployment
 model capability
 Wirebot/Spock naming
 Operating Partner status
+delegated human operator status
 Focusa state
 UIAI access
 Veragensia access
@@ -77,7 +78,7 @@ Unknown or unverifiable architecture authority fails closed to advisory-only.
 
 ---
 
-## 4. Operating Partner identity
+## 4. Durable principals and identities
 
 A customer deployment may present its persistent AI Operating Partner under a customer-selected name such as `Spock` while using the Wirebot implementation family.
 
@@ -85,6 +86,7 @@ Keep distinct:
 
 ```text
 CanonicalOwnerPrincipal
+DelegatedHumanPrincipal
 OperatingPartnerPrincipal
 partner presentation/name
 optional ArchitectureAuthorityPrincipal
@@ -92,6 +94,8 @@ agent/worker identity
 runtime/session identity
 machine/body identity
 ```
+
+A delegated human principal may operate only within the owner's explicit human-delegation scope. Operator access is not co-ownership and is not architecture authority.
 
 Changing the model, OpenClaw/Pi runtime, VPS, browser, laptop or Agent Computer must not silently create a new Operating Partner or widen authority.
 
@@ -254,7 +258,8 @@ Examples:
 - network membership does not expose private Workstreams;
 - a credential existing in a vault does not mean a worker may use it;
 - a role name does not create access;
-- installed software does not create permission.
+- installed software does not create permission;
+- being a delegated human operator does not make that person the owner or architecture authority.
 
 Use exact current grants and consequence rules from the owning systems.
 
@@ -273,6 +278,17 @@ Use normal renewable mechanisms where approved, including OAuth/device authoriza
 ### 10.2 Credential custody
 
 Agents should receive credential references or bounded usage grants, not raw long-lived secrets in prompts/context.
+
+Normal cross-product handoffs use opaque credential-use references. The owning credential/secret authority resolves them at execution time and may deny use even when the reference exists.
+
+Do not place reusable secrets in:
+
+- shared handoff envelopes or URLs;
+- task descriptions;
+- prompts/context;
+- Evidence objects;
+- receipts/logs;
+- repositories.
 
 Do not commit:
 
@@ -363,11 +379,21 @@ operator.attention.v1
 operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
+operator.credential_use_ref.v1
 ```
 
 These are reference envelopes, not a new integration database.
 
 Exact product state stays with its owner.
+
+For actionable shared envelopes, compatibility and freshness are not optional metadata. Include the owning schema/version, producer/version, source reference, correlation ID, source revision, issue/observation time, expiry where relevant and idempotency/replay key where retries can mutate state.
+
+Rules:
+
+- unsupported consequential schema versions fail closed;
+- stale/expired cached state may be inspectable but does not silently authorize action;
+- reconnect/recovery revalidates source state before acting on cached approvals, entitlements, grants, handoffs or execution posture;
+- ambiguous consequential mutations reconcile through the owning system instead of blind retry.
 
 ---
 
@@ -393,6 +419,8 @@ The item retains its source-domain reference.
 Wirebot projects owner-wide attention; Workforce projects workforce-related attention; UIAI/Veragensia show specialist execution/runtime context.
 
 The source owner resolves the action.
+
+A surface-level acknowledge/hide/dismiss is UX state only. It is not canonical resolution. Revalidate source status before performing a consequential action from an attention item.
 
 ---
 
@@ -467,6 +495,7 @@ It may compose:
 
 ```text
 customer owner
++ optional delegated human operators
 + customer-named Wirebot Operating Partner
 + private/dedicated Focusa
 + Focusa Workforce
@@ -533,9 +562,12 @@ Owner authority first.
 Mission outcome second.
 Use the canonical owner for each concern.
 Keep identities and scopes distinct.
+Delegated operation is not ownership.
 Prefer the shortest working path.
 Continue through tool failures when a safe route remains.
 Do not duplicate state to make a UI easier.
+Do not act from stale cached authority state.
+Do not move reusable secret material across product seams.
 Prove the result in running reality.
 Leave no mess you can clean yourself.
 ```
