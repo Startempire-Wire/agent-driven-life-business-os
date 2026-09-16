@@ -30,6 +30,7 @@ The core chain is:
 
 ```text
 Canonical Owner Principal
+        +--> DelegatedHumanPrincipal identities where explicitly granted
         ↓
 Operating Partner / Chief of Staff
 Wirebot implementation family; customer-named presentation allowed
@@ -73,7 +74,8 @@ In particular:
 - Operator Deployment is an implementation/deployment offer mapped onto existing dimensions, not a new authority/runtime tier;
 - `Sovereign` describes ownership/isolation/authority posture, not automatically DIY, self-hosted, unmanaged or non-networked;
 - Startempire Wire federation remains explicit and optional;
-- multi-daemon aggregation inside one Operator is called a fleet/aggregation, not sovereign federation.
+- multi-daemon aggregation inside one Operator is called a fleet/aggregation, not sovereign federation;
+- legal/business ownership may differ from the day-to-day human operator; bounded human operation must use explicit delegation rather than implied co-ownership.
 
 ## Foundational laws
 
@@ -100,6 +102,7 @@ Keep distinct:
 
 ```text
 Canonical Owner Principal
+Delegated Human Principal
 Operating Partner Principal
 optional Architecture Authority Principal
 worker/agent identity
@@ -108,6 +111,8 @@ machine/body identity
 ```
 
 A customer can call their partner `Spock` while the underlying implementation family remains Wirebot. Branding does not grant authority or change canonical identity automatically.
+
+A delegated human operator remains bounded by the owner-issued grant. Operator access is not owner identity and is not architecture authority.
 
 ### 3. Composition is not operation
 
@@ -177,6 +182,20 @@ activity
   != portable standing
 ```
 
+### 9. Secret reference is not secret disclosure
+
+Cross-product operations carry opaque credential-use references or bounded usage grants, not reusable long-lived secrets.
+
+The owning credential/secret authority resolves or denies the reference at execution time.
+
+### 10. Cached projection is not current authority
+
+Actionable shared projections carry explicit schema/version, source revision, time/freshness and replay/idempotency metadata where appropriate.
+
+Stale/expired cached state may be displayed but must be revalidated before a consequential action.
+
+Acknowledging an item in a presenter is not the same as source-domain resolution.
+
 ## Golden Path phase contract
 
 Each deployment phase retains the same useful shape:
@@ -223,6 +242,7 @@ A typical customer Operator deployment may combine:
 
 ```text
 customer Canonical Owner Principal
++ optional DelegatedHumanPrincipal identities
 + customer-named Wirebot Operating Partner
 + dedicated/private Focusa
 + Focusa Workforce
@@ -266,9 +286,12 @@ operator.attention.v1
 operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
+operator.credential_use_ref.v1
 ```
 
 Product repositories own adapters and behavior behind those references.
+
+Shared actionable envelopes follow the common metadata law from `CURRENT_ECOSYSTEM_ARCHITECTURE.md`: compatibility/version, source, correlation, revision/freshness, expiry where applicable and idempotency/replay semantics for mutations.
 
 ## Current phase map
 
@@ -298,15 +321,18 @@ These are coverage labels, not a second workflow engine.
 The next architectural closures are not additional products. They are seams:
 
 1. Operating Partner principal + white-label presentation;
-2. Chief-of-Staff → Focusa/Foreman delegation;
-3. Workforce Composer → governed assignment → Workforce lifecycle;
-4. shared `Needs You` attention projection;
-5. exact surface handoff between Wirebot/Workforce/UIAI/Veragensia;
-6. cross-product correlation envelope;
-7. capability/entitlement/activation posture;
-8. Evidence → settlement → accepted outcome/W.I.N.S. closure;
-9. sovereign federation account/link/revoke proof;
-10. executable Focusa binding for Golden Path/task-ledger work without another task authority.
+2. delegated-human principal/grant/revoke proof;
+3. Chief-of-Staff → Focusa/Foreman delegation;
+4. Workforce Composer → governed assignment → Workforce lifecycle;
+5. shared `Needs You` attention projection + source-resolution semantics;
+6. exact surface handoff between Wirebot/Workforce/UIAI/Veragensia;
+7. cross-product correlation envelope;
+8. capability/entitlement/activation posture;
+9. opaque credential-use reference path;
+10. shared contract compatibility/freshness/replay behavior;
+11. Evidence → settlement → accepted outcome/W.I.N.S. closure;
+12. sovereign federation account/link/revoke proof;
+13. executable Focusa binding for Golden Path/task-ledger work without another task authority.
 
 ## Iteration discipline
 
@@ -326,4 +352,4 @@ Do not preserve obsolete product assumptions merely because they are older. Do n
 
 ## Completion principle
 
-The Golden Path is successful when a replacement authorized agent can orient from durable state, identify the owner and operating partner, discover the applicable products/capabilities, continue governed work through the existing owners, and produce an owner-visible verified outcome without relying on undocumented builder memory.
+The Golden Path is successful when a replacement authorized agent can orient from durable state, identify the owner, valid delegated humans and operating partner, discover the applicable products/capabilities, continue governed work through the existing owners, and produce an owner-visible verified outcome without relying on undocumented builder memory or stale cached authority state.
