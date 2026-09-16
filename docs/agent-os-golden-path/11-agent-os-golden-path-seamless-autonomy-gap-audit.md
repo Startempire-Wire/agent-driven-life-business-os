@@ -1,7 +1,7 @@
 # Agent OS Golden Path — Current Seam and Autonomy Gap Audit
 
 **Status:** CURRENT architecture-gap audit  
-**Reconciled:** 2026-09-15  
+**Reconciled:** 2026-09-15, semantic-integrity pass 2 complete  
 **Architecture owner:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
 **Purpose:** track missing cross-product seams that prevent the current Life & Business OS architecture from operating as one coherent system.
 
@@ -10,7 +10,7 @@ This document replaces the older gap framing where product ownership or app iden
 The dominant constraint is not missing product ideas. It is unfinished **joins between already-owned systems**.
 
 ```text
-owner / partner
+owner / delegated humans / partner
   -> governed assignment
   -> Workstream / Foreman
   -> worker/runtime execution
@@ -20,7 +20,7 @@ owner / partner
   -> learning / portable trust
 ```
 
-No gap below authorizes a second task database, workforce database, approval store, entitlement service, federation authority or evidence system.
+No gap below authorizes a second task database, workforce database, approval store, entitlement service, federation authority, credential vault or evidence system.
 
 ---
 
@@ -32,6 +32,7 @@ The following are no longer open architecture questions:
 - Wirebot App is the current owner-facing application-family repository;
 - a customer may white-label the Operating Partner presentation while retaining the Wirebot implementation family;
 - Operating Partner identity is distinct from optional AI architecture-authority delegation;
+- delegated human operators are bounded operational principals, not additional owner roots;
 - Focusa owns governed work/Workstream/Foreman/Workpoint/Evidence semantics;
 - Wirebot Workforce Composer designs/commissions roles and assignments;
 - Focusa Workforce operates the active governed workforce;
@@ -42,7 +43,10 @@ The following are no longer open architecture questions:
 - Startempire Wire federation is explicit and optional;
 - one Operator's multiple daemons/bodies are a fleet/aggregation, not sovereign federation;
 - Operator Deployment is an implementation/deployment offer mapped onto existing dimensions, not a new authority/runtime tier;
-- capability support, entitlement, activation, authority and consent are distinct.
+- capability support, entitlement, activation, authority and consent are distinct;
+- raw long-lived secrets do not cross normal product handoffs;
+- actionable shared projections require explicit compatibility/freshness/replay semantics;
+- presenter acknowledgement of an attention item is not canonical source-domain resolution.
 
 ---
 
@@ -65,6 +69,12 @@ The following are no longer open architecture questions:
 **Gap:** documentation now separates these concepts, but runtime/account schemas can still accidentally treat a privileged Chief of Staff identity as architecture authority.
 
 **Required closure:** explicit fields/contracts and negative tests proving that partner status alone never satisfies architecture-authority verification.
+
+### NEW-P0-08 — delegated human principal + revocation proof
+
+**Gap:** the constitution now defines `DelegatedHumanPrincipal`, but deployment/runtime identity schemas do not yet prove a bounded human operator can act without becoming owner/co-owner or inheriting architecture authority.
+
+**Required closure:** `agent_os.human_delegation.v1` implementation or equivalent product-owned contract with exact principal, operations/resources, data/credential visibility, consequence limits, validity, re-delegation policy and revoke/audit proof.
 
 ---
 
@@ -128,6 +138,12 @@ The following are no longer open architecture questions:
 
 **Non-goal:** a central approval database.
 
+### NEW-P0-11 — presenter acknowledgement versus source resolution
+
+**Gap:** without explicit state semantics, dismissing/acknowledging an item in Wirebot or Workforce could be mistaken for approving/resolving the source-domain action.
+
+**Required closure:** attention contract distinguishes presenter UX acknowledgement from source-domain `resolved/cancelled/expired`; consequential action always revalidates current source state.
+
 ---
 
 ## 6. P0 — exact surface handoff
@@ -179,7 +195,37 @@ The projection MUST NOT itself grant entitlement or authority.
 
 ---
 
-## 9. P0 — Evidence, settlement and outcome closure
+## 9. P0 — credential/secret use references
+
+### NEW-P0-09 — `operator.credential_use_ref.v1`
+
+**Gap:** credential custody is documented, but cross-product execution still lacks one portable rule/schema for requesting use without moving the reusable secret through partner/workforce/task/handoff context.
+
+**Required closure:** opaque credential reference with provider/account ref, requesting principal/work ref, requested operation/scope, consequence/approval policy, validity/expiry and correlation. The owning credential authority resolves or denies at execution time.
+
+**Negative proof:** URLs, prompts, task descriptions, Evidence and receipts contain no reusable secret material; possession of the ref alone does not grant use.
+
+---
+
+## 10. P0 — shared contract compatibility, freshness and replay
+
+### NEW-P0-10 — common envelope metadata law
+
+**Gap:** the shared contract families are named, but product implementations can drift without one compatibility/freshness/replay baseline.
+
+**Required closure:** actionable envelopes carry schema/version, producer/version, source ref, source revision, correlation, issued/observed time, expiry where applicable and idempotency/replay information for retryable mutations.
+
+Required behavior:
+
+- unsupported major/schema versions fail closed for consequential action;
+- allowed additive compatibility is explicit, not assumed;
+- stale/expired projections may be rendered but do not authorize mutation;
+- offline/cached approvals, grants, entitlement posture and execution state are revalidated after reconnect;
+- ambiguous consequential writes reconcile through the owning system rather than blind replay.
+
+---
+
+## 11. P0 — Evidence, settlement and outcome closure
 
 ### SAG-36 — explicit closure chain
 
@@ -200,13 +246,13 @@ activity
 
 ### SAG-28 — W.I.N.S. reusable modules/contracts
 
-**Gap:** Wirebot/Wireforce surfaces need a tenant-safe accepted-outcome projection without copying W.I.N.S. logic.
+**Gap:** Wirebot/Workforce surfaces need a tenant-safe accepted-outcome projection without copying W.I.N.S. logic.
 
 **Required closure:** canonical reusable W.I.N.S. operations/modules with tenancy and cross-surface tests.
 
 ---
 
-## 10. P0 — sovereign federation and network isolation
+## 12. P0 — sovereign federation and network isolation
 
 ### SAG-29 — Direct/network/Sovereign behavior end-to-end
 
@@ -216,13 +262,13 @@ activity
 
 ### NEW-P0-07 — federation versus fleet cleanup
 
-**Gap:** historical docs may still use `federation` for one owner's multi-daemon aggregation.
+**Documentation status:** **closed for current canonical docs as of 2026-09-15.** Current architecture, Golden Path spine, build-agent law and topology map reserve federation for independent sovereign participants and use fleet/aggregation for one Operator.
 
-**Required closure:** reserve `federation` for independently scoped sovereign participants; use fleet/aggregation for one Operator's nodes/daemons/bodies.
+**Remaining proof:** downstream/product docs and runtime/API vocabulary must continue to be checked as those implementations change.
 
 ---
 
-## 11. P0 — memory and context isolation
+## 13. P0 — memory and context isolation
 
 ### SAG-11 / SAG-12 — partner/worker memory boundaries
 
@@ -232,13 +278,13 @@ activity
 
 ### SAG-13 — offboarding/retention
 
-**Gap:** retirement/export/delete/legal-hold behavior across partner memory, worker context, federation projections and downstream stores is incomplete.
+**Gap:** retirement/export/delete/legal-hold behavior across partner memory, worker context, delegated humans, federation projections and downstream stores is incomplete.
 
 **Required closure:** end-to-end lifecycle and revoke proof.
 
 ---
 
-## 12. P0 — execution and intervention lifecycle
+## 14. P0 — execution and intervention lifecycle
 
 ### SAG-37 — pause/revoke/takeover/rollback propagation
 
@@ -254,7 +300,7 @@ activity
 
 ---
 
-## 13. P1 — Draftees and MeriFolio boundaries
+## 15. P1 — Draftees and MeriFolio boundaries
 
 ### SAG-27 — Draftees ↔ private workforce
 
@@ -270,29 +316,27 @@ activity
 
 ---
 
-## 14. P1 — current product/document convergence
+## 16. P1 — current product/document convergence
 
 ### NEW-P1-02 — current Wirebot App ownership propagated everywhere
 
-**Gap:** some historical ADLBOS and downstream docs still describe Wirebot Web/PWA/Desktop/Mobile as hypothetical/unowned or describe a separate per-client Chief-of-Staff frontend.
+**Documentation status:** **closed for current canonical ADLBOS/Wirebot/Workforce docs as of 2026-09-15.** Wirebot App is the current partner/customer application family; branded routes are presentation/deployment of that family unless an owner-approved product explicitly differs.
 
-**Required closure:** current docs point to `Startempire-Wire/Wirebot-App`; branded routes are deployment/presentation of the same family unless a future owner-approved product deliberately differs.
+**Remaining proof:** implementation/release topology and any older noncanonical docs should be corrected when encountered rather than treated as authority.
 
 ### NEW-P1-03 — historical Tauri wrapper demotion
 
-**Gap:** Tauri is described historically as the defining customer-app vehicle.
-
-**Required closure:** treat Tauri as an optional future packaging/support adapter. Preserve proven setup/support workflow requirements independently of packaging technology.
+**Documentation status:** **closed for current canonical docs and topology map as of 2026-09-15.** Tauri is a packaging/technology choice where actually used or later selected, not the defining Wirebot/Operator product architecture.
 
 ### NEW-P1-04 — Operator Deployment mapping
 
-**Gap:** public/current offer language and internal docs need one consistent mapping to purchase/participation, runtime isolation, hosting/operation, federation and interfaces.
+**Documentation status:** **closed for current architecture/Golden Path docs as of 2026-09-15.** Operator Deployment maps onto purchase/participation, isolation, hosting/operation, federation and interface dimensions instead of defining a parallel runtime tier.
 
-**Required closure:** product/marketing docs reference the same deployment dimensions and avoid defining a parallel runtime tier.
+**Remaining proof:** product/marketing copy should consume the same dimensions when changed.
 
 ---
 
-## 15. P1 — deployment/runtime truth
+## 17. P1 — deployment/runtime truth
 
 ### SAG-05 / SAG-07 — capability and client-system inventory
 
@@ -312,12 +356,13 @@ Focusa Work Loop/Focus State/project bootstrap gaps remain owning-product defect
 
 ---
 
-## 16. P1 — terminology cleanup
+## 18. P1 — terminology cleanup
 
 Keep these internal nouns exact:
 
 ```text
 CanonicalOwnerPrincipal
+DelegatedHumanPrincipal
 OperatingPartnerPrincipal
 ArchitectureAuthorityPrincipal
 OperatorDeployment
@@ -330,11 +375,11 @@ Wirebot Workforce Composer
 Focusa Workforce
 ```
 
-Avoid using `Operator`, `federation`, `worker`, `receipt` or `authority` without domain qualification in machine contracts where ambiguity matters.
+Avoid using `Operator`, `federation`, `worker`, `receipt`, `authority`, `acknowledged` or `resolved` without domain qualification in machine contracts where ambiguity matters.
 
 ---
 
-## 17. Execution order
+## 19. Execution order
 
 Do not attempt all gaps as horizontal infrastructure first.
 
@@ -346,13 +391,16 @@ Slice B — shared Needs You item → exact action → source-domain resolution
 Slice C — worker executes through UIAI → Evidence → settlement → W.I.N.S. outcome
 Slice D — Wirebot exact handoff → Workforce/UIAI → return with same correlation
 Slice E — Sovereign Operator exposes one minimized network capability/opportunity → revoke
+Slice F — delegated human performs one bounded operation → revoke → denied retry
+Slice G — stale/offline attention or grant reconnects → revalidates → no stale mutation
+Slice H — worker requests credential use by opaque ref → execution owner resolves → no secret crosses seam
 ```
 
 Each slice should implement only the shared envelopes it actually exercises.
 
 ---
 
-## 18. Explicit non-goals
+## 20. Explicit non-goals
 
 Do not create:
 
@@ -360,6 +408,7 @@ Do not create:
 - another workforce roster authority;
 - another approval store;
 - another evidence ledger;
+- another credential vault;
 - a plan-specific app fork;
 - full federation before one isolated Operator loop works;
 - shared worker memory by default;
@@ -367,16 +416,17 @@ Do not create:
 - a Workforce replacement for Wirebot;
 - a Wirebot replacement for Foremen;
 - UIAI/browser control inside Workforce merely for visual completeness;
-- a new entitlement authority inside a client UI.
+- a new entitlement authority inside a client UI;
+- a central cross-product cache that becomes accidental authority.
 
 ---
 
-## 19. Definition of architecture closure
+## 21. Definition of architecture closure
 
 The ecosystem is meaningfully closed when a replacement authorized agent can trace and operate this chain using stable refs and canonical owners:
 
 ```text
-owner
+owner / valid delegated human where applicable
 → Operating Partner
 → accepted assignment
 → Focusa Workstream/Foreman
@@ -391,9 +441,14 @@ and can additionally prove that:
 
 - an unentitled capability stays unavailable;
 - an entitled capability still cannot exceed current authority;
+- a revoked human delegation stops working;
 - a revoked link/federation grant stops working;
 - a worker cannot read partner-wide memory by default;
+- a credential-use reference does not disclose the credential or grant use by itself;
+- a stale cached attention/grant/entitlement projection cannot authorize a consequential mutation;
+- unsupported contract versions fail closed where consequences matter;
 - a browser takeover reconciles correctly before agent continuation;
 - a surface handoff preserves exact context without passing authority in a URL;
+- presenter acknowledgement cannot falsely resolve a source-domain action;
 - branding/name changes do not create or widen identity;
 - a second Operator cannot read or mutate private state without an explicit valid grant.
