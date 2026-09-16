@@ -18,6 +18,7 @@ AGENTS.md
 ```text
 CANONICAL OWNER PRINCIPAL
 human / legal owner
+        +--> bounded DelegatedHumanPrincipal identities where needed
         ↓
 OPERATING PARTNER / CHIEF OF STAFF
 Wirebot implementation family
@@ -49,6 +50,8 @@ Every deployment establishes its own `CanonicalOwnerPrincipal`.
 
 The owner is root architecture authority. Operational systems may hold canonical truth in their own domains without becoming constitutional architecture authority.
 
+The owner may establish bounded `DelegatedHumanPrincipal` identities for assistants, employees, family members, contractors or service operators. Delegated operation is not co-ownership and is not architecture authority unless separately granted under the owner constitution.
+
 ### Partner identity
 
 The persistent Operating Partner is distinct from its presentation name, model/runtime, body and any optional architecture-authority delegation.
@@ -57,6 +60,7 @@ A customer may call their partner `Spock` while the implementation family remain
 
 ```text
 OperatingPartnerPrincipal != ArchitectureAuthorityPrincipal
+DelegatedHumanPrincipal    != CanonicalOwnerPrincipal
 ```
 
 ### One concern, one owner
@@ -68,6 +72,7 @@ Current responsibility map:
 | Layer | Current owner | Responsibility |
 |---|---|---|
 | Owner / architecture authority | deployment Canonical Owner Principal | goals, values, consent, reserved powers, architecture delegation |
+| Delegated human operation | owner-scoped human delegation | bounded operational actions only |
 | Operating Partner | Wirebot / Wirebot App | life/business orientation, recommendations, Workforce Composer, owner-wide attention |
 | Governed work | Focusa | Project, Workstream, Foreman, Workpoint, authority, Evidence, receipts, continuity |
 | Workforce operations | Focusa Workforce | roster, work, Direction, Needs You, Evidence/topology projections |
@@ -159,6 +164,7 @@ A typical private Operator deployment may include:
 
 ```text
 customer owner
++ optional delegated human operators
 + customer-named Wirebot Operating Partner
 + Focusa
 + Focusa Workforce
@@ -183,7 +189,7 @@ available / healthy
 consented for this effect
 ```
 
-A product purchase or network membership never silently grants worker authority.
+A product purchase, human operator role or network membership never silently grants worker/runtime authority.
 
 This separation allows contextual ecosystem expansion without architecture forks.
 
@@ -218,9 +224,16 @@ operator.attention.v1
 operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
+operator.credential_use_ref.v1
 ```
 
 Products implement adapters while retaining their own canonical state.
+
+Actionable envelopes carry explicit schema/producer version, source reference/revision, correlation, issue/observation time, expiry where relevant and idempotency/replay metadata where retries may mutate state.
+
+Unsupported consequential versions fail closed. Stale cached projections remain inspectable but do not silently become current authority.
+
+Credential handoffs carry opaque use references, never reusable secret material. The owning credential authority resolves or denies the reference at execution time.
 
 ## Human attention
 
@@ -239,6 +252,8 @@ network opportunity
 ```
 
 The source domain resolves the item. No central duplicate approval store.
+
+Acknowledging, hiding or dismissing an item in one presenter is not source-domain resolution. Consequential action revalidates current source state.
 
 ## Evidence and outcomes
 
@@ -305,17 +320,20 @@ Historical packaging/productization details remain useful provenance but do not 
 The largest remaining gaps are joins, not new products:
 
 1. Operating Partner principal + white-label presentation;
-2. cross-product account/link/revoke;
-3. Chief-of-Staff → Focusa/Foreman delegation;
-4. Workforce Composer → governed assignment → Workforce lifecycle;
-5. shared Needs You attention;
-6. exact surface handoff;
-7. universal correlation refs;
-8. capability/entitlement posture;
-9. Evidence → settlement → W.I.N.S. closure;
-10. sovereign federation end-to-end proof;
-11. worker/partner memory isolation;
-12. executable binding of Golden Path/task trackers into Focusa-governed work.
+2. delegated-human identity/grant/revoke proof;
+3. cross-product account/link/revoke;
+4. Chief-of-Staff → Focusa/Foreman delegation;
+5. Workforce Composer → governed assignment → Workforce lifecycle;
+6. shared Needs You attention and source-resolution semantics;
+7. exact surface handoff;
+8. universal correlation refs;
+9. capability/entitlement posture;
+10. opaque credential-use refs without secret movement;
+11. shared envelope version/freshness/replay behavior;
+12. Evidence → settlement → W.I.N.S. closure;
+13. sovereign federation end-to-end proof;
+14. worker/partner memory isolation;
+15. executable binding of Golden Path/task trackers into Focusa-governed work.
 
 See `docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md`.
 
@@ -327,7 +345,10 @@ Mission outcome second.
 Use the canonical owner for each concern.
 Prefer existing primitives.
 Keep identities/scopes distinct.
+Delegated operation is not ownership.
 Keep making progress through tool failure when another safe route exists.
+Do not act from stale cached authority state.
+Do not move reusable secrets across product seams.
 Prove running behavior.
 Update current docs when architecture changes.
 Do not leave cleanup you created for the owner.
