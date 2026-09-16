@@ -105,6 +105,44 @@ repository merge             != canonical architecture authority
 runtime deployment           != canonical architecture authority
 ```
 
+### 5.1 Delegated human operational principals
+
+The owner may authorize one or more `DelegatedHumanPrincipal` identities for bounded day-to-day operation without creating another owner root.
+
+Examples may include an assistant, employee, family member, administrator, contractor or managed-service operator.
+
+A human delegation SHOULD bind:
+
+```yaml
+schema: agent_os.human_delegation.v1
+owner_principal_ref:
+delegate_principal_ref:
+allowed_operations: []
+resource_scope_refs: []
+consequence_limits: []
+data_visibility_refs: []
+credential_policy_refs: []
+valid_from:
+expires_at:
+may_redelegate: false
+revocation_ref:
+```
+
+Rules:
+
+- delegated operational access does not itself grant architecture authority;
+- delegated humans cannot widen their own scope or become co-owners by exercising the delegation;
+- re-delegation is denied unless the owner explicitly grants it;
+- owner-reserved powers remain reserved unless explicitly delegated;
+- expiry/revocation must fail closed for new consequential actions;
+- audit/receipt state should identify the acting human principal and the delegation used;
+- a delegated human may receive separately scoped architecture authority only through an explicit owner-rooted architecture delegation, not through ordinary operator access.
+
+```text
+DelegatedHumanPrincipal != CanonicalOwnerPrincipal
+operator access          != architecture authority
+```
+
 ---
 
 ## 6. Operating Partner Principal
@@ -224,9 +262,10 @@ A portable/client deployment MUST:
 3. establish its own tenant/account/repository scope;
 4. define reserved powers and trust boundaries;
 5. create its own Operating Partner identity if desired;
-6. create separately scoped AI architecture delegations only if desired;
-7. omit/revoke reference-deployment authority bindings;
-8. preserve inherited architecture provenance without inheriting the previous owner's authority.
+6. create its own delegated-human operational grants if desired;
+7. create separately scoped AI architecture delegations only if desired;
+8. omit/revoke reference-deployment authority bindings;
+9. preserve inherited architecture provenance without inheriting the previous owner's authority.
 
 Repository transfer or cloning never substitutes for authority transfer.
 
@@ -277,6 +316,7 @@ Any authentication material previously committed to repository history MUST be t
 ```text
 Every deployment has an explicit Canonical Owner Principal.
 The owner is the root of constitutional architecture authority.
+Delegated human operational authority does not create another owner root.
 Operating Partner authority and architecture authority are separate.
 Operational/domain truth does not equal architecture authority.
 Stable principal identity, constitution and runtime attestation remain separate objects.
