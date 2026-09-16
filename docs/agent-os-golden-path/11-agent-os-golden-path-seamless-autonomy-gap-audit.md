@@ -1,330 +1,399 @@
-# Agent OS Golden Path Seamless-Autonomy Gap Audit
+# Agent OS Golden Path — Current Seam and Autonomy Gap Audit
 
-- **Audit date:** 2026-09-13
-- **Baseline:** ADLBOS `e6a95579f439386e0cd9e08b2d1fdf7c87bb5da6`
-- **Scope:** engagement through offboarding across Golden Path, composable workforce, memory, installed tools, proposed Wirebot application family, Startempire Wire, AI Draftees, Focusa, UIAI, W.I.N.S. and Veragensia
-- **Status:** evidence-based gap audit and dependency plan; it does not claim implementation or authorize new systems
-- **Goal:** maximize safe autonomous execution by closing handoff failures, not by removing necessary human authority
+**Status:** CURRENT architecture-gap audit  
+**Reconciled:** 2026-09-15  
+**Architecture owner:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
+**Purpose:** track missing cross-product seams that prevent the current Life & Business OS architecture from operating as one coherent system.
 
-## 1. Evidence and interpretation
+This document replaces the older gap framing where product ownership or app identity has since been settled. It preserves still-valid gap IDs where useful so existing issues and historical references remain legible.
 
-### Current ADLBOS sources
-
-- `AGENT_OS_GOLDEN_PATH.md`;
-- `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`;
-- `05-agent-os-golden-path-fleet-receiver-contract.md`;
-- `06-wirebot-product-ui-options-inventory-and-consolidation-audit.md`;
-- `07-agent-operation-complete-software-contract.md`;
-- `08-wirebot-ecosystem-agent-operation-parity-audit.md`;
-- `09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md`;
-- `10-wirebot-application-family-startempire-wire-integration-architecture.md`;
-- `scripts/brownfield-audit.sh`, `scripts/substrate-bootstrap.sh`, `scripts/fleet-diff.py` and current tests.
-
-### Cross-product evidence
-
-- current Wirebot Core tier, trust, memory, Context Core, productization and Sovereign documentation/source;
-- current AI Draftees source/docs and open roadmap/product-identity issues;
-- Focusa Specs 135/135B/174, live Agent Card/tool discovery and relevant open execution issues;
-- UIAI Cockpit/evidence source and current issue inventory;
-- Veragensia Chromebook/semantic-operation documentation;
-- current value-free health and repository observations recorded by the preceding audits.
-
-**Interpretation:** “documented,” “source exists,” “installed,” “healthy,” “authorized,” “assigned,” “executed,” “accepted” and “settled” are distinct states.
-
-## 2. Executive conclusion
-
-The Golden Path now has strong doctrine for authority, client isolation, staged setup, evidence, recovery, tool bootstrap and replacement-agent continuity. The new workforce catalogue and proposed Wirebot application family add a credible product destination.
-
-The dominant remaining constraint is **not another list of features**. It is the absence of one executable, versioned chain joining:
+The dominant constraint is not missing product ideas. It is unfinished **joins between already-owned systems**.
 
 ```text
-contract/payment/consent
-→ client and project identity
-→ environment and tool inventory
-→ context and memory policy
-→ role/task-pack/roster assignment
-→ capability, credential and budget grants
-→ event/schedule/Workpoint execution
-→ supervision, interruption and recovery
-→ evidence and W.I.N.S. settlement
-→ learning, renewal or retirement
+owner / partner
+  -> governed assignment
+  -> Workstream / Foreman
+  -> worker/runtime execution
+  -> evidence
+  -> settlement
+  -> accepted outcome
+  -> learning / portable trust
 ```
 
-Today, most nodes exist in some form, but several arrows are still prose, candidate contracts, unbound adapters or unproven runtime paths. Those missing arrows are what prevent seamless autonomy.
+No gap below authorizes a second task database, workforce database, approval store, entitlement service, federation authority or evidence system.
 
-## 3. Strengths to preserve
+---
 
-1. Authority and consent are not derived from tool access.
-2. The Golden Path distinguishes fresh install, brownfield audit, recovery and replacement-agent continuation.
-3. Substrate bootstrap is conservative and currently inventories 16 explicit components.
-4. Product UI, operation parity and Agent Computer boundaries are documented separately.
-5. CRIST, Workpoints, tasks, evidence and receipts provide a strong worker-governance vocabulary.
-6. AI Draftees supplies existing profile/hire/dispatch/W.I.N.S. product evidence.
-7. Wirebot already has tier/trust, Chief-of-Staff and layered memory/state foundations.
-8. UIAI and Veragensia establish browser/computer and device boundaries.
-9. False-green distinctions are explicit throughout the repository.
-10. Current tests cover operation descriptors and core script behavior.
+## 1. Architecture now considered settled
 
-Do not replace these with a second orchestration database or a monolithic application backend.
+The following are no longer open architecture questions:
 
-## 4. Required autonomy ladder
+- ADLBOS is the portable integration/deployment doctrine, not another runtime product;
+- Wirebot App is the current owner-facing application-family repository;
+- a customer may white-label the Operating Partner presentation while retaining the Wirebot implementation family;
+- Operating Partner identity is distinct from optional AI architecture-authority delegation;
+- Focusa owns governed work/Workstream/Foreman/Workpoint/Evidence semantics;
+- Wirebot Workforce Composer designs/commissions roles and assignments;
+- Focusa Workforce operates the active governed workforce;
+- UIAI owns browser/computer execution and takeover/proof;
+- Veragensia owns Agent Computer/body/runtime/enforcement;
+- W.I.N.S. owns accepted outcome/portfolio semantics;
+- MeriFolio is portable identity/trust/standing, not local workforce authority;
+- Startempire Wire federation is explicit and optional;
+- one Operator's multiple daemons/bodies are a fleet/aggregation, not sovereign federation;
+- Operator Deployment is an implementation/deployment offer mapped onto existing dimensions, not a new authority/runtime tier;
+- capability support, entitlement, activation, authority and consent are distinct.
 
-Every task-pack assignment needs a maximum autonomy level. This is currently implicit and should become typed.
+---
 
-| Level | Worker may | Human boundary |
-|---|---|---|
-| A0 Observe | read scoped state and produce evidence | no mutation |
-| A1 Recommend | propose options, prioritization or next action | human/system owner decides |
-| A2 Draft | prepare content, configuration, response or mutation preview | separate commit/send/activate step |
-| A3 Internal reversible execute | perform approved, bounded and rollback-safe internal work | receipt plus supervisor review |
-| A4 Consequential execute | commit external communication, deployment, account/data or financial action | exact confirmation or standing scoped grant required |
-| A5 Recurring bounded execute | repeat stable approved work on event/schedule | cadence, budget, overlap, stop, retry and revoke policy required |
-| A6 Delegated orchestration | assign subsets to approved crew and settle their outputs | manager cannot widen inherited authority; human checkpoints remain load-bearing |
+## 2. P0 — identity, ownership and account joins
 
-Higher is not inherently better. Maximum useful autonomy is the highest level whose inputs, consequences, evidence and recovery are deterministic enough for that task and client.
+### SAG-03 — cross-product identity/link/revoke
 
-## 5. Handoff gap register
+**Gap:** there is still no proven end-to-end link connecting the exact owner, Operating Partner, Wirebot tenant/workspace, Focusa environment/project, devices/bodies, optional Startempire account and Sovereign federation node with explicit unlink/revoke semantics.
 
-### 5.1 Engagement, identity and entitlement
+**Required closure:** a versioned link envelope plus denial tests showing that linking identities does not merge authorities or private data.
 
-| ID | Priority | Observed gap | Why autonomy stops | Required closure/evidence | Current route |
-|---|---|---|---|---|---|
-| SAG-01 | P0 | Invoice-attached contract plus payment expresses consent, but no executable receipt binds that scope to an exact client/tenant/project/workspace. | Provisioning must infer or wait for identity/scope. | Versioned consent/entitlement activation packet, idempotent binding, correction/refund/revoke path and real paid-flow proof. | GP-04/06/10 |
-| SAG-02 | P0 | Free/Public, FreeWire, Wire, ExtraWire and Sovereign runtime tiers are not yet reconciled with Wirebot Direct, Full AITL, personal-presence and candidate community application packaging. | App, runtime and support cannot deterministically select capabilities. | One entitlement projection mapping offer → runtime → UI modules → support → limits without changing public pricing prematurely. | GP-16 |
-| SAG-03 | P0 | Community account, Wirebot tenant, Focusa project, device, provider account and Sovereign node identities have no proven end-to-end link/revoke contract. | Cross-product calls risk ambiguous principal or tenant. | Account-link envelope, audience/scope, expiry/revocation, cross-tenant denial and unlink/export proof. | GP-06/12/16 |
-| SAG-04 | P0 | Owner/delegate authority doctrine is strong, but a client-specific machine-readable authority/reserved-powers manifest is not produced by the current scripts. | Workers cannot calculate their ceiling without prose interpretation. | Signed/scoped authority manifest referenced by every assignment and provider seam; owner correction proof. | GP-03/12/15 |
+### NEW-P0-01 — Operating Partner principal + presentation profile
 
-### 5.2 Inventory, tools and environment
+**Gap:** the architecture now distinguishes durable Operating Partner identity from the customer-visible name, but no shared machine-readable `operator.partner_profile.v1` is implemented.
 
-| ID | Priority | Observed gap | Why autonomy stops | Required closure/evidence | Current route |
-|---|---|---|---|---|---|
-| SAG-05 | P0 | The 16-component bootstrap inventory is not joined to role eligibility, task packs, credentials, consequence class or client-specific business systems. | “Installed” cannot safely become “worker may use.” | Generated per-machine tool/capability manifest and profile assignment validator. | GP-07/09/15; ADLBOS #10 |
-| SAG-06 | P1 | Base Apply installs only missing base primitives; non-base routes remain printed guidance, with no universal installer or receipt. | Setup pauses for each non-base component and platform variation. | Product-owned install/upgrade/rollback adapters with confirmation, checksums, version/health and receipts; preserve route-only fallback. | GP-07/11/15; ADLBOS #10 |
-| SAG-07 | P0 | Brownfield/fleet audit is substrate-focused and does not inventory all client SaaS, APIs, data owners, operations, retention or automation suitability. | Roster and automation choices remain guesswork. | Client system/operation/data inventory feeding CRIST, tool mapping and adapter readiness. | GP-05/06/15 |
-| SAG-08 | P1 | Fleet receiver contract exists, but production receiver/auth/readback/retention binding remains planned. | Drift cannot reliably become governed work. | Deployed private receiver, idempotency, readback, rejection evidence and event-to-work admission test. | GP-09 |
+**Required closure:** stable partner ref, owner ref, implementation family, presentation profile, deployment ref, optional network presentation, rotation/rename semantics and consumer tests in Wirebot App.
 
-### 5.3 Workforce, state and memory
+### NEW-P0-02 — Operating Partner versus architecture-authority proof
 
-| ID | Priority | Observed gap | Why autonomy stops | Required closure/evidence | Current route |
-|---|---|---|---|---|---|
-| SAG-09 | P0 | Workforce profiles and task packs are documentation; no versioned schemas, registry, compiler or client roster store exists. | The app/runtime cannot instantiate or validate an employee. | Profile, task-pack, employment packet, roster and lifecycle schemas with validators and migration rules. | GP-15 |
-| SAG-10 | P0 | No deterministic audit-gap → recommended roster → CRIST → approved assignment compiler exists. | A human/agent must manually translate every audit into staffing. | Preview-only recommendation engine, explanation, conflicts, prerequisites, operator acceptance and immutable assignment receipt. | GP-15 |
-| SAG-11 | P0 | Stateful workers require architecture similar to Wirebot memory, but shared versus isolated stores is unresolved; current CLI paths retain a single-operator namespace. | Memory access could leak across worker/client boundaries or lose continuity. | Settle Wirebot Core issue #33 with typed scope, write policy, projection, migration, retention and denial proof. | GP-12/15; Wirebot #33 |
-| SAG-12 | P0 | Worker memory/state and Focusa governance state are conceptually distinct but not joined by a stable reference contract. | Resumption can recover a Workpoint without the right memory projection, or memory without execution authority. | One-way typed references between worker instance, memory scope, Workpoint/task and evidence; no parallel authority. | GP-13/15 |
-| SAG-13 | P1 | Client/worker offboarding does not yet define memory export, retention, correction, deletion, legal hold or federated revocation across every sink. | Permanent workers cannot be safely retired. | End-to-end retire/export/delete workflow and proof across all configured stores. | GP-11/12/15 |
+**Gap:** documentation now separates these concepts, but runtime/account schemas can still accidentally treat a privileged Chief of Staff identity as architecture authority.
 
-### 5.4 Capability, credentials and autonomy policy
+**Required closure:** explicit fields/contracts and negative tests proving that partner status alone never satisfies architecture-authority verification.
 
-| ID | Priority | Observed gap | Why autonomy stops | Required closure/evidence | Current route |
-|---|---|---|---|---|---|
-| SAG-14 | P0 | No compiler joins profile/task autonomy level to exact tool operations, grants, data scopes, budgets and confirmation rules. | Role names risk becoming ambient authority. | Least-capability assignment preview/commit, denied-operation proof and expiry/revoke propagation. | GP-14/15 |
-| SAG-15 | P0 | Focusa Credential Authority contracts exist, but provider/vault/`rbw`/application adapters are not proven as one secret-free client workflow. | Workers stop at provider seams or risk handling secrets incorrectly. | Role-based credential requirement → grant verdict → provider use → receipt, including expiry and denial tests. | GP-12/14/15 |
-| SAG-16 | P0 | The mandatory nonrenewable-resource preflight currently breaks on a valid expanded contract because of a fixed line window. | Any required provider reauthentication remains blocked. | Fix ADLBOS issue #2 without weakening fail-closed recovery-code rules. | ADLBOS #2 |
-| SAG-17 | P0 | Autonomy level is not a typed field across task packs, assignments and UI previews. | Users cannot see which actions will draft, execute, repeat or require them. | Adopt the A0–A6-equivalent semantics through the owning schema; UI/CLI/API parity and consequence tests. | GP-14/15/16 |
+---
 
-### 5.5 Orchestration, scheduling and supervision
+## 3. P0 — workforce composition and governed assignment
 
-| ID | Priority | Observed gap | Why autonomy stops | Required closure/evidence | Current route |
-|---|---|---|---|---|---|
-| SAG-18 | P0 | Silent Sessions provide lifecycle controls, but a profile/assignment scheduler and recurring-worker contract are not implemented. | Scheduled staff cannot wake safely and deterministically. | Event/schedule object with scope, idempotency, overlap, budget, retry, pause, missed-run and revoke behavior. | GP-15; Focusa #254/298 |
-| SAG-19 | P0 | Manager/crew role composition from Spec 174 is conceptual; no client-scoped runtime proves allowance delegation, review and crew expiry. | Multi-agent fanout can widen authority or falsely settle work. | Manager allowance subset proof, per-node crew packet, acceptance review, spend accounting and expiry. | GP-15; Focusa #292/296 |
-| SAG-20 | P0 | Workset, CallGraph, Workpoint, Work Loop and background jobs exist as distinct concepts but are not proven in one customer lifecycle. | The system can admit, schedule, run and evidence work separately without joining completion. | One accepted end-to-end graph from assignment through terminal receipt and settlement. | GP-10/14/15; Focusa #253/254/271/296 |
-| SAG-21 | P0 | Current `focusa_work_loop_status` reports `expected=unknown packet=unknown` immediately after a canonical project checkpoint. | Governed continuous execution cannot inspect or manage its frontier/budget. | Resolve Focusa issue #608 and prove checkpoint → writer/status → start/pause/resume/stop. | Focusa #608 |
-| SAG-22 | P0 | Focus State writes still fail despite a canonical project Workpoint. | Decisions/failures fall back to scratch rather than durable operator state. | Resolve Focusa #601 across all Focus State writers or return typed recovery. | Focusa #601 |
-| SAG-23 | P1 | No unified approval/exception inbox joins CRIST questions, high-consequence confirmations, provider consent, human graph nodes and client communications. | Autonomous lanes pause in multiple invisible places. | One projection with source owner, consequence, expiry, recommended action and completion receipt. | GP-10/15/16 |
-| SAG-24 | P1 | Per-client/model/tool/schedule budgets and economic outcome attribution are not joined. | Cheap community and managed tiers cannot be safely priced or automatically governed. | Cost ledger, budget policy, forecast/actual, exhaustion behavior and outcome economics by worker/task. | GP-15/16 |
+### SAG-09 — workforce profile/task-pack schemas
 
-### 5.6 Wirebot application family and ecosystem integration
+**Gap:** employee profiles/task packs remain primarily documented concepts; there is no complete versioned profile, task-pack, employment/assignment packet, roster and lifecycle schema family shared across Wirebot/Focusa consumers.
 
-| ID | Priority | Observed gap | Why autonomy stops | Required closure/evidence | Current route |
-|---|---|---|---|---|---|
-| SAG-25 | P0 | Wirebot Desktop/Web/PWA/Mobile is operator-directed but has no canonical owning repository, source shell, shared design system or release path. | There is no customer application in which the new experience can operate. | Product-owner decision, master spec, module architecture, source scaffold and source-only acceptance before packaging. | GP-16 |
-| SAG-26 | P0 | Existing Startempire Wire WordPress routes have multiple namespaces/auth/schema patterns and no complete operation-parity inventory. | Native modules would couple to inconsistent plugin internals or fall back to web automation. | Endpoint-by-endpoint owner/schema/auth/entitlement/idempotency/receipt/OpenAPI/CLI audit and adapter plan. | GP-14/16 |
-| SAG-27 | P1 | AI Draftees has real profile/hire/dispatch/W.I.N.S. source but draft/stale UX and unresolved relationship to Workforce Composer. | Profiles can duplicate or split between marketplace and private roster. | Resolve marketplace/module/shared-contract/retirement choice with data migration and current browser evidence. | GP-15/16; Draftees #1/#2 |
-| SAG-28 | P0 | W.I.N.S. screens are not yet canonical shared modules consumed by the proposed application family. | Worker outputs cannot appear coherently as accepted customer outcomes. | Extract versioned tenant-safe W.I.N.S. modules/contracts and verify web/mobile/Desktop consumers. | GP-14/16 |
-| SAG-29 | P0 | Community, Direct, Full AITL and Sovereign account/entitlement/federation behavior is not implemented end to end. | One app cannot safely render or execute the right capabilities for each user. | First Community vertical slice, Direct tenant proof and signed minimum Sovereign projection; no pricing change yet. | GP-16 |
-| SAG-30 | P1 | Native packaging needs framework, signing, secure storage, updater, crash/support, rollback and store/distribution decisions. | Source UI cannot become an installed professional product. | Canonical package/release matrix after shared web contracts stabilize. | GP-16 |
+**Required closure:** versioned schemas with validation/migration and exact domain ownership.
 
-### 5.7 Browser, Agent Computer and operation parity
+### SAG-10 — audit gap → proposed roster → CRIST → assignment compiler
 
-| ID | Priority | Observed gap | Why autonomy stops | Required closure/evidence | Current route |
-|---|---|---|---|---|---|
-| SAG-31 | P0 | Ecosystem parity audit found incomplete product-native CLI/API coverage, including UIAI and multiple UIs. | First-party work still risks manual/CUA fallback. | Close operation manifests and consumer proofs under GP-14. | GP-14; product issues |
-| SAG-32 | P0 | Veragensia Chromebook release/install and full portfolio UI workflow are specified but not proven. | The reference Agent Computer cannot yet certify the integrated experience. | Canonical install, qualified hardware, operation registry and full work-cycle evidence. | GP-08/14/16 |
-| SAG-33 | P0 | UIAI Cockpit hardening/build gaps and Evidence PWA delivery/review distinctions remain open. | Browser execution/evidence cannot serve as a fully accepted worker path. | Healthy build, CLI parity, EPWA delivery plus review/verification/settlement proofs. | GP-14/16 |
-| SAG-34 | P1 | No cross-product structured-interface-gap ledger connects CUA fallback to the owning product’s remediation issue. | Temporary CUA can become permanent hidden architecture. | Every fallback records missing operation, owner issue, evidence, expiry and migration test. | GP-14 |
+**Gap:** the pipeline from observed business deficiency to an explainable proposed role/assignment is not executable end-to-end.
 
-### 5.8 Evidence, outcomes, recovery and lifecycle
+**Required closure:** preview-first compiler that creates a proposed assignment, shows rationale/prerequisites/conflicts, receives owner/governance acceptance and emits an immutable assignment receipt.
 
-| ID | Priority | Observed gap | Why autonomy stops | Required closure/evidence | Current route |
-|---|---|---|---|---|---|
-| SAG-35 | P0 | There is no universal correlation envelope joining client, assignment, task, worker instance, tool call, job, evidence, receipt and W.I.N.S. outcome across products. | Completion cannot be replayed or audited reliably. | Versioned minimum reference envelope and cross-product consumer tests without centralizing all data. | GP-10/14/15/16 |
-| SAG-36 | P0 | Evidence creation, review, completion authority, W.I.N.S. acceptance and dispute/correction remain separate product paths. | A screenshot/test/receipt may be mistaken for accepted outcome. | One explicit closure chain with reviewer/authority, rejected/disputed/corrected states and client proof. | GP-10/14/16; Focusa #277 |
-| SAG-37 | P0 | Pause/interrupt/revoke/rollback does not propagate as one tested lifecycle across schedules, sessions, jobs, capabilities, credentials, app access and memory. | A retired/corrected worker may continue through another subsystem. | Revocation fanout contract, idempotent teardown, residual-state scan and receipt. | GP-11/12/15 |
-| SAG-38 | P1 | Health checks do not consistently distinguish expected remote topology from actual local failure. | Automation may repair healthy remote services or ignore broken routes. | Topology-aware health model, authoritative endpoint identity and consumer checks. | GP-07/09/15; Wirebot #34 |
-| SAG-39 | P0 | Replacement-agent handoff exists as a planned proof but has not covered the new roster, memory, app, schedule and entitlement objects. | Continuity still depends on the original builder’s context. | Replacement run from durable contracts only, including worker retirement/reassignment and app support. | GP-13/15/16 |
-| SAG-40 | P1 | Support, escalation, service-level objectives and customer-visible incident communication are not tied to worker/profile/tier state. | Autonomous operation can fail without a clear human/service owner. | Severity/routing/response policy, customer-safe status, compensation/rollback and support acceptance. | GP-10/15/16 |
+### SAG-14 — assignment → least-capability grants
 
-### 5.9 Governed project execution and instruction cohesion
+**Gap:** role/task/autonomy intent is not yet deterministically compiled into exact tools, data scopes, credential requirements, budgets, consequence classes and confirmation rules.
 
-| ID | Priority | Observed gap | Why autonomy stops | Required closure/evidence | Current route |
-|---|---|---|---|---|---|
-| SAG-41 | P1 | Portable project `AGENTS.md` remains 3.3.0 while the deployment contract is 3.4.0 with material later execution/recovery semantics. | Different agent launch roots can receive different operating behavior even when Focusa reports no unresolved conflict. | Owner-approved portability classification and documentation/consumer activation sweep; never copy deployment bindings blindly. | ADLBOS #8 |
-| SAG-42 | P0 | ADLBOS has no project-local Beads provider or approved executable CallGraph; GP-01–21 are currently a Markdown table. | A daemon cannot select a canonical ready frontier, lease work or settle dependencies directly from prose. | Compile the existing task ledger into one canonical task/execution projection without a parallel authority. | ADLBOS #9 |
-| SAG-43 | P0 | Focusa Project Card reports bootstrap needed, missing high-/short-term goals and crosswire mismatch despite verified identity and accepted Workpoints. | Individual checkpoints work, but project-wide autonomous planning remains advisory/misaligned. | Operator-confirmed Project Genesis/Trajectory reconciliation and same-scope Workpoint/task proof. | ADLBOS #9 |
-| SAG-44 | P1 | GitHub issues, Golden Path task rows, product trackers and Focusa Workpoints are manually cross-referenced. | Closed/fixed/blocking state can drift and stale work remains eligible. | One reconciliation projection preserving each tracker’s ownership, with mismatch alerts and explicit settlement evidence. | GP-13/22 |
+**Required closure:** least-capability preview/commit path with denied-operation, expiry and revocation proof.
 
-## 6. Highest-leverage dependency sequence
+### NEW-P0-03 — Workforce Composer → Focusa binding → Workforce projection
 
-### Foundation train — Make this Golden Path executable
+**Gap:** the product boundary is settled, but the handoff is not yet one executable lifecycle.
 
-1. Reconcile project instruction portability under ADLBOS issue #8.
-2. Resolve Project Genesis/Trajectory readiness without inferring the operator’s HLT.
-3. Compile the existing GP ledger into one canonical executable frontier under ADLBOS issue #9.
-4. Repair Focusa Work Loop scope issue #608 and prove writer/status controls.
+**Required closure:** one accepted test where a Wirebot Workforce Composer assignment resolves through Focusa into a Workstream/Foreman/worker binding and appears in Focusa Workforce without duplicate roster/task authority.
 
-### Train A — Compile the customer execution contract
+---
 
-1. Close SAG-01 through SAG-04: consent, identity, entitlement and authority packet.
-2. Close SAG-09, SAG-10, SAG-14 and SAG-17: schemas and audit-to-assignment compiler.
-3. Settle SAG-11/SAG-12: memory and Workpoint linkage.
-4. Produce one immutable client employment packet with exact tools, memory scope, autonomy, budget and acceptance.
+## 4. P0 — Chief of Staff and Foreman handoff
 
-### Train B — Prove the autonomous runtime loop
+### NEW-P0-04 — Operating Partner delegation contract
 
-1. Resolve current Focusa blockers SAG-20 through SAG-22.
-2. Implement recurring/event activation (SAG-18) and bounded manager/crew delegation (SAG-19).
-3. Prove interruption/revocation (SAG-37) before increasing concurrency.
-4. Run one real client task from ready assignment to accepted outcome.
+**Gap:** ADLBOS defines the semantic handoff but lacks a versioned machine contract for owner/partner → governed work.
 
-### Train C — Create the professional customer shell
+**Required closure:** bounded delegation envelope carrying owner/partner refs, project/workstream target where known, desired outcome, constraints, context refs, budget/authority/acceptance refs and correlation ID. Focusa remains responsible for validating/resolving the Workstream, Foreman, Workpoint and execution plan.
 
-1. Decide Wirebot application ownership and source (SAG-25).
-2. Compile product operation/WordPress adapter inventory (SAG-26/SAG-31).
-3. Extract W.I.N.S. and workforce modules (SAG-28).
-4. Deliver one Community user vertical slice (SAG-29).
-5. Add Direct/AITL and Sovereign paths only after isolation/entitlement proof.
-6. Package Desktop/mobile after shared contracts are stable (SAG-30).
+### SAG-20 — complete work lifecycle
 
-### Train D — Close proof, operations and economics
+**Gap:** Workset, CallGraph, Workpoint, Work Loop, assignment and runtime execution exist but are not proven as one customer lifecycle from accepted assignment to terminal settlement.
 
-1. Deploy fleet/evidence receiver and correlation envelope (SAG-08/SAG-35).
-2. Join evidence to accepted/disputed/corrected outcome (SAG-36).
-3. Add cost/budget and tier economics (SAG-24).
-4. Prove replacement, offboarding and support (SAG-13/SAG-39/SAG-40).
+**Required closure:** one real assignment traverses the whole chain with exact refs and receipts.
 
-Trains may progress in parallel where dependencies permit. Train B must not wait for a polished Desktop shell; Train C must not claim usable autonomy until Train B and D produce accepted evidence.
+### SAG-42 / SAG-44 — Golden Path and task trackers versus Focusa work authority
 
-## 7. Minimum complete pilot
+**Gap:** Golden Path rows, GitHub issues, Beads/task trackers and Focusa Workpoints can still exist as separate planning/execution views without one approved binding.
 
-Use one existing client and one low-consequence but useful recurring workflow:
+**Required closure:** compile/bind the execution-ready task representation into Focusa-governed work without creating a new task authority. External trackers retain their appropriate domain role and stable refs.
 
-1. read the accepted engagement/consent and create exact client/project identity;
-2. inventory the client system, available Golden Path tools and data boundaries;
-3. propose one role plus one generic task pack;
-4. complete Delta CRIST and approve one assignment at A2 or A3;
-5. bind isolated or explicitly scoped memory—not assumed shared memory;
-6. verify tool and credential requirements without exposing secrets;
-7. run one on-demand instance before enabling a schedule;
-8. supervisor reviews against acceptance criteria;
-9. attach evidence, settle one W.I.N.S. outcome and record actual cost/time;
-10. interrupt/revoke and prove no residual execution;
-11. resume or repeat from durable state using a replacement agent;
-12. show the same accepted state in the proposed Wirebot application vertical slice when that source exists.
+---
 
-This pilot creates more leverage than broad UI construction because it proves the contract every later employee and app module must consume.
+## 5. P0 — shared human attention
 
-## 8. Work that should not be added yet
+### SAG-23 — unified approval/exception attention
 
-- a second workflow/state database;
-- a separate app per pricing tier;
+**Gap:** approvals, owner-truth questions, provider authentication, UIAI takeover, budget/resource exceptions, recovery decisions and network opportunities can surface independently.
+
+**Required closure:** implement `operator.attention.v1` as a source-bearing projection. Wirebot shows owner-wide attention; Workforce shows workforce scope; UIAI/Veragensia show specialist context. The source domain resolves the item.
+
+**Non-goal:** a central approval database.
+
+---
+
+## 6. P0 — exact surface handoff
+
+### NEW-P0-05 — `operator.surface_handoff.v1`
+
+**Gap:** Wirebot, Workforce, Focusa Desktop, UIAI and Veragensia can deep-link conceptually but there is no common exact reference+intent envelope.
+
+**Required closure:** versioned handoff with source/target surface, owner/project/workstream/foreman/work/attention/evidence/execution/body refs as applicable, intent, return reference, expiry and correlation. It carries no broad credential or transferred authority.
+
+---
+
+## 7. P0 — universal cross-product correlation
+
+### SAG-35 — causal reference envelope
+
+**Gap:** no single minimum reference envelope joins client/owner, partner, assignment, Workstream, work, worker, session, tool/job execution, UIAI execution, Evidence, receipt and outcome.
+
+**Required closure:** implement `operator.correlation.v1` as references only. Do not centralize the underlying state.
+
+This is required for reliable replay, audit, support, outcome economics and cross-product UX.
+
+---
+
+## 8. P0 — capability / entitlement posture
+
+### SAG-02 — entitlement projection
+
+**Gap:** product/runtime tiers, component licenses, Operator services and available capabilities remain difficult for clients to render deterministically without conflating commercial access with runtime authority.
+
+**Required closure:** `operator.capability_posture.v1` with at least:
+
+```text
+supported
+entitled
+activated/connected
+authorized/current authority posture
+available/healthy
+setup_required
+```
+
+The projection MUST NOT itself grant entitlement or authority.
+
+### NEW-P0-06 — contextual expansion/upsell contract
+
+**Gap:** the ecosystem has natural expansion paths, but without a shared posture client apps may hard-code commercial logic or create misleading locked states.
+
+**Required closure:** product-owned capability metadata/recommendation refs that explain an observed gap and route to the owning purchase/setup surface. Recommendation is never permission.
+
+---
+
+## 9. P0 — Evidence, settlement and outcome closure
+
+### SAG-36 — explicit closure chain
+
+**Gap:** execution proof, Focusa Evidence, verification, Focusa completion/settlement, W.I.N.S. acceptance and correction/dispute remain distinct systems without one reference chain.
+
+**Required closure:** `operator.closure.v1` links refs and states while preserving each owner's state machine.
+
+Required distinction:
+
+```text
+activity
+!= Evidence
+!= verified Evidence
+!= settlement/receipt
+!= accepted life/business outcome
+!= portable standing
+```
+
+### SAG-28 — W.I.N.S. reusable modules/contracts
+
+**Gap:** Wirebot/Wireforce surfaces need a tenant-safe accepted-outcome projection without copying W.I.N.S. logic.
+
+**Required closure:** canonical reusable W.I.N.S. operations/modules with tenancy and cross-surface tests.
+
+---
+
+## 10. P0 — sovereign federation and network isolation
+
+### SAG-29 — Direct/network/Sovereign behavior end-to-end
+
+**Gap:** documentation and Wirebot App tests demonstrate important isolation semantics, but one live Sovereign-to-network flow is not yet proven across identity, entitlement, projection, revocation and receipts.
+
+**Required closure:** signed/minimized projection and bounded request path with explicit issuer/audience/scope/expiry/replay/revoke plus denied private-data/authority tests.
+
+### NEW-P0-07 — federation versus fleet cleanup
+
+**Gap:** historical docs may still use `federation` for one owner's multi-daemon aggregation.
+
+**Required closure:** reserve `federation` for independently scoped sovereign participants; use fleet/aggregation for one Operator's nodes/daemons/bodies.
+
+---
+
+## 11. P0 — memory and context isolation
+
+### SAG-11 / SAG-12 — partner/worker memory boundaries
+
+**Gap:** stateful workers need durable context, but whether they share Wirebot stores/records remains unresolved. Focusa work continuity and general life/business memory are distinct.
+
+**Required closure:** exact ownership and one-way refs between partner context, worker memory scope, Focusa Workstream/Workpoint and Evidence. Isolation is default; no ambient worker access to partner-wide memory.
+
+### SAG-13 — offboarding/retention
+
+**Gap:** retirement/export/delete/legal-hold behavior across partner memory, worker context, federation projections and downstream stores is incomplete.
+
+**Required closure:** end-to-end lifecycle and revoke proof.
+
+---
+
+## 12. P0 — execution and intervention lifecycle
+
+### SAG-37 — pause/revoke/takeover/rollback propagation
+
+**Gap:** Focusa, UIAI and Veragensia each own legitimate lifecycle/control primitives, but one intervention is not yet tested across the full causal chain.
+
+**Required closure:** exact-scope stop/pause/revoke/takeover, fencing, re-observation, reconciliation and receipt behavior across the owning systems.
+
+### SAG-31 / SAG-33 — first-party operation parity and UIAI proof
+
+**Gap:** missing first-party structured operations can still force CUA or incomplete acceptance.
+
+**Required closure:** close product-owned API/CLI/tool parity gaps; prove UIAI execution/Evidence flows are consumable by Focusa/Workforce without copying UIAI authority.
+
+---
+
+## 13. P1 — Draftees and MeriFolio boundaries
+
+### SAG-27 — Draftees ↔ private workforce
+
+**Gap:** public worker profile/hire state can still drift from the private Operator roster/assignment.
+
+**Required closure:** explicit profile/candidate ref → private assignment mapping, with no automatic private access.
+
+### NEW-P1-01 — MeriFolio adapters
+
+**Gap:** MeriFolio Worker/Access Session/Work Thread/Receipt vocabulary can overlap Focusa agent/authority/Workstream/receipt semantics.
+
+**Required closure:** explicit adapter/ref mappings and documentation that MeriFolio is portable trust/standing, not local Workstream authority.
+
+---
+
+## 14. P1 — current product/document convergence
+
+### NEW-P1-02 — current Wirebot App ownership propagated everywhere
+
+**Gap:** some historical ADLBOS and downstream docs still describe Wirebot Web/PWA/Desktop/Mobile as hypothetical/unowned or describe a separate per-client Chief-of-Staff frontend.
+
+**Required closure:** current docs point to `Startempire-Wire/Wirebot-App`; branded routes are deployment/presentation of the same family unless a future owner-approved product deliberately differs.
+
+### NEW-P1-03 — historical Tauri wrapper demotion
+
+**Gap:** Tauri is described historically as the defining customer-app vehicle.
+
+**Required closure:** treat Tauri as an optional future packaging/support adapter. Preserve proven setup/support workflow requirements independently of packaging technology.
+
+### NEW-P1-04 — Operator Deployment mapping
+
+**Gap:** public/current offer language and internal docs need one consistent mapping to purchase/participation, runtime isolation, hosting/operation, federation and interfaces.
+
+**Required closure:** product/marketing docs reference the same deployment dimensions and avoid defining a parallel runtime tier.
+
+---
+
+## 15. P1 — deployment/runtime truth
+
+### SAG-05 / SAG-07 — capability and client-system inventory
+
+Installed binaries and reachable services do not prove a worker may use them. The brownfield audit must feed role eligibility, task packs, provider/data scope and capability posture.
+
+### SAG-18 — recurring worker scheduling
+
+Typed recurring assignment/schedule semantics remain incomplete. A schedule is not blanket authority.
+
+### SAG-19 — Manager/Crew delegation proof
+
+Manager allowances, crew subset authority, acceptance and expiry still need a client-scoped runtime proof.
+
+### SAG-21 / SAG-22 / SAG-43 — Focusa runtime readiness
+
+Focusa Work Loop/Focus State/project bootstrap gaps remain owning-product defects and can block true continuous work. Workforce UI must represent these honestly, not hide them.
+
+---
+
+## 16. P1 — terminology cleanup
+
+Keep these internal nouns exact:
+
+```text
+CanonicalOwnerPrincipal
+OperatingPartnerPrincipal
+ArchitectureAuthorityPrincipal
+OperatorDeployment
+OperatorEnvironment
+Sovereign posture
+fleet / multi-daemon aggregation
+sovereign federation
+Focusa Workstream / Foreman
+Wirebot Workforce Composer
+Focusa Workforce
+```
+
+Avoid using `Operator`, `federation`, `worker`, `receipt` or `authority` without domain qualification in machine contracts where ambiguity matters.
+
+---
+
+## 17. Execution order
+
+Do not attempt all gaps as horizontal infrastructure first.
+
+Close them through vertical slices:
+
+```text
+Slice A — partner → assignment → Focusa Workstream/Foreman → Workforce projection
+Slice B — shared Needs You item → exact action → source-domain resolution
+Slice C — worker executes through UIAI → Evidence → settlement → W.I.N.S. outcome
+Slice D — Wirebot exact handoff → Workforce/UIAI → return with same correlation
+Slice E — Sovereign Operator exposes one minimized network capability/opportunity → revoke
+```
+
+Each slice should implement only the shared envelopes it actually exercises.
+
+---
+
+## 18. Explicit non-goals
+
+Do not create:
+
+- another orchestration database;
+- another workforce roster authority;
+- another approval store;
+- another evidence ledger;
+- a plan-specific app fork;
+- full federation before one isolated Operator loop works;
 - shared worker memory by default;
-- full Sovereign federation before one isolated client loop works;
-- packaged Desktop/mobile clients before stable shared operations/components;
-- automation of unreconciled WordPress admin pages;
-- speculative worker profiles without repeated client work;
-- public pricing changes before measured operating cost and readiness;
-- one mega-application that absorbs Focusa, UIAI or Veragensia runtime ownership.
+- a MeriFolio replacement for Focusa;
+- a Workforce replacement for Wirebot;
+- a Wirebot replacement for Foremen;
+- UIAI/browser control inside Workforce merely for visual completeness;
+- a new entitlement authority inside a client UI.
 
-## 9. Golden Path task extensions
+---
 
-Add these as cross-cutting execution tracks without renumbering or replacing GP-04–16:
+## 19. Definition of architecture closure
 
-| Task | Owning issue | Depends on | Done condition |
-|---|---|---|---|
-| GP-17 — Client execution-contract compiler | ADLBOS #4 — joins consent, identity, workforce, tools and memory | GP-04, GP-14, GP-15 | accepted consent/identity/entitlement/authority plus roster/tool/memory/autonomy packet generated and validated for one client |
-| GP-18 — Autonomous worker runtime loop | ADLBOS #6 — supervised execution and revocation | GP-17, GP-22 and relevant Focusa blockers | event/on-demand execution, supervision, budget, interruption, revocation and terminal evidence proven |
-| GP-19 — Unified evidence-to-W.I.N.S. closure | ADLBOS #7 — joins receipts to accepted outcomes | GP-18, GP-14 | cross-product references replay from assignment through accepted/disputed/corrected outcome |
-| GP-20 — Wirebot application vertical slice | ADLBOS #5 — first integrated application-family slice | GP-16, GP-17, GP-19 | one Community user completes the selected workflow through the proposed shared app experience with browser/device proof |
-| GP-21 — Replacement, offboarding and economics | ADLBOS #3 — lifecycle, support and outcome economics | GP-18, GP-19 | replacement agent, retire/export/delete, residual scan, support and cost/outcome evidence pass |
-| GP-22 — Executable Golden Path governance | ADLBOS #9 — project-scoped machine frontier | GP-03 and Focusa #608 | project Genesis/Trajectory/task projection is canonical, queryable and proven through one settled task |
+The ecosystem is meaningfully closed when a replacement authorized agent can trace and operate this chain using stable refs and canonical owners:
 
-These tasks extend the current Golden Path ledger; their issues preserve scope and acceptance without granting execution authority.
+```text
+owner
+→ Operating Partner
+→ accepted assignment
+→ Focusa Workstream/Foreman
+→ worker/runtime/body
+→ exact execution
+→ Evidence
+→ settlement
+→ accepted outcome
+```
 
-## 10. Acceptance for seamless autonomy
+and can additionally prove that:
 
-The Golden Path is seamless enough for controlled expansion when:
-
-- every handoff in the client execution chain is a versioned contract with one owner;
-- one client can progress without manual identity, scope, tool or memory guesswork;
-- every task declares autonomy ceiling and human checkpoints;
-- scheduled workers can be paused/revoked across all dependent systems;
-- the Chief of Staff delegates without disclosing ambient context or widening authority;
-- first-party paths use structured operations rather than CUA;
-- evidence cannot be mistaken for acceptance;
-- costs, failures and exceptions reach the responsible human/product owner;
-- replacement and offboarding work from durable state;
-- the Wirebot application renders the same canonical state without becoming its owner;
-- Community, Direct/AITL and Sovereign differences are entitlements and deployment contracts, not divergent products;
-- a real customer accepts the full loop.
-
-Until then, the architecture is promising and increasingly coherent, but not fully autonomous or customer-operational.
-
-## 11. Bounded live reference-machine snapshot
-
-This is a **2026-09-13 observation of the current KnownHost reference authority**, not a portable default, complete package inventory or proof of another machine.
-
-### Baseline component truth
-
-- Fourteen of the 16 current bootstrap commands were found in the inspecting account’s PATH: `git`, `curl`, `python3`, `node`, `npm`, `pi`, `focusa`, `rbw`, `gh`, `wrangler`, `gog`, `bd`, `tailscale` and `agent-kb`.
-- `openclaw` and `uiai` commands were not found in that PATH.
-- The missing `uiai` command does **not** mean UIAI is absent: the direct UIAI adapter reported UIAI Engine healthy and running on port 7457.
-- `wb version` reported Wirebot `0.5.0-747-g40c43c8`, Focusa `0.9.192`, Node `22.22.3` and an unknown OpenClaw version. Focusa’s own Agent Card also reported `0.9.192`.
-- The UIAI MCP server was cached with 42 tools but not listening while the direct UIAI adapter was healthy. This is an interface-state mismatch, not evidence that either observation should erase the other.
-- `wrangler --version` succeeded but warned that the configured `CF_API_KEY` variable name is deprecated in favor of `CLOUDFLARE_API_KEY`; no value was read or recorded.
-- `gog` exists, but the previously observed missing account binding still prevents Google document search.
-
-This proves the need behind ADLBOS issue #10: inventory must separately report CLI, runtime/service, remote endpoint, typed adapter, health, account binding and entitlement. Product-native CLI absence remains a parity gap, but must not be mislabeled as runtime absence.
-
-### Additional agent-operable commands discovered
-
-The host also exposes Docker, Podman, WHM/cPanel API, UAPI, WP-CLI, Cloudflare CLIs, Bun, Cargo/Rust, `jq`, `rg`, `fd`, FFmpeg, `tmux`, SQLite, SSH, PostgreSQL, MySQL and Redis clients. HyperFrames and `mosquitto_pub` were not found in the inspecting PATH.
-
-Presence grants no worker authority. At minimum:
-
-- cPanel, WordPress and database commands are limited to exact client/account/data assignments, with WPA-01 or other explicitly eligible profiles and owning-user execution;
-- container, service, package and network commands are infrastructure-consequence tools for bounded deployment/security/toolchain roles—not general office or content workers;
-- Cloudflare commands require exact zone/account grants and may not inherit a process environment merely because a CLI sees it;
-- FFmpeg is a media capability only when a media task pack, source rights, output scope and evidence requirements are assigned;
-- Git/GitHub access remains repository/branch scoped and never grants release or architecture authority;
-- `rbw` presence never permits ambient vault search or secret disclosure;
-- local database clients never prove an approved database, schema or mutation grant.
-
-### Relevant service observations
-
-Running services included Focusa daemon, UIAI Engine, Wirebot WBT, Wirebot Scoreboard, Agent-KB API, Wiki agent/proxy/relay, Tailscale, Redis, PostgreSQL, MariaDB, Wirebot embedding/media/talk relays and several Cloudflare tunnels.
-
-Important distinctions:
-
-- `wirebot-scoreboard.service` was running while its unit-file state was disabled; lifecycle origin and restart expectations require explicit explanation before automated repair.
-- `wb doctor` reported local OpenClaw and Letta checks inactive while their configured OVH ports were open; reachability alone does not prove identity, but local inactivity also must not erase an approved remote topology. Wirebot Core issue #34 tracks the typed topology verdict.
-- `wirebot-memory-syncd.service` was masked and `wb doctor` reported local Mem0/Memory Syncd inactive; current memory architecture must not assume either local service.
-- `wb doctor` reported Flow Mesh inactive while its binary and mesh tunnel were present; service, binary, transport and authoritative consumer health need separate states.
-- `focusa-ovh-relay.service` was disabled; current doctrine says KnownHost is the sole Focusa authority, so this is not automatically a defect.
-- multiple database engines and tunnels coexist; a worker must receive one exact endpoint/data owner, not generic “database” or “network” access.
-
-### Fleet boundary
-
-No fresh proof was obtained in this pass for the OVH display host, MacBook, Mac Studio, a production Wirebot Direct estate, mobile devices or the Veragensia Chromebook. They remain unseen/unverified for this snapshot and cannot be averaged into KnownHost health.
-
-A complete GP-05/07/09/15 inventory therefore needs one signed or otherwise authenticated machine record per applicable host/device, including commands, services, adapters, versions, health, account/tenant, eligible and prohibited profiles, task packs, credentials, data scopes, consequence class, upgrade, rollback, revocation and observation time.
+- an unentitled capability stays unavailable;
+- an entitled capability still cannot exceed current authority;
+- a revoked link/federation grant stops working;
+- a worker cannot read partner-wide memory by default;
+- a browser takeover reconciles correctly before agent continuation;
+- a surface handoff preserves exact context without passing authority in a URL;
+- branding/name changes do not create or widen identity;
+- a second Operator cannot read or mutate private state without an explicit valid grant.
