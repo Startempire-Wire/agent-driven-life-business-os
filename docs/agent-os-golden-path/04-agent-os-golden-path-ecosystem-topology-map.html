@@ -3,118 +3,202 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="dark">
-<title>Startempire ecosystem — intent-led cohesion map</title>
+<meta name="color-scheme" content="dark light">
+<title>Agent-Driven Life & Business OS — current ecosystem topology</title>
 <style>
-:root{--bg:#0b1020;--panel:#131d32;--text:#edf2ff;--muted:#b3c1da;--line:#334660;--blue:#91bbff;--green:#91dfc9;--gold:#ffda92;--pink:#ffb8c7}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}main,header,footer{max-width:1260px;margin:auto;padding:24px}a{color:var(--blue);text-underline-offset:3px;overflow-wrap:anywhere}a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}h1,h2,h3,p{margin:0 0 .7rem}h1{font-size:clamp(1.9rem,4.5vw,3.3rem);line-height:1.12;max-width:23ch}h2{font-size:1.55rem;line-height:1.25}h3{font-size:1.05rem;line-height:1.35}h4{margin:.8rem 0 .25rem}section{margin-bottom:48px}ul,ol{padding-left:1.3rem}li{margin:.35rem 0}code{overflow-wrap:anywhere;font-size:.9em}.eyebrow{color:var(--green);font-size:.8rem;text-transform:uppercase;letter-spacing:.13em}.lede{font-size:1.15rem;max-width:85ch;color:var(--muted);margin-top:1.2rem}.muted,small{color:var(--muted)}.small,small{font-size:.86rem}.grid{display:grid;gap:14px}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}.card p:last-child{margin-bottom:0}.card ul{margin-bottom:0}.bar{border-left:4px solid var(--green);background:#102c2c;padding:20px;border-radius:0 12px 12px 0}.note{border:1px solid #75603b;background:#292318;padding:16px;border-radius:12px;color:#ffe9bb}.badge{display:inline-block;font-size:.72rem;font-weight:650;letter-spacing:.03em;padding:3px 9px;border-radius:20px;border:1px solid var(--line);margin:0 5px 9px 0}.approved{color:var(--green);border-color:#41766a}.source{color:var(--blue);border-color:#45658a}.proposed{color:var(--gold);border-color:#7b6740}.gap{color:var(--pink);border-color:#895766}.nav{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0}.nav a{padding:9px 13px;border:1px solid var(--line);border-radius:8px;text-decoration:none}.flow{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.flow li{flex:1 1 135px;position:relative;background:#192842;border:1px solid #476382;padding:15px;border-radius:10px;margin:0;font-weight:650}.flow li:not(:last-child)::after{content:'→';color:var(--green);padding-left:.5rem}.number{font-size:.8rem;color:var(--green);display:block;margin-bottom:6px}.source-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none;padding:0}.source-list li{border-left:2px solid var(--line);padding-left:12px;min-width:0}details{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}summary{cursor:pointer;color:var(--blue);font-weight:600}.stages{counter-reset:stage -1;list-style:none;padding:0}.stages li{counter-increment:stage;margin:0}.stages li::before{content:'STAGE ' counter(stage);display:block;color:var(--green);font-size:.75rem;font-weight:700;letter-spacing:.1em;margin-bottom:8px}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}.rule{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}footer{border-top:1px solid var(--line);font-size:.86rem;color:var(--muted)}.skip{position:absolute;left:12px;top:-80px;background:var(--panel);padding:12px;z-index:2}.skip:focus{top:12px}
-@media(max-width:850px){.three{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){header,main,footer{padding:20px 16px}.three,.two,.source-list{grid-template-columns:1fr}.flow{display:grid;grid-template-columns:1fr}.flow li{padding:12px 16px}.flow li:not(:last-child)::after{content:'↓';float:right}.card{padding:17px}section{margin-bottom:36px}.nav a{font-size:.9rem}.lede{font-size:1.05rem}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{body{background:white;color:#152238}.card,.bar,.note,.flow li{background:white;color:#152238;border-color:#aaa}a,.muted,small,.eyebrow,.number{color:#28415a}.nav,.skip{display:none}header,main,footer{padding:12px}.card{break-inside:avoid}h2{break-after:avoid}section{margin-bottom:24px}}
+:root{--bg:#0b1020;--panel:#131d32;--text:#edf2ff;--muted:#b5c2d9;--line:#334660;--accent:#91dfc9;--blue:#91bbff;--gold:#ffda92}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}header,main,footer{max-width:1180px;margin:auto;padding:24px}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;max-width:18ch}h2{margin-top:0}h3{margin-bottom:.4rem}.muted{color:var(--muted)}.eyebrow{color:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.14em}.bar{border-left:4px solid var(--accent);background:#102c2c;padding:18px;border-radius:0 12px 12px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0 38px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 9px;margin:0 5px 7px 0;font-size:.73rem;color:var(--blue)}.flow{display:flex;flex-wrap:wrap;gap:9px;padding:0;list-style:none}.flow li{flex:1 1 130px;background:#192842;border:1px solid #476382;border-radius:10px;padding:13px;font-weight:650}.code{white-space:pre-wrap;background:#080d18;border:1px solid var(--line);border-radius:12px;padding:18px;overflow:auto}.rule{border-top:1px solid var(--line);padding-top:14px;margin-top:20px}a{color:var(--blue)}@media(max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){header,main,footer{padding:18px}.grid,.two{grid-template-columns:1fr}.flow{display:grid}}@media print{body{background:#fff;color:#172238}.card,.code,.bar,.flow li{background:#fff;color:#172238;border-color:#aaa}.muted,.eyebrow{color:#40516a}}
 </style>
 </head>
 <body>
-<a class="skip" href="#relationships">Skip to ecosystem relationships</a>
-<header id="top">
-<p class="eyebrow">Golden Path · iteration 32 · 12 September 2026</p>
-<h1>One purpose.<br>Distinct parts.<br>Better connections.</h1>
-<p class="lede">Wirebot as a capable operating partner for life and business, reusable for clients: less routine dependence on the owner, better execution, verified outcomes and compounding leverage—without surrendering ownership or control.</p>
-<p><span class="badge approved">Operator-approved cohesion direction</span><span class="badge source">Source-referenced relationships</span><span class="badge gap">Not a live fleet or deployment dashboard</span></p>
-<div class="bar"><strong>Preserve the ecosystem; tune its handoffs.</strong> This visual explains existing responsibilities and the approved diagnostic direction. It creates no registry, enrollment mechanism, merged product, universal identity provider or new execution authority.</div>
-<nav class="nav" aria-label="Map sections">
-<a href="#relationships">Relationships</a><a href="#doors">Doors &amp; surfaces</a><a href="#dimensions">Deployment distinctions</a><a href="#diagnostic">Diagnostic flow</a><a href="#spine">Nine-stage spine</a><a href="#proof">Evidence &amp; gaps</a><a href="#sources">Sources</a>
-</nav>
+<header>
+<p class="eyebrow">Current architecture · 15 September 2026</p>
+<h1>One owner. One partner. Governed work. Many surfaces.</h1>
+<p class="muted">Current topology for the Agent-Driven Life & Business OS. This map supersedes the older wrapped-Tauri-app / Full-AITL-as-application architecture while preserving the field-tested Golden Path deployment sequence.</p>
+<div class="bar"><strong>System law:</strong> one concern, one canonical owner. A surface may render or initiate an operation without becoming the authority that owns the underlying state.</div>
 </header>
 <main>
-<section id="relationships" aria-labelledby="relationships-title">
-<div class="section-head"><h2 id="relationships-title">1. How the parts help each other</h2><span class="small muted">Relationships, not a forced ownership hierarchy</span></div>
-<ol class="flow" aria-label="Outcome loop">
-<li>Owner goals &amp; consent</li><li>Context &amp; priorities</li><li>Governed execution</li><li>Evidence &amp; outcomes</li><li>Learning &amp; reuse</li>
-</ol>
-<div class="grid three">
-<article class="card"><span class="number">RELATIONSHIPS &amp; OPPORTUNITY</span><h3>Startempire Wire</h3><p>Community, relationships, visibility and opportunities. The relaunch is a connected business objective—not another infrastructure installation.</p><p class="small muted">Network participation can create distribution leverage; it is not a prerequisite for every Wirebot customer.</p></article>
-<article class="card"><span class="number">DISTRIBUTION &amp; INTEGRATION</span><h3>Startempire Wire Network</h3><p>Member sites, Connect, Chrome extension, downloads and Ring Leader connect network experiences.</p><p class="small muted">Ring Leader has existing entitlement and identity responsibilities. Those do not turn all clients, computers and products into one fleet or membership mode.</p></article>
-<article class="card"><span class="number">OPERATING PARTNER</span><h3>Wirebot / OpenClaw</h3><p>Uses context to help select priorities, coordinate people and agents, and follow through on life and business work.</p><p class="small muted">Direct and network-bundled access reuse capabilities. Chief-of-Staff identity, runtime and physical computer remain different things.</p></article>
-<article class="card"><span class="number">GOVERNED WORK</span><h3>Focusa</h3><p>Scope, authority, work continuity, execution tracking, evidence and completion. Gives agents a governed path from intent to proof.</p><p class="small muted">Independently useful software. Its project and daemon registries are not automatically the owner of client assets, memberships or machine enrollment.</p></article>
-<article class="card"><span class="number">ACTION &amp; VERIFICATION</span><h3>UIAI + Agent Computers</h3><p>UIAI browser capabilities and Agent Computers, including Veragensia, provide the means to act and inspect results. Build agents contribute code and computer work.</p><p class="small muted">Execution requires approved contexts and capabilities. Public reachability grants no private credential access.</p></article>
-<article class="card"><span class="number">KNOWLEDGE &amp; CONTINUITY</span><h3>Agent-KB + existing memory</h3><p>Knowledge retrieval and the existing context/memory services support Wirebot and build agents within their established responsibilities.</p><p class="small muted">Reference the owning systems. Do not add a parallel memory, synchronization or authority store to make the diagram simpler.</p></article>
-<article class="card"><span class="number">OUTCOMES</span><h3>W.I.N.S.</h3><p>Represents execution progress, evidence and business outcomes. Source documents also describe it as an independently usable, API-first visual product.</p><p class="small muted">Infrastructure readiness is not automatically an Execution Score event. Applicable evidence and approval policies remain with the owning outcome mechanism.</p></article>
-<article class="card"><span class="number">REPEATABLE ADOPTION</span><h3>Golden Path + diagnostic</h3><p>Capture repeated setup/support work and check what an engagement actually needs. Reuse existing installers, APIs, tools and completion mechanisms.</p><p class="small muted">The diagnostic exists as a partial prototype. The Golden Path is still targeting 0.2.0; a documented step is not completed deployment proof.</p></article>
-<article class="card"><span class="number">CUSTOMER EXPERIENCE</span><h3>Wrapped Tauri experience</h3><span class="badge proposed">Proposed carrier</span><p>Eventually presents the operated process, owner moments, support and diagnostics. Existing extension/web experiences serve their appropriate audiences.</p><p class="small muted">No standalone wrapped-app mode. Independent component use and licensing remain available without the operated wrapper.</p></article>
+<section>
+<h2>1. Core relationship</h2>
+<div class="code">CANONICAL OWNER PRINCIPAL
+        |
+        v
+OPERATING PARTNER / CHIEF OF STAFF
+Wirebot implementation family
+customer-selected presentation identity (Wirebot, Spock, etc.)
+        |
+        | orient · recommend · delegate · follow through
+        v
+FOCUSA
+Project · Workstream · Foreman · Workpoint · authority · Evidence · Receipts
+        |
+        v
+FOCUSA WORKFORCE
+roster · active work · direction · Needs You · evidence · topology
+        |
+        +--------------------+
+        |                    |
+        v                    v
+UIAI ENGINE             VERAGENSIA
+computer execution      bodies/runtime/placement
+and execution proof     enforcement/human control
+        |                    |
+        +----------+---------+
+                   v
+            EXECUTION FABRIC
+Pi · compatible agents · Silent Sessions · workcells · Agent Computers
+                   |
+                   v
+          EVIDENCE / SETTLEMENT
+                   |
+                   v
+             ACCEPTED OUTCOME
+                   |
+                   v
+                W.I.N.S.
+                   |
+            optional projection
+                   v
+              MERIFOLIO
+
+OPTIONAL SOVEREIGN NETWORK BOUNDARY
+Startempire Wire · opportunities · Draftees · collaboration · federation</div>
+</section>
+
+<section>
+<h2>2. Canonical owners</h2>
+<div class="grid">
+<article class="card"><span class="tag">Portable doctrine</span><h3>ADLBOS</h3><p>Owner-root law, identity/tenancy separation, cross-product seams, Golden Path, operation completeness, fleet/federation and evidence-to-outcome integration doctrine.</p><p class="muted">Not another product runtime or canonical database.</p></article>
+<article class="card"><span class="tag">Operating Partner</span><h3>Wirebot / Wirebot App</h3><p>Life/business orientation, portfolio priorities, owner-wide conversation, Workforce Composer, organization design, delegation and owner-wide attention.</p><p class="muted">The partner identity persists across model, runtime, host and body changes.</p></article>
+<article class="card"><span class="tag">Governed work</span><h3>Focusa</h3><p>Projects, Workstreams, Foremen, Workpoints, authority, continuity, Evidence, Receipts, recovery and settlement semantics.</p></article>
+<article class="card"><span class="tag">Workforce operations</span><h3>Focusa Workforce</h3><p>Specialist owner lens over who is working, what is happening, what is blocked, what needs the owner, what is proven and what should happen next.</p><p class="muted">Projection + intent client, not another work database.</p></article>
+<article class="card"><span class="tag">Computer execution</span><h3>UIAI Engine</h3><p>Browser/computer observation, actuation, control leases, takeover/reconciliation, diagnostics and execution proof.</p></article>
+<article class="card"><span class="tag">Bodies & runtime</span><h3>Veragensia</h3><p>Agent Computer/body lifecycle, runtime incarnation, placement, enforcement, resources and trusted human control.</p></article>
+<article class="card"><span class="tag">Accepted outcomes</span><h3>W.I.N.S.</h3><p>Outcome/portfolio semantics after evidence has been verified and work has been accepted.</p></article>
+<article class="card"><span class="tag">Portable standing</span><h3>MeriFolio</h3><p>Selective evidence-backed identity, trust, standing and opportunity eligibility. It does not operate the local workforce.</p></article>
+<article class="card"><span class="tag">Sovereign network</span><h3>Startempire Wire + Draftees</h3><p>Community, relationships, opportunities, public worker discovery/reputation and optional federation between independent Operators.</p></article>
 </div>
-<p class="rule"><strong>The connection:</strong> community and distribution create opportunities; Wirebot helps turn priorities into action; Focusa governs the work; UIAI and computers enable execution; knowledge supports continuity; verified outcomes inform the next cycle. Golden Path makes the repeated adoption and support work reusable. None of this requires one database or one product to absorb the rest.</p>
 </section>
-<section id="doors" aria-labelledby="doors-title">
-<h2 id="doors-title">2. Product doors are not the same as working surfaces</h2>
-<div class="grid two">
-<article class="card"><span class="badge approved">Operator-named product doors</span><h3>Focusa.dev + Wirebot.chat</h3><p><a href="https://focusa.dev">Focusa.dev</a> and <a href="https://wirebot.chat">Wirebot.chat</a> can both present the offering. Their products and audiences remain distinct; the sites need not become identical.</p><p class="small muted">Site positioning, copy approval and deployment are separate work. This map does not claim either website has been refreshed.</p></article>
-<article class="card"><span class="badge approved">Operator-confirmed role</span><h3>os.focusa.dev — Agent Computer</h3><p><a href="https://os.focusa.dev">os.focusa.dev</a> hosts the Veragensia Agent Computer. It is not a replacement name for Focusa.dev and is not merely a passive display.</p><p class="small muted">A served voice-script name supports a Veragensia connection; it does not independently verify full desktop, voice or touch behavior. Public-door credential restrictions remain unchanged.</p></article>
-<article class="card"><span class="badge source">Documented working surfaces</span><h3>Wirebot gateway + W.I.N.S.</h3><p><a href="https://helm.wirebot.chat">helm.wirebot.chat</a> is documented as the OpenClaw gateway surface. <a href="https://wins.wirebot.chat">wins.wirebot.chat</a> is the scoreboard/application surface.</p><p class="small muted">A documented route or tenant capability does not prove diagnostic ingest permissions, isolation, durable storage or readback. Private service topology stays with its operational owner.</p></article>
-<article class="card"><span class="badge source">Community + network surfaces</span><h3>Startempire Wire + Network</h3><p><a href="https://startempirewire.com">startempirewire.com</a> serves the parent community/membership experience. <a href="https://startempirewire.network">startempirewire.network</a> serves network distribution and integration.</p><p class="small muted">Source documents allow Direct sales through shared entitlement infrastructure without requiring purchase of the network bundle. Commercial participation and backend identity mechanics differ.</p></article>
-</div>
-<p class="note"><strong>This is source-referenced navigation, not a directory product.</strong> Five current clients is a customer count. Their machine counts, deployment modes and Agent Computer arrangements are not established by that number. No “one verified entry plus five pending enrollments” is claimed.</p>
-</section>
-<section id="dimensions" aria-labelledby="dimensions-title">
-<h2 id="dimensions-title">3. Different dimensions—not competing lanes</h2>
-<p>Use the existing contracts to decide valid combinations. A label in one column does not answer the questions in another.</p>
-<div class="grid three">
-<article class="card"><h3>Purchase / participation</h3><p>Wirebot Direct or the network bundle. Direct customers need not buy network participation.</p><p class="small muted">Not equivalent to DIY or dedicated infrastructure.</p></article>
-<article class="card"><h3>Runtime isolation</h3><p>Shared or dedicated. The tier/runtime contract describes managed Sovereign as a dedicated runtime boundary.</p><p class="small muted">A personal bot identity does not necessarily mean a separate gateway process or physical machine.</p></article>
-<article class="card"><h3>Hosting / operation</h3><p>Managed infrastructure or client-owned infrastructure; client-owned deployments can remain managed by agreement.</p><p class="small muted">Sovereign does not automatically require self-hosting. Existing deployment and ownership contracts decide.</p></article>
-<article class="card"><h3>Federation / sharing</h3><p>Explicitly agreed collaboration across independently scoped participants. Preserve ownership and consent for what crosses a boundary.</p><p class="small muted">Not blanket access to private memory or client state; current behavior needs its own evidence.</p></article>
-<article class="card"><h3>Interface / access</h3><p>Web, extension, channels, the proposed operated wrapper, or individual components according to actual requirements.</p><p class="small muted">The interface does not determine the deployment mode or grant credential use.</p></article>
-<article class="card"><h3>Settled operated offering</h3><p><strong>$250k flat · five visits · ≤5h each.</strong> Any support contract floors at <strong>$450k/year</strong>.</p><p class="small muted">Wrapped process/app/library: operator IP, structurally tethered to the operated service. Independent components: their own licenses and DIY sovereignty. These terms are unchanged, not universal pricing for every Wirebot tier.</p></article>
-</div>
-</section>
-<section id="diagnostic" aria-labelledby="diagnostic-title">
-<h2 id="diagnostic-title">4. Where the diagnostic fits</h2>
-<p class="bar"><strong>“Given what this person wants to accomplish, what already exists, what works, and what is actually missing?”</strong> Start with the engagement—not the assumption that every machine should contain this server’s toolchain.</p>
-<ol class="flow" aria-label="Diagnostic to outcome flow"><li>Desired outcome</li><li>Applicable checks</li><li>Observations</li><li>Relevant gaps</li><li>Existing governed work</li><li>Recheck &amp; usable result</li></ol>
-<div class="grid three">
-<article class="card"><h3>Observe without assuming</h3><p>A requirement may be met locally or remotely, not apply, be blocked, or remain unknown. Match checks to actual network integrations, managed services or deployment needs.</p><span class="badge proposed">Applicability output not implemented yet</span></article>
-<article class="card"><h3>Connect to the right owner</h3><p>Determine approved report ownership, consumer, identity binding, permissions, retention and readback before production delivery. Reuse the existing subsystem that actually owns the responsibility.</p><span class="badge gap">Real intake binding remains open</span></article>
-<article class="card"><h3>Explain readiness plainly</h3><p>Show required capabilities working, blocked and untested. A later percentage needs a meaningful denominator and cannot conceal a critical blocker.</p><span class="badge proposed">Numerical scoring remains a candidate</span></article>
-</div>
-<p class="rule"><strong>Keep these distinct:</strong> an observation is not enrollment; a fingerprint is not identity authority; readiness is not business success. Tauri and the relevant existing extension can eventually present the same underlying diagnostic workflow without duplicating the checker or introducing a fleet store.</p>
-</section>
-<section id="spine" aria-labelledby="spine-title">
-<h2 id="spine-title">5. Keep the proven deployment spine</h2>
-<p>The existing nine-stage sequence remains intact. These are Golden Path stages for an applicable operated engagement—not mandatory infrastructure work for every ecosystem user. Evidence, prerequisites and approved scope determine execution.</p>
-<ol class="grid three stages">
-<li class="card"><h3>Engage</h3><p>Engagement, owner authority and consent design.</p></li>
-<li class="card"><h3>Workstation substrate</h3><p>Applicable agent tooling, Focusa, early UIAI access and secret-safe operation.</p></li>
-<li class="card"><h3>Chief of Staff genesis</h3><p>Local, git-backed workspace and initial Chief-of-Staff context.</p></li>
-<li class="card"><h3>Cloud landing</h3><p>Approved control-plane substrate; cloud readiness is not yet CoS relocation.</p></li>
-<li class="card"><h3>Mesh + identity</h3><p>Approved connectivity, identities and access across the actual estate.</p></li>
-<li class="card"><h3>Knowledge + audit</h3><p>Document relevant systems, retrieve knowledge and understand business needs.</p></li>
-<li class="card"><h3>Chief of Staff ascends</h3><p>Relocate the git-backed workspace to the approved cloud-primary operation.</p></li>
-<li class="card"><h3>Operating plane</h3><p>Voice, recurring tasks, schedules and governed agent roles.</p></li>
-<li class="card"><h3>Ongoing operation + handoff</h3><p>Support, benefit review, continuity and evidence-backed improvement.</p></li>
-</ol>
-<p class="small muted">Diagnostics may inform qualification, stage checks and support; running one does not complete the whole spine. Exact stage details and settled constraints remain in the <a href="02-agent-os-golden-path-ordered-tasks.md">single working doctrine</a>.</p>
-</section>
-<section id="proof" aria-labelledby="proof-title">
-<h2 id="proof-title">6. What exists—and what still needs proof</h2>
-<div class="grid two">
-<article class="card"><span class="badge source">Historical bounded observations</span><h3>Useful prototype, limited coverage</h3><ul><li>Ten CLI presence/version checks; three health paths, seven health values not assessed.</li><li>Linux reference run after KB access repair reported ten present and three healthy.</li><li>Synthetic missing-tool test returned exit 1. Install mode printed routes without installing.</li><li>Local HTTP sink accepted a report. Raw machine-id and the tested synthetic bearer were absent from captured output.</li></ul><p class="small muted">These are prior test observations, not fresh runtime verification by this diagram.</p></article>
-<article class="card"><span class="badge gap">Implementation / acceptance gaps</span><h3>Fine-grained tuning in existing owners</h3><ul><li>UIAI/OpenClaw and remote/applicable capability coverage are missing.</li><li>Manual JSON interpolation, missing-label looping, flag order and repeated/unbounded checks need hardening.</li><li>Unhealthy results do not affect the checker exit code; HTTPS is not enforced.</li><li>A stable hash is linkable, not proof of anonymity or enrollment. Account access does not prove scoped client credentials.</li><li>Real receiver isolation, retention, receipt/readback, macOS/Windows and client-operated paths remain unproven.</li></ul></article>
-</div>
-<div class="card rule"><h3>One existing task ledger</h3><p><strong>Estate, ownership, bindings and run review (GP-04–07): in progress.</strong> Bounded prior work is retained; help/list reads do not prove lifecycle behavior. <strong>Implementation and verification (GP-08/09): in progress.</strong> Full workflow, reproducibility, isolation and handoff/publication (GP-10–13) remain planned.</p><p><strong>0.2.0 is a candidate.</strong> This update changes documentation and the visual—not scripts, credentials, hosts, public websites, intake infrastructure or enrollment.</p></div>
-</section>
-<section id="sources" aria-labelledby="sources-title">
-<h2 id="sources-title">7. Sources and interpretation</h2>
-<p>Operator direction supplies the approved goals and corrections. Existing component documents supply responsibilities; dated descriptions do not prove current runtime. Source-script inspection establishes limitations, not completed fixes.</p>
-<ul class="source-list">
-<li><a href="02-agent-os-golden-path-ordered-tasks.md">Single working doctrine + task ledger</a><br><small>Iteration 32; source of this visual’s approved boundaries.</small></li>
-<li><a href="03-agent-os-golden-path-future-addition-candidates.md">Future candidates</a><br><small>Scoring, extension and site triggers; fleet/enrollment candidate withdrawn.</small></li>
-<li><a href="SERVER_AGENT_HANDOFF.md">Server handoff</a> · <a href="CHANGELOG.md">Changelog</a><br><small>Continuation, bounded evidence and honest limits.</small></li>
-<li><a href="https://github.com/Startempire-Wire/wirebot-core/blob/main/docs/TIER_RUNTIME_CONTRACT.md">Tier/runtime contract</a> · <a href="https://github.com/Startempire-Wire/wirebot-core/blob/main/docs/SOVEREIGN_WHITE_LABEL_DEPLOYMENT.md">Client-owned deployment</a><br><small>Dedicated managed runtime differs from physical hosting and operating responsibility.</small></li>
-<li><a href="https://github.com/Startempire-Wire/wirebot-core/blob/main/docs/PRODUCTIZATION_ROUTE.md">Productization route</a> · <a href="https://github.com/Startempire-Wire/Startempire-Wire-Network/blob/main/docs/bigpicture.mdx">Network Big Picture</a><br><small>Source-stated relationships; historical hypothetical pricing does not supersede settled operated-offering terms.</small></li>
-<li><a href="../../scripts/substrate-bootstrap.sh">Substrate checker</a> · <a href="../../scripts/brownfield-audit.sh">Report prototype</a><br><small>Current source explains the bounded coverage and unresolved defects.</small></li>
+
+<section>
+<h2>3. The human-agent collaboration loop</h2>
+<ul class="flow">
+<li>Orient</li><li>Direct</li><li>Interpret</li><li>Delegate</li><li>Work</li><li>Collaborate</li><li>Verify</li><li>Continue</li>
 </ul>
+<p>The Operating Partner works at owner altitude. A Workstream Foreman owns exact project/workstream responsibility. Workers and execution systems receive bounded assignments. Broad partner context is not copied into every worker merely because it may be useful.</p>
+</section>
+
+<section>
+<h2>4. Workforce creation versus workforce operation</h2>
+<div class="grid two">
+<article class="card"><h3>Workforce Composer — Wirebot App</h3><p>Determines what organization or role should exist, why, with what objective, capabilities, budget, supervisor and data access. It produces a proposed/approved assignment packet.</p></article>
+<article class="card"><h3>Focusa Workforce</h3><p>Operates the active governed organization after Focusa has bound the role/work/authority. It shows Foremen, workers, active work, blockers, Needs You, evidence and execution posture.</p></article>
+</div>
+<div class="code">life/business need
+  -> Wirebot identifies capability gap
+  -> Workforce Composer proposes role/assignment
+  -> owner / CRIST / governance acceptance
+  -> Focusa binds governed work and authority
+  -> Focusa Workforce operates active work
+  -> Evidence / settlement
+  -> accepted outcome / W.I.N.S.
+  -> optional MeriFolio standing</div>
+</section>
+
+<section>
+<h2>5. Operator Deployment</h2>
+<p><strong>Operator Deployment is a commissioning/deployment profile, not another product, runtime tier or authority model.</strong></p>
+<div class="grid">
+<article class="card"><h3>Ownership / isolation</h3><p>May use customer-owned/private infrastructure and Sovereign isolation where required.</p></article>
+<article class="card"><h3>Hosting / operation</h3><p>Customer-owned, operator-managed, hosted or hybrid are independent choices.</p></article>
+<article class="card"><h3>Interfaces</h3><p>Wirebot App, Focusa Workforce, Focusa Desktop, UIAI, voice and Veragensia are separate surfaces over owned domains.</p></article>
+<article class="card"><h3>Network</h3><p>Private/off by default. Startempire federation is optional and explicit.</p></article>
+<article class="card"><h3>Packaging</h3><p>Desktop/mobile packaging may use Tauri or another adapter later, but packaging technology never defines the product architecture.</p></article>
+<article class="card"><h3>Commercial layer</h3><p>Licenses, implementation and support may be bundled commercially without collapsing entitlement into runtime authority.</p></article>
+</div>
+</section>
+
+<section>
+<h2>6. Capability and authority</h2>
+<div class="code">SUPPORTED
+  != ENTITLED
+  != ACTIVATED / CONNECTED
+  != AUTHORIZED
+  != CONSENTED FOR THIS EFFECT</div>
+<p>Commercial entitlement can make a capability available. It does not silently grant a worker, partner, runtime, network participant or remote operator authority to use it.</p>
+</section>
+
+<section>
+<h2>7. Fleet versus federation</h2>
+<div class="grid two">
+<article class="card"><h3>Fleet</h3><p>Multiple machines, Agent Computers, daemons, browsers or execution bodies under one Operator/owner root. Every projection retains source environment and daemon identity.</p></article>
+<article class="card"><h3>Federation</h3><p>Independent sovereign Operators exchange explicitly approved projections or requests. Federation never implies pooled memory, credentials, files, projects or inherited owner authority.</p></article>
+</div>
+</section>
+
+<section>
+<h2>8. Evidence and closure</h2>
+<div class="code">activity
+  != Evidence candidate
+  != verified Evidence
+  != Focusa settlement / Receipt
+  != accepted life/business outcome
+  != portable standing</div>
+<p>W.I.N.S. consumes accepted outcomes where applicable. MeriFolio may selectively project evidence-backed standing. Neither should infer success merely from activity, infrastructure readiness or a worker claiming completion.</p>
+</section>
+
+<section>
+<h2>9. Shared cross-product seams</h2>
+<div class="grid two">
+<article class="card"><h3>Partner profile</h3><p><code>operator.partner_profile.v1</code> — durable partner identity and presentation, separate from runtime/model identity.</p></article>
+<article class="card"><h3>Surface handoff</h3><p><code>operator.surface_handoff.v1</code> — exact deep handoff between Wirebot, Workforce, Focusa, UIAI and Veragensia without copying state.</p></article>
+<article class="card"><h3>Attention</h3><p><code>operator.attention.v1</code> — source-bearing approvals, blockers, owner truth, authentication, takeover and recovery decisions.</p></article>
+<article class="card"><h3>Correlation</h3><p><code>operator.correlation.v1</code> — stable cross-product refs tying a request, Workstream, execution, Evidence, Receipt and outcome together.</p></article>
+<article class="card"><h3>Capability posture</h3><p><code>operator.capability_posture.v1</code> — supported/entitled/activated/authorized/consented states stay distinct.</p></article>
+<article class="card"><h3>Closure</h3><p><code>operator.closure.v1</code> — evidence-to-settlement-to-outcome references without making ADLBOS another outcome database.</p></article>
+</div>
+</section>
+
+<section>
+<h2>10. Golden Path remains the deployment spine</h2>
+<div class="code">Stage 0  Engage — owner, intent, authority, consent
+Stage 1  Workstation substrate — Pi/agents, Focusa, UIAI, secrets
+Stage 2  Operating Partner genesis — durable customer partner identity and workspace
+Stage 3  Cloud landing — VPS / execution substrate where applicable
+Stage 4  Mesh + identity — GitHub, Tailscale, machine/runtime identity
+Stage 5  Knowledge + audit — business knowledge, retrieval, system inventory
+Stage 6  Partner continuity — durable hosted/remote operation where applicable
+Stage 7  Operating plane — recurring work, workers, schedules, surfaces
+Stage 8  Ongoing operation — evidence, support, recovery, improvement</div>
+<p>The sequence is reusable deployment doctrine, not a mandate that every customer use the same hosting topology, application packaging, network membership or support offer.</p>
+</section>
+
+<section>
+<h2>11. Diagnostic question</h2>
+<p class="bar"><strong>Given this owner’s goals and selected deployment posture, what capabilities and integrations are required, which are already working, which are blocked, and what is the smallest next implementation step that creates a real operating outcome?</strong></p>
+<p>The diagnostic reports applicable capability posture. It does not invent enrollment, a fleet registry, a new identity authority or a percentage that hides a critical blocker.</p>
+</section>
+
+<section>
+<h2>12. Non-negotiables</h2>
+<div class="code">ONE OWNER ROOT
+ONE DURABLE OPERATING PARTNER RELATIONSHIP
+ONE GOVERNED WORK PLANE: FOCUSA
+ONE SPECIALIST WORKFORCE OPERATIONS SURFACE: FOCUSA WORKFORCE
+ONE COMPUTER EXECUTION AUTHORITY: UIAI ENGINE
+ONE BODY/RUNTIME/PLACEMENT SUBSTRATE: VERAGENSIA
+ONE ACCEPTED-OUTCOME LAYER: W.I.N.S.
+ONE OPTIONAL PORTABLE-TRUST LAYER: MERIFOLIO
+ONE OPTIONAL SOVEREIGN NETWORK BOUNDARY: STARTEMPIRE WIRE
+
+MANY PRESENTERS.
+NO DUPLICATE CANONICAL STATE.
+ENTITLEMENT NEVER EQUALS AUTHORITY.
+FEDERATION NEVER EQUALS AMBIENT ACCESS.
+BRANDING NEVER EQUALS IDENTITY OR AUTHORITY.
+HARDWARE NEVER EQUALS PARTNER.</div>
+<p class="rule muted">Canonical textual authority: <code>CURRENT_ECOSYSTEM_ARCHITECTURE.md</code>. Historical Golden Path versions remain useful as provenance and field experience but do not override current product ownership.</p>
 </section>
 </main>
-<footer><p>View v3 · 12 September 2026 · Supersedes the draft’s forced fleet/enrollment and three-lane assumptions. No customer private state is included. This file renders offline; external links are references, not embedded live integrations.</p><p><a href="#top">Back to top</a> · <a href="../../AGENT_OS_GOLDEN_PATH.md">Golden Path entry</a> · <a href="../../README.md">Repository overview</a></p></footer>
+<footer><p>Agent-Driven Life & Business OS · current ecosystem topology · 2026-09-15</p></footer>
 </body>
 </html>
