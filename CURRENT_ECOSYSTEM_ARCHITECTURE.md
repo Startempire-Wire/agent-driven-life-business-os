@@ -21,6 +21,8 @@ Where older Golden Path or application-planning text conflicts with this documen
 CANONICAL OWNER PRINCIPAL
 human / legal owner
         |
+        +--> delegated humans, if explicitly granted
+        |
         v
 OPERATING PARTNER / CHIEF OF STAFF
 Wirebot implementation family
@@ -97,7 +99,31 @@ A customer-selected name is not a new architecture. The current implementation f
 
 The partner persists across model, runtime, host and body changes. Changing OpenClaw, Pi, model provider, VPS or computer MUST NOT silently create a new partner identity.
 
-### 2.3 `ArchitectureAuthorityPrincipal`
+### 2.3 `DelegatedHumanPrincipal`
+
+A deployment may authorize humans other than the Canonical Owner Principal to operate bounded parts of the system: assistants, employees, family members, administrators, contractors or service operators.
+
+A delegated human principal is **not** a second owner root merely because the person can operate the system.
+
+A delegation must bind, as applicable:
+
+- delegating owner principal;
+- exact human principal identity;
+- allowed domains/resources/operations;
+- consequence classes and approval limits;
+- data/credential visibility limits;
+- validity window;
+- delegation/redelegation policy;
+- revocation and audit references.
+
+```text
+DelegatedHumanPrincipal != CanonicalOwnerPrincipal
+operator access          != architecture authority
+```
+
+Delegated humans may receive operational authority under owner policy. Architecture authority remains owner-rooted unless separately and explicitly delegated under the constitution.
+
+### 2.4 `ArchitectureAuthorityPrincipal`
 
 Optional. A durable AI principal may receive owner-rooted cryptographic authority to make specified canonical architecture decisions.
 
@@ -107,9 +133,9 @@ OperatingPartnerPrincipal != ArchitectureAuthorityPrincipal
 
 Being the Chief of Staff, Wirebot, Spock, a root process or a highly capable agent does not create architecture authority.
 
-### 2.4 Runtime / workload identity
+### 2.5 Runtime / workload identity
 
-Processes, sessions, models, workers, nodes, browsers, containers and Agent Computers are runtime identities/incarnations. They never substitute for durable owner or partner identity.
+Processes, sessions, models, workers, nodes, browsers, containers and Agent Computers are runtime identities/incarnations. They never substitute for durable owner, delegated-human or partner identity.
 
 ---
 
@@ -121,6 +147,7 @@ Owns portable integration doctrine:
 
 - Canonical Owner Principal;
 - identity/tenancy separation;
+- human-delegation boundary law;
 - common handoff semantics;
 - cross-product correlation requirements;
 - capability/entitlement/authority separation;
@@ -299,6 +326,7 @@ A normal sovereign Operator deployment may include:
 ```text
 customer owner
 + customer-named Operating Partner (Wirebot implementation family)
++ explicitly delegated human operators, if any
 + Focusa
 + Focusa Workforce
 + UIAI as entitled/needed
@@ -380,9 +408,56 @@ operator.attention.v1
 operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
+operator.credential_use_ref.v1
 ```
 
 These contracts are small reference envelopes, not a new orchestration database.
+
+### 10.1 Common envelope law
+
+Every actionable shared envelope MUST make compatibility, authority source and freshness machine-readable. As applicable, include:
+
+```text
+schema
+schema_version
+producer / producer_version
+source_ref
+owner / tenant ref
+correlation_id
+revision or source version
+observed_at / issued_at
+expires_at for time-bounded or actionable state
+idempotency/replay key where a mutation may be retried
+```
+
+Rules:
+
+- unsupported major/schema versions fail closed for consequential actions;
+- additive fields may be ignored only where the consumer's compatibility contract explicitly permits it;
+- stale/expired projections may remain inspectable but MUST NOT silently authorize a consequential action;
+- offline caches are projections, not authority stores;
+- after reconnect, revalidate current source state before mutating from cached attention, entitlement, grant or execution state;
+- ambiguous mutation completion must use owning-system idempotency/reconciliation semantics rather than blind replay.
+
+### 10.2 Credential/secret seam law
+
+Raw long-lived secret material does not cross normal product handoffs.
+
+`operator.credential_use_ref.v1` carries only opaque references and bounded use intent, for example:
+
+```text
+credential_ref
+provider/account ref
+requested operation/scope
+requesting principal/work ref
+consequence/approval policy ref
+validity/expiry
+correlation ref
+```
+
+The owning credential/secret authority resolves the reference at execution time and may deny it. Existence of a credential reference never proves current authorization to use it.
+
+No shared envelope, URL, task description, Evidence object or Receipt should contain the reusable secret itself.
 
 ---
 
@@ -404,6 +479,8 @@ network opportunity
 ```
 
 Wirebot renders owner-wide attention. Workforce renders workforce-scoped attention. UIAI renders immediate execution attention. The source owner resolves the item.
+
+**Acknowledging, hiding or dismissing an attention item in one surface is not source-domain resolution.** A presenter may store local UX acknowledgement, but canonical resolved/cancelled/expired state comes from the source owner and must be revalidated before consequential action.
 
 ---
 
@@ -471,24 +548,29 @@ Shared visual language is encouraged. Shared canonical state is not.
 7. No network authority inheritance.
 8. No runtime/identity collapse.
 9. No UI ownership drift.
-10. Outcome over ceremony.
+10. No raw reusable secret material in cross-product seams.
+11. No consequential action from stale/expired cached authority projections.
+12. Outcome over ceremony.
 
 ---
 
 ## 15. Current reconciliation actions
 
 1. formalize Operating Partner identity + white-label presentation;
-2. formalize Chief-of-Staff → Focusa/Foreman delegation;
-3. formalize Workforce Composer → assignment → Focusa Workforce lifecycle;
-4. implement shared attention projection;
-5. implement exact surface handoff;
-6. implement universal cross-product correlation refs;
-7. implement capability/entitlement/activation posture;
-8. implement Evidence → settlement → W.I.N.S. closure refs;
-9. distinguish fleet from sovereign federation everywhere;
-10. keep MeriFolio outside local workforce authority;
-11. update historical app/packaging language to current Wirebot App ownership;
-12. compile Golden Path/task ledgers into existing Focusa-governed work rather than creating another task authority.
+2. formalize delegated-human principal and revocation semantics;
+3. formalize Chief-of-Staff → Focusa/Foreman delegation;
+4. formalize Workforce Composer → assignment → Focusa Workforce lifecycle;
+5. implement shared attention projection;
+6. implement exact surface handoff;
+7. implement universal cross-product correlation refs;
+8. implement capability/entitlement/activation posture;
+9. implement Evidence → settlement → W.I.N.S. closure refs;
+10. implement opaque credential-use references without moving secrets;
+11. require shared-envelope compatibility/freshness/replay metadata;
+12. distinguish fleet from sovereign federation everywhere;
+13. keep MeriFolio outside local workforce authority;
+14. update historical app/packaging language to current Wirebot App ownership;
+15. compile Golden Path/task ledgers into existing Focusa-governed work rather than creating another task authority.
 
 ---
 
@@ -496,6 +578,7 @@ Shared visual language is encouraged. Shared canonical state is not.
 
 ```text
 ONE OWNER ROOT
+BOUNDED DELEGATED HUMAN OPERATORS WHERE NEEDED
 ONE DURABLE OPERATING PARTNER RELATIONSHIP
 ONE GOVERNED WORK PLANE: FOCUSA
 ONE SPECIALIST WORKFORCE OPERATIONS SURFACE: FOCUSA WORKFORCE
@@ -507,8 +590,11 @@ ONE OPTIONAL SOVEREIGN NETWORK BOUNDARY: STARTEMPIRE WIRE
 
 MANY PRESENTERS.
 NO DUPLICATE CANONICAL STATE.
+DELEGATION NEVER EQUALS OWNERSHIP.
 ENTITLEMENT NEVER EQUALS AUTHORITY.
 FEDERATION NEVER EQUALS AMBIENT ACCESS.
 BRANDING NEVER EQUALS IDENTITY OR AUTHORITY.
 HARDWARE NEVER EQUALS PARTNER.
+CACHED STATE NEVER SILENTLY BECOMES CURRENT AUTHORITY.
+SECRET REFERENCES NEVER BECOME SECRET DISCLOSURE.
 ```
