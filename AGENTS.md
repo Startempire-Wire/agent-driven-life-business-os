@@ -3,6 +3,7 @@
 **Contract status:** LIVE portable build-agent operating contract  
 **Architecture authority:** `OWNER_AUTHORITY_CONSTITUTION.md`  
 **Current ecosystem architecture:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
+**Cross-product seam contract:** `CROSS_PRODUCT_SEAM_CONTRACT.md`  
 **Golden Path:** `AGENT_OS_GOLDEN_PATH.md`
 
 This contract tells build/operations agents how to work inside an Agent-Driven Life & Business OS deployment. It deliberately points to canonical owners instead of copying their entire product specifications.
@@ -370,7 +371,7 @@ Ready authorized work should continue without repeated permission prompts until:
 
 ## 13. Shared cross-product seams
 
-Use the ADLBOS contract families rather than inventing product-local equivalents:
+Use `CROSS_PRODUCT_SEAM_CONTRACT.md` plus the ADLBOS contract families rather than inventing product-local equivalents:
 
 ```text
 operator.partner_profile.v1
@@ -386,6 +387,8 @@ These are reference envelopes, not a new integration database.
 
 Exact product state stays with its owner.
 
+Cross-product references are typed/source-qualified. A bare ID is not assumed globally unique and never grants authority merely by being resolvable.
+
 For actionable shared envelopes, compatibility and freshness are not optional metadata. Include the owning schema/version, producer/version, source reference, correlation ID, source revision, issue/observation time, expiry where relevant and idempotency/replay key where retries can mutate state.
 
 Rules:
@@ -393,7 +396,9 @@ Rules:
 - unsupported consequential schema versions fail closed;
 - stale/expired cached state may be inspectable but does not silently authorize action;
 - reconnect/recovery revalidates source state before acting on cached approvals, entitlements, grants, handoffs or execution posture;
-- ambiguous consequential mutations reconcile through the owning system instead of blind retry.
+- ambiguous consequential mutations reconcile through the owning system instead of blind retry;
+- wall-clock timestamps from independent systems do not establish causal order; prefer product-owned revision/sequence/epoch/generation semantics;
+- clock uncertainty around a consequential expiry resolves by source revalidation rather than guessing.
 
 ---
 
@@ -549,6 +554,7 @@ Build agents on the Chromebook/cloud should begin with:
 ```text
 OWNER_AUTHORITY_CONSTITUTION.md
 CURRENT_ECOSYSTEM_ARCHITECTURE.md
+CROSS_PRODUCT_SEAM_CONTRACT.md
 AGENT_OS_GOLDEN_PATH.md
 then the owning product repository/spec for the task
 ```
@@ -568,6 +574,7 @@ Continue through tool failures when a safe route remains.
 Do not duplicate state to make a UI easier.
 Do not act from stale cached authority state.
 Do not move reusable secret material across product seams.
+Do not infer causal order from independent wall clocks.
 Prove the result in running reality.
 Leave no mess you can clean yourself.
 ```
