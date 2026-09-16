@@ -1,523 +1,382 @@
-# Server Agent Handoff — Agent OS Golden Path
+# Server / Chromebook Build-Agent Handoff — Agent-Driven Life & Business OS
+
+**Status:** CURRENT  
+**Audience:** build/operations agents with authorized access to the real server, Chromebook, cloud and customer deployment environments.
 
 ## Assignment
 
-You are the on-server build agent with direct access to the real Startempire/Wirebot environment and the currently authorized customer Agent OS environments.
-
-Your mission is to **reconcile and improve** the portable Agent OS Golden Path, then execute only the next authorized stage. Current operator steering controls the activity; this handoff is not a standing grant to implement or deploy every candidate.
+Improve and execute the Agent-Driven Life & Business OS using the existing product owners and the current Golden Path. Do not rediscover the architecture from old conversation history or create a parallel system because one seam is incomplete.
 
 Start here:
 
-1. `AGENTS.md`
-2. `OWNER_AUTHORITY_CONSTITUTION.md`
-3. `CRYPTOGRAPHIC_AUTHORITY_PROFILE.md` where identity/delegation is relevant
-4. `AGENT_COMPUTER_REFERENCE_PROFILE.md`
-5. `AGENT_OS_GOLDEN_PATH.md`
-6. The current candidate linked by `AGENT_OS_GOLDEN_PATH.md`, including its base phase definitions.
-7. `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` — reuse this ordered list rather than creating another task tree.
-
-The `0.1.0` scaffold is historical input; the current working source targets **0.2.0-candidate**. **Do not treat deployment assumptions as live truth.** Iteration 32 reconciles existing products and boundaries; it does not implement the outstanding diagnostic/intake work.
-
-## Current cohesion handoff — iteration 32
-
-Read [ecosystem fit](02-agent-os-golden-path-ordered-tasks.md#ecosystem-fit--preserve-the-parts-strengthen-the-connections) and the [topology visual](04-agent-os-golden-path-ecosystem-topology-map.html) before selecting a receiver or interpreting a mode. Preserve the existing nine stages, economics and component/wrapped-app distinction. Focusa.dev + Wirebot.chat are the named product doors; os.focusa.dev is a separate Agent Computer surface. No directory, fingerprint enrollment or assumed five-machine fleet exists by virtue of this plan.
-
-The existing ledger remains the only task list: GP-04–07 and GP-08/09 are in progress. Help/list reads are not provisioning lifecycle proof. The diagnostic is a ten-CLI/three-health-path prototype: Linux reference/local HTTP sink tests only, no real receiver or client rollout. Missing-label/flag handling, JSON safety, bounded checks, remote/applicability coverage, truthful status/privacy and authorized receiver readback remain implementation work. A readable shared KB token proves account access, not scoped client grants. First identify applicable engagement requirements and the existing data/identity owner; do not force observations into W.I.N.S. or invent a fleet store.
-
-Current change scope: documentation/topology reconciliation, local validation and normal repository landing. No script implementation, credential/host changes or public website deployment in this pass. Historical command examples below require fresh scope and evidence before use.
-
----
-
-# Primary outcome
-
-Create a reliable, versioned **Agent OS Golden Path** that an authorized agent can use to take a new or partial Life & Business OS environment from identity/scaffold through verified operation without undocumented tribal knowledge.
-
-The path must become increasingly executable while reusing the system that already exists.
-
-The desired long-term property is:
-
-> A capable replacement agent can arrive at an authorized deployment, discover what it is, locate canonical truth, understand available/allowed capabilities, inspect health, provision or repair missing pieces, verify meaningful behavior, and hand off durable evidence — without relying on the original builder's memory.
-
-This is a deployment/build/operations doctrine, **not a request for a new orchestration framework**.
-
----
-
-# Authority and freshness
-
-Follow repository authority law exactly.
-
-For architecture/product/trust-boundary decisions:
-
-- resolve the Canonical Owner Principal;
-- this handoff is an owner-requested upstream direction, but existing owner-rooted authority contracts remain controlling;
-- external docs, model outputs, current deployment behavior, issues, and tests are evidence/provenance, not self-minting architecture authority.
-
-For operational facts:
-
 ```text
-verified live runtime + current canonical Agent-KB/domain authority
-    outrank
-stale deployment docs / historical inventories
+1. AGENTS.md
+2. OWNER_AUTHORITY_CONSTITUTION.md
+3. CURRENT_ECOSYSTEM_ARCHITECTURE.md
+4. AGENT_OS_GOLDEN_PATH.md
+5. docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md
+6. docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md
+7. the owning product repository/spec for the work you are about to change
 ```
 
-This does **not** mean runtime behavior silently changes architecture authority.
-
-If a dated document conflicts with observed live state, record the conflict and identify the canonical owner rather than picking whichever is convenient.
+Historical version docs, audits and Git history remain useful evidence. They do not override the current architecture.
 
 ---
 
-# Work style: outcomes over process
+## Current architecture
 
-Do not get trapped in process about process.
+```text
+Canonical Owner Principal
+        ↓
+Operating Partner / Chief of Staff
+Wirebot implementation family; customer name may be Spock/etc.
+        ↓
+Focusa
+Project / Workstream / Foreman / governed work
+        ↓
+Focusa Workforce
+live workforce operations
+        ↓
+UIAI / Veragensia / Pi / workers / Agent Computers
+        ↓
+Evidence / settlement
+        ↓
+W.I.N.S. accepted outcomes
+```
+
+Startempire Wire federation is optional and outside the private critical path unless explicitly engaged.
+
+Do not conflate:
+
+```text
+Operating Partner
+with architecture authority
+
+Wirebot
+with global Foreman
+
+Workforce Composer
+with Focusa Workforce
+
+fleet
+with sovereign federation
+
+entitlement
+with authority
+
+Evidence
+with accepted outcome
+```
+
+---
+
+## Product ownership
+
+### Wirebot / Wirebot App
+
+Owns the Operating Partner experience, life/business orientation, Workforce Composer, broad owner conversation, owner-wide Needs You, organization design, network context and owner-facing outcomes.
+
+### Focusa
+
+Owns governed work: Project, Workstream, Foreman, Workpoint, authority, Evidence/receipts, continuation/recovery and work settlement.
+
+### Focusa Workforce
+
+Owns specialist live workforce operations: roster, active work, Direction, workforce Needs You, Evidence inspection, execution/topology projection and exact specialist handoffs.
+
+### UIAI Engine
+
+Owns browser/computer observation, actuation, diagnostics, takeover/reconciliation and execution proof.
+
+### Veragensia
+
+Owns Agent Computer/body/runtime identity, placement, enforcement, human control and lifecycle.
+
+### W.I.N.S.
+
+Owns accepted outcome/portfolio semantics.
+
+### MeriFolio
+
+Owns portable worker identity/trust/standing. It is not local workforce authority.
+
+---
+
+## Operator Deployment
+
+Operator Deployment is an implementation/deployment offer, not another runtime or authority class.
+
+A customer deployment may combine:
+
+```text
+customer owner
++ customer-named Wirebot Operating Partner
++ dedicated/private Focusa
++ Focusa Workforce
++ UIAI where entitled/needed
++ customer/private infrastructure
++ optional Veragensia bodies
++ optional Startempire federation
+```
+
+Treat purchase/participation, runtime isolation, hosting/operation, federation and interface as independent dimensions.
+
+Do not infer a deployment mode from one product name, site, server or customer count.
+
+---
+
+# Operating rules
+
+## Outcomes over process
 
 Use:
 
 ```text
-inspect → reconcile → implement → verify → learn → improve
+inspect → reconcile → implement → verify → clean up → continue
 ```
 
 not:
 
 ```text
-inspect → document → plan → re-plan → manufacture ceremony
+inspect → plan → document → re-plan → create process about process
 ```
 
-Discovery is bounded by the point at which you know enough to act safely and correctly.
+A failed route/tool is not mission failure when another valid path exists.
 
-A failed tool/path is **route failure, not mission failure**. Change strategy and continue making forward progress wherever possible. Do not stop the overall mission because one optional connector, command, provider, or service path is unavailable.
+Do not stop unrelated productive work because one connector, provider, CLI or host path is unavailable.
 
-Prefer:
+## DRY / one owner
 
-- existing primitives over new systems;
-- implementation over speculative architecture;
-- the smallest correct change over a generalized framework;
-- meaningful behavioral checks over proof theater;
-- root-cause consolidation over repeated local patches.
+Before adding storage/schema/workflow/policy, find the canonical owner.
 
-Do not create duplicate task trees, plans, or trackers when existing Beads/CallGraphs/issues already represent the work adequately.
+Do not create duplicate:
+
+- task/work authority;
+- role/roster state;
+- approval store;
+- Evidence ledger;
+- entitlement system;
+- memory store;
+- federation registry;
+- conversation authority.
+
+## Security
+
+No raw long-lived secrets, recovery codes, reusable PINs, private keys or customer credentials in repositories, prompts, receipts or logs.
+
+Break-glass authentication resolves through the current deployment secret/verifier mechanism, never an inline value from documentation.
+
+## Delivery truth
+
+A command, commit, route, task closure or agent assertion is not completion.
+
+Verify the actual requested effect at the narrowest practical layer and through a real vertical flow when material.
 
 ---
 
-# Step 1 — Reconcile the real estate
+# Real-estate reconciliation
 
-Inspect the authorized environments directly.
+When a task depends on current deployment state, inspect only authorized environments and classify what is actually present.
 
-At minimum evaluate the Startempire reference environment and every current active customer environment you are authorized to inspect that materially informs the reusable deployment model.
-
-Do not copy private customer details into the portable repo.
-
-Reconcile relevant systems including, where present:
-
-- Wirebot Core and deployed Wirebot runtime;
-- OpenClaw gateway/runtime/config;
-- Focusa daemon, project identity, Workstreams, Foremen, tools and evidence;
-- UIAI Engine;
-- Veragensia / Agent Computer infrastructure;
-- Agent-KB/API and current operational knowledge;
-- Context Core;
-- memory systems and their actual roles;
-- Beads / beads_rust / beads_viewer;
-- Flow Mesh / work queue / CallGraphs / schedulers;
-- Pi and other worker/build-agent harnesses;
-- customer/tenant provisioning;
-- service managers and container/VM/sandbox/worktree mechanisms;
-- Tailscale/Cloudflare/private networking;
-- secret management and runtime injection;
-- customer licensing/entitlement where applicable;
-- observability/logging/receipts/evidence;
-- backup/recovery paths;
-- GitHub/deployment workflows.
-
-For each important claim classify its status:
+Relevant systems may include:
 
 ```text
-canonical
-implemented
-installed/deployed
+Wirebot / current runtime adapter
+Wirebot App
+Focusa
+Focusa Workforce
+UIAI Engine
+Veragensia / Agent Computers
+Pi / build agents
+Agent-KB / Context Core / memory owners
+Tailscale / network
+Cloudflare / DNS
+GitHub
+credential/vault systems
+Beads / GitHub Issues / CallGraphs / task providers
+business systems
+W.I.N.S.
+Startempire federation
+```
+
+Classify independently:
+
+```text
+installed
+configured
+reachable
+healthy
+entitled
+authorized
+usable
 verified
-planned
-obsolete
+not applicable
 unknown
 ```
 
-Do not collapse these statuses.
+Do not turn an observation into enrollment, ownership or authority.
 
 ---
 
-# Step 2 — Build the state ownership map
+# Golden Path execution
 
-This is a high-priority deliverable because duplicated truth is one of the largest long-term failure modes.
-
-For every material state/store, classify its primary role:
+Follow the current Stage 0–8 spine:
 
 ```text
-CANONICAL
-DERIVED
-CACHE
-INDEX
-COORDINATION
-EVIDENCE
-EPHEMERAL
+0 Engage and bind ownership
+1 Workstation substrate and secure agent capability
+2 Operating Partner genesis
+3 Cloud/private execution landing where applicable
+4 Mesh, identity and reachable execution bodies
+5 Knowledge, business audit and system map
+6 Primary administration/runtime cutover
+7 Operating plane and workforce commissioning
+8 Ongoing operation, outcomes and handoff
 ```
 
-Record:
+Use dependencies rather than blindly following stage numbers.
 
-```text
-domain / fact class
-canonical owner
-scope key
-writer(s)
-reader(s)
-consistency expectation
-freshness semantics
-backup/recovery semantics
-projection/cache/index dependencies
-```
-
-Pay particular attention to overlap among:
-
-- Focusa state;
-- Agent-KB;
-- Context Core;
-- OpenClaw state;
-- memory-core / Mem0 / Letta or current replacements;
-- conversation/transcript/audit state;
-- Beads/task/queue state;
-- WINS/evidence/receipts;
-- UIAI evidence;
-- tenant/provisioning state;
-- business/application systems.
-
-Do **not** solve ambiguity by creating another synchronization store.
-
-If duplicate canonical ownership truly exists, identify the narrowest correction at the proper owner.
-
-**State ownership map — reference deployment (drafted 2026-09-12 from live read-only reconciliation; generalized form, no tenant private state).** One canonical owner per store; anything else holding a copy is DERIVED/CACHE with a re-derive path; no synchronization store.
-
-```text
-STORE                                        ROLE        CANONICAL OWNER                 SCOPE KEY            WRITERS->READERS                          FRESHNESS/CONSISTENCY           BACKUP/RECOVERY
-source code repositories                     CANONICAL   GitHub (orgs + owner account)   repo + branch        approved pushers -> clones, CI            git history authoritative        remote is the backup; recovery = clone
-CoS workspace folders                        CANONICAL   OpenClaw gateway per user       user id              gateway + agents -> CoS runtime           folder canonical until ascension git-backed (Stage 2); services hold runtime state
-Focusa state (per deployment)                CANONICAL   that deployment's Focusa        project/continuity   typed APIs/reducer -> harness tools       append-only; event timestamps   Focusa backup/restore mechanisms
-Agent-KB knowledge                           CANONICAL   agent-kb-api master             doc ids              ingestion/refresh -> agents via CLI       API-authoritative; index_generation   refresh jobs + transitional-storage policy
-secrets (vault)                              CANONICAL   Bitwarden                       field refs           vault clients -> scoped rbw retrieval     vault authoritative             provider backup; agents never copy values
-DNS zones                                    CANONICAL   Cloudflare (DNS of choice)      zone id              cf/wrangler approved auth -> agents       API-authoritative at change     zone export before change; staged-transfer rollback
-hosting/site estate (cPanel/WordPress)       CANONICAL   each cPanel account             account user         as-user + per-site tools -> granted agents per-account                     hosting backup policy + incident runbooks
-business records (mail/calendar/drive/site)  CANONICAL   the owning business system      tenant/account       owning tools -> agents with granted scopes owning-system authoritative     record timestamps; provider-native export
-memory/conversation/audit stores             CANONICAL   the owning memory/audit service tenant + session    service APIs -> scoped agents             service authoritative           service timestamps + service backup policy
-evidence/receipts                            EVIDENCE    Focusa evidence surfaces        evidence_ref ids     typed capture -> replacement agents       append-only; capture timestamps Focusa store backup
-crons/jobs/queues                            COORDINATION owning runtime (OpenClaw/Focusa bg) job ids         schedulers/executors -> agents            receipt-backed completion       receipts preserved; idempotent rerun
-worktrees/sessions/scratch                   EPHEMERAL   owning runtime                  session/worktree id  agents -> agents                          disposable                      discard after verification
-```
-
-Overlap check per Step 2: Focusa state is the only canonical store for governed work/evidence; Agent-KB is canonical only for knowledge; CoS folders are canonical only for identity/directives (runtime memory/task state stays with owning services); business systems stay canonical for their records. No store duplicates another's canonical ownership; no new synchronization store created.
-
-Verified live 2026-09-12 on the reference estate (read-only): tailnet mesh healthy (cloud VPS ping ~5 ms); GitHub organizations and 43 owner-account repos enumerated; 50 Cloudflare zones answered via approved auth; operated CoS user instances present; provisioning mechanism live on the network estate. Per-tenant enumeration continues under GP-04; evidence refs in Focusa (`gp04-virtual-execution-proof-20260912`, `gp04-bounded-reconciliation-20260911`).
+The current working spine is `02-agent-os-golden-path-ordered-tasks.md`; do not create another parallel process doc.
 
 ---
 
-# Step 3 — Map every Golden Path phase to reality
+# Workforce path
 
-For each phase in `0.1.0`, produce a compact implementation mapping:
-
-```text
-phase
-current canonical component(s)
-current executable commands/tools/APIs
-current check(s)
-known real gotchas
-recovery/rollback path
-gaps
-confidence / evidence refs
-```
-
-Important: do not duplicate stable implementation details into the portable repo when those belong in Agent-KB or subsystem documentation.
-
-The portable Golden Path should capture **contracts, selection rules, profiles, and durable lessons**.
-
-Deployment-private/current facts stay with live operational authority.
-
-**Phase→reality mapping (GP-06 first pass, 2026-09-12; evidence labels reconciled in iteration 32).** These are historical reference observations and candidate bindings, not permission to replay commands. Presence/status/help/list evidence proves only the inspected surface, not every listed mutation, lifecycle or per-client outcome. Mechanism class follows the existing spine; exact bindings and consumer proofs remain GP-06/09 work. Versions and endpoint reachability require fresh checks.
+When an audit identifies a recurring capability/role gap:
 
 ```text
-Stage 0 — Engage
-  components: owner-constitution pattern; Focusa project identity/genesis; Agent-KB bootstrap
-  verified commands: focusa project identity/verify, focusa project bootstrap, agent-kb bootstrap
-  class: deterministic (identity/records) | probabilistic (consent-design judgment)
-  gotchas: consent surface primary-not-exhaustive; tenant identity never inferred
-  gaps: per-client engagement records not KB-indexed (tribal lineage)
-  evidence: gp04 refs; focusa project verify completed
-
-Stage 1 — Workstation substrate
-  components: Pi harness 0.85.1; Focusa install lifecycle; UIAI Engine; Bitwarden+rbw 1.15.0; gh; wrangler 4.86.0; gog 0.34.1; Agent-KB
-  verified commands: pi --version, focusa status --agent --json, gh auth status, wrangler whoami, rbw --version, agent-kb freshness --json
-  class: deterministic installs via official installers (agent-supervised); secret consolidation + billing = owner-typed moments
-  gotchas: AV/script blocking, missing terminal/Node, UAC batching (observed scars); offline endpoints = unknown-until-reachable
-  gaps: checker prototype exists; install execution, UIAI/OpenClaw coverage, applicability/remote checks and hardening remain GP-08/09 work
-  recovery: reconcile current state, then use the owning official installer/recovery path under its grant
-
-Stage 2 — CoS genesis
-  components: git + GitHub; OpenClaw gateway user dirs; CRIST Spec 135B; Svelte CoS UI (surface)
-  binding candidates: git init/remote/push, gh repo create, bd; wb provision up [user_id] [tier] and wb sovereign provision [user_id] --confirm (help/list inspected only; no provisioning mutation or recovery proven)
-  checks: push + fresh-clone boot test; CRIST role packet approved; wb provision status before/after
-  class: deterministic (git mechanics + wb provision pipeline) | CRIST interview probabilistic
-  gotchas: provisioning lifecycle commands must run as root (wb -> as-user -> runuser design); wb provision list has no --format json (table only); runtime memory/task state stays with owning services; no secrets in folder
-  gaps: first sovereign-tier member provision unproven end-to-end (surface verified; execution deferred to an authorized run)
-
-Stage 3 — Cloud landing
-  components: OVH VPS + provisioning mechanism (wirebot-provisioning, live)
-  verified: tailnet ping to VPS ~5 ms; provisioning plugin live on network estate
-  class: deterministic (account/API/form); verification-email = AC-monitored probabilistic
-  gotchas: verification windows expire; fresh VPS lacks agent toolchain
-  recovery: re-provision via documented provisioning path
-  gaps: per-client VPS profiles are engagement decisions (sizes/OS)
-
-Stage 4 — Mesh + identity
-  components: Tailscale + GitHub OAuth
-  verified commands: tailscale status/ping, gh auth status
-  class: deterministic installs + renewable OAuth consent moments
-  gotchas: offline devices = unknown-until-reachable (macbook ~15d last seen)
-  recovery: renewable re-auth per ladder
-
-Stage 5 — Knowledge + audit
-  components: gog 0.34.1; Agent-KB; wiki; UIAI browser
-  verified commands: gog version, agent-kb search/doc/freshness
-  class: gog OAuth consent = owner moment; machine-visible reads deterministic; interview probabilistic
-  gotchas: audit-from-memory drift; interview answers change-aware (correction impact handling)
-  gaps: first real client audit pending
-
-Stage 6 — CoS ascension
-  components: git; OpenClaw canonical install path on VPS; wrangler for subdomain UI
-  verified commands: git clone on VPS, wrangler whoami (auth live; 50 zones enumerated)
-  class: deterministic (git/DNS API) + consented staged zone transfer
-  gotchas: copy-paste relocation loses history; one explicit cutover event
-  recovery: local runtime remains rollback until cloud proves
-
-Stage 7 — Operating plane
-  components: OpenClaw CoS (cloud-primary); Focusa bg/crons; CRIST role packets
-  verified commands: focusa bg status, wb --format json version (0.5.0-747), gateway config present
-  class: deterministic (crons/receipts/heartbeats) | role design + exception recovery probabilistic
-  gotchas: silent cron death -> heartbeats; change breaks real workflows -> client-specific acceptance tests
-  gaps: first real client workflow run pending (GP-10)
-
-Stage 8 — Ongoing operation
-  components: Focusa evidence/receipts/settlement; UIAI EPWA proof surfaces; optimization loop
-  verified: focusa evidence/workpoint tools live (evidence captured this session)
-  class: machine verification under policy-governed completion; human review conditional (iteration 23)
-  gaps: replacement-agent test pending (GP-13)
+observed need
+→ Wirebot recommendation
+→ Workforce Composer
+→ CRIST / assignment packet
+→ owner/governance acceptance
+→ Focusa Project / Workstream / Foreman / authority binding
+→ Focusa Workforce projection
+→ worker execution
+→ Evidence / settlement
+→ accepted outcome
 ```
 
-Confidence: reference-estate bindings verified live 2026-09-12; the deterministic-library productization (Stage 1 install chain, gateway provisioning command binding) is the dominant remaining gap — GP-08 selection input.
+Do not directly spawn a broadly privileged “employee” from a role title.
+
+Profiles are templates. Assignments bind real scope and authority.
 
 ---
 
-# Step 4 — Evaluate the Agent Surface as an OS-level capability
+# Shared seam contracts
 
-The important idea from the source starter is not merely "add an API." The installation itself should become increasingly understandable and operable by agents.
-
-Determine what already exists for machine discovery across the estate:
-
-- Agent-KB bootstrap/freshness/search/direct-doc;
-- Focusa agent capability discovery and current agent-first tool surfaces;
-- MCP;
-- OpenAPI/JSON Schema;
-- A2A-style Agent Cards;
-- strict tool/function schemas;
-- CLI machine-readable help;
-- `/llms.txt` where appropriate;
-- UIAI/WebMCP or equivalent browser capabilities;
-- service/health/runtime manifests.
-
-Do not create a second copy of Focusa's capability registry.
-
-Instead determine whether a thin **deployment/installation-level manifest or Agent Card** is useful to answer:
+Cross-product joins belong to ADLBOS reference envelopes:
 
 ```text
-Who/what is this deployment?
-What profile/environment is it?
-What subsystems are installed?
-Where are their canonical discovery surfaces?
-What is healthy/degraded/unknown?
-What scopes am I operating under?
-Where do I retrieve deeper knowledge?
+operator.partner_profile.v1
+operator.surface_handoff.v1
+operator.attention.v1
+operator.correlation.v1
+operator.capability_posture.v1
+operator.closure.v1
 ```
 
-If this can be produced from existing authoritative sources with little new machinery, it is a strong candidate for the first executable slice.
+Implement the minimum seam exercised by the current vertical slice. Do not build a new centralized integration service merely to host these refs.
 
 ---
 
-# Step 5 — Find the smallest high-leverage executable slice
+# Current priority gaps
 
-Do not attempt to automate all 14 phases immediately.
+Use `11-agent-os-golden-path-seamless-autonomy-gap-audit.md` as the current gap owner.
 
-Find the smallest missing capability that makes the Golden Path materially more executable across multiple environments.
-
-Strong candidates may include, **only if not already present**:
-
-- a read-only `inspect`/inventory projection that composes existing authoritative surfaces;
-- a state-ownership audit generated from existing manifests/config;
-- an installation-level Agent Card/manifest linking subsystem discovery surfaces;
-- a phase verifier that calls already-existing health/doctor/tests;
-- a thin provisioning adapter that makes an already-documented idempotent customer step actually executable;
-- a readiness reducer that distinguishes scaffolded/configured/running/verified instead of returning false ready state.
-
-Do not select one of these merely because it appears in this prompt. Inspect the live system and choose the dominant leverage gap.
-
-Before building a new binary/service, search for an existing command/API/tool that should own the behavior.
-
----
-
-# Step 6 — Implement, don't just specify
-
-Once the high-leverage slice is chosen and authority is clear, implement it in the correct operational repository/system.
-
-Requirements:
-
-- reuse canonical primitives;
-- keep the change small;
-- preserve tenant/customer isolation;
-- preserve owner/architecture authority;
-- no committed secrets/private customer data;
-- fail closed rather than claim false readiness/completion;
-- make retries/idempotency explicit where provisioning or remote mutation is involved;
-- add proportionate tests/checks;
-- verify installed/running behavior where the task and authority include deployment.
-
-A source commit is not deployment proof.
-
-A deployment is not outcome proof.
-
-An agent assertion is not completion proof.
-
----
-
-# Step 7 — Run one bounded vertical slice
-
-Choose one authorized environment and demonstrate an end-to-end Golden Path improvement in real behavior.
-
-The exact slice depends on your findings, but it should resemble:
+Important current seams include:
 
 ```text
-orient to deployment
-→ resolve owner/profile/scope
-→ inspect canonical services/state surfaces
-→ identify one missing/degraded phase condition
-→ execute the authorized repair/provision step
-→ verify behavior
-→ capture evidence/receipt
-→ prove a replacement agent can understand the resulting state
+Operating Partner principal/presentation
+cross-product account/link/revoke
+Workforce Composer assignment schemas/compiler
+Chief-of-Staff → Focusa/Foreman delegation
+shared Needs You attention
+exact surface handoff
+universal correlation refs
+capability/entitlement posture
+Evidence → settlement → W.I.N.S. closure
+worker/partner memory isolation
+sovereign federation proof
+Golden Path/task tracker → Focusa executable binding
 ```
 
-Where customer isolation is involved, use synthetic/bounded tests and avoid unsafe mutation of real customer accounts merely for proof.
+Do not create another backlog for the same gaps.
 
 ---
 
-# Step 8 — Publish the next Golden Path version
+# Task trackers and Focusa
 
-After direct live reconciliation, improve this repository.
+Beads, GitHub Issues and other trackers may hold legitimate project/implementation state.
 
-Expected next version: normally `0.2.0` because live mappings and executable design will likely be a material backwards-compatible expansion. Use `0.1.1` instead if the changes are genuinely only corrections/clarifications.
+They do not automatically become Focusa's governed work authority.
 
-Create:
+Where a tracker/CallGraph is the approved executable task source, preserve stable refs and bind it into the exact Focusa project/continuity rather than reproducing the plan in multiple stores.
+
+---
+
+# Chromebook / cloud topology
+
+Treat the Chromebook and cloud/server agents as one development topology sharing authoritative Git repositories.
+
+Chromebook strengths:
 
 ```text
-docs/agent-os-golden-path/<next-version>.md
+UI/UX dogfood
+browser extension behavior
+voice/interaction testing
+lightweight implementation
 ```
 
-Then update:
+Cloud/server strengths:
 
 ```text
-AGENT_OS_GOLDEN_PATH.md
-  current version pointer/status
-
-docs/agent-os-golden-path/CHANGELOG.md
-  concise delta, evidence scope, compatibility notes
+heavy builds/tests
+runtime/services
+multi-agent implementation
+Veragensia/UIAI integration
+deployment
 ```
 
-Do not rewrite/silently mutate `0.1.0` after superseding it except obvious non-semantic repair. Preserve version lineage.
-
-The next version should include **real learned gotchas**, not hypothetical filler.
+Do not create Chromebook-only and server-only source forks.
 
 ---
 
-# Required outputs
+# Product application direction
 
-By the end of this assignment, deliver:
+Wirebot App is the current owner-facing application family.
 
-## 1. Live architecture reconciliation
+Older Tauri-wrapper and bespoke per-client Svelte CoS assumptions are historical design input, not current product ownership.
 
-Concise record of what is actually present and which sources are authoritative.
+Tauri may be used later as a packaging/support adapter if justified.
 
-## 2. State ownership map
+A customer-branded domain should normally present the same Wirebot App family with that customer's partner identity, not a separate CoS implementation.
 
-No ambiguous fact-class ownership left unexplained.
-
-## 3. Golden Path phase-to-implementation map
-
-Every current phase mapped to real primitives/gaps.
-
-## 4. Reuse/gap analysis
-
-For each proposed new behavior:
-
-```text
-existing owner found? yes/no
-existing capability found? yes/no
-why extension/reuse is insufficient if creating new behavior
-```
-
-## 5. One implemented high-leverage slice
-
-Working code/config/adapter in the appropriate operational repo/environment.
-
-## 6. Behavioral verification
-
-Evidence appropriate to the change and exact installed/deployed scope.
-
-## 7. Next Golden Path version
-
-Reality-grounded portable update committed and pushed to this repo.
-
-## 8. Handoff
-
-Plain-language summary containing:
-
-- what changed;
-- what now works that did not before;
-- what remains genuinely blocked or unverified;
-- exact next highest-leverage action.
+Focusa Workforce remains the specialist workforce browser surface.
 
 ---
 
-# Hard anti-patterns
+# Federation
 
-Do not:
+Reserve `federation` for independent sovereign participants.
 
-- build a second Agent OS inside the Agent OS;
-- build a second Focusa capability registry;
-- create another memory system because existing roles are confusing;
-- create another mission/task/evidence ledger;
-- copy live private customer configuration into this portable repo;
-- use the sovereign Wirebot/operator runtime as a hidden tenant fallback;
-- treat Linux usernames/model names/service names as authority;
-- treat a public machine-readable surface as authorization;
-- claim readiness because a directory/config/HTTP 200 exists;
-- use production as the first test when a safe proving route exists;
-- spend hours polishing architecture diagrams while the executable path remains unchanged;
-- stop making useful progress solely because one tool/provider path failed.
+One Operator's multiple machines/daemons/bodies form a fleet.
+
+Federation must be explicit, scoped and revocable. It never implies pooled memory, shared credentials, ambient project access, UIAI control or inherited owner authority.
 
 ---
 
-# Definition of success
+# Completion standard
 
-This assignment succeeds when the Golden Path is no longer merely an outside architectural idea.
+A server/build-agent task is complete when:
 
-Success means:
+1. the requested real behavior exists;
+2. the owning runtime/product confirms the relevant state;
+3. denied/stale/unknown states remain truthful;
+4. no duplicate authority/state was created;
+5. tests/build and relevant live vertical flow pass;
+6. current docs were updated if the architecture/contract changed;
+7. temporary branches/workflows/files created for the task are removed;
+8. the next agent can continue from durable state without relying on this agent's memory.
 
-1. it has been reconciled against the real estate;
-2. its state/authority assumptions match the actual system or are explicitly corrected;
-3. at least one important part of it is executable and behaviorally verified;
-4. the portable doctrine has advanced to a new version based on direct operational learning;
-5. the next server/build agent can continue from durable state rather than repeating the discovery from scratch.
-
-**Move the system forward. Keep it simple. Reuse what already works. Turn what you learn into the next reusable version.**
+> **Leave the environment cleaner and more coherent than you found it. Do not hand the owner cleanup you created and could finish yourself.**
