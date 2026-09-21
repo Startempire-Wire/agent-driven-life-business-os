@@ -114,6 +114,12 @@ The following are no longer open architecture questions:
 
 **Required closure:** bounded delegation envelope carrying owner/partner refs, project/workstream target where known, desired outcome, constraints, context refs, budget/authority/acceptance refs and correlation ID. Focusa remains responsible for validating/resolving the Workstream, Foreman, Workpoint and execution plan.
 
+### NEW-P0-12 — OpenClaw operating-partner continuity
+
+**Gap:** OpenClaw is part of the deployed stack and Core contains gateway/chat adapters, but the Golden Path does not yet prove one entitled tenant across runtime identity, isolated provisioning, persistent relationship thread, consented context, typed accepted-operation handoff, governed execution, recovery, verified outcome and corrected later behavior. Remote reachability or a healthy sovereign-operator runtime is not member-runtime proof.
+
+**Required closure:** complete Wirebot App `R00.01`–`R00.09`. Identity, consent, capability, receipts, outcomes and learning remain in their owning systems; OpenClaw remains the operating runtime. Unsupported tenants retain explicit `unavailable` state, and wrong-tenant/shared-runtime fallback probes fail closed.
+
 ### SAG-20 — complete work lifecycle
 
 **Gap:** Workset, CallGraph, Workpoint, Work Loop, assignment and runtime execution exist but are not proven as one customer lifecycle from accepted assignment to terminal settlement.
@@ -394,6 +400,7 @@ Slice E — Sovereign Operator exposes one minimized network capability/opportun
 Slice F — delegated human performs one bounded operation → revoke → denied retry
 Slice G — stale/offline attention or grant reconnects → revalidates → no stale mutation
 Slice H — worker requests credential use by opaque ref → execution owner resolves → no secret crosses seam
+Slice I — tenant conversation → accepted typed operation → governed execution/recovery → verified outcome → corrected later OpenClaw behavior
 ```
 
 Each slice should implement only the shared envelopes it actually exercises.

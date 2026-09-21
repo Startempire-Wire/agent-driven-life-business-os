@@ -498,7 +498,28 @@ The remaining work is mostly seams, not new products:
 9. Evidence → settlement → W.I.N.S. closure references;
 10. sovereign federation live end-to-end proof;
 11. Draftees ↔ private workforce identity mapping;
-12. W.I.N.S. reusable modules and tenancy proof.
+12. W.I.N.S. reusable modules and tenancy proof;
+13. tenant-isolated OpenClaw operating-partner continuity from conversation through verified learning.
+
+### 18.1 OpenClaw operating-partner seam
+
+OpenClaw supplies the persistent conversation, synthesis and coordination runtime for Wirebot. It does not own principal identity, tenant admission, consent, credentials, execution authority, durable outcomes or learning truth.
+
+```text
+owner → Wirebot App → Wirebot Core / owning services
+      → isolated entitled OpenClaw runtime
+      → typed accepted operation
+      → Focusa / owning executor / UIAI
+      → evidence + terminal receipt + consumer outcome
+      → owning outcome/learning services
+      → same OpenClaw thread + App state
+```
+
+The seam requires: value-free exact-tenant runtime identity/topology; isolated revocable agent/workspace binding; stable relationship-thread continuity; minimum consented context with correction return; accepted-intent to typed-operation compilation; separately governed execution; meaningful progress/interruption/recovery; shared receipt/outcome return; inspectable later behavioral learning; and tier/topology/isolation/degraded-mode conformance.
+
+A local command, open port, configured URL or healthy sovereign-operator agent does not prove a member runtime. Missing tenant isolation remains `unavailable`; it never licenses a shared-runtime fallback. Gateway transport never grants tool, credential, scope or budget authority.
+
+Wirebot App journey graph revision 6 decomposes this as `R00.01`–`R00.09`. Golden Path gap `NEW-P0-12` consumes that path without creating another runtime or authority owner.
 
 Close these through the existing owners and shared ADLBOS contracts. Do not create a new integration backend merely to host the seam.
 
