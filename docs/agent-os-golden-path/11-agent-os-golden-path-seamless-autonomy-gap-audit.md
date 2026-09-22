@@ -116,9 +116,9 @@ The following are no longer open architecture questions:
 
 ### NEW-P0-12 — OpenClaw operating-partner continuity
 
-**Gap:** OpenClaw is part of the deployed stack and Core contains gateway/chat adapters, but the Golden Path does not yet prove one entitled tenant across runtime identity, isolated provisioning, persistent relationship thread, consented context, typed accepted-operation handoff, governed execution, recovery, verified outcome and corrected later behavior. Remote reachability or a healthy sovereign-operator runtime is not member-runtime proof.
+**Gap:** The shared OpenClaw gateway and private KnownHost Core → OVH route are deployed, and the WordPress plugin already owns MemberPress tier/lifecycle plus Core tenant/workspace provisioning. The missing seam is narrower: provisioning does not create, persist, verify, revoke or recover the entitled tenant LBI on that gateway, and WordPress may mark the lifecycle active before runtime proof. Remote reachability, tenant/workspace creation or a healthy sovereign-operator agent is not member-runtime proof.
 
-**Required closure:** complete Wirebot App `R00.01`–`R00.09`. Identity, consent, capability, receipts, outcomes and learning remain in their owning systems; OpenClaw remains the operating runtime. Unsupported tenants retain explicit `unavailable` state, and wrong-tenant/shared-runtime fallback probes fail closed.
+**Required closure:** complete Wirebot App `R00.01`–`R00.09`, beginning by extending the existing WordPress → Core provisioning path rather than creating new infrastructure. Shared eligible tiers bind to the existing OVH gateway; only an explicitly approved Sovereign flow may create a dedicated runtime. Identity, consent, capability, receipts, outcomes and learning remain in their owning systems. Unsupported tenants retain explicit `unavailable` state, and wrong-tenant/operator-agent fallback probes fail closed.
 
 ### SAG-20 — complete work lifecycle
 

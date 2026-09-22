@@ -507,7 +507,8 @@ OpenClaw supplies the persistent conversation, synthesis and coordination runtim
 
 ```text
 owner → Wirebot App → Wirebot Core / owning services
-      → isolated entitled OpenClaw runtime
+      → entitled tenant LBI on the existing shared OVH OpenClaw gateway
+         (or separately approved dedicated Sovereign runtime)
       → typed accepted operation
       → Focusa / owning executor / UIAI
       → evidence + terminal receipt + consumer outcome
@@ -516,6 +517,8 @@ owner → Wirebot App → Wirebot Core / owning services
 ```
 
 The seam requires: value-free exact-tenant runtime identity/topology; isolated revocable agent/workspace binding; stable relationship-thread continuity; minimum consented context with correction return; accepted-intent to typed-operation compilation; separately governed execution; meaningful progress/interruption/recovery; shared receipt/outcome return; inspectable later behavioral learning; and tier/topology/isolation/degraded-mode conformance.
+
+Post-migration deployment is explicit: Startempire Wire/MemberPress on KnownHost owns entitlement and triggers the WordPress provisioning lifecycle; Wirebot Core on KnownHost owns tenant admission and the OpenClaw adapter; Core reaches the existing OVH gateway privately through `GATEWAY_URL=http://ovh-openclaw:18789`. WordPress's legacy loopback gateway option is not an active route or authority. Current provisioning creates the Core tenant and workspace but does not yet create and verify the LBI, so WordPress `active` is not runtime-readiness proof.
 
 A local command, open port, configured URL or healthy sovereign-operator agent does not prove a member runtime. Missing tenant isolation remains `unavailable`; it never licenses a shared-runtime fallback. Gateway transport never grants tool, credential, scope or budget authority.
 
