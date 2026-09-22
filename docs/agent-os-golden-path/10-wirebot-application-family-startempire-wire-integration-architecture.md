@@ -526,6 +526,36 @@ Wirebot App journey graph revision 6 decomposes this as `R00.01`–`R00.09`. Gol
 
 Close these through the existing owners and shared ADLBOS contracts. Do not create a new integration backend merely to host the seam.
 
+### 18.2 Wirebot level integration across the full relationship
+
+Levels change relationship depth, topology, budgets and available capabilities; they do not create separate identity, consent, authority, outcome or learning systems. The canonical matrix lives in Wirebot Core `docs/TIER_RUNTIME_CONTRACT.md` §12.
+
+The Full Trajectory must cross every applicable level through the same causal stages:
+
+```text
+identity + entitlement
+  → consented understanding
+  → evidence-bound anticipation/recommendation
+  → owner alignment and approval
+  → typed, separately governed execution
+  → progress/interruption/recovery
+  → verified outcome and owner correction
+  → later behavior that demonstrably learned
+```
+
+The level-specific obligations are:
+
+- **Level 0 `free`:** truthful orientation only; never simulate a partner relationship.
+- **Level 1 `freewire`/`advertiser`:** owner-controlled identity, preferences and consent preparation; runtime-dependent stages remain explicitly unavailable.
+- **Level 2 `wire`/`wirebot_direct`:** shared-gateway isolated LBI and the core relationship loop, with separate execution authority.
+- **Level 3 `extrawire`:** level 2 plus multi-business coordination, analytics, presets and owner-visible budget controls, still without cross-tenant authority.
+- **Level 4 `sovereign`:** separately approved dedicated runtime, BYOK/custom model/domain/branding, portability and teardown.
+- **Level 5 `sovereign_builder`:** explicit purpose-bound tenant administration with full audit; never ambient cross-tenant access or impersonation.
+
+Acceptance is a matrix of level × relationship stage × lifecycle transition × topology/failure mode. Purchase, upgrade, downgrade, suspend, cancel, refund, reactivation, Sovereign migration and Builder action must preserve identity/evidence while revoking no-longer-entitled capability before presentation changes.
+
+MemberPress mapping, provisioning level, PWA presentation and Core/App capabilities must consume one versioned entitlement projection. Conflicts fail closed. Product `32073` currently conflicts (`advertiser` provisioning versus `extrawire` PWA), and `wirebot_direct` lacks an equivalent explicit PWA product mapping; neither discrepancy may grant runtime authority.
+
 ---
 
 ## 19. Non-negotiable application rule
