@@ -554,7 +554,7 @@ The level-specific obligations are:
 
 Acceptance is a matrix of level × relationship stage × lifecycle transition × topology/failure mode. Purchase, upgrade, downgrade, suspend, cancel, refund, reactivation, Sovereign migration and Builder action must preserve identity/evidence while revoking no-longer-entitled capability before presentation changes.
 
-MemberPress mapping, provisioning level, PWA presentation and Core/App capabilities consume one versioned entitlement projection. Authoritative product titles settle `32073 → advertiser` and `48595/48596 → wirebot_direct`; producer and PWA consumer source now implement this fail-closed contract. Core/App ingestion and live proof remain open. Entitlement carries eligibility only: lifecycle freshness, runtime binding, consent, credentials, budgets/channels and execution remain separate receipts. Builder administration is non-monotonic and never inherits tenant runtime, credentials, memory or ambient cross-tenant access.
+MemberPress mapping, provisioning level, PWA presentation and Core/App capabilities consume one versioned entitlement projection. Authoritative product titles settle `32073 → advertiser` and `48595/48596 → wirebot_direct`; producer, PWA consumer, Core receipt/enforcement and App parser source now implement this fail-closed contract. Coordinated deployment and live provider/lifecycle proof remain open. Entitlement carries eligibility only: lifecycle freshness, runtime binding, consent, credentials, budgets/channels and execution remain separate receipts. Builder administration is non-monotonic and never inherits tenant runtime, credentials, memory or ambient cross-tenant access.
 
 ---
 
