@@ -11,6 +11,7 @@
 - **Composable workforce catalogue:** [`docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md`](./docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md)
 - **Current Wirebot application integration architecture:** [`docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md`](./docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md)
 - **Current cross-product gap audit:** [`docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md`](./docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md)
+- **Stage 5 full-surface business discovery audit:** [`docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md`](./docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md)
 
 ## Purpose
 
