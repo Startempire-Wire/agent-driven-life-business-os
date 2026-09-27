@@ -1,0 +1,37 @@
+name: ADLBOS regressions
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  portable-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependency
+        run: python -m pip install --disable-pip-version-check "jsonschema>=4.18,<5"
+
+      - name: Shell syntax
+        run: |
+          bash -n scripts/*.sh
+          bash -n tests/*.sh
+
+      - name: Portable contract regressions
+        run: bash tests/run-contract-tests.sh
+
+      - name: Portable script regressions
+        run: bash tests/agent-os-scripts-regression.sh
