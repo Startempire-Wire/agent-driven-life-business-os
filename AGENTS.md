@@ -4,6 +4,7 @@
 **Architecture authority:** `OWNER_AUTHORITY_CONSTITUTION.md`  
 **Current ecosystem architecture:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
 **Cross-product seam contract:** `CROSS_PRODUCT_SEAM_CONTRACT.md`  
+**Agent-contract evolution:** `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`<br>
 **Golden Path:** `AGENT_OS_GOLDEN_PATH.md`
 
 This contract tells build/operations agents how to work inside an Agent-Driven Life & Business OS deployment. It deliberately points to canonical owners instead of copying their entire product specifications.
@@ -220,6 +221,31 @@ What creates reusable or compounding leverage?
 ```
 
 Turn proven gains into reusable defaults/tools/contracts. Do not systemize speculation.
+
+---
+
+## 7.1 Evidence-gated contract evolution
+
+Improve agent-facing contracts from real operating evidence under `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`.
+
+Operational history may propose a change; it never self-promotes to policy, memory, architecture or authority.
+
+When changing `AGENTS.md`, load-on-trigger skills/procedures, or equivalent steering surfaces:
+
+1. attribute the observed success/failure to the correct owner and causal layer;
+2. classify the target evolution class before changing semantics;
+3. corroborate independent causes rather than raw transcript/session count;
+4. stage the smallest useful delta;
+5. do not remove or weaken rules merely because they are infrequent, token-costly, ignored once or absent from recent sessions;
+6. run protected-invariant and held-out behavioral cases for material semantic changes;
+7. satisfy owner/architecture authority for protected classes;
+8. verify native consumer discovery/reload/trigger behavior if placement or loading changes;
+9. roll out narrowly, observe real outcomes, then keep, improve or revert;
+10. retain the reusable lesson without copying private evidence into portable source.
+
+Conversation/session history is provenance, not automatic canonical memory.
+
+Product-local findings route to the canonical product owner; ADLBOS does not become a product-learning database.
 
 ---
 

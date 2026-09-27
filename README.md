@@ -13,6 +13,8 @@ AGENT_OS_GOLDEN_PATH.md
 AGENTS.md
 ```
 
+Agent-facing contract evolution is governed by `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`. It is an evidence-gated improvement process, not an architecture authority, runtime learning store or automatic memory system.
+
 ## System at a glance
 
 ```text
@@ -293,6 +295,27 @@ canonical typed operation / API / CLI
 
 Computer-use automation between first-party products is a parity defect, not the normal integration strategy.
 
+## Evidence-gated contract evolution
+
+ADLBOS can learn from operating reality without letting history rewrite authority.
+
+```text
+observe source-bearing behavior
+→ attribute the owning cause
+→ corroborate independent recurrence
+→ stage the smallest useful contract/procedure delta
+→ test protected invariants
+→ compare baseline vs candidate on held-out cases
+→ satisfy required owner/architecture authority
+→ roll out narrowly
+→ observe
+→ keep / improve / revert
+```
+
+Training/derivation evidence is not independent validation. Conversation and session history remain provenance unless their canonical owner explicitly promotes a bounded result through the appropriate contract. Product-local lessons stay with the product owner.
+
+The portable proposal envelope is `contracts/agent-contract-change.v1.schema.json`; it standardizes references and gates without creating another database.
+
 ## Golden Path
 
 The Golden Path is the field-derived deployment/operations doctrine for assembling these owners correctly.
@@ -352,6 +375,12 @@ Do not move reusable secrets across product seams.
 Prove running behavior.
 Update current docs when architecture changes.
 Do not leave cleanup you created for the owner.
+```
+
+Portable contract regressions:
+
+```sh
+bash tests/run-contract-tests.sh
 ```
 
 Start implementation work with `AGENTS.md` plus the owning product repository/spec.

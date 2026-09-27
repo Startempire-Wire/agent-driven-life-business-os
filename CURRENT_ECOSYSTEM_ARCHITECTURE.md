@@ -1,7 +1,7 @@
 # Current Ecosystem Architecture — Operator, Wirebot, Focusa Workforce, and Sovereign Federation
 
 **Status:** LIVE architecture reconciliation  
-**Effective:** 2026-09-15  
+**Effective:** 2026-09-27<br>
 **Authority:** Canonical Owner Principal under `OWNER_AUTHORITY_CONSTITUTION.md`  
 **Purpose:** current cross-product architecture for the Agent-Driven Life & Business OS ecosystem.
 
@@ -154,9 +154,10 @@ Owns portable integration doctrine:
 - evidence-to-outcome handoff law;
 - federation boundary law;
 - Golden Path deployment/operations doctrine;
-- agent-operation completeness.
+- agent-operation completeness;
+- portable agent-contract optimization/evolution law.
 
-ADLBOS is not another customer-facing runtime or database.
+ADLBOS is not another customer-facing runtime or database. It does not own runtime learning truth or transcript memory; `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md` governs how source-bearing operating evidence may propose portable contract changes without moving canonical state out of its owner.
 
 ### Wirebot / Wirebot App
 

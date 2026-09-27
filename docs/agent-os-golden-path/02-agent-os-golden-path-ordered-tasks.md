@@ -1,7 +1,7 @@
 # Golden Path — Current Interwoven Deployment Doctrine
 
-**Status:** CURRENT iterable Golden Path spine targeting `0.2.0-candidate`  
-**Reconciled:** 2026-09-15  
+**Status:** CURRENT iterable Golden Path spine targeting `0.2.1-candidate`<br>
+**Reconciled:** 2026-09-27<br>
 **Architecture authority:** `../../OWNER_AUTHORITY_CONSTITUTION.md`  
 **Current ecosystem ownership:** `../../CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
 **Historical lineage:** `0.1.0.md`, `0.1.1.md`, Git history before this reconciliation
@@ -680,6 +680,8 @@ For material recurring workflows, preserve representative customer-specific exam
 
 Changes to model/tool/process should rerun relevant examples before they silently break the customer's workday.
 
+For material agent-contract, skill or instruction-placement changes, separate derivation examples from held-out regression examples under `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`; a case used to derive the change is not independent validation.
+
 ## Owner mechanisms
 
 ```text
@@ -876,6 +878,24 @@ Observe
 ```
 
 The loop must improve customer outcomes or system reliability, not manufacture process work.
+
+For agent-contract or load-on-trigger procedure evolution, expand the same loop without creating a second learning system:
+
+```text
+observe operating evidence
+→ attribute owner / cause / correlation
+→ consolidate independent recurrence
+→ stage the smallest candidate delta
+→ protected-invariant checks
+→ held-out baseline vs candidate comparison
+→ required owner / architecture gate
+→ narrow rollout
+→ observe real behavior
+→ keep / improve / revert
+→ encode only the reusable lesson
+```
+
+Raw session count is not independent corroboration: observations from one causal incident share one correlation identity. Low frequency, token cost, one ignored rule or one failed session never by themselves justify weakening/removing a constitutional, safety/authority or architecture-boundary rule. Product-local findings route to their canonical owner.
 
 Useful periodic questions:
 
