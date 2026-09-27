@@ -60,6 +60,19 @@ def policy_errors(value: dict) -> list[str]:
         if evaluation["verdict"] not in {"pass", "tradeoff_approved"}:
             errors.append("post-test state requires a passing/approved evaluation verdict")
 
+    if (
+        status in {"approved", "rolled_out", "verified"}
+        and authority["requirement"] != "none"
+        and not authority.get("approval_ref")
+    ):
+        errors.append("approved/active protected change requires an approval reference")
+
+    if status in {"rolled_out", "verified"} and not value["rollout"].get("rollback_ref"):
+        errors.append("rolled-out change requires a rollback reference")
+
+    if status == "verified" and not value["rollout"].get("post_rollout_observation_ref"):
+        errors.append("verified change requires post-rollout observation")
+
     derived = set(evaluation["derived_case_refs"])
     holdout = set(evaluation["holdout_case_refs"])
     if derived & holdout:
@@ -135,6 +148,26 @@ def main() -> None:
     untested_verified["evaluation"]["holdout_case_refs"] = []
     if not list(validator.iter_errors(untested_verified)):
         raise AssertionError("verified change without holdout unexpectedly passed schema")
+
+    protected_approved_without_ref = copy.deepcopy(valid)
+    protected_approved_without_ref["status"] = "approved"
+    protected_approved_without_ref["target"]["evolution_class"] = "safety_authority"
+    protected_approved_without_ref["authority"]["requirement"] = "owner"
+    protected_approved_without_ref["authority"]["approval_ref"] = None
+    if not list(validator.iter_errors(protected_approved_without_ref)):
+        raise AssertionError("approved protected change without approval ref unexpectedly passed schema")
+
+    rolled_out_without_rollback = copy.deepcopy(valid)
+    rolled_out_without_rollback["status"] = "rolled_out"
+    rolled_out_without_rollback["rollout"]["rollback_ref"] = None
+    if not list(validator.iter_errors(rolled_out_without_rollback)):
+        raise AssertionError("rolled-out change without rollback unexpectedly passed schema")
+
+    verified_without_observation = copy.deepcopy(valid)
+    verified_without_observation["status"] = "verified"
+    verified_without_observation["rollout"]["post_rollout_observation_ref"] = None
+    if not list(validator.iter_errors(verified_without_observation)):
+        raise AssertionError("verified change without post-rollout observation unexpectedly passed schema")
 
     private_payload = copy.deepcopy(valid)
     private_payload["privacy"]["contains_private_payload"] = True
