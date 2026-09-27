@@ -21,7 +21,8 @@ ADLBOS
   portable contract-evolution doctrine and reference envelopes
 
 Focusa
-  governed project/work state, Evidence, receipts, continuity and product-owned learning mechanisms
+  governed project/work state, Evidence, receipts, continuity
+  and product-owned learning mechanisms
 
 Wirebot
   Operating Partner context, portfolio orientation and owner-facing synthesis
@@ -104,7 +105,247 @@ orchestration_gap
   the causal defect belongs to the external harness/supervisor/orchestration layer
 
 placement
-  the rule is valid bu]õÉÑ¡ÍåÍÑ´½Ì¹½ÐÉÁÑ±äÉ¥Í½ÙÈÑ¡Íµ¡¹¸((ä¸!±µ½ÕÐ¡Ù¥½É°ÉÉÍÍ¥½¸()Q¡Ù¥¹ÕÍÑ¼ÁÉ½Á½Í¡¹¥ÌÑÉ¥¹¥¹Ù¥¹¸%Ð¥Ì¹½ÐÍÕ¥¥¹ÐÙ±¥Ñ¥½¸¸()5ÑÉ¥°Íµ¹Ñ¥¡¹ÌµÕÍÐ¡­¥¹ÍÐÉÁÉÍ¹ÑÑ¥ÙÍÌÑ¡ÐÝÉ¨©¹½ÐÕÍÑ¼É¥ÙÑ¡ÁÉ½Á½Í°¨¨¸()ÉÉÍÍ¥½¸ÍÐÍ¡½Õ±¥¹±Õ°ÌÁÁ±¥±è((´Ñ¡¥±ÕÉÑ¡¡¹¥¹Ñ¹ÌÑ¼ÁÉÙ¹Ðì(´ÁÉÙ¥½ÕÍ±äÁÑ½É¥¹ÉäÝ½É­±½ÝÌì(´ÁÉ½ÑÑÕÑ¡½É¥Ñä½ÍÕÉ¥Ñä½ÁÉ¥Ùä½Ñ¹¹äÍÌì(´É½ÙÉä½¥¹ÑÉÉÕÁÑ¥½¸ÍÌì(´ÉÁÉÍ¹ÑÑ¥Ù¥¹ÑÉÑ¥Ù¹¹½¸µ¥¹ÑÉÑ¥Ù¹Ð½ÁÉÑ¥½¸ì(´É±Ù¹Ðµ½°½¡É¹ÍÌ¥ÙÉÍ¥Ñäì(´ÉÁ±µ¹Ðµ¹Ð¡Ù¥½ÈÝ¡¸½¹Ñ¥¹Õ¥Ñä¥ÌÑ¸()AÉÈÑÉµ¥¹¥ÍÑ¥ÍÍÉÑ¥½¹Ì¥¹ÍÐÉ°½ÁÉÑ¥½¹Ì°É¥ÁÑÌ¹½ÕÑ½µÌ¸UÍµ½°©Õ¥¹½¹±ä½È¥ÉÉÕ¥±äÍµ¹Ñ¥¡Ù¥½È°¹ÉÑ¥¸Ñ¡Í½ÕÉÙ¥¹ÍÕÁÁ½ÉÑ¥¹Ñ¡Ð©Õµ¹Ð¸()¹¥ÑÁÍÍÌ½¹±äÝ¡¸è()ÑáÐ)Ñ¡ÑÉÐ¥±ÕÉ¥µÁÉ½ÙÌ½È¥Ì±¥µ¥¹Ñ)9ÁÉ½ÑÑ¥¹ÙÉ¥¹ÑÌ¼¹½ÐÉÉÍÌ)9ÉÁÉÍ¹ÑÑ¥ÙÁÑ¡Ù¥½ÈÉµ¥¹ÌÁÑ±)9¹ä±¥ÉÑÑÉ½¥ÌáÁ±¥¥Ð¹ÕÑ¡½É¥ÑäµÁÁÉ½Ù)()¼¹½ÐÕÍÑ¡ÍµáµÁ±Ì½Ñ Ñ¼É¥Ù¹Ñ¼±¥´¥¹Á¹¹ÐÙ±¥Ñ¥½¸½ÉÕ±¸((ÄÀ¸½¹ÑÉÐÍ¥é¹±½µ½¸µÑÉ¥ÈÁ±µ¹Ð()±ÝåÌµ±½¥¹ÍÑÉÕÑ¥½¹Ì¡ÙÉÕÉÉ¥¹½¹ÑáÐ¹ÑÑ¹Ñ¥½¸½ÍÐ°ÕÐÑ¡É¥Ì¹¼Õ¹¥ÙÉÍ°µ¥Ñ½­¸¥±¥¹¸()A±µ¹Ð½±±½ÝÌÍµ¹Ñ¥Ìè()ÑáÐ)É½¼ÍÑäµÉ¥Ñ¥°¼ÕÑ¡½É¥ÑäµÉ¥Ñ¥°(´ø±ÝåÌµ±½½¹ÑÉÐ()¹ÉÉ½Ü¬É±¥±äÑÑ±ÑÉ¥È(´øÍ­¥±°¼±½µ½¸µÑÉ¥ÈÁÉ½ÕÉ()ÁÉ½ÕÐµÍÁ¥¥(´ø¹½¹¥°ÁÉ½ÕÐ½¹ÑÉÐ½ÈÍ­¥±°()¡¥ÍÑ½É¥°Ù¥¹¼±½¹áµÁ±Ì(´øÉÉ¹Ù¥¹½½Ì°¹½ÐÁÉµ¹¹ÐÁ½±¥äÑáÐ)()M­¥±°ÍÉ¥ÁÑ¥½¹Ì½ÑÉ¥ÉÌÉÑ¡µÍ±ÙÌÁÉÐ½Ñ¡ÍÑÉ¥¹ÍÕÉ¹µÕÍÐÑÍÑ¸()	½ÉÁ¹¥¹½¸¸áÑÉÑ¥½¸è((Ä¸ÁÉ½ÙÑ¡ÑÉÐ¡É¹ÍÌ½ÉÕ¹Ñ¥µ¹Ñ¥Ù±ä¥Í½ÙÉÌÑ¡Í­¥±°½ÁÉ½ÕÉì(È¸ÁÉ½ÙÑ¡ÑÉ¥È±½Ì¥Ð¥¸ÉÁÉÍ¹ÑÑ¥ÙÉÍ ÍÍÍ¥½¸ì(Ì¸ÁÉÍÉÙÑ¡Õ±°¥¹Ñ¹Íµ¹Ñ¥ÌÕÉ¥¹Ñ¡¥ÉÍÐáÑÉÑ¥½¸ì(Ð¸ÉÉÕ¸É±Ù¹Ð¡±µ½ÕÐÍÌ¸()¼¹½ÐÕ¥±ÕÍÑ½´¥¹ÍÑÉÕÑ¥½¸µ¥¹©Ñ¥½¸ÍåÍÑ´µÉ±äÑ¼ÍÙÑ½­¹ÌÝ¡¸¹Ñ¥Ù±½¥¹±Éäá¥ÍÑÌ¸((ÄÄ¸AÉ½Á½Í°¹Ù±½Á()½¹ÑÉÑÌ½¹Ðµ½¹ÑÉÐµ¡¹¹ØÄ¹Í¡µ¹©Í½¹¥¹ÌÁ½ÉÑ±¨©ÁÉ½Á½Í°½ÉÉ¹¹Ù±½Á¨¨°¹½Ð¹Ü¹½¹¥°ÑÍ¸()Q¡¹Ù±½Áá¥ÍÑÌÍ¼¥É¹ÐÑ½½±Ì¸ÍÉ¥Ñ¡Íµ½Õ¹áÁÉ¥µ¹ÐÝ¡¥±ÉÑ¥¹¥¹è((´áÐÑÉÐ½ÍÉÙ¥Í¥½¸ì(´Ù½±ÕÑ¥½¸±ÍÌì(´¡¹­¥¹¹¡åÁ½Ñ¡Í¥Ìì(´Í½ÕÉµÉ¥¹½ÍÉÙÑ¥½¹Ìì(´É¥ÙÑ¥½¸ÙÉÍÕÌ¡±µ½ÕÐÍÌì(´ÁÉ½ÑÑ¥¹ÙÉ¥¹ÑÌì(´ÕÑ¡½É¥ÑäÉÅÕ¥Éµ¹Ðì(´É½±±½ÕÐ½ÉÙÉÐÁ½ÍÑÕÉì(´ÁÉ¥ÙäÁ½ÍÑÕÉ¸()AÉ½ÕÑÌµäÍÑ½ÉÑ¡ÍÉ½ÉÌ¥¸Ñ¡¥È½Ý¸ÁÁÉ½ÁÉ¥ÑÍåÍÑµÌ¸1	=L½Ì¹½ÐÉÅÕ¥É¹ÑÉ°½ÁÑ¥µ¥éÈÍÉÙ¥¸((ÄÈ¸AÉ½µ½Ñ¥½¸±Ù±Ì()UÍ¡½¹ÍÐÍÑÑÉÑ¡ÈÑ¡¸±É¹Ì¥¹Éä±°è()ÑáÐ)½ÍÉÙ(Ù¥¹á¥ÍÑÌ()½ÉÉ½½ÉÑ(¥¹Á¹¹ÐÉÕÉÉ¹½ÈÑÉµ¥¹¥ÍÑ¥ÉÁÉ½ÕÑ¥½¸á¥ÍÑÌ()ÁÉ½Á½Í(½Õ¹¹¥Ñ±Ñá¥ÍÑÌ()ÉÉÍÍ¥½¹}ÑÍÑ(¡±µ½ÕÐ½ÁÉ½ÑÑ¡­ÌÁÍÌ()ÁÁÉ½Ù(ÉÅÕ¥ÉÕÑ¡½É¥ÑäÁÑÑ¡Íµ¹Ñ¥¡¹()É½±±}½ÕÐ(¹¥Ñ¥ÌÑ¥Ù¥¸Ñ¡¥¹Ñ¹Í½Á()ÙÉ¥¥(Á½ÍÐµÉ½±±½ÕÐÉ°¡Ù¥½ÈÍÕÁÁ½ÉÑÌ­Á¥¹¥Ð()ÉÙÉÑ(¹¥ÑÝÌÉ½±±¬ìÉÍ½¸ÉÑ¥¹)()½µµ¥Ð±½¹¥Ì¹½ÐÙÉ¥¥¸ÑÉ¹ÍÉ¥ÁÐ±½¹¥Ì¹½ÐÁÁÉ½Ù¸ÁÍÍ¥¹µ½°É¥Ñ¥ÅÕ±½¹¥Ì¹½Ð¡Ù¥½É°ÉÉÍÍ¥½¸ÑÍÐ¸((ÄÌ¸%¹ÑÉÑ¥½¸Ý¥Ñ ¹½¹¥°½Ý¹ÉÌ()Q¡¥ÌÁÉ½¥±¹ÙÈÉ¹ÑÌÁÉµ¥ÍÍ¥½¸Ñ¼ÉÝÉ¥Ñ¹½Ñ¡ÈÁÉ½ÕÐÌ½µ¥¸½¹ÑÉÐ¸()I½ÕÑ¥¹¥¹ÌÑ¼Ñ¡½Ý¹Èè()ÑáÐ)½ÕÍÝ½É¬½ÕÑ¡½É¥Ñä½±É¹¥¹Ð(´ø½ÕÍ()]¥É½Ð=ÁÉÑ¥¹AÉÑ¹È½½¹ÑáÐ½Ý½É­½Éµ½µÁ½Í¥Ñ¥½¸Ð(´ø]¥É½Ð()U%$áÕÑ¥½¸½É½ÝÍÈ½½µÁÕÑÈÐ(´øU%$()YÉ¹Í¥½ä½ÉÕ¹Ñ¥µ½¹½Éµ¹ÐÐ(´øYÉ¹Í¥()ÁÑµ½ÕÑ½µ½½ÉÉÑ¥½¸½½¹½µ¥ÌÐ(´ø\¹$¹8¹L¸()Á½ÉÑ±É½ÍÌµÁÉ½ÕÐ½ÈÕ¥±µ¹Ð½ÑÉ¥¹Ð(´ø1	=L)()¸½É¡ÍÑÉÑ¥½¹}ÁÍÑåÌÝ¥Ñ Ñ¡½É¡ÍÑÉÑ½ÈÕ¹±ÍÌÑ¡ÉÁ½Í¥Ñ½ÉäÕ¹ÈÉÙ¥Ü¥Ì¥ÑÍ±Ñ¡½É¡ÍÑÉÑ½È¸((ÄÐ¸5¥¹¥µÕ´ÁÑ¹½ÈÙÉÍ¥½¹1	=L½¹ÑÉÐ¥µÁÉ½Ùµ¹Ð()	½É±±¥¹¸1	=L½¹ÑÉÐÕÁÑ]/unded:
+  the rule is valid but the system does not reliably discover or load it
+
+superseded
+  stronger current owner-approved architecture or behavior makes the old rule obsolete
+```
+
+Do not infer causation merely because an instruction and an outcome coexist in the same transcript.
+
+## 5. Provenance and minimization
+
+Every observation used for a proposal must retain a source reference sufficient to inspect the underlying evidence when authorized.
+
+Portable ADLBOS material carries references, redaction, bounded summaries or public examples—not private client payloads or reusable secret material.
+
+Conversation is provenance/audit, not automatic memory or policy promotion.
+
+A transcript is not Evidence merely because it exists. Evidence is not an accepted outcome merely because it demonstrates execution. Preserve each owning system's semantics.
+
+## 6. Corroboration is about independence, not raw session count
+
+Two transcript files are not automatically two independent observations.
+
+Observations from one causal incident use one `correlation_key` even if:
+
+- several agents participated;
+- the task was retried;
+- a supervisor and child agent both recorded it;
+- the same transcript was mirrored across machines;
+- several harness events describe the same underlying failure.
+
+Prefer corroboration across independent task instances, projects/deployments, time periods, harnesses/models where relevant, or deterministic reproductions that test the causal claim.
+
+Portable operational rules should normally have more than one independent cause before semantic promotion. Protected rules use the higher owner-authority standard in Section 7.
+
+## 7. Removal and semantic weakening have a higher floor
+
+Deletion is not a default optimization.
+
+A rule may be removed or semantically weakened only when at least one of these is true:
+
+1. an owner-authorized current contract explicitly supersedes it; or
+2. independent evidence demonstrates that following the rule itself causes harm/cost and held-out/protected-invariant checks show the candidate is safer/better.
+
+The following are **not sufficient by themselves**:
+
+- low frequency or zero recent sightings;
+- always-loaded token cost;
+- one model's preference;
+- one failed session;
+- non-compliance;
+- wording that looks duplicated;
+- availability of a newer tool or implementation.
+
+For `constitutional`, `safety_authority`, and `architecture_boundary` classes, required owner-rooted authority still applies even when empirical evidence exists.
+
+When the semantics are useful but the placement is wrong, prefer semantic-preserving extraction or relocation over deletion.
+
+## 8. Bounded evolution loop
+
+Use the existing ADLBOS optimization philosophy with explicit causal and regression gates:
+
+```text
+OBSERVE
+  source-bearing operating evidence
+        ↓
+ATTRIBUTE
+  what owner/layer actually caused the success or failure?
+        ↓
+CONSOLIDATE
+  group one causal incident; identify independent recurrence
+        ↓
+HYPOTHESIZE
+  smallest semantic change that could improve the outcome
+        ↓
+STAGE
+  change an isolated candidate, never the live authority implicitly
+        ↓
+VALIDATE
+  schema/static checks + protected invariants
+        ↓
+COMPARE
+  baseline vs candidate on held-out behavior
+        ↓
+OWNER / ARCHITECTURE GATE
+  when the evolution class requires it
+        ↓
+ROLLOUT
+  smallest useful scope with rollback available
+        ↓
+OBSERVE
+  running behavior and accepted outcomes
+        ↓
+KEEP / IMPROVE / REVERT
+        ↓
+ENCODE
+  only the reusable lesson in its canonical home
+```
+
+A failed proposal is useful evidence. Record why it was rejected so the system does not repeatedly rediscover the same bad change.
+
+## 9. Held-out behavioral regression
+
+The evidence used to propose a change is training evidence. It is not sufficient validation.
+
+Material semantic changes must be checked against representative cases that were **not used to derive the proposal**.
+
+A regression set should include, as applicable:
+
+- the failure the change intends to prevent, represented independently;
+- previously accepted ordinary workflows;
+- protected authority/security/privacy/tenancy cases;
+- recovery/interruption cases;
+- representative interactive and non-interactive agent operation;
+- relevant model/harness diversity;
+- replacement-agent behavior when continuity is affected.
+
+Prefer deterministic assertions against real operations, receipts and outcomes. Use model judging only for irreducibly semantic behavior, and retain the source evidence supporting that judgment.
+
+A candidate passes only when:
+
+```text
+the target failure improves or is eliminated
+AND protected invariants do not regress
+AND representative accepted behavior remains acceptable
+AND any deliberate tradeoff is explicit and authority-approved
+```
+
+Do not use the same examples both to derive and to claim independent validation of a rule.
+
+## 10. Contract size and load-on-trigger placement
+
+Always-loaded instructions have recurring context and attention cost, but there is no universal magic token ceiling.
+
+Placement follows semantics:
+
+```text
+broad / safety-critical / authority-critical
+  -> always-loaded contract
+
+narrow + reliably detectable trigger
+  -> skill / load-on-trigger procedure
+
+product-specific
+  -> canonical product contract or skill
+
+historical evidence / long examples
+  -> referenced evidence/docs, not permanent policy text
+```
+
+Skill descriptions/triggers are themselves part of the steering surface and must be tested.
+
+Before depending on an extraction:
+
+1. prove the target harness/runtime natively discovers the skill/procedure;
+2. prove the trigger loads it in a representative fresh session;
+3. preserve the full intended semantics during the first extraction;
+4. rerun relevant held-out cases.
+
+Do not build a custom instruction-injection system merely to save tokens when native loading already exists.
+
+## 11. Proposal envelope
+
+`contracts/agent-contract-change.v1.schema.json` defines a portable **proposal/reference envelope**, not a new canonical database.
+
+The envelope exists so different tools can describe the same bounded experiment while retaining:
+
+- exact target/base revision;
+- evolution class;
+- change kind and hypothesis;
+- source-bearing observations;
+- derivation versus held-out cases;
+- protected invariants;
+- authority requirement;
+- rollout/revert posture;
+- privacy posture.
+
+Products may store these records in their own appropriate systems. ADLBOS does not require a central optimizer service.
+
+## 12. Promotion levels
+
+Use honest state rather than "learned" as a binary label:
+
+```text
+observed
+  evidence exists
+
+corroborated
+  independent recurrence or deterministic reproduction exists
+
+proposed
+  bounded candidate delta exists
+
+regression_tested
+  held-out/protected checks pass
+
+approved
+  required authority accepted the semantic change
+
+rolled_out
+  candidate is active in the intended scope
+
+verified
+  post-rollout real behavior supports keeping it
+
+reverted
+  candidate was rolled back; reason retained
+```
+
+A commit alone is not `verified`. A transcript alone is not `approved`. A passing model critique alone is not a behavioral regression test.
+
+## 13. Interaction with canonical owners
+
+This profile never grants permission to rewrite another product's domain contract.
+
+Route findings to the owner:
+
+```text
+Focusa work/authority/learning defect
+  -> Focusa
+
+Wirebot Operating Partner/context/workforce-composition defect
+  -> Wirebot
+
+UIAI execution/browser/computer defect
+  -> UIAI
+
+Veragensia body/runtime/enforcement defect
+  -> Veragensia
+
+accepted-outcome/correction/economics defect
+  -> W.I.N.S.
+
+portable cross-product or build-agent doctrine defect
+  -> ADLBOS
+```
+
+An `orchestration_gap` stays with the orchestrator unless the repository under review is itself the orchestrator.
+
+## 14. Minimum acceptance for a versioned ADLBOS contract improvement
+
+Before calling an ADLBOS contract update evidence-grounded:
 
 1. target and evolution class are explicit;
 2. the causal problem is tied to source evidence or deterministic reproduction;
