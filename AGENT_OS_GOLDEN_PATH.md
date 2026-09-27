@@ -2,10 +2,11 @@
 
 > A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage remains partial; the field-tested deployment spine remains valuable, while current product ownership is reconciled against the live ecosystem architecture.
 
-- **Golden Path target:** `0.2.0-candidate`
+- **Golden Path target:** `0.2.1-candidate`
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Current cross-product architecture:** [`CURRENT_ECOSYSTEM_ARCHITECTURE.md`](./CURRENT_ECOSYSTEM_ARCHITECTURE.md)
 - **Foundational operating contract:** [`AGENTS.md`](./AGENTS.md)
+- **Agent-contract optimization profile:** [`AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`](./AGENT_CONTRACT_OPTIMIZATION_PROFILE.md)
 - **Reference Agent Computer profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
 - **Field-tested working spine:** [`docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 - **Composable workforce catalogue:** [`docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md`](./docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md)
@@ -196,6 +197,25 @@ Actionable shared projections carry explicit schema/version, source revision, ti
 Stale/expired cached state may be displayed but must be revalidated before a consequential action.
 
 Acknowledging an item in a presenter is not the same as source-domain resolution.
+
+### 11. Evidence can propose contract evolution; it cannot self-promote
+
+Agent-facing contracts improve under `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`.
+
+Operational transcripts, Evidence, receipts, failures and accepted outcomes may justify a candidate change. They do not become canonical memory, policy, architecture or authority merely by recurring.
+
+For material semantic changes:
+
+- attribute the causal owner before editing;
+- distinguish independent recurrence from duplicate observations of one incident;
+- protect constitutional, safety/authority and architecture-boundary rules from frequency-based erosion;
+- use the smallest useful candidate;
+- validate on representative held-out cases not used to derive the candidate;
+- preserve protected invariants and require the appropriate owner/architecture gate;
+- verify native instruction/skill loading when placement changes;
+- observe post-rollout behavior and keep, improve or revert based on running reality.
+
+Product-local lessons remain with their product owner. ADLBOS defines the portable evolution law without becoming a second learning, Evidence, conversation or outcome store.
 
 ## Golden Path phase contract
 
