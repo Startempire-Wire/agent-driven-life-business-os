@@ -409,6 +409,94 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "allOf": [
+          {
+            "properties": {
+              "status": {
+                "enum": [
+                  "approved",
+                  "rolled_out",
+                  "verified"
+                ]
+              }
+            }
+          },
+          {
+            "properties": {
+              "authority": {
+                "properties": {
+                  "requirement": {
+                    "enum": [
+                      "owner",
+                      "architecture_delegate"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "then": {
+        "properties": {
+          "authority": {
+            "properties": {
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "rolled_out",
+              "verified"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "rollout": {
+            "properties": {
+              "rollback_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "verified"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "rollout": {
+            "properties": {
+              "post_rollout_observation_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
     }
   ]
 }
