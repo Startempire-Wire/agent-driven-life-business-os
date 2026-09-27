@@ -2,6 +2,22 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.2-candidate — 2026-09-27
+
+### Contract-optimization hardening
+
+- **Supersession path closed:** repeated `superseded` observations are explicitly contextual and no longer count as harm evidence; active semantic weakening by supersession requires an exact authority-bearing `supersedes_ref`.
+- **Portable promotion floor enforced:** `portable_operational` changes cannot reach `approved`, `rolled_out`, or `verified` from one causal incident.
+- **Tradeoff authority enforced:** `tradeoff_approved` requires owner/architecture-delegate authority and an approval reference rather than functioning as an evaluator self-exception.
+- **Extraction proof made executable:** promoted `extract` changes require a recorded native loader/trigger validation case so context savings cannot silently reduce effective capability.
+- **Regression coverage extended:** the portable policy test now rejects supersession-by-opinion, single-incident portable promotion, unapproved tradeoffs and extraction without native-load proof.
+
+### Preservation
+
+- No existing capability, product boundary, authority invariant, Golden Path step or operating lesson is intentionally removed.
+- Ordinary additive improvements remain evidence-gated but are not forced through new owner ceremony unless they cross an authority-bearing boundary.
+- This is a hardening release over 0.2.1, not a new runtime, optimizer service, memory store or architecture tier.
+
 ## 0.2.1-candidate — 2026-09-27
 
 ### Evidence-gated contract evolution

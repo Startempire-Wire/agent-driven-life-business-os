@@ -243,6 +243,14 @@
             "fail",
             "tradeoff_approved"
           ]
+        },
+        "placement_case_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
         }
       }
     },
@@ -490,6 +498,133 @@
           "rollout": {
             "properties": {
               "post_rollout_observation_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evaluation": {
+            "properties": {
+              "verdict": {
+                "const": "tradeoff_approved"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "authority": {
+            "properties": {
+              "requirement": {
+                "enum": [
+                  "owner",
+                  "architecture_delegate"
+                ]
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "allOf": [
+          {
+            "properties": {
+              "change": {
+                "properties": {
+                  "kind": {
+                    "const": "extract"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "status": {
+                "enum": [
+                  "regression_tested",
+                  "approved",
+                  "rolled_out",
+                  "verified"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "then": {
+        "properties": {
+          "evaluation": {
+            "required": [
+              "placement_case_refs"
+            ],
+            "properties": {
+              "placement_case_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "allOf": [
+          {
+            "properties": {
+              "change": {
+                "properties": {
+                  "semantic_weakening": {
+                    "const": true
+                  },
+                  "supersedes_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "supersedes_ref"
+                ]
+              }
+            }
+          },
+          {
+            "properties": {
+              "status": {
+                "enum": [
+                  "approved",
+                  "rolled_out",
+                  "verified"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "then": {
+        "properties": {
+          "authority": {
+            "properties": {
+              "requirement": {
+                "enum": [
+                  "owner",
+                  "architecture_delegate"
+                ]
+              },
+              "approval_ref": {
                 "type": "string",
                 "minLength": 1
               }

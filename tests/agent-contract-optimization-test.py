@@ -35,22 +35,29 @@ def policy_errors(value: dict) -> list[str]:
     observations = value["observations"]
 
     independent = {o["correlation_key"] for o in observations}
-    harmful_or_superseded = {
+    harmful = {
         o["correlation_key"]
         for o in observations
-        if o["observation_class"] in {"harm", "superseded"}
+        if o["observation_class"] == "harm"
     }
 
     if target_class in PROTECTED_CLASSES and authority["requirement"] == "none":
         errors.append("protected evolution class requires owner-rooted authority")
 
     if change["kind"] == "remove" or change["semantic_weakening"]:
-        if not change.get("supersedes_ref") and len(harmful_or_superseded) < 2:
+        if not change.get("supersedes_ref") and len(harmful) < 2:
             errors.append(
-                "removal/weakening requires explicit supersession or two independent harm/superseded causes"
+                "removal/weakening requires explicit owner-authorized supersession or two independent harm causes"
             )
         if len(independent) < 2 and not change.get("supersedes_ref"):
             errors.append("removal/weakening cannot rely on duplicate observations of one incident")
+
+    if (
+        target_class == "portable_operational"
+        and status in {"approved", "rolled_out", "verified"}
+        and len(independent) < 2
+    ):
+        errors.append("portable operational promotion requires two independent causal observations")
 
     if status in POST_TEST_STATUSES:
         if not evaluation["holdout_case_refs"]:
@@ -59,6 +66,14 @@ def policy_errors(value: dict) -> list[str]:
             errors.append("post-test state requires protected-invariant cases")
         if evaluation["verdict"] not in {"pass", "tradeoff_approved"}:
             errors.append("post-test state requires a passing/approved evaluation verdict")
+
+    if evaluation["verdict"] == "tradeoff_approved":
+        if authority["requirement"] == "none" or not authority.get("approval_ref"):
+            errors.append("tradeoff-approved evaluation requires explicit owner-rooted approval")
+
+    if change["kind"] == "extract" and status in POST_TEST_STATUSES:
+        if not evaluation.get("placement_case_refs"):
+            errors.append("promoted extraction requires native loader/trigger validation")
 
     if (
         status in {"approved", "rolled_out", "verified"}
@@ -132,6 +147,40 @@ def main() -> None:
     ]
     expect_policy_invalid(duplicate_incident_remove, "duplicate-incident removal")
 
+    superseded_without_authority = copy.deepcopy(ungrounded_remove)
+    superseded_without_authority["observations"] = [
+        {
+            **valid["observations"][0],
+            "observation_class": "superseded",
+            "correlation_key": "superseded-claim-1",
+        },
+        {
+            **valid["observations"][1],
+            "observation_class": "superseded",
+            "correlation_key": "superseded-claim-2",
+        },
+    ]
+    expect_policy_invalid(
+        superseded_without_authority,
+        "superseded observations without explicit superseding contract",
+    )
+
+    single_incident_promoted = copy.deepcopy(valid)
+    single_incident_promoted["status"] = "approved"
+    single_incident_promoted["observations"] = [valid["observations"][0]]
+    expect_policy_invalid(single_incident_promoted, "single-incident portable promotion")
+
+    tradeoff_without_approval = copy.deepcopy(valid)
+    tradeoff_without_approval["evaluation"]["verdict"] = "tradeoff_approved"
+    if not list(validator.iter_errors(tradeoff_without_approval)):
+        raise AssertionError("tradeoff-approved change without authority unexpectedly passed schema")
+
+    extract_without_loader_proof = copy.deepcopy(valid)
+    extract_without_loader_proof["change"]["kind"] = "extract"
+    extract_without_loader_proof["change"]["destination_ref"] = ".agents/skills/example/SKILL.md"
+    if not list(validator.iter_errors(extract_without_loader_proof)):
+        raise AssertionError("promoted extraction without loader/trigger proof unexpectedly passed schema")
+
     protected_without_authority = copy.deepcopy(valid)
     protected_without_authority["target"]["evolution_class"] = "safety_authority"
     # The JSON Schema itself must reject this, before policy code.
@@ -180,6 +229,9 @@ def main() -> None:
         "Corroboration is about independence, not raw session count",
         "The evidence used to propose a change is training evidence. It is not sufficient validation.",
         "Conversation is provenance/audit, not automatic memory or policy promotion.",
+        "A `superseded` observation is context, not harm evidence.",
+        "`tradeoff_approved` is not a model verdict.",
+        "record at least one native loader/trigger validation case reference",
         "prefer semantic-preserving extraction or relocation over deletion",
     ]
     for phrase in required_phrases:
