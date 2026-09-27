@@ -2,6 +2,32 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.1-candidate — 2026-09-27
+
+### Evidence-gated contract evolution
+
+- **Portable optimization profile added:** `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md` defines how real operating evidence may propose bounded improvements without allowing transcripts, repeated incidents or model judgments to self-promote into memory, policy, architecture or authority.
+- **Protected evolution classes added:** constitutional, safety/authority and architecture-boundary rules cannot be weakened merely because they are infrequent, token-costly, ignored, duplicated-looking or absent from recent sessions. Product-local lessons remain with their canonical owner.
+- **Independent corroboration required:** repeated records from one causal incident share one correlation identity; raw session count is not treated as independent evidence.
+- **Held-out regression gate added:** material semantic changes separate derivation/training cases from held-out behavioral cases and preserve explicit protected-invariant checks before promotion.
+- **Bounded proposal envelope added:** `contracts/agent-contract-change.v1.schema.json` carries target/base revision, evolution class, change hypothesis, source-bearing observations, held-out evaluation, authority, rollout/revert posture and privacy metadata without creating a new database.
+- **Executable regression policy added:** `tests/agent-contract-optimization-test.py`, its valid fixture and `tests/run-contract-tests.sh` reject ungrounded removal/weakening, duplicate-incident corroboration, protected changes without owner-rooted authority, derivation/holdout overlap, untested verified state and private payload in portable proposals.
+- **Golden Path and build-agent surfaces reconciled:** `AGENTS.md`, current architecture, Golden Path spine, README, collaboration checklist and server handoff now reference the same evidence-gated evolution law and native-loader verification requirement.
+- **Version record added:** `0.2.1.md` records this candidate as an additive refinement over 0.2.0 rather than a replacement of existing product ownership or open acceptance work.
+
+### Non-regression / preservation statement
+
+- No existing constitutional, safety, authority, product-ownership, evidence/outcome or recovery law is intentionally removed or weakened by this candidate.
+- Semantic deletion remains exceptional; semantic-preserving relocation/extraction is preferred when placement is the problem.
+- ADLBOS does not become a runtime learning store, transcript store, Evidence store, memory authority or accepted-outcome authority.
+- Existing 0.2.0 gaps remain open unless separately proven closed.
+
+### Honest limits
+
+- This candidate adds contract infrastructure and regression policy, not a transcript collector or central optimizer runtime.
+- Automated proposal generation still depends on source-system/harness adapters that preserve privacy and ownership.
+- Source-level regression proof does not itself establish long-term behavioral gain; post-rollout real-operation evidence is still required before a candidate change is called verified.
+
 ## 0.2.0-candidate — 2026-09-13
 
 ### Recorded work and bounded evidence
