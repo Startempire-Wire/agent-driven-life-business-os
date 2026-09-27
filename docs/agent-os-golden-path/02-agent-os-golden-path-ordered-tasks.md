@@ -474,6 +474,8 @@ The execution fleet is reachable, identified and bounded correctly.
 
 Understand the customer's real life/business systems, goals, processes, data, people, obligations, opportunities and recurring work before inventing workforce structure.
 
+For a full-surface customer audit, use the [Business Discovery Audit and Workforce Inference procedure](./12-full-surface-business-discovery-audit-and-workforce-inference.md). Its source-coverage manifest, business/asset matrix, contradiction register and guarded workforce proposal are Stage 5 outputs, not permission to activate agents or schedules. Read-only discovery and private client scope remain the defaults.
+
 ## Steps
 
 1. Inventory business/life systems and canonical record owners.
