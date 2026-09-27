@@ -237,11 +237,13 @@ When changing `AGENTS.md`, load-on-trigger skills/procedures, or equivalent stee
 3. corroborate independent causes rather than raw transcript/session count;
 4. stage the smallest useful delta;
 5. do not remove or weaken rules merely because they are infrequent, token-costly, ignored once or absent from recent sessions;
-6. run protected-invariant and held-out behavioral cases for material semantic changes;
-7. satisfy owner/architecture authority for protected classes;
-8. verify native consumer discovery/reload/trigger behavior if placement or loading changes;
-9. roll out narrowly, observe real outcomes, then keep, improve or revert;
-10. retain the reusable lesson without copying private evidence into portable source.
+6. treat `superseded` as contextual unless an exact owner-approved superseding contract is referenced; it never substitutes for harm evidence;
+7. run protected-invariant and held-out behavioral cases for material semantic changes;
+8. require explicit authority for deliberate regression tradeoffs, even when the target rule is otherwise operational;
+9. satisfy owner/architecture authority for protected classes;
+10. verify native consumer discovery/reload/trigger behavior if placement or loading changes, and record that proof before promoting an extraction;
+11. roll out narrowly, observe real outcomes, then keep, improve or revert;
+12. retain the reusable lesson without copying private evidence into portable source.
 
 Conversation/session history is provenance, not automatic canonical memory.
 

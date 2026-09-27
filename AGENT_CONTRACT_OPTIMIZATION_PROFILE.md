@@ -108,7 +108,7 @@ placement
   the rule is valid but the system does not reliably discover or load it
 
 superseded
-  stronger current owner-approved architecture or behavior makes the old rule obsolete
+  a specific current owner-approved contract explicitly supersedes the rule; this requires an exact `supersedes_ref` and is context, not independent harm evidence
 ```
 
 Do not infer causation merely because an instruction and an outcome coexist in the same transcript.
@@ -137,7 +137,7 @@ Observations from one causal incident use one `correlation_key` even if:
 
 Prefer corroboration across independent task instances, projects/deployments, time periods, harnesses/models where relevant, or deterministic reproductions that test the causal claim.
 
-Portable operational rules should normally have more than one independent cause before semantic promotion. Protected rules use the higher owner-authority standard in Section 7.
+Portable operational rules may be explored or regression-tested from a smaller evidence set, but they MUST NOT reach `approved`, `rolled_out`, or `verified` from one causal incident. Promotion requires at least two distinct `correlation_key` values. Protected rules use the higher owner-authority standard in Section 7.
 
 ## 7. Removal and semantic weakening have a higher floor
 
@@ -145,8 +145,8 @@ Deletion is not a default optimization.
 
 A rule may be removed or semantically weakened only when at least one of these is true:
 
-1. an owner-authorized current contract explicitly supersedes it; or
-2. independent evidence demonstrates that following the rule itself causes harm/cost and held-out/protected-invariant checks show the candidate is safer/better.
+1. an owner-authorized current contract explicitly supersedes it and `change.supersedes_ref` identifies that exact authority-bearing contract; or
+2. independent harm evidence demonstrates that following the rule itself causes harm/cost and held-out/protected-invariant checks show the candidate is safer/better.
 
 The following are **not sufficient by themselves**:
 
@@ -159,6 +159,8 @@ The following are **not sufficient by themselves**:
 - availability of a newer tool or implementation.
 
 For `constitutional`, `safety_authority`, and `architecture_boundary` classes, required owner-rooted authority still applies even when empirical evidence exists.
+
+A `superseded` observation is context, not harm evidence. Multiple agents repeating that a rule looks obsolete do not authorize weakening; without an exact `supersedes_ref`, the harm path above still applies.
 
 When the semantics are useful but the placement is wrong, prefer semantic-preserving extraction or relocation over deletion.
 
@@ -234,6 +236,8 @@ AND any deliberate tradeoff is explicit and authority-approved
 
 Do not use the same examples both to derive and to claim independent validation of a rule.
 
+`tradeoff_approved` is not a model verdict. Any deliberate regression/tradeoff requires `owner` or `architecture_delegate` authority plus an `approval_ref`, even when the target rule is otherwise operational.
+
 ## 10. Contract size and load-on-trigger placement
 
 Always-loaded instructions have recurring context and attention cost, but there is no universal magic token ceiling.
@@ -261,7 +265,8 @@ Before depending on an extraction:
 1. prove the target harness/runtime natively discovers the skill/procedure;
 2. prove the trigger loads it in a representative fresh session;
 3. preserve the full intended semantics during the first extraction;
-4. rerun relevant held-out cases.
+4. rerun relevant held-out cases;
+5. record at least one native loader/trigger validation case reference before the extraction reaches `regression_tested` or any later state.
 
 Do not build a custom instruction-injection system merely to save tokens when native loading already exists.
 
@@ -276,6 +281,7 @@ The envelope exists so different tools can describe the same bounded experiment 
 - change kind and hypothesis;
 - source-bearing observations;
 - derivation versus held-out cases;
+- native loader/trigger placement cases when extraction changes loading;
 - protected invariants;
 - authority requirement;
 - rollout/revert posture;

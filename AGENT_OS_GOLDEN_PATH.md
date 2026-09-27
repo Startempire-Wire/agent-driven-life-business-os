@@ -2,7 +2,7 @@
 
 > A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage remains partial; the field-tested deployment spine remains valuable, while current product ownership is reconciled against the live ecosystem architecture.
 
-- **Golden Path target:** `0.2.1-candidate`
+- **Golden Path target:** `0.2.2-candidate`
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Current cross-product architecture:** [`CURRENT_ECOSYSTEM_ARCHITECTURE.md`](./CURRENT_ECOSYSTEM_ARCHITECTURE.md)
 - **Foundational operating contract:** [`AGENTS.md`](./AGENTS.md)
