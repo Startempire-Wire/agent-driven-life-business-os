@@ -1,8 +1,8 @@
 # Agent Contract Optimization Profile
 
-**Status:** LIVE portable improvement contract  
-**Schema family:** `agent.contract_change.v1`  
-**Applies with:** `AGENTS.md`, `OWNER_AUTHORITY_CONSTITUTION.md`, `CURRENT_ECOSYSTEM_ARCHITECTURE.md`, and `AGENT_OS_GOLDEN_PATH.md`  
+**Status:** LIVE portable improvement contract<br>
+**Schema family:** `agent.contract_change.v1`<br>
+**Applies with:** `AGENTS.md`, `OWNER_AUTHORITY_CONSTITUTION.md`, `CURRENT_ECOSYSTEM_ARCHITECTURE.md`, and `AGENT_OS_GOLDEN_PATH.md`<br>
 **Purpose:** improve durable agent instructions from real operating evidence without creating a self-authorizing memory, policy, or architecture system.
 
 ## 1. Core law
