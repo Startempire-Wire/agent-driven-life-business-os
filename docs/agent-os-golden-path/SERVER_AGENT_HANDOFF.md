@@ -21,6 +21,8 @@ Start here:
 
 Historical version docs, audits and Git history remain useful evidence. They do not override the current architecture.
 
+When the task changes agent instructions, load-on-trigger skills/procedures or instruction-loading behavior, also read `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md` and run `bash tests/run-contract-tests.sh`. A material semantic change must use held-out behavioral cases that were not used to derive the proposal.
+
 ---
 
 ## Current architecture
@@ -171,6 +173,8 @@ Break-glass authentication resolves through the current deployment secret/verifi
 A command, commit, route, task closure or agent assertion is not completion.
 
 Verify the actual requested effect at the narrowest practical layer and through a real vertical flow when material.
+
+For agent-contract evolution, derivation/training evidence is not independent proof. Compare the baseline and candidate on held-out representative cases, preserve protected invariants, and re-observe behavior after rollout before calling the change verified.
 
 ---
 
