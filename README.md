@@ -78,16 +78,29 @@ Current responsibility map:
 |---|---|---|
 | Owner / architecture authority | deployment Canonical Owner Principal | goals, values, consent, reserved powers, architecture delegation |
 | Delegated human operation | owner-scoped human delegation | bounded operational actions only |
-| Operating Partner | Wirebot / Wirebot App | life/business orientation, recommendations, Workforce Composer, owner-wide attention |
+| Operating Partner | Wirebot / Wirebot App | life/business orientation, Portfolio Business Compiler, Workforce Composer, base feedback/leverage/Quiet Kaizen synthesis, owner-wide attention |
 | Governed work | Focusa | Project, Workstream, Foreman, Workpoint, authority, Evidence, receipts, continuity |
 | Workforce operations | Focusa Workforce | roster, work, Direction, Needs You, Evidence/topology projections |
 | Browser/computer execution | UIAI Engine | observation, actuation, takeover, diagnostics, execution proof |
 | Body/runtime/enforcement | Veragensia | Agent Computer, body/runtime identity, placement, enforcement, human control |
 | Workers/harnesses | Pi + compatible agents/runtimes | bounded execution under governed work |
-| Accepted outcomes | W.I.N.S. | accepted real-world outcomes, corrections, confidence, economics |
+| Outcome/progression projection | W.I.N.S. | optional/setup-aware seasons, score, momentum/leverage presentation, recognition/community over source-domain outcomes |
 | Portable worker trust | MeriFolio | portable identity/standing/selective disclosure |
 | Community/network | Startempire Wire | relationships, opportunities, optional sovereign federation |
 | Public worker marketplace | AI Draftees | discovery, public track record, hire candidate path |
+
+## Wirebot setup modes
+
+ADLBOS consumes four customer/setup modes:
+
+| Setup | Base feedback / optimization | W.I.N.S. |
+|---|---|---|
+| Wirebot Sovereign Operator | always available | optional explicit opt-in |
+| Wirebot Sovereign | always available | optional explicit opt-in |
+| Wirebot Direct | always available | governed by Direct offer; distinct from Network membership |
+| Wirebot Network | always available | governed by Network participation policy |
+
+The four setup modes are not numeric entitlement levels. `Wirebot Sovereign Operator` is not synonymous with the technical `sovereign_builder` admin role.
 
 ## Wirebot and Foreman are different altitudes
 
@@ -127,12 +140,13 @@ consented source coverage
 → Focusa-governed assignment
 → OpenClaw/VPS/UIAI execution
 → routine analytics + Evidence
-→ accepted outcome
-→ W.I.N.S. momentum/leverage
+→ source-domain accepted outcome
+→ base leverage/momentum projection
 → Quiet Kaizen improvement
+→ optional W.I.N.S. progression when enabled
 ```
 
-The compiler is not another database or runtime. W.I.N.S. is the accepted-outcome and progression lens. Its game-like dynamics should help the owner feel real momentum from meaningful outcomes and compounding leverage, never reward empty activity or compulsive interaction.
+The compiler is not another database or runtime. The feedback/optimization loop is base ADLBOS capability and does not depend on W.I.N.S. W.I.N.S., when enabled for the current setup, is an enhanced progression/recognition/community lens over the same source-qualified outcome and leverage truth. Its game-like dynamics should help the owner feel real momentum from meaningful outcomes and compounding leverage, never reward empty activity or compulsive interaction.
 
 ## Workforce Composer versus Focusa Workforce
 
@@ -305,8 +319,9 @@ Preferred closure:
 execution
 → Focusa Evidence
 → verification / settlement
-→ accepted outcome
-→ W.I.N.S.
+→ source-domain accepted outcome
+→ base operator.leverage_snapshot.v1
+→ optional W.I.N.S. projection according to setup participation
 → optional MeriFolio presentation/standing
 ```
 
