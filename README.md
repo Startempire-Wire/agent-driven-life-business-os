@@ -40,7 +40,11 @@ UIAI · VERAGENSIA · Pi · workers · Agent Computers
         ↓
 Evidence / settlement
         ↓
-W.I.N.S. accepted outcomes
+source-domain accepted outcome
+        ↓
+base private leverage / feedback · Wirebot/Perpetua
+        ↓ optional by setup
+W.I.N.S. progression / recognition / community
         ↓ optional
 MeriFolio portable trust / standing
 ```
