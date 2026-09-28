@@ -265,12 +265,13 @@ A typical customer Operator deployment may combine:
 ```text
 customer Canonical Owner Principal
 + optional DelegatedHumanPrincipal identities
-+ customer-named Wirebot Operating Partner
++ customer-named Wirebot Operating Partner on OpenClaw
 + dedicated/private Focusa
 + Focusa Workforce
-+ UIAI where entitled/needed
-+ private/customer infrastructure
-+ optional Veragensia Agent Computers/bodies
++ UIAI Engine
++ Tailscale private mesh
++ at least one persistent remote VPS
++ optional additional Veragensia Agent Computers/bodies
 + optional Startempire federation
 ```
 
