@@ -111,6 +111,24 @@ OpenClaw schedule fires
 
 Do not make owner laptops, browser extension service workers or chat sessions the hidden durability requirement for business routines.
 
+### Routine maturity
+
+Use visible, reversible maturity rather than arbitrary AI autonomy levels:
+
+```text
+Observed
+→ Modeled
+→ Pilot
+→ Proven
+→ Automated
+→ Compounding
+       ↘ Paused / Retired
+```
+
+Promotion is evidence-based. A higher maturity can make additional autonomy *eligible* under owner policy, but never self-grants authority.
+
+The meaningful “unlock” is real capability: a proven routine may become schedule-eligible; a reliable scheduled routine may require less owner attention; a reusable capability may serve another business with a separately scoped assignment.
+
 ## 7. Analytics hierarchy
 
 Never collapse:
