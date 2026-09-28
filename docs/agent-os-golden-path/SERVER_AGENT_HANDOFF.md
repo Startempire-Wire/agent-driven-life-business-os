@@ -33,6 +33,9 @@ Canonical Owner Principal
 Operating Partner / Chief of Staff
 Wirebot implementation family; customer name may be Spock/etc.
         ↓
+OpenClaw
+persistent partner runtime / channels / automations on private remote VPS
+        ↓
 Focusa
 Project / Workstream / Foreman / governed work
         ↓
@@ -112,12 +115,13 @@ A customer deployment may combine:
 
 ```text
 customer owner
-+ customer-named Wirebot Operating Partner
++ customer-named Wirebot Operating Partner on OpenClaw
 + dedicated/private Focusa
 + Focusa Workforce
-+ UIAI where entitled/needed
-+ customer/private infrastructure
-+ optional Veragensia bodies
++ UIAI Engine
++ Tailscale private mesh
++ at least one persistent remote VPS
++ optional additional Veragensia bodies
 + optional Startempire federation
 ```
 
@@ -230,9 +234,9 @@ Follow the current Stage 0–8 spine:
 0 Engage and bind ownership
 1 Workstation substrate and secure agent capability
 2 Operating Partner genesis
-3 Cloud/private execution landing where applicable
+3 Persistent remote VPS + OpenClaw landing
 4 Mesh, identity and reachable execution bodies
-5 Knowledge, business audit and system map
+5 Knowledge, portfolio/business audit and system map
 6 Primary administration/runtime cutover
 7 Operating plane and workforce commissioning
 8 Ongoing operation, outcomes and handoff
@@ -249,7 +253,9 @@ The current working spine is `02-agent-os-golden-path-ordered-tasks.md`; do not 
 When an audit identifies a recurring capability/role gap:
 
 ```text
-observed need
+portfolio/business/life evidence
+→ routine / deficiency / leverage inference
+→ routine blueprint
 → Wirebot recommendation
 → Workforce Composer
 → CRIST / assignment packet
