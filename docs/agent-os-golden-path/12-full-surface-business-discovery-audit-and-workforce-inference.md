@@ -8,7 +8,7 @@
 
 The owner may run several businesses, hold dormant product assets, work across many devices and accounts, and have undocumented obligations hidden in files, correspondence and customer systems. A generic agent roster cannot be commissioned safely from a short interview or an old business plan.
 
-This audit creates an **evidence-backed map of the owner's actual businesses, desired outcomes, customers and obligations, recurring workflows, neglected assets, and candidate team/employee needs**. It has two outputs: a private business-revival matrix and a private workforce/automation proposal. It does **not** activate the proposed employees or schedules. Completion means the auditor can explain what was examined, what remains inaccessible, which findings are current versus historical, and exactly which first bounded workflow is ready for an authorized pilot. A list of files or an attractive agent org chart is not completion.
+This audit creates an **evidence-backed portfolio map of the owner's actual businesses, products and life/business domains; desired outcomes; customers and obligations; recurring workflows; neglected assets; and candidate system/workforce needs**. Several businesses are normal and may share services, people, software or routines without becoming one business. It produces a private portfolio/business matrix, routine-blueprint set, and workforce/system proposal. It does **not** activate the proposed employees or schedules. Completion means the auditor can explain what was examined, what remains inaccessible, which findings are current versus historical, and exactly which first bounded workflow is ready for an authorized pilot. A list of files or an attractive agent org chart is not completion.
 
 ## 1. Intake, authority and protected scope
 
@@ -55,9 +55,20 @@ Classify source material as **direct current owner steering**, **live external/s
 For each real or proposed workflow, map:
 
 ```text
-trigger → source/input → actor and owner → steps → handoff → exception
-→ customer/business effect → evidence → approval gate → repeat frequency
+portfolio/business/life-domain scope
+→ trigger
+→ source/input
+→ actor and canonical owner
+→ steps and step class
+→ handoff/exception
+→ customer/life/business effect
+→ evidence
+→ approval gate
+→ repeat frequency
+→ measurement baseline
 ```
+
+Then compile a **routine blueprint** that distinguishes deterministic code/API/CLI steps, agentic judgment, UIAI browser/computer work and human-reserved steps. One routine may serve multiple businesses only when scope, data separation, attribution and authority are explicit.
 
 Classify it as a deterministic procedure, recurring scheduled process, event-driven case, judgment/coordination role, bounded project, or human-reserved action. Identify slack: unanswered leads, uncollected/unclear invoices, expiring contracts/domains, neglected customer promises, outdated offers, disconnected metrics, stalled distribution, duplicate manual work, missing backup/acceptance, or dormant assets that could serve a measured demand.
 
@@ -95,7 +106,7 @@ Group repeated work by outcome and canonical owner. Match to the existing [Compo
 
 For each proposed employee, record role profile, task pack, supervisor/Foreman, client/project/Workstream, allowed capabilities/data, credential-use reference, budget, lifetime, activation, acceptance, evidence, escalation and revoke/stop path. Select **required staff**, **scheduled worker**, **on-demand bench**, **pilot**, **conditional**, **blocked**, **excluded** or **unknown** based on verified frequency and readiness. A template does not hire itself. Dormant profile means no timer and no runtime cost.
 
-Wirebot Workforce Composer recommends the roster and assignment. Owner/governance acceptance precedes Focusa binding. Focusa Workforce then operates exact Workstream work with Workpoints, Silent Sessions, Work Loops or background jobs under grants. A cron launches a typed approved assignment; it does not create authority. UIAI/Veragensia provide bounded execution surfaces; W.I.N.S. records accepted outcomes, not merely agent activity.
+Wirebot's Portfolio Operating Compiler / Workforce Composer recommends routines, systems, roster and assignments. Owner/governance acceptance precedes Focusa binding. Focusa Workforce then operates exact Workstream work with Workpoints, Silent Sessions, Work Loops or background jobs under grants. OpenClaw Automations on the persistent remote VPS is the default durable scheduler for approved recurring assignments; the schedule does not create Focusa authority. UIAI/Veragensia provide bounded execution surfaces; W.I.N.S. records accepted outcomes and owner-facing momentum/leverage, not merely agent activity.
 
 ## 7. Prioritize, review and pilot
 
@@ -114,15 +125,16 @@ Do not market a financial result from disconnected telemetry, treat a drafted me
 
 ## 8. Deliverables, completion test and re-audit
 
-Deliver a **private source inventory and coverage manifest**, **business/asset matrix**, **workflow and renewal map**, **workforce assignment/schedule proposal**, **evidence and contradiction register**, **decision cards**, and **7/30/90-day sequence** tied to the owner's actual outcome. Record unreviewed content, unavailable accounts and stale evidence rather than filling gaps with invention.
+Deliver a **private source inventory and coverage manifest**, **portfolio/business/asset matrix**, **routine-blueprint and renewal map**, **workforce assignment/schedule proposal**, **routine measurement plans**, **evidence and contradiction register**, **decision cards**, and **7/30/90-day sequence** tied to the owner's actual outcomes. Record unreviewed content, unavailable accounts and stale evidence rather than filling gaps with invention.
 
 An audit is complete enough to enter Stage 7 only when:
 - every granted source is inventoried or explicitly unavailable, with pagination and content-review coverage disclosed;
 - businesses and major operating areas are represented or explicitly excluded;
 - recurring work and owner bottlenecks have source references and a current/old distinction;
 - proposed workers have a bounded supervisor, scope, capability, authority, cost and acceptance;
-- proposed schedules have owner, dependency, quiet hours, idempotency, failure alert, rollback and revocation;
-- economic outcomes are distinguished from activity and system health;
+- proposed schedules have owner, OpenClaw activation path, Focusa assignment ref, dependency, quiet hours, idempotency, overlap/missed-run policy, failure alert, rollback and revocation;
+- each material routine has a baseline/measurement plan for outcomes, reliability, cost and owner attention/capacity;
+- economic/life outcomes are distinguished from activity and system health;
 - contradictions and unknowns are visible and prioritized;
 - no external mutation occurred during discovery absent a separate exact approval;
 - the owner can review one viable first pilot and its proof gate without another exhaustive interview.
