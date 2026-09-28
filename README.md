@@ -106,6 +106,17 @@ ADLBOS consumes four customer/setup modes:
 
 The four setup modes are not numeric entitlement levels. `Wirebot Sovereign Operator` is not synonymous with the technical `sovereign_builder` admin role.
 
+
+## Economic / public-value reference
+
+For future website extraction, proposals and fact-checking, use these current references:
+
+- [Human-equivalent operating cost model](./docs/ADLBOS_HUMAN_EQUIVALENT_COST_MODEL.md)
+- [Public value / website fact sheet](./docs/ADLBOS_PUBLIC_VALUE_FACT_SHEET.md)
+- [Structured cost-model data](./data/adlbos-human-equivalent-cost-model.v1.json)
+
+The economic model is a **human-equivalent workload benchmark**, not a price sheet, employee-replacement claim, guaranteed savings statement or ROI promise.
+
 ## Wirebot and Foreman are different altitudes
 
 Wirebot / the customer-named Operating Partner is portfolio-level:
