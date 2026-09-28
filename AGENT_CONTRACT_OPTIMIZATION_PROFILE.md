@@ -25,10 +25,14 @@ Focusa
   and product-owned learning mechanisms
 
 Wirebot
-  Operating Partner context, portfolio orientation and owner-facing synthesis
+  Operating Partner context, portfolio orientation, owner-facing synthesis,
+  base private feedback/leverage/Quiet Kaizen projection
+
+source business/life domains + owner acceptance
+  accepted outcome / correction / economics truth in their domains
 
 W.I.N.S.
-  accepted outcome / correction / economics truth
+  optional setup-aware progression / recognition / community projection
 
 product repositories
   product-specific behavior, operations and implementation contracts
