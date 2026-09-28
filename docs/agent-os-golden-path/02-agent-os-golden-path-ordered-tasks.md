@@ -311,7 +311,7 @@ Create or bind the customer's persistent Operating Partner relationship without 
 
 1. Establish `OperatingPartnerPrincipal` under the customer owner.
 2. Configure customer-selected presentation identity/name/voice profile as desired.
-3. Bind the chosen Wirebot implementation/runtime path.
+3. Bind the Wirebot Operating Partner to its OpenClaw runtime path and verify the tenant/runtime binding.
 4. Create a git-backed source/config workspace where source belongs in Git.
 5. Bind current customer/deployment references rather than hardcoding Startempire identity.
 6. Begin CRIST/business orientation for the first useful outcome.
@@ -338,7 +338,7 @@ Older Tauri-wrapper proposals remain packaging/support history. Tauri may later 
 
 ```text
 Wirebot / Wirebot App
-runtime adapter such as OpenClaw where selected
+OpenClaw persistent Operating Partner runtime
 Git
 ADLBOS partner identity contract
 knowledge/context systems
@@ -354,7 +354,7 @@ That choice does not grant architecture authority.
 
 ### Partner identity tied to one runtime
 
-Default: partner identity is durable; OpenClaw/Pi/model/VPS are replaceable runtime components.
+Default: partner identity is durable; the OpenClaw **runtime incarnation/host**, Pi worker, model and individual VPS host are replaceable. OpenClaw as the persistent Operating Partner runtime layer is foundational in the current ADLBOS topology.
 
 ### Customer-specific UI fork
 
@@ -374,27 +374,31 @@ A persistent customer-owned partner relationship exists with source/runtime boun
 
 ---
 
-# Stage 3 — Cloud/private execution landing where applicable
+# Stage 3 — Persistent remote execution landing
 
 ## Purpose
 
-Prepare remote/private infrastructure when the engagement benefits from persistent cloud administration, heavy compute or always-on services.
+Establish the always-available remote execution/scheduling body required by the current ADLBOS operating topology.
 
-This stage is conditional. Do not create cloud infrastructure merely because the reference deployment has it.
+Every production Operator topology includes at least one persistent remote VPS reachable through the private Tailscale mesh. The VPS may be shared/managed, customer-owned, operator-managed or dedicated/Sovereign according to the deployment contract; the requirement does not imply one dedicated machine per customer.
+
+Additional cloud capacity, extra Agent Computers and heavy-compute workers remain demand-driven rather than copied from a reference estate.
 
 ## Steps
 
-1. Determine actual required execution topology.
-2. Create/verify VPS/cloud account and renewable authentication.
-3. Provision only the resources required by the selected profile.
-4. Establish private network posture before moving sensitive administration.
-5. Configure DNS/routing only for actual product/app needs.
-6. Establish backup/recovery before cutover.
-7. Verify cost/resource posture.
+1. Determine the exact managed/shared/dedicated remote execution topology.
+2. Create or verify the persistent remote VPS/body and renewable authentication.
+3. Install/verify the OpenClaw Gateway/runtime and built-in Automations scheduler on the intended always-on body.
+4. Establish Tailscale private-network posture before sensitive administration.
+5. Pair/verify Focusa and UIAI routes needed by the deployment without treating reachability as authority.
+6. Provision only additional resources required by actual workload.
+7. Configure DNS/public routing only for intended product/app needs.
+8. Establish backup/recovery before cutover.
+9. Verify cost/resource posture and replacement/restore path.
 
 ## Owner mechanisms
 
-Provider APIs/CLI, Veragensia/Agent Computer contracts where applicable, Tailscale/private network, DNS owner.
+Provider APIs/CLI, OpenClaw Gateway/Automations, Focusa, UIAI Engine, Tailscale/private network, Veragensia/Agent Computer contracts where applicable, DNS owner.
 
 ## Scars / defaults
 
@@ -420,7 +424,7 @@ The required cloud/private execution body exists and is safe to enroll into the 
 
 ---
 
-# Stage 4 — Mesh, identity and reachable execution bodies
+# Stage 4 — Tailscale mesh, identity and reachable execution bodies
 
 ## Purpose
 
@@ -428,7 +432,7 @@ Connect the customer's approved machines and runtimes without confusing reachabi
 
 ## Steps
 
-1. Enroll relevant machines/nodes in the private mesh.
+1. Establish/verify the Operator's Tailscale private mesh and enroll relevant approved machines/nodes.
 2. Record stable node/body/runtime refs through owning systems.
 3. Verify administration paths in both directions where required.
 4. Pair Focusa/UIAI/Veragensia surfaces according to their contracts.
@@ -468,11 +472,11 @@ The execution fleet is reachable, identified and bounded correctly.
 
 ---
 
-# Stage 5 — Knowledge, business audit and system map
+# Stage 5 — Portfolio knowledge, life/business audit and system map
 
 ## Purpose
 
-Understand the customer's real life/business systems, goals, processes, data, people, obligations, opportunities and recurring work before inventing workforce structure.
+Understand the owner's real portfolio of businesses, products and life domains—their goals, processes, data, people, obligations, opportunities and recurring work—before inventing workforce structure. Multiple businesses are normal; no audit or UI may assume a single primary business is the complete operating scope.
 
 For a full-surface customer audit, use the [Business Discovery Audit and Workforce Inference procedure](./12-full-surface-business-discovery-audit-and-workforce-inference.md). Its source-coverage manifest, business/asset matrix, contradiction register and guarded workforce proposal are Stage 5 outputs, not permission to activate agents or schedules. Read-only discovery and private client scope remain the defaults.
 
@@ -491,7 +495,9 @@ For a full-surface customer audit, use the [Business Discovery Audit and Workfor
    - human-only/reserved work.
 7. Identify high-leverage deficiencies and opportunities.
 8. Map canonical state ownership/freshness/retention.
-9. Feed candidate workforce requirements into Workforce Composer rather than directly spawning broad agents.
+9. Compile each material recurring pattern into a source-backed routine blueprint before deciding whether it should become software, a schedule, an agent responsibility or a human-reserved step.
+10. Feed routine blueprints and candidate workforce requirements into the Wirebot Portfolio Operating Compiler / Workforce Composer rather than directly spawning broad agents.
+11. Attach a measurement plan so activation can later compare real outcomes, owner attention, reliability, cost and leverage against a baseline.
 
 ## Owner mechanisms
 
@@ -609,9 +615,11 @@ resource/spend exceptions
 opportunities
 ```
 
-### 7.2 Workforce Composer
+### 7.2 Portfolio Operating Compiler / Workforce Composer
 
-Translate audit gaps into proposed roles/teams.
+Translate the multi-business/life-domain audit into proposed routines, systems, roles and teams.
+
+The compiler first asks what should become deterministic software, what should remain agentic judgment, what requires UIAI computer work, and what should remain human-reserved. Roles are derived from grouped responsibilities; the UI should not make the owner invent an agent org chart from scratch.
 
 For each role/assignment define:
 
@@ -633,6 +641,8 @@ escalation/revocation
 
 A role/profile is not authority.
 
+Each material routine also carries portfolio/business/life-domain scope, desired outcome, source-backed trigger/frequency, ordered step classes, deterministic operation refs, agent/task-pack refs, UIAI requirements, human-reserved gates, execution placement, reliability policy, measurement baseline and keep/improve/retire criteria.
+
 ### 7.3 Governed binding
 
 After owner/governance acceptance:
@@ -653,7 +663,7 @@ Use the work's natural shape:
 
 ```text
 fixed deterministic schedule
-→ scheduler/cron invoking an approved assignment
+→ OpenClaw Automations on the persistent remote VPS invoking/revalidating an approved Focusa assignment
 
 recurring judgment or multi-system coordination
 → durable staff profile / Operating Partner delegation
@@ -668,7 +678,7 @@ human-only occasional step
 → documented owner procedure / attention item
 ```
 
-A schedule is not blanket authority.
+A schedule is not blanket authority. OpenClaw owns the durable scheduling/runtime record; Focusa owns whether the referenced work remains authorized; UIAI owns any browser/computer action the run later requires.
 
 ### 7.5 Voice/presentation
 
@@ -691,8 +701,9 @@ Focusa Workforce
 Pi / compatible agents
 UIAI
 Veragensia bodies
-scheduler/provider systems
-W.I.N.S. outcome projection
+OpenClaw Automations / persistent remote VPS
+provider/business systems
+W.I.N.S. outcome, momentum and leverage projection
 ```
 
 ## Scars / defaults
@@ -701,9 +712,9 @@ W.I.N.S. outcome projection
 
 Default: no employee exists operationally without an explicit role/assignment packet and bounded capabilities.
 
-### Cron silently dies
+### Scheduled routine silently dies
 
-Default: heartbeat/receipt and missing-run visibility.
+Default: use OpenClaw persisted Automations/run history plus typed missing-run/overlap/retry visibility, source-qualified attention and Focusa revalidation. Do not hide a failed schedule behind an "active" UI toggle.
 
 ### New model silently changes workflow
 
@@ -751,11 +762,14 @@ Transition from build-out to daily value while preserving recoverability and ind
 3. Reconcile spend/resources.
 4. Verify outcomes, not activity counts.
 5. Record accepted outcomes through W.I.N.S. where applicable.
-6. Capture reusable improvements only after they prove useful.
-7. Retire temporary workers and revoke expired grants.
-8. Keep documentation/current owner maps up to date.
-9. Run the replacement-agent test.
-10. Maintain optimization loop and incident/recovery routes.
+6. Derive source-backed routine/business/portfolio analytics without moving canonical telemetry into a new database.
+7. Measure momentum and leverage: owner time/capacity bought back, cycle/reliability improvement, cost/risk reduction, reuse and new opportunity unlocked.
+8. Run Quiet Kaizen / optimization against those observations: simplify/delete before adding automation, and retain only measured improvements.
+9. Capture reusable improvements only after they prove useful; propagate reusable capabilities across businesses without double-counting benefits.
+10. Retire temporary workers/routines that do not help and revoke expired grants/schedules.
+11. Keep documentation/current owner maps up to date.
+12. Run the replacement-agent test.
+13. Maintain optimization loop and incident/recovery routes.
 
 ## Shared attention model
 
@@ -868,13 +882,16 @@ Do not duplicate these into a second backlog.
 Use:
 
 ```text
-Observe
+Observe portfolio/business/routine reality
+→ measure accepted outcome + operating burden
 → identify dominant constraint
-→ simplify/remove
-→ implement smallest leverage move
-→ verify
-→ keep / improve / remove
-→ capture reusable lesson
+→ delete/simplify before automating
+→ implement the smallest leverage move
+→ pilot / compare against baseline
+→ verify outcome + capacity/reliability effect
+→ keep / improve / retire
+→ reuse across routines/businesses where valid
+→ capture the next compounding opportunity
 ```
 
 The loop must improve customer outcomes or system reliability, not manufacture process work.
