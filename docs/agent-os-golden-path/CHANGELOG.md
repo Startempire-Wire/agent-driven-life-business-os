@@ -15,6 +15,8 @@ This changelog tracks the Golden Path version stream independently from the repo
 - **Meaningful game dynamics constrained:** seasons/streaks/progression should motivate verified life/business advancement, compounding leverage and reduced burden—not raw engagement, agent activity or streak pressure.
 - **Routine analytics made causal:** reliability, latency, retries, cost, attention, buyback, quality and authoritative outcome metrics stay visible; universal scores cannot hide dimensions.
 - **New closure gaps added:** portfolio routine analytics/leverage and meaningful progression are explicit P0 seams.
+- **Portable machine contracts added:** `operator.routine_blueprint.v1` and `operator.leverage_snapshot.v1` now have JSON Schemas, valid fixtures and regression tests; OpenClaw is encoded as the scheduling default without excluding explicit provider/native scheduler owners.
+- **Cross-product seam contract extended:** routine and leverage envelopes are reference projections only; they do not become schedule, task, Evidence, outcome or telemetry authorities.
 
 ### Preservation
 
