@@ -8,7 +8,7 @@
 
 The owner may run several businesses, hold dormant product assets, work across many devices and accounts, and have undocumented obligations hidden in files, correspondence and customer systems. A generic agent roster cannot be commissioned safely from a short interview or an old business plan.
 
-This audit creates an **evidence-backed map of the owner's actual businesses, desired outcomes, customers and obligations, recurring workflows, neglected assets, and candidate team/employee needs**. It has two outputs: a private business-revival matrix and a private workforce/automation proposal. It does **not** activate the proposed employees or schedules. Completion means the auditor can explain what was examined, what remains inaccessible, which findings are current versus historical, and exactly which first bounded workflow is ready for an authorized pilot. A list of files or an attractive agent org chart is not completion.
+This audit creates an **evidence-backed portfolio map of the owner's actual businesses, life/operating domains, desired outcomes, customers and obligations, recurring workflows, neglected assets, shared capabilities, and candidate team/employee needs**. Several businesses are a normal case, not an exception. It has two outputs: a private business-revival matrix and a private workforce/automation proposal. It does **not** activate the proposed employees or schedules. Completion means the auditor can explain what was examined, what remains inaccessible, which findings are current versus historical, and exactly which first bounded workflow is ready for an authorized pilot. A list of files or an attractive agent org chart is not completion.
 
 ## 1. Intake, authority and protected scope
 
@@ -52,7 +52,7 @@ Classify source material as **direct current owner steering**, **live external/s
 
 ## 4. Mine workflows and renewal opportunities
 
-For each real or proposed workflow, map:
+For each real or proposed workflow across every in-scope business/domain, map:
 
 ```text
 trigger → source/input → actor and owner → steps → handoff → exception
@@ -62,6 +62,30 @@ trigger → source/input → actor and owner → steps → handoff → exception
 Classify it as a deterministic procedure, recurring scheduled process, event-driven case, judgment/coordination role, bounded project, or human-reserved action. Identify slack: unanswered leads, uncollected/unclear invoices, expiring contracts/domains, neglected customer promises, outdated offers, disconnected metrics, stalled distribution, duplicate manual work, missing backup/acceptance, or dormant assets that could serve a measured demand.
 
 Separate **renewal of existing obligations** from **revival of historical ideas**. Prioritize real customer value and cash preservation before staffing a new product. No historical idea becomes active solely because its old plan is detailed; no new outreach is sent merely because a candidate contact was found.
+
+### 4.1 Compile routine blueprints
+
+For each corroborated recurring pattern, produce a reviewable typed routine blueprint containing:
+
+```text
+portfolio/business/domain refs
+purpose / desired outcome
+trigger / cadence / event
+inputs and canonical owners
+deterministic operations
+semantic/judgment responsibilities
+human-reserved decisions
+exceptions / recovery
+candidate worker/role
+execution placement
+authority/data/credential refs
+idempotency / overlap / missed-run / retry
+Evidence / acceptance
+measurement plan
+revoke / retire
+```
+
+A blueprint remains proposed until accepted. It is not an activated worker, schedule or authority grant.
 
 ## 5. Triangulate and build the private matrices
 
@@ -78,6 +102,8 @@ Maintain a source-backed evidence register. Resolve contradictions explicitly: a
 | Renewal or slack | existing obligations, unresolved work and measured opportunity |
 | Software and distribution | canonical owner, actual release/consumer proof, acquisition channel |
 | Workforce | required staff, scheduled, on-demand, pilot, blocked, excluded or unknown profiles |
+| Routine analytics | intended outcome, baseline if known, reliability/cost/attention dimensions, authoritative business metric refs and measurement cadence |
+| Leverage path | what constraint is removed, future effort/cost avoided, reusable capability created, other businesses/routines enabled and how double-counting is avoided |
 | Gate and proof | next bounded action, prerequisite, acceptance, confidence and source refs |
 
 The status is **an audit inference for owner review**, not a mutation of billing, the project registry, checklist or employee roster. Keep client-specific documents, private contacts and sensitive amounts in the private owner scope; publish only a permission-safe abstraction if a public product lesson is needed.
@@ -95,11 +121,11 @@ Group repeated work by outcome and canonical owner. Match to the existing [Compo
 
 For each proposed employee, record role profile, task pack, supervisor/Foreman, client/project/Workstream, allowed capabilities/data, credential-use reference, budget, lifetime, activation, acceptance, evidence, escalation and revoke/stop path. Select **required staff**, **scheduled worker**, **on-demand bench**, **pilot**, **conditional**, **blocked**, **excluded** or **unknown** based on verified frequency and readiness. A template does not hire itself. Dormant profile means no timer and no runtime cost.
 
-Wirebot Workforce Composer recommends the roster and assignment. Owner/governance acceptance precedes Focusa binding. Focusa Workforce then operates exact Workstream work with Workpoints, Silent Sessions, Work Loops or background jobs under grants. A cron launches a typed approved assignment; it does not create authority. UIAI/Veragensia provide bounded execution surfaces; W.I.N.S. records accepted outcomes, not merely agent activity.
+Wirebot Portfolio Business Compiler recommends routine blueprints and leverage opportunities; Workforce Composer recommends the roster and assignment. Owner/governance acceptance precedes Focusa binding. Focusa Workforce then operates exact Workstream work with Workpoints, Silent Sessions, Work Loops or background jobs under grants. OpenClaw's durable automations scheduler on the persistent Tailscale-connected VPS is the default launcher for recurring agent/system-event assignments when appropriate; other owning schedulers may be used for deterministic/provider-native work. A schedule never creates authority. UIAI/Veragensia provide bounded execution surfaces; W.I.N.S. records accepted outcomes, not merely agent activity.
 
 ## 7. Prioritize, review and pilot
 
-Rank candidate workflows by **customer/revenue importance, evidence quality, repeatability, integration readiness, human sensitivity, consequence risk, cost, and time saved**. Produce no more than a small active core and one first bounded pilot; keep the rest conditional or dormant. Batch owner decisions into clear decision cards instead of interrupting with incremental questions.
+Rank candidate workflows by **life/business outcome importance, customer/revenue importance where relevant, evidence quality, repeatability, integration readiness, human sensitivity, consequence risk, cost, time saved, reusable capacity and cross-portfolio leverage**. Produce no more than a small active core and one first bounded pilot; keep the rest conditional or dormant. Batch owner decisions into clear decision cards instead of interrupting with incremental questions.
 
 Pilot path:
 1. operator accepts the entity/workstream and outcome;
@@ -108,7 +134,7 @@ Pilot path:
 4. source/tenant/negative-path and failure/rollback tests pass;
 5. one approved real action executes, with send/dispatch/consumer receipts;
 6. independent verifier confirms the customer/business effect;
-7. only repeatable success warrants scheduling or a durable staff role.
+7. only repeatable success warrants scheduling or a durable staff role; promoted routines enter ongoing analytics and Quiet Kaizen review.
 
 Do not market a financial result from disconnected telemetry, treat a drafted message as sent, or treat an agent run as a sale. A high-scoring automation idea may still be prohibited by privacy, consent, legal or owner-reserved-power rules.
 
