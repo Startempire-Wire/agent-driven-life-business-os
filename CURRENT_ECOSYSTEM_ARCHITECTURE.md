@@ -28,6 +28,11 @@ OPERATING PARTNER / CHIEF OF STAFF
 Wirebot implementation family
 customer-selected presentation identity, e.g. "Spock"
         |
+        v
+OPENCLAW
+persistent Operating Partner runtime
+conversation · channels · automations · runtime continuity
+        |
         | orient · recommend · govern · delegate
         v
 FOCUSA
@@ -73,6 +78,33 @@ community · opportunities · Draftees · collaboration · federation
 
 ADLBOS owns the portable laws that keep these systems coherent. It does not absorb their implementations.
 
+### 1.1 Mandatory operating substrate
+
+The current production ADLBOS topology is built around:
+
+```text
+OpenClaw
+  persistent Operating Partner runtime and built-in Automations scheduler
+
+Focusa
+  governed work, authority, continuity, Evidence and receipts
+
+UIAI Engine
+  browser/computer observation and execution plane
+
+Tailscale private mesh
+  private transport between approved execution bodies
+
+at least one persistent remote VPS
+  always-available execution/scheduling body for unattended work
+```
+
+These are architectural layers, not one immutable machine image. The specific OpenClaw runtime incarnation, model, Pi worker, VPS host, browser, workstation or Agent Computer remains replaceable.
+
+The remote VPS may be shared/managed, customer-owned, operator-managed or dedicated/Sovereign according to the deployment contract. Its presence does not imply dedicated hardware per customer, and Tailscale reachability never grants work authority.
+
+OpenClaw's built-in Automations scheduler is the default durable scheduler for owner/business routines. A scheduled job wakes or invokes a typed assignment; it never mints the Focusa assignment, grant, consent or credential authority required by the work.
+
 ---
 
 ## 2. Identity model
@@ -97,7 +129,7 @@ Chief
 
 A customer-selected name is not a new architecture. The current implementation family is Wirebot, but presentation identity is configurable.
 
-The partner persists across model, runtime, host and body changes. Changing OpenClaw, Pi, model provider, VPS or computer MUST NOT silently create a new partner identity.
+The partner persists across model, runtime incarnation, host and body changes. Changing the OpenClaw runtime instance, Pi worker, model provider, VPS host or computer MUST NOT silently create a new partner identity.
 
 ### 2.3 `DelegatedHumanPrincipal`
 
@@ -163,18 +195,31 @@ ADLBOS is not another customer-facing runtime or database. It does not own runti
 
 Owns the Operating Partner experience:
 
-- life/business orientation;
+- life/business orientation across an owner's portfolio of businesses and life domains;
 - priorities and portfolio synthesis;
 - recommendations;
 - broad owner conversation;
 - organization design;
-- Workforce Composer;
+- Portfolio Operating Compiler / Workforce Composer;
+- routine design and owner-facing routine analytics;
 - delegation into governed work;
 - owner-wide attention;
 - network/community context;
-- owner-facing outcomes.
+- owner-facing outcomes and leverage recommendations.
 
 Wirebot App is the current application-family repository.
+
+### OpenClaw
+
+Owns the persistent Operating Partner runtime substrate used by Wirebot:
+
+- continuous agent/session runtime;
+- channels and conversation delivery;
+- built-in Automations scheduling and run history;
+- agent wake/turn execution and runtime continuity;
+- bounded script/command automation where admitted by the owning operation.
+
+OpenClaw does **not** own the durable Operating Partner principal, Focusa work/authority, UIAI execution authority, W.I.N.S. outcomes, business records or architecture authority. A schedule or healthy Gateway is runtime capability, not permission to perform the scheduled business effect.
 
 ### Focusa
 
@@ -218,7 +263,9 @@ Owns Agent Computer/body/runtime concerns: runtime incarnation, body identity, e
 
 ### W.I.N.S.
 
-Owns accepted outcome / portfolio semantics.
+Owns accepted outcome / portfolio semantics plus the owner-facing progress language that may include seasons, momentum, leverage, milestones and retrospectives.
+
+W.I.N.S. may project evidence-backed scores or game-like progress, but activity points never outrank accepted outcomes. Routine/workforce telemetry remains owned by its producing systems; W.I.N.S. consumes source-qualified references rather than becoming a duplicate execution log.
 
 ### MeriFolio
 
@@ -322,19 +369,23 @@ It maps onto independent dimensions:
 | Federation / sharing | private/off by default; optional explicit federation |
 | Interface / access | Wirebot App, Focusa Workforce, Focusa Desktop, UIAI, voice, Veragensia and other supported surfaces |
 
-A normal sovereign Operator deployment may include:
+A normal Operator deployment includes:
 
 ```text
 customer owner
 + customer-named Operating Partner (Wirebot implementation family)
-+ explicitly delegated human operators, if any
++ OpenClaw persistent Operating Partner runtime
 + Focusa
-+ Focusa Workforce
-+ UIAI as entitled/needed
-+ customer/private infrastructure
-+ optional Veragensia bodies
++ UIAI Engine
++ Tailscale private mesh
++ at least one persistent remote VPS execution/scheduling body
++ Focusa Workforce surface
++ explicitly delegated human operators, if any
++ optional additional Veragensia bodies/Agent Computers
 + optional Startempire federation
 ```
+
+The exact hosting/isolation posture may be shared, dedicated, customer-owned, platform-managed or hybrid. Mandatory presence of the layer does not imply ambient access or dedicated infrastructure for every customer.
 
 `Sovereign` describes ownership/isolation/authority posture. It does not inherently mean DIY, offline, unmanaged, non-networked or one hosting model.
 
