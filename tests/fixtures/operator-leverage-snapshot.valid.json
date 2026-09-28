@@ -1,0 +1,93 @@
+{
+  "schema_version": "operator.leverage_snapshot.v1",
+  "snapshot_id": "leverage://example/weekly-pipeline/30d",
+  "scope": {
+    "owner_ref": "owner://example",
+    "portfolio_ref": "portfolio://example",
+    "business_refs": [
+      "business://a",
+      "business://b"
+    ],
+    "life_domain_refs": [],
+    "routine_refs": [
+      "routine://example/weekly-pipeline"
+    ]
+  },
+  "window": {
+    "start": "2026-08-01T00:00:00Z",
+    "end": "2026-09-01T00:00:00Z"
+  },
+  "source_refs": [
+    "focusa://evidence/1",
+    "openclaw://run/1",
+    "crm://metric/lead-latency"
+  ],
+  "accepted_outcome_refs": [
+    "wins://pipeline-current"
+  ],
+  "operational_metrics": {
+    "runs": 4,
+    "accepted_runs": 4,
+    "failed_runs": 0,
+    "recovered_runs": 0,
+    "owner_interventions": 1,
+    "owner_minutes_saved_estimate": 120,
+    "direct_cost": 12.5,
+    "currency": "USD",
+    "cycle_time_seconds": 900
+  },
+  "dimensions": [
+    {
+      "dimension": "outcome",
+      "direction": "improved",
+      "confidence": "high",
+      "evidence_refs": [
+        "wins://pipeline-current"
+      ],
+      "note": null
+    },
+    {
+      "dimension": "capacity_buyback",
+      "direction": "improved",
+      "confidence": "medium",
+      "evidence_refs": [
+        "metric://owner-minutes"
+      ],
+      "note": "Estimate from before/after owner review time."
+    },
+    {
+      "dimension": "reuse",
+      "direction": "improved",
+      "confidence": "high",
+      "evidence_refs": [
+        "business://a",
+        "business://b"
+      ],
+      "note": "One shared routine serves two businesses."
+    }
+  ],
+  "momentum": {
+    "signal": "building",
+    "evidence_refs": [
+      "wins://pipeline-current",
+      "metric://lead-latency"
+    ]
+  },
+  "game_projection": {
+    "season_ref": "wins://season/q3",
+    "milestone_refs": [
+      "wins://milestone/first-proven-routine"
+    ],
+    "routine_maturity": "Proven"
+  },
+  "provenance": {
+    "producer_ref": "wins://projection-engine",
+    "source_revision": "rev-3",
+    "generated_at": "2026-09-01T01:00:00Z",
+    "attribution_note": "Shared benefit disclosed across both businesses; not double-counted."
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
