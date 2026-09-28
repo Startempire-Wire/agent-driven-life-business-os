@@ -305,7 +305,7 @@ The starting body can participate safely in the rest of the build, or the docume
 
 ## Purpose
 
-Create or bind the customer's persistent Operating Partner relationship without conflating that identity with its current runtime.
+Create or bind the customer's persistent Operating Partner relationship on OpenClaw without conflating durable partner identity with the current OpenClaw process, model, host or VPS incarnation.
 
 ## Steps
 
@@ -338,7 +338,7 @@ Older Tauri-wrapper proposals remain packaging/support history. Tauri may later 
 
 ```text
 Wirebot / Wirebot App
-runtime adapter such as OpenClaw where selected
+OpenClaw Operating Partner runtime and built-in automations scheduler
 Git
 ADLBOS partner identity contract
 knowledge/context systems
@@ -354,7 +354,7 @@ That choice does not grant architecture authority.
 
 ### Partner identity tied to one runtime
 
-Default: partner identity is durable; OpenClaw/Pi/model/VPS are replaceable runtime components.
+Default: partner identity is durable; OpenClaw is the standard Operating Partner runtime layer, while model, Pi workers, individual VPS instances and other bodies are replaceable runtime components.
 
 ### Customer-specific UI fork
 
@@ -378,19 +378,20 @@ A persistent customer-owned partner relationship exists with source/runtime boun
 
 ## Purpose
 
-Prepare remote/private infrastructure when the engagement benefits from persistent cloud administration, heavy compute or always-on services.
+Establish the Operator's persistent remote execution body and private control path.
 
-This stage is conditional. Do not create cloud infrastructure merely because the reference deployment has it.
+Every normal ADLBOS deployment includes at least one remote VPS connected through the Operator's Tailscale private mesh. This is the always-available home for the OpenClaw Operating Partner runtime, durable automations and other approved headless services. Additional cloud/Agent Computer capacity remains conditional on workload.
 
 ## Steps
 
 1. Determine actual required execution topology.
-2. Create/verify VPS/cloud account and renewable authentication.
-3. Provision only the resources required by the selected profile.
-4. Establish private network posture before moving sensitive administration.
-5. Configure DNS/routing only for actual product/app needs.
-6. Establish backup/recovery before cutover.
-7. Verify cost/resource posture.
+2. Create/verify at least one remote VPS/cloud account and renewable authentication.
+3. Install/verify the OpenClaw runtime and durable automation capability on the intended persistent VPS.
+4. Provision only the additional resources required by the selected profile.
+5. Establish Tailscale/private network posture before moving sensitive administration.
+6. Configure DNS/routing only for actual product/app needs.
+7. Establish backup/recovery before cutover.
+8. Verify cost/resource posture.
 
 ## Owner mechanisms
 
@@ -400,7 +401,7 @@ Provider APIs/CLI, Veragensia/Agent Computer contracts where applicable, Tailsca
 
 ### Reference topology copied blindly
 
-Default: capability/need determines topology, not historical server shape.
+Default: the invariant is **one persistent remote VPS + Tailscale + OpenClaw**, not one historical provider/hostname/size. Additional topology follows capability/need.
 
 ### Public exposure before private control path
 
@@ -609,7 +610,32 @@ resource/spend exceptions
 opportunities
 ```
 
-### 7.2 Workforce Composer
+### 7.2 Portfolio Business Compiler and Workforce Composer
+
+Treat the owner as a portfolio that may contain multiple businesses plus personal/life domains.
+
+Compile source-backed observations into routine blueprints before staffing:
+
+```text
+trigger
+→ inputs / canonical source owners
+→ deterministic steps
+→ semantic/judgment steps
+→ human-reserved steps
+→ exception/recovery
+→ execution placement
+→ expected Evidence
+→ accepted outcome
+→ measurement plan
+```
+
+Each blueprint declares whether execution belongs to deterministic code/API/CLI, OpenClaw/agent judgment, UIAI browser/computer execution, human `Needs You`, or a hybrid.
+
+Do not make a worker repeatedly improvise stable deterministic steps.
+
+The compiler may identify shared portfolio capabilities spanning businesses, but every assignment retains exact business/client/workstream/data/authority scope.
+
+#### Workforce Composer
 
 Translate audit gaps into proposed roles/teams.
 
@@ -653,7 +679,8 @@ Use the work's natural shape:
 
 ```text
 fixed deterministic schedule
-→ scheduler/cron invoking an approved assignment
+→ OpenClaw Gateway automation on the persistent VPS by default, or another explicit owning scheduler when technically appropriate
+→ invoke/revalidate an approved Focusa-governed assignment
 
 recurring judgment or multi-system coordination
 → durable staff profile / Operating Partner delegation
@@ -703,11 +730,15 @@ Default: no employee exists operationally without an explicit role/assignment pa
 
 ### Cron silently dies
 
-Default: heartbeat/receipt and missing-run visibility.
+Default: scheduled work has owner, scheduler/job ref, next-run projection, health/failure visibility, run history, idempotency, missed-run/overlap/retry policy, pause/revoke and a Focusa assignment ref. Prefer OpenClaw's durable Gateway automations scheduler on the persistent VPS for recurring agent/system-event work. Do not rely on a laptop/browser/service worker being awake.
 
 ### New model silently changes workflow
 
 Default: acceptance examples and current evidence before rollout.
+
+### Routine analytics drift
+
+Default: every material recurring routine has a measurement plan connecting execution reliability/cost/attention to its intended accepted outcome. W.I.N.S. projects momentum/leverage from accepted results; raw activity cannot substitute for outcome.
 
 ### Manager authority recursively expands
 
@@ -750,12 +781,13 @@ Transition from build-out to daily value while preserving recoverability and ind
 2. Surface `Needs You` only for real owner comparative advantage.
 3. Reconcile spend/resources.
 4. Verify outcomes, not activity counts.
-5. Record accepted outcomes through W.I.N.S. where applicable.
-6. Capture reusable improvements only after they prove useful.
-7. Retire temporary workers and revoke expired grants.
-8. Keep documentation/current owner maps up to date.
-9. Run the replacement-agent test.
-10. Maintain optimization loop and incident/recovery routes.
+5. Measure routine reliability, cost, latency, exception burden and human attention alongside business/life outcome metrics from their authoritative sources.
+6. Record accepted outcomes through W.I.N.S. where applicable and project meaningful momentum/leverage without hiding underlying dimensions.
+7. Capture reusable improvements only after they prove useful.
+8. Retire temporary workers and revoke expired grants.
+9. Keep documentation/current owner maps up to date.
+10. Run the replacement-agent test.
+11. Maintain optimization loop and incident/recovery routes.
 
 ## Shared attention model
 
@@ -868,13 +900,15 @@ Do not duplicate these into a second backlog.
 Use:
 
 ```text
-Observe
+Observe portfolio/business/routine outcomes
 → identify dominant constraint
 → simplify/remove
 → implement smallest leverage move
-→ verify
+→ verify routine + outcome effect
+→ project momentum/leverage through W.I.N.S.
 → keep / improve / remove
 → capture reusable lesson
+→ search for the next compounding constraint/opportunity
 ```
 
 The loop must improve customer outcomes or system reliability, not manufacture process work.
