@@ -350,7 +350,7 @@ Installed binaries and reachable services do not prove a worker may use them. Th
 
 ### SAG-18 — recurring worker scheduling
 
-Typed recurring assignment/schedule semantics remain incomplete. A schedule is not blanket authority.
+Typed recurring assignment/schedule semantics remain incomplete. The scheduler owner is now settled for the current architecture: OpenClaw Automations on the persistent remote VPS. Remaining closure is the exact schedule→routine→Focusa assignment binding, revalidation, idempotency, overlap, missed-run, budget, pause/revoke and receipt/attention behavior. A schedule is not blanket authority.
 
 ### SAG-19 — Manager/Crew delegation proof
 
@@ -382,6 +382,28 @@ Focusa Workforce
 ```
 
 Avoid using `Operator`, `federation`, `worker`, `receipt`, `authority`, `acknowledged` or `resolved` without domain qualification in machine contracts where ambiguity matters.
+
+---
+
+## 18.1 P0 — portfolio compiler, routine analytics and leverage
+
+### NEW-P0-13 — portfolio discovery → routine blueprint → compiled operating model
+
+**Gap:** Stage 5 can discover recurring work and the Workforce Composer can propose roles, but there is no shared executable routine-blueprint contract spanning several businesses/life domains and distinguishing deterministic, agentic, UIAI and human-reserved steps.
+
+**Required closure:** implement `operator.routine_blueprint.v1` with source/provenance, multi-business/life-domain scope, desired outcomes, triggers, ordered step classes, operation/task-pack refs, authority, placement, reliability, measurement and lifecycle. Prove one audit finding compiles without creating a second task/schedule/roster authority.
+
+### NEW-P0-14 — routine/business/portfolio analytics → W.I.N.S. leverage projection
+
+**Gap:** Focusa Evidence, OpenClaw schedule/run history, UIAI execution proof, business KPIs and W.I.N.S. outcomes exist, but no minimum causal projection connects a routine to outcome, owner attention/time buyback, reliability, cost, reuse and leverage without double counting.
+
+**Required closure:** implement `operator.leverage_snapshot.v1` as source-qualified references. W.I.N.S. owns owner-facing seasons/momentum/leverage; producer systems retain telemetry. Prove one routine before/after comparison and one cross-business reusable capability with explicit attribution.
+
+### NEW-P0-15 — meaningful progression / game-dynamics guardrail
+
+**Gap:** W.I.N.S. already contains scores, streaks, seasons, possession/focus and Wrapped patterns, but older activity-weighted scoring can incentivize shipping/activity rather than the highest-value life/business outcome.
+
+**Required closure:** preserve the motivating sports/game metaphor while grounding progression in accepted outcomes and proven leverage. Routine maturity uses `Observed → Modeled → Pilot → Proven → Automated → Compounding` with pause/retire paths. No point/streak/level can grant authority, punish healthy rest, manufacture urgency or outrank an accepted outcome.
 
 ---
 
