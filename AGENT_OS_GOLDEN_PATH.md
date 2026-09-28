@@ -2,7 +2,7 @@
 
 > A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage remains partial; the field-tested deployment spine remains valuable, while current product ownership is reconciled against the live ecosystem architecture.
 
-- **Golden Path target:** `0.2.2-candidate`
+- **Golden Path target:** `0.2.3-candidate`
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Current cross-product architecture:** [`CURRENT_ECOSYSTEM_ARCHITECTURE.md`](./CURRENT_ECOSYSTEM_ARCHITECTURE.md)
 - **Foundational operating contract:** [`AGENTS.md`](./AGENTS.md)
@@ -13,6 +13,7 @@
 - **Current Wirebot application integration architecture:** [`docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md`](./docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md)
 - **Current cross-product gap audit:** [`docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md`](./docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md)
 - **Stage 5 full-surface business discovery audit:** [`docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md`](./docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md)
+- **Portfolio compiler, routine analytics and leverage architecture:** [`docs/agent-os-golden-path/13-portfolio-operating-compiler-leverage-and-momentum.md`](./docs/agent-os-golden-path/13-portfolio-operating-compiler-leverage-and-momentum.md)
 
 ## Purpose
 
@@ -36,6 +37,8 @@ Canonical Owner Principal
         ↓
 Operating Partner / Chief of Staff
 Wirebot implementation family; customer-named presentation allowed
+        ↓
+OpenClaw persistent runtime / Automations
         ↓
 Focusa governed work
 Project → Workstream → Foreman → Workpoint
@@ -77,7 +80,10 @@ In particular:
 - `Sovereign` describes ownership/isolation/authority posture, not automatically DIY, self-hosted, unmanaged or non-networked;
 - Startempire Wire federation remains explicit and optional;
 - multi-daemon aggregation inside one Operator is called a fleet/aggregation, not sovereign federation;
-- legal/business ownership may differ from the day-to-day human operator; bounded human operation must use explicit delegation rather than implied co-ownership.
+- legal/business ownership may differ from the day-to-day human operator; bounded human operation must use explicit delegation rather than implied co-ownership;
+- OpenClaw, Focusa, UIAI Engine, a Tailscale private mesh and at least one persistent remote VPS execution body are foundational to the current operating topology; their individual runtime instances/hosts remain replaceable;
+- an owner may operate multiple businesses/products/life domains; portfolio compilation and analytics must not force one-primary-business semantics;
+- W.I.N.S. is the canonical owner-facing progression/outcome layer for momentum and leverage, while execution telemetry stays with the systems that produced it.
 
 ## Foundational laws
 
@@ -237,9 +243,9 @@ The field-tested Stage 0–8 spine remains the operational ordering aid:
 0 Engage
 1 Workstation substrate
 2 Operating Partner genesis
-3 Cloud landing where applicable
-4 Mesh + identity
-5 Knowledge + audit
+3 Persistent remote execution landing
+4 Tailscale mesh + identity
+5 Portfolio knowledge + audit
 6 Primary runtime/administration cutover
 7 Operating plane + workforce
 8 Ongoing operation + handoff
