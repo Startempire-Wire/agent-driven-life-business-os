@@ -397,7 +397,7 @@ The largest remaining gaps are joins, not new products:
 9. capability/entitlement posture;
 10. opaque credential-use refs without secret movement;
 11. shared envelope version/freshness/replay behavior;
-12. Evidence → settlement → W.I.N.S. closure;
+12. Evidence → settlement → source outcome → base leverage closure, with optional W.I.N.S. projection;
 13. sovereign federation end-to-end proof;
 14. worker/partner memory isolation;
 15. executable binding of Golden Path/task trackers into Focusa-governed work.
