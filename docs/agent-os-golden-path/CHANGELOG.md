@@ -2,6 +2,27 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.3-candidate — 2026-09-27
+
+### Portfolio Business Compiler, routine analytics and leverage progression
+
+- **Portfolio scope made explicit:** several businesses plus life/operating domains are a normal owner topology.
+- **Portfolio Business Compiler added:** source coverage → portfolio map → routine blueprints → workforce/software/schedule proposal → owner composition → Focusa binding → execution → analytics/Evidence → W.I.N.S. outcome/momentum/leverage → Quiet Kaizen.
+- **Routine blueprint direction added:** trigger, inputs, deterministic/semantic/human steps, placement, authority, reliability, measurement, Evidence, outcome and revoke/retire semantics.
+- **OpenClaw substrate corrected:** OpenClaw is the standard Operating Partner runtime/automations plane; normal deployments include Tailscale and at least one persistent remote VPS. Individual VPS/model/Pi/body instances remain replaceable.
+- **Durable scheduling owner clarified:** prefer OpenClaw Gateway automations on the persistent VPS for recurring agent/system-event work; Focusa remains governed work/authority owner.
+- **W.I.N.S. role expanded without ownership collapse:** W.I.N.S. owns accepted-outcome portfolio plus momentum/leverage projection. Activity, Evidence, outcome, momentum and leverage remain distinct.
+- **Meaningful game dynamics constrained:** seasons/streaks/progression should motivate verified life/business advancement, compounding leverage and reduced burden—not raw engagement, agent activity or streak pressure.
+- **Routine analytics made causal:** reliability, latency, retries, cost, attention, buyback, quality and authoritative outcome metrics stay visible; universal scores cannot hide dimensions.
+- **New closure gaps added:** portfolio routine analytics/leverage and meaningful progression are explicit P0 seams.
+
+### Preservation
+
+- No canonical product owner is replaced.
+- No second scheduler, analytics warehouse, workforce database or outcome store is created.
+- OpenClaw scheduling does not grant work authority; Focusa-governed assignments and current grants remain required.
+- UIAI remains the browser/computer execution owner, and stable deterministic steps still prefer typed code/API/CLI over repeated LLM improvisation.
+
 ## 0.2.2-candidate — 2026-09-27
 
 ### Contract-optimization hardening
