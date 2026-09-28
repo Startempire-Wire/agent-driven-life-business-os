@@ -4,7 +4,7 @@
 **Schema family:** `agent.memory_contract.v1`<br>
 **Applies with:** `AGENTS.md`, `OWNER_AUTHORITY_CONSTITUTION.md`, `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`, `CURRENT_ECOSYSTEM_ARCHITECTURE.md`, `AMBIENT_OPERATOR_REFERENCE_PROFILE.md`<br>
 **Evolution class:** `portable_operational` (portions touching privacy, tenancy, deletion and authority are `safety_authority`)<br>
-**Version:** `0.1.0` (incubating — not a settled contract)<br>
+**Version:** `0.1.1` (incubating — not a settled contract)<br>
 **Last substantive revision:** 2026-09-28<br>
 **Architecture authority:** deployment Canonical Owner Principal under `OWNER_AUTHORITY_CONSTITUTION.md`<br>
 **Startempire binding:** Verious Smith III<br>
@@ -58,13 +58,17 @@ Memory is not a separate subsystem. It is the persistence and recall surface of 
 | Canonical Owner Principal | Owner of all memory; sole authority to read, export, or forget | Root |
 | Identity + tenancy | Namespace isolation; no implicit cross-scope retrieval | Mandatory |
 | Source + provenance | Every record carries source, timestamp, trust class, freshness, supersession | Mandatory |
+| Capability + policy | Memory never confers capability, permission, or scope; transport and recall grant nothing | Mandatory |
 | Context + memory | Private source-aware retrieval, bounded disclosure, retention | Owner-scoped |
 | Intent + Trajectory | Durable desired state — a distinct memory tier | Workstream |
 | Work unit | Working memory for the current scoped task | Session |
 | Evidence + receipt | Provenance for claims; the audit trail for promotion and eviction | Append-only |
 | Outcome + correction | Dispute and correction as first-class, non-destructive | Mandatory |
 | Learning + policy change | Consolidated semantic layer | Owner + delegated |
+| Resource + leverage | Memory token, latency, and storage budgets as first-class spend | Bounded |
 | Observability + recovery | Health, audit, contradiction, restore | Mandatory |
+
+`Orchestration`, `Execution adapter`, and `Workforce role` are deliberately unmapped: they are runtime-execution concerns, not memory concerns.
 
 ## 4. The five tiers
 
@@ -311,6 +315,7 @@ A commit is not `verified`. A transcript is not `approved`. A passing model crit
 | Version | Date | Change | State |
 |---|---|---|---|
 | 0.1.0 | 2026-09-28 | Initial portable memory lifecycle contract. Derived from a live Wirebot incident (retrieval eval structurally unfalsifiable, dead memory backend masked by health checks, context bloat evicting conversation history) and 2026 agent-memory research. | incubating |
+| 0.1.1 | 2026-09-28 | Quality pass. Verified all 8 research citations resolve to the cited titles. Mapped the two omitted substrate primitives (`Capability + policy`, `Resource + leverage`). Added the explicit doctrine-versus-runtime-truth boundary required by `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3, and recorded that **transcript memory currently has no named owner** (§17.1). Not yet addressed: no customer install path (§18 checklist is not a setup contract), memory is not a declared cross-product seam, and vertical worked examples are thin. | incubating |
 
 ### Known unproven
 
@@ -321,16 +326,22 @@ A commit is not `verified`. A transcript is not `approved`. A passing model crit
 
 ## 17. Ownership routing
 
-This profile is portable doctrine and does not become another product's domain contract.
+**This profile is portable integration doctrine. It is not a runtime, a database, or a memory store.** Consistent with `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3, ADLBOS **does not own runtime learning truth or transcript memory**. This document defines the portable contract an owning product implements; it never holds a customer's memory, never becomes the canonical store, and never promotes itself from doctrine into authority.
 
 ```text
 portable cross-product memory doctrine defect   -> ADLBOS (this repository)
 agent runtime / Focusa work+authority defect     -> Focusa
 Wirebot context / Operating Partner defect       -> Wirebot
+transcript memory truth and retention             -> the deployment's named
+                                                    product owner (§17.1)
 execution, browser, computer defect               -> UIAI Engine
 accepted-outcome / correction / economics defect -> W.I.N.S.
 product-specific memory behavior                 -> owning product repository
 ```
+
+### 17.1 Open ownership item
+
+`CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3 disclaims **transcript memory** for ADLBOS. No product currently claims it explicitly. Until the Canonical Owner Principal assigns an owner, transcript memory is **unowned** and a deployment must not assume any product holds it canonically. Resolving this is an architecture-authority decision, not a contract-editing decision.
 
 ## 18. Implementation and adoption checklist
 
