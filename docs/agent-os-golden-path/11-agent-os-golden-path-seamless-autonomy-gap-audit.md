@@ -86,11 +86,11 @@ The following are no longer open architecture questions:
 
 **Required closure:** versioned schemas with validation/migration and exact domain ownership.
 
-### SAG-10 — audit gap → proposed roster → CRIST → assignment compiler
+### SAG-10 — portfolio audit → routine blueprint → proposed roster → CRIST → assignment compiler
 
-**Gap:** the pipeline from observed business deficiency to an explainable proposed role/assignment is not executable end-to-end.
+**Gap:** the pipeline from observed multi-business/life deficiency or recurring pattern to an explainable routine blueprint, role/assignment and execution placement is not executable end-to-end.
 
-**Required closure:** preview-first compiler that creates a proposed assignment, shows rationale/prerequisites/conflicts, receives owner/governance acceptance and emits an immutable assignment receipt.
+**Required closure:** preview-first Portfolio Business Compiler that emits source-backed routine blueprints and proposed assignments, shows rationale/prerequisites/conflicts/measurement plan/leverage hypothesis, receives owner/governance acceptance and emits immutable assignment/schedule refs without creating a second store.
 
 ### SAG-14 — assignment → least-capability grants
 
@@ -350,7 +350,19 @@ Installed binaries and reachable services do not prove a worker may use them. Th
 
 ### SAG-18 — recurring worker scheduling
 
-Typed recurring assignment/schedule semantics remain incomplete. A schedule is not blanket authority.
+Typed recurring assignment/schedule semantics remain incomplete. OpenClaw Gateway automations on the persistent Tailscale-connected VPS are the default durable scheduler for recurring agent/system-event work; Focusa remains the work/authority owner. Closure requires exact scheduler/job ref, assignment ref, current-grant revalidation, idempotency, overlap/missed-run/retry, timeout, pause/revoke, run history and visible failure semantics. A schedule is not blanket authority.
+
+### NEW-P0-13 — portfolio routine analytics and leverage loop
+
+**Gap:** routine execution, W.I.N.S. scoring/portfolio views, Focusa Evidence, Wirebot Quiet Kaizen and business metrics exist, but there is no shared causal reference model proving which routine/system change produced which outcome, attention/cost reduction or reusable capacity across one or several businesses.
+
+**Required closure:** introduce a references-only routine measurement/leverage envelope joining routine blueprint, assignment, runs, Evidence/settlement, authoritative business/life outcome refs, cost/attention, before/after window and confidence. W.I.N.S. owns momentum/leverage presentation; source systems own their metrics. Prove keep/improve/remove on one routine and a cross-business shared capability without double-counting gains.
+
+### NEW-P0-14 — meaningful progression / game dynamics
+
+**Gap:** W.I.N.S. already exposes seasons, streaks, daily scores, portfolio and Wrapped patterns, but current activity-weighted scoring cannot by itself represent life/business advancement or compounding leverage.
+
+**Required closure:** evolve progression so game dynamics emphasize accepted outcomes, recovery, sustained useful habits, delegation/automation buyback and verified leverage. Preserve underlying dimensions and user control; no dark patterns, forced streak anxiety, fabricated points, or engagement-volume optimization. Optional scores/gamification remain distinct from minimum Evidence/security records.
 
 ### SAG-19 — Manager/Crew delegation proof
 
