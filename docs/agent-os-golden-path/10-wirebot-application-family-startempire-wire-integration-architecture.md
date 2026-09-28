@@ -36,7 +36,7 @@ Operating Partner / Chief of Staff
   +-- Workforce Composer
   +-- owner-wide Needs You
   +-- network/opportunity context
-  +-- outcomes / W.I.N.S.
+  +-- source outcomes / private leverage loop / optional W.I.N.S.
   |
   v
 FOCUSA GOVERNED WORK
@@ -66,7 +66,9 @@ Wirebot App is not a second Focusa, second Workforce runtime, second UIAI Cockpi
 | Active workforce operations | Focusa Workforce | summary/deep-link/specialist handoff |
 | Browser/computer execution | UIAI Engine | request supported operations and project execution status |
 | Bodies/Agent Computers/runtime enforcement | Veragensia | device/body posture and exact specialist handoff |
-| Accepted outcomes | W.I.N.S. | portfolio/outcome projection |
+| Source-domain outcomes | business/life owners + owner acceptance | canonical outcome truth in each domain |
+| Base feedback/leverage | Wirebot / Perpetua | private cross-domain outcome interpretation, leverage/momentum synthesis and Quiet Kaizen |
+| Optional progression | W.I.N.S. | setup-aware seasons/score/recognition/community projection when enabled |
 | Portable worker trust | MeriFolio | selective import/projection; never local authority |
 | Community/distribution/federation | Startempire Wire | native modules/adapters where entitled |
 | Public worker marketplace | AI Draftees | discovery/hire candidate path |
@@ -411,7 +413,7 @@ execution
   → optional MeriFolio presentation/standing
 ```
 
-W.I.N.S. owns accepted outcomes/portfolio semantics.
+Source domains and owner acceptance retain outcome truth. Wirebot/Perpetua owns the base private feedback/leverage synthesis. W.I.N.S. is an optional/setup-aware progression/recognition/community projection.
 
 MeriFolio owns portable identity/trust/standing and selective disclosure. It is not the local workforce control plane.
 
