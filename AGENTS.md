@@ -116,8 +116,13 @@ ADLBOS
   portable integration/deployment doctrine
 
 Wirebot / Wirebot App
-  Operating Partner relationship, life/business orientation,
-  Workforce Composer, owner-wide attention and network context
+  Operating Partner relationship, multi-business/life portfolio orientation,
+  Portfolio Business Compiler, Workforce Composer, owner-wide attention,
+  W.I.N.S. progression presentation and network context
+
+OpenClaw
+  persistent Operating Partner runtime, channels and durable automations
+  on the Operator's private execution topology
 
 Focusa
   Project, Workstream, Foreman, Workpoint,
@@ -160,16 +165,34 @@ Adapters, projections, caches and indexes are allowed when their owner/freshness
 
 ---
 
-## 6. Workforce model
+## 5.1 Mandatory Operator substrate
 
-Wirebot's **Workforce Composer** designs and commissions organization/roles/assignments.
+Treat these as normal ADLBOS architecture, not optional convenience:
+
+```text
+OpenClaw Operating Partner runtime
+Focusa governed work plane
+UIAI Engine execution capability
+Tailscale private mesh
+at least one persistent remote VPS
+```
+
+Individual bodies/models/hosts remain replaceable. The remote VPS is the default always-available body for OpenClaw and durable headless scheduling/services when appropriate. Tailscale reachability is transport, never authority.
+
+Use OpenClaw's built-in automations scheduler for recurring agent/system-event work when it fits rather than inventing a parallel ADLBOS scheduler. A scheduled wake still requires a valid Focusa-governed assignment and current grants before consequential work.
+
+## 6. Portfolio, routines and workforce model
+
+Wirebot's **Portfolio Business Compiler** turns source-backed portfolio/business/life patterns into reviewable routine blueprints and leverage proposals. The **Workforce Composer** designs and commissions the organization/roles/assignments needed to operate accepted routines.
 
 Focusa **Workforce** operates active governed work.
 
 Expected path:
 
 ```text
-observed need
+authorized portfolio/business/life evidence
+→ routine / deficiency / leverage inference
+→ owner-reviewable routine blueprint
 → Wirebot recommendation
 → Workforce Composer
 → CRIST / role / assignment packet
@@ -177,8 +200,11 @@ observed need
 → Focusa Workstream/Foreman/authority binding
 → Focusa Workforce operations
 → execution
+→ routine analytics
 → Evidence / settlement
 → accepted outcome
+→ W.I.N.S. momentum/leverage
+→ Quiet Kaizen keep / improve / remove
 ```
 
 A role/profile does not grant access merely by existing.
@@ -221,6 +247,8 @@ What creates reusable or compounding leverage?
 ```
 
 Turn proven gains into reusable defaults/tools/contracts. Do not systemize speculation.
+
+Leverage is compounding capacity: reducing future effort, removing constraints, creating reusable capability, delegating safely, improving reliability, or enabling additional outcomes. Track it from verified before/after evidence where possible. Never manufacture leverage points from raw activity.
 
 ---
 
