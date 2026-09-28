@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://startempire-wire.github.io/agent-driven-life-business-os/contracts/operator-leverage-snapshot.v1.schema.json",
   "title": "Operator Leverage Snapshot v1",
-  "description": "Source-qualified progress/leverage projection. It is not an outcome, telemetry or authority database.",
+  "description": "Source-qualified private progress/leverage projection for the base ADLBOS feedback loop. It is independent of W.I.N.S. and is not an outcome, telemetry or authority database.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -302,7 +302,8 @@
             null
           ]
         }
-      }
+      },
+      "description": "Optional presentation metadata, typically populated by W.I.N.S. or another admitted progression surface; never required for the base optimization loop."
     },
     "provenance": {
       "type": "object",
