@@ -1,0 +1,385 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://startempire-wire.github.io/agent-driven-life-business-os/contracts/operator-leverage-snapshot.v1.schema.json",
+  "title": "Operator Leverage Snapshot v1",
+  "description": "Source-qualified progress/leverage projection. It is not an outcome, telemetry or authority database.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "scope",
+    "window",
+    "source_refs",
+    "accepted_outcome_refs",
+    "dimensions",
+    "momentum",
+    "provenance",
+    "privacy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "operator.leverage_snapshot.v1"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_ref",
+        "business_refs",
+        "life_domain_refs",
+        "routine_refs"
+      ],
+      "properties": {
+        "owner_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "portfolio_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "business_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "life_domain_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "routine_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "business_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "life_domain_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "routine_refs": {
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "accepted_outcome_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "operational_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "runs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "accepted_runs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "failed_runs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "recovered_runs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "owner_interventions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "owner_minutes_saved_estimate": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "direct_cost": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cycle_time_seconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "dimension",
+          "direction",
+          "confidence",
+          "evidence_refs"
+        ],
+        "properties": {
+          "dimension": {
+            "enum": [
+              "outcome",
+              "capacity_buyback",
+              "attention_reduction",
+              "cycle_time",
+              "reliability",
+              "cost_efficiency",
+              "risk_reduction",
+              "reuse",
+              "opportunity_unlock",
+              "compounding"
+            ]
+          },
+          "direction": {
+            "enum": [
+              "improved",
+              "neutral",
+              "regressed",
+              "unknown"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "momentum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signal",
+        "evidence_refs"
+      ],
+      "properties": {
+        "signal": {
+          "enum": [
+            "accelerating",
+            "building",
+            "steady",
+            "cooling",
+            "blocked",
+            "unknown"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "game_projection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "season_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "milestone_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "routine_maturity": {
+          "enum": [
+            "observed",
+            "modeled",
+            "pilot",
+            "proven",
+            "automated",
+            "compounding",
+            "paused",
+            "retired",
+            null
+          ]
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "producer_ref",
+        "source_revision",
+        "generated_at",
+        "attribution_note"
+      ],
+      "properties": {
+        "producer_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "attribution_note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contains_private_payload",
+        "contains_secret_material"
+      ],
+      "properties": {
+        "contains_private_payload": {
+          "const": false
+        },
+        "contains_secret_material": {
+          "const": false
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operational_metrics": {
+            "properties": {
+              "direct_cost": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "direct_cost"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "operational_metrics": {
+            "required": [
+              "currency"
+            ],
+            "properties": {
+              "currency": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
