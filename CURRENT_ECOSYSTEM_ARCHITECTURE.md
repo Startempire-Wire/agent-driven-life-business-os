@@ -335,9 +335,10 @@ authorized source coverage
 → OpenClaw scheduling/supervision
 → deterministic / agentic / UIAI / human execution lanes
 → Evidence / settlement
-→ accepted outcome
-→ W.I.N.S. momentum/leverage projection
+→ source-domain accepted outcome
+→ base operator.leverage_snapshot.v1
 → Quiet Kaizen / optimization
+→ optional W.I.N.S. progression projection when enabled
 → revised routine, role, system or retirement proposal
 ```
 
@@ -384,13 +385,15 @@ business/life audit
   -> Focusa binds governed work/authority
   -> Focusa Workforce operates the active organization
   -> Evidence / settlement
-  -> accepted outcome / W.I.N.S.
+  -> source-domain accepted outcome
+  -> base private leverage / feedback
+  -> optional W.I.N.S. projection when enabled
   -> optional MeriFolio standing
 ```
 
 ---
 
-## 5. Chief of Staff versus Foreman
+## 6. Chief of Staff versus Foreman
 
 ```text
 Operating Partner / Chief of Staff
