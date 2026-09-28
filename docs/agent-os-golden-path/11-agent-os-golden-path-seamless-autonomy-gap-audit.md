@@ -38,7 +38,7 @@ The following are no longer open architecture questions:
 - Focusa Workforce operates the active governed workforce;
 - UIAI owns browser/computer execution and takeover/proof;
 - Veragensia owns Agent Computer/body/runtime/enforcement;
-- W.I.N.S. owns accepted outcome/portfolio semantics;
+- source domains / owner acceptance retain outcome truth; Wirebot/Perpetua owns base private feedback/leverage synthesis; W.I.N.S. is an optional setup-aware progression/recognition/community projection;
 - MeriFolio is portable identity/trust/standing, not local workforce authority;
 - Startempire Wire federation is explicit and optional;
 - one Operator's multiple daemons/bodies are a fleet/aggregation, not sovereign federation;
@@ -235,7 +235,7 @@ Required behavior:
 
 ### SAG-36 — explicit closure chain
 
-**Gap:** execution proof, Focusa Evidence, verification, Focusa completion/settlement, W.I.N.S. acceptance and correction/dispute remain distinct systems without one reference chain.
+**Gap:** execution proof, Focusa Evidence, verification, Focusa completion/settlement, source-domain/owner outcome acceptance, base leverage synthesis, optional W.I.N.S. projection and correction/dispute remain distinct systems without one reference chain.
 
 **Required closure:** `operator.closure.v1` links refs and states while preserving each owner's state machine.
 
@@ -252,9 +252,9 @@ activity
 
 ### SAG-28 — W.I.N.S. reusable modules/contracts
 
-**Gap:** Wirebot/Workforce surfaces need a tenant-safe accepted-outcome projection without copying W.I.N.S. logic.
+**Gap:** Wirebot/Workforce surfaces need a tenant-safe optional W.I.N.S. projection without making W.I.N.S. the base accepted-outcome or optimization authority.
 
-**Required closure:** canonical reusable W.I.N.S. operations/modules with tenancy and cross-surface tests.
+**Required closure:** canonical reusable W.I.N.S. operations/modules with tenancy, setup-mode participation and cross-surface tests, including Sovereign Operator/Sovereign with W.I.N.S. disabled while the base feedback/leverage loop remains fully functional.
 
 ---
 
@@ -354,9 +354,9 @@ Typed recurring assignment/schedule semantics remain incomplete. OpenClaw Gatewa
 
 ### NEW-P0-13 — portfolio routine analytics and leverage loop
 
-**Gap:** routine execution, W.I.N.S. scoring/portfolio views, Focusa Evidence, Wirebot Quiet Kaizen and business metrics exist, but there is no shared causal reference model proving which routine/system change produced which outcome, attention/cost reduction or reusable capacity across one or several businesses.
+**Gap:** routine execution, Focusa Evidence, Wirebot/Perpetua Quiet Kaizen, source business metrics and optional W.I.N.S. scoring/portfolio views exist, but there is no shared causal reference model proving which routine/system change produced which outcome, attention/cost reduction or reusable capacity across one or several businesses.
 
-**Required closure:** introduce a references-only routine measurement/leverage envelope joining routine blueprint, assignment, runs, Evidence/settlement, authoritative business/life outcome refs, cost/attention, before/after window and confidence. W.I.N.S. owns momentum/leverage presentation; source systems own their metrics. Prove keep/improve/remove on one routine and a cross-business shared capability without double-counting gains.
+**Required closure:** introduce a references-only routine measurement/leverage envelope joining routine blueprint, assignment, runs, Evidence/settlement, authoritative business/life outcome refs, cost/attention, before/after window and confidence. Wirebot/Perpetua must provide the private momentum/leverage loop without W.I.N.S.; W.I.N.S. may consume the same refs when the setup participates. Prove keep/improve/remove with W.I.N.S. both disabled and enabled, plus a cross-business shared capability without double-counting gains.
 
 ### NEW-P0-14 — meaningful progression / game dynamics
 
@@ -406,7 +406,7 @@ Close them through vertical slices:
 ```text
 Slice A — partner → assignment → Focusa Workstream/Foreman → Workforce projection
 Slice B — shared Needs You item → exact action → source-domain resolution
-Slice C — worker executes through UIAI → Evidence → settlement → W.I.N.S. outcome
+Slice C — worker executes through UIAI → Evidence → settlement → source-domain outcome → base leverage snapshot; optional W.I.N.S. projection
 Slice D — Wirebot exact handoff → Workforce/UIAI → return with same correlation
 Slice E — Sovereign Operator exposes one minimized network capability/opportunity → revoke
 Slice F — delegated human performs one bounded operation → revoke → denied retry
