@@ -719,7 +719,7 @@ Pi / compatible agents
 UIAI
 Veragensia bodies
 scheduler/provider systems
-W.I.N.S. outcome projection
+base leverage/feedback projection + optional W.I.N.S. projection
 ```
 
 ## Scars / defaults
@@ -738,7 +738,7 @@ Default: acceptance examples and current evidence before rollout.
 
 ### Routine analytics drift
 
-Default: every material recurring routine has a measurement plan connecting execution reliability/cost/attention to its intended accepted outcome. W.I.N.S. projects momentum/leverage from accepted results; raw activity cannot substitute for outcome.
+Default: every material recurring routine has a measurement plan connecting execution reliability/cost/attention to its intended accepted outcome. The base operator leverage/feedback projection derives momentum/leverage privately from source-qualified results; W.I.N.S. may project it when enabled. Raw activity cannot substitute for outcome.
 
 ### Manager authority recursively expands
 
@@ -782,7 +782,7 @@ Transition from build-out to daily value while preserving recoverability and ind
 3. Reconcile spend/resources.
 4. Verify outcomes, not activity counts.
 5. Measure routine reliability, cost, latency, exception burden and human attention alongside business/life outcome metrics from their authoritative sources.
-6. Record accepted outcomes through W.I.N.S. where applicable and project meaningful momentum/leverage without hiding underlying dimensions.
+6. Record/resolve accepted outcomes in their owning domain, build the base private leverage/momentum projection, and optionally project into W.I.N.S. according to the current Wirebot setup/participation state.
 7. Capture reusable improvements only after they prove useful.
 8. Retire temporary workers and revoke expired grants.
 9. Keep documentation/current owner maps up to date.
@@ -885,7 +885,7 @@ shared Needs You / attention
 exact surface handoff
 universal correlation refs
 capability/entitlement posture
-Evidence → settlement → W.I.N.S. closure
+Evidence → settlement → source outcome → base leverage closure → optional W.I.N.S. projection
 worker/partner memory isolation
 sovereign federation proof
 Golden Path/task-ledger → Focusa executable binding
@@ -905,7 +905,8 @@ Observe portfolio/business/routine outcomes
 → simplify/remove
 → implement smallest leverage move
 → verify routine + outcome effect
-→ project momentum/leverage through W.I.N.S.
+→ project momentum/leverage through the base private optimization loop
+→ optionally render through W.I.N.S. when enabled
 → keep / improve / remove
 → capture reusable lesson
 → search for the next compounding constraint/opportunity
