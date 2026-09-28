@@ -1,0 +1,272 @@
+{
+  "schema_version": "adlbos.human_equivalent_cost_model.v1",
+  "as_of": "2026-09-28",
+  "currency": "USD",
+  "status": "modeled_reference_not_price_or_savings_claim",
+  "methodology": {
+    "weeks_per_year": 52,
+    "hours_per_fte_year": 2080,
+    "bls_full_time_private_wage_share_of_total_compensation": 0.685,
+    "loaded_cost_formula": "occupation_wage / 0.685",
+    "caveat": "Benefit load varies by occupation, employer, geography and industry."
+  },
+  "role_benchmarks": [
+    {
+      "role": "executive_assistant",
+      "source_label": "Executive secretaries and executive administrative assistants",
+      "median_wage_annual": 76590,
+      "loaded_employer_annual": 111810,
+      "loaded_employer_hourly": 53.75,
+      "contractor_hourly_low": 38,
+      "contractor_hourly_high": 50
+    },
+    {
+      "role": "administrative_assistant",
+      "source_label": "Secretaries and administrative assistants",
+      "median_wage_annual": 48310,
+      "loaded_employer_annual": 70526,
+      "loaded_employer_hourly": 33.91,
+      "contractor_hourly_low": 12,
+      "contractor_hourly_high": 20
+    },
+    {
+      "role": "customer_service",
+      "source_label": "Customer service representatives",
+      "median_wage_hourly": 21.53,
+      "loaded_employer_annual": 65376,
+      "loaded_employer_hourly": 31.43,
+      "contractor_hourly_low": 20,
+      "contractor_hourly_high": 35
+    },
+    {
+      "role": "bookkeeping",
+      "source_label": "Bookkeeping, accounting, and auditing clerks",
+      "median_wage_annual": 50670,
+      "loaded_employer_annual": 73971,
+      "loaded_employer_hourly": 35.56,
+      "contractor_hourly_low": 11,
+      "contractor_hourly_high": 25
+    },
+    {
+      "role": "market_research",
+      "source_label": "Market research analysts",
+      "median_wage_annual": 78760,
+      "loaded_employer_annual": 114978,
+      "loaded_employer_hourly": 55.28,
+      "contractor_hourly_low": 25,
+      "contractor_hourly_high": 60
+    },
+    {
+      "role": "project_management",
+      "source_label": "Project management specialists",
+      "median_wage_annual": 102320,
+      "loaded_employer_annual": 149372,
+      "loaded_employer_hourly": 71.81,
+      "contractor_hourly_low": 30,
+      "contractor_hourly_high": 60
+    },
+    {
+      "role": "hr_specialist",
+      "source_label": "Human resources specialists",
+      "median_wage_annual": 75940,
+      "loaded_employer_annual": 110861,
+      "loaded_employer_hourly": 53.3,
+      "contractor_hourly_low": 38,
+      "contractor_hourly_high": 50
+    },
+    {
+      "role": "sales_support",
+      "source_label": "Sales representatives, services proxy",
+      "median_wage_annual": 68190,
+      "loaded_employer_annual": 99547,
+      "loaded_employer_hourly": 47.86,
+      "contractor_hourly_low": 20,
+      "contractor_hourly_high": 35
+    },
+    {
+      "role": "management_process_analysis",
+      "source_label": "Management analysts proxy",
+      "median_wage_annual": 101860,
+      "loaded_employer_annual": 148701,
+      "loaded_employer_hourly": 71.49,
+      "contractor_hourly_low": 40,
+      "contractor_hourly_high": 90
+    }
+  ],
+  "representative_routines": [
+    {
+      "routine": "Daily inbox triage + owner summary",
+      "role": "executive_assistant",
+      "hours_per_week": 5,
+      "employee_equivalent_annual": 13976,
+      "contractor_annual_low": 9880,
+      "contractor_annual_high": 13000
+    },
+    {
+      "routine": "Calendar coordination + reminders",
+      "role": "executive_assistant",
+      "hours_per_week": 3,
+      "employee_equivalent_annual": 8386,
+      "contractor_annual_low": 5928,
+      "contractor_annual_high": 7800
+    },
+    {
+      "routine": "Meeting prep, notes + follow-up tracking",
+      "role": "executive_assistant",
+      "hours_per_week": 3,
+      "employee_equivalent_annual": 8386,
+      "contractor_annual_low": 5928,
+      "contractor_annual_high": 7800
+    },
+    {
+      "routine": "Document/record organization",
+      "role": "administrative_assistant",
+      "hours_per_week": 2,
+      "employee_equivalent_annual": 3526,
+      "contractor_annual_low": 1248,
+      "contractor_annual_high": 2080
+    },
+    {
+      "routine": "CRM hygiene + lead routing/follow-up preparation",
+      "role": "sales_support",
+      "hours_per_week": 4,
+      "employee_equivalent_annual": 9955,
+      "contractor_annual_low": 4160,
+      "contractor_annual_high": 7280
+    },
+    {
+      "routine": "Weekly pipeline review + management report",
+      "role": "sales_support",
+      "hours_per_week": 2,
+      "employee_equivalent_annual": 4977,
+      "contractor_annual_low": 2080,
+      "contractor_annual_high": 3640
+    },
+    {
+      "routine": "Customer inquiry triage + response preparation",
+      "role": "customer_service",
+      "hours_per_week": 5,
+      "employee_equivalent_annual": 8172,
+      "contractor_annual_low": 5200,
+      "contractor_annual_high": 9100
+    },
+    {
+      "routine": "Invoice/AP/AR follow-up + bookkeeping preparation",
+      "role": "bookkeeping",
+      "hours_per_week": 4,
+      "employee_equivalent_annual": 7397,
+      "contractor_annual_low": 2288,
+      "contractor_annual_high": 5200
+    },
+    {
+      "routine": "Expense/reconciliation review",
+      "role": "bookkeeping",
+      "hours_per_week": 2,
+      "employee_equivalent_annual": 3699,
+      "contractor_annual_low": 1144,
+      "contractor_annual_high": 2600
+    },
+    {
+      "routine": "Market/competitor research brief",
+      "role": "market_research",
+      "hours_per_week": 3,
+      "employee_equivalent_annual": 8623,
+      "contractor_annual_low": 3900,
+      "contractor_annual_high": 9360
+    },
+    {
+      "routine": "KPI compilation + management brief",
+      "role": "management_process_analysis",
+      "hours_per_week": 2,
+      "employee_equivalent_annual": 7435,
+      "contractor_annual_low": 4160,
+      "contractor_annual_high": 9360
+    },
+    {
+      "routine": "Project/workstream status + blocker coordination",
+      "role": "project_management",
+      "hours_per_week": 4,
+      "employee_equivalent_annual": 14937,
+      "contractor_annual_low": 6240,
+      "contractor_annual_high": 12480
+    },
+    {
+      "routine": "Vendor/renewal/deadline watch",
+      "role": "executive_assistant",
+      "hours_per_week": 1.5,
+      "employee_equivalent_annual": 4193,
+      "contractor_annual_low": 2964,
+      "contractor_annual_high": 3900
+    },
+    {
+      "routine": "Hiring/workforce coordination + follow-up",
+      "role": "hr_specialist",
+      "hours_per_week": 2,
+      "employee_equivalent_annual": 5543,
+      "contractor_annual_low": 3952,
+      "contractor_annual_high": 5200
+    },
+    {
+      "routine": "Routine analytics + process-optimization review",
+      "role": "management_process_analysis",
+      "hours_per_week": 2,
+      "employee_equivalent_annual": 7435,
+      "contractor_annual_low": 4160,
+      "contractor_annual_high": 9360
+    },
+    {
+      "routine": "Cross-business portfolio brief + priority synthesis",
+      "role": "project_management",
+      "hours_per_week": 2,
+      "employee_equivalent_annual": 7469,
+      "contractor_annual_low": 3120,
+      "contractor_annual_high": 6240
+    },
+    {
+      "routine": "System/exception monitoring + escalation",
+      "role": "administrative_assistant",
+      "hours_per_week": 2,
+      "employee_equivalent_annual": 3526,
+      "contractor_annual_low": 1248,
+      "contractor_annual_high": 2080
+    },
+    {
+      "routine": "Business-corpus delta audit + routine extraction",
+      "role": "management_process_analysis",
+      "hours_per_week": 1.5,
+      "employee_equivalent_annual": 5576,
+      "contractor_annual_low": 3120,
+      "contractor_annual_high": 7020
+    }
+  ],
+  "representative_total": {
+    "hours_per_week": 50,
+    "hours_per_year": 2600,
+    "fte_equivalent_at_40_hours": 1.25,
+    "employee_equivalent_annual": 133212,
+    "contractor_annual_low": 70720,
+    "contractor_annual_high": 123500
+  },
+  "public_safe_claims": {
+    "daily_inbox_employee_equivalent_annual": 13976,
+    "daily_inbox_contractor_annual_low": 9880,
+    "daily_inbox_contractor_annual_high": 13000,
+    "required_disclaimer": "Human-equivalent cost estimates are modeled reference values based on stated routine-hour assumptions and current published labor-market data. Actual staffing needs, rates, quality, outcomes and appropriate human involvement vary. The comparison does not claim that ADLBOS replaces an employee or guarantees a specific savings amount."
+  },
+  "sources": [
+    "https://www.bls.gov/news.release/ecec.htm",
+    "https://www.bls.gov/ooh/office-and-administrative-support/secretaries-and-administrative-assistants.htm",
+    "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+    "https://www.bls.gov/ooh/office-and-administrative-support/bookkeeping-accounting-and-auditing-clerks.htm",
+    "https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm",
+    "https://www.bls.gov/ooh/business-and-financial/project-management-specialists.htm",
+    "https://www.bls.gov/ooh/business-and-financial/human-resources-specialists.htm",
+    "https://www.bls.gov/ooh/business-and-financial/",
+    "https://www.bls.gov/ooh/sales/advertising-sales-agents.htm",
+    "https://www.upwork.com/hire/virtual-assistants/cost/",
+    "https://www.upwork.com/hire/bookkeepers/cost/",
+    "https://www.upwork.com/hire/project-managers/cost/",
+    "https://www.upwork.com/resources/upwork-hourly-rates/",
+    "https://www.fiverr.com/resources/guides/costs/virtual-assistant/"
+  ]
+}
