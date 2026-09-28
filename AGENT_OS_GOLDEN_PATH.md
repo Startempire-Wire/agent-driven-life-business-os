@@ -2,7 +2,7 @@
 
 > A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage remains partial; the field-tested deployment spine remains valuable, while current product ownership is reconciled against the live ecosystem architecture.
 
-- **Golden Path target:** `0.2.3-candidate`
+- **Golden Path target:** `0.2.4-candidate`
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Current cross-product architecture:** [`CURRENT_ECOSYSTEM_ARCHITECTURE.md`](./CURRENT_ECOSYSTEM_ARCHITECTURE.md)
 - **Foundational operating contract:** [`AGENTS.md`](./AGENTS.md)
@@ -48,10 +48,14 @@ UIAI + Veragensia + Pi/agents/workcells
         ↓
 Evidence / receipts
         ↓
-accepted outcome / W.I.N.S.
+source-domain accepted outcome
+        ↓
+base private leverage / feedback loop
+        ↓
+optional W.I.N.S. progression projection when enabled
 ```
 
-Optional Startempire Wire federation and MeriFolio portable-trust projections remain outside the private critical execution path unless explicitly engaged.
+W.I.N.S. is not part of the mandatory private critical execution path for Wirebot Sovereign Operator or Wirebot Sovereign. Optional Startempire Wire federation and MeriFolio portable-trust projections remain outside the private critical path unless explicitly engaged.
 
 ## Current reconciliation of historical Golden Path material
 
@@ -353,7 +357,7 @@ The next architectural closures are not additional products. They are seams:
 8. capability/entitlement/activation posture;
 9. opaque credential-use reference path;
 10. shared contract compatibility/freshness/replay behavior;
-11. Evidence → settlement → accepted outcome/W.I.N.S. closure;
+11. Evidence → settlement → source-domain accepted outcome → base leverage/feedback closure, with optional W.I.N.S. projection;
 12. sovereign federation account/link/revoke proof;
 13. executable Focusa binding for Golden Path/task-ledger work without another task authority.
 
