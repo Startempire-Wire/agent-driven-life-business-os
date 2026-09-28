@@ -557,12 +557,13 @@ It may compose:
 ```text
 customer owner
 + optional delegated human operators
-+ customer-named Wirebot Operating Partner
++ customer-named Wirebot Operating Partner on OpenClaw
 + private/dedicated Focusa
 + Focusa Workforce
-+ UIAI as entitled/needed
-+ private/customer infrastructure
-+ optional Veragensia bodies
++ UIAI Engine
++ Tailscale private mesh
++ at least one persistent remote VPS
++ optional additional Veragensia bodies
 + optional Startempire federation
 ```
 
