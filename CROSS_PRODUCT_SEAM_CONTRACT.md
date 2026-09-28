@@ -293,7 +293,9 @@ It is not the canonical schedule, task graph, roster, Evidence or outcome store.
 
 `operator.leverage_snapshot.v1` is a source-qualified projection used to connect operational evidence to owner-facing progress. It may carry scope/time window, routine refs, source metric/Evidence/receipt refs, accepted-outcome refs, capacity/time buyback, reliability/recovery, cost/attention trend, cross-routine/business reuse, risk reduction, opportunity unlocked, momentum signal, confidence/attribution limits and season/milestone refs.
 
-No universal numeric score is required. W.I.N.S. owns owner-facing outcome, momentum, leverage and season semantics; producers retain their telemetry.
+No universal numeric score is required. `operator.leverage_snapshot.v1` is part of the **base private ADLBOS feedback loop** and does not require W.I.N.S.
+
+Source domains retain their outcome truth and telemetry. Wirebot/Perpetua may synthesize the cross-domain private leverage/momentum projection from source-qualified refs. W.I.N.S., when enabled for the current setup, may consume that projection and add its own season/score/recognition/community semantics.
 
 A leverage snapshot MUST NOT count agent/tool activity as an accepted outcome, double-count one shared gain across several businesses without disclosed attribution, treat estimates as proven fact, grant authority/scheduling/autonomy, or hide regressions behind an aggregate score.
 
