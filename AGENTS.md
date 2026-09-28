@@ -99,7 +99,7 @@ machine/body identity
 
 A delegated human principal may operate only within the owner's explicit human-delegation scope. Operator access is not co-ownership and is not architecture authority.
 
-Changing the model, OpenClaw/Pi runtime, VPS, browser, laptop or Agent Computer must not silently create a new Operating Partner or widen authority.
+Changing the model, OpenClaw runtime incarnation, Pi worker, VPS host, browser, laptop or Agent Computer must not silently create a new Operating Partner or widen authority.
 
 The Chief of Staff coordinates the portfolio. It is not a global project Foreman.
 
@@ -116,8 +116,13 @@ ADLBOS
   portable integration/deployment doctrine
 
 Wirebot / Wirebot App
-  Operating Partner relationship, life/business orientation,
-  Workforce Composer, owner-wide attention and network context
+  Operating Partner relationship, portfolio/life/business orientation,
+  Portfolio Operating Compiler, Workforce Composer,
+  owner-facing routine design/analytics, owner-wide attention and network context
+
+OpenClaw
+  persistent Operating Partner runtime, channels, built-in Automations scheduler,
+  run history and bounded runtime execution
 
 Focusa
   Project, Workstream, Foreman, Workpoint,
@@ -184,6 +189,51 @@ observed need
 A role/profile does not grant access merely by existing.
 
 The Chief of Staff delegates desired outcomes into governed work. Focusa resolves/validates project execution primitives. Do not have Wirebot manufacture Focusa reducer state.
+
+### 6.1 Portfolio Operating Compiler and routine law
+
+An owner may operate several businesses, products and life domains. Do not collapse the deployment into one "primary business" mental model merely because one UI needs a current selection.
+
+The Wirebot Portfolio Operating Compiler turns source-backed operating reality into reviewable routine/system proposals:
+
+```text
+authorized portfolio discovery
+→ entity/business/life-domain map
+→ routine candidates
+→ routine blueprints
+→ role/workforce inference
+→ owner review
+→ assignment/authority compilation
+→ Focusa binding
+→ execution placement
+→ pilot
+→ activation
+→ analytics
+→ optimization
+```
+
+A routine may contain deterministic, agentic, UIAI/computer and human-reserved steps. Stable deterministic work should become product-owned code/API/CLI/script operations rather than repeated LLM improvisation.
+
+Scheduled unattended work defaults to OpenClaw Automations running on the persistent Tailscale-connected remote VPS body. The OpenClaw schedule references an approved assignment and MUST revalidate current Focusa authority/grants before consequential execution.
+
+The compiler is not another task, roster, schedule, Evidence, outcome or analytics database. It composes references to their canonical owners.
+
+### 6.2 Leverage and momentum law
+
+The purpose of ADLBOS is to advance the owner's life and businesses, not maximize agent activity.
+
+Measure and optimize for accepted outcomes, owner attention/time bought back, cycle-time reduction, reliability/recovery, cost efficiency, risk reduction, reusable capability, cross-routine/cross-business reuse, new capacity/opportunity unlocked and compounding leverage.
+
+W.I.N.S. owns owner-facing outcome/portfolio/momentum/leverage semantics. Focusa, OpenClaw, UIAI and business systems retain their own execution telemetry and Evidence.
+
+Game-like mechanics MAY make real progress motivating and legible through seasons, momentum, milestones, missions, routine maturity and evidence-backed unlocks. They MUST NOT reward empty activity, punish healthy rest, manufacture urgency, hide uncertainty, use loss-aversion pressure or turn engagement into the objective.
+
+```text
+Observed → Modeled → Pilot → Proven → Automated → Compounding
+                                              ↘ Paused / Retired
+```
+
+Higher autonomy is earned by evidence and remains revocable; points never self-authorize execution.
 
 ---
 
@@ -530,11 +580,13 @@ It may compose:
 customer owner
 + optional delegated human operators
 + customer-named Wirebot Operating Partner
-+ private/dedicated Focusa
++ OpenClaw persistent runtime
++ private/dedicated or appropriately isolated Focusa
++ UIAI Engine
++ Tailscale private mesh
++ at least one persistent remote VPS execution/scheduling body
 + Focusa Workforce
-+ UIAI as entitled/needed
-+ private/customer infrastructure
-+ optional Veragensia bodies
++ optional additional Veragensia bodies
 + optional Startempire federation
 ```
 
