@@ -97,9 +97,13 @@ Owns browser/computer observation, actuation, diagnostics, takeover/reconciliati
 
 Owns Agent Computer/body/runtime identity, placement, enforcement, human control and lifecycle.
 
-### W.I.N.S.
+### Base outcome / feedback / W.I.N.S.
 
-Owns accepted outcome/portfolio semantics.
+Source business/life domains and owner acceptance retain outcome truth.
+
+Wirebot/Perpetua owns the private cross-domain feedback/leverage/Quiet Kaizen synthesis.
+
+W.I.N.S. is optional/setup-aware progression, recognition and community projection. Wirebot Sovereign Operator and Wirebot Sovereign remain complete without it.
 
 ### MeriFolio
 
@@ -284,6 +288,8 @@ operator.attention.v1
 operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
+operator.routine_blueprint.v1
+operator.leverage_snapshot.v1
 ```
 
 Implement the minimum seam exercised by the current vertical slice. Do not build a new centralized integration service merely to host these refs.
@@ -305,7 +311,7 @@ shared Needs You attention
 exact surface handoff
 universal correlation refs
 capability/entitlement posture
-Evidence → settlement → W.I.N.S. closure
+Evidence → settlement → source outcome → base leverage closure → optional W.I.N.S. projection
 worker/partner memory isolation
 sovereign federation proof
 Golden Path/task tracker → Focusa executable binding
