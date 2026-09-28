@@ -23,7 +23,7 @@
     "crm://metric/lead-latency"
   ],
   "accepted_outcome_refs": [
-    "wins://pipeline-current"
+    "outcome://crm/pipeline-current"
   ],
   "operational_metrics": {
     "runs": 4,
@@ -42,7 +42,7 @@
       "direction": "improved",
       "confidence": "high",
       "evidence_refs": [
-        "wins://pipeline-current"
+        "outcome://crm/pipeline-current"
       ],
       "note": null
     },
@@ -69,19 +69,12 @@
   "momentum": {
     "signal": "building",
     "evidence_refs": [
-      "wins://pipeline-current",
+      "outcome://crm/pipeline-current",
       "metric://lead-latency"
     ]
   },
-  "game_projection": {
-    "season_ref": "wins://season/q3",
-    "milestone_refs": [
-      "wins://milestone/first-proven-routine"
-    ],
-    "routine_maturity": "proven"
-  },
   "provenance": {
-    "producer_ref": "wins://projection-engine",
+    "producer_ref": "wirebot://perpetua/leverage-projector",
     "source_revision": "rev-3",
     "generated_at": "2026-09-01T01:00:00Z",
     "attribution_note": "Shared benefit disclosed across both businesses; not double-counted."
