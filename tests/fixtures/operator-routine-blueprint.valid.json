@@ -14,7 +14,7 @@
   "purpose": {
     "summary": "Keep the sales pipeline current.",
     "desired_outcome_refs": [
-      "wins://pipeline-current"
+      "outcome://crm/pipeline-current"
     ],
     "deficiency_refs": [
       "finding://stale-leads"
@@ -109,7 +109,7 @@
       "metric://owner-minutes"
     ],
     "accepted_outcome_refs": [
-      "wins://pipeline-current"
+      "outcome://crm/pipeline-current"
     ],
     "leverage_dimensions": [
       "outcome",
