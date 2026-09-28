@@ -58,12 +58,15 @@ Pi · compatible agents · Silent Sessions · workcells · Agent Computers
              ACCEPTED OUTCOMES
                     |
                     v
-                  W.I.N.S.
+        BASE PRIVATE FEEDBACK LOOP
+   Wirebot / Perpetua · leverage · Quiet Kaizen
                     |
-             optional projection
-                    v
-                MERIFOLIO
-portable identity / trust / standing
+          +---------+---------+
+          |                   |
+          v                   v
+ optional W.I.N.S.       optional MeriFolio
+ progression /           portable identity /
+ recognition             trust / standing
 
 ---------- OPTIONAL SOVEREIGN NETWORK BOUNDARY ----------
 
