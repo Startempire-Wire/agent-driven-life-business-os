@@ -254,6 +254,8 @@ operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
 operator.credential_use_ref.v1
+operator.routine_blueprint.v1
+operator.leverage_snapshot.v1
 ```
 
 Products implement adapters while retaining their own canonical state.
