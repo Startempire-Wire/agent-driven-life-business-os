@@ -168,11 +168,16 @@ Owns the Operating Partner experience:
 - recommendations;
 - broad owner conversation;
 - organization design;
+- Portfolio Business Compiler;
 - Workforce Composer;
 - delegation into governed work;
 - owner-wide attention;
-- network/community context;
-- owner-facing outcomes.
+- **base cross-domain feedback / leverage / Quiet Kaizen synthesis**;
+- setup-aware optional W.I.N.S. projection;
+- network/community context where applicable;
+- owner-facing outcome interpretation.
+
+Wirebot/Perpetua can derive source-qualified `operator.leverage_snapshot.v1` projections from owning metrics, Focusa Evidence/settlement, OpenClaw execution history, UIAI proof and owner correction. This base feedback/optimization loop is available independently of W.I.N.S.
 
 Wirebot App is the current application-family repository.
 
@@ -218,19 +223,23 @@ Owns Agent Computer/body/runtime concerns: runtime incarnation, body identity, e
 
 ### W.I.N.S.
 
-Owns accepted outcome / portfolio semantics **and the owner-facing momentum/leverage projection derived from accepted outcomes**.
+W.I.N.S. is an **optional setup-aware progression, recognition and community projection**, not the base feedback/optimization engine and not the only accepted-outcome path.
 
-W.I.N.S. may project seasons, streaks, progress, portfolio patterns, routine contribution, buyback/delegation gains and other motivational views, but it must preserve:
+When enabled for the current Wirebot setup, W.I.N.S. may project seasons, streaks, score, progress, portfolio patterns, routine contribution, buyback/delegation gains, milestones and community/recognition views over source-qualified outcomes and leverage snapshots.
+
+It must preserve:
 
 ```text
 activity metric
 != Evidence
-!= accepted outcome
-!= momentum
-!= leverage
+!= source-domain accepted outcome
+!= base leverage snapshot
+!= optional W.I.N.S. progression projection
 ```
 
-Momentum is sustained verified progress. Leverage is reusable capacity, reduced future effort, safe delegation/automation/system gain, or an intervention that makes additional outcomes easier. Neither grants authority or replaces source-domain analytics.
+A deployment that does not participate in W.I.N.S. MUST still retain full private routine analytics, outcome verification, momentum/leverage inference and Quiet Kaizen optimization.
+
+W.I.N.S. participation never grants work authority, creates business truth, or substitutes for source-owned analytics.
 
 ### MeriFolio
 
@@ -250,7 +259,65 @@ A task tracker may hold legitimate implementation/task-ledger state. It does not
 
 ---
 
-## 4. Portfolio Business Compiler and Workforce Composer
+## 4. Wirebot setup modes and the base optimization loop
+
+Customer-facing architecture recognizes four Wirebot setup modes:
+
+| Wirebot setup | Base private feedback / optimization loop | W.I.N.S. |
+|---|---|---|
+| **Wirebot Sovereign Operator** | required/base capability | **optional, explicit opt-in** |
+| **Wirebot Sovereign** | required/base capability | **optional, explicit opt-in** |
+| **Wirebot Direct** | required/base capability | included according to the Direct offer; Network/federation/public sharing remain separate permissions |
+| **Wirebot Network** | required/base capability | native to the Network relationship under its owning participation/sharing policy |
+
+These setup modes are customer/relationship topologies. They are **not the same thing as Wirebot's internal technical entitlement levels** and MUST NOT be collapsed into numeric level ordering.
+
+In particular:
+
+```text
+Wirebot Sovereign Operator
+!= sovereign_builder technical/admin role
+
+Wirebot setup mode
+!= MemberPress numeric level
+!= runtime topology alone
+!= W.I.N.S. participation state
+```
+
+For Sovereign Operator and Sovereign, W.I.N.S.-off is a complete valid operating state.
+
+The mandatory feedback loop is:
+
+```text
+source-owned life/business signals
++ routine execution telemetry
++ Focusa Evidence / settlement
++ OpenClaw run history
++ UIAI proof where applicable
++ owner correction
+        ↓
+operator.leverage_snapshot.v1
+        ↓
+Wirebot / Perpetua synthesis
+        ↓
+dominant constraint / opportunity
+        ↓
+smallest leverage proposal
+        ↓
+owner/governance path as required
+        ↓
+measured implementation
+        ↓
+keep / improve / retire
+        ↓
+next compounding opportunity
+```
+
+W.I.N.S., when enabled, consumes/provides an enhanced progression view over this loop. The loop never routes *through* W.I.N.S. as a prerequisite.
+
+---
+
+## 5. Portfolio Business Compiler and Workforce Composer
 
 The owner may operate **one, several, or many businesses plus personal/life domains**. ADLBOS therefore models a portfolio, not a single-business funnel.
 
@@ -276,7 +343,7 @@ authorized source coverage
 
 A routine blueprint describes purpose, trigger, inputs, deterministic steps, semantic/judgment steps, required actors, authority, execution placement, reliability policy, analytics/measurement plan, evidence, outcome target and rollback/revoke behavior. It does **not** become a second scheduler, task store, analytics warehouse or business database.
 
-### 4.1 Workforce Composer versus Focusa Workforce
+### 5.1 Workforce Composer versus Focusa Workforce
 
 ### Workforce Composer — Wirebot/ADLBOS concern
 
@@ -346,7 +413,7 @@ The Chief of Staff MUST NOT become a global Foreman simply because it has broad 
 
 ---
 
-## 6. Mandatory operating substrate and replaceable bodies
+## 7. Mandatory operating substrate and replaceable bodies
 
 A normal ADLBOS Operator deployment includes:
 
@@ -373,7 +440,7 @@ The remote VPS is the default placement for durable headless/scheduled coordinat
 
 OpenClaw's built-in Gateway automations scheduler is the preferred default scheduler for recurring agent-turn/system-event/condition-triggered work where its contract fits. Native deterministic services, systemd timers, provider schedulers, queues or webhooks remain valid when they are the correct owner/mechanism.
 
-## 7. Operator Deployment
+## 8. Operator Deployment
 
 **Operator Deployment** is an implementation/commissioning offer and deployment profile, not a new authority model or runtime tier.
 
@@ -406,7 +473,7 @@ customer owner
 
 ---
 
-## 8. Current application direction
+## 9. Current application direction
 
 The current customer/partner application family is **Wirebot App** (`Startempire-Wire/Wirebot-App`).
 
@@ -423,7 +490,7 @@ Current rule:
 
 ---
 
-## 9. Capability, entitlement, activation, authority, and consent
+## 10. Capability, entitlement, activation, authority, and consent
 
 These MUST remain separate:
 
@@ -441,7 +508,7 @@ Upsells SHOULD arise contextually from real capability gaps while remaining non-
 
 ---
 
-## 10. Fleet versus federation
+## 11. Fleet versus federation
 
 Reserve **federation** for independent sovereign participants.
 
@@ -462,7 +529,7 @@ Federation never implies pooled private memory, inherited owner authority, ambie
 
 ---
 
-## 11. Shared cross-product seams
+## 12. Shared cross-product seams
 
 Cross-product seams are ADLBOS-level portable contracts. Individual products implement adapters; they do not invent competing semantics.
 
@@ -482,7 +549,7 @@ operator.leverage_snapshot.v1
 
 These contracts are small reference envelopes, not a new orchestration database.
 
-### 11.1 Common envelope law
+### 12.1 Common envelope law
 
 Every actionable shared envelope MUST make compatibility, authority source and freshness machine-readable. As applicable, include:
 
@@ -508,7 +575,7 @@ Rules:
 - after reconnect, revalidate current source state before mutating from cached attention, entitlement, grant or execution state;
 - ambiguous mutation completion must use owning-system idempotency/reconciliation semantics rather than blind replay.
 
-### 11.2 Credential/secret seam law
+### 12.2 Credential/secret seam law
 
 Raw long-lived secret material does not cross normal product handoffs.
 
@@ -530,7 +597,7 @@ No shared envelope, URL, task description, Evidence object or Receipt should con
 
 ---
 
-## 12. Attention / `Needs You`
+## 13. Attention / `Needs You`
 
 Human attention is a scarce shared resource and should not fragment into unrelated inboxes.
 
@@ -553,7 +620,7 @@ Wirebot renders owner-wide attention. Workforce renders workforce-scoped attenti
 
 ---
 
-## 13. Evidence, analytics, momentum and closure
+## 14. Evidence, analytics, momentum and closure
 
 Preserve the chain:
 
@@ -578,9 +645,10 @@ execution
   -> Evidence candidate
   -> Focusa Evidence
   -> verification / settlement
-  -> accepted outcome
-  -> W.I.N.S. outcome + momentum/leverage projection
+  -> source-domain accepted outcome
+  -> base operator.leverage_snapshot.v1
   -> Quiet Kaizen / optimization candidate
+  -> optional W.I.N.S. progression projection when enabled
   -> revised governed work only after applicable acceptance
   -> MeriFolio presentation/standing where applicable
 ```
@@ -591,7 +659,7 @@ No universal score may hide the underlying dimensions. W.I.N.S. can make progres
 
 ---
 
-## 14. Surface boundaries
+## 15. Surface boundaries
 
 ### Wirebot App
 Owner/partner altitude: Today/briefing, life/business, strategic priorities, Workforce Composer, owner-wide Needs You, Network/community/opportunities, W.I.N.S./outcomes, readiness/delegation.
@@ -612,7 +680,7 @@ Shared visual language is encouraged. Shared canonical state is not.
 
 ---
 
-## 15. Design and implementation rules
+## 16. Design and implementation rules
 
 1. API/operation first.
 2. No CUA between first-party products as the normal integration.
@@ -633,7 +701,7 @@ Shared visual language is encouraged. Shared canonical state is not.
 
 ---
 
-## 16. Current reconciliation actions
+## 17. Current reconciliation actions
 
 1. formalize Operating Partner identity + white-label presentation;
 2. formalize delegated-human principal and revocation semantics;
@@ -652,13 +720,15 @@ Shared visual language is encouraged. Shared canonical state is not.
 15. compile Golden Path/task ledgers into existing Focusa-governed work rather than creating another task authority;
 16. implement portfolio/business → routine blueprint → assignment compiler;
 17. bind durable scheduled assignments to OpenClaw automations on the persistent Tailscale-connected VPS where appropriate;
-18. join routine execution analytics to accepted W.I.N.S. outcomes without creating a duplicate analytics authority;
-19. expose momentum/leverage and optimization proposals coherently across Wirebot App and Focusa Workforce;
-20. prove one multi-business portfolio slice where a shared capability improves more than one business without crossing scope.
+18. join routine execution analytics to source-domain outcomes through the base leverage loop without requiring W.I.N.S.;
+19. make W.I.N.S. a setup-aware optional projection for Sovereign Operator/Sovereign while preserving Direct/Network policy distinctions;
+20. expose private momentum/leverage and optimization proposals coherently across Wirebot App and Focusa Workforce even with W.I.N.S. disabled;
+21. prove one multi-business portfolio slice where a shared capability improves more than one business without crossing scope;
+22. prove the same optimization loop with W.I.N.S. enabled and disabled, with identical underlying outcome/leverage truth.
 
 ---
 
-## 17. Non-negotiable summary
+## 18. Non-negotiable summary
 
 ```text
 ONE OWNER ROOT
@@ -668,7 +738,8 @@ ONE GOVERNED WORK PLANE: FOCUSA
 ONE SPECIALIST WORKFORCE OPERATIONS SURFACE: FOCUSA WORKFORCE
 ONE COMPUTER EXECUTION AUTHORITY: UIAI ENGINE
 ONE BODY/RUNTIME/PLACEMENT SUBSTRATE: VERAGENSIA
-ONE ACCEPTED-OUTCOME LAYER: W.I.N.S.
+ONE BASE FEEDBACK / LEVERAGE LOOP: WIREBOT/PERPETUA OVER SOURCE-OWNED OUTCOMES
+W.I.N.S. OPTIONAL/SETUP-AWARE PROGRESSION LAYER — NEVER A BASE-LOOP PREREQUISITE
 ONE OPTIONAL PORTABLE-TRUST LAYER: MERIFOLIO
 ONE OPTIONAL SOVEREIGN NETWORK BOUNDARY: STARTEMPIRE WIRE
 
