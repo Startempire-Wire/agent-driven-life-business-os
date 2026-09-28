@@ -26,6 +26,9 @@ OPERATING PARTNER / CHIEF OF STAFF
 Wirebot implementation family
 customer presentation may be “Spock”, “Athena”, etc.
         ↓
+OPENCLAW
+persistent runtime · channels · automations
+        ↓
 FOCUSA
 governed work / continuity / authority / Evidence
 Project → Workstream → Foreman → Workpoint
@@ -75,13 +78,14 @@ Current responsibility map:
 |---|---|---|
 | Owner / architecture authority | deployment Canonical Owner Principal | goals, values, consent, reserved powers, architecture delegation |
 | Delegated human operation | owner-scoped human delegation | bounded operational actions only |
-| Operating Partner | Wirebot / Wirebot App | life/business orientation, recommendations, Workforce Composer, owner-wide attention |
+| Operating Partner | Wirebot / Wirebot App | portfolio/life/business orientation, recommendations, Portfolio Operating Compiler, Workforce Composer, owner-wide attention |
+| Operating Partner runtime | OpenClaw | persistent runtime, channels, built-in Automations scheduler and runtime continuity |
 | Governed work | Focusa | Project, Workstream, Foreman, Workpoint, authority, Evidence, receipts, continuity |
 | Workforce operations | Focusa Workforce | roster, work, Direction, Needs You, Evidence/topology projections |
 | Browser/computer execution | UIAI Engine | observation, actuation, takeover, diagnostics, execution proof |
 | Body/runtime/enforcement | Veragensia | Agent Computer, body/runtime identity, placement, enforcement, human control |
 | Workers/harnesses | Pi + compatible agents/runtimes | bounded execution under governed work |
-| Accepted outcomes | W.I.N.S. | accepted real-world outcomes, corrections, confidence, economics |
+| Accepted outcomes / progression | W.I.N.S. | accepted real-world outcomes, corrections, economics, seasons, momentum, leverage and retrospectives |
 | Portable worker trust | MeriFolio | portable identity/standing/selective disclosure |
 | Community/network | Startempire Wire | relationships, opportunities, optional sovereign federation |
 | Public worker marketplace | AI Draftees | discovery, public track record, hire candidate path |
@@ -162,19 +166,23 @@ federation / sharing
 interface / access
 ```
 
-A typical private Operator deployment may include:
+A normal Operator deployment includes:
 
 ```text
 customer owner
 + optional delegated human operators
 + customer-named Wirebot Operating Partner
++ OpenClaw persistent runtime
 + Focusa
++ UIAI Engine
++ Tailscale private mesh
++ at least one persistent remote VPS execution/scheduling body
 + Focusa Workforce
-+ UIAI where entitled/needed
-+ private/customer infrastructure
-+ optional Veragensia bodies/Agent Computers
++ optional additional Veragensia bodies/Agent Computers
 + optional Startempire federation
 ```
+
+OpenClaw, Focusa, UIAI Engine, the private mesh and persistent remote execution body are foundational layers. Specific runtime instances, hosts, models and bodies remain replaceable.
 
 `Sovereign` describes ownership/isolation/authority posture. It does not automatically mean DIY, self-hosted, unmanaged, offline or non-networked.
 
