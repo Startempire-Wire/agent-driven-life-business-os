@@ -285,7 +285,23 @@ Correlation IDs should be stable through retries/recovery where the logical requ
 
 ---
 
-## 12. Offline and cached projections
+## 12. Routine blueprint and leverage projection seams
+
+`operator.routine_blueprint.v1` is a portable compilation/reference envelope for one discovered or proposed routine. It may carry owner/portfolio/business/life-domain refs, purpose and desired-outcome refs, source/provenance refs, triggers, step classes, role/assignment/Workstream refs, authority/budget/credential-use refs, execution placement, reliability/overlap/retry/missed-run/revoke refs and measurement-plan refs.
+
+It is not the canonical schedule, task graph, roster, Evidence or outcome store.
+
+`operator.leverage_snapshot.v1` is a source-qualified projection used to connect operational evidence to owner-facing progress. It may carry scope/time window, routine refs, source metric/Evidence/receipt refs, accepted-outcome refs, capacity/time buyback, reliability/recovery, cost/attention trend, cross-routine/business reuse, risk reduction, opportunity unlocked, momentum signal, confidence/attribution limits and season/milestone refs.
+
+No universal numeric score is required. W.I.N.S. owns owner-facing outcome, momentum, leverage and season semantics; producers retain their telemetry.
+
+A leverage snapshot MUST NOT count agent/tool activity as an accepted outcome, double-count one shared gain across several businesses without disclosed attribution, treat estimates as proven fact, grant authority/scheduling/autonomy, or hide regressions behind an aggregate score.
+
+Scheduled routine activation uses OpenClaw's persistent Automations scheduler by default in the current architecture, while product-native/provider/native deterministic schedulers remain valid when explicitly stronger. The schedule stores/references activation intent; Focusa remains the authority owner and is revalidated before consequential execution.
+
+---
+
+## 13. Offline and cached projections
 
 A cache is explicitly a projection.
 
@@ -307,7 +323,7 @@ No UI should convert "last known allowed" into "currently authorized" merely bec
 
 ---
 
-## 13. Federation
+## 14. Federation
 
 Cross-Operator federation follows the same reference/freshness laws plus explicit federation issuer/audience/scope/expiry/revoke semantics.
 
@@ -317,7 +333,7 @@ The receiving Operator resolves only what the federation grant explicitly expose
 
 ---
 
-## 14. Required negative proofs
+## 15. Required negative proofs
 
 Implementations consuming these seams should prove, where applicable:
 
@@ -335,7 +351,7 @@ reference possession alone grants no authority
 
 ---
 
-## 15. Non-goals
+## 16. Non-goals
 
 Do not create:
 
