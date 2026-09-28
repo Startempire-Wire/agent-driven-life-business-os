@@ -91,7 +91,9 @@ Examples:
 - UIAI Engine: browser/computer execution and control;
 - Veragensia: machine/runtime/body enforcement and control;
 - Agent-KB: source-aware knowledge retrieval;
-- W.I.N.S.: accepted-outcome/portfolio state;
+- source business/life domains + owner acceptance: outcome truth in their domains;
+- Wirebot/Perpetua: base private cross-domain feedback/leverage synthesis;
+- W.I.N.S.: optional setup-aware progression/recognition/community projection when enabled;
 - business systems: their own business records;
 - CI/CD: release/deployment state;
 - task trackers: task-ledger state in their domain.
