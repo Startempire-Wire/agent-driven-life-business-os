@@ -274,12 +274,13 @@ A normal private Operator deployment can include:
 
 ```text
 customer Canonical Owner Principal
-customer-named Wirebot Operating Partner
+customer-named Wirebot Operating Partner on OpenClaw
 private/dedicated Focusa
 Focusa Workforce
-UIAI where entitled/needed
-private/customer infrastructure
-optional Veragensia Agent Computers/bodies
+UIAI Engine
+Tailscale private mesh
+at least one persistent remote VPS
+optional additional Veragensia Agent Computers/bodies
 optional Startempire federation
 ```
 
