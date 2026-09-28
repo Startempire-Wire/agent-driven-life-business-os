@@ -391,13 +391,14 @@ A normal sovereign Operator deployment may include:
 
 ```text
 customer owner
-+ customer-named Operating Partner (Wirebot implementation family)
++ customer-named Operating Partner (Wirebot implementation family) on OpenClaw
 + explicitly delegated human operators, if any
 + Focusa
 + Focusa Workforce
-+ UIAI as entitled/needed
-+ customer/private infrastructure
-+ optional Veragensia bodies
++ UIAI Engine
++ Tailscale private mesh
++ at least one persistent remote VPS
++ optional additional Veragensia bodies
 + optional Startempire federation
 ```
 
