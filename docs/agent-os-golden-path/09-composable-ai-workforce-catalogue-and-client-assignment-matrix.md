@@ -407,6 +407,8 @@ OCDD is a useful tag/lens for administrative task packs. It does not replace CRI
 
 ## 9. Client assignment matrix
 
+One owner may operate several businesses, products and shared service functions. Assignments therefore carry exact portfolio/business/life-domain scope and may intentionally span several businesses only when the shared responsibility, data boundary and authority are explicit. A convenient "primary business" selection in a UI never grants cross-business scope.
+
 After the Golden Path audit, classify every profile for that client:
 
 | Assignment state | Meaning |
@@ -488,7 +490,9 @@ The shared catalogue contains no client secrets or personal data. The private ro
 
 ## 11. Scheduling policy
 
-A role is cron-eligible only when:
+In the current ADLBOS topology, **OpenClaw Automations on the persistent Tailscale-connected remote VPS is the default durable scheduler for business/life routines**. Focusa remains the governed assignment/authority owner; OpenClaw schedules activation and run history.
+
+A role/routine is schedule-eligible only when:
 
 - inputs and scope are deterministic;
 - the client has approved the cadence and resource budget;
@@ -499,7 +503,11 @@ A role is cron-eligible only when:
 - state retention and evidence policies are explicit;
 - missed-run, overlap, retry, pause and revoke behavior are defined.
 
-Use event-driven activation instead of polling where reliable events exist. Use scheduled observation plus exception escalation rather than continuous agent processes. Permanent staff profiles should usually wake episodically.
+Use event-driven activation instead of polling where reliable events exist. Use scheduled observation plus exception escalation rather than uncontrolled continuous agent processes. Permanent staff profiles should usually wake episodically.
+
+A committed OpenClaw schedule must retain at least the assignment/routine ref, owner/tenant scope, timezone/cadence or trigger, idempotency/replay posture, overlap/missed-run policy, budget/expiry, failure attention route and revoke/pause path. Each consequential run revalidates current Focusa authority rather than inheriting authority from the existence of the schedule.
+
+Infrastructure cron/systemd may maintain the runtime itself or serve a bounded fallback, but ordinary owner/business schedules should not split across unrelated schedulers without an explicit owning reason.
 
 ## 12. Chief-of-Staff supervision contract
 
