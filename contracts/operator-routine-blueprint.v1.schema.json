@@ -1,0 +1,657 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://startempire-wire.github.io/agent-driven-life-business-os/contracts/operator-routine-blueprint.v1.schema.json",
+  "title": "Operator Routine Blueprint v1",
+  "description": "Portable reference/compilation envelope for one source-backed life/business routine. It is not a task, schedule, authority, Evidence or outcome database.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "blueprint_id",
+    "status",
+    "scope",
+    "purpose",
+    "provenance",
+    "trigger",
+    "steps",
+    "supervision",
+    "authority",
+    "placement",
+    "reliability",
+    "measurement_plan",
+    "privacy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "operator.routine_blueprint.v1"
+    },
+    "blueprint_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "observed",
+        "modeled",
+        "proposed",
+        "pilot",
+        "proven",
+        "active",
+        "paused",
+        "retired"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_ref",
+        "business_refs",
+        "life_domain_refs"
+      ],
+      "properties": {
+        "owner_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "portfolio_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "business_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "life_domain_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "business_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "life_domain_refs": {
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "purpose": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "desired_outcome_refs",
+        "deficiency_refs",
+        "leverage_hypothesis"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "desired_outcome_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "deficiency_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "leverage_hypothesis": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_refs",
+        "discovery_revision",
+        "confidence"
+      ],
+      "properties": {
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "discovery_revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "observed_frequency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "trigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "manual",
+            "schedule",
+            "event",
+            "condition",
+            "queue"
+          ]
+        },
+        "event_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "condition_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schedule": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "required": [
+            "scheduler_class",
+            "scheduler_owner_ref",
+            "cadence",
+            "timezone",
+            "schedule_ref"
+          ],
+          "properties": {
+            "cadence": {
+              "type": "string",
+              "minLength": 1
+            },
+            "timezone": {
+              "type": "string",
+              "minLength": 1
+            },
+            "schedule_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "scheduler_class": {
+              "enum": [
+                "openclaw_automation",
+                "native_service",
+                "provider_scheduler",
+                "other"
+              ]
+            },
+            "scheduler_owner_ref": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "description": "OpenClaw automation is the normal default, but a stronger product-native/provider/native deterministic scheduler remains valid when explicitly owned."
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "step_id",
+          "kind",
+          "owner_domain",
+          "input_refs",
+          "output_refs",
+          "consequence_class",
+          "idempotency"
+        ],
+        "properties": {
+          "step_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "deterministic",
+              "agentic",
+              "uiai",
+              "human"
+            ]
+          },
+          "owner_domain": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operation_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "task_pack_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "input_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "output_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "consequence_class": {
+            "enum": [
+              "read",
+              "prepare",
+              "mutate",
+              "external_commitment",
+              "human_reserved"
+            ]
+          },
+          "idempotency": {
+            "enum": [
+              "none",
+              "optional",
+              "required"
+            ]
+          }
+        }
+      }
+    },
+    "supervision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operating_partner_ref",
+        "focusa_assignment_ref"
+      ],
+      "properties": {
+        "operating_partner_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "focusa_assignment_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "workstream_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "foreman_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "role_profile_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "grant_refs",
+        "credential_use_refs"
+      ],
+      "properties": {
+        "grant_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "credential_use_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "budget_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confirmation_policy_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expires_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "placement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preferred_class",
+        "fallback_classes"
+      ],
+      "properties": {
+        "preferred_class": {
+          "enum": [
+            "persistent_remote_vps",
+            "veragensia_body",
+            "owner_device",
+            "other"
+          ]
+        },
+        "runtime_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fallback_classes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "persistent_remote_vps",
+              "veragensia_body",
+              "owner_device",
+              "other"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "reliability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "overlap_policy",
+        "missed_run_policy",
+        "timeout_seconds",
+        "retry_policy_ref",
+        "failure_attention_ref",
+        "rollback_ref",
+        "revoke_ref"
+      ],
+      "properties": {
+        "overlap_policy": {
+          "enum": [
+            "skip",
+            "queue",
+            "coalesce",
+            "reconcile",
+            "deny"
+          ]
+        },
+        "missed_run_policy": {
+          "enum": [
+            "skip",
+            "catch_up",
+            "reconcile",
+            "owner_attention"
+          ]
+        },
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "retry_policy_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "failure_attention_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rollback_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "revoke_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "measurement_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metric_refs",
+        "accepted_outcome_refs",
+        "leverage_dimensions"
+      ],
+      "properties": {
+        "baseline_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metric_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "accepted_outcome_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "leverage_dimensions": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "outcome",
+              "capacity_buyback",
+              "attention_reduction",
+              "cycle_time",
+              "reliability",
+              "cost_efficiency",
+              "risk_reduction",
+              "reuse",
+              "opportunity_unlock",
+              "compounding"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contains_private_payload",
+        "contains_secret_material"
+      ],
+      "properties": {
+        "contains_private_payload": {
+          "const": false
+        },
+        "contains_secret_material": {
+          "const": false
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "trigger": {
+            "properties": {
+              "kind": {
+                "const": "schedule"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "trigger": {
+            "required": [
+              "schedule"
+            ],
+            "properties": {
+              "schedule": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "active",
+              "paused"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "supervision": {
+            "properties": {
+              "focusa_assignment_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "allOf": [
+          {
+            "properties": {
+              "status": {
+                "enum": [
+                  "active",
+                  "paused"
+                ]
+              }
+            }
+          },
+          {
+            "properties": {
+              "trigger": {
+                "properties": {
+                  "kind": {
+                    "const": "schedule"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "then": {
+        "properties": {
+          "trigger": {
+            "properties": {
+              "schedule": {
+                "properties": {
+                  "schedule_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
