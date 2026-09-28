@@ -122,7 +122,7 @@ The expected real effect must be verified.
 Stage 0  Engage and bind ownership
 Stage 1  Workstation substrate and secure agent capability
 Stage 2  Operating Partner genesis
-Stage 3  Cloud/private execution landing where applicable
+Stage 3  Persistent remote VPS + OpenClaw landing
 Stage 4  Mesh, identity and reachable execution bodies
 Stage 5  Knowledge, business audit and system map
 Stage 6  Primary administration/runtime cutover
@@ -374,7 +374,7 @@ A persistent customer-owned partner relationship exists with source/runtime boun
 
 ---
 
-# Stage 3 — Cloud/private execution landing where applicable
+# Stage 3 — Persistent remote VPS + OpenClaw landing
 
 ## Purpose
 
