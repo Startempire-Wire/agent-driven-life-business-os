@@ -6,7 +6,8 @@
 **Governed work owner:** Focusa  
 **Persistent Operating Partner runtime / scheduler:** OpenClaw  
 **Computer/browser execution owner:** UIAI Engine  
-**Owner-facing outcome/progression owner:** W.I.N.S.  
+**Base feedback/leverage synthesis owner:** Wirebot / Perpetua over source-owned outcomes  
+**Optional progression/recognition owner:** W.I.N.S. when enabled for the setup  
 **Persistent transport/body baseline:** Tailscale + at least one remote VPS
 
 ## 1. Purpose
@@ -56,18 +57,44 @@ PILOT / SHADOW / ACCEPTANCE
             ↓
 ACTIVE ROUTINE
             ↓
-EVIDENCE + BUSINESS/LIFE RESULT
+EVIDENCE + SOURCE-DOMAIN BUSINESS/LIFE RESULT
             ↓
-W.I.N.S. MOMENTUM / LEVERAGE
+BASE OPERATOR.LEVERAGE_SNAPSHOT
             ↓
 QUIET KAIZEN
+            ↓
+OPTIONAL W.I.N.S. PROGRESSION WHEN ENABLED
             ↓
 DELETE / SIMPLIFY / IMPROVE / REUSE / COMPOUND
 ```
 
 No new central runtime or database is introduced by this loop.
 
-## 3. Portfolio model
+## 3. Wirebot setup modes and W.I.N.S. participation
+
+The compiler and optimization loop must work across all four customer/setup modes:
+
+```text
+Wirebot Sovereign Operator
+Wirebot Sovereign
+Wirebot Direct
+Wirebot Network
+```
+
+The base compiler/feedback loop is mandatory/common capability. W.I.N.S. is not.
+
+| Setup | Private feedback / optimization | W.I.N.S. posture |
+|---|---|---|
+| Wirebot Sovereign Operator | full | optional, explicit opt-in |
+| Wirebot Sovereign | full | optional, explicit opt-in |
+| Wirebot Direct | full | Direct-offer participation; never infer Network membership/federation |
+| Wirebot Network | full | native to Network relationship under its owning policy |
+
+For the top two setups, `W.I.N.S.=off` is a first-class complete operating state. Routine analytics, leverage snapshots, momentum inference and Quiet Kaizen continue privately.
+
+The six technical entitlement levels may still exist underneath implementation, but they are not the customer setup taxonomy and do not determine W.I.N.S. by numeric ordering.
+
+## 4. Portfolio model
 
 The compiler works over an owner portfolio:
 
@@ -93,7 +120,7 @@ A routine scope may be one business, one product/service, a life domain, a share
 
 Cross-business routines must retain per-business data/authority boundaries and explicit attribution. "Primary business" is a UI convenience only.
 
-## 4. Mandatory operating substrate
+## 5. Mandatory operating substrate
 
 The current architecture assumes:
 
@@ -118,7 +145,7 @@ Specific runtime incarnations and hosts are replaceable.
 
 The remote VPS is where unattended recurring work normally lives. The user's Chromebook/laptop remains an interactive body and may execute work, but routine continuity does not depend on it being awake.
 
-## 5. Routine blueprint
+## 6. Routine blueprint
 
 `operator.routine_blueprint.v1` is the portable compilation envelope.
 
@@ -155,7 +182,7 @@ HOW WE KNOW
 
 The blueprint references source-owned objects. It is not the task graph, schedule, grant, credential store or Evidence ledger.
 
-## 6. Step classes
+## 7. Step classes
 
 Every material routine step is classified before automation.
 
@@ -169,7 +196,7 @@ Every material routine step is classified before automation.
 
 Human-reserved steps become source-bearing Needs You items rather than hidden workflow stalls.
 
-## 7. Scheduling and remote execution
+## 8. Scheduling and remote execution
 
 OpenClaw's built-in Gateway automations scheduler is the default durable scheduler for owner/business routines when its semantics fit. Explicit product-native/provider/native deterministic schedulers remain valid when they are the stronger owning mechanism.
 
@@ -204,7 +231,7 @@ OpenClaw due/event
 
 A schedule never becomes an authority grant by existing. The routine contract records the scheduler class/owner reference explicitly; OpenClaw is the normal default, not a forced wrapper around stronger deterministic/provider-native scheduling.
 
-## 8. Routine maturity
+## 9. Routine maturity
 
 Use a visible progression model:
 
@@ -215,7 +242,7 @@ Observed → Modeled → Pilot → Proven → Automated → Compounding
 
 Promotion is evidence-based and reversible. Higher maturity may make greater autonomy eligible, but maturity never self-grants authority.
 
-## 9. Analytics hierarchy
+## 10. Analytics hierarchy
 
 Analytics should coalesce at several levels without one giant telemetry database.
 
@@ -250,7 +277,7 @@ Measure where owner attention is going, which businesses/domains are gaining or 
 
 System health remains distinguishable from life/business success.
 
-## 10. Leverage dimensions
+## 11. Leverage dimensions
 
 Leverage means one change increases future capacity. It is not one mandatory percentage.
 
@@ -274,7 +301,7 @@ Every claimed gain carries source/evidence refs and confidence/attribution limit
 
 Avoid double-counting. A shared CRM integration that benefits five routines is one reusable capability with several downstream effects, not five independent copies of the same leverage.
 
-## 11. Momentum
+## 12. Momentum
 
 Momentum is sustained verified progress toward owner-defined outcomes: the direction and durability of meaningful progress, not merely consecutive app usage.
 
@@ -293,11 +320,11 @@ unknown
 
 Unknown is preferable to invented certainty.
 
-## 12. W.I.N.S. and game dynamics
+## 13. Optional W.I.N.S. projection and game dynamics
 
-W.I.N.S. already contains a strong sports/game vocabulary: score, game clock, possession/focus, momentum, seasons, streaks, portfolio views and Wrapped retrospectives.
+When a setup participates, W.I.N.S. adds a strong sports/game vocabulary: score, game clock, possession/focus, seasons, streaks, portfolio views and Wrapped retrospectives.
 
-ADLBOS preserves that motivating language but tightens what counts.
+The underlying momentum/leverage truth exists before that projection. ADLBOS preserves the motivating language but tightens what counts.
 
 Good game dynamics include:
 
@@ -316,9 +343,11 @@ Bad game dynamics include points for agent chatter/tool calls, streak pressure t
 
 **The game is the owner's real life/business progress.** The UI merely makes that progress legible and motivating.
 
-## 13. W.I.N.S. relationship
+## 14. W.I.N.S. relationship
 
-W.I.N.S. is the owner-facing outcome/momentum/leverage projection. It owns accepted-outcome and owner-facing progression semantics.
+W.I.N.S. is an optional setup-aware progression/recognition/community projection. It does **not** own the base outcome, momentum or leverage loop.
+
+Source domains/owner acceptance establish outcome truth. Wirebot/Perpetua synthesizes the private cross-domain feedback/leverage loop through source-qualified refs. W.I.N.S., when enabled, presents additional progression/season/score/community semantics over that same truth.
 
 Existing activity-weighted scoreboard mechanics are useful historical/product evidence, not universal ADLBOS law. Future scoring should increasingly privilege:
 
@@ -334,7 +363,7 @@ over raw task/event volume.
 
 A W.I.N.S. score is a projection. It never creates Focusa authority, OpenClaw scheduling rights, business truth or execution success.
 
-## 14. Quiet Kaizen / optimization
+## 15. Quiet Kaizen / optimization
 
 Use the existing Leverage² order:
 
@@ -362,7 +391,7 @@ measure baseline
 
 Optimization proposals never self-authorize.
 
-## 15. Surface responsibilities
+## 16. Surface responsibilities
 
 ### Wirebot App
 
@@ -386,9 +415,9 @@ Deep browser/computer execution, takeover, diagnostics and proof.
 
 ### W.I.N.S.
 
-Accepted outcomes, portfolio/business progress, seasons, momentum, leverage, meaningful retrospectives and optional social/community projections under disclosure policy.
+Optional setup-aware progression, seasons, score, retrospectives, recognition and community projections over source-domain outcomes and the base leverage loop. Sovereign Operator and Sovereign remain complete with this surface disabled.
 
-## 16. Owner-facing routine experience
+## 17. Owner-facing routine experience
 
 A routine should read like:
 
@@ -425,7 +454,7 @@ Proof
 
 Technical details remain available progressively.
 
-## 17. First vertical slice
+## 18. First vertical slice
 
 Prove one routine from beginning to compounding feedback:
 
@@ -440,14 +469,15 @@ multi-source discovery
 → deterministic + agentic execution
 → UIAI only if required
 → Evidence
-→ accepted outcome
-→ W.I.N.S. leverage snapshot
+→ source-domain accepted outcome
+→ operator.leverage_snapshot.v1
 → Quiet Kaizen proposal
+→ optional W.I.N.S. projection if enabled
 → owner keeps/improves/retires
 ```
 
 Acceptance requires denial/revocation, failed run/recovery, missed-run handling and truthful unknown analytics in addition to the happy path.
 
-## 18. Non-goals
+## 19. Non-goals
 
-Do not create a new orchestration service, scheduler beside OpenClaw without an owning need, second Focusa work authority, second W.I.N.S. outcome/score authority, central raw telemetry lake merely for this compiler, one-business-only information architecture, infrastructure-first user experience, an "AI employee" for every routine, or gamification that rewards screen time/activity over meaningful life/business progress.
+Do not create a new orchestration service, scheduler beside OpenClaw without an owning need, second Focusa work authority, W.I.N.S.-required base analytics path, second outcome authority, central raw telemetry lake merely for this compiler, one-business-only information architecture, infrastructure-first user experience, an "AI employee" for every routine, or gamification that rewards screen time/activity over meaningful life/business progress.
