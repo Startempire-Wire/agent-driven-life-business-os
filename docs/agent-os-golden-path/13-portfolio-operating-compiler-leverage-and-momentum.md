@@ -1,0 +1,453 @@
+# Portfolio Operating Compiler, Routine Analytics, Leverage and Momentum
+
+**Status:** CURRENT owner-directed architecture; implementation remains partial  
+**Version stream:** ADLBOS Golden Path 0.2.3-candidate  
+**Primary experience owner:** Wirebot / Wirebot App  
+**Governed work owner:** Focusa  
+**Persistent Operating Partner runtime / scheduler:** OpenClaw  
+**Computer/browser execution owner:** UIAI Engine  
+**Owner-facing outcome/progression owner:** W.I.N.S.  
+**Persistent transport/body baseline:** Tailscale + at least one remote VPS
+
+## 1. Purpose
+
+ADLBOS exists to advance the owner's life and businesses.
+
+The end state is not "many agents" or "many automations." It is a living operating system that:
+
+1. understands an owner's portfolio of businesses, products and life domains;
+2. discovers how work actually happens;
+3. turns recurring patterns into reviewable routines;
+4. decides which parts should become deterministic software, agentic work, UIAI computer work or human-reserved decisions;
+5. composes the required workforce and authority;
+6. runs repeatably through the persistent OpenClaw/Focusa/UIAI substrate;
+7. measures real outcomes and operating burden;
+8. continuously finds the next compounding leverage move.
+
+Several businesses are normal. Shared services and routines may serve several businesses without merging their canonical records or authority.
+
+## 2. The causal loop
+
+```text
+AUTHORIZED SOURCES / OWNER TRUTH
+            ↓
+PORTFOLIO + LIFE/BUSINESS MAP
+            ↓
+PATTERN / ROUTINE INFERENCE
+            ↓
+ROUTINE BLUEPRINTS
+            ↓
+SYSTEM + WORKFORCE INFERENCE
+            ↓
+OWNER COMPOSITION / CORRECTION
+            ↓
+DETERMINISTIC COMPILATION
+            ↓
+FOCUSA ASSIGNMENT + AUTHORITY
+            ↓
+EXECUTION PLACEMENT
+  ├─ OpenClaw script/agent turn on remote VPS
+  ├─ deterministic API/CLI/program
+  ├─ Pi/worker under Focusa
+  ├─ UIAI browser/computer work
+  └─ human Needs You
+            ↓
+PILOT / SHADOW / ACCEPTANCE
+            ↓
+ACTIVE ROUTINE
+            ↓
+EVIDENCE + BUSINESS/LIFE RESULT
+            ↓
+W.I.N.S. MOMENTUM / LEVERAGE
+            ↓
+QUIET KAIZEN
+            ↓
+DELETE / SIMPLIFY / IMPROVE / REUSE / COMPOUND
+```
+
+No new central runtime or database is introduced by this loop.
+
+## 3. Portfolio model
+
+The compiler works over an owner portfolio:
+
+```text
+Owner
+├─ life domains
+├─ Business A
+│  ├─ products/services
+│  └─ routines
+├─ Business B
+│  ├─ products/services
+│  └─ routines
+├─ Business C
+└─ shared functions
+   ├─ finance
+   ├─ administration
+   ├─ legal/compliance
+   ├─ research
+   └─ infrastructure
+```
+
+A routine scope may be one business, one product/service, a life domain, a shared service across several businesses, or the owner portfolio.
+
+Cross-business routines must retain per-business data/authority boundaries and explicit attribution. "Primary business" is a UI convenience only.
+
+## 4. Mandatory operating substrate
+
+The current architecture assumes:
+
+```text
+OpenClaw
+  durable Operating Partner runtime + Automations scheduler
+
+Focusa
+  Workstream / Foreman / assignment / authority / Evidence
+
+UIAI Engine
+  browser/computer hands and execution proof
+
+Tailscale
+  private execution mesh
+
+persistent remote VPS
+  always-on scheduling/execution body
+```
+
+Specific runtime incarnations and hosts are replaceable.
+
+The remote VPS is where unattended recurring work normally lives. The user's Chromebook/laptop remains an interactive body and may execute work, but routine continuity does not depend on it being awake.
+
+## 5. Routine blueprint
+
+`operator.routine_blueprint.v1` is the portable compilation envelope.
+
+A useful blueprint answers:
+
+```text
+WHY
+  desired outcome / deficiency / leverage hypothesis
+
+WHERE
+  portfolio/business/life-domain scope
+
+WHEN
+  event / condition / cadence / manual trigger
+
+WHO
+  Operating Partner / Foreman / role / human-reserved actor
+
+HOW
+  ordered steps and each step class
+
+WITH WHAT
+  product operations / tools / data / credentials / budget
+
+WHERE IT RUNS
+  persistent VPS / Agent Computer / owner device / UIAI context
+
+WHAT CAN GO WRONG
+  timeout / overlap / retry / missed run / recovery / revoke
+
+HOW WE KNOW
+  Evidence / receipts / accepted outcome / measurement baseline
+```
+
+The blueprint references source-owned objects. It is not the task graph, schedule, grant, credential store or Evidence ledger.
+
+## 6. Step classes
+
+Every material routine step is classified before automation.
+
+**Deterministic:** stable code/API/CLI/query/transformation. Do not repeatedly spend model reasoning on stable mechanical work.
+
+**Agentic:** interpretation, synthesis, prioritization, research, drafting or ambiguity handling under a bounded Focusa assignment.
+
+**UIAI:** browser/computer interaction when no stronger supported interface is available.
+
+**Human-reserved:** owner truth, relationship judgment, reserved authority, consequential approval or another step where human comparative advantage is real.
+
+Human-reserved steps become source-bearing Needs You items rather than hidden workflow stalls.
+
+## 7. Scheduling and remote execution
+
+OpenClaw Automations is the default durable scheduler for owner/business routines.
+
+A scheduled routine record references:
+
+```text
+routine blueprint ref
+Focusa assignment ref
+owner/tenant scope
+OpenClaw agent/runtime ref
+cadence/trigger + timezone
+idempotency/replay policy
+overlap policy
+missed-run policy
+timeout
+budget/expiry
+failure-attention route
+pause/revoke path
+```
+
+At execution time:
+
+```text
+OpenClaw due/event
+→ resolve routine + assignment refs
+→ Focusa revalidates current scope/authority
+→ execute deterministic/agentic/UIAI steps
+→ capture Evidence/receipts
+→ resolve exceptions through Needs You
+→ emit source-qualified analytics/outcome refs
+```
+
+A schedule never becomes an authority grant by existing.
+
+## 8. Routine maturity
+
+Use a visible progression model:
+
+```text
+Observed → Modeled → Pilot → Proven → Automated → Compounding
+                                             ↘ Paused / Retired
+```
+
+Promotion is evidence-based and reversible. Higher maturity may make greater autonomy eligible, but maturity never self-grants authority.
+
+## 9. Analytics hierarchy
+
+Analytics should coalesce at several levels without one giant telemetry database.
+
+### Routine
+
+Measure, where meaningful:
+
+- runs / admitted / skipped / failed / recovered;
+- accepted-output rate;
+- cycle time and latency;
+- missed/overlap/retry behavior;
+- model/tool/provider/runtime cost;
+- owner interventions and interruption burden;
+- estimated and measured owner time bought back;
+- deterministic-versus-agentic execution ratio;
+- UIAI fallback frequency;
+- reliability and recovery;
+- downstream outcome refs;
+- attribution confidence.
+
+### Worker / role
+
+Measure accepted outcomes, reliability, escalation quality, owner attention consumed, cost, scope violations/denials, reuse across assignments and revoke/offboarding correctness.
+
+### Business / life domain
+
+Measure desired-outcome movement, appropriate customer/revenue/retention or life results, operating cycle time, unresolved obligations, owner capacity, routine/system health and leverage created/lost.
+
+### Portfolio
+
+Measure where owner attention is going, which businesses/domains are gaining or losing momentum, cross-business shared capability, portfolio bottlenecks, capacity unlocked, risk concentration, reusable systems and the next highest-leverage opportunity.
+
+System health remains distinguishable from life/business success.
+
+## 10. Leverage dimensions
+
+Leverage is not one mandatory percentage.
+
+`operator.leverage_snapshot.v1` can describe:
+
+```text
+outcome gain
+capacity / time buyback
+attention reduction
+cycle-time improvement
+reliability / recovery
+cost efficiency
+risk reduction
+reuse across routines
+reuse across businesses
+new opportunity unlocked
+compounding capability
+```
+
+Every claimed gain carries source/evidence refs and confidence/attribution limits.
+
+Avoid double-counting. A shared CRM integration that benefits five routines is one reusable capability with several downstream effects, not five independent copies of the same leverage.
+
+## 11. Momentum
+
+Momentum is the direction and durability of meaningful progress, not merely consecutive app usage.
+
+Signals may include accepted outcomes increasing, manual recurring work staying reliably handled, owner interruption burden falling, bottlenecks disappearing, cycle time improving, useful systems being reused, new capacity being converted into higher-value work, and fewer repeated failures.
+
+Momentum may be described as:
+
+```text
+accelerating
+building
+steady
+cooling
+blocked
+unknown
+```
+
+Unknown is preferable to invented certainty.
+
+## 12. W.I.N.S. and game dynamics
+
+W.I.N.S. already contains a strong sports/game vocabulary: score, game clock, possession/focus, momentum, seasons, streaks, portfolio views and Wrapped retrospectives.
+
+ADLBOS preserves that motivating language but tightens what counts.
+
+Good game dynamics include:
+
+- seasons around meaningful owner objectives;
+- visible momentum from verified progress;
+- evidence-backed milestones;
+- routine maturity progression;
+- "capacity unlocked" when owner work is genuinely bought back;
+- meaningful missions/pilots;
+- retrospectives/Wrapped;
+- optional streaks when they reflect a behavior the owner actually values;
+- unlocks that expose higher autonomy only after proof and owner policy;
+- celebration of deletion/simplification when doing less creates more leverage.
+
+Bad game dynamics include points for agent chatter/tool calls, streak pressure that punishes rest or long-cycle work, arbitrary badges disconnected from outcomes, loss-aversion or shame, manufactured urgency, addictive variable rewards, hidden scoring formulas controlling authority, or maximizing activity/engagement rather than life/business advancement.
+
+**The game is the owner's real life/business progress.** The UI merely makes that progress legible and motivating.
+
+## 13. W.I.N.S. relationship
+
+W.I.N.S. owns accepted-outcome and owner-facing progression semantics.
+
+Existing activity-weighted scoreboard mechanics are useful historical/product evidence, not universal ADLBOS law. Future scoring should increasingly privilege:
+
+```text
+accepted outcome
++ proven buyback
++ reliability
++ reuse
++ compounding leverage
+```
+
+over raw task/event volume.
+
+A W.I.N.S. score is a projection. It never creates Focusa authority, OpenClaw scheduling rights, business truth or execution success.
+
+## 14. Quiet Kaizen / optimization
+
+Use the existing Leverage² order:
+
+```text
+Question
+→ Delete
+→ Simplify
+→ Accelerate
+→ Automate
+```
+
+Then close the loop:
+
+```text
+measure baseline
+→ identify dominant constraint
+→ propose smallest leverage move
+→ adversarially review
+→ pilot
+→ compare
+→ keep / improve / retire
+→ search for reuse
+→ invest released capacity into the next higher-value constraint
+```
+
+Optimization proposals never self-authorize.
+
+## 15. Surface responsibilities
+
+### Wirebot App
+
+Owner-facing design and portfolio experience: "How Your Life & Businesses Run", portfolio/business map, routines, proposals, Workforce Composer, routine analytics, leverage/momentum, owner decisions and Quiet Kaizen recommendations.
+
+The owner should see meaningful language, not cron expressions, CallGraphs or raw telemetry by default.
+
+### OpenClaw conversation/runtime
+
+Continuous Operating Partner, conversational access to the same canonical routine/business objects, Automations scheduling, proactive/quiet review, and delivery of useful updates and Needs You.
+
+### Focusa Workforce
+
+Specialist live operations: Workstream/Foreman, roster/responsibility, working now, routine-run operating posture when projected, Needs You, Evidence/verification, Direction and execution/topology.
+
+It does not own portfolio leverage scoring.
+
+### UIAI / Cockpit
+
+Deep browser/computer execution, takeover, diagnostics and proof.
+
+### W.I.N.S.
+
+Accepted outcomes, portfolio/business progress, seasons, momentum, leverage, meaningful retrospectives and optional social/community projections under disclosure policy.
+
+## 16. Owner-facing routine experience
+
+A routine should read like:
+
+```text
+New Lead Follow-Up
+
+Why
+  Keep qualified inquiries from being lost.
+
+When
+  When a new website inquiry arrives.
+
+Who
+  Sales Coordinator, supervised by your Operating Partner.
+
+How
+  Read inquiry → reconcile CRM → qualify → enrich → update CRM → prepare next action.
+
+Needs You when
+  pricing/terms are unusual or first outreach exceeds the standing grant.
+
+Runs on
+  private Operator server.
+
+Proof
+  CRM receipt + source refs + accepted follow-up state.
+
+30-day effect
+  94% handled without intervention
+  2.1h/week owner capacity bought back
+  median lead latency ↓ 61%
+  one unresolved attribution caveat
+```
+
+Technical details remain available progressively.
+
+## 17. First vertical slice
+
+Prove one routine from beginning to compounding feedback:
+
+```text
+multi-source discovery
+→ routine candidate
+→ routine blueprint
+→ owner correction
+→ assignment compilation
+→ Focusa binding
+→ OpenClaw schedule on remote VPS
+→ deterministic + agentic execution
+→ UIAI only if required
+→ Evidence
+→ accepted outcome
+→ W.I.N.S. leverage snapshot
+→ Quiet Kaizen proposal
+→ owner keeps/improves/retires
+```
+
+Acceptance requires denial/revocation, failed run/recovery, missed-run handling and truthful unknown analytics in addition to the happy path.
+
+## 18. Non-goals
+
+Do not create a new orchestration service, scheduler beside OpenClaw without an owning need, second Focusa work authority, second W.I.N.S. outcome/score authority, central raw telemetry lake merely for this compiler, one-business-only information architecture, infrastructure-first user experience, an "AI employee" for every routine, or gamification that rewards screen time/activity over meaningful life/business progress.
