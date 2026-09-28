@@ -1,0 +1,125 @@
+{
+  "schema_version": "operator.routine_blueprint.v1",
+  "blueprint_id": "routine://example/weekly-pipeline",
+  "status": "proven",
+  "scope": {
+    "owner_ref": "owner://example",
+    "portfolio_ref": "portfolio://example",
+    "business_refs": [
+      "business://a",
+      "business://b"
+    ],
+    "life_domain_refs": []
+  },
+  "purpose": {
+    "summary": "Keep the sales pipeline current.",
+    "desired_outcome_refs": [
+      "wins://pipeline-current"
+    ],
+    "deficiency_refs": [
+      "finding://stale-leads"
+    ],
+    "leverage_hypothesis": "Reduce owner review time while shortening lead latency."
+  },
+  "provenance": {
+    "source_refs": [
+      "evidence://audit/1",
+      "evidence://audit/2"
+    ],
+    "discovery_revision": "audit-rev-7",
+    "confidence": "high",
+    "observed_frequency": "weekly"
+  },
+  "trigger": {
+    "kind": "schedule",
+    "schedule": {
+      "scheduler_class": "openclaw_automation",
+      "scheduler_owner_ref": "openclaw://gateway/operator",
+      "cadence": "0 8 * * 1",
+      "timezone": "America/Los_Angeles",
+      "schedule_ref": null
+    }
+  },
+  "steps": [
+    {
+      "step_id": "load-crm",
+      "kind": "deterministic",
+      "owner_domain": "crm",
+      "operation_ref": "crm.opportunities.list",
+      "task_pack_ref": null,
+      "input_refs": [],
+      "output_refs": [
+        "projection://pipeline"
+      ],
+      "consequence_class": "read",
+      "idempotency": "required"
+    },
+    {
+      "step_id": "review",
+      "kind": "agentic",
+      "owner_domain": "focusa",
+      "operation_ref": null,
+      "task_pack_ref": "taskpack://pipeline-review",
+      "input_refs": [
+        "projection://pipeline"
+      ],
+      "output_refs": [
+        "artifact://review"
+      ],
+      "consequence_class": "prepare",
+      "idempotency": "optional"
+    }
+  ],
+  "supervision": {
+    "operating_partner_ref": "partner://example",
+    "focusa_assignment_ref": null,
+    "workstream_ref": "focusa://workstream/sales",
+    "foreman_ref": "focusa://foreman/sales",
+    "role_profile_ref": "role://sales-ops"
+  },
+  "authority": {
+    "grant_refs": [
+      "grant://crm-read"
+    ],
+    "credential_use_refs": [],
+    "budget_ref": "budget://sales-ops",
+    "confirmation_policy_ref": "policy://prepare-only",
+    "expires_at": null
+  },
+  "placement": {
+    "preferred_class": "persistent_remote_vps",
+    "runtime_ref": "openclaw://runtime/example",
+    "fallback_classes": [
+      "veragensia_body"
+    ]
+  },
+  "reliability": {
+    "overlap_policy": "reconcile",
+    "missed_run_policy": "catch_up",
+    "timeout_seconds": 900,
+    "retry_policy_ref": "policy://retry-bounded",
+    "failure_attention_ref": "attention://sales-routine-failure",
+    "rollback_ref": null,
+    "revoke_ref": "revoke://weekly-pipeline"
+  },
+  "measurement_plan": {
+    "baseline_ref": "baseline://weekly-pipeline",
+    "metric_refs": [
+      "metric://lead-latency",
+      "metric://owner-minutes"
+    ],
+    "accepted_outcome_refs": [
+      "wins://pipeline-current"
+    ],
+    "leverage_dimensions": [
+      "outcome",
+      "capacity_buyback",
+      "cycle_time",
+      "reuse"
+    ]
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
