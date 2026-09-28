@@ -118,7 +118,8 @@ ADLBOS
 Wirebot / Wirebot App
   Operating Partner relationship, multi-business/life portfolio orientation,
   Portfolio Business Compiler, Workforce Composer, owner-wide attention,
-  W.I.N.S. progression presentation and network context
+  base feedback/leverage/Quiet Kaizen synthesis,
+  setup-aware optional W.I.N.S. progression and network context
 
 OpenClaw
   persistent Operating Partner runtime, channels and durable automations
@@ -138,7 +139,8 @@ Veragensia
   Agent Computer/body/runtime/enforcement/placement
 
 W.I.N.S.
-  accepted outcome / portfolio
+  optional setup-aware progression / recognition / community projection
+  over source-domain outcomes and base leverage snapshots
 
 MeriFolio
   portable worker identity/trust/standing
@@ -181,6 +183,28 @@ Individual bodies/models/hosts remain replaceable. The remote VPS is the default
 
 Use OpenClaw's built-in automations scheduler for recurring agent/system-event work when it fits rather than inventing a parallel ADLBOS scheduler. A scheduled wake still requires a valid Focusa-governed assignment and current grants before consequential work.
 
+## 5.2 Wirebot setup modes and W.I.N.S.
+
+Wirebot customer/setup architecture is:
+
+```text
+Wirebot Sovereign Operator
+Wirebot Sovereign
+Wirebot Direct
+Wirebot Network
+```
+
+Do not confuse these setup modes with internal numeric entitlement levels or the `sovereign_builder` administrative role.
+
+W.I.N.S. policy:
+
+- **Sovereign Operator:** W.I.N.S. is optional and requires explicit opt-in.
+- **Sovereign:** W.I.N.S. is optional and requires explicit opt-in.
+- **Direct:** W.I.N.S. follows the Direct offer; do not infer Network membership or federation from it.
+- **Network:** W.I.N.S. participation follows the Network relationship and its owning participation/sharing policy.
+
+The private feedback/optimization loop is base ADLBOS behavior for all four setup modes. W.I.N.S. is never required to calculate routine health, leverage, momentum, accepted-outcome effects or Quiet Kaizen proposals.
+
 ## 6. Portfolio, routines and workforce model
 
 Wirebot's **Portfolio Business Compiler** turns source-backed portfolio/business/life patterns into reviewable routine blueprints and leverage proposals. The **Workforce Composer** designs and commissions the organization/roles/assignments needed to operate accepted routines.
@@ -202,9 +226,10 @@ authorized portfolio/business/life evidence
 → execution
 → routine analytics
 → Evidence / settlement
-→ accepted outcome
-→ W.I.N.S. momentum/leverage
+→ source-domain accepted outcome
+→ operator.leverage_snapshot.v1
 → Quiet Kaizen keep / improve / remove
+→ optional W.I.N.S. progression projection when enabled
 ```
 
 A role/profile does not grant access merely by existing.
@@ -514,8 +539,9 @@ Closure should retain the causal chain:
 execution
 → Evidence
 → verification/settlement
-→ accepted outcome
-→ W.I.N.S. where applicable
+→ source-domain accepted outcome
+→ base leverage/feedback projection
+→ optional W.I.N.S. projection according to setup participation
 → optional MeriFolio standing
 ```
 
