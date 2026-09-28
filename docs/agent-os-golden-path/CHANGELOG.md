@@ -2,6 +2,24 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.3-candidate — 2026-09-27
+
+### Portfolio operating compiler, leverage and mandatory substrate reconciliation
+
+- **Mandatory substrate corrected:** current ADLBOS now explicitly requires OpenClaw, Focusa, UIAI Engine, a Tailscale private mesh and at least one persistent remote VPS execution/scheduling body; individual runtime instances/hosts remain replaceable.
+- **OpenClaw scheduling owner settled:** OpenClaw Automations is the default durable scheduler for life/business routines; schedules reference and revalidate Focusa assignment/authority.
+- **Multi-business portfolio made first-class:** discovery, routines, workforce and analytics no longer imply one primary business.
+- **Portfolio Operating Compiler added:** discovery → routine blueprint → system/workforce inference → owner composition → governed compilation → execution → analytics → optimization.
+- **Routine blueprint contract added:** `operator.routine_blueprint.v1` separates deterministic, agentic, UIAI and human-reserved steps and carries placement, reliability, authority and measurement refs.
+- **Leverage projection contract added:** `operator.leverage_snapshot.v1` joins source-qualified routine/business/portfolio metrics with accepted outcomes without creating a new telemetry/outcome store.
+- **W.I.N.S. progression aligned:** seasons, momentum, leverage, milestones and retrospectives remain motivating owner-facing semantics; activity points never outrank accepted outcomes.
+- **Game dynamics guardrails added:** progression may motivate meaningful life/business advancement but may not reward empty activity, punish healthy rest, manufacture urgency, manipulate through loss aversion or grant authority.
+- **Optimization loop deepened:** measure → identify constraint → delete/simplify → pilot → verify → keep/improve/retire → reuse → compound.
+
+### Executable regression coverage
+
+- Added schema/fixture tests for multi-business routine scope, active Focusa assignment requirement, active OpenClaw schedule ref, portable privacy, evidence-backed momentum and leverage scope.
+
 ## 0.2.2-candidate — 2026-09-27
 
 ### Contract-optimization hardening
