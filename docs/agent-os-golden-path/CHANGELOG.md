@@ -2,6 +2,23 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.4-candidate — 2026-09-27
+
+### Base feedback loop and four Wirebot setup correction
+
+- **W.I.N.S. removed from the mandatory causal path:** routine analytics, accepted-outcome interpretation, momentum/leverage and Quiet Kaizen now operate privately without W.I.N.S.
+- **Four customer/setup modes made explicit:** Wirebot Sovereign Operator, Wirebot Sovereign, Wirebot Direct and Wirebot Network. These are distinct from internal numeric entitlement levels and from the `sovereign_builder` admin role.
+- **Top-two W.I.N.S. policy corrected:** Sovereign Operator and Sovereign are complete with W.I.N.S. disabled; W.I.N.S. requires explicit opt-in.
+- **Base leverage contract clarified:** `operator.leverage_snapshot.v1` is W.I.N.S.-independent; the valid fixture carries source-domain outcome refs and Wirebot/Perpetua producer refs rather than W.I.N.S. refs.
+- **Optional projection test added:** the same valid leverage snapshot can accept W.I.N.S.-specific season/milestone presentation metadata without making that metadata required.
+- **Ownership corrected:** source domains/owner acceptance own outcome truth, Focusa owns Evidence/settlement, Wirebot/Perpetua owns private cross-domain optimization synthesis, and W.I.N.S. owns optional setup-aware progression/recognition/community presentation.
+
+### Preservation
+
+- W.I.N.S. remains deeply valuable where enabled.
+- Direct and Network W.I.N.S. behavior remains governed by their owning offer/participation contracts.
+- No new analytics database or optimization runtime is introduced.
+
 ## 0.2.3-candidate — 2026-09-27
 
 ### Portfolio Business Compiler, routine analytics and leverage progression
