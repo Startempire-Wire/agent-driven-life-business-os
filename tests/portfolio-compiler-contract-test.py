@@ -28,6 +28,19 @@ def main():
     rv.validate(routine)
     lv.validate(leverage)
 
+    # The base optimization loop must validate with no W.I.N.S. dependency.
+    serialized_base = json.dumps(leverage)
+    if "wins://" in serialized_base.lower() or "game_projection" in leverage:
+        raise AssertionError("base leverage fixture unexpectedly depends on W.I.N.S.")
+
+    wins_projection = copy.deepcopy(leverage)
+    wins_projection["game_projection"] = {
+        "season_ref": "wins://season/q3",
+        "milestone_refs": ["wins://milestone/proven-routine"],
+        "routine_maturity": "proven",
+    }
+    lv.validate(wins_projection)
+
     no_scope = copy.deepcopy(routine)
     no_scope["scope"]["business_refs"] = []
     no_scope["scope"]["life_domain_refs"] = []
@@ -77,7 +90,8 @@ def main():
         "OpenClaw's built-in Gateway automations scheduler is the default",
         "Momentum is sustained verified progress",
         "Leverage means one change increases future capacity.",
-        "W.I.N.S. is the owner-facing outcome/momentum/leverage projection.",
+        "W.I.N.S. is an optional setup-aware progression/recognition/community projection.",
+        "W.I.N.S.=off",
     ]:
         if phrase not in doc:
             raise AssertionError(f"portfolio compiler doctrine missing: {phrase}")
