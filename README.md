@@ -24,6 +24,9 @@ human / legal owner
         ↓
 OPERATING PARTNER / CHIEF OF STAFF
 Wirebot implementation family
+        ↓
+OPENCLAW
+persistent partner runtime · channels · automations
 customer presentation may be “Spock”, “Athena”, etc.
         ↓
 FOCUSA
@@ -110,6 +113,27 @@ What satisfies acceptance?
 
 The Chief of Staff is not a global Foreman. A Foreman does not receive the owner's entire private partner context.
 
+## Portfolio Business Compiler
+
+ADLBOS assumes an owner may operate several businesses, projects and life domains.
+
+```text
+consented source coverage
+→ portfolio/business map
+→ routine inference
+→ routine blueprint
+→ workforce/software/schedule proposal
+→ owner composition
+→ Focusa-governed assignment
+→ OpenClaw/VPS/UIAI execution
+→ routine analytics + Evidence
+→ accepted outcome
+→ W.I.N.S. momentum/leverage
+→ Quiet Kaizen improvement
+```
+
+The compiler is not another database or runtime. W.I.N.S. is the accepted-outcome and progression lens. Its game-like dynamics should help the owner feel real momentum from meaningful outcomes and compounding leverage, never reward empty activity or compulsive interaction.
+
 ## Workforce Composer versus Focusa Workforce
 
 **Workforce Composer** belongs at the Wirebot/organization-design altitude:
@@ -161,6 +185,8 @@ hosting / operation
 federation / sharing
 interface / access
 ```
+
+A normal Operator deployment includes OpenClaw, Focusa, UIAI Engine, a Tailscale-connected private fleet and at least one persistent remote VPS. Individual machines and models remain replaceable.
 
 A typical private Operator deployment may include:
 
