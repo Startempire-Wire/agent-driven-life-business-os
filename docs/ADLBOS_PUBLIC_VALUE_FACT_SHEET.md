@@ -1,6 +1,6 @@
 # ADLBOS Public Value Fact Sheet
 
-**Status:** public-copy source / fact-check reference  
+**Status:** CURRENT derived public-copy source / fact-check reference  
 **As of:** 2026-09-29  
 **Canonical calculation source:** `../data/adlbos-human-equivalent-cost-model.v1.json`  
 **Canonical explanation:** `ADLBOS_HUMAN_EQUIVALENT_COST_MODEL.md`
