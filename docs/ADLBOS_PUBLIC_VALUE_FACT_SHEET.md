@@ -1,8 +1,9 @@
 # ADLBOS Public Value Fact Sheet
 
 **Status:** public-copy source / fact-check reference  
-**As of:** 2026-09-28  
-**Canonical calculation source:** `ADLBOS_HUMAN_EQUIVALENT_COST_MODEL.md`
+**As of:** 2026-09-29  
+**Canonical calculation source:** `../data/adlbos-human-equivalent-cost-model.v1.json`  
+**Canonical explanation:** `ADLBOS_HUMAN_EQUIVALENT_COST_MODEL.md`
 
 ## Core point
 
@@ -29,7 +30,7 @@ Current benchmark result:
 | Comparison | Approximate annual value |
 |---|---:|
 | Loaded U.S. employee-equivalent labor | **$133,000/year** |
-| Published freelance/VA equivalent | **$71,000–$124,000/year** |
+| Published freelance/contractor equivalent | **$56,082–$104,910/year** |
 
 These are **human-equivalent labor benchmarks**, not ADLBOS pricing or guaranteed savings.
 
@@ -90,11 +91,11 @@ better outcome
 
 ### Short
 
-> A representative portfolio of recurring business-support routines can add up to around 50 hours of human work per week. Using current U.S. compensation and freelance-market benchmarks, the modeled workload represents roughly $71,000 to $133,000+ per year of human-equivalent labor, depending on how the work is staffed.
+> A representative portfolio of recurring business-support routines can add up to around 50 hours of human work per week. Using current U.S. compensation and freelance-market benchmarks, the modeled workload represents roughly $56,082 to $133,212+ per year of human-equivalent labor, depending on how the work is staffed.
 
 ### More precise
 
-> In our reference model, 50 hours per week of mixed administrative, customer, finance, research, project and process-improvement work represents about $133,000 per year of loaded U.S. employee-equivalent labor. Published freelance/VA rates put the same modeled workload at roughly $71,000–$124,000 per year. These are workload-equivalent benchmarks—not claims that software replaces employees or guarantees savings.
+> In our reference model, 50 hours per week of mixed administrative, customer, finance, research, project and process-improvement work represents about $133,000 per year of loaded U.S. employee-equivalent labor. Current published freelance/contractor category bands and named proxies put the same modeled workload at roughly $56,082–$104,910 per year. These are workload-equivalent benchmarks—not claims that software replaces employees or guarantees savings.
 
 ### Executive-assistant example
 
@@ -123,4 +124,4 @@ Use this with every public comparison:
 4. Fiverr only as a secondary marketplace cross-check.
 5. Real ADLBOS deployment measurements when available, kept separate from modeled benchmarks.
 
-See `ADLBOS_HUMAN_EQUIVALENT_COST_MODEL.md` for the full calculations and source URLs.
+See `ADLBOS_HUMAN_EQUIVALENT_COST_MODEL.md` for methodology and source URLs. Recompute published totals from `../data/adlbos-human-equivalent-cost-model.v1.json`; do not hand-edit derived totals independently.
