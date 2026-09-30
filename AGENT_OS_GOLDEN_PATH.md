@@ -9,7 +9,7 @@
 - **Agent-contract optimization profile:** [`AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`](./AGENT_CONTRACT_OPTIMIZATION_PROFILE.md)
 - **Reference Agent Computer profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
 - **Reference Ambient Operator profile:** [`AMBIENT_OPERATOR_REFERENCE_PROFILE.md`](./AMBIENT_OPERATOR_REFERENCE_PROFILE.md)
-- **Reference Portable Memory profile (living):** [`PORTABLE_MEMORY_REFERENCE_PROFILE.md`](./PORTABLE_MEMORY_REFERENCE_PROFILE.md)
+- **Reference Portable Memory profile (incubating):** [`PORTABLE_MEMORY_REFERENCE_PROFILE.md`](./PORTABLE_MEMORY_REFERENCE_PROFILE.md)
 - **Field-tested working spine:** [`docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 - **Composable workforce catalogue:** [`docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md`](./docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md)
 - **Current Wirebot application integration architecture:** [`docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md`](./docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md)

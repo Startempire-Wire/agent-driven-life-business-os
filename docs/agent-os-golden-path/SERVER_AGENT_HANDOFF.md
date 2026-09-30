@@ -46,7 +46,11 @@ UIAI / Veragensia / Pi / workers / Agent Computers
         ↓
 Evidence / settlement
         ↓
-W.I.N.S. accepted outcomes
+source-domain accepted outcome
+        ↓
+Wirebot/Perpetua private leverage + Quiet Kaizen
+        ↓ optional by setup
+W.I.N.S. progression / recognition / community projection
 ```
 
 Startempire Wire federation is optional and outside the private critical path unless explicitly engaged.
@@ -79,7 +83,7 @@ with accepted outcome
 
 ### Wirebot / Wirebot App
 
-Owns the Operating Partner experience, life/business orientation, Workforce Composer, broad owner conversation, owner-wide Needs You, organization design, network context and owner-facing outcomes.
+Owns the Operating Partner experience, life/business orientation, Workforce Composer, broad owner conversation, owner-wide Needs You, organization design, network context and owner-facing synthesis/projection. Source business/life domains plus owner acceptance retain outcome truth.
 
 ### Focusa
 

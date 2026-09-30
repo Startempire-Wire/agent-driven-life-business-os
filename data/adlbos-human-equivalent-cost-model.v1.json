@@ -1,6 +1,6 @@
 {
   "schema_version": "adlbos.human_equivalent_cost_model.v1",
-  "as_of": "2026-09-28",
+  "as_of": "2026-09-29",
   "currency": "USD",
   "status": "modeled_reference_not_price_or_savings_claim",
   "methodology": {
@@ -8,7 +8,8 @@
     "hours_per_fte_year": 2080,
     "bls_full_time_private_wage_share_of_total_compensation": 0.685,
     "loaded_cost_formula": "occupation_wage / 0.685",
-    "caveat": "Benefit load varies by occupation, employer, geography and industry."
+    "caveat": "Benefit load varies by occupation, employer, geography and industry.",
+    "contractor_rate_policy": "Use current published Upwork category bands or an explicitly named conservative proxy; never invent a role-specific band."
   },
   "role_benchmarks": [
     {
@@ -18,7 +19,8 @@
       "loaded_employer_annual": 111810,
       "loaded_employer_hourly": 53.75,
       "contractor_hourly_low": 38,
-      "contractor_hourly_high": 50
+      "contractor_hourly_high": 50,
+      "contractor_proxy_note": "Advanced VA / executive-assistant support proxy from Upwork U.S. VA guidance"
     },
     {
       "role": "administrative_assistant",
@@ -26,8 +28,9 @@
       "median_wage_annual": 48310,
       "loaded_employer_annual": 70526,
       "loaded_employer_hourly": 33.91,
-      "contractor_hourly_low": 12,
-      "contractor_hourly_high": 20
+      "contractor_hourly_low": 10,
+      "contractor_hourly_high": 20,
+      "contractor_proxy_note": "Upwork virtual assistant category band"
     },
     {
       "role": "customer_service",
@@ -35,8 +38,9 @@
       "median_wage_hourly": 21.53,
       "loaded_employer_annual": 65376,
       "loaded_employer_hourly": 31.43,
-      "contractor_hourly_low": 20,
-      "contractor_hourly_high": 35
+      "contractor_hourly_low": 10,
+      "contractor_hourly_high": 19,
+      "contractor_proxy_note": "Upwork customer service representative category band"
     },
     {
       "role": "bookkeeping",
@@ -45,7 +49,8 @@
       "loaded_employer_annual": 73971,
       "loaded_employer_hourly": 35.56,
       "contractor_hourly_low": 11,
-      "contractor_hourly_high": 25
+      "contractor_hourly_high": 25,
+      "contractor_proxy_note": "Upwork bookkeeper category band"
     },
     {
       "role": "market_research",
@@ -54,7 +59,8 @@
       "loaded_employer_annual": 114978,
       "loaded_employer_hourly": 55.28,
       "contractor_hourly_low": 25,
-      "contractor_hourly_high": 60
+      "contractor_hourly_high": 70,
+      "contractor_proxy_note": "Upwork market research analyst category band"
     },
     {
       "role": "project_management",
@@ -62,8 +68,9 @@
       "median_wage_annual": 102320,
       "loaded_employer_annual": 149372,
       "loaded_employer_hourly": 71.81,
-      "contractor_hourly_low": 30,
-      "contractor_hourly_high": 60
+      "contractor_hourly_low": 19,
+      "contractor_hourly_high": 45,
+      "contractor_proxy_note": "Upwork project manager category band"
     },
     {
       "role": "hr_specialist",
@@ -72,7 +79,8 @@
       "loaded_employer_annual": 110861,
       "loaded_employer_hourly": 53.3,
       "contractor_hourly_low": 38,
-      "contractor_hourly_high": 50
+      "contractor_hourly_high": 50,
+      "contractor_proxy_note": "Advanced VA / executive-assistant support proxy for coordination work; not an HR-specialist market quote"
     },
     {
       "role": "sales_support",
@@ -80,8 +88,9 @@
       "median_wage_annual": 68190,
       "loaded_employer_annual": 99547,
       "loaded_employer_hourly": 47.86,
-      "contractor_hourly_low": 20,
-      "contractor_hourly_high": 35
+      "contractor_hourly_low": 13,
+      "contractor_hourly_high": 40,
+      "contractor_proxy_note": "Upwork sales representative category band"
     },
     {
       "role": "management_process_analysis",
@@ -89,8 +98,9 @@
       "median_wage_annual": 101860,
       "loaded_employer_annual": 148701,
       "loaded_employer_hourly": 71.49,
-      "contractor_hourly_low": 40,
-      "contractor_hourly_high": 90
+      "contractor_hourly_low": 19,
+      "contractor_hourly_high": 45,
+      "contractor_proxy_note": "Project-manager category proxy for process/coordination work; not a management-analyst market quote"
     }
   ],
   "representative_routines": [
@@ -123,7 +133,7 @@
       "role": "administrative_assistant",
       "hours_per_week": 2,
       "employee_equivalent_annual": 3526,
-      "contractor_annual_low": 1248,
+      "contractor_annual_low": 1040,
       "contractor_annual_high": 2080
     },
     {
@@ -131,24 +141,24 @@
       "role": "sales_support",
       "hours_per_week": 4,
       "employee_equivalent_annual": 9955,
-      "contractor_annual_low": 4160,
-      "contractor_annual_high": 7280
+      "contractor_annual_low": 2704,
+      "contractor_annual_high": 8320
     },
     {
       "routine": "Weekly pipeline review + management report",
       "role": "sales_support",
       "hours_per_week": 2,
       "employee_equivalent_annual": 4977,
-      "contractor_annual_low": 2080,
-      "contractor_annual_high": 3640
+      "contractor_annual_low": 1352,
+      "contractor_annual_high": 4160
     },
     {
       "routine": "Customer inquiry triage + response preparation",
       "role": "customer_service",
       "hours_per_week": 5,
       "employee_equivalent_annual": 8172,
-      "contractor_annual_low": 5200,
-      "contractor_annual_high": 9100
+      "contractor_annual_low": 2600,
+      "contractor_annual_high": 4940
     },
     {
       "routine": "Invoice/AP/AR follow-up + bookkeeping preparation",
@@ -172,23 +182,23 @@
       "hours_per_week": 3,
       "employee_equivalent_annual": 8623,
       "contractor_annual_low": 3900,
-      "contractor_annual_high": 9360
+      "contractor_annual_high": 10920
     },
     {
       "routine": "KPI compilation + management brief",
       "role": "management_process_analysis",
       "hours_per_week": 2,
       "employee_equivalent_annual": 7435,
-      "contractor_annual_low": 4160,
-      "contractor_annual_high": 9360
+      "contractor_annual_low": 1976,
+      "contractor_annual_high": 4680
     },
     {
       "routine": "Project/workstream status + blocker coordination",
       "role": "project_management",
       "hours_per_week": 4,
       "employee_equivalent_annual": 14937,
-      "contractor_annual_low": 6240,
-      "contractor_annual_high": 12480
+      "contractor_annual_low": 3952,
+      "contractor_annual_high": 9360
     },
     {
       "routine": "Vendor/renewal/deadline watch",
@@ -211,23 +221,23 @@
       "role": "management_process_analysis",
       "hours_per_week": 2,
       "employee_equivalent_annual": 7435,
-      "contractor_annual_low": 4160,
-      "contractor_annual_high": 9360
+      "contractor_annual_low": 1976,
+      "contractor_annual_high": 4680
     },
     {
       "routine": "Cross-business portfolio brief + priority synthesis",
       "role": "project_management",
       "hours_per_week": 2,
       "employee_equivalent_annual": 7469,
-      "contractor_annual_low": 3120,
-      "contractor_annual_high": 6240
+      "contractor_annual_low": 1976,
+      "contractor_annual_high": 4680
     },
     {
       "routine": "System/exception monitoring + escalation",
       "role": "administrative_assistant",
       "hours_per_week": 2,
       "employee_equivalent_annual": 3526,
-      "contractor_annual_low": 1248,
+      "contractor_annual_low": 1040,
       "contractor_annual_high": 2080
     },
     {
@@ -235,8 +245,8 @@
       "role": "management_process_analysis",
       "hours_per_week": 1.5,
       "employee_equivalent_annual": 5576,
-      "contractor_annual_low": 3120,
-      "contractor_annual_high": 7020
+      "contractor_annual_low": 1482,
+      "contractor_annual_high": 3510
     }
   ],
   "representative_total": {
@@ -244,8 +254,8 @@
     "hours_per_year": 2600,
     "fte_equivalent_at_40_hours": 1.25,
     "employee_equivalent_annual": 133212,
-    "contractor_annual_low": 70720,
-    "contractor_annual_high": 123500
+    "contractor_annual_low": 56082,
+    "contractor_annual_high": 104910
   },
   "public_safe_claims": {
     "daily_inbox_employee_equivalent_annual": 13976,
@@ -262,11 +272,12 @@
     "https://www.bls.gov/ooh/business-and-financial/project-management-specialists.htm",
     "https://www.bls.gov/ooh/business-and-financial/human-resources-specialists.htm",
     "https://www.bls.gov/ooh/business-and-financial/",
-    "https://www.bls.gov/ooh/sales/advertising-sales-agents.htm",
     "https://www.upwork.com/hire/virtual-assistants/cost/",
+    "https://www.upwork.com/hire/virtual-assistants/us/",
+    "https://www.upwork.com/hire/customer-service-representatives/cost/",
     "https://www.upwork.com/hire/bookkeepers/cost/",
+    "https://www.upwork.com/hire/market-researchers/cost/",
     "https://www.upwork.com/hire/project-managers/cost/",
-    "https://www.upwork.com/resources/upwork-hourly-rates/",
-    "https://www.fiverr.com/resources/guides/costs/virtual-assistant/"
+    "https://www.upwork.com/hire/sales-representatives/cost/"
   ]
 }

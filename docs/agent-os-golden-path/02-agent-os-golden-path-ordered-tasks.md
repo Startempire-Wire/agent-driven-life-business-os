@@ -1,10 +1,10 @@
 # Golden Path — Current Interwoven Deployment Doctrine
 
-**Status:** CURRENT iterable Golden Path spine targeting `0.2.1-candidate`<br>
-**Reconciled:** 2026-09-27<br>
+**Status:** CURRENT iterable Golden Path spine targeting `0.2.4-candidate`<br>
+**Reconciled:** 2026-09-29<br>
 **Architecture authority:** `../../OWNER_AUTHORITY_CONSTITUTION.md`  
 **Current ecosystem ownership:** `../../CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
-**Historical lineage:** `0.1.0.md`, `0.1.1.md`, Git history before this reconciliation
+**Version lineage:** `0.1.0.md`, `0.1.1.md`, `0.2.1.md` through `0.2.4.md`, plus `CHANGELOG.md`. Version snapshots are lineage evidence; this file is the current working spine.
 
 This is the current field-derived process an authorized agent follows to build, reconcile, operate and hand off a Human Life & Business Agent OS deployment.
 
