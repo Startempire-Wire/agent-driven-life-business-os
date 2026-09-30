@@ -408,8 +408,9 @@ Keep the closure ladder explicit:
 execution
   → Focusa Evidence
   → verification / settlement
-  → accepted life/business outcome
-  → W.I.N.S.
+  → source-domain accepted life/business outcome
+  → base private leverage / feedback
+  → optional W.I.N.S. progression / recognition / community projection
   → optional MeriFolio presentation/standing
 ```
 
@@ -498,7 +499,7 @@ The remaining work is mostly seams, not new products:
 6. exact surface handoff contract;
 7. cross-product correlation envelope;
 8. entitlement/capability posture projection;
-9. Evidence → settlement → W.I.N.S. closure references;
+9. Evidence → settlement → source-domain outcome → base leverage closure references, with optional W.I.N.S. projection;
 10. sovereign federation live end-to-end proof;
 11. Draftees ↔ private workforce identity mapping;
 12. W.I.N.S. reusable modules and tenancy proof;
@@ -570,7 +571,7 @@ Focusa governs the work.
 Focusa Workforce runs the workforce.
 UIAI runs computer execution.
 Veragensia supplies/enforces bodies and runtime.
-W.I.N.S. records accepted outcomes.
+Source business/life domains plus owner acceptance retain outcome truth; W.I.N.S. optionally projects progression/recognition/community over source-qualified outcomes and leverage.
 Startempire Wire connects sovereign participants when they choose.
 ```
 
