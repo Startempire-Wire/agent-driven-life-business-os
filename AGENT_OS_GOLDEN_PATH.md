@@ -1,5 +1,7 @@
 # Agent OS Golden Path
 
+**Status:** CURRENT deployment and operations doctrine  
+
 > A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage remains partial; the field-tested deployment spine remains valuable, while current product ownership is reconciled against the live ecosystem architecture.
 
 - **Golden Path target:** `0.2.4-candidate`
