@@ -1,6 +1,6 @@
 # Full-Surface Business Discovery Audit and Workforce Inference
 
-> **Status:** proposed Stage 5 operating procedure; not a new data store, architecture authority, credential grant, workforce deployment or automatic customer contact.
+> **Status:** CURRENT Stage 5 operating procedure; adoption/evidence remains deployment-specific, and it is not a new data store, architecture authority, credential grant, workforce deployment or automatic customer contact.
 > **Applies to:** owner-authorized fresh and brownfield Agent-Driven Life & Business OS deployments.
 > **Canonical sequence:** Golden Path Stage 5 discovery → Wirebot Workforce Composer proposal → owner/governance acceptance → Focusa Workstream/Foreman/CRIST assignment → bounded execution → evidence and accepted outcome.
 
