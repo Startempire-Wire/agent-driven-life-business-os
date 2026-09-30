@@ -104,10 +104,20 @@ def main():
         "CURRENT_ECOSYSTEM_ARCHITECTURE.md",
         "AGENT_OS_GOLDEN_PATH.md",
         "docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md",
+        "docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md",
+        "docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md",
         "docs/agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md",
         "docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md",
+        "PORTABLE_MEMORY_REFERENCE_PROFILE.md",
     )
-    forbidden = ("W.I.N.S. accepted outcomes", "W.I.N.S. owns accepted-outcome")
+    forbidden = (
+        "W.I.N.S. accepted outcomes",
+        "W.I.N.S. owns accepted-outcome",
+        "W.I.N.S. records accepted outcomes",
+        "accepted-outcome / correction / economics defect -> W.I.N.S.",
+        "Evidence → settlement → W.I.N.S.",
+        "Performance/W.I.N.S.: accepted outcomes",
+    )
     for rel in current_files:
         text = read(rel)
         for phrase in forbidden:
@@ -115,6 +125,12 @@ def main():
                 raise AssertionError(f"{rel} restores forbidden current ownership phrase: {phrase}")
     assert_contains("CURRENT_ECOSYSTEM_ARCHITECTURE.md", "W.I.N.S.-off is a complete valid operating state")
     assert_contains("docs/economics/01-human-equivalent-cost-and-leverage-benchmark.md", "SUPERSEDED compatibility path")
+    assert_contains("docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md", "source-domain accepted life/business outcome")
+    assert_contains("docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md", "optional W.I.N.S. progression / recognition / community projection")
+    assert_contains("PORTABLE_MEMORY_REFERENCE_PROFILE.md", "owning source business/life domain + owner acceptance")
+    model = json.loads(read("data/adlbos-human-equivalent-cost-model.v1.json"))
+    if "https://www.bls.gov/ooh/sales/insurance-sales-agents.htm" not in model["sources"]:
+        raise AssertionError("sales-services benchmark is missing direct BLS source provenance")
     assert_contains("docs/REPOSITORY_INTEGRITY.md", "Compatibility-protected paths")
     check_relative_markdown_links()
     check_economics()

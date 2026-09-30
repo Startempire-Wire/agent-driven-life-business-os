@@ -592,7 +592,7 @@ Profiles are reusable templates. Assignments are client-specific employment pack
 - **Dispatch/Work Rail:** ready/running/completed/blocked instances with receipts and escalation.
 - **Schedule:** preview/commit/pause/revoke cadence, budget, overlap and missed-run policy.
 - **Skills and Tools:** live-discovered Focusa/UIAI capabilities—not static marketing claims.
-- **Performance/W.I.N.S.:** accepted outcomes, reliability, evidence, disputes and corrections—not vanity activity counts.
+- **Performance / optional W.I.N.S. projection:** source-domain accepted-outcome refs, reliability, Evidence, disputes/corrections and optional progression presentation—not a second outcome store and not vanity activity counts.
 - **Authority Preview:** exact capabilities, data scopes, confirmations and external commitments before assignment.
 
 ### 14.4 API/CLI-first operation requirements

@@ -335,7 +335,7 @@ Wirebot context / Operating Partner defect       -> Wirebot
 transcript memory truth and retention             -> the deployment's named
                                                     product owner (§17.1)
 execution, browser, computer defect               -> UIAI Engine
-accepted-outcome / correction / economics defect -> W.I.N.S.
+accepted-outcome / correction / economics defect -> owning source business/life domain + owner acceptance
 product-specific memory behavior                 -> owning product repository
 ```
 

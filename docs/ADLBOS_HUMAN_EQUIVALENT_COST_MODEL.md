@@ -308,8 +308,8 @@ Authoritative/statistical:
 8. U.S. Bureau of Labor Statistics — Business and Financial Occupations / Management Analysts, May 2025 wages  
    https://www.bls.gov/ooh/business-and-financial/
 
-9. U.S. Bureau of Labor Statistics — Sales Representatives, Services benchmark, May 2025  
-   https://www.bls.gov/ooh/sales/advertising-sales-agents.htm
+9. U.S. Bureau of Labor Statistics — Sales Representatives, Services group median, May 2025 (shown in Insurance Sales Agents OOH)  
+   https://www.bls.gov/ooh/sales/insurance-sales-agents.htm
 
 Freelance-market references:
 

@@ -717,7 +717,7 @@ Shared visual language is encouraged. Shared canonical state is not.
 6. implement exact surface handoff;
 7. implement universal cross-product correlation refs;
 8. implement capability/entitlement/activation posture;
-9. implement Evidence → settlement → W.I.N.S. closure refs;
+9. implement Evidence → settlement → source-domain outcome → base leverage closure refs, with optional W.I.N.S. projection;
 10. implement opaque credential-use references without moving secrets;
 11. require shared-envelope compatibility/freshness/replay metadata;
 12. distinguish fleet from sovereign federation everywhere;
