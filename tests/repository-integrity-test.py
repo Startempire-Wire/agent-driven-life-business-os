@@ -159,6 +159,7 @@ def main():
     if "https://www.bls.gov/ooh/sales/insurance-sales-agents.htm" not in model["sources"]:
         raise AssertionError("sales-services benchmark is missing direct BLS source provenance")
     assert_contains("docs/REPOSITORY_INTEGRITY.md", "Compatibility-protected paths")
+    assert_contains("docs/REPOSITORY_INTEGRITY.md", "**DATED SNAPSHOT**")
     assert_contains("docs/agent-os-golden-path/06-wirebot-product-ui-options-inventory-and-consolidation-audit.md", "DATED AUDIT SNAPSHOT")
     assert_contains("docs/agent-os-golden-path/06-wirebot-product-ui-options-inventory-and-consolidation-audit.md", "Startempire-Wire/Wirebot-App")
     assert_contains("docs/agent-os-golden-path/08-wirebot-ecosystem-agent-operation-parity-audit.md", "DATED SOURCE-AUDIT SNAPSHOT")
