@@ -26,6 +26,7 @@ Supporting LIVE contracts control their declared concern. A version snapshot, ch
 | **LIVE** | normative portable contract currently in force for its declared concern |
 | **CURRENT** | present architecture, doctrine, working spine, audit, or derived reference |
 | **INCUBATING** | operationally useful reference under active refinement; not settled normative authority |
+| **DATED SNAPSHOT** | preserved audit/observation evidence from a named date; never current runtime or implementation truth without re-verification |
 | **candidate** | proposed/versioned change awaiting the gates stated by its owning process |
 | **SUPERSEDED** | retained for compatibility or history; must point to current replacement |
 | **historical / lineage** | evidence of prior decisions; not present-tense authority |
