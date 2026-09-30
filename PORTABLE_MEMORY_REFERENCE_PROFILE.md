@@ -1,6 +1,6 @@
 # Portable Memory Reference Profile
 
-**Status:** LIVE portable memory integration contract<br>
+**Status:** INCUBATING portable memory reference profile — operationally usable guidance, not a settled normative contract<br>
 **Schema family:** `agent.memory_contract.v1`<br>
 **Applies with:** `AGENTS.md`, `OWNER_AUTHORITY_CONSTITUTION.md`, `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`, `CURRENT_ECOSYSTEM_ARCHITECTURE.md`, `AMBIENT_OPERATOR_REFERENCE_PROFILE.md`<br>
 **Evolution class:** `portable_operational` (portions touching privacy, tenancy, deletion and authority are `safety_authority`)<br>
@@ -11,7 +11,7 @@
 **Reference implementation:** Wirebot/OpenClaw memory stack (memory-core, memory-wiki, active-memory, wirebot-memory-bridge, Mem0, Letta), Focusa, Agent Wiki, Context Core<br>
 **Research basis:** arXiv 2603.07670, 2607.21503, 2609.24971, 2608.11775, 2609.08279, 2608.28978, 2609.05339, 2607.27080
 
-This document is a **living contract**. It is expected to change as deployments produce evidence. It is not a finished specification, and "we wrote it down" is never a reason to stop revising it. See §16.
+This document is an **incubating reference profile**. It is expected to change as deployments produce evidence. It is operationally usable guidance where no stronger owning contract controls, but it is not a settled normative contract and MUST NOT override LIVE constitutional, architecture, product, privacy, tenancy or authority rules. "We wrote it down" is never a reason to stop revising it. See §16.
 
 ## 1. Purpose
 
