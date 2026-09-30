@@ -84,7 +84,7 @@
     },
     {
       "role": "sales_support",
-      "source_label": "Sales representatives, services proxy",
+      "source_label": "Sales representatives, services group median (shown in BLS Insurance Sales Agents OOH)",
       "median_wage_annual": 68190,
       "loaded_employer_annual": 99547,
       "loaded_employer_hourly": 47.86,
@@ -272,6 +272,7 @@
     "https://www.bls.gov/ooh/business-and-financial/project-management-specialists.htm",
     "https://www.bls.gov/ooh/business-and-financial/human-resources-specialists.htm",
     "https://www.bls.gov/ooh/business-and-financial/",
+    "https://www.bls.gov/ooh/sales/insurance-sales-agents.htm",
     "https://www.upwork.com/hire/virtual-assistants/cost/",
     "https://www.upwork.com/hire/virtual-assistants/us/",
     "https://www.upwork.com/hire/customer-service-representatives/cost/",
