@@ -38,6 +38,30 @@ def check_relative_markdown_links():
         detail = "\n".join(f"  {src}: {target} ({why})" for src, target, why in failures)
         raise AssertionError("broken relative Markdown links:\n" + detail)
 
+def check_relative_html_links():
+    pattern = re.compile(r'href=["\\\']([^"\\\']+)["\\\']')
+    failures = []
+    for path in ROOT.rglob("*.html"):
+        text = path.read_text(encoding="utf-8")
+        for target in pattern.findall(text):
+            target = target.strip()
+            if not target or target.startswith(("#", "http://", "https://", "mailto:", "data:", "javascript:")):
+                continue
+            target = target.split("#", 1)[0].split("?", 1)[0]
+            if not target:
+                continue
+            resolved = (path.parent / target).resolve()
+            try:
+                resolved.relative_to(ROOT.resolve())
+            except ValueError:
+                failures.append((path.relative_to(ROOT), target, "escapes repository"))
+                continue
+            if not resolved.exists():
+                failures.append((path.relative_to(ROOT), target, "missing"))
+    if failures:
+        detail = "\n".join(f"  {src}: {target} ({why})" for src, target, why in failures)
+        raise AssertionError("broken relative HTML links:\n" + detail)
+
 def check_economics():
     model = json.loads(read("data/adlbos-human-equivalent-cost-model.v1.json"))
     if model["as_of"] != "2026-09-29":
@@ -142,6 +166,7 @@ def main():
     assert_contains("AGENT_COMPUTER_REFERENCE_PROFILE.md", "CURRENT portable reference profile")
     assert_contains("AMBIENT_OPERATOR_REFERENCE_PROFILE.md", "CURRENT portable reference profile")
     check_relative_markdown_links()
+    check_relative_html_links()
     check_economics()
     print("repository integrity: PASS")
 
