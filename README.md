@@ -13,6 +13,8 @@ AGENT_OS_GOLDEN_PATH.md
 AGENTS.md
 ```
 
+For repository status meanings, current-vs-historical reading order, compatibility-protected paths, and anti-drift rules, see [`docs/REPOSITORY_INTEGRITY.md`](./docs/REPOSITORY_INTEGRITY.md).
+
 Agent-facing contract evolution is governed by `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`. It is an evidence-gated improvement process, not an architecture authority, runtime learning store or automatic memory system.
 
 ## System at a glance
