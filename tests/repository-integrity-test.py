@@ -108,7 +108,10 @@ def check_economics():
             raise AssertionError(f"public fact sheet missing derived value {value}")
 
 def main():
+    assert_contains("AGENT_OS_GOLDEN_PATH.md", "**Status:** CURRENT deployment and operations doctrine")
     assert_contains("AGENT_OS_GOLDEN_PATH.md", "Golden Path target:** `0.2.4-candidate`")
+    assert_contains("docs/agent-os-golden-path/05-agent-os-golden-path-fleet-receiver-contract.md", "**Status:** CURRENT portable receiver contract")
+    assert_contains("docs/ADLBOS_PUBLIC_VALUE_FACT_SHEET.md", "**Status:** CURRENT derived public-copy source / fact-check reference")
     assert_contains("docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md", "targeting `0.2.4-candidate`")
     assert_contains("docs/agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md", "0.2.4-candidate")
     memory = read("PORTABLE_MEMORY_REFERENCE_PROFILE.md")
