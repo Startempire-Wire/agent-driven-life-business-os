@@ -1,6 +1,7 @@
 # Composable AI Workforce Catalogue and Client Assignment Matrix
 
-- **Status:** proposed reusable workforce-design baseline grounded in current Focusa/UIAI capabilities and operator-provided duty examples; profiles do not grant authority or prove deployment
+- **Status:** CURRENT reusable workforce-design baseline; capability evidence remains snapshot-bound and profiles do not grant authority or prove deployment
+- **Capability evidence snapshot:** 2026-09-13; runtime/version observations in this document MUST be re-verified in Focusa/UIAI before assignment or capability claims
 - **Applies to:** new and existing Agent-Driven Life and Business OS clients
 - **Execution substrate:** Focusa-governed work plus UIAI Engine browser/computer/evidence capabilities
 - **Supervisor model:** one client-scoped Chief of Staff delegates to bounded workers through Workpoints, tasks, CallGraphs or approved recurring schedules

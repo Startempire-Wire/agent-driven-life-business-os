@@ -1,5 +1,7 @@
 # Fleet audit receiver contract
 
+**Status:** CURRENT portable receiver contract; endpoint adoption and live deployment remain environment-specific.  
+
 ## Purpose
 
 The fleet audit receiver stores value-free readiness observations for comparison

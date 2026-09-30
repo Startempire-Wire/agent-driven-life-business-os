@@ -38,6 +38,30 @@ def check_relative_markdown_links():
         detail = "\n".join(f"  {src}: {target} ({why})" for src, target, why in failures)
         raise AssertionError("broken relative Markdown links:\n" + detail)
 
+def check_relative_html_links():
+    pattern = re.compile(r'href=["\\\']([^"\\\']+)["\\\']')
+    failures = []
+    for path in ROOT.rglob("*.html"):
+        text = path.read_text(encoding="utf-8")
+        for target in pattern.findall(text):
+            target = target.strip()
+            if not target or target.startswith(("#", "http://", "https://", "mailto:", "data:", "javascript:")):
+                continue
+            target = target.split("#", 1)[0].split("?", 1)[0]
+            if not target:
+                continue
+            resolved = (path.parent / target).resolve()
+            try:
+                resolved.relative_to(ROOT.resolve())
+            except ValueError:
+                failures.append((path.relative_to(ROOT), target, "escapes repository"))
+                continue
+            if not resolved.exists():
+                failures.append((path.relative_to(ROOT), target, "missing"))
+    if failures:
+        detail = "\n".join(f"  {src}: {target} ({why})" for src, target, why in failures)
+        raise AssertionError("broken relative HTML links:\n" + detail)
+
 def check_economics():
     model = json.loads(read("data/adlbos-human-equivalent-cost-model.v1.json"))
     if model["as_of"] != "2026-09-29":
@@ -84,7 +108,10 @@ def check_economics():
             raise AssertionError(f"public fact sheet missing derived value {value}")
 
 def main():
+    assert_contains("AGENT_OS_GOLDEN_PATH.md", "**Status:** CURRENT deployment and operations doctrine")
     assert_contains("AGENT_OS_GOLDEN_PATH.md", "Golden Path target:** `0.2.4-candidate`")
+    assert_contains("docs/agent-os-golden-path/05-agent-os-golden-path-fleet-receiver-contract.md", "**Status:** CURRENT portable receiver contract")
+    assert_contains("docs/ADLBOS_PUBLIC_VALUE_FACT_SHEET.md", "**Status:** CURRENT derived public-copy source / fact-check reference")
     assert_contains("docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md", "targeting `0.2.4-candidate`")
     assert_contains("docs/agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md", "0.2.4-candidate")
     memory = read("PORTABLE_MEMORY_REFERENCE_PROFILE.md")
@@ -132,7 +159,18 @@ def main():
     if "https://www.bls.gov/ooh/sales/insurance-sales-agents.htm" not in model["sources"]:
         raise AssertionError("sales-services benchmark is missing direct BLS source provenance")
     assert_contains("docs/REPOSITORY_INTEGRITY.md", "Compatibility-protected paths")
+    assert_contains("docs/REPOSITORY_INTEGRITY.md", "**DATED SNAPSHOT**")
+    assert_contains("docs/agent-os-golden-path/06-wirebot-product-ui-options-inventory-and-consolidation-audit.md", "DATED AUDIT SNAPSHOT")
+    assert_contains("docs/agent-os-golden-path/06-wirebot-product-ui-options-inventory-and-consolidation-audit.md", "Startempire-Wire/Wirebot-App")
+    assert_contains("docs/agent-os-golden-path/08-wirebot-ecosystem-agent-operation-parity-audit.md", "DATED SOURCE-AUDIT SNAPSHOT")
+    assert_contains("docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md", "Capability evidence snapshot")
+    assert_contains("docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md", "Reconciled:** 2026-09-30")
+    assert_contains("docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md", "source-domain accepted outcome")
+    assert_contains("docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md", "optional W.I.N.S. progression projection")
+    assert_contains("AGENT_COMPUTER_REFERENCE_PROFILE.md", "CURRENT portable reference profile")
+    assert_contains("AMBIENT_OPERATOR_REFERENCE_PROFILE.md", "CURRENT portable reference profile")
     check_relative_markdown_links()
+    check_relative_html_links()
     check_economics()
     print("repository integrity: PASS")
 

@@ -1,6 +1,9 @@
 # Wirebot product UI inventory and consolidation audit
 
+- **Status:** DATED AUDIT SNAPSHOT / historical planning evidence — not current implementation truth or architecture authority
 - **Audit date:** 2026-09-13
+- **Current resolution:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md` and `10-wirebot-application-family-startempire-wire-integration-architecture.md` control current ownership; `Startempire-Wire/Wirebot-App` now owns the current Wirebot application implementation.
+- **Reuse rule:** preserve this file for audit provenance and option rationale, but re-verify product/runtime facts in owning repositories before acting on any “current status,” unresolved question, version, branch, or checkout observation below.
 - **Scope:** Startempire Wire and AI Draftees, Focusa Desktop, Focusa Menubar, Focusa browser extension, UIAI Cockpit, UIAI evidence/FPV PWAs, Wirebot browser extension, proposed Wirebot Desktop/mobile, W.I.N.S. screens, Veragensia, and their public sales/access doors
 - **Status vocabulary:** `implemented` means source exists; `runtime-observed` means a current service/tool was observed; `released` or `customer-ready` requires separate distribution and consumer proof
 - **Decision posture:** this is an inventory and options paper, not a final architecture declaration. Only explicitly operator-confirmed directions are marked confirmed; all other placements remain candidates.

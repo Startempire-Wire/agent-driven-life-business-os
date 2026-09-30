@@ -1,10 +1,10 @@
 # Agent-Operation-Complete Software Contract
 
-- **Status:** operator-confirmed product baseline; implementation conformance remains evidence-dependent
+- **Status:** CURRENT operator-confirmed product baseline; implementation conformance remains evidence-dependent
 - **Applies to:** all first-party Wirebot ecosystem applications, services, extensions and user interfaces
 - **Reference deployment:** Wirebot, W.I.N.S., Focusa, UIAI Engine/Cockpit, Veragensia and their customer/operator surfaces
 - **Primary hardware acceptance:** the qualified Veragensia Chromebook
-- **Architecture choices not settled here:** Cockpit embedding, Wirebot frontend source owner, mobile packaging and portfolio shell boundaries
+- **Architecture choices not settled here:** Cockpit embedding, mobile packaging and portfolio shell boundaries. Wirebot App repository ownership is settled by the current application-family architecture.
 
 ## 1. Product rule
 

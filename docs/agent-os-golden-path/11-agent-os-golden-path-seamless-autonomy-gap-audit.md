@@ -1,7 +1,7 @@
 # Agent OS Golden Path — Current Seam and Autonomy Gap Audit
 
 **Status:** CURRENT architecture-gap audit  
-**Reconciled:** 2026-09-15, semantic-integrity pass 2 complete  
+**Reconciled:** 2026-09-30, dependency/factuality integrity pass complete  
 **Architecture owner:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
 **Purpose:** track missing cross-product seams that prevent the current Life & Business OS architecture from operating as one coherent system.
 
@@ -16,8 +16,10 @@ owner / delegated humans / partner
   -> worker/runtime execution
   -> evidence
   -> settlement
-  -> accepted outcome
-  -> learning / portable trust
+  -> source-domain accepted outcome
+  -> base private leverage / feedback
+  -> optional W.I.N.S. progression projection
+  -> optional portable trust / standing
 ```
 
 No gap below authorizes a second task database, workforce database, approval store, entitlement service, federation authority, credential vault or evidence system.

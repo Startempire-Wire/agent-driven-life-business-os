@@ -2,6 +2,7 @@
 
 **Status:** CURRENT architecture  
 **Effective:** 2026-09-15  
+**Reconciled:** 2026-09-30 against the 0.2.4 ownership correction and current Wirebot-App evidence  
 **Depends on:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`, `OWNER_AUTHORITY_CONSTITUTION.md`, Golden Path, current Wirebot App and Focusa Workforce repositories.
 
 This document defines the current application-family and ecosystem integration architecture. It replaces earlier wording that treated the Wirebot application family, repository ownership, and packaging direction as unresolved.
