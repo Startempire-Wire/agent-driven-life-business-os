@@ -1,8 +1,9 @@
 # ADLBOS Human-Equivalent Operating Cost Model
 
 **Status:** CURRENT public-safe economic reference  
-**As of:** 2026-09-28  
+**As of:** 2026-09-29  
 **Purpose:** provide a conservative, updateable benchmark for the human labor that may be represented by recurring Agent-Driven Life & Business OS routines.  
+**Calculation authority:** [`../data/adlbos-human-equivalent-cost-model.v1.json`](../data/adlbos-human-equivalent-cost-model.v1.json). Displayed totals in this document MUST agree with that file.  
 **Not a price sheet:** this document does not state or imply ADLBOS pricing, customer savings, ROI, employee replacement, or guaranteed labor reduction.
 
 ---
@@ -53,19 +54,19 @@ occupation median wage
 
 This is an approximation. Benefit load varies by employer, occupation, industry, geography and worker. It should be used as a planning benchmark, not payroll/accounting advice.
 
-### Freelance / virtual-assistant market
+### Freelance / contractor market
 
-Current Upwork published rate guidance includes:
+The contractor side uses current published Upwork category bands or an explicitly named conservative proxy. As of this refresh:
 
-- administrative/data-entry VA: **$12–$20+/hour**
-- marketing/customer-service/accounting-support VA: **$20–$35+/hour**
-- advanced VA / consultant / executive-assistant support: **$38–$50+/hour**
-- bookkeepers: **$11–$25/hour**, with more advanced work higher
-- project managers: commonly **$30–$60+/hour** for basic PM support and higher for advanced PM work
-- business analysts: **$25–$60/hour**
-- business-process analysts: **$40–$90/hour**
+- virtual assistants: **$10–$20/hour**;
+- advanced U.S. VA / executive-assistant support: **$38–$50+/hour**;
+- customer service representatives: **$10–$19/hour**;
+- bookkeepers: **$11–$25/hour**;
+- market research analysts: **$25–$70/hour**;
+- project managers: **$19–$45/hour**;
+- sales representatives: **$13–$40/hour**.
 
-Fiverr's 2026 VA guide reports a materially higher marketplace range for hourly VA engagements, illustrating that contractor pricing varies widely by scope, skill, geography and packaging. For consistency, this model uses the more granular Upwork functional bands as its contractor baseline.
+Where no current role-specific public band is used, the structured model names the proxy explicitly. A proxy is a workload-comparison device, not a claim that the occupations are interchangeable.
 
 ---
 
@@ -76,14 +77,14 @@ The occupational medians below are U.S. BLS May 2025 wage benchmarks. The loaded
 | Human role benchmark | BLS median wage | Approx. loaded employer cost/year | Approx. loaded employer cost/hour | Contractor proxy used |
 |---|---:|---:|---:|---:|
 | Executive secretary / executive administrative assistant | $76,590/yr | $111,810 | $53.75 | $38–$50/hr |
-| Secretary / administrative assistant | $48,310/yr | $70,526 | $33.91 | $12–$20/hr |
-| Customer service representative | $21.53/hr | $65,376 | $31.43 | $20–$35/hr |
+| Secretary / administrative assistant | $48,310/yr | $70,526 | $33.91 | $10–$20/hr |
+| Customer service representative | $21.53/hr | $65,376 | $31.43 | $10–$19/hr |
 | Bookkeeping/accounting/auditing clerk | $50,670/yr | $73,971 | $35.56 | $11–$25/hr |
-| Market research analyst | $78,760/yr | $114,978 | $55.28 | $25–$60/hr |
-| Project management specialist | $102,320/yr | $149,372 | $71.81 | $30–$60/hr |
-| Human resources specialist | $75,940/yr | $110,861 | $53.30 | $38–$50/hr advanced-support proxy |
-| Sales-support proxy: sales representatives, services | $68,190/yr | $99,547 | $47.86 | $20–$35/hr |
-| Management/process-analysis proxy: management analyst | $101,860/yr | $148,701 | $71.49 | $40–$90/hr |
+| Market research analyst | $78,760/yr | $114,978 | $55.28 | $25–$70/hr |
+| Project management specialist | $102,320/yr | $149,372 | $71.81 | $19–$45/hr |
+| Human resources specialist | $75,940/yr | $110,861 | $53.30 | $38–$50/hr |
+| Sales-support proxy | $68,190/yr | $99,547 | $47.86 | $13–$40/hr |
+| Management/process-analysis proxy | $101,860/yr | $148,701 | $71.49 | $19–$45/hr |
 
 ### Important interpretation
 
@@ -99,29 +100,29 @@ This reference scenario models **50 human hours per week** distributed across co
 
 It is deliberately mixed: some work resembles executive assistance, some customer support, bookkeeping, sales operations, research, project coordination, workforce administration or process improvement.
 
-| Representative routine | Human benchmark | Modeled human time | Employee-equivalent annual cost | Freelance/VA annual range |
+| Representative routine | Human benchmark | Modeled human time | Employee-equivalent annual cost | Freelance/contractor annual range |
 |---|---|---:|---:|---:|
 | Daily inbox triage + owner summary | Executive assistant | 5.0 hr/wk | $13,976 | $9,880–$13,000 |
 | Calendar coordination + reminders | Executive assistant | 3.0 hr/wk | $8,386 | $5,928–$7,800 |
 | Meeting prep, notes + follow-up tracking | Executive assistant | 3.0 hr/wk | $8,386 | $5,928–$7,800 |
-| Document/record organization | Administrative assistant | 2.0 hr/wk | $3,526 | $1,248–$2,080 |
-| CRM hygiene + lead routing/follow-up preparation | Sales support | 4.0 hr/wk | $9,955 | $4,160–$7,280 |
-| Weekly pipeline review + management report | Sales support | 2.0 hr/wk | $4,977 | $2,080–$3,640 |
-| Customer inquiry triage + response preparation | Customer service | 5.0 hr/wk | $8,172 | $5,200–$9,100 |
+| Document/record organization | Administrative assistant | 2.0 hr/wk | $3,526 | $1,040–$2,080 |
+| CRM hygiene + lead routing/follow-up preparation | Sales support | 4.0 hr/wk | $9,955 | $2,704–$8,320 |
+| Weekly pipeline review + management report | Sales support | 2.0 hr/wk | $4,977 | $1,352–$4,160 |
+| Customer inquiry triage + response preparation | Customer service | 5.0 hr/wk | $8,172 | $2,600–$4,940 |
 | Invoice/AP/AR follow-up + bookkeeping preparation | Bookkeeping | 4.0 hr/wk | $7,397 | $2,288–$5,200 |
 | Expense/reconciliation review | Bookkeeping | 2.0 hr/wk | $3,699 | $1,144–$2,600 |
-| Market/competitor research brief | Market research | 3.0 hr/wk | $8,623 | $3,900–$9,360 |
-| KPI compilation + management brief | Management/process analyst | 2.0 hr/wk | $7,435 | $4,160–$9,360 |
-| Project/workstream status + blocker coordination | Project management | 4.0 hr/wk | $14,937 | $6,240–$12,480 |
+| Market/competitor research brief | Market research | 3.0 hr/wk | $8,623 | $3,900–$10,920 |
+| KPI compilation + management brief | Management/process analyst | 2.0 hr/wk | $7,435 | $1,976–$4,680 |
+| Project/workstream status + blocker coordination | Project management | 4.0 hr/wk | $14,937 | $3,952–$9,360 |
 | Vendor/renewal/deadline watch | Executive assistant | 1.5 hr/wk | $4,193 | $2,964–$3,900 |
-| Hiring/workforce coordination + follow-up | HR / advanced support | 2.0 hr/wk | $5,543 | $3,952–$5,200 |
-| Routine analytics + process-optimization review | Management/process analyst | 2.0 hr/wk | $7,435 | $4,160–$9,360 |
-| Cross-business portfolio brief + priority synthesis | Project management | 2.0 hr/wk | $7,469 | $3,120–$6,240 |
-| System/exception monitoring + escalation | Administrative support | 2.0 hr/wk | $3,526 | $1,248–$2,080 |
-| Business-corpus delta audit + routine extraction | Management/process analyst | 1.5 hr/wk | $5,576 | $3,120–$7,020 |
-| **Modeled total** | mixed functions | **50.0 hr/wk** | **$133,212/yr** | **$70,720–$123,500/yr** |
+| Hiring/workforce coordination + follow-up | HR / advanced-support proxy | 2.0 hr/wk | $5,543 | $3,952–$5,200 |
+| Routine analytics + process-optimization review | Management/process analyst | 2.0 hr/wk | $7,435 | $1,976–$4,680 |
+| Cross-business portfolio brief + priority synthesis | Project management | 2.0 hr/wk | $7,469 | $1,976–$4,680 |
+| System/exception monitoring + escalation | Administrative assistant | 2.0 hr/wk | $3,526 | $1,040–$2,080 |
+| Business-corpus delta audit + routine extraction | Management/process analyst | 1.5 hr/wk | $5,576 | $1,482–$3,510 |
+| **Modeled total** | mixed functions | **50.0 hr/wk** | **$133,212/yr** | **$56,082–$104,910/yr** |
 
-Rounded values may not sum perfectly if recalculated from displayed rounded rates.
+The structured JSON is the calculation authority; displayed values are rounded from it.
 
 ---
 
@@ -172,7 +173,7 @@ But the comparison is more useful than a simple FTE count because the work spans
 For this representative workload:
 
 - **loaded U.S. employee-equivalent:** about **$133,000/year**
-- **freelance/VA equivalent:** about **$71,000–$124,000/year**
+- **freelance/contractor equivalent:** about **$56,082–$104,910/year**
 
 These are labor-equivalent reference values, not ADLBOS pricing and not promised savings.
 
@@ -219,7 +220,7 @@ The following statements are appropriate for future website extraction if the mo
 
 > **Using current U.S. compensation data, the modeled 50-hour/week mix in this reference represents about $133,000 per year of loaded employee-equivalent labor.**
 
-> **Using published freelance/virtual-assistant rate bands for the same modeled workload produces a rough market range of about $71,000–$124,000 per year.**
+> **Using current published freelance/contractor category bands and named proxies for the same modeled workload produces a rough market range of about $56,082–$104,910 per year.**
 
 > **One routine as simple as a one-hour-per-business-day executive inbox review represents roughly $10,000–$14,000 per year of human labor at current executive-assistant/advanced-VA benchmarks.**
 
@@ -315,17 +316,23 @@ Freelance-market references:
 10. Upwork — Virtual Assistant hourly-rate guidance  
     https://www.upwork.com/hire/virtual-assistants/cost/
 
-11. Upwork — Bookkeeper hourly-rate guidance  
+11. Upwork — U.S. Virtual Assistant guidance (advanced / executive-assistant support context)  
+    https://www.upwork.com/hire/virtual-assistants/us/
+
+12. Upwork — Customer Service Representative hourly-rate guidance  
+    https://www.upwork.com/hire/customer-service-representatives/cost/
+
+13. Upwork — Bookkeeper hourly-rate guidance  
     https://www.upwork.com/hire/bookkeepers/cost/
 
-12. Upwork — Project Manager hourly-rate guidance  
+14. Upwork — Market Research Analyst hourly-rate guidance  
+    https://www.upwork.com/hire/market-researchers/cost/
+
+15. Upwork — Project Manager hourly-rate guidance  
     https://www.upwork.com/hire/project-managers/cost/
 
-13. Upwork — Hourly rates by skill / Business and process analysts  
-    https://www.upwork.com/resources/upwork-hourly-rates/
-
-14. Fiverr — Virtual Assistant cost guide, 2026  
-    https://www.fiverr.com/resources/guides/costs/virtual-assistant/
+16. Upwork — Sales Representative hourly-rate guidance  
+    https://www.upwork.com/hire/sales-representatives/cost/
 
 ---
 
