@@ -43,24 +43,34 @@ def check_economics():
     if model["as_of"] != "2026-09-29":
         raise AssertionError("economic model refresh date drifted")
     roles = {r["role"]: r for r in model["role_benchmarks"]}
-    low = high = employee = 0
+    low = high = 0
+    employee_exact = 0.0
     hours = 0.0
+    wage_share = model["methodology"]["bls_full_time_private_wage_share_of_total_compensation"]
+    hours_per_fte = model["methodology"]["hours_per_fte_year"]
     for routine in model["representative_routines"]:
         role = roles[routine["role"]]
         annual_hours = routine["hours_per_week"] * model["methodology"]["weeks_per_year"]
         expected_low = round(annual_hours * role["contractor_hourly_low"])
         expected_high = round(annual_hours * role["contractor_hourly_high"])
+        wage_hourly = role.get("median_wage_hourly")
+        if wage_hourly is None:
+            wage_hourly = role["median_wage_annual"] / hours_per_fte
+        expected_employee = round(annual_hours * wage_hourly / wage_share)
         if routine["contractor_annual_low"] != expected_low:
             raise AssertionError(f"contractor low drift: {routine['routine']}")
         if routine["contractor_annual_high"] != expected_high:
             raise AssertionError(f"contractor high drift: {routine['routine']}")
+        if routine["employee_equivalent_annual"] != expected_employee:
+            raise AssertionError(f"employee-equivalent drift: {routine['routine']}")
         low += expected_low
         high += expected_high
-        employee += routine["employee_equivalent_annual"]
+        employee_exact += annual_hours * wage_hourly / wage_share
         hours += routine["hours_per_week"]
     total = model["representative_total"]
     if total["contractor_annual_low"] != low or total["contractor_annual_high"] != high:
         raise AssertionError("representative contractor total drift")
+    employee = round(employee_exact)
     if total["employee_equivalent_annual"] != employee:
         raise AssertionError("representative employee total drift")
     if abs(total["hours_per_week"] - hours) > 1e-9:
