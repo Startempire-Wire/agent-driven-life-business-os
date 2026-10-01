@@ -346,6 +346,18 @@ Examples:
 
 Use exact current grants and consequence rules from the owning systems.
 
+> ## DEMO-SYSTEM HARD STOP — NEVER TOUCH WITHOUT ASKING
+> Running demo, showcase, or third-party-owned systems and services — anything
+> the operator did not name in the current grant, including containers, transient
+> units, and unattended processes — are NEVER part of an update, upgrade,
+> cleanup, or single-process scope. Do not stop, kill, restart, reconfigure, or
+> work around them, even briefly, even when an installer demands it. If they
+> block authorized work, STOP the affected action and ask the operator. Paid
+> provider resources are the same class of harm: never push release tags,
+> trigger paid CI minutes, or create probe releases to prove a point — use free
+> branch builds and the cheapest sufficient proof. Violations cost real money
+> and real trust.
+
 ---
 
 ## 10. Authentication and secrets
