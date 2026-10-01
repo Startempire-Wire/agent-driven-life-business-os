@@ -260,6 +260,29 @@ Owns the public worker marketplace/discovery/reputation path. Once selected into
 
 A task tracker may hold legitimate implementation/task-ledger state. It does not replace Focusa's governed Workstream/Workpoint/work authority.
 
+### Flow Mesh
+
+Flow Mesh is the **cross-surface projection and synchronization fabric**. It exists because a task tracker — Beads included — gives a human no easy visible surface to work on a task beside an agent. Flow Mesh supplies that missing face: one normalized projection rendered onto every surface a human or agent actually uses, kept synchronized in both directions.
+
+It owns:
+
+- its own integration state — the cross-surface identity map, per-surface revisions, the event ledger, and projection cursors;
+- synchronized projection of task state across surfaces;
+- provider synchronization, task attempts, dependency execution, retries, joins, compensation, and runtime events bound to Focusa CallGraph frames;
+- bounded execution of a task Focusa has already dispatched and authorized.
+
+It owns **no task authority**. Task status, backlog, dependencies, queue order, and completion state belong to the surface that owns them: **Beads is the local task truth**, while Asana and Google Tasks own their own surface history. Flow Mesh holds a **materialized projection view** of that state — used for revision diffing, conflict merging, rendering, and drift detection — and never a second store. Authority for any given task is resolved **per disagreement**, not by a blanket owner.
+
+Rules that travel with it:
+
+1. Projection receipts are recorded separately from canonical mutations.
+2. Dispatch is never completion.
+3. An adapter may not redefine project, work, progress, authority, or evidence semantics.
+4. A second engine instance must never write the same ledger; one active engine owns a mesh.
+5. Flow Mesh may not become an independent task authority, a second Focusa, or a second scheduler.
+
+At scale this is the substrate that carries human-and-agent task collaboration across every surface, so it must remain a projection layer: its per-tenant isolation and its projection correctness are load-bearing, and its blast radius must stay bounded to the surfaces it serves.
+
 ---
 
 ## 4. Wirebot setup modes and the base optimization loop

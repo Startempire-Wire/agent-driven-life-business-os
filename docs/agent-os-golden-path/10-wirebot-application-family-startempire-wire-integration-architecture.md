@@ -65,6 +65,8 @@ Wirebot App is not a second Focusa, second Workforce runtime, second UIAI Cockpi
 | Portfolio goals/priorities and owner-level synthesis | Wirebot family + owning business sources | synthesize and recommend |
 | Governed work, Workstreams, Foremen, Workpoints, scoped authority, Evidence | Focusa | project bounded projections and typed requests |
 | Active workforce operations | Focusa Workforce | summary/deep-link/specialist handoff |
+| Task truth (status, backlog, dependencies, queue order, completion) | the task authority for that surface — Beads is the local truth | never owns it; reads and projects bounded task state |
+| Cross-surface task projection and synchronization | Flow Mesh (the fabric; owns no task authority) | bounded read of synchronized task state; never a second task store |
 | Browser/computer execution | UIAI Engine | request supported operations and project execution status |
 | Bodies/Agent Computers/runtime enforcement | Veragensia | device/body posture and exact specialist handoff |
 | Source-domain outcomes | business/life owners + owner acceptance | canonical outcome truth in each domain |
