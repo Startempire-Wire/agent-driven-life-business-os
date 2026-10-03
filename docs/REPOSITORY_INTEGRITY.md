@@ -95,17 +95,19 @@ Run `bash tests/run-contract-tests.sh`. A clean prose diff without these checks 
 
 ## 9. SOVOS / ADLBOS naming migration integrity
 
-The owner has directed an intended public rebrand from **Agent-Driven Life & Business OS (ADLBOS)** toward **SOVOS — Sovereign Operations System**.
+The owner has directed the human-facing architecture/doctrine rebrand from **Agent-Driven Life & Business OS (ADLBOS)** to **SOVOS — Sovereign Operations System**.
 
 The migration is staged under [`SOVOS_REBRAND_MIGRATION.md`](./SOVOS_REBRAND_MIGRATION.md).
 
-Until that migration explicitly advances:
+During compatibility migration:
 
 - `ADLBOS` remains a valid historical/compatibility identifier;
 - the repository slug `Startempire-Wire/agent-driven-life-business-os` remains protected;
 - `data/adlbos-human-equivalent-cost-model.v1.json`, `docs/ADLBOS_HUMAN_EQUIVALENT_COST_MODEL.md` and `docs/ADLBOS_PUBLIC_VALUE_FACT_SHEET.md` remain protected paths;
 - existing `adlbos.*`, `agent_os.*`, JSON Schema IDs, contract URLs, fixture/proposal IDs and evidence references are not renamed for cosmetic consistency;
 - historical/versioned prose retains historical naming;
-- public-name/trademark clearance is a prerequisite to an irreversible public software-brand cutover.
+- SOVOS may be used now as the human-facing architecture/doctrine name and as a qualified Institute identity;
+- existing software products retain their own distinct names;
+- a new bare commercial software product/service branded only `SOVOS` should receive use-specific trademark review before launch.
 
 A rename that breaks lineage, consumers, evidence, schema identity or repository tests is an integrity regression.
