@@ -476,6 +476,37 @@ This is the informational form of:
 
 ---
 
+## 10A. Information infrastructure makes Driverless Business possible
+
+A Driverless Business depends on more than task automation.
+
+The system must preserve a durable, correctable representation of:
+
+- owner purpose and desired outcomes;
+- business/domain identity;
+- routines and triggers;
+- decision classes and thresholds;
+- accepted preferences and operating patterns;
+- provenance of learned behavior;
+- delegated authority;
+- exception boundaries;
+- evidence and accepted outcomes.
+
+The most important distinction is:
+
+~~~text
+learned owner pattern
+!= authority
+~~~
+
+A capable agent may infer how the owner is likely to decide. That can improve recommendations and routine operation. But durable learning must remain source-aware and correctable, and consequential authority must remain separately delegated.
+
+This prevents hyper-personalization from becoming invisible power transfer.
+
+See `SOVOS_DRIVERLESS_BUSINESS_DOCTRINE.md`.
+
+---
+
 ## 11. Design test for future SOVOS innovations
 
 When adding a product, protocol, ontology, data source, agent, device or integration, ask:
