@@ -285,11 +285,17 @@ Correlation IDs should be stable through retries/recovery where the logical requ
 
 ---
 
-## 12. Routine blueprint and leverage projection seams
+## 12. Routine template, blueprint, instance and leverage seams
 
-`operator.routine_blueprint.v1` is a portable compilation/reference envelope for one discovered or proposed routine. It may carry owner/portfolio/business/life-domain refs, purpose and desired-outcome refs, source/provenance refs, triggers, step classes, role/assignment/Workstream refs, authority/budget/credential-use refs, execution placement, reliability/overlap/retry/missed-run/revoke refs and measurement-plan refs.
+`operator.routine_template.v1` is an owner-neutral reusable pattern. It carries generic fit signals, trigger preferences, step skeleton, human boundaries, reliability defaults, measurement defaults and bindable parameters. It MUST NOT carry customer private payload, active credentials, grants, exact schedules or canonical work state.
+
+`operator.routine_blueprint.v1` is the owner-specific portable compilation/reference envelope for one discovered or proposed routine. It may carry owner/portfolio/business/life-domain refs, purpose and desired-outcome refs, source/provenance refs, triggers, step classes, role/assignment/Workstream refs, authority/budget/credential-use refs, execution placement, reliability/overlap/retry/missed-run/revoke refs and measurement-plan refs.
 
 It is not the canonical schedule, task graph, roster, Evidence or outcome store.
+
+`operator.routine_instance.v1` is the compiled binding of one accepted blueprint revision. It may bind template lineage, exact owner/domain scope, trigger/scheduler refs, Focusa assignment, typed operation/decision/prompt contract refs, authority/credential-use refs, reliability semantics and acceptance refs. It MUST NOT become the canonical scheduler, work store, credential store or Evidence ledger.
+
+A template update MUST NOT silently mutate an active routine instance. Material changes require a new instance revision or governed update.
 
 `operator.leverage_snapshot.v1` is a source-qualified projection used to connect operational evidence to owner-facing progress. It may carry scope/time window, routine refs, source metric/Evidence/receipt refs, accepted-outcome refs, capacity/time buyback, reliability/recovery, cost/attention trend, cross-routine/business reuse, risk reduction, opportunity unlocked, momentum signal, confidence/attribution limits and season/milestone refs.
 
@@ -299,7 +305,7 @@ Source domains retain their outcome truth and telemetry. Wirebot/Perpetua may sy
 
 A leverage snapshot MUST NOT count agent/tool activity as an accepted outcome, double-count one shared gain across several businesses without disclosed attribution, treat estimates as proven fact, grant authority/scheduling/autonomy, or hide regressions behind an aggregate score.
 
-Scheduled routine activation uses OpenClaw's persistent Automations scheduler by default in the current architecture, while product-native/provider/native deterministic schedulers remain valid when explicitly stronger. The schedule stores/references activation intent; Focusa remains the authority owner and is revalidated before consequential execution.
+Scheduled routine activation uses OpenClaw's persistent Automations scheduler by default in the current architecture, while product-native/provider/native deterministic schedulers remain valid when explicitly stronger. The schedule binds an exact routine-instance revision rather than reinterpreting the latest template/blueprint at run time. Focusa remains the governed-work/authority owner and is revalidated before consequential execution.
 
 ---
 
