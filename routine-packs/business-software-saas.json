@@ -1,10 +1,10 @@
 {
   "schema_version": "operator.routine_pack.v1",
   "pack_id": "routine-pack://business/software-saas",
-  "pack_version": "1.0.0",
+  "pack_version": "1.1.0",
   "status": "recommended",
   "domain_class": "business",
-  "summary": "Software/SaaS pack for inquiry, delivery/support, systems exceptions, knowledge freshness and outcome review.",
+  "summary": "Software/SaaS pack for inquiry, delivery/support, system exceptions, incident recovery, knowledge freshness and receiver-side outcome closure.",
   "fit_signals": [
     "software product",
     "customer support",
@@ -17,7 +17,9 @@
     "routine-template://business/delivery-case-review@1.0.0",
     "routine-template://business/system-health-exceptions@1.0.0",
     "routine-template://cross-domain/knowledge-freshness@1.0.0",
-    "routine-template://cross-domain/reconciliation@1.0.0"
+    "routine-template://cross-domain/reconciliation@1.0.0",
+    "routine-template://cross-domain/incident-response@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0"
   ],
   "composition": {
     "may_combine_with": [
