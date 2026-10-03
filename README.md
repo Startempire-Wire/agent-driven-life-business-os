@@ -1,5 +1,7 @@
 # SOVOS — Sovereign Operations System
 
+## An Agent-Driven Life & Business Operating System
+
 > **Compatibility note:** this architecture was developed as **Agent-Driven Life & Business OS (ADLBOS)**. ADLBOS, the current repository slug, existing schema IDs, economic-model paths and historical references remain compatibility identifiers. SOVOS is the human-facing architecture/doctrine name; the software implementations retain their own names, including Wirebot, Focusa, UIAI Engine and Veragensia. See [SOVOS Rebrand and Compatibility Migration](./docs/SOVOS_REBRAND_MIGRATION.md).
 
 A portable architecture and deployment doctrine for a human-owned AI operating system spanning life, business, workforce, computers and optional network participation.
@@ -24,6 +26,30 @@ doctrine
 The products remain independent canonical owners in their domains. SOVOS does not centralize them into one database or universal ontology; it defines how information can cross those boundaries without losing meaning or sovereignty.
 
 See [SOVOS Information Infrastructure Doctrine](./SOVOS_INFORMATION_INFRASTRUCTURE.md).
+
+## Human freedom is the operating outcome
+
+The historical **Agent-Driven Life & Business Operating System** description remains intentionally useful: SOVOS exists to move routine operational burden from the human to governed agents across life and business.
+
+The goal is **not** to require a human approval at every step, nor to remove the human from authority.
+
+~~~text
+human
+  purpose · direction · values · reserved authority
+        ↓
+agents
+  routine operation · coordination · execution · monitoring
+        ↓
+machines / software
+        ↓
+Evidence + accepted outcomes
+        ↑
+human attention only where human judgment or authority is genuinely required
+~~~
+
+SOVOS places the human at the right altitude: **source of purpose and authority, on the loop for oversight and intervention, in the loop for genuine human boundaries, and out of routine operational loops that are already safely delegated.**
+
+See [SOVOS Human Freedom Operating Doctrine](./SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md).
 
 Current architecture authority and product ownership are defined by:
 
