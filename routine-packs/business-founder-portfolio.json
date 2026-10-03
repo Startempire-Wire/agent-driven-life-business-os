@@ -1,10 +1,10 @@
 {
   "schema_version": "operator.routine_pack.v1",
   "pack_id": "routine-pack://business/founder-portfolio",
-  "pack_version": "1.0.0",
+  "pack_version": "1.1.0",
   "status": "recommended",
   "domain_class": "cross_domain",
-  "summary": "Multi-business founder pack for portfolio orientation, shared reconciliation, systems health and weekly outcome review.",
+  "summary": "Multi-business founder pack for portfolio orientation, shared financial truth, systems health, workforce allocation, receiver-side closure and Quiet Kaizen.",
   "fit_signals": [
     "multiple businesses",
     "shared infrastructure",
@@ -16,7 +16,11 @@
     "routine-template://cross-domain/reconciliation@1.0.0",
     "routine-template://business/system-health-exceptions@1.0.0",
     "routine-template://cross-domain/weekly-planning@1.0.0",
-    "routine-template://cross-domain/knowledge-freshness@1.0.0"
+    "routine-template://cross-domain/knowledge-freshness@1.0.0",
+    "routine-template://cross-domain/finance-operations@1.0.0",
+    "routine-template://business/workforce-dispatch@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0",
+    "routine-template://cross-domain/quiet-kaizen@1.0.0"
   ],
   "composition": {
     "may_combine_with": [
