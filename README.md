@@ -1,10 +1,10 @@
-# Agent-Driven Life & Business OS
+# SOVOS — Sovereign Operations System
 
-> **Naming transition:** the owner has directed an intended rebrand to **SOVOS — Sovereign Operations System**. ADLBOS and the current repository slug remain compatibility identifiers while migration and public-name/trademark clearance are completed. Do **not** mass-rename schemas, paths, historical evidence or external identifiers. See [SOVOS Rebrand and Compatibility Migration](./docs/SOVOS_REBRAND_MIGRATION.md).
+> **Compatibility note:** this architecture was developed as **Agent-Driven Life & Business OS (ADLBOS)**. ADLBOS, the current repository slug, existing schema IDs, economic-model paths and historical references remain compatibility identifiers. SOVOS is the human-facing architecture/doctrine name; the software implementations retain their own names, including Wirebot, Focusa, UIAI Engine and Veragensia. See [SOVOS Rebrand and Compatibility Migration](./docs/SOVOS_REBRAND_MIGRATION.md).
 
 A portable architecture and deployment doctrine for a human-owned AI operating system spanning life, business, workforce, computers and optional network participation.
 
-**ADLBOS is the integration substrate and doctrine. It is not another runtime, application, database or product tier.**
+**SOVOS is the integration substrate and doctrine. It is not another runtime, application, database or product tier.**
 
 Current architecture authority and product ownership are defined by:
 
@@ -99,7 +99,7 @@ Current responsibility map:
 
 ## Wirebot setup modes
 
-ADLBOS consumes four customer/setup modes:
+SOVOS consumes four customer/setup modes:
 
 | Setup | Base feedback / optimization | W.I.N.S. |
 |---|---|---|
@@ -147,7 +147,7 @@ The Chief of Staff is not a global Foreman. A Foreman does not receive the owner
 
 ## Portfolio Business Compiler
 
-ADLBOS assumes an owner may operate several businesses, projects and life domains.
+SOVOS assumes an owner may operate several businesses, projects and life domains.
 
 ```text
 consented source coverage
@@ -165,7 +165,7 @@ consented source coverage
 → optional W.I.N.S. progression when enabled
 ```
 
-The compiler is not another database or runtime. The feedback/optimization loop is base ADLBOS capability and does not depend on W.I.N.S. W.I.N.S., when enabled for the current setup, is an enhanced progression/recognition/community lens over the same source-qualified outcome and leverage truth. Its game-like dynamics should help the owner feel real momentum from meaningful outcomes and compounding leverage, never reward empty activity or compulsive interaction.
+The compiler is not another database or runtime. The feedback/optimization loop is base SOVOS capability and does not depend on W.I.N.S. W.I.N.S., when enabled for the current setup, is an enhanced progression/recognition/community lens over the same source-qualified outcome and leverage truth. Its game-like dynamics should help the owner feel real momentum from meaningful outcomes and compounding leverage, never reward empty activity or compulsive interaction.
 
 ## Workforce Composer versus Focusa Workforce
 
@@ -275,7 +275,7 @@ Federation never implies pooled memory, inherited owner authority, shared creden
 
 ## Shared cross-product seams
 
-Cross-product joins belong to ADLBOS as small portable reference envelopes, not another integration database.
+Cross-product joins belong to SOVOS as small portable reference envelopes, not another integration database.
 
 Current families:
 
@@ -360,7 +360,7 @@ Computer-use automation between first-party products is a parity defect, not the
 
 ## Evidence-gated contract evolution
 
-ADLBOS can learn from operating reality without letting history rewrite authority.
+SOVOS can learn from operating reality without letting history rewrite authority.
 
 ```text
 observe source-bearing behavior
