@@ -436,12 +436,14 @@ Wirebot's Portfolio Business Compiler is a causal compilation pipeline, not a ne
 authorized source coverage
 → portfolio/business/life map
 → evidenced routine candidates
-→ typed routine blueprints
-→ role/workforce inference
+→ reusable template matching
+→ owner-specific typed routine blueprints
 → owner review/composition
-→ assignment + least-capability compilation
+→ determinization pass
+→ compiled routine instance
+→ role/workforce + least-capability binding
 → Focusa governed binding
-→ OpenClaw scheduling/supervision
+→ durable event/schedule supervision
 → deterministic / agentic / UIAI / human execution lanes
 → Evidence / settlement
 → source-domain accepted outcome
@@ -451,7 +453,7 @@ authorized source coverage
 → revised routine, role, system or retirement proposal
 ```
 
-A routine blueprint describes purpose, trigger, inputs, deterministic steps, semantic/judgment steps, required actors, authority, execution placement, reliability policy, analytics/measurement plan, evidence, outcome target and rollback/revoke behavior. It does **not** become a second scheduler, task store, analytics warehouse or business database.
+A Routine Template is reusable owner-neutral structure; a Routine Candidate is an audit inference; a Routine Blueprint is owner-specific proposed semantics; a Routine Instance is the compiled executable binding of one accepted blueprint revision; a Routine Run is one execution occurrence in owning systems. Templates never grant authority, and template changes never silently mutate active instances. See `SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md`.
 
 ### 5.1 Workforce Composer versus Focusa Workforce
 
@@ -655,7 +657,9 @@ operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
 operator.credential_use_ref.v1
+operator.routine_template.v1
 operator.routine_blueprint.v1
+operator.routine_instance.v1
 operator.leverage_snapshot.v1
 ```
 
