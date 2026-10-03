@@ -66,6 +66,12 @@ persistent governed work across life/business systems
 
 Routine work should escalate when it reaches a true authority/judgment boundary, not merely because an agent acted.
 
+The corresponding altitude rule is:
+
+> **Do not confuse the wing with the flight.**
+
+Models, workers, agents, automations and Agent Computers are instruments below the human-purpose layer. Architecture quality is partly judged by whether those instruments return usable human capacity rather than creating a larger machine-maintenance burden.
+
 See `SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md`.
 
 ---
