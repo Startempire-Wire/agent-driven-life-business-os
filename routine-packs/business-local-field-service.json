@@ -1,0 +1,35 @@
+{
+  "schema_version": "operator.routine_pack.v1",
+  "pack_id": "routine-pack://business/local-field-service",
+  "pack_version": "1.0.0",
+  "status": "recommended",
+  "domain_class": "business",
+  "summary": "Local and field-service pack for lead intake, scheduling, service delivery, customer follow-through, payment truth and recurring maintenance or renewal.",
+  "fit_signals": [
+    "local or field appointments",
+    "dispatch or scheduling",
+    "on-site service delivery",
+    "customer follow-up",
+    "invoices or recurring maintenance"
+  ],
+  "template_refs": [
+    "routine-template://business/inquiry-triage@1.0.0",
+    "routine-template://cross-domain/follow-up@1.0.0",
+    "routine-template://business/delivery-case-review@1.0.0",
+    "routine-template://cross-domain/finance-operations@1.0.0",
+    "routine-template://cross-domain/renewal-expiry@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0"
+  ],
+  "composition": {
+    "may_combine_with": [
+      "routine-pack://business/professional-services",
+      "routine-pack://business/founder-portfolio"
+    ],
+    "selection_rule": "Keep scheduling, route/visit preparation and service evidence distinct from pricing, safety, legal and other owner/professional-reserved commitments.",
+    "archetype_not_identity": true
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
