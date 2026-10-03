@@ -70,6 +70,32 @@ See `SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md`.
 
 ---
 
+## 0.2 Driverless Business target
+
+SOVOS supports a **Driverless Business** operating posture: ordinary business operation can continue under mapped purpose, routines, information, decision policies and bounded delegated authority without requiring the owner to continuously intervene.
+
+Driverless does not mean ownerless or autonomous architecture authority.
+
+~~~text
+owner purpose / direction / reserved authority
+        ↓
+mapped operating knowledge + routines + policy
+        ↓
+bounded delegated agent authority
+        ↓
+routine autonomous operation
+        ↓
+Evidence / outcomes / feedback
+        ↓
+human only at genuine exception or authority boundaries
+~~~
+
+The owner retains inspect, interrupt, pause, redirect, revoke and takeover powers.
+
+See `SOVOS_DRIVERLESS_BUSINESS_DOCTRINE.md`.
+
+---
+
 ## 1. System law
 
 > **One concern, one canonical owner. Many surfaces may project it; no surface becomes a second authority merely because it renders or initiates an operation.**
