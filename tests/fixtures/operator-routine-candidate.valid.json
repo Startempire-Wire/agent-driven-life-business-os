@@ -1,0 +1,13 @@
+{
+  "schema_version":"operator.routine_candidate.v1",
+  "candidate_id":"routine-candidate://operator/buyer-inquiry-triage",
+  "scope":{"owner_ref":"owner://example","business_refs":["business://services"],"life_domain_refs":[],"portfolio_ref":"portfolio://example"},
+  "evidence_basis":{"classes":["observed_recurring","gap_inferred"],"source_refs":["drive://operating-routines-2026-10-02"],"summary":"Buyer messages recur and current audit found no durable triage loop.","confidence":"high"},
+  "purpose":{"summary":"Prevent qualified inquiries from being lost.","desired_outcome":"Every new inquiry reaches a qualified next action within the accepted response window.","leverage_hypothesis":"Reduce owner inbox triage and response latency."},
+  "fit_dimensions":{"recurrence":"high","owner_burden":"medium","outcome_importance":"high","determinism_potential":"D2","integration_readiness":"partial","consequence_risk":"medium","privacy_sensitivity":"medium","reuse_potential":"portable_template"},
+  "template_matches":[{"template_ref":"routine-template://business/inquiry-triage@1.0.0","match_class":"strong_match","reason":"The observed trigger, classification, deduplication and next-action pattern matches inquiry triage."}],
+  "current_state":{"implementation":"none","preferred_trigger":"event","current_burden":"Manual inbox review and owner routing."},
+  "human_boundary":{"reserved_decisions":["novel pricing or contractual commitment"],"escalation_conditions":["requested action exceeds standing communication grant"]},
+  "readiness":{"authority_gaps":["outbound send grant"],"reliability_gaps":["idempotency and duplicate-message suppression"],"required_source_classes":["mailbox","contact_history","offer_truth"],"evidence_requirement":"message classification + contact-history receipt + next-action receipt","accepted_outcome_requirement":"qualified inquiry has an accepted routed next action","next_state":"blueprint"},
+  "privacy":{"contains_secret_material":false,"private_payload_ref":"owner-private://candidate/buyer-inquiry-triage"}
+}
