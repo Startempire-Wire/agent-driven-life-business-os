@@ -4,7 +4,7 @@
 
 > A versioned deployment and operations doctrine for turning a fresh or brownfield environment into a verified, agent-native Life & Business OS. Executable coverage remains partial; the field-tested deployment spine remains valuable, while current product ownership is reconciled against the live ecosystem architecture.
 
-- **Golden Path target:** `0.2.4-candidate`
+- **Golden Path target:** `0.2.5-candidate`
 - **Canonical owner authority:** [`OWNER_AUTHORITY_CONSTITUTION.md`](./OWNER_AUTHORITY_CONSTITUTION.md)
 - **Current cross-product architecture:** [`CURRENT_ECOSYSTEM_ARCHITECTURE.md`](./CURRENT_ECOSYSTEM_ARCHITECTURE.md)
 - **Foundational operating contract:** [`AGENTS.md`](./AGENTS.md)
@@ -18,6 +18,7 @@
 - **Current cross-product gap audit:** [`docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md`](./docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md)
 - **Stage 5 full-surface business discovery audit:** [`docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md`](./docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md)
 - **Portfolio Business Compiler / routine analytics / leverage progression:** [`docs/agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md`](./docs/agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md)
+- **Routine Compiler runtime closure plan:** [`docs/agent-os-golden-path/14-routine-compiler-runtime-closure-plan.md`](./docs/agent-os-golden-path/14-routine-compiler-runtime-closure-plan.md)
 
 ## Purpose
 
