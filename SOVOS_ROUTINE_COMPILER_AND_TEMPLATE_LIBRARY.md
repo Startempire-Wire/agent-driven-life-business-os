@@ -76,6 +76,12 @@ Portable contract:
 
 A **Routine Candidate** is an audit inference.
 
+Portable contract:
+
+`operator.routine_candidate.v1`
+
+It must be machine-valid before owner-specific blueprint compilation.
+
 It says:
 
 > this observed or owner-declared pattern may benefit from a routine, and these templates appear relevant.
@@ -269,6 +275,18 @@ It must label the reason clearly:
 > **Suggested from archetype; not evidenced as a current recurring burden.**
 
 This makes the library useful without turning assumptions into facts.
+
+---
+
+## 4.5 Routine Packs
+
+SOVOS also defines `operator.routine_pack.v1`: a composable bundle of template suggestions for a life domain or business operating shape.
+
+Starter packs live under `routine-packs/`.
+
+A pack asks: **Given this operating shape, which routine families are worth checking for fit?** It does not decide which routines a person or business must run.
+
+Every pack suggestion still becomes an explicit Routine Candidate with evidence class and fit reasoning before blueprint compilation.
 
 ---
 
@@ -832,3 +850,21 @@ Do not create:
 ## 21. Compact doctrine
 
 > **SOVOS converts observed life and business patterns into reliable autonomy through a staged compiler: reusable template, evidence-backed candidate, owner-specific blueprint, deterministic compiled instance, proven execution and accepted outcome. Templates provide leverage; compilation provides personalization; deterministic shells provide stability; delegated authority provides autonomy; Evidence proves the routine actually closed the loop.**
+
+
+## 22. Canonical template and pack locations
+
+Use exactly these portable-library roots:
+
+~~~text
+routine-templates/
+  canonical Routine Template catalog
+
+routine-packs/
+  canonical Routine Pack catalog
+
+templates/routines/
+  superseded compatibility/incubation path only
+~~~
+
+Compiler implementations MUST NOT union both template directories blindly. Duplicate IDs across lineage paths are one conceptual template lineage, not separate routine suggestions.
