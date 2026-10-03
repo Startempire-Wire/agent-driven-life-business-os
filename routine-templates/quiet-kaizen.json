@@ -1,0 +1,174 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/quiet-kaizen",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "cross_domain"
+    ],
+    "routine_family": "learning_improvement",
+    "archetype_tags": [
+      "founder-portfolio",
+      "continuous-improvement",
+      "researcher",
+      "operations"
+    ]
+  },
+  "purpose": {
+    "summary": "Use source-qualified outcomes, operating friction and leverage measurements to propose the smallest evidence-backed improvement without self-authorizing the change.",
+    "outcome_classes": [
+      "dominant_constraint_identified",
+      "improvement_candidate_prepared",
+      "keep_improve_retire_decision_supported"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "accepted_outcome_or_operating_evidence"
+    ],
+    "optional_signal_classes": [
+      "leverage_snapshot",
+      "owner_correction",
+      "routine_analytics",
+      "cost_attention_metric",
+      "failure_pattern"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "condition",
+    "allowed_kinds": [
+      "condition",
+      "schedule",
+      "event",
+      "manual"
+    ],
+    "event_preferred": false,
+    "default_cadence": "after a sufficient evidence window or owner-selected review cadence"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect_evidence",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect bounded before/after evidence, corrections and routine outcome refs.",
+      "operation_class": "kaizen_evidence_read",
+      "required_input_classes": [
+        "accepted_outcome_or_operating_evidence"
+      ],
+      "output_classes": [
+        "kaizen_evidence_set"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "identify_constraint",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Identify the dominant constraint or repeated friction without collapsing dimensions into a magic score.",
+      "operation_class": null,
+      "required_input_classes": [
+        "kaizen_evidence_set"
+      ],
+      "output_classes": [
+        "dominant_constraint_identified"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "propose_smallest_move",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Apply Question → Delete → Simplify → Accelerate → Automate to prepare the smallest leverage move.",
+      "operation_class": null,
+      "required_input_classes": [
+        "dominant_constraint_identified"
+      ],
+      "output_classes": [
+        "improvement_candidate_prepared"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "record_candidate",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Record a governed improvement candidate with evidence, rollback and validation requirements; do not apply it automatically.",
+      "operation_class": "governed_change_candidate_record",
+      "required_input_classes": [
+        "improvement_candidate_prepared"
+      ],
+      "output_classes": [
+        "governed_change_candidate_ref"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "purpose_change",
+      "protected_policy_change",
+      "authority_change",
+      "architecture_boundary_change",
+      "material_tradeoff"
+    ],
+    "escalation_conditions": [
+      "evidence_insufficient",
+      "tradeoff_required",
+      "protected_invariant_touched",
+      "cross_business_conflict"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "skip",
+    "idempotency_required": true,
+    "timeout_seconds": 1200,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "accepted_outcome_ref",
+      "routine_analytics_ref",
+      "leverage_snapshot_ref",
+      "owner_correction_ref"
+    ],
+    "outcome_classes": [
+      "dominant_constraint_identified",
+      "improvement_candidate_prepared",
+      "keep_improve_retire_decision_supported"
+    ],
+    "leverage_dimensions": [
+      "capacity_buyback",
+      "attention_reduction",
+      "cost_efficiency",
+      "reliability",
+      "reuse",
+      "opportunity_unlock",
+      "compounding",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "evidence_window",
+      "value_type": "string",
+      "required": true,
+      "description": "Bounded before/after or rolling evidence window used for improvement analysis."
+    },
+    {
+      "name": "protected_invariant_refs",
+      "value_type": "ref_list",
+      "required": true,
+      "description": "Constitutional, safety, authority and architecture constraints the routine must not weaken."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

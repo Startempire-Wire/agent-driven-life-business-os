@@ -1,10 +1,10 @@
 {
   "schema_version": "operator.routine_pack.v1",
   "pack_id": "routine-pack://business/content-community",
-  "pack_version": "1.0.0",
+  "pack_version": "1.1.0",
   "status": "recommended",
   "domain_class": "business",
-  "summary": "Content/community/education pack for orientation, follow-up, planning, renewals and evidence-backed publishing loops.",
+  "summary": "Content/community/education pack for orientation, follow-up, planning, renewals, evidence-backed publishing, receiver-side closure and outcome learning.",
   "fit_signals": [
     "recurring publishing",
     "events or classes",
@@ -17,7 +17,9 @@
     "routine-template://cross-domain/follow-up@1.0.0",
     "routine-template://cross-domain/weekly-planning@1.0.0",
     "routine-template://cross-domain/renewal-expiry@1.0.0",
-    "routine-template://business/content-distribution@1.0.0"
+    "routine-template://business/content-distribution@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0",
+    "routine-template://cross-domain/quiet-kaizen@1.0.0"
   ],
   "composition": {
     "may_combine_with": [

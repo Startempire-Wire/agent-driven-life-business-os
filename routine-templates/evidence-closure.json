@@ -1,0 +1,171 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/evidence-closure",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "cross_domain"
+    ],
+    "routine_family": "evidence_closure",
+    "archetype_tags": [
+      "delivery",
+      "support",
+      "publishing",
+      "automation",
+      "multi-business"
+    ]
+  },
+  "purpose": {
+    "summary": "Prove that completed work reached its intended receiver and satisfied the applicable acceptance condition instead of equating agent activity with done.",
+    "outcome_classes": [
+      "acceptance_verified",
+      "closure_gap_identified",
+      "evidence_linked"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "completed_action_or_artifact"
+    ],
+    "optional_signal_classes": [
+      "acceptance_criteria",
+      "receiver_receipt",
+      "consumer_state",
+      "focusa_evidence_ref"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "queue",
+      "condition",
+      "schedule",
+      "manual"
+    ],
+    "event_preferred": true,
+    "default_cadence": null
+  },
+  "step_skeleton": [
+    {
+      "step_key": "resolve_refs",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Resolve the exact work, artifact, delivery and acceptance references for the candidate completion.",
+      "operation_class": "closure_ref_resolution",
+      "required_input_classes": [
+        "completed_action_or_artifact"
+      ],
+      "output_classes": [
+        "closure_input_set"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "verify",
+      "kind": "deterministic",
+      "determinism": "prefer_deterministic",
+      "purpose": "Verify receiver-side delivery or consumer state against explicit acceptance criteria when mechanically testable.",
+      "operation_class": "acceptance_verification",
+      "required_input_classes": [
+        "closure_input_set"
+      ],
+      "output_classes": [
+        "acceptance_observation"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "interpret",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Interpret only the acceptance dimensions that genuinely require bounded semantic judgment.",
+      "operation_class": null,
+      "required_input_classes": [
+        "acceptance_observation"
+      ],
+      "output_classes": [
+        "acceptance_assessment",
+        "closure_gap_identified"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "settle",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Attach accepted Evidence and closure refs to the owning work/outcome systems or open a governed blocker.",
+      "operation_class": "closure_settlement_record",
+      "required_input_classes": [
+        "acceptance_assessment"
+      ],
+      "output_classes": [
+        "closure_receipt",
+        "evidence_linked"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "subjective_final_acceptance_when_policy_requires_owner",
+      "contractual_acceptance",
+      "material_exception_waiver"
+    ],
+    "escalation_conditions": [
+      "acceptance_criteria_missing",
+      "receiver_state_unverifiable",
+      "semantic_confidence_below_policy",
+      "contradictory_receipts"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "reconcile",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "receiver_receipt",
+      "focusa_evidence",
+      "closure_receipt"
+    ],
+    "outcome_classes": [
+      "acceptance_verified",
+      "closure_gap_identified",
+      "evidence_linked"
+    ],
+    "leverage_dimensions": [
+      "reliability",
+      "risk_reduction",
+      "attention_reduction",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "acceptance_policy_ref",
+      "value_type": "ref",
+      "required": true,
+      "description": "Policy defining what counts as receiver-side acceptance for the bound routine."
+    },
+    {
+      "name": "receiver_check_refs",
+      "value_type": "ref_list",
+      "required": true,
+      "description": "Source-owned checks or receipts used to verify the intended result."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

@@ -104,6 +104,8 @@ The following are no longer open architecture questions:
 
 Prove one template across two different owner/business/life bindings so generalization is demonstrated rather than assumed.
 
+**Implementation/acceptance plan:** [`14-routine-compiler-runtime-closure-plan.md`](./14-routine-compiler-runtime-closure-plan.md). Portable starter-library coverage is now machine-checked; this gap remains open until the runtime proof passes.
+
 ### SAG-14 — assignment → least-capability grants
 
 **Gap:** role/task/autonomy intent is not yet deterministically compiled into exact tools, data scopes, credential requirements, budgets, consequence classes and confirmation rules.
@@ -363,6 +365,8 @@ Installed binaries and reachable services do not prove a worker may use them. Th
 ### SAG-18 — recurring worker scheduling and steady routine execution
 
 Typed recurring assignment/schedule semantics remain incomplete at runtime despite the new portable routine-instance contract. OpenClaw Gateway automations on the persistent Tailscale-connected VPS are the default durable scheduler for recurring agent/system-event work; Focusa remains the work/authority owner. Closure requires exact routine-instance revision, scheduler/job ref, assignment ref, current-grant revalidation, lease/lock, idempotency, overlap/missed-run/retry, ambiguous-completion reconciliation, timeout, pause/revoke, run history, Evidence/receiver acceptance and visible failure semantics. A schedule is not blanket authority.
+
+The same runtime closure plan above supplies the required negative-path matrix and promotion gates; documentation alone does not close this gap.
 
 ### NEW-P0-13 — portfolio routine analytics and leverage loop
 

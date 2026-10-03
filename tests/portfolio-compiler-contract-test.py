@@ -36,7 +36,6 @@ def main():
     lv = Draft202012Validator(leverage_schema)
 
     candidate = load(ROOT / "tests/fixtures/operator-routine-candidate.valid.json")
-    candidate = load(ROOT / "tests/fixtures/operator-routine-candidate.valid.json")
     template = load(ROOT / "tests/fixtures/operator-routine-template.valid.json")
     routine = load(ROOT / "tests/fixtures/operator-routine-blueprint.valid.json")
 
@@ -62,7 +61,6 @@ def main():
 
     instance = load(ROOT / "tests/fixtures/operator-routine-instance.valid.json")
     leverage = load(ROOT / "tests/fixtures/operator-leverage-snapshot.valid.json")
-    cv.validate(candidate)
     cv.validate(candidate)
     tv.validate(template)
     rv.validate(routine)
@@ -106,10 +104,6 @@ def main():
     secret = copy.deepcopy(routine)
     secret["privacy"]["contains_secret_material"] = True
     invalid(rv, secret, "routine carrying secret material")
-
-    candidate_secret = copy.deepcopy(candidate)
-    candidate_secret["privacy"]["contains_secret_material"] = True
-    invalid(cv, candidate_secret, "routine candidate carrying secret material")
 
     candidate_secret = copy.deepcopy(candidate)
     candidate_secret["privacy"]["contains_secret_material"] = True

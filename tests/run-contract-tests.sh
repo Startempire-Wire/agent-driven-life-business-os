@@ -13,5 +13,6 @@ fi
 "$PYTHON" "$ROOT/tests/agent-operation-contract-test.py"
 "$PYTHON" "$ROOT/tests/agent-contract-optimization-test.py"
 "$PYTHON" "$ROOT/tests/portfolio-compiler-contract-test.py"
+"$PYTHON" "$ROOT/tests/routine-library-coverage-test.py"
 "$PYTHON" "$ROOT/tests/repository-integrity-test.py"
 printf '%s\n' 'portable contract regressions: PASS'
