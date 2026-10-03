@@ -51,6 +51,16 @@ SOVOS places the human at the right altitude: **source of purpose and authority,
 
 See [SOVOS Human Freedom Operating Doctrine](./SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md).
 
+### Driverless Business
+
+The long-term operational expression is **Driverless Business**: a business whose purpose, routines, information, decision patterns, authority and exception handling are mapped well enough that governed agents can carry ordinary operation without continuous human intervention.
+
+Driverless means **the human may drive, but does not have to keep holding the wheel**.
+
+The owner remains the source of purpose and authority and can inspect, interrupt, redirect, revoke or take over.
+
+See [SOVOS Driverless Business Doctrine](./SOVOS_DRIVERLESS_BUSINESS_DOCTRINE.md).
+
 Current architecture authority and product ownership are defined by:
 
 ```text
