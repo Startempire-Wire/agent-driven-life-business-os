@@ -92,3 +92,20 @@ A repository-wide architecture/docs change is incomplete until:
 9. the resulting diff is reviewed for accidental semantic deletion.
 
 Run `bash tests/run-contract-tests.sh`. A clean prose diff without these checks is not a completed integrity sweep.
+
+## 9. SOVOS / ADLBOS naming migration integrity
+
+The owner has directed an intended public rebrand from **Agent-Driven Life & Business OS (ADLBOS)** toward **SOVOS — Sovereign Operations System**.
+
+The migration is staged under [`SOVOS_REBRAND_MIGRATION.md`](./SOVOS_REBRAND_MIGRATION.md).
+
+Until that migration explicitly advances:
+
+- `ADLBOS` remains a valid historical/compatibility identifier;
+- the repository slug `Startempire-Wire/agent-driven-life-business-os` remains protected;
+- `data/adlbos-human-equivalent-cost-model.v1.json`, `docs/ADLBOS_HUMAN_EQUIVALENT_COST_MODEL.md` and `docs/ADLBOS_PUBLIC_VALUE_FACT_SHEET.md` remain protected paths;
+- existing `adlbos.*`, `agent_os.*`, JSON Schema IDs, contract URLs, fixture/proposal IDs and evidence references are not renamed for cosmetic consistency;
+- historical/versioned prose retains historical naming;
+- public-name/trademark clearance is a prerequisite to an irreversible public software-brand cutover.
+
+A rename that breaks lineage, consumers, evidence, schema identity or repository tests is an integrity regression.
