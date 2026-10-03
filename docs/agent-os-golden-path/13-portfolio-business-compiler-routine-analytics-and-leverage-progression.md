@@ -25,6 +25,12 @@ The end state is not "many agents" or "many automations." It is a living operati
 7. measures real outcomes and operating burden;
 8. continuously finds the next compounding leverage move.
 
+The leverage target is not automation volume. The system should reduce operational gravity and return usable human capacity while preserving purpose and authority upstream. In the Philoveracity flight metaphor:
+
+> **Do not confuse the wing with the flight.**
+
+A routine, worker or automation is valuable because of the outcome and capacity it returns, not because autonomous machinery exists.
+
 Several businesses are normal. Shared services and routines may serve several businesses without merging their canonical records or authority.
 
 ## 2. The causal loop
