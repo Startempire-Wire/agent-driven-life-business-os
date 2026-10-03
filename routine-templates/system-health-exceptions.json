@@ -1,0 +1,169 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://business/system-health-exceptions",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "business"
+    ],
+    "routine_family": "system_health",
+    "archetype_tags": [
+      "saas",
+      "software-company",
+      "multi-business",
+      "technical-operator"
+    ]
+  },
+  "purpose": {
+    "summary": "Monitor system health and surface only actionable exceptions, with bounded recovery and consumer verification.",
+    "outcome_classes": [
+      "actionable_exception_detected",
+      "service_health_restored",
+      "noise_reduced"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "health_source"
+    ],
+    "optional_signal_classes": [
+      "backup_source",
+      "security_source",
+      "capacity_source"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "condition",
+      "schedule"
+    ],
+    "event_preferred": true,
+    "default_cadence": "periodic reconciliation only where native events are incomplete"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "observe",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Read health, backup, security and capacity signals.",
+      "operation_class": "source_read",
+      "required_input_classes": [
+        "health_source"
+      ],
+      "output_classes": [
+        "health_observations"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "dedupe",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Deduplicate and correlate repeated alerts.",
+      "operation_class": "alert_dedupe",
+      "required_input_classes": [
+        "health_observations"
+      ],
+      "output_classes": [
+        "incident_candidates"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "assess",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Assess impact and select bounded recovery or escalation.",
+      "operation_class": null,
+      "required_input_classes": [
+        "incident_candidates"
+      ],
+      "output_classes": [
+        "incident_plan"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "recover",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Execute only pre-authorized deterministic recovery.",
+      "operation_class": "authorized_recovery",
+      "required_input_classes": [
+        "incident_plan"
+      ],
+      "output_classes": [
+        "recovery_receipt"
+      ],
+      "consequence_class": "mutate"
+    },
+    {
+      "step_key": "verify",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Verify consumer-facing recovery.",
+      "operation_class": "consumer_health_verify",
+      "required_input_classes": [
+        "recovery_receipt"
+      ],
+      "output_classes": [
+        "service_health_restored"
+      ],
+      "consequence_class": "read"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "destructive_recovery",
+      "security_exception"
+    ],
+    "escalation_conditions": [
+      "customer_impact_high",
+      "recovery_outside_policy",
+      "unknown_failure_class"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "actionable_exception_detected",
+      "service_health_restored",
+      "noise_reduced"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "reliability",
+      "risk_reduction",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "health_source_ref",
+      "value_type": "ref",
+      "required": true,
+      "description": "Canonical system health/diagnostic source."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
