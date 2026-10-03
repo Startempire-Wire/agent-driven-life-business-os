@@ -16,7 +16,8 @@
     "routine-template://cross-domain/orientation@1.0.0",
     "routine-template://cross-domain/follow-up@1.0.0",
     "routine-template://cross-domain/weekly-planning@1.0.0",
-    "routine-template://cross-domain/renewal-expiry@1.0.0"
+    "routine-template://cross-domain/renewal-expiry@1.0.0",
+    "routine-template://business/content-distribution@1.0.0"
   ],
   "composition": {
     "may_combine_with": [
