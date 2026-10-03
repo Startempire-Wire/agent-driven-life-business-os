@@ -63,7 +63,47 @@ Classify it as a deterministic procedure, recurring scheduled process, event-dri
 
 Separate **renewal of existing obligations** from **revival of historical ideas**. Prioritize real customer value and cash preservation before staffing a new product. No historical idea becomes active solely because its old plan is detailed; no new outreach is sent merely because a candidate contact was found.
 
-### 4.1 Compile routine blueprints
+### 4.1 Infer routine candidates and match reusable templates
+
+Do not jump directly from an observed pattern to a scheduled prompt.
+
+For every recurring or missing-control pattern, create a **Routine Inference Matrix** that records:
+
+~~~text
+candidate
+evidence basis
+routine family
+template match
+current burden
+current implementation
+determinism class
+preferred trigger
+human boundary
+required sources
+authority gap
+reliability gap
+Evidence / accepted-outcome requirement
+next state
+~~~
+
+Evidence basis should distinguish at least:
+
+~~~text
+observed_recurring
+owner_declared
+historical_recurring
+archetype_expected
+gap_inferred
+existing_automation
+~~~
+
+Match candidates against the reusable template library in `SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md`.
+
+A template suggestion derived from a life/business archetype MUST say that it is **suggested from archetype, not evidenced as a current recurring burden** when recurrence has not been observed.
+
+Prefer composable life-domain and business-archetype packs over assigning a person one rigid "type."
+
+### 4.2 Compile owner-specific routine blueprints
 
 For each corroborated recurring pattern, produce a reviewable typed routine blueprint containing:
 
@@ -86,6 +126,16 @@ revoke / retire
 ```
 
 A blueprint remains proposed until accepted. It is not an activated worker, schedule or authority grant.
+
+After blueprint acceptance, run a **determinization pass**:
+
+1. convert stable mechanical steps to canonical API/CLI/code operations;
+2. constrain semantic steps to typed inputs, versioned decision/prompt contracts and schema-valid outputs;
+3. preserve UIAI only where no stronger interface exists;
+4. keep genuine human-reserved decisions explicit;
+5. compile the accepted blueprint revision into an `operator.routine_instance.v1` binding before durable activation.
+
+An active instance freezes its blueprint revision, trigger binding, Focusa assignment, step contracts, authority refs, reliability policy and acceptance requirements. Template updates do not silently mutate active instances.
 
 ## 5. Triangulate and build the private matrices
 
