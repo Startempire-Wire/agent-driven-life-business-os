@@ -49,6 +49,12 @@ human attention only where human judgment or authority is genuinely required
 
 SOVOS places the human at the right altitude: **source of purpose and authority, on the loop for oversight and intervention, in the loop for genuine human boundaries, and out of routine operational loops that are already safely delegated.**
 
+A compact Philoveracity-derived operating principle is:
+
+> **Do not confuse the wing with the flight.**
+
+Agents, models, automations and machines are instruments. The operating outcome is returned human capacity: less operational gravity and more freedom for owner-defined purpose, judgment, relationship, creation and stewardship.
+
 See [SOVOS Human Freedom Operating Doctrine](./SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md).
 
 ### Driverless Business
