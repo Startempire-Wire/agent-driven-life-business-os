@@ -747,9 +747,14 @@ In addition to business/life outcome metrics, measure:
 - UIAI fallback rate;
 - evidence completeness;
 - receiver-side acceptance;
-- owner time / attention bought back.
+- owner time / attention bought back;
+- owner-defined capacity returned for higher-purpose work where the owner chooses to measure it.
 
-This lets Quiet Kaizen target instability rather than merely increasing automation.
+The routine is an instrument, not the goal. In the flight metaphor, **do not confuse the wing with the flight**: a routine that becomes elaborate, attention-hungry or dependency-producing can reduce leverage even while its execution reliability improves.
+
+SOVOS may measure returned capacity; it MUST NOT define, score or invent the owner's higher purpose.
+
+This lets Quiet Kaizen target instability and unnecessary machinery rather than merely increasing automation.
 
 ---
 
