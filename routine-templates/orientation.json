@@ -1,0 +1,140 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/orientation",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "cross_domain"
+    ],
+    "routine_family": "orientation",
+    "archetype_tags": [
+      "founder-operator",
+      "household-administrator",
+      "multi-business",
+      "professional"
+    ]
+  },
+  "purpose": {
+    "summary": "Turn current commitments, changes, risks, opportunities and constraints into a bounded orientation brief and next-action frontier.",
+    "outcome_classes": [
+      "current_orientation",
+      "priority_frontier",
+      "human_attention_items"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "commitment_source"
+    ],
+    "optional_signal_classes": [
+      "calendar_source",
+      "inbox_source",
+      "work_source",
+      "personal_constraint_source"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "schedule",
+    "allowed_kinds": [
+      "schedule",
+      "event",
+      "manual"
+    ],
+    "event_preferred": false,
+    "default_cadence": "daily or owner-selected daypart"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect source-owned changes and commitments without mutating them.",
+      "operation_class": "source_read",
+      "required_input_classes": [
+        "commitment_source"
+      ],
+      "output_classes": [
+        "orientation_inputs"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "synthesize",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Synthesize the bounded current frontier, risks and opportunities.",
+      "operation_class": null,
+      "required_input_classes": [
+        "orientation_inputs"
+      ],
+      "output_classes": [
+        "current_orientation",
+        "priority_frontier"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "route_attention",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Emit only source-bearing human attention items.",
+      "operation_class": "attention_projection_write",
+      "required_input_classes": [
+        "priority_frontier"
+      ],
+      "output_classes": [
+        "human_attention_items"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "priority_override"
+    ],
+    "escalation_conditions": [
+      "conflicting_goals",
+      "owner_truth_required"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "current_orientation",
+      "priority_frontier",
+      "human_attention_items"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "reliability",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "scope_refs",
+      "value_type": "ref_list",
+      "required": true,
+      "description": "Owner-approved life/business scopes included in orientation."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
