@@ -1,0 +1,143 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/morning-orientation",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "life",
+      "business",
+      "cross_domain"
+    ],
+    "routine_family": "orientation",
+    "archetype_tags": [
+      "personal-executive",
+      "founder-operator",
+      "multi-business"
+    ]
+  },
+  "purpose": {
+    "summary": "Reconcile current commitments, calendar, communications, unresolved obligations and operating signals into a bounded orientation brief.",
+    "outcome_classes": [
+      "current_orientation",
+      "priority_frontier",
+      "exception_list"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "authorized_commitment_sources"
+    ],
+    "optional_signal_classes": [
+      "calendar",
+      "communications",
+      "work_queue",
+      "portfolio_state"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "schedule",
+    "allowed_kinds": [
+      "schedule",
+      "manual"
+    ],
+    "event_preferred": false,
+    "default_cadence": "daily morning"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect current source-owned commitments and changes.",
+      "operation_class": "typed_operation",
+      "required_input_classes": [
+        "authorized_commitment_sources"
+      ],
+      "output_classes": [
+        "orientation_inputs"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "synthesize",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Prioritize changes, risks, commitments and opportunities without inventing authority.",
+      "operation_class": null,
+      "required_input_classes": [
+        "orientation_inputs"
+      ],
+      "output_classes": [
+        "orientation_brief",
+        "priority_frontier"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "deduplicate",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Suppress resolved or duplicate attention items using source state.",
+      "operation_class": "source_state_reconciliation",
+      "required_input_classes": [
+        "orientation_brief"
+      ],
+      "output_classes": [
+        "exception_list"
+      ],
+      "consequence_class": "read"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "priority_conflict",
+      "owner_truth",
+      "new_authority"
+    ],
+    "escalation_conditions": [
+      "source_conflict",
+      "high_consequence_exception",
+      "owner_truth_missing"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_snapshot_refs",
+      "brief_receipt"
+    ],
+    "outcome_classes": [
+      "current_orientation",
+      "priority_frontier",
+      "exception_list"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "cycle_time",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "orientation_window",
+      "value_type": "string",
+      "required": false,
+      "description": "Time window for new/changed items."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
