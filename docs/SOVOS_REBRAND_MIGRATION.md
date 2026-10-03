@@ -14,6 +14,12 @@ The owner has directed that the architecture currently known as **Agent-Driven L
 
 # **SOVOS — Sovereign Operations System**
 
+Descriptive subtitle / lineage:
+
+## **An Agent-Driven Life & Business Operating System**
+
+The earlier name is not discarded conceptually. It accurately describes the lived operating outcome that SOVOS is designed to produce, while SOVOS names the higher-order doctrine, information infrastructure and sovereignty model.
+
 The rebrand is intended to clarify what the architecture has become:
 
 - owner-rooted rather than model-rooted;
