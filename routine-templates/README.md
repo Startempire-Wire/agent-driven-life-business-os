@@ -6,35 +6,38 @@
 
 This directory converts the SOVOS routine-template doctrine into concrete reusable artifacts.
 
-The initial catalog is grounded in the recurring patterns found in:
+The starter catalog is grounded in recurring patterns found in:
 
 - the connected Drive document **Foundational Systems, Teams & Autonomous Operating Routines** (2026-09-27);
 - **Operating Routines — Cadence, Tools, Agent Capabilities & Implementation** (2026-10-02);
 - the SOVOS Full-Surface Business Discovery Audit;
 - the Portfolio Business Compiler and workforce catalogue.
 
+It intentionally contains **portable abstractions only**. Private operator/customer payload, active credentials, grants, schedules and canonical work state remain in their owning systems.
+
 ## Catalog
 
 | Template | Family | Typical applicability |
 |---|---|---|
 | `orientation.json` | orientation | founder/operator, multi-business, personal executive |
+| `inquiry-triage.json` | intake/triage | services, SaaS, local service, commerce |
 | `follow-up.json` | follow-up | unresolved commitments across life/business |
 | `reconciliation.json` | reconciliation | finance, records, multi-system truth |
 | `delivery-case-review.json` | delivery review | services, SaaS, membership, support |
 | `renewal-expiry.json` | renewal/expiry | contracts, subscriptions, credentials, obligations |
+| `finance-operations.json` | finance operations | invoices, payment events, settlements, recurring obligations, costs |
+| `content-distribution.json` | content/distribution | media, education, community, product distribution |
 | `system-health-exceptions.json` | system health | software/technical operations |
-| `weekly-planning.json` | planning | portfolio/life operating frontier |
+| `incident-response.json` | incident response | impact detection, bounded recovery, consumer verification |
 | `knowledge-freshness.json` | knowledge freshness | research, software, policy/runbook-heavy work |
-| `household-admin.json` | life orientation | household/family logistics and exceptions |
+| `evidence-closure.json` | evidence/closure | receiver-side acceptance, proof, outcome closure |
+| `quiet-kaizen.json` | learning/improvement | constraint discovery, evidence-backed continuous improvement |
+| `workforce-dispatch.json` | workforce dispatch | multi-business, services, SaaS, governed agent workforce |
+| `weekly-planning.json` | planning | portfolio/life operating frontier |
+| `household-admin.json` | life administration | household/family logistics and exceptions |
 | `research-synthesis.json` | learning/improvement | researcher, author, student, creator |
-| `inquiry-triage.json` | intake/triage | services, SaaS, local service, commerce |
-| `content-distribution.json` | content/distribution | media, education, community, product distribution |
-| `workforce-dispatch.json` | workforce dispatch | multi-business, services, SaaS, governed agent workforce |
-| `inquiry-triage.json` | intake/triage | services, SaaS, local service, commerce |
-| `content-distribution.json` | content/distribution | media, education, community, product distribution |
-| `workforce-dispatch.json` | workforce dispatch | multi-business, services, SaaS, governed agent workforce |
 
-The existing contract fixture `tests/fixtures/operator-routine-template.valid.json` remains a compact **business inquiry-triage** example and regression fixture.
+The contract fixture `tests/fixtures/operator-routine-template.valid.json` remains a compact **business inquiry-triage** regression example.
 
 ## Composition rule
 
@@ -65,15 +68,11 @@ template
 
 A template file never creates a schedule, grant, employee, credential, task, or external effect.
 
+## Coverage rule
 
-## Canonical-path rule
+The machine-readable starter catalog must cover the core routine families named by `SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md`. Regression tests fail when a core family is described in doctrine but has no canonical template artifact.
 
-`routine-templates/` is the **canonical portable template catalog**.
-
-The older `templates/routines/` path is retained only as a compatibility/incubation path while unique useful templates are promoted or reconciled. New portable routine templates MUST be added here, not to both locations.
-
-Routine Packs live separately in `routine-packs/` and point only to canonical template IDs.
-
+The starter catalog is not a universal list of routines every owner should activate. Coverage means the compiler has reusable patterns to check for fit; it does not manufacture recurrence or authority.
 
 ## Canonical-path rule
 
