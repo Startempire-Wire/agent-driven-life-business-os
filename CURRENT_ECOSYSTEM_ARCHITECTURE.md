@@ -13,6 +13,34 @@ Where older Golden Path or application-planning text conflicts with this documen
 
 ---
 
+## 0. Information infrastructure beneath the topology
+
+The product topology in this document is an implementation view over a deeper SOVOS information infrastructure.
+
+SOVOS first defines portable laws for:
+
+~~~text
+identity
+source ownership
+semantic objects and relationships
+provenance
+scope / tenancy
+authority and delegation
+freshness / revision
+uncertainty
+Evidence / verification / receipts
+causal correlation
+accepted outcomes
+~~~
+
+Then the product architecture assigns canonical ownership of those concerns to independent systems.
+
+This is why interoperability does not require one global database or one product-owned ontology. Products keep canonical state in their own domains; portable references and contracts preserve enough meaning for safe cross-system operation.
+
+See SOVOS_INFORMATION_INFRASTRUCTURE.md.
+
+---
+
 ## 1. System law
 
 > **One concern, one canonical owner. Many surfaces may project it; no surface becomes a second authority merely because it renders or initiates an operation.**
