@@ -1,0 +1,157 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/weekly-planning",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "cross_domain"
+    ],
+    "routine_family": "planning",
+    "archetype_tags": [
+      "founder-operator",
+      "multi-business",
+      "creator",
+      "researcher",
+      "household-administrator"
+    ]
+  },
+  "purpose": {
+    "summary": "Reconcile accepted outcomes, commitments, constraints and capacity into the next bounded operating frontier.",
+    "outcome_classes": [
+      "weekly_frontier",
+      "capacity_conflicts_identified",
+      "priority_alignment"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "outcome_source",
+      "commitment_source"
+    ],
+    "optional_signal_classes": [
+      "calendar_source",
+      "capacity_source",
+      "finance_source"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "schedule",
+    "allowed_kinds": [
+      "schedule",
+      "manual"
+    ],
+    "event_preferred": false,
+    "default_cadence": "weekly"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect accepted outcomes, commitments and constraints.",
+      "operation_class": "source_read",
+      "required_input_classes": [
+        "outcome_source",
+        "commitment_source"
+      ],
+      "output_classes": [
+        "planning_inputs"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "synthesize",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Synthesize progress, constraints and candidate next priorities.",
+      "operation_class": null,
+      "required_input_classes": [
+        "planning_inputs"
+      ],
+      "output_classes": [
+        "weekly_frontier",
+        "capacity_conflicts_identified"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "direction",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "purpose": "Let the human alter purpose, strategic priority or reserved commitments.",
+      "operation_class": null,
+      "required_input_classes": [
+        "weekly_frontier"
+      ],
+      "output_classes": [
+        "priority_alignment"
+      ],
+      "consequence_class": "human_reserved"
+    },
+    {
+      "step_key": "publish_frontier",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Publish the accepted frontier into owning work/intent systems.",
+      "operation_class": "frontier_update",
+      "required_input_classes": [
+        "priority_alignment"
+      ],
+      "output_classes": [
+        "frontier_receipt"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "strategic_priority",
+      "purpose_change",
+      "major_resource_commitment"
+    ],
+    "escalation_conditions": [
+      "conflicting_goals",
+      "insufficient_capacity"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "weekly_frontier",
+      "capacity_conflicts_identified",
+      "priority_alignment"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "reliability",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "scope_refs",
+      "value_type": "ref_list",
+      "required": true,
+      "description": "Portfolio/life scopes included in weekly planning."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
