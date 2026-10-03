@@ -31,6 +31,13 @@ def main():
 
     template = load(ROOT / "tests/fixtures/operator-routine-template.valid.json")
     routine = load(ROOT / "tests/fixtures/operator-routine-blueprint.valid.json")
+
+    # Every reusable catalog template is a real contract artifact, not prose-only guidance.
+    template_catalog = sorted((ROOT / "routine-templates").glob("*.json"))
+    if len(template_catalog) < 10:
+        raise AssertionError("starter routine template catalog unexpectedly incomplete")
+    for template_path in template_catalog:
+        tv.validate(load(template_path))
     instance = load(ROOT / "tests/fixtures/operator-routine-instance.valid.json")
     leverage = load(ROOT / "tests/fixtures/operator-leverage-snapshot.valid.json")
     tv.validate(template)
