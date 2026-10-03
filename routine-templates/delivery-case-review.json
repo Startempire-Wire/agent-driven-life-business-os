@@ -1,0 +1,155 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://business/delivery-case-review",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "business"
+    ],
+    "routine_family": "delivery_review",
+    "archetype_tags": [
+      "professional-services",
+      "saas",
+      "local-service",
+      "membership"
+    ]
+  },
+  "purpose": {
+    "summary": "Review open customer or delivery cases, surface blockers, advance authorized next actions, and verify receiver-side acceptance.",
+    "outcome_classes": [
+      "case_progressed",
+      "blocked_case_identified",
+      "receiver_acceptance_checked"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "case_source"
+    ],
+    "optional_signal_classes": [
+      "contract_ref",
+      "workstream_ref",
+      "customer_contact_history"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "queue",
+      "schedule"
+    ],
+    "event_preferred": true,
+    "default_cadence": "daily unresolved-case fallback"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "list_open",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "List open in-scope cases and current canonical status.",
+      "operation_class": "source_read",
+      "required_input_classes": [
+        "case_source"
+      ],
+      "output_classes": [
+        "open_case_refs"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "assess",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Assess blocker, next action and acceptance gap.",
+      "operation_class": null,
+      "required_input_classes": [
+        "open_case_refs"
+      ],
+      "output_classes": [
+        "case_action_plan"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "advance",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Execute deterministic already-authorized next actions.",
+      "operation_class": "case_advance",
+      "required_input_classes": [
+        "case_action_plan"
+      ],
+      "output_classes": [
+        "case_action_receipts"
+      ],
+      "consequence_class": "mutate"
+    },
+    {
+      "step_key": "verify",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Verify consumer-side result or produce a blocker.",
+      "operation_class": "acceptance_verify",
+      "required_input_classes": [
+        "case_action_receipts"
+      ],
+      "output_classes": [
+        "receiver_acceptance_checked"
+      ],
+      "consequence_class": "read"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "scope_change",
+      "customer_promise",
+      "material_exception"
+    ],
+    "escalation_conditions": [
+      "contract_ambiguity",
+      "customer_relationship_judgment",
+      "authority_missing"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "case_progressed",
+      "blocked_case_identified",
+      "receiver_acceptance_checked"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "reliability",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "case_source_ref",
+      "value_type": "ref",
+      "required": true,
+      "description": "Canonical case or delivery source."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
