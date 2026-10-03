@@ -482,7 +482,9 @@ The largest remaining gaps are joins, not new products:
 12. Evidence → settlement → source outcome → base leverage closure, with optional W.I.N.S. projection;
 13. sovereign federation end-to-end proof;
 14. worker/partner memory isolation;
-15. executable binding of Golden Path/task trackers into Focusa-governed work.
+15. executable binding of Golden Path/task trackers into Focusa-governed work;
+16. executable audit → Routine Template → Routine Blueprint → Routine Instance compilation;
+17. one real October-2-style routine proven through durable trigger, duplicate/retry/missed-run/failure/revoke semantics and accepted outcome.
 
 See `docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md`.
 
