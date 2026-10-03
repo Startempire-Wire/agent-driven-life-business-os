@@ -1,5 +1,7 @@
 # Agent-Driven Life & Business OS
 
+> **Naming transition:** the owner has directed an intended rebrand to **SOVOS — Sovereign Operations System**. ADLBOS and the current repository slug remain compatibility identifiers while migration and public-name/trademark clearance are completed. Do **not** mass-rename schemas, paths, historical evidence or external identifiers. See [SOVOS Rebrand and Compatibility Migration](./docs/SOVOS_REBRAND_MIGRATION.md).
+
 A portable architecture and deployment doctrine for a human-owned AI operating system spanning life, business, workforce, computers and optional network participation.
 
 **ADLBOS is the integration substrate and doctrine. It is not another runtime, application, database or product tier.**
