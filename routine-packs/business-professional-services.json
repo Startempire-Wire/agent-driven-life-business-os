@@ -1,10 +1,10 @@
 {
   "schema_version": "operator.routine_pack.v1",
   "pack_id": "routine-pack://business/professional-services",
-  "pack_version": "1.0.0",
+  "pack_version": "1.1.0",
   "status": "recommended",
   "domain_class": "business",
-  "summary": "Professional-services pack spanning inquiry, follow-up, delivery, reconciliation and renewals.",
+  "summary": "Professional-services pack spanning inquiry, follow-up, delivery, financial reconciliation, renewals and receiver-side closure.",
   "fit_signals": [
     "client inquiries",
     "project delivery",
@@ -17,7 +17,9 @@
     "routine-template://cross-domain/follow-up@1.0.0",
     "routine-template://business/delivery-case-review@1.0.0",
     "routine-template://cross-domain/reconciliation@1.0.0",
-    "routine-template://cross-domain/renewal-expiry@1.0.0"
+    "routine-template://cross-domain/renewal-expiry@1.0.0",
+    "routine-template://cross-domain/finance-operations@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0"
   ],
   "composition": {
     "may_combine_with": [
