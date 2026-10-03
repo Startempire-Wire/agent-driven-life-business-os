@@ -208,7 +208,7 @@ The private feedback/optimization loop is base ADLBOS behavior for all four setu
 
 ## 6. Portfolio, routines and workforce model
 
-Wirebot's **Portfolio Business Compiler** turns source-backed portfolio/business/life patterns into reviewable routine blueprints and leverage proposals. The **Workforce Composer** designs and commissions the organization/roles/assignments needed to operate accepted routines.
+Wirebot's **Portfolio Business Compiler** turns source-backed portfolio/business/life patterns into routine candidates, matches reusable routine templates, compiles owner-specific routine blueprints, and after acceptance binds deterministic/versioned routine instances for execution and leverage measurement. The **Workforce Composer** designs and commissions the organization/roles/assignments needed to operate accepted routines.
 
 Focusa **Workforce** operates active governed work.
 
@@ -475,11 +475,24 @@ operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
 operator.credential_use_ref.v1
+operator.routine_template.v1
 operator.routine_blueprint.v1
+operator.routine_instance.v1
 operator.leverage_snapshot.v1
 ```
 
 These are reference envelopes, not a new integration database.
+
+Routine law:
+
+- a template is reusable structure, never authority;
+- an audit candidate explains why a routine is suggested;
+- a blueprint is owner-specific proposal;
+- an active routine runs from an exact compiled instance revision;
+- template/library changes never silently change active instances;
+- stable mechanical steps become deterministic operations rather than recurring LLM improvisation;
+- steady unattended routines should normally have a deterministic shell with only bounded semantic islands;
+- a schedule never grants authority and must bind an exact governed assignment/instance.
 
 Exact product state stays with its owner.
 
