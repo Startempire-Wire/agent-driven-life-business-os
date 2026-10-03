@@ -6,6 +6,25 @@ A portable architecture and deployment doctrine for a human-owned AI operating s
 
 **SOVOS is the integration substrate and doctrine. It is not another runtime, application, database or product tier.**
 
+## More than product architecture
+
+SOVOS is not only the topology that connects Wirebot, Focusa, UIAI Engine, Veragensia and other software.
+
+It is built on a **sovereign information infrastructure**: portable laws for identity, semantic meaning, source ownership, provenance, authority, freshness, evidence, causal correlation and accepted outcomes.
+
+~~~text
+doctrine
+→ information constitution
+→ sovereign information infrastructure
+→ operational architecture
+→ software implementations
+→ user/agent surfaces
+~~~
+
+The products remain independent canonical owners in their domains. SOVOS does not centralize them into one database or universal ontology; it defines how information can cross those boundaries without losing meaning or sovereignty.
+
+See [SOVOS Information Infrastructure Doctrine](./SOVOS_INFORMATION_INFRASTRUCTURE.md).
+
 Current architecture authority and product ownership are defined by:
 
 ```text
