@@ -41,6 +41,35 @@ See SOVOS_INFORMATION_INFRASTRUCTURE.md.
 
 ---
 
+## 0.1 Human altitude and agent-driven operation
+
+SOVOS is an **Agent-Driven Life & Business Operating System** under human sovereignty.
+
+The target is not maximum human-in-the-loop interaction. It is correct human placement:
+
+~~~text
+HUMAN SOURCE
+purpose · values · ownership · direction · reserved authority
+
+HUMAN ON THE LOOP
+visibility · pause · revoke · redirect · takeover · challenge
+
+HUMAN IN THE LOOP
+new authority · consequential exception · owner truth · high-level judgment
+
+HUMAN OUT OF ROUTINE OPERATIONAL LOOP
+already-authorized execution · monitoring · coordination · retries · routine decisions
+
+AGENTS IN THE OPERATIONAL LOOP
+persistent governed work across life/business systems
+~~~
+
+Routine work should escalate when it reaches a true authority/judgment boundary, not merely because an agent acted.
+
+See `SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md`.
+
+---
+
 ## 1. System law
 
 > **One concern, one canonical owner. Many surfaces may project it; no surface becomes a second authority merely because it renders or initiates an operation.**
