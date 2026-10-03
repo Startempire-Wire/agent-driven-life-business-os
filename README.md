@@ -207,9 +207,11 @@ SOVOS assumes an owner may operate several businesses, projects and life domains
 ```text
 consented source coverage
 → portfolio/business map
-→ routine inference
-→ routine blueprint
-→ workforce/software/schedule proposal
+→ routine candidate inference
+→ reusable template match
+→ owner-specific routine blueprint
+→ determinization + routine-instance compilation
+→ workforce/software/trigger proposal
 → owner composition
 → Focusa-governed assignment
 → OpenClaw/VPS/UIAI execution
@@ -220,7 +222,11 @@ consented source coverage
 → optional W.I.N.S. progression when enabled
 ```
 
-The compiler is not another database or runtime. The feedback/optimization loop is base SOVOS capability and does not depend on W.I.N.S. W.I.N.S., when enabled for the current setup, is an enhanced progression/recognition/community lens over the same source-qualified outcome and leverage truth. Its game-like dynamics should help the owner feel real momentum from meaningful outcomes and compounding leverage, never reward empty activity or compulsive interaction.
+The compiler is not another database or runtime. The feedback/optimization loop is base SOVOS capability and does not depend on W.I.N.S.
+
+Routine reuse and routine execution are separate concerns. A portable **Routine Template** suggests a reusable pattern; an owner-specific **Routine Blueprint** binds evidence and proposed scope; a compiled **Routine Instance** freezes the exact trigger, assignment, step contracts, authority, reliability and acceptance needed for stable execution.
+
+See [SOVOS Routine Compiler and Template Library Doctrine](./SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md). W.I.N.S., when enabled for the current setup, is an enhanced progression/recognition/community lens over the same source-qualified outcome and leverage truth. Its game-like dynamics should help the owner feel real momentum from meaningful outcomes and compounding leverage, never reward empty activity or compulsive interaction.
 
 ## Workforce Composer versus Focusa Workforce
 
@@ -342,7 +348,9 @@ operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
 operator.credential_use_ref.v1
+operator.routine_template.v1
 operator.routine_blueprint.v1
+operator.routine_instance.v1
 operator.leverage_snapshot.v1
 ```
 
