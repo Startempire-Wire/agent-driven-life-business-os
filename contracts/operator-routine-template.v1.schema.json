@@ -74,6 +74,7 @@
             "content_distribution",
             "system_health",
             "knowledge_freshness",
+            "evidence_closure",
             "learning_improvement",
             "workforce_dispatch",
             "incident_response",
