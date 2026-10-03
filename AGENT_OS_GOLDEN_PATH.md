@@ -385,3 +385,7 @@ Do not preserve obsolete product assumptions merely because they are older. Do n
 ## Completion principle
 
 The Golden Path is successful when a replacement authorized agent can orient from durable state, identify the owner, valid delegated humans and operating partner, discover the applicable products/capabilities, continue governed work through the existing owners, and produce an owner-visible verified outcome without relying on undocumented builder memory or stale cached authority state.
+
+It should also pass the human-altitude test: the deployment must not merely create autonomous machinery. It should reduce operational gravity and return usable capacity to the human while keeping purpose, direction and reserved authority upstream.
+
+> **Do not confuse the wing with the flight.**
