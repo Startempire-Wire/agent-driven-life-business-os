@@ -285,7 +285,13 @@ Correlation IDs should be stable through retries/recovery where the logical requ
 
 ---
 
-## 12. Routine template, blueprint, instance and leverage seams
+## 12. Routine candidate, pack, template, blueprint, instance and leverage seams
+
+`operator.routine_candidate.v1` is the source-backed audit inference that explains why a routine is being proposed, which evidence class supports it, what burden/outcome it addresses, which templates match, what human boundary applies, and what authority/reliability gaps remain. It is not a schedule, assignment or authority grant.
+
+`operator.routine_pack.v1` is a composable suggestion bundle for a life/business operating shape. It points to owner-neutral templates and MUST remain explicitly non-identitarian: a pack helps the compiler ask which routine families are worth checking, not which routines a person or business must run.
+
+
 
 `operator.routine_template.v1` is an owner-neutral reusable pattern. It carries generic fit signals, trigger preferences, step skeleton, human boundaries, reliability defaults, measurement defaults and bindable parameters. It MUST NOT carry customer private payload, active credentials, grants, exact schedules or canonical work state.
 
