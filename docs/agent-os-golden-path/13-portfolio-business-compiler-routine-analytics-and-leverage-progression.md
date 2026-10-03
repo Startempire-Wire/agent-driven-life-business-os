@@ -36,13 +36,19 @@ PORTFOLIO + LIFE/BUSINESS MAP
             ↓
 PATTERN / ROUTINE INFERENCE
             ↓
-ROUTINE BLUEPRINTS
+ROUTINE CANDIDATES
             ↓
-SYSTEM + WORKFORCE INFERENCE
+REUSABLE TEMPLATE MATCHING
+            ↓
+OWNER-SPECIFIC ROUTINE BLUEPRINTS
             ↓
 OWNER COMPOSITION / CORRECTION
             ↓
-DETERMINISTIC COMPILATION
+DETERMINIZATION PASS
+            ↓
+ROUTINE INSTANCE COMPILATION
+            ↓
+SYSTEM + WORKFORCE BINDING
             ↓
 FOCUSA ASSIGNMENT + AUTHORITY
             ↓
@@ -145,6 +151,68 @@ Specific runtime incarnations and hosts are replaceable.
 
 The remote VPS is where unattended recurring work normally lives. The user's Chromebook/laptop remains an interactive body and may execute work, but routine continuity does not depend on it being awake.
 
+## 5A. Routine object model
+
+Keep these distinct:
+
+~~~text
+Routine Template
+  reusable owner-neutral pattern
+
+Routine Candidate
+  evidence-backed audit inference + template matches
+
+Routine Blueprint
+  owner-specific proposed routine
+
+Routine Instance
+  compiled executable binding of an accepted blueprint revision
+
+Routine Run
+  one execution occurrence in the owning scheduler/work/execution systems
+~~~
+
+Portable contracts:
+
+~~~text
+operator.routine_template.v1
+operator.routine_blueprint.v1
+operator.routine_instance.v1
+~~~
+
+A template never grants authority. A blueprint does not become a schedule merely by being accepted. A schedule launches an exact compiled instance; it does not launch a free-form interpretation of the latest template.
+
+See `SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md`.
+
+## 5B. Template library and archetype composition
+
+The template library is a set of reusable patterns, not a universal checklist for every person or business.
+
+Use composable domain packs such as:
+
+~~~text
+life
+  personal administration
+  household / family operations
+  learning / research
+  creator / media
+  finance oversight
+  wellness / care coordination
+
+business
+  professional services
+  software / SaaS
+  membership / community / education
+  ecommerce
+  content / media
+  local / field service
+  multi-business portfolio
+~~~
+
+The audit may recommend a template from archetype evidence even when recurrence is not yet observed, but must label it as a suggestion rather than a discovered burden.
+
+Core families include orientation, intake/triage, follow-up, reconciliation, delivery review, renewal/expiry, finance operations, content/distribution, system health, incident response, knowledge freshness, Evidence/closure, learning/Kaizen, workforce dispatch and planning.
+
 ## 6. Routine blueprint
 
 `operator.routine_blueprint.v1` is the portable compilation envelope.
@@ -196,6 +264,35 @@ Every material routine step is classified before automation.
 
 Human-reserved steps become source-bearing Needs You items rather than hidden workflow stalls.
 
+## 7A. Determinization and compiled instances
+
+Stable autonomy should minimize repeated improvisation.
+
+For every step:
+
+~~~text
+canonical deterministic operation if possible
+→ deterministic transform / rule / state machine
+→ bounded semantic step when judgment is genuinely required
+→ UIAI only when no stronger interface exists
+→ human-reserved when the human boundary is real
+~~~
+
+Use the maturity of the execution shape:
+
+~~~text
+D3 deterministic
+D2 deterministic shell + bounded semantic islands
+D1 agent-led
+D0 human/manual
+~~~
+
+Steady unattended routines should normally reach D2 or D3.
+
+An agentic step in a D2 routine should have typed inputs, narrow purpose, evidence scope, versioned decision/prompt contract, output schema, capability bundle, consequence class, deterministic validation and fail/escalate behavior.
+
+After acceptance, compile `operator.routine_instance.v1`. The instance binds the exact blueprint revision, template lineage, trigger, Focusa assignment, operations/policies, authority, reliability, Evidence and acceptance requirements. Material changes create a new instance revision or governed update.
+
 ## 8. Scheduling and remote execution
 
 OpenClaw's built-in Gateway automations scheduler is the default durable scheduler for owner/business routines when its semantics fit. Explicit product-native/provider/native deterministic schedulers remain valid when they are the stronger owning mechanism.
@@ -230,6 +327,40 @@ OpenClaw due/event
 ```
 
 A schedule never becomes an authority grant by existing. The routine contract records the scheduler class/owner reference explicitly; OpenClaw is the normal default, not a forced wrapper around stronger deterministic/provider-native scheduling.
+
+Prefer causal triggers:
+
+~~~text
+native event / webhook
+→ source queue
+→ condition
+→ schedule
+→ manual
+~~~
+
+A periodic reconciliation routine may coexist with event handling to detect missed events or stale state; it is a separate routine with its own acceptance.
+
+For steady scheduled execution, bind timezone/DST behavior, lease/lock, overlap, missed-run, timeout, retry/backoff, idempotency-key strategy, ambiguous-state reconciliation, failure destination and pause/revoke semantics.
+
+Do not promise distributed exactly-once execution. Prefer idempotent operations, source reconciliation and replay-safe contracts.
+
+Conceptual run lifecycle:
+
+~~~text
+due/event
+→ admission
+→ lease
+→ instance revision
+→ authority/freshness preflight
+→ bounded inputs
+→ execute
+→ verify
+→ settle / receipts
+→ accepted outcome
+→ checkpoint
+→ release
+~~~
+
 
 ## 9. Routine maturity
 
@@ -461,11 +592,13 @@ Prove one routine from beginning to compounding feedback:
 ```text
 multi-source discovery
 → routine candidate
-→ routine blueprint
+→ reusable template match
+→ owner-specific routine blueprint
 → owner correction
-→ assignment compilation
+→ determinization pass
+→ compiled routine instance
 → Focusa binding
-→ OpenClaw schedule on remote VPS
+→ durable event/schedule binding
 → deterministic + agentic execution
 → UIAI only if required
 → Evidence
