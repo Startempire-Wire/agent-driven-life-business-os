@@ -1,0 +1,28 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://startempire-wire.github.io/agent-driven-life-business-os/contracts/operator-routine-pack.v1.schema.json",
+  "title":"Operator Routine Pack v1",
+  "description":"Composable archetype/domain pack that recommends a set of routine templates. A pack is a suggestion surface only; it is not a classification of a person, assignment, schedule, or authority grant.",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","pack_id","pack_version","status","domain_class","summary","fit_signals","template_refs","composition","privacy"],
+  "properties":{
+    "schema_version":{"const":"operator.routine_pack.v1"},
+    "pack_id":{"type":"string","minLength":1},
+    "pack_version":{"type":"string","minLength":1},
+    "status":{"enum":["candidate","recommended","stable","deprecated"]},
+    "domain_class":{"enum":["life","business","cross_domain"]},
+    "summary":{"type":"string","minLength":1},
+    "fit_signals":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+    "template_refs":{"type":"array","minItems":1,"items":{"type":"string","minLength":1},"uniqueItems":true},
+    "composition":{"type":"object","additionalProperties":false,"required":["may_combine_with","selection_rule","archetype_not_identity"],"properties":{
+      "may_combine_with":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+      "selection_rule":{"type":"string","minLength":1},
+      "archetype_not_identity":{"const":true}
+    }},
+    "privacy":{"type":"object","additionalProperties":false,"required":["contains_private_payload","contains_secret_material"],"properties":{
+      "contains_private_payload":{"const":false},
+      "contains_secret_material":{"const":false}
+    }}
+  }
+}
