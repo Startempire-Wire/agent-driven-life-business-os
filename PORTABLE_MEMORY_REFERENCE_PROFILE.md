@@ -4,14 +4,14 @@
 **Schema family:** `agent.memory_contract.v1`<br>
 **Applies with:** `AGENTS.md`, `OWNER_AUTHORITY_CONSTITUTION.md`, `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`, `CURRENT_ECOSYSTEM_ARCHITECTURE.md`, `AMBIENT_OPERATOR_REFERENCE_PROFILE.md`<br>
 **Evolution class:** `portable_operational` (portions touching privacy, tenancy, deletion and authority are `safety_authority`)<br>
-**Version:** `0.1.1` (incubating — not a settled contract)<br>
-**Last substantive revision:** 2026-09-28<br>
+**Version:** `0.2.0` (incubating — install contract now present, not a settled contract)<br>
+**Last substantive revision:** 2026-10-03<br>
 **Architecture authority:** deployment Canonical Owner Principal under `OWNER_AUTHORITY_CONSTITUTION.md`<br>
 **Startempire binding:** Verious Smith III<br>
 **Reference implementation:** Wirebot/OpenClaw memory stack (memory-core, memory-wiki, active-memory, wirebot-memory-bridge, Mem0, Letta), Focusa, Agent Wiki, Context Core<br>
 **Research basis:** arXiv 2603.07670, 2607.21503, 2609.24971, 2608.11775, 2609.08279, 2608.28978, 2609.05339, 2607.27080
 
-This document is an **incubating reference profile**. It is expected to change as deployments produce evidence. It is operationally usable guidance where no stronger owning contract controls, but it is not a settled normative contract and MUST NOT override LIVE constitutional, architecture, product, privacy, tenancy or authority rules. "We wrote it down" is never a reason to stop revising it. See §16.
+This document is an **incubating reference profile**. It is expected to change as deployments produce evidence. It is operationally usable guidance where no stronger owning contract controls, but it is not a settled normative contract and MUST NOT override LIVE constitutional, architecture, product, privacy, tenancy or authority rules. "We wrote it down" is never a reason to stop revising it. See §17.
 
 ## 1. Purpose
 
@@ -256,7 +256,118 @@ Probes should cover accurate retrieval, test-time learning, long-range understan
 
 Mapping is illustrative. A deployment may substitute adapters, but the roles, authority, and budgets above are the portable contract.
 
-## 16. Living maintenance
+## 16. Install and setup contract
+
+This is the section that makes the profile deployable. Everything above is a
+description of correct behaviour; this is the ordered procedure to reach it, plus
+the traps that a competent engineer will otherwise hit.
+
+**Standing:** this is the minimum viable memory substrate. It is not the whole
+system, and it is not a substitute for the tier and governance rules above.
+
+### 16.1 Prerequisites
+
+| Requirement | Why it is not optional |
+|---|---|
+| A durable file store | `MEMORY.md` and the structured store are the substrate; everything else indexes them |
+| One embedding model, pinned by version | An unpinned embedder silently invalidates every existing vector |
+| One LLM endpoint with a **verified billing path** | See 16.7 — an authenticated key that returns HTTP 402/401 is not a working endpoint |
+| A process supervisor with restart ordering | Components depend on each other's readiness, not just their existence |
+| One named owner for transcript memory | Currently unowned (§18.1); a deployment MUST assign it before go-live |
+
+### 16.2 Install order
+
+Order is load-bearing. Each step is verified before the next begins.
+
+| # | Step | Done when |
+|---|---|---|
+| 1 | Create the file store and seed the tiered files | Tier files exist and are readable |
+| 2 | Bring up the embedding + vector store | A stored document is findable by paraphrase |
+| 3 | Wire the structured state store (goals, KPIs, checklists) | An agent can read and write its own state |
+| 4 | Add the cross-surface episodic store | A fact written through one surface is retrievable from another |
+| 5 | Add **attribution and tenancy enforcement** | A write without a source is rejected |
+| 6 | Add the LLM endpoint | A live reasoning request returns a response |
+| 7 | **Establish checkpoints deliberately** | Feeders resume from a known position |
+| 8 | Add async write path | A write returns before indexing completes |
+| 9 | Add verified backups and prove a restore | A restore rehearsal passes |
+| 10 | Add evaluation with a null-memory arm | Recall can be measured *and can fail* |
+
+Steps 7–10 are where a working demo becomes an operable system. A deployment that
+skips them has a memory stack, not a memory contract.
+
+### 16.3 Verification is reachability, never process-alive
+
+**A component is not healthy because its process is running.** Prove the data path.
+
+```
+for each tier:      write a probe -> read it back through the real consumer path
+for each endpoint:  a real request that must traverse every hop
+```
+
+A supervisor reporting `active` while a dependency returns 500 is the single most
+common way a memory system is believed healthy and is not. See 16.7.
+
+### 16.4 Backups must be verified before they are believed
+
+| Rule | Reason |
+|---|---|
+| Never `cp` a live SQLite file | A raw copy can catch a torn page. A `.bak` that is itself corrupt is the fingerprint of exactly this |
+| Use the online backup API, then `integrity_check` | Verification is a precondition of acceptance, not a follow-up |
+| Quarantine a failed verification; never delete it | A failed backup is still evidence |
+| **Rehearse the restore** | An untested backup is a hypothesis |
+
+### 16.5 Checkpoints are a deliberate operation
+
+A missing, unreadable, or non-canonical checkpoint must **never** default to zero.
+Zero means "replay everything", which on a mature store can mean days of duplicate
+ingestion. Establish the watermark from observed truth and record that you did.
+
+### 16.6 Known install traps
+
+Each of these was found in a real deployment, not a design review.
+
+| Trap | Symptom | Cause |
+|---|---|---|
+| **Thread ceiling** | HTTP 500 `can't start new thread` on every search and store | A concurrency limit lower than the request thread count. The service looks healthy and 100% of traffic fails |
+| **Parameter-name drift** | HTTP 200, zero results, no error | The API reads `namespace`; the caller sends `user_id`. A silent false negative presented as truth |
+| **Empty-looking index** | Zero semantic hits | Often the trap above, not data loss. **Measure before concluding loss** |
+| **Unverified provider** | Agent stores perfectly and cannot reason | One dead upstream, no fallback |
+| **Container DNS** | Timeouts with no error on a user-defined network | The network's resolver does not forward external lookups; `--dns` is ignored |
+| **`--rm` + restart race** | Infinite restart loop, `status=125` | Name deregistration races the restart. Needs an explicit cleanup step |
+| **Boot-only gap** | Works until the first power cycle | A unit written to prevent an outage that nothing pulls in at boot |
+| **Wrong file edited** | Changes appear to do nothing | The file that reads as the source of truth is dead code. **Read the unit, not the script** |
+
+### 16.7 The LLM endpoint rule
+
+Before any agent is declared operational, prove the reasoning path end to end:
+
+1. Does the endpoint authenticate? (401 means no)
+2. Does it have **balance**? (402 means a valid key with no funds — the most
+   deceptive failure, because the key is real)
+3. Does it complete a **real** request, not a models list?
+4. Does the agent return actual reasoning content?
+5. Does it survive a restart, and a **second** restart?
+
+Then: **do not run a memory agent on a single endpoint.** Route every call through
+an ordered failover chain. A dead provider must be a log line, not an outage.
+
+### 16.8 What this section does not settle
+
+- **No hardware or cost envelope.** Measured latency and cost vary by corpus size
+  and are deployment-specific.
+- **No multi-region or HA design.** Single-host failover is covered; host-level
+  redundancy is not.
+- **No regulated-data posture.** §11 states the classes; a deployment in a
+  regulated jurisdiction must add its own retention and residency controls.
+- **Migration between substrates is unspecified.** §12 covers model migration, not
+  memory-substrate migration.
+- **The upgrade path is unproven here.** A deployment running a materially older
+  engine should treat its first version jump as a separate, independently verified
+  project — and should not attempt one while its reasoning path is dead.
+
+---
+
+## 17. Living maintenance
 
 This profile is a living contract governed by `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`. It is never `final`.
 
@@ -299,7 +410,7 @@ A commit is not `verified`. A transcript is not `approved`. A passing model crit
 
 1. Target and evolution class explicit;
 2. causal problem tied to source evidence or deterministic reproduction;
-3. ownership routing checked (§17);
+3. ownership routing checked (§18);
 4. smallest semantic delta that solves the problem;
 5. removals/weakening clear the higher evidentiary floor;
 6. protected invariants tested;
@@ -315,16 +426,18 @@ A commit is not `verified`. A transcript is not `approved`. A passing model crit
 | Version | Date | Change | State |
 |---|---|---|---|
 | 0.1.0 | 2026-09-28 | Initial portable memory lifecycle contract. Derived from a live Wirebot incident (retrieval eval structurally unfalsifiable, dead memory backend masked by health checks, context bloat evicting conversation history) and 2026 agent-memory research. | incubating |
-| 0.1.1 | 2026-09-28 | Quality pass. Verified all 8 research citations resolve to the cited titles. Mapped the two omitted substrate primitives (`Capability + policy`, `Resource + leverage`). Added the explicit doctrine-versus-runtime-truth boundary required by `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3, and recorded that **transcript memory currently has no named owner** (§17.1). Not yet addressed: no customer install path (§18 checklist is not a setup contract), memory is not a declared cross-product seam, and vertical worked examples are thin. | incubating |
+| 0.1.1 | 2026-09-28 | Quality pass. Verified all 8 research citations resolve to the cited titles. Mapped the two omitted substrate primitives (`Capability + policy`, `Resource + leverage`). Added the explicit doctrine-versus-runtime-truth boundary required by `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3, and recorded that **transcript memory currently has no named owner** (§18.1). Not yet addressed: no customer install path (§18 checklist is not a setup contract), memory is not a declared cross-product seam, and vertical worked examples are thin. | incubating |
+| 0.2.0 | 2026-10-03 | **Install and setup contract added (§16)** — the profile had descriptions of correct behaviour but no ordered procedure to reach it. Adds prerequisites, a load-bearing 10-step install order with per-step done-conditions, reachability-not-process-alive verification, verified-backup and restore-rehearsal rules, deliberate checkpoint establishment, and eight **known install traps** each recorded from a real deployment rather than a design review. Adds the §16.7 LLM endpoint rule: an authenticated key that returns 402 is not a working endpoint, and no memory agent should run on a single endpoint. Adds seven deployment-readiness checklist items and four new not-done conditions. Sections renumbered 16–20 → 17–21 and cross-references corrected. Still unaddressed: memory is not a declared cross-product seam, and vertical worked examples remain thin. | incubating |
 
 ### Known unproven
 
+- **§16 install order has been derived from one real deployment, not several.** The traps in 16.6 are observed; the ordering itself is reasoned, not A/B validated.
 - Tier latency budgets are starting targets, not measured on any deployment.
 - Hybrid fusion parameters and rerank depth are unspecified; a deployment must measure its own Pareto frontier.
 - Decay scoring function is described but not normalized; importance × recency weighting is untested at scale.
 - No customer deployment has yet validated the causal evaluation harness end to end.
 
-## 17. Ownership routing
+## 18. Ownership routing
 
 **This profile is portable integration doctrine. It is not a runtime, a database, or a memory store.** Consistent with `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3, ADLBOS **does not own runtime learning truth or transcript memory**. This document defines the portable contract an owning product implements; it never holds a customer's memory, never becomes the canonical store, and never promotes itself from doctrine into authority.
 
@@ -333,7 +446,7 @@ portable cross-product memory doctrine defect   -> ADLBOS (this repository)
 agent runtime / Focusa work+authority defect     -> Focusa
 Wirebot context / Operating Partner defect       -> Wirebot
 transcript memory truth and retention             -> the deployment's named
-                                                    product owner (§17.1)
+                                                    product owner (§18.1)
 execution, browser, computer defect               -> UIAI Engine
 accepted-outcome / correction / economics defect -> owning source business/life domain + owner acceptance
 product-specific memory behavior                 -> owning product repository
@@ -343,7 +456,7 @@ product-specific memory behavior                 -> owning product repository
 
 `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3 disclaims **transcript memory** for ADLBOS. No product currently claims it explicitly. Until the Canonical Owner Principal assigns an owner, transcript memory is **unowned** and a deployment must not assume any product holds it canonically. Resolving this is an architecture-authority decision, not a contract-editing decision.
 
-## 18. Implementation and adoption checklist
+## 19. Implementation and adoption checklist
 
 A deployment should not claim portable memory parity until it proves:
 
@@ -366,7 +479,17 @@ A deployment should not claim portable memory parity until it proves:
 - [ ] embedding/model generation pinned and migration-tested;
 - [ ] write authority defined and enforced.
 
-## 19. Not-done conditions
+**Deployment readiness (from §16), proven not assumed:**
+
+- [ ] install executed in the §16.2 order, each step verified before the next;
+- [ ] every tier proven by reachability, not by process-alive;
+- [ ] backups verified **and restore-rehearsed**;
+- [ ] checkpoints established deliberately from observed truth;
+- [ ] LLM endpoint passes all five checks in §16.7;
+- [ ] LLM calls routed through an ordered failover chain, not a single endpoint;
+- [ ] survives two consecutive restarts.
+
+## 20. Not-done conditions
 
 Portable memory is not recovered if:
 
@@ -379,9 +502,13 @@ Portable memory is not recovered if:
 - forgetting happens only by deletion of the source, leaving derived copies behind;
 - memory is used as an authority or permission surface;
 - a customer deployment inherits another tenant's memory;
-- accuracy is purchased with unbounded latency or token cost.
+- accuracy is purchased with unbounded latency or token cost;
+- an agent is declared operational while its reasoning path was never proven end to end;
+- a memory system runs on a single LLM endpoint;
+- a backup exists but was never restore-rehearsed;
+- readiness was claimed from process-alive signals rather than from the data path.
 
-## 20. Final principle
+## 21. Final principle
 
 > **A portable agent OS must be able to remember what matters, say where it came from, admit when it is unsure, and let go of what is no longer true — all within a budget it can defend and an authority it respects.**
 >
