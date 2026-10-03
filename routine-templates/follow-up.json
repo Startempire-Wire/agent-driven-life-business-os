@@ -1,0 +1,137 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/follow-up",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "cross_domain"
+    ],
+    "routine_family": "follow_up",
+    "archetype_tags": [
+      "professional-services",
+      "sales",
+      "household-administrator",
+      "creator",
+      "multi-business"
+    ]
+  },
+  "purpose": {
+    "summary": "Detect unresolved commitments and advance the next already-authorized action or prepare an exception for human attention.",
+    "outcome_classes": [
+      "resolved_open_loop",
+      "next_action_set"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "commitment_ledger"
+    ],
+    "optional_signal_classes": [
+      "message_history",
+      "task_state"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "queue",
+      "schedule"
+    ],
+    "event_preferred": true,
+    "default_cadence": "daily reconciliation fallback"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "detect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Detect unresolved commitments, due actions and stale open loops.",
+      "operation_class": "source_read",
+      "required_input_classes": [
+        "commitment_ledger"
+      ],
+      "output_classes": [
+        "open_loop_refs"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "decide",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Select the next bounded action under accepted policy.",
+      "operation_class": null,
+      "required_input_classes": [
+        "open_loop_refs"
+      ],
+      "output_classes": [
+        "next_action_set"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "commit",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Perform already-authorized deterministic follow-up or record prepared action.",
+      "operation_class": "authorized_follow_up",
+      "required_input_classes": [
+        "next_action_set"
+      ],
+      "output_classes": [
+        "follow_up_receipt"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "new_external_commitment"
+    ],
+    "escalation_conditions": [
+      "authority_missing",
+      "relationship_sensitive",
+      "policy_ambiguous"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "resolved_open_loop",
+      "next_action_set"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "reliability",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "staleness_window",
+      "value_type": "string",
+      "required": false,
+      "description": "Owner-approved age at which an unresolved commitment becomes actionable."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
