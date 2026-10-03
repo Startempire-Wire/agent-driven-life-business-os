@@ -1,0 +1,32 @@
+{
+  "schema_version": "operator.routine_pack.v1",
+  "pack_id": "routine-pack://life/personal-executive",
+  "pack_version": "1.0.0",
+  "status": "recommended",
+  "domain_class": "life",
+  "summary": "Personal executive pack for commitments, calendar, orientation, renewals and follow-through.",
+  "fit_signals": [
+    "multiple recurring commitments",
+    "calendar coordination",
+    "unresolved follow-up",
+    "owner attention fragmentation"
+  ],
+  "template_refs": [
+    "routine-template://cross-domain/orientation@1.0.0",
+    "routine-template://cross-domain/follow-up@1.0.0",
+    "routine-template://cross-domain/renewal-expiry@1.0.0",
+    "routine-template://cross-domain/weekly-planning@1.0.0"
+  ],
+  "composition": {
+    "may_combine_with": [
+      "routine-pack://life/research-creator",
+      "routine-pack://business/founder-portfolio"
+    ],
+    "selection_rule": "Select only routines supported by observed burden, owner declaration, or clearly labeled archetype suggestion.",
+    "archetype_not_identity": true
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
