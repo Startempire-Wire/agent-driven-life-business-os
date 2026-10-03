@@ -101,7 +101,7 @@ Match candidates against the canonical reusable template library in `routine-tem
 
 A template suggestion derived from a life/business archetype MUST say that it is **suggested from archetype, not evidenced as a current recurring burden** when recurrence has not been observed.
 
-Prefer composable life-domain and business-archetype packs over assigning a person one rigid "type." A pack only broadens the search space; each suggested routine still receives its own candidate evidence class and explicit applicability decision.
+Prefer composable life-domain and business-archetype packs over assigning a person one rigid "type." A pack only broadens the search space; each suggested routine still receives its own candidate evidence class and explicit applicability decision. A pack only broadens the search space; each suggested routine still receives its own candidate evidence class and explicit applicability decision.
 
 ### 4.2 Compile owner-specific routine blueprints
 
