@@ -111,3 +111,23 @@ During compatibility migration:
 - a new bare commercial software product/service branded only `SOVOS` should receive use-specific trademark review before launch.
 
 A rename that breaks lineage, consumers, evidence, schema identity or repository tests is an integrity regression.
+
+
+## 10. Routine-library source of truth
+
+The portable routine compiler has one canonical template catalog and one canonical pack catalog:
+
+~~~text
+routine-templates/
+  canonical operator.routine_template.v1 artifacts
+
+routine-packs/
+  canonical operator.routine_pack.v1 artifacts
+
+templates/routines/
+  SUPERSEDED compatibility/incubation path
+~~~
+
+Do not merge both template directories as independent sources. Duplicate IDs across the compatibility path and canonical catalog represent lineage to reconcile, not separate routine authorities.
+
+Typed audit inference uses `contracts/operator-routine-candidate.v1.schema.json`.
