@@ -8,6 +8,7 @@
 **Information infrastructure:** `SOVOS_INFORMATION_INFRASTRUCTURE.md`  
 **Discovery procedure:** `docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md`  
 **Portfolio compiler:** `docs/agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md`
+**Runtime closure plan:** `docs/agent-os-golden-path/14-routine-compiler-runtime-closure-plan.md`
 
 ## 1. Why this layer exists
 
