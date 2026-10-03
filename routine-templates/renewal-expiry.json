@@ -1,0 +1,154 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/renewal-expiry",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "cross_domain"
+    ],
+    "routine_family": "renewal_expiry",
+    "archetype_tags": [
+      "household-administrator",
+      "professional-services",
+      "saas",
+      "multi-business"
+    ]
+  },
+  "purpose": {
+    "summary": "Track expiring obligations and renewals, prepare timely action, and prevent silent lapse without inventing commitments.",
+    "outcome_classes": [
+      "renewal_risk_identified",
+      "renewal_action_prepared",
+      "expiry_prevented"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "time_bound_obligation_source"
+    ],
+    "optional_signal_classes": [
+      "contract_source",
+      "subscription_source",
+      "credential_source"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "condition",
+    "allowed_kinds": [
+      "condition",
+      "event",
+      "schedule"
+    ],
+    "event_preferred": true,
+    "default_cadence": "daily reconciliation fallback"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "scan",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Detect obligations entering owner-defined renewal windows.",
+      "operation_class": "source_read",
+      "required_input_classes": [
+        "time_bound_obligation_source"
+      ],
+      "output_classes": [
+        "renewal_candidates"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "prepare",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Classify consequence and prepare the bounded renewal/non-renewal action.",
+      "operation_class": null,
+      "required_input_classes": [
+        "renewal_candidates"
+      ],
+      "output_classes": [
+        "renewal_action_prepared"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "reserve",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "purpose": "Reserve spending, legal acceptance or strategic renewal decisions for the human when not already delegated.",
+      "operation_class": null,
+      "required_input_classes": [
+        "renewal_action_prepared"
+      ],
+      "output_classes": [
+        "renewal_decision"
+      ],
+      "consequence_class": "human_reserved"
+    },
+    {
+      "step_key": "record",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Record current decision/receipt in the owning source.",
+      "operation_class": "renewal_record",
+      "required_input_classes": [
+        "renewal_decision"
+      ],
+      "output_classes": [
+        "renewal_receipt"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "spend_commitment",
+      "contract_acceptance",
+      "strategic_renewal"
+    ],
+    "escalation_conditions": [
+      "authority_missing",
+      "price_or_terms_changed"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "renewal_risk_identified",
+      "renewal_action_prepared",
+      "expiry_prevented"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "reliability",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "renewal_window",
+      "value_type": "string",
+      "required": true,
+      "description": "Lead time for renewal/expiry review."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
