@@ -62,7 +62,6 @@ def main():
     instance = load(ROOT / "tests/fixtures/operator-routine-instance.valid.json")
     leverage = load(ROOT / "tests/fixtures/operator-leverage-snapshot.valid.json")
     cv.validate(candidate)
-    cv.validate(candidate)
     tv.validate(template)
     rv.validate(routine)
     iv.validate(instance)
@@ -105,10 +104,6 @@ def main():
     secret = copy.deepcopy(routine)
     secret["privacy"]["contains_secret_material"] = True
     invalid(rv, secret, "routine carrying secret material")
-
-    candidate_secret = copy.deepcopy(candidate)
-    candidate_secret["privacy"]["contains_secret_material"] = True
-    invalid(cv, candidate_secret, "routine candidate carrying secret material")
 
     candidate_secret = copy.deepcopy(candidate)
     candidate_secret["privacy"]["contains_secret_material"] = True
