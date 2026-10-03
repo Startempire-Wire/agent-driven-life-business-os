@@ -1,0 +1,148 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/commitment-follow-up",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "life",
+      "business",
+      "cross_domain"
+    ],
+    "routine_family": "follow_up",
+    "archetype_tags": [
+      "personal-executive",
+      "professional-services",
+      "founder-operator"
+    ]
+  },
+  "purpose": {
+    "summary": "Detect unresolved commitments and perform or prepare the next authorized follow-up without losing context.",
+    "outcome_classes": [
+      "commitment_advanced",
+      "next_action_set",
+      "stale_commitment_escalated"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "commitment_source"
+    ],
+    "optional_signal_classes": [
+      "communications",
+      "calendar",
+      "crm_history"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "queue",
+      "schedule"
+    ],
+    "event_preferred": true,
+    "default_cadence": "daily reconciliation fallback"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "detect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Detect unresolved or overdue commitments from canonical sources.",
+      "operation_class": "typed_operation",
+      "required_input_classes": [
+        "commitment_source"
+      ],
+      "output_classes": [
+        "open_commitments"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "classify",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Classify next action, urgency and relationship sensitivity.",
+      "operation_class": null,
+      "required_input_classes": [
+        "open_commitments"
+      ],
+      "output_classes": [
+        "follow_up_plan"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "boundary",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "purpose": "Escalate only follow-ups outside standing authority or requiring relationship judgment.",
+      "operation_class": null,
+      "required_input_classes": [
+        "follow_up_plan"
+      ],
+      "output_classes": [
+        "authorized_follow_up"
+      ],
+      "consequence_class": "human_reserved"
+    },
+    {
+      "step_key": "record",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Record next-action and receipt refs after action.",
+      "operation_class": "source_record_update",
+      "required_input_classes": [
+        "authorized_follow_up"
+      ],
+      "output_classes": [
+        "follow_up_receipt"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "relationship_sensitive_commitment",
+      "new_external_commitment"
+    ],
+    "escalation_conditions": [
+      "authority_missing",
+      "conflicting_commitments",
+      "relationship_sensitive"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_commitment_ref",
+      "action_receipt"
+    ],
+    "outcome_classes": [
+      "commitment_advanced",
+      "next_action_set",
+      "stale_commitment_escalated"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "cycle_time",
+      "reliability"
+    ]
+  },
+  "parameters": [],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
