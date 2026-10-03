@@ -30,6 +30,9 @@ The initial catalog is grounded in the recurring patterns found in:
 | `inquiry-triage.json` | intake/triage | services, SaaS, local service, commerce |
 | `content-distribution.json` | content/distribution | media, education, community, product distribution |
 | `workforce-dispatch.json` | workforce dispatch | multi-business, services, SaaS, governed agent workforce |
+| `inquiry-triage.json` | intake/triage | services, SaaS, local service, commerce |
+| `content-distribution.json` | content/distribution | media, education, community, product distribution |
+| `workforce-dispatch.json` | workforce dispatch | multi-business, services, SaaS, governed agent workforce |
 
 The existing contract fixture `tests/fixtures/operator-routine-template.valid.json` remains a compact **business inquiry-triage** example and regression fixture.
 
@@ -61,6 +64,15 @@ template
 ~~~
 
 A template file never creates a schedule, grant, employee, credential, task, or external effect.
+
+
+## Canonical-path rule
+
+`routine-templates/` is the **canonical portable template catalog**.
+
+The older `templates/routines/` path is retained only as a compatibility/incubation path while unique useful templates are promoted or reconciled. New portable routine templates MUST be added here, not to both locations.
+
+Routine Packs live separately in `routine-packs/` and point only to canonical template IDs.
 
 
 ## Canonical-path rule
