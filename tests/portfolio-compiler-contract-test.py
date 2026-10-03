@@ -16,30 +16,52 @@ def invalid(validator, value, label):
         raise AssertionError(f"{label} unexpectedly validated")
 
 def main():
+    candidate_schema = load(ROOT / "contracts/operator-routine-candidate.v1.schema.json")
     template_schema = load(ROOT / "contracts/operator-routine-template.v1.schema.json")
+    pack_schema = load(ROOT / "contracts/operator-routine-pack.v1.schema.json")
     routine_schema = load(ROOT / "contracts/operator-routine-blueprint.v1.schema.json")
     instance_schema = load(ROOT / "contracts/operator-routine-instance.v1.schema.json")
     leverage_schema = load(ROOT / "contracts/operator-leverage-snapshot.v1.schema.json")
+    Draft202012Validator.check_schema(candidate_schema)
     Draft202012Validator.check_schema(template_schema)
+    Draft202012Validator.check_schema(pack_schema)
     Draft202012Validator.check_schema(routine_schema)
     Draft202012Validator.check_schema(instance_schema)
     Draft202012Validator.check_schema(leverage_schema)
+    cv = Draft202012Validator(candidate_schema)
     tv = Draft202012Validator(template_schema)
+    pv = Draft202012Validator(pack_schema)
     rv = Draft202012Validator(routine_schema)
     iv = Draft202012Validator(instance_schema)
     lv = Draft202012Validator(leverage_schema)
 
+    candidate = load(ROOT / "tests/fixtures/operator-routine-candidate.valid.json")
     template = load(ROOT / "tests/fixtures/operator-routine-template.valid.json")
     routine = load(ROOT / "tests/fixtures/operator-routine-blueprint.valid.json")
 
     # Every reusable catalog template is a real contract artifact, not prose-only guidance.
     template_catalog = sorted((ROOT / "routine-templates").glob("*.json"))
-    if len(template_catalog) < 10:
+    if len(template_catalog) < 13:
         raise AssertionError("starter routine template catalog unexpectedly incomplete")
+    template_ids = set()
     for template_path in template_catalog:
-        tv.validate(load(template_path))
+        item = load(template_path)
+        tv.validate(item)
+        template_ids.add(item["template_id"] + "@" + item["template_version"])
+
+    pack_catalog = sorted((ROOT / "routine-packs").glob("*.json"))
+    if len(pack_catalog) < 6:
+        raise AssertionError("starter routine pack catalog unexpectedly incomplete")
+    for pack_path in pack_catalog:
+        pack = load(pack_path)
+        pv.validate(pack)
+        for ref in pack["template_refs"]:
+            if ref not in template_ids:
+                raise AssertionError(f"routine pack {pack_path.name} references missing canonical template {ref}")
+
     instance = load(ROOT / "tests/fixtures/operator-routine-instance.valid.json")
     leverage = load(ROOT / "tests/fixtures/operator-leverage-snapshot.valid.json")
+    cv.validate(candidate)
     tv.validate(template)
     rv.validate(routine)
     iv.validate(instance)
@@ -82,6 +104,10 @@ def main():
     secret = copy.deepcopy(routine)
     secret["privacy"]["contains_secret_material"] = True
     invalid(rv, secret, "routine carrying secret material")
+
+    candidate_secret = copy.deepcopy(candidate)
+    candidate_secret["privacy"]["contains_secret_material"] = True
+    invalid(cv, candidate_secret, "routine candidate carrying secret material")
 
     private_template = copy.deepcopy(template)
     private_template["privacy"]["contains_private_payload"] = True
