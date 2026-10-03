@@ -386,6 +386,29 @@ The target is:
 
 ---
 
+## 12A. Driverless Business
+
+The human-freedom goal reaches its operational limit in the concept of a **Driverless Business**.
+
+Driverless does not mean purposeless, ownerless or ungoverned. It means that purpose, routines, decision behavior, operating knowledge, authority and exception handling are mapped deeply enough that the business does not require continuous human intervention.
+
+The human remains able to take over at any time but is no longer required to perform ordinary operation.
+
+This is a direct leverage mechanism:
+
+~~~text
+human purpose
+→ mapped operating knowledge
+→ bounded delegated authority
+→ governed agent operation
+→ exception-driven human attention
+→ capacity returned to the human
+~~~
+
+See [SOVOS Driverless Business Doctrine](./SOVOS_DRIVERLESS_BUSINESS_DOCTRINE.md).
+
+---
+
 ## 13. Compact doctrine
 
 > **SOVOS is an Agent-Driven Life & Business Operating System whose purpose is to move routine operational gravity from the human to governed agents while keeping purpose, direction and legitimate authority rooted in the human. The machine carries more of the work so the person can spend more of life on what only the person can decide, create, love, steward and become.**
