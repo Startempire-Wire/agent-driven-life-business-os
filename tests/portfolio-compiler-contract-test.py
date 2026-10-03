@@ -16,16 +16,26 @@ def invalid(validator, value, label):
         raise AssertionError(f"{label} unexpectedly validated")
 
 def main():
+    template_schema = load(ROOT / "contracts/operator-routine-template.v1.schema.json")
     routine_schema = load(ROOT / "contracts/operator-routine-blueprint.v1.schema.json")
+    instance_schema = load(ROOT / "contracts/operator-routine-instance.v1.schema.json")
     leverage_schema = load(ROOT / "contracts/operator-leverage-snapshot.v1.schema.json")
+    Draft202012Validator.check_schema(template_schema)
     Draft202012Validator.check_schema(routine_schema)
+    Draft202012Validator.check_schema(instance_schema)
     Draft202012Validator.check_schema(leverage_schema)
+    tv = Draft202012Validator(template_schema)
     rv = Draft202012Validator(routine_schema)
+    iv = Draft202012Validator(instance_schema)
     lv = Draft202012Validator(leverage_schema)
 
+    template = load(ROOT / "tests/fixtures/operator-routine-template.valid.json")
     routine = load(ROOT / "tests/fixtures/operator-routine-blueprint.valid.json")
+    instance = load(ROOT / "tests/fixtures/operator-routine-instance.valid.json")
     leverage = load(ROOT / "tests/fixtures/operator-leverage-snapshot.valid.json")
+    tv.validate(template)
     rv.validate(routine)
+    iv.validate(instance)
     lv.validate(leverage)
 
     # The base optimization loop must validate with no W.I.N.S. dependency.
@@ -66,6 +76,30 @@ def main():
     secret["privacy"]["contains_secret_material"] = True
     invalid(rv, secret, "routine carrying secret material")
 
+    private_template = copy.deepcopy(template)
+    private_template["privacy"]["contains_private_payload"] = True
+    invalid(tv, private_template, "portable routine template containing private payload")
+
+    active_instance_without_assignment = copy.deepcopy(instance)
+    active_instance_without_assignment["supervision"]["focusa_assignment_ref"] = None
+    invalid(iv, active_instance_without_assignment, "active routine instance without Focusa assignment")
+
+    active_instance_without_grant = copy.deepcopy(instance)
+    active_instance_without_grant["authority_binding"]["grant_refs"] = []
+    invalid(iv, active_instance_without_grant, "active routine instance without authority grant")
+
+    scheduled_instance_without_schedule = copy.deepcopy(instance)
+    scheduled_instance_without_schedule["trigger_binding"]["schedule_ref"] = None
+    invalid(iv, scheduled_instance_without_schedule, "scheduled routine instance without schedule ref")
+
+    deterministic_without_operation = copy.deepcopy(instance)
+    deterministic_without_operation["compiled_steps"][0]["operation_ref"] = None
+    invalid(iv, deterministic_without_operation, "deterministic step without operation ref")
+
+    template_secret = copy.deepcopy(template)
+    template_secret["privacy"]["contains_secret_material"] = True
+    invalid(tv, template_secret, "routine template carrying secret material")
+
     no_scope2 = copy.deepcopy(leverage)
     no_scope2["scope"]["business_refs"] = []
     no_scope2["scope"]["life_domain_refs"] = []
@@ -92,6 +126,10 @@ def main():
         "Leverage means one change increases future capacity.",
         "W.I.N.S. is an optional setup-aware progression/recognition/community projection.",
         "W.I.N.S.=off",
+        "Routine Template",
+        "Routine Instance",
+        "Steady unattended routines should normally reach D2 or D3",
+        "Do not promise distributed exactly-once execution",
     ]:
         if phrase not in doc:
             raise AssertionError(f"portfolio compiler doctrine missing: {phrase}")
