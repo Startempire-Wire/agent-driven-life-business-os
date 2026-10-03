@@ -1,0 +1,35 @@
+{
+  "schema_version": "operator.routine_pack.v1",
+  "pack_id": "routine-pack://business/founder-portfolio",
+  "pack_version": "1.0.0",
+  "status": "recommended",
+  "domain_class": "cross_domain",
+  "summary": "Multi-business founder pack for portfolio orientation, shared reconciliation, systems health and weekly outcome review.",
+  "fit_signals": [
+    "multiple businesses",
+    "shared infrastructure",
+    "cross-business obligations",
+    "owner as integration point"
+  ],
+  "template_refs": [
+    "routine-template://cross-domain/orientation@1.0.0",
+    "routine-template://cross-domain/reconciliation@1.0.0",
+    "routine-template://business/system-health-exceptions@1.0.0",
+    "routine-template://cross-domain/weekly-planning@1.0.0",
+    "routine-template://cross-domain/knowledge-freshness@1.0.0"
+  ],
+  "composition": {
+    "may_combine_with": [
+      "routine-pack://business/professional-services",
+      "routine-pack://business/software-saas",
+      "routine-pack://business/content-community",
+      "routine-pack://life/personal-executive"
+    ],
+    "selection_rule": "Preserve per-business authority/data boundaries; shared routines may aggregate refs but must not merge canonical records.",
+    "archetype_not_identity": true
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
