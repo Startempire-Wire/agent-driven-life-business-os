@@ -1,0 +1,137 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://business/weekly-outcome-review",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "business",
+      "cross_domain"
+    ],
+    "routine_family": "planning",
+    "archetype_tags": [
+      "founder-operator",
+      "multi-business",
+      "professional-services",
+      "saas"
+    ]
+  },
+  "purpose": {
+    "summary": "Reconcile commitments, accepted outcomes, blockers, capacity and open exceptions into the next operating frontier.",
+    "outcome_classes": [
+      "weekly_frontier",
+      "blocked_work_visible",
+      "capacity_aligned"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "accepted_outcome_source",
+      "commitment_source"
+    ],
+    "optional_signal_classes": [
+      "pipeline_state",
+      "capacity_state",
+      "routine_analytics"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "schedule",
+    "allowed_kinds": [
+      "schedule",
+      "manual"
+    ],
+    "event_preferred": false,
+    "default_cadence": "weekly"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect accepted outcomes, open commitments and unresolved exceptions.",
+      "operation_class": "typed_operation",
+      "required_input_classes": [
+        "accepted_outcome_source",
+        "commitment_source"
+      ],
+      "output_classes": [
+        "weekly_state"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "synthesize",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Identify progress, constraint, risk and next frontier.",
+      "operation_class": null,
+      "required_input_classes": [
+        "weekly_state"
+      ],
+      "output_classes": [
+        "weekly_review",
+        "proposed_frontier"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "direction",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "purpose": "Reserve changes to strategic priority, purpose or material resource allocation for the owner.",
+      "operation_class": null,
+      "required_input_classes": [
+        "proposed_frontier"
+      ],
+      "output_classes": [
+        "accepted_frontier"
+      ],
+      "consequence_class": "human_reserved"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "strategic_priority_change",
+      "material_resource_allocation"
+    ],
+    "escalation_conditions": [
+      "goal_conflict",
+      "cross_business_tradeoff",
+      "owner_direction_needed"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "accepted_outcome_refs",
+      "frontier_receipt"
+    ],
+    "outcome_classes": [
+      "weekly_frontier",
+      "blocked_work_visible",
+      "capacity_aligned"
+    ],
+    "leverage_dimensions": [
+      "outcome",
+      "attention_reduction",
+      "compounding",
+      "reuse"
+    ]
+  },
+  "parameters": [],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
