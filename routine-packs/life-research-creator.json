@@ -1,0 +1,31 @@
+{
+  "schema_version": "operator.routine_pack.v1",
+  "pack_id": "routine-pack://life/research-creator",
+  "pack_version": "1.0.0",
+  "status": "recommended",
+  "domain_class": "life",
+  "summary": "Research/creator pack for source intake, synthesis, knowledge freshness and planning.",
+  "fit_signals": [
+    "ongoing reading or research",
+    "writing or media production",
+    "large source corpus",
+    "recurring synthesis"
+  ],
+  "template_refs": [
+    "routine-template://life/research-synthesis@1.0.0",
+    "routine-template://cross-domain/knowledge-freshness@1.0.0",
+    "routine-template://cross-domain/weekly-planning@1.0.0"
+  ],
+  "composition": {
+    "may_combine_with": [
+      "routine-pack://life/personal-executive",
+      "routine-pack://business/content-community"
+    ],
+    "selection_rule": "Bind publication/distribution only when the owner actually has a publishing workflow and appropriate authority.",
+    "archetype_not_identity": true
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
