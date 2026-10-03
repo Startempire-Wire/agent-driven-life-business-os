@@ -451,6 +451,14 @@ That can return to the human:
 
 The business becomes less dependent on the owner's minute-by-minute labor without becoming less rooted in the owner's purpose.
 
+This creates an **altitude test** for driverless operation:
+
+> **Does the machinery merely become more autonomous, or does the human actually gain usable capacity for higher-purpose work?**
+
+The automation stack is an instrument, not the destination. In the Philoveracity flight metaphor: **do not confuse the wing with the flight**. A more elaborate autonomous system that creates new dependence, monitoring burden or maintenance gravity can be a regression even if more tasks are technically automated.
+
+Driverless maturity should therefore buy back human life, not merely accumulate autonomous machinery.
+
 ---
 
 ## 13. Driverless life domains
