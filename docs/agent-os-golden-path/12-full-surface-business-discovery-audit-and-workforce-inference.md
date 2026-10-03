@@ -67,7 +67,7 @@ Separate **renewal of existing obligations** from **revival of historical ideas*
 
 Do not jump directly from an observed pattern to a scheduled prompt.
 
-For every recurring or missing-control pattern, create a **Routine Inference Matrix** that records:
+For every recurring or missing-control pattern, emit a machine-valid **`operator.routine_candidate.v1`** and render it in a human-readable **Routine Inference Matrix** that records:
 
 ~~~text
 candidate
@@ -97,11 +97,11 @@ gap_inferred
 existing_automation
 ~~~
 
-Match candidates against the reusable template library in `SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md`.
+Match candidates against the canonical reusable template library in `routine-templates/` and the composable suggestion packs in `routine-packs/`, under the rules in `SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md`.
 
 A template suggestion derived from a life/business archetype MUST say that it is **suggested from archetype, not evidenced as a current recurring burden** when recurrence has not been observed.
 
-Prefer composable life-domain and business-archetype packs over assigning a person one rigid "type."
+Prefer composable life-domain and business-archetype packs over assigning a person one rigid "type." A pack only broadens the search space; each suggested routine still receives its own candidate evidence class and explicit applicability decision.
 
 ### 4.2 Compile owner-specific routine blueprints
 
