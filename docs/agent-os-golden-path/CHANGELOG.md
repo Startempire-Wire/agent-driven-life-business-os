@@ -2,6 +2,28 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+
+## 0.2.5-candidate — 2026-10-03
+
+### Routine library and runtime-closure planning completion
+
+- **Core routine-family artifacts completed:** added canonical finance-operations, incident-response, Evidence/closure and Quiet Kaizen templates; added the additive `evidence_closure` routine-family contract value.
+- **Starter operating-shape coverage completed:** added household/family, personal-finance, wellness/care, e-commerce/product and local/field-service Routine Packs while preserving non-identitarian composition rules.
+- **Existing packs strengthened:** professional-services, software/SaaS, content/community and founder-portfolio packs now compose the relevant finance, incident, closure, workforce and Quiet Kaizen patterns.
+- **Catalog drift guarded:** added a regression that validates all canonical templates/packs, requires the doctrine's core routine families and starter pack IDs, and rejects pack refs to missing canonical templates.
+- **Canonical catalog documentation cleaned:** removed duplicate routine-template catalog rows/path guidance and made the portable/private boundary explicit.
+- **Runtime closure plan added:** `14-routine-compiler-runtime-closure-plan.md` defines an inquiry-triage vertical slice from source observation through candidate/template/blueprint, Focusa binding, immutable Routine Instance, durable trigger, shadow/pilot, Evidence/receiver acceptance, leverage and Quiet Kaizen.
+- **Negative-path proof made explicit:** duplicate events, stale grants, wrong tenant, provider timeout, ambiguous completion, missed runs, overlap, takeover/revoke and incomplete Evidence are required acceptance cases.
+- **Generalization proof made explicit:** the same canonical inquiry-triage template must pass across two isolated owner-specific business bindings without portable-template mutation or cross-binding leakage.
+
+### Preservation and honest status
+
+- Portable templates and packs do not absorb private Drive/customer payload, credentials, active grants, schedules or canonical work state.
+- OpenClaw remains the default durable automation owner where appropriate; Focusa remains work/authority/Evidence owner; source domains retain accepted-outcome truth; Wirebot/Perpetua owns private leverage/Quiet Kaizen synthesis.
+- W.I.N.S. remains optional/setup-aware according to 0.2.4.
+- `SAG-10` and `SAG-18` remain open. This candidate completes the portable planning/library and exact acceptance plan; it does **not** claim the end-to-end runtime compiler or steady routine execution has passed.
+
+
 ## 0.2.4-candidate — 2026-09-27
 
 ### Base feedback loop and four Wirebot setup correction
