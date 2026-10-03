@@ -36,7 +36,6 @@ def main():
     lv = Draft202012Validator(leverage_schema)
 
     candidate = load(ROOT / "tests/fixtures/operator-routine-candidate.valid.json")
-    candidate = load(ROOT / "tests/fixtures/operator-routine-candidate.valid.json")
     template = load(ROOT / "tests/fixtures/operator-routine-template.valid.json")
     routine = load(ROOT / "tests/fixtures/operator-routine-blueprint.valid.json")
 
