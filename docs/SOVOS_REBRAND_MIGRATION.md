@@ -1,10 +1,10 @@
 # SOVOS Rebrand and Compatibility Migration
 
-**Status:** OWNER-DIRECTED REBRAND INTENT — staged migration; public/name clearance gate open  
+**Status:** ACTIVE HUMAN-FACING REBRAND — compatibility preserved; qualified naming strategy  
 **Opened:** 2026-10-03  
 **Current repository slug:** `Startempire-Wire/agent-driven-life-business-os`  
 **Historical/current compatibility name:** Agent-Driven Life & Business OS / **ADLBOS**  
-**Intended public name:** **SOVOS — Sovereign Operations System**
+**Canonical human-facing architecture name:** **SOVOS — Sovereign Operations System**
 
 ---
 
@@ -60,11 +60,11 @@ The architecture already teaches that identity and implementation are different.
 
 ## 3. Current naming state
 
-Until the public/name-clearance gate closes:
+The human-facing architecture name may proceed as SOVOS now. Existing technical identifiers remain compatibility contracts:
 
 ```text
 SOVOS
-  intended public / conceptual identity
+  canonical human-facing architecture / doctrine identity
 
 ADLBOS
   historical and compatibility identifier
@@ -145,19 +145,23 @@ History is not drift.
 - record external naming/trademark risk;
 - allow SOVOS language in philosophy, design exploration and migration planning.
 
-### Phase 1 — public-name clearance
+### Phase 1 — human-facing doctrine and qualified public identity
 
-Before an irreversible public software rebrand:
+Proceed with:
 
-- professional trademark/name review;
-- domain strategy;
-- search/market-confusion review;
-- product-name relationship review across Wirebot, Focusa, UIAI Engine, Veragensia and Startempire Wire;
-- decide whether **SOVOS**, a qualified variant, or another name is the final public mark.
+- **SOVOS — Sovereign Operations System** as the architecture/doctrine name;
+- **SOVOS Institute** as the teaching/research identity where organizational eligibility and structure support it;
+- `sovos.ong` as the intended institutional domain if PIR eligibility is genuinely satisfied;
+- clear association with Philoveracity where useful;
+- preservation of the distinct software-product names: Wirebot, Focusa, UIAI Engine, Veragensia and others.
+
+SOVOS is **not** a replacement product name for Wirebot, Focusa, UIAI Engine, Veragensia or another implementation. That distinction materially reduces market confusion and is part of the brand architecture.
+
+Trademark/name review remains prudent for any proposed **bare SOVOS software product/service mark**, but it does not pause the doctrine/Institute migration.
 
 ### Phase 2 — human-facing current doctrine
 
-After clearance:
+Proceed with:
 
 - README/title language;
 - current architecture prose;
@@ -214,7 +218,7 @@ The repository slug may remain historical indefinitely without harming the publi
 
 ---
 
-## 6. Name-clearance warning
+## 6. External-name context and qualified-use rule
 
 A material external conflict was discovered before the migration was made irreversible.
 
@@ -226,11 +230,13 @@ As of 2026-10-03:
 
 This repository does not decide trademark law.
 
-It does establish a release discipline:
+It establishes a narrower naming discipline:
 
-> **Do not complete an irreversible public SOVOS software rebrand until competent trademark/name clearance evaluates the proposed uses.**
+> **Proceed with SOVOS as the architecture/doctrine and Institute identity; do not casually introduce a new bare `SOVOS` commercial software product in the tax/compliance/enterprise-software market without specific trademark review.**
 
-This is a risk gate, not a reversal of the owner's SOVOS direction.
+The domain suffix `.ong` and qualified forms such as **SOVOS Institute**, **SOVOS — Sovereign Operations System**, and **SOVOS by Philoveracity** strengthen contextual distinction, but a TLD is not itself a trademark-law exemption.
+
+The existing software products keep their own names. This repository's rebrand therefore does not require turning SOVOS into a competing tax/compliance software brand.
 
 ---
 
@@ -320,7 +326,8 @@ one architecture
 
 The rebrand is complete only when:
 
-- the final public name is cleared for the intended uses;
+- the human-facing architecture/doctrine identity is consistently SOVOS;
+- any new bare commercial software use of SOVOS receives the specific clearance appropriate to that use;
 - current human-facing doctrine agrees on that name;
 - product surfaces adopt it coherently;
 - old links/identifiers continue to work where promised;
