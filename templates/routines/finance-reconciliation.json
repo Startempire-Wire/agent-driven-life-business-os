@@ -1,0 +1,151 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://business/finance-reconciliation",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "business"
+    ],
+    "routine_family": "finance_ops",
+    "archetype_tags": [
+      "professional-services",
+      "saas",
+      "membership-community",
+      "ecommerce",
+      "multi-business"
+    ]
+  },
+  "purpose": {
+    "summary": "Reconcile invoices, payment-provider notifications and settlement sources without treating notifications as accounting truth.",
+    "outcome_classes": [
+      "financial_state_reconciled",
+      "exception_identified",
+      "receivable_visibility"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "financial_source"
+    ],
+    "optional_signal_classes": [
+      "invoice_source",
+      "payment_processor",
+      "bank_settlement_source"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "schedule",
+      "queue"
+    ],
+    "event_preferred": true,
+    "default_cadence": "weekly plus monthly close reconciliation"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect source-owned financial references without moving money.",
+      "operation_class": "typed_operation",
+      "required_input_classes": [
+        "financial_source"
+      ],
+      "output_classes": [
+        "financial_refs"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "reconcile",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Join invoice, notification and settlement refs by source-qualified identity.",
+      "operation_class": "financial_reconciliation",
+      "required_input_classes": [
+        "financial_refs"
+      ],
+      "output_classes": [
+        "reconciliation_state"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "explain",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Classify unresolved discrepancies and required next action.",
+      "operation_class": null,
+      "required_input_classes": [
+        "reconciliation_state"
+      ],
+      "output_classes": [
+        "finance_exceptions"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "boundary",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "purpose": "Escalate money movement, disputed terms or unknown ownership.",
+      "operation_class": null,
+      "required_input_classes": [
+        "finance_exceptions"
+      ],
+      "output_classes": [
+        "finance_decisions"
+      ],
+      "consequence_class": "human_reserved"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "money_movement",
+      "terms_change",
+      "financial_dispute"
+    ],
+    "escalation_conditions": [
+      "unreconciled_cash",
+      "unknown_owner",
+      "material_discrepancy"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "invoice_ref",
+      "payment_ref",
+      "settlement_ref"
+    ],
+    "outcome_classes": [
+      "financial_state_reconciled",
+      "exception_identified",
+      "receivable_visibility"
+    ],
+    "leverage_dimensions": [
+      "risk_reduction",
+      "attention_reduction",
+      "outcome",
+      "reliability"
+    ]
+  },
+  "parameters": [],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
