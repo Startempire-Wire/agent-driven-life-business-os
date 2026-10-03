@@ -276,6 +276,8 @@ Turn proven gains into reusable defaults/tools/contracts. Do not systemize specu
 
 Leverage is compounding capacity: reducing future effort, removing constraints, creating reusable capability, delegating safely, improving reliability, or enabling additional outcomes. Track it from verified before/after evidence where possible. Never manufacture leverage points from raw activity.
 
+Apply the altitude test: **do not confuse the wing with the flight.** More agents, automations, routines or machinery are not leverage when they create equal or greater owner burden. Prefer changes that return usable human capacity while preserving owner-defined purpose and authority.
+
 ---
 
 ## 7.1 Evidence-gated contract evolution
