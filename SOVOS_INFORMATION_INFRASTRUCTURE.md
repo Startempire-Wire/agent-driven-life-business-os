@@ -316,7 +316,9 @@ correlation
 capability posture
 closure
 credential-use reference
+routine template
 routine blueprint
+routine instance
 leverage snapshot
 federation grants / projections
 ~~~
