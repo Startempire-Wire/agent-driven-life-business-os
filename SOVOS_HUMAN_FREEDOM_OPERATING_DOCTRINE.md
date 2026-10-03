@@ -260,6 +260,25 @@ FLIGHT
 
 > **The system carries more of the gravity so the person can fly.**
 
+### 7A. Do not confuse the wing with the flight
+
+The Philoveracity First Flight source tradition contains a useful operating correction: **there were no wings**.
+
+SOVOS carries the portable lesson, not a theological or physical claim.
+
+The agent, model, computer, automation, interface and operating system are instruments. They are not the human capability or the human purpose.
+
+A system has failed the freedom objective when it:
+
+- increases machine activity while leaving the human equally burdened;
+- makes the owner dependent on unnecessary complexity;
+- captures attention that the automation was supposed to return;
+- substitutes its own goals for the person's higher purposes.
+
+A system is succeeding when the instrument recedes and the person's real capability, optionality, time and freedom increase.
+
+> **The wing is not the flight. Returned human capacity is the point.**
+
 ---
 
 ## 8. Higher purpose is not defined by the machine
