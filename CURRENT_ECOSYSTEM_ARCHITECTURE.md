@@ -840,7 +840,9 @@ Shared visual language is encouraged. Shared canonical state is not.
 19. make W.I.N.S. a setup-aware optional projection for Sovereign Operator/Sovereign while preserving Direct/Network policy distinctions;
 20. expose private momentum/leverage and optimization proposals coherently across Wirebot App and Focusa Workforce even with W.I.N.S. disabled;
 21. prove one multi-business portfolio slice where a shared capability improves more than one business without crossing scope;
-22. prove the same optimization loop with W.I.N.S. enabled and disabled, with identical underlying outcome/leverage truth.
+22. prove the same optimization loop with W.I.N.S. enabled and disabled, with identical underlying outcome/leverage truth;
+23. compile audit routine candidates through reusable template → owner-specific blueprint → immutable Routine Instance without creating a new scheduler/work authority;
+24. prove one real routine from the operator inventory end-to-end through Focusa assignment, durable trigger, deterministic/bounded-semantic steps, overlap/idempotency/retry/missed-run/revoke behavior, Evidence and source-domain accepted outcome.
 
 ---
 
