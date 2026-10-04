@@ -216,6 +216,72 @@ SOVOS treats ntfy as a **channel adapter under Wirebot/OpenClaw**, not as:
 
 A deployment may choose another transport with equivalent semantics.
 
+### 3A. ntfy downside analysis
+
+ntfy is useful because it is simple, open and self-hostable, but SOVOS MUST preserve these downsides:
+
+| Downside | Architectural consequence |
+|---|---|
+| **Not SMS** | Owner must install/use ntfy app/PWA or a branded client |
+| **Lower reach than SMS** | Enrollment, notification permission and client health become prerequisites |
+| **No portable inline free-text notification reply** | Free text usually requires opening ntfy/Wirebot; one-tap actions fit bounded choices better |
+| **Self-hosted iOS instant push has an upstream dependency by default** | Official iOS client normally needs an APNs/FCM-capable upstream such as ntfy.sh unless Wirebot builds its own push stack |
+| **Self-hosted Android can require a persistent connection** | Avoiding Firebase can increase background/battery/operability burden |
+| **Browser/PWA behavior varies** | Background delivery/actions depend on browser/platform and long-unused web push can pause |
+| **Topic/ACL setup is a security footgun** | Never use guessable public topics for Sovereign control; require auth/default-deny ACLs |
+| **Messages are cached, not a durable ledger** | ntfy must never own Evidence, conversation truth or Follow-Through state |
+| **No built-in E2E guarantee for message content** | Use TLS, self-hosting, redacted payloads and deep links for sensitive detail |
+| **Hosted ntfy is best-effort** | Critical routine continuity cannot depend on ntfy delivery |
+| **Full white-label mobile UX is not turnkey** | Native rebranding means maintaining client forks, signing and push credentials |
+| **Payload/push size limits** | Keep owner alerts concise; use Wirebot for detail |
+
+### 3B. White-label posture
+
+**Yes, ntfy can be made effectively white-label.**
+
+1. **Invisible backend — recommended**
+   - self-host ntfy;
+   - disable its web UI if desired;
+   - expose no ntfy branding to the owner;
+   - keep Wirebot App and SMS as the branded owner experience.
+
+2. **Branded endpoint / web surface**
+   - serve on a Wirebot/client domain;
+   - fork/rebrand the open-source web app if exposed;
+   - preserve required open-source notices;
+   - do not use ntfy trademarks/logo as if owned by Wirebot.
+
+3. **Fully branded native client**
+   - Android source is open under Apache 2.0;
+   - iOS source is open under MIT;
+   - use Wirebot/client app IDs, icons, signing and push credentials;
+   - maintain the fork as ntfy evolves.
+
+For Wirebot, the default SHOULD be **invisible ntfy backend + branded Wirebot App + SMS primary**.
+
+### 3C. Mandatory downside-review law
+
+Before adopting any owner channel, record:
+
+~~~text
+reach / install friction
+two-way reply quality
+latency / delivery guarantees
+carrier / provider compliance
+privacy / lock-screen exposure
+identity / white-label behavior
+platform dependencies
+self-host burden
+cost / scaling
+failure / outage mode
+replay / duplication
+revocation
+accessibility
+fallback path
+~~~
+
+No channel is promoted merely because its happy-path API is easy.
+
 ---
 
 ## 4. Chief-of-Staff notification loop
