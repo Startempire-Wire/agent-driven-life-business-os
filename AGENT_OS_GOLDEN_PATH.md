@@ -15,6 +15,7 @@
 - **Field-tested working spine:** [`docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 - **Composable workforce catalogue:** [`docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md`](./docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md)
 - **Freedom & Leverage operating model:** [`SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`](./SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md)
+- **Owner notification / response channel doctrine:** [`SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md`](./SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md)
 - **Current Wirebot application integration architecture:** [`docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md`](./docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md)
 - **Current cross-product gap audit:** [`docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md`](./docs/agent-os-golden-path/11-agent-os-golden-path-seamless-autonomy-gap-audit.md)
 - **Stage 5 full-surface business discovery audit:** [`docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md`](./docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md)
