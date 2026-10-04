@@ -583,6 +583,110 @@ This complements Quiet Kaizen:
 
 ---
 
+## 10A. Perpetua perpetual continuity and follow-through
+
+Perpetua is the **continuous intelligence posture** of the Wirebot Operating Partner across SOVOS. Its original spirit is not a recommendation feed, a separate persona, a hidden scheduler or a periodic batch report.
+
+Where the owner's setup enables Perpetua and the applicable sources/domains are consented, it operates perpetually across time:
+
+~~~text
+observe
+→ anticipate
+→ decide whether anything useful is due
+→ prepare / advance within existing authority
+→ preserve unresolved follow-through
+→ verify actual outcome
+→ evaluate expected momentum
+→ learn
+→ remain ready for the next meaningful change
+~~~
+
+**Perpetual does not mean constantly busy.** No useful action due is a valid state. The defining property is continuity: important unresolved items are not forgotten merely because a message was sent, a task was marked complete, an agent run ended or a notification was dismissed.
+
+### 10A.1 Important-signal → outcome-linked follow-through
+
+An important item may originate from:
+
+- email;
+- SMS / text / chat;
+- CRM;
+- calendar;
+- task/work system;
+- payment/financial event;
+- customer/support message;
+- relationship/community interaction;
+- agent/system event;
+- owner statement or accepted proposal.
+
+When policy or bounded intelligence classifies a signal as important, SOVOS SHOULD create or bind a **durable follow-through obligation** to source-owned references.
+
+~~~text
+important signal / initiated action
+→ why it matters
+→ desired outcome / meaningful next state
+→ expected momentum if fulfilled
+→ next check / follow-up condition
+→ authorized follow-up
+→ receiver/source outcome verification
+→ momentum verification
+→ close | continue | escalate | explicitly abandon/supersede
+~~~
+
+A sent email, text, reminder, draft, task completion, agent receipt or acknowledgement is **not** sufficient closure when the actual desired result remains unknown.
+
+The canonical `routine-template://cross-domain/follow-up` implements this pattern and SHOULD compose with Evidence Closure where receiver-side verification is required.
+
+### 10A.2 Durable follow-through flag
+
+The owner-facing "flag" MUST represent durable source-linked state rather than an ephemeral notification badge.
+
+Useful projected states include:
+
+~~~text
+watching
+action_due
+waiting_external
+needs_you
+outcome_unverified
+stalled
+verified
+closed
+~~~
+
+The underlying state remains with the appropriate commitment/work/CRM/message/financial/outcome owner. Perpetua and Wirebot project it; they do not create another universal follow-up database.
+
+Event-driven updates are preferred. A periodic reconciliation fallback MUST exist where missed webhooks/events or external silence could otherwise strand an important obligation.
+
+### 10A.3 Momentum check
+
+Closure asks two questions separately:
+
+1. **Did the desired outcome happen?**
+2. **Did it produce the expected useful next-state momentum?**
+
+Examples:
+
+- a prospect replied, but no qualified conversation resulted;
+- a creditor accepted a settlement, but the source report still shows the old balance;
+- a friend accepted an invitation, but logistics remain unresolved;
+- a customer received a fix, but the underlying adoption problem persists.
+
+If the outcome happened but expected momentum did not, Perpetua may propose another bounded action, revise the causal hypothesis, or close the item honestly as "outcome achieved; expected momentum not established."
+
+### 10A.4 Relationship to Quiet Kaizen
+
+Keep these roles distinct:
+
+- **Perpetua continuity:** continuously notices, remembers unresolved outcome-linked threads and carries them through time.
+- **Gap & Opportunity Scout:** finds missing systems/opportunities that do not yet have an adequate routine.
+- **Follow-Through routine:** advances one important thread until terminal outcome.
+- **Evidence Closure:** verifies receiver/source acceptance.
+- **Quiet Kaizen:** improves or retires the operating system after outcomes are observed.
+
+Together they create persistence without activity theater.
+
+---
+
 ## 11. Measurement model — extend leverage beyond cost and time
 
 Current `operator.leverage_snapshot.v1` remains the canonical base projection. A future additive contract revision SHOULD represent these dimensions explicitly rather than hiding them inside generic `outcome`:
