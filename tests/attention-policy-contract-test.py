@@ -38,6 +38,14 @@ def main():
     no_channels["delivery"]["channel_refs"] = []
     invalid(validator, no_channels, "attention policy without delivery channel")
 
+    no_primary = copy.deepcopy(policy)
+    del no_primary["delivery"]["primary_channel_ref"]
+    invalid(validator, no_primary, "attention policy without primary channel")
+
+    bad_routing = copy.deepcopy(policy)
+    bad_routing["delivery"]["routing_strategy"] = "whatever"
+    invalid(validator, bad_routing, "attention policy with unknown routing strategy")
+
     reply_without_revalidation = copy.deepcopy(policy)
     reply_without_revalidation["replies"]["source_revalidation_required"] = False
     invalid(validator, reply_without_revalidation, "reply policy without source revalidation")
