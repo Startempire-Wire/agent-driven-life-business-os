@@ -1,0 +1,6 @@
+# Portable memory substrate: local state never belongs in the repo
+__pycache__/
+*.pyc
+*.db
+*.db-wal
+*.db-shm
