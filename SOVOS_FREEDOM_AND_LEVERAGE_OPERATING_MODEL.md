@@ -779,6 +779,54 @@ Generalize the proven templates across:
 - changing owner preferences;
 - changing capacity and economic conditions.
 
+### 14A. Dependency-ordered implementation backlog
+
+These work packages are planning identifiers, not a new task authority. Bind them into the owning project/work system before execution.
+
+| ID | Work package | Canonical owner / primary consumer | Depends on | Done condition |
+|---|---|---|---|---|
+| **FL-01** | Freedom/leverage vNext contract design | SOVOS | current v1 contracts | additive fields/enums specified with migration and backward-compatibility tests |
+| **FL-02** | Adaptation contract | SOVOS + Wirebot | FL-01 | protected invariants, learnable preferences and outcome-adaptive behavior have typed refs and correction/expiry semantics |
+| **REV-01** | Opportunity Discovery template | SOVOS | FL-01 | portable template + fixture + regression; no outreach authority |
+| **REV-02** | Prospecting / Account Discovery template | SOVOS | REV-01 | source/dedupe/qualification pattern machine-valid |
+| **REV-03** | CRM / Relationship Continuity template | SOVOS + owning CRM adapter | REV-02 | exact CRM owner, idempotent admission/update and follow-up state proven |
+| **REV-04** | Pipeline / Offer / Commercial Close templates | SOVOS | REV-03 | stage progression, offer/proposal and commitment boundaries represented separately |
+| **REV-05** | Invoice-to-Cash template | SOVOS + finance/payment owners | REV-04 | invoice/payment state reconciles through authoritative settled-cash receipt |
+| **REV-06** | Customer Success / Retention / Expansion / Referral templates | SOVOS | REV-05 | customer value → retention/expansion/referral loop represented without double-counting |
+| **FIN-01** | Financial source adapter inventory | Wirebot/SOVOS integration + source owners | FL-01 | open-finance, consumer-report, mail/document and fallback import routes have exact consent/read/write boundaries |
+| **FIN-02** | Financial Exposure & Debt Truth template | SOVOS | FIN-01 | liabilities/collections/credit-report contradictions reconcile to source-qualified obligation records |
+| **FIN-03** | Status / Rights / Stability classifier contract | SOVOS + qualified legal/tax boundaries | FIN-02 | old/disputed/high-consequence obligations block payment/contact until required classification is complete |
+| **FIN-04** | Validation / Dispute / Negotiation packet routine | SOVOS + Wirebot | FIN-03 | evidence packet and draft generation are deterministic where possible; false claims structurally prohibited |
+| **FIN-05** | Settlement / Closure / Credit Rehabilitation routine | SOVOS + source owners | FIN-04 | owner-authorized effect, settlement receipt, report reconciliation and monthly cash-flow recovery proven |
+| **LIFE-01** | Relationship Stewardship template | SOVOS + Wirebot | FL-02 | owner-defined relationship goals compile without sensitive-state diagnosis |
+| **LIFE-02** | Social Opportunity & Experience Planning template | SOVOS + Wirebot | LIFE-01 | options → availability → invitations → reservation/logistics → feedback chain represented |
+| **LIFE-03** | Capacity Reinvestment template | SOVOS + Wirebot | FL-02 | newly released time/money/attention can remain open or route to owner-selected life outcomes |
+| **LIFE-04** | Explicit opt-in Relationship Formation template | SOVOS + Wirebot | LIFE-01 | opportunity/logistics support exists while attraction/intimacy/commitment stay human-reserved |
+| **WIRE-01** | Opportunity Proposal contract / App projection | Wirebot App | FL-01, FL-02 | richer multi-option proposal renders why-now, choices, uncertainty, authority and feedback without becoming execution authority |
+| **WIRE-02** | Three-frontier synthesis | Wirebot / Perpetua | FL-01 | Capacity/Economic/Life frontiers are generated from source-qualified refs and owner corrections |
+| **MEAS-01** | Leverage snapshot additive economic/life dimensions | SOVOS | FL-01 | income/cash/margin/breathing-room/life/relationship dimensions are source-qualified and backward compatible |
+| **PROOF-01** | Economic Freedom vertical slice | cross-product | REV-01..REV-05, WIRE-01 | qualified opportunity → settled cash with lower owner burden and negative-path proof |
+| **PROOF-02** | Financial Freedom vertical slice | cross-product | FIN-01..FIN-05, WIRE-01 | fragmented exposure → lawful resolution → verified cash-flow recovery + owner breathing-room feedback |
+| **PROOF-03** | Lived Freedom vertical slice | cross-product | LIFE-01..LIFE-03, WIRE-01 | released capacity → owner-selected real-life outcome → feedback/learning |
+| **GEN-01** | Cross-owner / cross-business generalization | SOVOS compiler | PROOF-01..03 | same portable patterns work across isolated bindings without private payload or authority leakage |
+
+Suggested dependency shape:
+
+~~~text
+FL-01 → FL-02
+  ├─→ REV-01 → REV-02 → REV-03 → REV-04 → REV-05 → REV-06 → PROOF-01
+  ├─→ FIN-01 → FIN-02 → FIN-03 → FIN-04 → FIN-05 → PROOF-02
+  ├─→ LIFE-01 → LIFE-02
+  │            └──────────────→ LIFE-03 → PROOF-03
+  │            └──────────────→ LIFE-04
+  ├─→ WIRE-01 → WIRE-02
+  └─→ MEAS-01
+
+PROOF-01 + PROOF-02 + PROOF-03 → GEN-01
+~~~
+
+Do not make all work packages blockers for one another. The three proof trains may progress in parallel after their shared contract/adaptation foundations are settled.
+
 ---
 
 ## 15. Completion tests
