@@ -230,18 +230,32 @@ The machine-readable catalog SHOULD be extended in bounded increments with the r
 
 Owner-specific compilation SHOULD also separate protected invariants, learnable operating preferences and bounded outcome-adaptive behavior so routines become personally intelligent without allowing learned history to mint authority.
 
-### Follow-through completion law
+### Follow-Up and Follow-Through completion law
 
-The `follow_up` family is not merely a reminder/sending pattern. Important messages, events, commitments and initiated actions SHOULD bind an expected desired outcome and remain durably open until one of these terminal conditions is source-backed:
+These are deliberately different routine families.
 
-- desired outcome verified;
+**Follow-Up (`follow_up`)** maintains momentum after an initial contact/action. It answers:
+
+> What is the next appropriate touch, response check or bounded action that keeps this thread from going cold?
+
+It may repeat several times. A successful Follow-Up can end in a response/progression/handoff while the larger desired outcome remains open.
+
+**Follow-Through (`follow_through`)** owns the complete desired result. It answers:
+
+> What still has to happen before this is actually successful, verified, momentum-producing and leverage-producing?
+
+Follow-Through may invoke Follow-Up as one subroutine, plus governed work, research, reconciliation, recovery, Evidence Closure or Needs You.
+
+Terminal Follow-Through conditions are source-backed:
+
+- desired outcome verified and applicable momentum/leverage evaluated;
 - explicitly abandoned by an authorized human/policy;
 - superseded by another accepted commitment;
 - escalated into another governed work/incident/legal process.
 
-A communication receipt or task/agent completion alone MUST NOT silently close the loop. Where the desired outcome is external, compose follow-up with receiver/source Evidence Closure. Where the expected benefit includes downstream momentum, retain the hypothesis long enough to evaluate whether that momentum actually appeared.
+A communication receipt or task/agent completion alone MUST NOT silently close Follow-Through.
 
-Perpetua may identify, prioritize and refine these obligations continuously, but it does not own a parallel follow-up ledger or scheduler.
+Perpetua may identify, prioritize and refine both families continuously, but it does not own a parallel follow-up/follow-through ledger or scheduler.
 
 ---
 
