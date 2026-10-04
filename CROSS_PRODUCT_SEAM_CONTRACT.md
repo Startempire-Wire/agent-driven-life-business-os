@@ -235,6 +235,18 @@ The source domain owns resolution.
 
 Before consequential action from an attention item, resolve the current source revision/state.
 
+Delivery-channel state remains presentation state:
+
+```text
+notification published / delivered / read / cleared / deleted
+!=
+source resolved / desired outcome verified
+```
+
+A channel adapter such as ntfy may carry a stable correlation/sequence ID so one owner-visible notification evolves with one meaningful thread. That transport identifier MUST NOT replace the source attention/follow-through reference.
+
+Inbound owner responses from a channel are attributed inputs, not ambient commands. Route them through the verified Operating Partner/owner session, preserve correlation/provenance, and revalidate authority before consequential execution.
+
 ---
 
 ## 10. Credential-use references
