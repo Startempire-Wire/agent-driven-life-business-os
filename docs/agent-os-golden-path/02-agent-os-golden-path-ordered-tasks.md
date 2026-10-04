@@ -1,6 +1,6 @@
 # Golden Path — Current Interwoven Deployment Doctrine
 
-**Status:** CURRENT iterable Golden Path spine targeting `0.2.4-candidate`<br>
+**Status:** CURRENT iterable Golden Path spine targeting `0.2.5-candidate`<br>
 **Reconciled:** 2026-09-29<br>
 **Architecture authority:** `../../OWNER_AUTHORITY_CONSTITUTION.md`  
 **Current ecosystem ownership:** `../../CURRENT_ECOSYSTEM_ARCHITECTURE.md`  

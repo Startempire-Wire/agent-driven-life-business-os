@@ -1,11 +1,11 @@
 # Portfolio Business Compiler, Routine Analytics, Leverage and Momentum
 
-**Status:** CURRENT owner-directed architecture under the 0.2.4 correction; implementation remains partial  
-**Version stream:** ADLBOS Golden Path 0.2.4-candidate  
-**Primary experience owner:** Wirebot / Wirebot App  
-**Governed work owner:** Focusa  
-**Persistent Operating Partner runtime / scheduler:** OpenClaw  
-**Computer/browser execution owner:** UIAI Engine  
+**Status:** CURRENT owner-directed architecture under the 0.2.5 correction; implementation remains partial<br>
+**Version stream:** ADLBOS Golden Path 0.2.5-candidate<br>
+**Primary experience owner:** Wirebot / Wirebot App<br>
+**Governed work owner:** Focusa<br>
+**Persistent Operating Partner runtime / scheduler:** OpenClaw<br>
+**Computer/browser execution owner:** UIAI Engine<br>
 **Base feedback/leverage synthesis owner:** Wirebot / Perpetua over source-owned outcomes  
 **Optional progression/recognition owner:** W.I.N.S. when enabled for the setup  
 **Persistent transport/body baseline:** Tailscale + at least one remote VPS

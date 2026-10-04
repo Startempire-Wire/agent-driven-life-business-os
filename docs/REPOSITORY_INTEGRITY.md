@@ -35,7 +35,7 @@ Do not label the same artifact both LIVE and incubating.
 
 ## 3. Current Golden Path
 
-The current target is `0.2.4-candidate`. Files `0.2.1.md` through `0.2.4.md` are version lineage. The current editable working spine remains `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`. Do not create another parallel Golden Path process document.
+The current target is `0.2.5-candidate`. Files `0.2.1.md` through `0.2.5.md` are version lineage. The current editable working spine remains `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`. Do not create another parallel Golden Path process document.
 
 ## 4. Compatibility-protected paths
 

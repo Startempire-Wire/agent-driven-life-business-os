@@ -14,6 +14,50 @@ def assert_contains(rel, phrase):
     if phrase not in read(rel):
         raise AssertionError(f"{rel} missing required text: {phrase!r}")
 
+GOLDEN_PATH_RELPATH = "AGENT_OS_GOLDEN_PATH.md"
+CHANGELOG_RELPATH = "docs/agent-os-golden-path/CHANGELOG.md"
+# Docs that restate the declared Golden Path target and must therefore agree
+# with it. Extending this list is the correct way to add a dependent doc.
+GOLDEN_PATH_DEPENDENTS = (
+    "docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md",
+    "docs/agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md",
+    # States the current target in prose, so it drifts silently if unwatched.
+    "docs/REPOSITORY_INTEGRITY.md",
+)
+
+def check_golden_path_version_consistency():
+    """Guard version coherence instead of pinning one literal version.
+
+    A hardcoded assertion has to be hand-edited on every release, and under
+    deadline that edit gets skipped -- which leaves a test that looks armed
+    while checking nothing. Instead, read the declared target and require every
+    restating document to agree with it, and the CHANGELOG to record it.
+
+    This still fails loudly on real drift; it simply never becomes the reason
+    a release cannot be recorded.
+    """
+    declared = re.search(r"\*\*Golden Path target:\*\*\s*`([^`]+)`", read(GOLDEN_PATH_RELPATH))
+    if not declared:
+        raise AssertionError(f"{GOLDEN_PATH_RELPATH} declares no Golden Path target version")
+    version = declared.group(1)
+    if not re.fullmatch(r"\d+\.\d+\.\d+-candidate", version):
+        raise AssertionError(f"Golden Path target {version!r} is not a well-formed X.Y.Z-candidate version")
+
+    changelog = read(CHANGELOG_RELPATH)
+    if not re.search(rf"^##\s+{re.escape(version)}\b", changelog, re.MULTILINE):
+        raise AssertionError(
+            f"{CHANGELOG_RELPATH} has no entry for declared target {version}; "
+            "record the release before declaring it"
+        )
+
+    for rel in GOLDEN_PATH_DEPENDENTS:
+        found = set(re.findall(r"\d+\.\d+\.\d+-candidate", read(rel)))
+        if version not in found:
+            raise AssertionError(
+                f"{rel} does not reference declared Golden Path target {version} "
+                f"(found {sorted(found) or 'none'})"
+            )
+
 def check_relative_markdown_links():
     pattern = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
     failures = []
@@ -109,11 +153,10 @@ def check_economics():
 
 def main():
     assert_contains("AGENT_OS_GOLDEN_PATH.md", "**Status:** CURRENT deployment and operations doctrine")
-    assert_contains("AGENT_OS_GOLDEN_PATH.md", "Golden Path target:** `0.2.4-candidate`")
+    check_golden_path_version_consistency()
     assert_contains("docs/agent-os-golden-path/05-agent-os-golden-path-fleet-receiver-contract.md", "**Status:** CURRENT portable receiver contract")
     assert_contains("docs/ADLBOS_PUBLIC_VALUE_FACT_SHEET.md", "**Status:** CURRENT derived public-copy source / fact-check reference")
-    assert_contains("docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md", "targeting `0.2.4-candidate`")
-    assert_contains("docs/agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md", "0.2.4-candidate")
+    assert_contains("docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md", "targeting `")
     memory = read("PORTABLE_MEMORY_REFERENCE_PROFILE.md")
     if "**Status:** LIVE" in memory:
         raise AssertionError("portable memory must not be labeled LIVE while incubating")
