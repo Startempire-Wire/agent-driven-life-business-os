@@ -1,0 +1,54 @@
+{
+  "schema_version": "operator.attention_policy.v1",
+  "policy_id": "attention-policy://owner/example/default",
+  "owner_ref": "owner://example",
+  "notification_classes": [
+    "needs_you",
+    "follow_up_due",
+    "follow_through_progress",
+    "follow_through_stalled",
+    "verified_outcome",
+    "momentum_leverage",
+    "failure_recovery",
+    "digest"
+  ],
+  "delivery": {
+    "channel_refs": ["channel://wirebot-app", "channel://ntfy/owner-example"],
+    "fallback_channel_refs": ["channel://wirebot-app"]
+  },
+  "quiet_hours": {
+    "enabled": true,
+    "timezone": "America/Los_Angeles",
+    "start_local": "22:00",
+    "end_local": "07:00",
+    "urgent_override_classes": ["needs_you", "failure_recovery"]
+  },
+  "coalescing": {
+    "mode": "correlation",
+    "min_update_interval_seconds": 120
+  },
+  "replies": {
+    "allowed": true,
+    "free_text_allowed": true,
+    "allowed_notification_classes": [
+      "needs_you",
+      "follow_up_due",
+      "follow_through_progress",
+      "follow_through_stalled"
+    ],
+    "consequence_ceiling": "low_reversible",
+    "source_revalidation_required": true
+  },
+  "privacy": {
+    "lock_screen_detail": "redacted",
+    "blocked_domain_refs": ["life-domain://health-sensitive"],
+    "attachments_allowed": false,
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  },
+  "lifecycle": {
+    "revision": "rev-1",
+    "effective_at": "2026-10-04T20:00:00Z",
+    "expires_at": null
+  }
+}
