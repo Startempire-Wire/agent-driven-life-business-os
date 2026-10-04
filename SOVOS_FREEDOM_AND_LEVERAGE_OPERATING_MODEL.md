@@ -913,6 +913,10 @@ These work packages are planning identifiers, not a new task authority. Bind the
 | **LIFE-04** | Explicit opt-in Relationship Formation template | SOVOS + Wirebot | LIFE-01 | opportunity/logistics support exists while attraction/intimacy/commitment stay human-reserved |
 | **WIRE-01** | Opportunity Proposal contract / App projection | Wirebot App | FL-01, FL-02 | richer multi-option proposal renders why-now, choices, uncertainty, authority and feedback without becoming execution authority |
 | **WIRE-02** | Three-frontier synthesis | Wirebot / Perpetua | FL-01 | Capacity/Economic/Life frontiers are generated from source-qualified refs and owner corrections |
+| **CHAN-01** | Sovereign owner-channel posture | Wirebot/OpenClaw | FL-01 | ntfy/private channel endpoint, identity, ACL/credential custody, privacy and revoke semantics are verified |
+| **CHAN-02** | Outbound Chief-of-Staff adapter | Wirebot/OpenClaw | CHAN-01 | Needs You/Follow-Up/Follow-Through/outcome/momentum projections publish with correlation, quiet-hours and sequence-update behavior |
+| **CHAN-03** | Inbound owner-response adapter | Wirebot/OpenClaw | CHAN-01 | authenticated owner free text / bounded actions return to the exact tenant relationship as attributed input, never direct authority |
+| **CHAN-04** | Owner-channel end-to-end proof | cross-product | CHAN-02, CHAN-03 | mobile notification → exact thread → owner response → authority-safe continuation → verified outcome works, including replay/wrong-tenant/outage cases |
 | **MEAS-01** | Leverage snapshot additive economic/life dimensions | SOVOS | FL-01 | income/cash/margin/breathing-room/life/relationship dimensions are source-qualified and backward compatible |
 | **PROOF-01** | Economic Freedom vertical slice | cross-product | REV-01..REV-05, WIRE-01 | qualified opportunity → settled cash with lower owner burden and negative-path proof |
 | **PROOF-02** | Financial Freedom vertical slice | cross-product | FIN-01..FIN-05, WIRE-01 | fragmented exposure → lawful resolution → verified cash-flow recovery + owner breathing-room feedback |
@@ -929,6 +933,9 @@ FL-01 → FL-02
   │            └──────────────→ LIFE-03 → PROOF-03
   │            └──────────────→ LIFE-04
   ├─→ WIRE-01 → WIRE-02
+  ├─→ CHAN-01 → CHAN-02
+  │          └→ CHAN-03
+  │        CHAN-02 + CHAN-03 → CHAN-04
   └─→ MEAS-01
 
 PROOF-01 + PROOF-02 + PROOF-03 → GEN-01
