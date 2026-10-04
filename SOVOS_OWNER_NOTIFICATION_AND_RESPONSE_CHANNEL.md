@@ -298,9 +298,10 @@ Should the owner be interrupted?
 source-linked notification projection
 correlation · source ref · expiry · action class
              ↓
-OpenClaw channel adapter
+OpenClaw Owner Channel Router
              ↓
-ntfy publish
+primary SMS when available
+        + ntfy / Wirebot App / approved fallbacks
              ↓
 owner device
              ↓
