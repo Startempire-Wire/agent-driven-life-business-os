@@ -61,6 +61,8 @@ The broader **Freedom & Leverage** model connects returned capacity to economic 
 
 See [SOVOS Freedom & Leverage Operating Model](./SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md).
 
+Owner-facing momentum/exception delivery and two-way Chief-of-Staff communication use the transport-neutral attention model plus approved channels. The current ntfy-oriented reference is [SOVOS Owner Notification & Response Channel Doctrine](./SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md).
+
 ### Driverless Business
 
 The long-term operational expression is **Driverless Business**: a business whose purpose, routines, information, decision patterns, authority and exception handling are mapped well enough that governed agents can carry ordinary operation without continuous human intervention.

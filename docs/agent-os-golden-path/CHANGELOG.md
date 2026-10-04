@@ -2,6 +2,18 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.5 follow-up/follow-through + owner-channel refinement — 2026-10-04
+
+- **Follow-Up and Follow-Through separated:** `follow_up` now means keeping momentum alive after an initial contact/action; new first-class `follow_through` owns the full desired result through verified outcome, momentum and leverage.
+- **Canonical Follow-Through template added:** `routine-template://cross-domain/follow-through@1.0.0`.
+- **Follow-Up advanced to 1.2.0:** no longer claims final outcome closure; it hands larger threads into Follow-Through when needed.
+- **Routine packs composed explicitly:** existing packs that used Follow-Up now reference both Follow-Up and Follow-Through rather than conflating them.
+- **Schema/regression expanded:** `follow_through` is a required canonical routine family.
+- **Owner notification / response doctrine added:** approved channel transports (initial ntfy reference) project Needs You, Follow-Up, Follow-Through, verified outcomes and momentum without owning source state.
+- **Two-way owner response direction added:** ntfy Android/web publishing can return owner text through an authenticated Wirebot/OpenClaw ingress; inbound channel text is attributed input, not direct tool authority.
+- **ntfy security posture clarified:** self-hosted/default-deny/authenticated deployment is preferred for Sovereign control; ntfy push/pub-sub is explicitly distinct from carrier SMS.
+- **Routine attention seam reused:** compiled routines bind notification behavior through existing `attention_policy_ref`; no new scheduler/inbox authority is introduced.
+
 ## 0.2.5 follow-through refinement — 2026-10-04
 
 - **Perpetua continuity restored explicitly:** Perpetua is the app-wide continuous intelligence/continuity posture around SOVOS, not a second scheduler/store/persona or an occasional recommendation feed. Continuous does not mean constantly busy; unresolved important outcomes persist across time.

@@ -21,7 +21,8 @@ It intentionally contains **portable abstractions only**. Private operator/custo
 |---|---|---|
 | `orientation.json` | orientation | founder/operator, multi-business, personal executive |
 | `inquiry-triage.json` | intake/triage | services, SaaS, local service, commerce |
-| `follow-up.json` | follow-up | important messages/events/commitments carried through verified desired outcome and momentum check |
+| `follow-up.json` | follow-up | keep momentum alive after initial contact/action; ensure the next appropriate touch/check occurs |
+| `follow-through.json` | follow-through | carry an important thread through verified successful result, momentum and leverage |
 | `reconciliation.json` | reconciliation | finance, records, multi-system truth |
 | `delivery-case-review.json` | delivery review | services, SaaS, membership, support |
 | `renewal-expiry.json` | renewal/expiry | contracts, subscriptions, credentials, obligations |
@@ -76,7 +77,7 @@ The starter catalog is not a universal list of routines every owner should activ
 
 ## Freedom & leverage expansion
 
-The 2026-10-03 catalog is the first operationally balanced starter set, not the final SOVOS routine universe. `../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md` identifies additional high-priority families for economic freedom, financial recovery, relationship stewardship, social/experience planning and capacity reinvestment.
+The 2026-10-03 catalog was the first operationally balanced starter set; the 2026-10-04 refinement adds a distinct first-class `follow_through` family so intermediate contact and final result can no longer be conflated. `../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md` identifies additional high-priority families for economic freedom, financial recovery, relationship stewardship, social/experience planning and capacity reinvestment.
 
 Do **not** add those families by silently weakening the current schema or labeling everything `custom`. Extend the portable contract additively, add fixtures/regressions, then materialize canonical templates in small proof-backed slices. The first recommended proofs are:
 

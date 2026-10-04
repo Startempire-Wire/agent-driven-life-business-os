@@ -781,6 +781,8 @@ Routine analytics must stay causal and source-backed. Keep separate run reliabil
 
 No universal score may hide the underlying dimensions. W.I.N.S. can make progress engaging and game-like, but gamification must reward meaningful verified outcomes, compounding leverage, recovery and learning—not compulsive usage, notification response, raw agent activity or fabricated streak pressure.
 
+Owner notifications may make verified momentum visible through approved channels such as ntfy. Notification delivery/read/clear state is presentation state only. Two-way owner replies return as attributed Wirebot/OpenClaw input and revalidate current source/authority before consequential action. See `SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md`.
+
 ---
 
 ## 15. Surface boundaries

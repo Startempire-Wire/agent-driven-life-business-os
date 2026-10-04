@@ -1,0 +1,206 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/follow-through",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": ["cross_domain"],
+    "routine_family": "follow_through",
+    "archetype_tags": [
+      "professional-services",
+      "sales",
+      "customer-success",
+      "financial-recovery",
+      "personal-executive",
+      "relationship-stewardship",
+      "multi-business"
+    ]
+  },
+  "purpose": {
+    "summary": "Carry an important accepted thread from initiation all the way through verified successful result, expected next-state momentum and leverage, using Follow-Up as one possible momentum-preserving subroutine rather than treating intermediate contact as completion.",
+    "outcome_classes": [
+      "follow_through_active",
+      "desired_outcome_verified",
+      "momentum_effect_verified",
+      "leverage_effect_observed",
+      "follow_through_escalated",
+      "follow_through_closed"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": ["desired_outcome_or_commitment"],
+    "optional_signal_classes": [
+      "follow_up_handoff",
+      "work_state",
+      "receiver_state",
+      "customer_state",
+      "financial_state",
+      "relationship_context",
+      "accepted_outcome_source",
+      "focusa_evidence_ref"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": ["event", "condition", "queue", "schedule"],
+    "event_preferred": true,
+    "default_cadence": "event-driven plus periodic reconciliation until terminal outcome"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "bind_outcome",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Bind the thread to source-owned commitment/work/outcome references, explicit success criteria, expected momentum and leverage hypothesis.",
+      "operation_class": "follow_through_state_upsert",
+      "required_input_classes": ["desired_outcome_or_commitment"],
+      "output_classes": ["follow_through_ref", "success_criteria_ref", "momentum_hypothesis"],
+      "consequence_class": "mutate"
+    },
+    {
+      "step_key": "observe",
+      "kind": "deterministic",
+      "determinism": "prefer_deterministic",
+      "purpose": "Observe current source/receiver/work state and identify the remaining gap between current state and desired outcome.",
+      "operation_class": "follow_through_reconciliation",
+      "required_input_classes": ["follow_through_ref"],
+      "output_classes": ["outcome_gap_observation"],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "advance",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Choose the next bounded move needed to reach the desired result. This may invoke Follow-Up, governed work, research, recovery or a source-bearing Needs You item.",
+      "operation_class": null,
+      "required_input_classes": ["outcome_gap_observation"],
+      "output_classes": ["next_advancement_plan"],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "execute_or_delegate",
+      "kind": "deterministic",
+      "determinism": "prefer_deterministic",
+      "purpose": "Dispatch only the already-authorized bounded advancement through its canonical owner and retain correlation/receipts.",
+      "operation_class": "governed_advancement",
+      "required_input_classes": ["next_advancement_plan"],
+      "output_classes": ["advancement_receipt", "attention_ref"],
+      "consequence_class": "mutate"
+    },
+    {
+      "step_key": "verify_outcome",
+      "kind": "deterministic",
+      "determinism": "prefer_deterministic",
+      "purpose": "Verify the actual desired result against source/receiver acceptance criteria; intermediate activity or contact is not sufficient.",
+      "operation_class": "acceptance_verification",
+      "required_input_classes": ["follow_through_ref", "advancement_receipt"],
+      "output_classes": ["desired_outcome_observation", "closure_gap"],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "evaluate_momentum_and_leverage",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Evaluate whether the verified result produced the expected momentum and leverage, and whether another bounded move is needed or the causal hypothesis should be revised.",
+      "operation_class": null,
+      "required_input_classes": ["desired_outcome_observation", "momentum_hypothesis"],
+      "output_classes": ["momentum_assessment", "leverage_assessment", "follow_through_disposition"],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "settle_or_continue",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Close only on verified successful outcome or explicit authorized terminal disposition; otherwise preserve the thread and next check without losing history.",
+      "operation_class": "follow_through_settlement",
+      "required_input_classes": ["follow_through_ref", "desired_outcome_observation", "follow_through_disposition"],
+      "output_classes": [
+        "desired_outcome_verified",
+        "momentum_effect_verified",
+        "leverage_effect_observed",
+        "next_check_state",
+        "follow_through_escalated",
+        "follow_through_closed"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "new_external_commitment",
+      "sensitive_relationship_judgment",
+      "material_legal_or_financial_commitment",
+      "explicit_abandonment_of_high_consequence_outcome"
+    ],
+    "escalation_conditions": [
+      "authority_missing",
+      "desired_outcome_unclear",
+      "success_criteria_missing",
+      "relationship_sensitive",
+      "receiver_state_unverifiable",
+      "repeated_advancement_without_progress",
+      "material_consequence_changed"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "reconcile",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt",
+      "receiver_or_outcome_evidence",
+      "focusa_evidence",
+      "closure_receipt"
+    ],
+    "outcome_classes": [
+      "follow_through_active",
+      "desired_outcome_verified",
+      "momentum_effect_verified",
+      "leverage_effect_observed",
+      "follow_through_escalated",
+      "follow_through_closed"
+    ],
+    "leverage_dimensions": [
+      "outcome",
+      "capacity_buyback",
+      "attention_reduction",
+      "cycle_time",
+      "reliability",
+      "opportunity_unlock",
+      "compounding"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "desired_outcome_refs",
+      "value_type": "ref_list",
+      "required": true,
+      "description": "Source-owned desired-outcome or commitment references that define the successful result."
+    },
+    {
+      "name": "success_policy_ref",
+      "value_type": "ref",
+      "required": true,
+      "description": "Policy defining terminal success, explicit abandonment/supersession and escalation."
+    },
+    {
+      "name": "follow_up_policy_ref",
+      "value_type": "ref",
+      "required": false,
+      "description": "Optional Follow-Up policy used when continued contact is one of the advancement mechanisms."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

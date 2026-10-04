@@ -22,6 +22,7 @@ def main():
         "orientation",
         "intake_triage",
         "follow_up",
+        "follow_through",
         "reconciliation",
         "delivery_review",
         "renewal_expiry",
@@ -39,7 +40,7 @@ def main():
     template_ids = set()
     routine_families = set()
     template_catalog = sorted((ROOT / "routine-templates").glob("*.json"))
-    if len(template_catalog) < 17:
+    if len(template_catalog) < 18:
         raise AssertionError("starter routine template catalog unexpectedly incomplete")
 
     for template_path in template_catalog:
