@@ -315,6 +315,7 @@ human delegation
 partner profile
 surface handoff
 attention
+attention policy / owner-channel projection
 correlation
 capability posture
 closure
