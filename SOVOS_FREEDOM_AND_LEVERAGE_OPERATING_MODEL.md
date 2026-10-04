@@ -634,7 +634,12 @@ important signal / initiated action
 
 A sent email, text, reminder, draft, task completion, agent receipt or acknowledgement is **not** sufficient closure when the actual desired result remains unknown.
 
-The canonical `routine-template://cross-domain/follow-up` implements this pattern and SHOULD compose with Evidence Closure where receiver-side verification is required.
+This larger continuity pattern is implemented by **two distinct routine families**:
+
+- `routine-template://cross-domain/follow-up` keeps momentum alive through the next appropriate touch/check/action;
+- `routine-template://cross-domain/follow-through` owns the thread through verified successful result, expected momentum and leverage.
+
+Follow-Through may invoke Follow-Up repeatedly and SHOULD compose with Evidence Closure where receiver-side verification is required.
 
 ### 10A.2 Durable follow-through flag
 
