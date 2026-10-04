@@ -4,6 +4,7 @@
 **Effective:** 2026-10-03  
 **Architecture authority:** `OWNER_AUTHORITY_CONSTITUTION.md`  
 **Human freedom doctrine:** `SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md`  
+**Freedom & leverage model:** `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`  
 **Driverless Business doctrine:** `SOVOS_DRIVERLESS_BUSINESS_DOCTRINE.md`  
 **Information infrastructure:** `SOVOS_INFORMATION_INFRASTRUCTURE.md`  
 **Discovery procedure:** `docs/agent-os-golden-path/12-full-surface-business-discovery-audit-and-workforce-inference.md`  
@@ -203,6 +204,31 @@ discover
 ~~~
 
 SOVOS therefore generalizes the **pattern**, not the owner's private data.
+
+### 3A. Freedom & leverage expansion
+
+The current starter catalog is a strong operational foundation but is intentionally not the final routine universe. The Freedom & Leverage model adds three missing completion directions:
+
+~~~text
+ECONOMIC
+opportunity → prospecting → CRM continuity → pipeline → offer → close
+→ invoice / checkout → settled cash → retention / expansion / referral
+
+FINANCIAL RECOVERY
+financial-source discovery → liabilities / collection reconciliation
+→ lawful status / rights classification → stability floor / reserve
+→ validation / dispute / negotiation → settlement / closure
+→ credit rehabilitation → recovered monthly cash flow
+
+LIFE ENRICHMENT
+released capacity → owner-defined relationship / life goal
+→ timely opportunity → options → deterministic coordination
+→ lived outcome → owner feedback → learned fit
+~~~
+
+The machine-readable catalog SHOULD be extended in bounded increments with the routine families mapped in `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`. Do not silently force these future families into current `operator.routine_template.v1` enums; preserve v1 compatibility until additive contract evolution, fixtures and regressions are ready.
+
+Owner-specific compilation SHOULD also separate protected invariants, learnable operating preferences and bounded outcome-adaptive behavior so routines become personally intelligent without allowing learned history to mint authority.
 
 ---
 

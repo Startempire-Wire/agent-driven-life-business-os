@@ -74,6 +74,8 @@ Models, workers, agents, automations and Agent Computers are instruments below t
 
 See `SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md`.
 
+For the connected Capacity, Economic and Life Enrichment frontiers; Revenue, Financial Recovery and Relationship/Life spines; and capacity-reinvestment completion tests, see `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`.
+
 ---
 
 ## 0.2 Driverless Business target

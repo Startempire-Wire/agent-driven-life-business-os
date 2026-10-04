@@ -3,6 +3,7 @@
 **Contract status:** LIVE portable build-agent operating contract  
 **Architecture authority:** `OWNER_AUTHORITY_CONSTITUTION.md`  
 **Current ecosystem architecture:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
+**Freedom & leverage operating model:** `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`  
 **Cross-product seam contract:** `CROSS_PRODUCT_SEAM_CONTRACT.md`  
 **Agent-contract evolution:** `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`<br>
 **Golden Path:** `AGENT_OS_GOLDEN_PATH.md`  
@@ -277,6 +278,10 @@ Turn proven gains into reusable defaults/tools/contracts. Do not systemize specu
 Leverage is compounding capacity: reducing future effort, removing constraints, creating reusable capability, delegating safely, improving reliability, or enabling additional outcomes. Track it from verified before/after evidence where possible. Never manufacture leverage points from raw activity.
 
 Apply the altitude test: **do not confuse the wing with the flight.** More agents, automations, routines or machinery are not leverage when they create equal or greater owner burden. Prefer changes that return usable human capacity while preserving owner-defined purpose and authority.
+
+Use the Freedom & Leverage model when choosing what to systematize. Distinguish the **Capacity Frontier** (what removes operational gravity), **Economic Frontier** (what creates/preserves/realizes high-quality financial margin), and **Life Enrichment Frontier** (how owner-approved released capacity can advance relationships, experiences, rest, learning, creation or other desired-life outcomes). Do not automatically turn free capacity back into work.
+
+For business systems, treat qualified opportunity creation/prospecting as a critical dependency where the business model requires it; excellent downstream operations cannot compensate for an empty pipeline. For financial-recovery work, aggressively identify lawful rights, classifications, negotiation advantages and procedural protections, but never invent facts or knowingly false disputes.
 
 ---
 

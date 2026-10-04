@@ -12,10 +12,11 @@ Read current truth in this order:
 
 1. `OWNER_AUTHORITY_CONSTITUTION.md` — who may establish/supersede architecture.
 2. `CURRENT_ECOSYSTEM_ARCHITECTURE.md` — current cross-product ownership and topology.
-3. `AGENTS.md` — portable build/operations behavior.
-4. `AGENT_OS_GOLDEN_PATH.md` — current deployment/operations doctrine and version target.
-5. `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` — field-tested current working spine.
-6. owning product repository/spec — implementation truth for the component being changed.
+3. `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md` — current capacity/economic/financial-recovery/life-enrichment completion model.
+4. `AGENTS.md` — portable build/operations behavior.
+5. `AGENT_OS_GOLDEN_PATH.md` — current deployment/operations doctrine and version target.
+6. `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` — field-tested current working spine.
+7. owning product repository/spec — implementation truth for the component being changed.
 
 Supporting LIVE contracts control their declared concern. A version snapshot, changelog entry, issue, audit, compatibility path, or Git history entry never outranks current architecture merely because it is more detailed.
 

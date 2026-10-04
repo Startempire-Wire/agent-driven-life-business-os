@@ -10,6 +10,22 @@ The owner may run several businesses, hold dormant product assets, work across m
 
 This audit creates an **evidence-backed portfolio map of the owner's actual businesses, life/operating domains, desired outcomes, customers and obligations, recurring workflows, neglected assets, shared capabilities, and candidate team/employee needs**. Several businesses are a normal case, not an exception. It has two outputs: a private business-revival matrix and a private workforce/automation proposal. It does **not** activate the proposed employees or schedules. Completion means the auditor can explain what was examined, what remains inaccessible, which findings are current versus historical, and exactly which first bounded workflow is ready for an authorized pilot. A list of files or an attractive agent org chart is not completion.
 
+### Freedom & leverage coverage
+
+The audit MUST look beyond existing workflows and software. Within the owner's consented scope, it SHOULD identify:
+
+- **Capacity Frontier:** recurring operational gravity, interruptions and work that should no longer require continuous owner presence.
+- **Economic Frontier:** prospecting/contact-generation gaps, weak CRM continuity, stalled pipeline, offer/pricing gaps, uncollected cash, churn/renewal risk, expansion/referral opportunities and dormant assets that match evidenced demand.
+- **Financial Freedom:** material liabilities, collections, required monthly debt service, fragmented creditor/servicer records, unresolved credit-report contradictions, settlement/repayment constraints and the amount of reserve required before aggressive resolution.
+- **Life Enrichment:** owner-stated relationship, family, social, learning, creative, rest, exploration and other desired-life outcomes that released time/money/attention could advance.
+- **Felt margin:** whether the owner actually experiences breathing room; do not infer psychological states or diagnose loneliness from weak signals.
+
+Prefer authorized APIs / structured sources over manual owner data entry. For financial recovery this can include bank/card/loan interfaces, lender/servicer records, consumer-report sources where lawfully available, email/document notices, transaction history and owner-provided reports. No single source is assumed complete.
+
+Treat prospecting as a critical operating dependency where the business model requires continual new relationships/opportunities. Treat debt / credit / legal-status work as high-consequence: gather and reconcile first; do not automatically pay, acknowledge, dispute, contact or negotiate an obligation before its evidence/status/authority posture is clear.
+
+See `../../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`.
+
 ## 1. Intake, authority and protected scope
 
 1. Identify the canonical owner and any delegated human authority. Record the exact business/client/tenant scope, geography, devices, accounts, retention limits, exclusion list and desired outcome.

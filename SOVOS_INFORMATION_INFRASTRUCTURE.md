@@ -4,6 +4,7 @@
 **Effective:** 2026-10-03  
 **Architecture authority:** OWNER_AUTHORITY_CONSTITUTION.md  
 **Current ecosystem architecture:** CURRENT_ECOSYSTEM_ARCHITECTURE.md  
+**Freedom & leverage model:** SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md  
 **Cross-product seam contract:** CROSS_PRODUCT_SEAM_CONTRACT.md
 
 ## 1. Core clarification
@@ -102,6 +103,8 @@ Many systems may reference or project it. Projection does not transfer ownership
 > **One concern, one canonical owner. Many surfaces may project it.**
 
 This prevents convenient copies from silently becoming competing truths.
+
+The Freedom & Leverage model increases the importance of this rule because finance, credit, relationships, contacts, messages, calendars and health/life context are especially sensitive. SOVOS MUST NOT respond by creating a universal "life database." Wirebot may synthesize owner-facing frontiers from bounded projections, but banks/lenders, credit-report sources, CRM, calendars, contacts, messaging providers and other domain systems retain their own canonical state. Cross-domain inference stays source-qualified, purpose-limited and revocable.
 
 ### 3.2 A reference is not the thing
 

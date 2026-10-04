@@ -2,6 +2,7 @@
 
 **Status:** CURRENT owner-directed architecture under the 0.2.5 correction; implementation remains partial<br>
 **Version stream:** ADLBOS Golden Path 0.2.5-candidate<br>
+**Freedom & leverage model:** `../../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`<br>
 **Primary experience owner:** Wirebot / Wirebot App<br>
 **Governed work owner:** Focusa<br>
 **Persistent Operating Partner runtime / scheduler:** OpenClaw<br>
@@ -32,6 +33,38 @@ The leverage target is not automation volume. The system should reduce operation
 A routine, worker or automation is valuable because of the outcome and capacity it returns, not because autonomous machinery exists.
 
 Several businesses are normal. Shared services and routines may serve several businesses without merging their canonical records or authority.
+
+### 1A. Freedom Flywheel and three frontiers
+
+The compiler SHOULD synthesize three distinct owner frontiers:
+
+~~~text
+Capacity Frontier
+  what removes operational gravity?
+
+Economic Frontier
+  where can high-quality income, cash realization, margin preservation
+  or financial breathing room most credibly improve?
+
+Life Enrichment Frontier
+  given the owner's desired life and current released capacity,
+  what relationship / experience / rest / learning / creative / purpose
+  opportunity is worth considering?
+~~~
+
+The system MUST NOT collapse these into one numeric score or automatically route every released hour back into work.
+
+For business scopes, the economic loop extends beyond inbound inquiry handling:
+
+~~~text
+opportunity → prospect / relationship → CRM → conversation → pipeline
+→ offer / proposal → accepted commitment → invoice / checkout
+→ settled cash → customer value → retention / expansion → referral
+~~~
+
+For personal financial-recovery scopes, the loop may include liabilities discovery, lawful status/rights classification, stability-floor/reserve modeling, validation/dispute/negotiation, settlement/closure, credit rehabilitation and recovered monthly cash flow.
+
+For life scopes, released capacity may become a Capacity Reinvestment candidate such as relationship stewardship, a social/experience opportunity, rest/open-space protection, learning, creation or another owner-defined desired state.
 
 ## 2. The causal loop
 
@@ -435,6 +468,8 @@ compounding capability
 ```
 
 Every claimed gain carries source/evidence refs and confidence/attribution limits.
+
+A future additive leverage-contract revision SHOULD represent economic and lived-freedom dimensions explicitly, including `income_generation`, `cash_realization`, `gross_margin_contribution`, `retention_value`, `financial_breathing_room`, `life_enrichment` and `relationship_enrichment`. Current v1 consumers remain valid until that extension is implemented and regression-tested.
 
 Avoid double-counting. A shared CRM integration that benefits five routines is one reusable capability with several downstream effects, not five independent copies of the same leverage.
 
