@@ -4,6 +4,7 @@
 **Architecture authority:** `OWNER_AUTHORITY_CONSTITUTION.md`  
 **Current ecosystem architecture:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
 **Freedom & leverage operating model:** `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`  
+**Owner notification / response channel:** `SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md`  
 **Cross-product seam contract:** `CROSS_PRODUCT_SEAM_CONTRACT.md`  
 **Agent-contract evolution:** `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`<br>
 **Golden Path:** `AGENT_OS_GOLDEN_PATH.md`  
@@ -521,6 +522,8 @@ Rules:
 ## 14. Attention / Needs You
 
 Do not create parallel owner-inbox semantics in every product.
+
+Approved delivery channels such as ntfy are presenters/transports over the same source-bearing attention/follow-up/follow-through state. A notification acknowledgement, clear/delete action, or owner reply does not create source resolution or consequential authority by itself. Owner replies must return through an attributable Wirebot/OpenClaw ingress and revalidate the current source/authority before action.
 
 Human attention may include:
 
