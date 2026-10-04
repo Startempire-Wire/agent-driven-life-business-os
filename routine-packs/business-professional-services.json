@@ -14,7 +14,7 @@
   ],
   "template_refs": [
     "routine-template://business/inquiry-triage@1.0.0",
-    "routine-template://cross-domain/follow-up@1.0.0",
+    "routine-template://cross-domain/follow-up@1.1.0",
     "routine-template://business/delivery-case-review@1.0.0",
     "routine-template://cross-domain/reconciliation@1.0.0",
     "routine-template://cross-domain/renewal-expiry@1.0.0",
