@@ -4,8 +4,8 @@
 **Schema family:** `agent.memory_contract.v1`<br>
 **Applies with:** `AGENTS.md`, `OWNER_AUTHORITY_CONSTITUTION.md`, `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`, `CURRENT_ECOSYSTEM_ARCHITECTURE.md`, `AMBIENT_OPERATOR_REFERENCE_PROFILE.md`<br>
 **Evolution class:** `portable_operational` (portions touching privacy, tenancy, deletion and authority are `safety_authority`)<br>
-**Version:** `0.2.0` (incubating — install contract now present, not a settled contract)<br>
-**Last substantive revision:** 2026-10-03<br>
+**Version:** `0.3.0` (incubating — runnable substrate and evaluation now ship)<br>
+**Last substantive revision:** 2026-10-04<br>
 **Architecture authority:** deployment Canonical Owner Principal under `OWNER_AUTHORITY_CONSTITUTION.md`<br>
 **Startempire binding:** Verious Smith III<br>
 **Reference implementation:** Wirebot/OpenClaw memory stack (memory-core, memory-wiki, active-memory, wirebot-memory-bridge, Mem0, Letta), Focusa, Agent Wiki, Context Core<br>
@@ -365,6 +365,60 @@ an ordered failover chain. A dead provider must be a log line, not an outage.
   engine should treat its first version jump as a separate, independently verified
   project — and should not attempt one while its reasoning path is dead.
 
+### 16.9 What now ships, and what it replaced
+
+Two runnable artifacts back this section. Both are standard-library only and run
+on a bare `python3` with no install step.
+
+| Artifact | Purpose |
+|---|---|
+| `scripts/sovereign-memory.py` | The substrate: one SQLite file, hybrid FTS5 + vector retrieval, mandatory attribution, decay-ranked forgetting, offline by contract |
+| `scripts/sovereign-memory-eval.py` | The evaluation: seven gates including the null-memory control arm. Wired into `tests/run-contract-tests.sh` |
+
+```bash
+python3 scripts/sovereign-memory-eval.py --self-test   # prove the gates can fail
+python3 scripts/sovereign-memory-eval.py               # run them
+python3 scripts/sovereign-memory.py offline-check      # sovereignty only
+```
+
+**This replaced the previous evaluation**, which scored similarity against a
+baseline built from the same corpus. That harness could not fail (a mirror index
+scores 1.0 and is still "below baseline") and could not see an outage: its four
+metrics held at `r@5=0.76 / p@5=0.42 / mrr=0.5907` across four consecutive days
+during which the backend returned HTTP 500 on every call.
+
+Two lessons from building the replacement, both recorded because they will recur:
+
+- **A control arm must be built so it can differ.** The first version handed the
+  null arm the long-term facts directly, pinning lift at +0.00 by construction.
+  The harness reported "memory is decoration" — a correct reading of a rigged
+  experiment. The fix is not the verdict, it is the experiment.
+- **A similarity score can understate value.** G3 reports recall@3 of 0.50 while
+  G4 shows memory carrying 4 of 5 recall-only tasks. Optimising the similarity
+  number would have been optimising the wrong thing.
+
+### 16.10 Measured, and not yet claimed
+
+| Gate | Result | Reading |
+|---|---|---|
+| G0 installability | bare python3.12, **zero third-party imports** | runs anywhere python3 runs |
+| G1 reachability | write→read traverses | not merely process-alive |
+| G2 mirror trap | no self-reference | score is not self-scored |
+| G3 retrieval | **recall@3 = 0.50 — WARN** | hashed embedder cannot paraphrase |
+| G4 causal | **lift +0.50 (with 7/8, null 3/8)** | memory is load-bearing |
+| G5 sovereignty | full lifecycle air-gapped | no network required |
+| G6 latency | p50 1.3ms, p95 1.8ms | inside the 10ms semantic budget |
+
+**G3 is knowingly weak.** The shipped embedder is a hashed n-gram projection: it
+captures lexical overlap and nothing more, which is why "what does the client
+actually sell" misses. It is a deliberate offline default, not a claim of
+semantic understanding. Replacing `encode()` with a real 384-d sentence encoder
+is a drop-in change that does not alter stored data.
+
+**Unproven at scale:** the harness has run on 13 documents, not a production
+corpus. Brute-force cosine is correct at this size and wrong at a million rows,
+where `sqlite-vec` must take over. That substitution is designed for and untested.
+
 ---
 
 ## 17. Living maintenance
@@ -428,9 +482,12 @@ A commit is not `verified`. A transcript is not `approved`. A passing model crit
 | 0.1.0 | 2026-09-28 | Initial portable memory lifecycle contract. Derived from a live Wirebot incident (retrieval eval structurally unfalsifiable, dead memory backend masked by health checks, context bloat evicting conversation history) and 2026 agent-memory research. | incubating |
 | 0.1.1 | 2026-09-28 | Quality pass. Verified all 8 research citations resolve to the cited titles. Mapped the two omitted substrate primitives (`Capability + policy`, `Resource + leverage`). Added the explicit doctrine-versus-runtime-truth boundary required by `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3, and recorded that **transcript memory currently has no named owner** (§18.1). Not yet addressed: no customer install path (§18 checklist is not a setup contract), memory is not a declared cross-product seam, and vertical worked examples are thin. | incubating |
 | 0.2.0 | 2026-10-03 | **Install and setup contract added (§16)** — the profile had descriptions of correct behaviour but no ordered procedure to reach it. Adds prerequisites, a load-bearing 10-step install order with per-step done-conditions, reachability-not-process-alive verification, verified-backup and restore-rehearsal rules, deliberate checkpoint establishment, and eight **known install traps** each recorded from a real deployment rather than a design review. Adds the §16.7 LLM endpoint rule: an authenticated key that returns 402 is not a working endpoint, and no memory agent should run on a single endpoint. Adds seven deployment-readiness checklist items and four new not-done conditions. Sections renumbered 16–20 → 17–21 and cross-references corrected. Still unaddressed: memory is not a declared cross-product seam, and vertical worked examples remain thin. | incubating |
+| 0.3.0 | 2026-10-04 | **Runnable substrate and evaluation now ship.** `scripts/sovereign-memory.py` (one SQLite file, hybrid FTS5 + vector, mandatory attribution, decay-ranked forgetting, offline by contract) and `scripts/sovereign-memory-eval.py` (seven gates incl. the null-memory control arm, wired into the regression suite). Both are standard-library only. This **replaces** the similarity-against-mirror-baseline evaluation, whose metrics held frozen across four days of total backend failure. Two construction lessons recorded: a control arm must be built so it can differ (the first version pinned lift at 0.00 by handing the null arm the answers), and a similarity score can understate value (G3 warns at 0.50 recall while G4 shows memory load-bearing at +0.50 lift). G3 is knowingly weak — the shipped hashed embedder does not paraphrase and is a placeholder behind a 3-call interface. Unproven: everything above 13 documents, and the sqlite-vec substitution at scale. | incubating |
 
 ### Known unproven
 
+- **The shipped substrate has never run on a second machine.** Installability is proven by static
+  analysis (zero third-party imports) and by an air-gapped lifecycle, not by a foreign install.
 - **§16 install order has been derived from one real deployment, not several.** The traps in 16.6 are observed; the ordering itself is reasoned, not A/B validated.
 - Tier latency budgets are starting targets, not measured on any deployment.
 - Hybrid fusion parameters and rerank depth are unspecified; a deployment must measure its own Pareto frontier.
