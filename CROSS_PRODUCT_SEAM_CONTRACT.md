@@ -235,6 +235,8 @@ The source domain owns resolution.
 
 Before consequential action from an attention item, resolve the current source revision/state.
 
+`operator.attention_policy.v1` is the owner-scoped portable delivery/reply policy referenced by routine `attention_policy_ref` values. It may define notification classes, approved channel refs/fallbacks, quiet hours, coalescing, reply posture/consequence ceiling, lock-screen privacy and lifecycle revision. It grants no source resolution, channel credential, execution permission or transport entitlement.
+
 Delivery-channel state remains presentation state:
 
 ```text
