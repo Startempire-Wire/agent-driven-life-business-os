@@ -13,7 +13,7 @@
   ],
   "template_refs": [
     "routine-template://cross-domain/orientation@1.0.0",
-    "routine-template://cross-domain/follow-up@1.0.0",
+    "routine-template://cross-domain/follow-up@1.1.0",
     "routine-template://cross-domain/reconciliation@1.0.0",
     "routine-template://cross-domain/renewal-expiry@1.0.0",
     "routine-template://cross-domain/evidence-closure@1.0.0"

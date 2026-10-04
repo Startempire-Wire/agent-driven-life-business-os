@@ -21,7 +21,7 @@ It intentionally contains **portable abstractions only**. Private operator/custo
 |---|---|---|
 | `orientation.json` | orientation | founder/operator, multi-business, personal executive |
 | `inquiry-triage.json` | intake/triage | services, SaaS, local service, commerce |
-| `follow-up.json` | follow-up | unresolved commitments across life/business |
+| `follow-up.json` | follow-up | important messages/events/commitments carried through verified desired outcome and momentum check |
 | `reconciliation.json` | reconciliation | finance, records, multi-system truth |
 | `delivery-case-review.json` | delivery review | services, SaaS, membership, support |
 | `renewal-expiry.json` | renewal/expiry | contracts, subscriptions, credentials, obligations |

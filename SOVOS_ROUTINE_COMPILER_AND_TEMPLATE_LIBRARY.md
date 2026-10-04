@@ -230,6 +230,19 @@ The machine-readable catalog SHOULD be extended in bounded increments with the r
 
 Owner-specific compilation SHOULD also separate protected invariants, learnable operating preferences and bounded outcome-adaptive behavior so routines become personally intelligent without allowing learned history to mint authority.
 
+### Follow-through completion law
+
+The `follow_up` family is not merely a reminder/sending pattern. Important messages, events, commitments and initiated actions SHOULD bind an expected desired outcome and remain durably open until one of these terminal conditions is source-backed:
+
+- desired outcome verified;
+- explicitly abandoned by an authorized human/policy;
+- superseded by another accepted commitment;
+- escalated into another governed work/incident/legal process.
+
+A communication receipt or task/agent completion alone MUST NOT silently close the loop. Where the desired outcome is external, compose follow-up with receiver/source Evidence Closure. Where the expected benefit includes downstream momentum, retain the hypothesis long enough to evaluate whether that momentum actually appeared.
+
+Perpetua may identify, prioritize and refine these obligations continuously, but it does not own a parallel follow-up ledger or scheduler.
+
 ---
 
 ## 4. Audit → inference → template matching

@@ -2,6 +2,16 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.5 follow-through refinement — 2026-10-04
+
+- **Perpetua continuity restored explicitly:** Perpetua is the app-wide continuous intelligence/continuity posture around SOVOS, not a second scheduler/store/persona or an occasional recommendation feed. Continuous does not mean constantly busy; unresolved important outcomes persist across time.
+- **Follow-up template advanced to 1.1.0:** important messages/events/commitments now bind desired outcome, expected momentum, next-check state, authorized follow-up, outcome verification and terminal disposition.
+- **False closure rejected:** send/read/task/agent receipts do not close an important thread when the desired result remains unknown.
+- **Event + reconciliation posture added:** event-driven observation is preferred, with periodic reconciliation so missed provider events or external silence cannot strand important follow-through.
+- **Momentum check made explicit:** verified completion and expected downstream momentum are separate observations; Perpetua may revise the hypothesis or propose a next bounded move when momentum fails to appear.
+- **Routine packs version-aligned:** every pack referencing canonical follow-up now points at `follow-up@1.1.0`.
+- **Ownership preserved:** source/commitment/work/CRM/financial/outcome systems retain canonical state; Perpetua/Wirebot project continuity and intelligence without creating a universal follow-up database.
+
 
 ## 0.2.5-candidate — 2026-10-03
 
