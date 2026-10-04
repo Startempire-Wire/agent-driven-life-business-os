@@ -74,6 +74,16 @@ The machine-readable starter catalog must cover the core routine families named 
 
 The starter catalog is not a universal list of routines every owner should activate. Coverage means the compiler has reusable patterns to check for fit; it does not manufacture recurrence or authority.
 
+## Freedom & leverage expansion
+
+The 2026-10-03 catalog is the first operationally balanced starter set, not the final SOVOS routine universe. `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md` identifies additional high-priority families for economic freedom, financial recovery, relationship stewardship, social/experience planning and capacity reinvestment.
+
+Do **not** add those families by silently weakening the current schema or labeling everything `custom`. Extend the portable contract additively, add fixtures/regressions, then materialize canonical templates in small proof-backed slices. The first recommended proofs are:
+
+1. prospecting/CRM → commercial progression → settled cash;
+2. financial exposure → lawful resolution → recovered monthly cash flow / breathing room;
+3. released capacity → owner-selected life/relationship outcome → verified feedback.
+
 ## Canonical-path rule
 
 `routine-templates/` is the **canonical portable template catalog**.
