@@ -367,6 +367,24 @@ The system SHOULD minimize user data-entry burden and prefer owner-authorized re
 
 No single source is assumed complete. Source disagreement becomes a visible reconciliation state.
 
+#### 8.2A Adapter acquisition map — verified examples as of 2026-10-04
+
+Provider names are replaceable adapter candidates, not SOVOS architecture dependencies. Re-verify access, pricing, coverage, terms and legal posture at deployment time.
+
+| Need | Preferred machine route | Current example / boundary |
+|---|---|---|
+| connected credit-card / mortgage / student-loan liabilities | owner-consented open-finance API | [Plaid Liabilities](https://plaid.com/docs/liabilities/) exposes supported liabilities through `/liabilities/get`; coverage is not universal |
+| transaction / cash-flow evidence | bank/open-finance transaction API | Plaid Transactions or the institution's stronger first-party API; Sandbox testing is free, Production pricing/access varies |
+| consumer credit reports | B2B2C consumer-report API when the deployment qualifies | [Equifax Credit Reports API](https://developer.equifax.com/products/apiproducts/credit-reports) advertises Equifax or three-bureau consumer-report delivery for eligible B2B2C products |
+| free owner report fallback | owner identity-verified retrieval + structured import | [AnnualCreditReport.com](https://www.annualcreditreport.com/) is the authorized free-report route; FTC states the nationwide bureaus currently allow weekly free reports. Do not assume a public automation API or bypass identity verification |
+| credit-report dispute packet | evidence-backed document workflow | [CFPB sample dispute letters](https://www.consumerfinance.gov/consumer-tools/credit-reports-and-scores/sample-letters-dispute-credit-report-information/) provide official consumer templates; only dispute information the evidence actually supports |
+| creditor / collector notices | mail/document connectors | Gmail/Drive or other owner-authorized sources; extract dates, balances, original/current creditor, validation windows and correspondence without treating message text as canonical ledger truth |
+| creditor / servicer current state | first-party API/portal when available | prefer structured provider operations; UIAI is fallback when no stronger supported interface exists and the interaction is lawful/authorized |
+| business prospecting / CRM | CRM + enrichment/source APIs | HubSpot/Salesforce/other owning CRM plus replaceable prospect-data sources; the CRM remains canonical for pipeline state |
+| life / relationship coordination | calendar, contacts, messaging, reservation/provider APIs | use owner-consented sources and exact send/booking authority; do not build a second contact/calendar database |
+
+Free-first means: use official no-cost owner routes, Sandbox/developer tiers and already-owned integrations where they satisfy the proof. It does **not** mean scraping around access controls, violating provider terms or using a cheaper source that materially weakens truth.
+
 ### 8.3 Lawful-advantage rule
 
 SOVOS SHOULD aggressively identify every **lawful** owner advantage, including:
