@@ -40,3 +40,13 @@ audit evidence
 ~~~
 
 Pack references are regression-tested against the canonical `routine-templates/` catalog. A pack may suggest a routine; it cannot create authority, a worker, a schedule or an external effect.
+
+## Planned Freedom & Leverage packs
+
+The next additive pack layer is mapped in `../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`. Candidate compositions include:
+
+- **business revenue engine** — opportunity, prospecting, CRM continuity, pipeline, offer/close, invoice-to-cash, retention/expansion/referral;
+- **life financial freedom** — liabilities/exposure discovery, financial stability, lawful debt resolution, credit rehabilitation and cash-flow recovery;
+- **life relationship & enrichment** — relationship stewardship, social/experience planning, explicit opt-in relationship formation and capacity reinvestment.
+
+These are architecture targets, not currently activated packs. Materialize them only after their canonical templates and additive contract support exist.
