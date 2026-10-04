@@ -119,6 +119,75 @@ A Follow-Up can complete successfully while Follow-Through remains open.
 
 ---
 
+## 2A. Channel priority — SMS first
+
+For owner-facing interruption and conversational continuity, **SMS is the preferred first-class channel when the deployment can provide it safely and lawfully**.
+
+Default owner-channel hierarchy:
+
+~~~text
+PRIMARY
+  true two-way SMS
+
+SECONDARY / RICH PUSH
+  ntfy / branded push
+
+IN-APP
+  Wirebot App exact object + full evidence/context
+
+OPTIONAL ADDITIONAL
+  iMessage / WhatsApp / Signal / Telegram / email
+~~~
+
+This is a delivery preference, not a rule that every routine sends SMS. Perpetua and the attention policy still decide whether interruption is useful.
+
+### SMS paths that avoid 10DLC specifically
+
+1. **Direct-SIM Android / Agent Computer SMS**
+   - phone-capable Android node with a real SIM/eSIM;
+   - OpenClaw can expose `sms.send` and `sms.search` when device permissions and Gateway policy both allow them;
+   - best fit: Sovereign/private owner channel and low-volume two-way owner conversation;
+   - no 10DLC registration because this is not a cloud 10-digit A2P long-code route;
+   - carrier terms, anti-spam controls and practical throughput limits still apply.
+
+2. **Apple Messages / carrier-SMS relay**
+   - OpenClaw's iMessage path can explicitly address `sms:+1555...`;
+   - best fit: a dedicated Mac/iPhone/SIM relay;
+   - basic send/receive does not require advanced private-API mode.
+
+3. **Verified Toll-Free SMS**
+   - US/Canada toll-free messaging is outside A2P 10DLC;
+   - toll-free verification is still required;
+   - supports two-way SMS plus provider webhooks/delivery state;
+   - best fit: scalable hosted Wirebot;
+   - OpenClaw's official SMS plugin can use an SMS-capable Twilio toll-free number.
+
+4. **Dedicated Short Code**
+   - outside 10DLC and designed for high-throughput two-way A2P SMS;
+   - use only when volume justifies the substantially higher monthly/onboarding cost.
+
+Avoiding 10DLC does not remove consent, anti-spam, carrier or provider requirements. SOVOS should choose a sanctioned route rather than disguising business traffic as consumer messaging.
+
+Recommended product posture:
+
+~~~text
+Sovereign / private owner
+  dedicated Android SIM relay preferred
+  Apple relay optional
+  ntfy rich-push fallback
+
+Hosted / scalable Wirebot
+  verified toll-free SMS preferred
+  ntfy rich-push fallback
+
+High-volume platform
+  toll-free or short code according to throughput and brand model
+~~~
+
+For white-label deployments, the SMS sender identity should match the actual commercial/brand posture. A client-branded sender should use its own appropriate sender/verification arrangement rather than silently reusing another brand's identity.
+
+---
+
 ## 3. ntfy channel role
 
 [ntfy](https://ntfy.sh/) is a strong optional owner-notification transport for SOVOS because it supports:
