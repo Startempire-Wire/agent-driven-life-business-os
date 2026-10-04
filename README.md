@@ -57,6 +57,10 @@ Agents, models, automations and machines are instruments. The operating outcome 
 
 See [SOVOS Human Freedom Operating Doctrine](./SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md).
 
+The broader **Freedom & Leverage** model connects returned capacity to economic freedom, financial breathing room, relationships, life enrichment and owner-defined reinvestment of time/money/attention. It also defines the Revenue Spine, Financial Freedom & Recovery Spine, Relationship/Life Enrichment Spine, three owner frontiers and implementation proof sequence.
+
+See [SOVOS Freedom & Leverage Operating Model](./SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md).
+
 ### Driverless Business
 
 The long-term operational expression is **Driverless Business**: a business whose purpose, routines, information, decision patterns, authority and exception handling are mapped well enough that governed agents can carry ordinary operation without continuous human intervention.
