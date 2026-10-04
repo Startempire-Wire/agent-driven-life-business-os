@@ -32,6 +32,26 @@ This is the operational meaning of:
 
 > **Teach people to fly.**
 
+### 1A. Freedom must be felt, not merely calculated
+
+Returned capacity is incomplete when it exists only in telemetry.
+
+SOVOS SHOULD distinguish:
+
+~~~text
+measured margin
+  time / money / obligations / risk / attention objectively changed
+
+felt margin
+  the owner experiences genuine breathing room, optionality and reduced captivity
+~~~
+
+Financial debt, unresolved obligations, chronic follow-up, empty opportunity pipelines and overfilled calendars can consume psychological margin even when gross income or automation increases. Therefore the system SHOULD measure both source-qualified operating/economic changes and owner-reported breathing room where the owner chooses to provide it.
+
+Freed capacity is also not automatically another work queue. After SOVOS returns time, money or attention, Wirebot SHOULD help the owner decide whether the best use is more economic activity, relationships, family, rest, learning, creation, exploration, stewardship or deliberate open space.
+
+The detailed Freedom Flywheel, three owner frontiers and economic/financial/life routine map are defined in `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`.
+
 ---
 
 ## 2. Preserve the descriptive lineage
