@@ -523,7 +523,9 @@ Rules:
 
 Do not create parallel owner-inbox semantics in every product.
 
-Approved delivery channels such as ntfy are presenters/transports over the same source-bearing attention/follow-up/follow-through state. A notification acknowledgement, clear/delete action, or owner reply does not create source resolution or consequential authority by itself. Owner replies must return through an attributable Wirebot/OpenClaw ingress and revalidate the current source/authority before action.
+Approved owner channels are presenters/transports over the same source-bearing attention/follow-up/follow-through state. SMS is the preferred conversational route when available and owner-approved; ntfy is a secondary rich-push/redundant route. A channel acknowledgement, clear/delete action, or owner reply does not create source resolution or consequential authority by itself. Owner replies must return through an attributable Wirebot/OpenClaw ingress and revalidate the current source/authority before action.
+
+Every new channel proposal must include downside analysis—reach/install friction, reply quality, delivery/latency guarantees, compliance, privacy, white-label identity, dependencies, cost/scaling, outage behavior, replay, revocation and fallback—not only happy-path API capability.
 
 Human attention may include:
 
