@@ -546,7 +546,14 @@ when_to_notify
   recovered
   digest
 
+primary_channel_ref
+  owner SMS when available and approved
+
+routing_strategy
+  primary_then_fallback | fanout | class_specific
+
 channel_refs
+  SMS
   ntfy owner channel
   Wirebot App
   other approved channels
