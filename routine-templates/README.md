@@ -76,7 +76,7 @@ The starter catalog is not a universal list of routines every owner should activ
 
 ## Freedom & leverage expansion
 
-The 2026-10-03 catalog is the first operationally balanced starter set, not the final SOVOS routine universe. `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md` identifies additional high-priority families for economic freedom, financial recovery, relationship stewardship, social/experience planning and capacity reinvestment.
+The 2026-10-03 catalog is the first operationally balanced starter set, not the final SOVOS routine universe. `../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md` identifies additional high-priority families for economic freedom, financial recovery, relationship stewardship, social/experience planning and capacity reinvestment.
 
 Do **not** add those families by silently weakening the current schema or labeling everything `custom`. Extend the portable contract additively, add fixtures/regressions, then materialize canonical templates in small proof-backed slices. The first recommended proofs are:
 
