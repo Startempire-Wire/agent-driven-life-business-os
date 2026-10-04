@@ -4,6 +4,7 @@
 **Effective:** 2026-10-03  
 **Architecture authority:** `OWNER_AUTHORITY_CONSTITUTION.md`  
 **Human freedom doctrine:** `SOVOS_HUMAN_FREEDOM_OPERATING_DOCTRINE.md`  
+**Freedom & leverage model:** `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`  
 **Information infrastructure:** `SOVOS_INFORMATION_INFRASTRUCTURE.md`  
 **Current ecosystem architecture:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`
 
@@ -458,6 +459,10 @@ This creates an **altitude test** for driverless operation:
 The automation stack is an instrument, not the destination. In the Philoveracity flight metaphor: **do not confuse the wing with the flight**. A more elaborate autonomous system that creates new dependence, monitoring burden or maintenance gravity can be a regression even if more tasks are technically automated.
 
 Driverless maturity should therefore buy back human life, not merely accumulate autonomous machinery.
+
+The freedom test also includes economic continuity and capacity reinvestment. A business is not meaningfully driverless if it can operate but cannot reliably create new qualified opportunity, progress commercial relationships or realize cash where those are required by its business model. Likewise, capacity bought back from operation is not required to return to the business: it may be deliberately reinvested in relationships, family, rest, learning, creation, exploration or other owner-defined life outcomes.
+
+See `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md` for the Revenue, Financial Freedom and Life Enrichment spines.
 
 ---
 
