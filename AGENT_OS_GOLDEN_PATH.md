@@ -317,6 +317,7 @@ Required families are defined in `CURRENT_ECOSYSTEM_ARCHITECTURE.md`:
 operator.partner_profile.v1
 operator.surface_handoff.v1
 operator.attention.v1
+operator.attention_policy.v1
 operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1

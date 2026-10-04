@@ -396,6 +396,8 @@ Do not make the SOVOS routine depend on one transport.
 
 Every compiled routine may already bind an `attention_policy_ref`.
 
+The portable machine contract for that reference is `contracts/operator-attention-policy.v1.schema.json` / `operator.attention_policy.v1`.
+
 Use that seam to specify:
 
 ~~~text

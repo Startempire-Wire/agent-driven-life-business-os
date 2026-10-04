@@ -14,6 +14,7 @@ fi
 "$PYTHON" "$ROOT/tests/agent-contract-optimization-test.py"
 "$PYTHON" "$ROOT/tests/portfolio-compiler-contract-test.py"
 "$PYTHON" "$ROOT/tests/routine-library-coverage-test.py"
+"$PYTHON" "$ROOT/tests/attention-policy-contract-test.py"
 "$PYTHON" "$ROOT/tests/repository-integrity-test.py"
   # Portable memory evaluation. Runs its own gates; a non-zero exit means the
   # memory substrate stopped being installable, reachable, sovereign, or
