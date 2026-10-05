@@ -21,6 +21,41 @@ Start here:
 
 Historical version docs, audits and Git history remain useful evidence. They do not override the current architecture.
 
+
+## Current-state versus target-state rule
+
+Agents MUST distinguish three layers before implementation:
+
+~~~text
+CURRENT IMPLEMENTED STATE
+  code + owning runtime/service + current consumer evidence
+
+CURRENT PLANNING / TARGET STATE
+  accepted architecture/specification not yet proven end to end
+
+ORDERED TRANSITION
+  existing task/dependency graph + exact missing seams required to move from current to target
+~~~
+
+For the new mathematical-intelligence/composable-experience work, read:
+
+~~~text
+SOVOS_MATHEMATICAL_INTELLIGENCE_AND_COMPOSABLE_EXPERIENCE.md
+Startempire-Wire/Wirebot-App/docs/20-wirebot-intelligence-composition-architecture.md
+Startempire-Wire/Wirebot-App/docs/21-wirebot-current-state-to-target-state-handoff.md
+Startempire-Wire/focusa/docs/65-visual-ui-focusa-integration.md
+~~~
+
+Do not infer implementation from those target documents. Current reality is:
+
+- Wirebot already has a real trusted Focusa/A2UI generated-UI adapter, the pinned 31-component catalog, replay-safe generated-surface handling, explainable layout composition and partial Perpetua/routine/Kaizen contracts;
+- Focusa already has governed Context/Evidence/Prediction/Constraint/Trajectory/Workpoint/Metacognition primitives and the trusted generated-UI substrate;
+- the new normalized Intelligence Result registry, mathematical engine registry and higher-order Wirebot composition registry are target implementation work, not current product capability;
+- the SOVOS routine compiler runtime and steady recurring execution path remain unproven until `SAG-10` and `SAG-18` close with runtime evidence;
+- UIAI remains the browser/computer execution and proof owner and must not be replaced by a new SOVOS/Wirebot browser subsystem.
+
+The current task trackers and dependency graphs remain the execution-order authority for implementation. These architecture documents refine the destination and seam contracts; they do not authorize skipping unresolved prerequisites or marking dependent work complete.
+
 When the task changes agent instructions, load-on-trigger skills/procedures or instruction-loading behavior, also read `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md` and run `bash tests/run-contract-tests.sh`. A material semantic change must use held-out behavioral cases that were not used to derive the proposal.
 
 ---
