@@ -437,6 +437,8 @@ Wirebot setup mode
 
 For Sovereign Operator and Sovereign, W.I.N.S.-off is a complete valid operating state.
 
+**SOVOS status is independent of this table.** A Direct or Network relationship may overlay a SOVOS environment, and a shared Wirebot runtime may serve Direct/Network without being SOVOS. The determining evidence is `operator.environment.v1`, not the commercial label.
+
 The mandatory feedback loop is:
 
 ```text
