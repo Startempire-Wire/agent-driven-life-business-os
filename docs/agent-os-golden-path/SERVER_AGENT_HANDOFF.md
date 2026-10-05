@@ -127,8 +127,9 @@ customer owner
 + dedicated/private Focusa
 + Focusa Workforce
 + UIAI Engine
-+ Tailscale private mesh
-+ at least one persistent remote VPS
++ owner-specific Tailscale private mesh / tailnet
++ dedicated persistent remote VPS for this owner
++ at least one owner-controlled local computer/body joined to the tailnet
 + optional additional Veragensia bodies
 + optional Startempire federation
 ```
@@ -286,6 +287,7 @@ Profiles are templates. Assignments bind real scope and authority.
 Cross-product joins belong to ADLBOS reference envelopes:
 
 ```text
+operator.environment.v1
 operator.partner_profile.v1
 operator.surface_handoff.v1
 operator.attention.v1
