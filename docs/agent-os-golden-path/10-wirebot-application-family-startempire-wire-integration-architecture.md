@@ -275,7 +275,7 @@ Handoff envelopes carry references and intent, not broad credentials or transfer
 
 `Operator Deployment` is a professional implementation/deployment offer. It is not another product runtime or authority class.
 
-A normal private Operator deployment can include:
+A complete SOVOS Operator deployment MUST include:
 
 ```text
 customer Canonical Owner Principal
@@ -283,8 +283,9 @@ customer-named Wirebot Operating Partner on OpenClaw
 private/dedicated Focusa
 Focusa Workforce
 UIAI Engine
-Tailscale private mesh
-at least one persistent remote VPS
+one owner-specific Tailscale private mesh / tailnet
+one dedicated persistent remote VPS for that owner
+at least one owner-controlled local computer/body joined to that tailnet
 optional additional Veragensia Agent Computers/bodies
 optional Startempire federation
 ```
@@ -313,8 +314,8 @@ Do not turn commercial/deployment combinations into mutually exclusive architect
 | Dimension | Examples |
 |---|---|
 | Purchase / participation | component purchase, Wirebot Direct, network benefits, implementation/support engagement |
-| Runtime isolation | shared, dedicated/Sovereign |
-| Hosting / operation | platform-managed, customer-owned, operator-managed, hybrid |
+| Runtime isolation | shared Wirebot service, or dedicated SOVOS/Sovereign Operator Environment |
+| Hosting / operation | customer-managed, operator-managed on the customer's behalf, or hybrid; SOVOS remains owner-specific in all cases |
 | Federation / sharing | private, selected federation, broader network participation |
 | Interface / access | Wirebot App, Workforce extension, Focusa Desktop, UIAI Cockpit, voice, Agent Computer |
 
