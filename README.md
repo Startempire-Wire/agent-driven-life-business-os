@@ -61,6 +61,8 @@ The broader **Freedom & Leverage** model connects returned capacity to economic 
 
 See [SOVOS Freedom & Leverage Operating Model](./SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md).
 
+The mathematical-intelligence and composable-experience implementation path is defined by [SOVOS Mathematical Intelligence and Composable Experience Architecture](./SOVOS_MATHEMATICAL_INTELLIGENCE_AND_COMPOSABLE_EXPERIENCE.md). It keeps advanced probability/statistics/optimization behind a stable human-facing Wirebot composition vocabulary, reuses Focusa cognition/Evidence/trusted A2UI primitives, and preserves UIAI Engine as browser/computer observation, actuation and proof owner.
+
 Owner-facing momentum/exception delivery and two-way Chief-of-Staff communication use the transport-neutral attention model plus approved channels. The current ntfy-oriented reference is [SOVOS Owner Notification & Response Channel Doctrine](./SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md).
 
 ### Driverless Business
