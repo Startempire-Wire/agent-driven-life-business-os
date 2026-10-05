@@ -481,6 +481,7 @@ Ready authorized work should continue without repeated permission prompts until:
 Use `CROSS_PRODUCT_SEAM_CONTRACT.md` plus the ADLBOS contract families rather than inventing product-local equivalents:
 
 ```text
+operator.environment.v1
 operator.partner_profile.v1
 operator.surface_handoff.v1
 operator.attention.v1
