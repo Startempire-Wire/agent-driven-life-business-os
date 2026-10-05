@@ -129,6 +129,36 @@ Prove one template across two different owner/business/life bindings so generali
 
 **Required closure:** bounded delegation envelope carrying owner/partner refs, project/workstream target where known, desired outcome, constraints, context refs, budget/authority/acceptance refs and correlation ID. Focusa remains responsible for validating/resolving the Workstream, Foreman, Workpoint and execution plan.
 
+### NEW-P0-13 — SOVOS Operator Environment provisioning and residency proof
+
+**Gap:** the SOVOS deployment invariant is now machine-readable as `operator.environment.v1`, but no end-to-end customer proof yet establishes one dedicated owner VPS + owner-specific Tailscale tailnet + owner-controlled local body + cloud/local/hybrid partner residency with split-brain prevention.
+
+**Required closure:** prove one real customer environment through:
+
+~~~text
+dedicated VPS provision
+→ Tailscale tailnet binding
+→ local body enrollment
+→ runtime/body identity
+→ Operating Partner binding
+→ cloud/local/hybrid residency selection
+→ single-writer/reconcile coordination
+→ disconnect/revoke
+→ VPS loss / local-body loss / network-partition recovery
+→ partner identity continuity
+~~~
+
+Negative acceptance MUST reject:
+
+- shared cross-customer VPS/runtime as SOVOS;
+- VPS without Tailscale;
+- tailnet without an owner-controlled local body;
+- local/cloud replicas that can write competing canonical state;
+- partner identity changing merely because residency moves;
+- cross-owner mesh access without explicit governed federation/delegation.
+
+Management may be customer-managed, operator-managed on the customer's behalf or hybrid; the environment remains dedicated to that owner.
+
 ### NEW-P0-12 — OpenClaw operating-partner continuity
 
 **Gap:** The shared OpenClaw gateway and private KnownHost Core → OVH route are deployed, and the WordPress plugin already owns MemberPress tier/lifecycle plus Core tenant/workspace provisioning. The missing seam is narrower: provisioning does not create, persist, verify, revoke or recover the entitled tenant LBI on that gateway, and WordPress may mark the lifecycle active before runtime proof. Remote reachability, tenant/workspace creation or a healthy sovereign-operator agent is not member-runtime proof.
