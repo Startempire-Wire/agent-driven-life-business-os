@@ -27,6 +27,8 @@ The products remain independent canonical owners in their domains. SOVOS does no
 
 See [SOVOS Information Infrastructure Doctrine](./SOVOS_INFORMATION_INFRASTRUCTURE.md).
 
+For a purpose-based map of current doctrine, implementation plans, machine contracts, evidence and historical material, use the [SOVOS Documentation Index](./docs/README.md).
+
 ## Human freedom is the operating outcome
 
 The historical **Agent-Driven Life & Business Operating System** description remains intentionally useful: SOVOS exists to move routine operational burden from the human to governed agents across life and business.
