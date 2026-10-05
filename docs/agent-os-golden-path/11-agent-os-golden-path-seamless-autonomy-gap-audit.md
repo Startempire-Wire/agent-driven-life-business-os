@@ -174,6 +174,21 @@ Higher is not inherently better. Maximum useful autonomy is the highest level wh
 | SAG-43 | P0 | Focusa Project Card reports bootstrap needed, missing high-/short-term goals and crosswire mismatch despite verified identity and accepted Workpoints. | Individual checkpoints work, but project-wide autonomous planning remains advisory/misaligned. | Operator-confirmed Project Genesis/Trajectory reconciliation and same-scope Workpoint/task proof. | ADLBOS #9 |
 | SAG-44 | P1 | GitHub issues, Golden Path task rows, product trackers and Focusa Workpoints are manually cross-referenced. | Closed/fixed/blocking state can drift and stale work remains eligible. | One reconciliation projection preserving each tracker’s ownership, with mismatch alerts and explicit settlement evidence. | GP-13/22 |
 
+### 5.10 OpenClaw operating-partner continuity
+
+**Current truth:** OpenClaw is named in the stack and Core contains gateway/chat
+adapters, but the Golden Path did not previously connect runtime identity, isolated
+tenant provisioning, relationship-thread continuity, consented context, typed
+accepted-operation handoff, governed execution, recovery, outcomes and later
+behavioral learning as one explicit seam. A reachable remote port or healthy shared
+operator runtime is not member-runtime proof.
+
+**Required closure:** implement the Wirebot App `R00.01`–`R00.09` chain and consume
+it through `GP-23`. Keep identity, consent, capability, executor receipts, outcomes
+and learning in their owning systems. OpenClaw remains the operating runtime, not a
+parallel authority or durable truth store. Unsupported or unentitled tenants retain
+an explicit `unavailable` state with no shared-runtime fallback.
+
 ## 6. Highest-leverage dependency sequence
 
 ### Foundation train — Make this Golden Path executable
@@ -258,6 +273,7 @@ Add these as cross-cutting execution tracks without renumbering or replacing GP-
 | GP-20 — Wirebot application vertical slice | ADLBOS #5 — first integrated application-family slice | GP-16, GP-17, GP-19 | one Community user completes the selected workflow through the proposed shared app experience with browser/device proof |
 | GP-21 — Replacement, offboarding and economics | ADLBOS #3 — lifecycle, support and outcome economics | GP-18, GP-19 | replacement agent, retire/export/delete, residual scan, support and cost/outcome evidence pass |
 | GP-22 — Executable Golden Path governance | ADLBOS #9 — project-scoped machine frontier | GP-03 and Focusa #608 | project Genesis/Trajectory/task projection is canonical, queryable and proven through one settled task |
+| GP-23 — OpenClaw operating-partner continuity | Wirebot App revision-6 `R00.01`–`R00.09` | GP-17, GP-18, GP-19, GP-20 | one entitled tenant completes persistent conversation → typed accepted operation → governed execution/recovery → verified outcome → corrected later behavior on an isolated runtime, while wrong-tenant/shared-runtime probes fail closed |
 
 These tasks extend the current Golden Path ledger; their issues preserve scope and acceptance without granting execution authority.
 
@@ -275,6 +291,7 @@ The Golden Path is seamless enough for controlled expansion when:
 - costs, failures and exceptions reach the responsible human/product owner;
 - replacement and offboarding work from durable state;
 - the Wirebot application renders the same canonical state without becoming its owner;
+- each entitled tenant uses an identified isolated OpenClaw runtime from conversation through verified learning, while unsupported tiers and wrong-tenant/shared-runtime probes fail closed;
 - Community, Direct/AITL and Sovereign differences are entitlements and deployment contracts, not divergent products;
 - a real customer accepts the full loop.
 

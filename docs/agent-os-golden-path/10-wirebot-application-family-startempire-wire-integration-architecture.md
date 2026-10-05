@@ -307,6 +307,47 @@ Audit each product as part of one portfolio while preserving separate ownership:
 
 The relook must distinguish **source exists**, **API works**, **app-integrated**, **released**, **installed/configured** and **customer-visible/accepted**.
 
+## 13A. OpenClaw operating-partner integration contract
+
+OpenClaw is an explicit part of the Wirebot stack and supplies the persistent
+conversation, synthesis and coordination runtime. It is not the owner of principal
+identity, tenant admission, consent, credentials, execution authority, durable
+outcomes or learning truth.
+
+The Golden Path must preserve this end-to-end ownership chain:
+
+```text
+owner → Wirebot App → Wirebot Core / owning services
+      → isolated entitled OpenClaw runtime
+      → typed accepted operation
+      → Focusa / owning executor / UIAI
+      → evidence + terminal receipt + consumer outcome
+      → owning outcome/learning services
+      → same OpenClaw thread + App state
+```
+
+Required seams:
+
+1. value-free runtime identity/topology projection for the exact tenant;
+2. isolated revocable tenant agent/workspace/runtime binding;
+3. stable provider-principal and relationship-thread continuity;
+4. minimum consented context envelope with provenance and correction return;
+5. accepted-intent to typed-operation compilation;
+6. separately governed capability verification and execution;
+7. meaningful progress, interruption, recovery and idempotent replay;
+8. shared evidence/outcome receipt across conversation and application surfaces;
+9. inspectable learning proven to affect later behavior;
+10. tier, remote/local topology, tenant-isolation and degraded-mode conformance.
+
+The App must never infer readiness from a local command, open port, shared operator
+agent or configured URL. Missing tenant isolation remains `unavailable`; it does not
+license a shared-runtime fallback. OpenClaw gateway transport never becomes tool,
+credential, scope or budget authority.
+
+The executable Wirebot App decomposition is `R00.01`–`R00.09` in journey graph
+revision 6. Golden Path task `GP-23` tracks complete operating-partner continuity
+without creating a new central runtime authority.
+
 ## 14. Delivery sequence
 
 ### Phase 0 — evidence and ownership
