@@ -166,7 +166,7 @@ Current responsibility map:
 
 ## Wirebot setup modes
 
-SOVOS consumes four customer/setup modes:
+Wirebot exposes four customer/relationship setup modes. **These modes do not define whether a customer has a complete SOVOS deployment; `operator.environment.v1` does.**
 
 | Setup | Base feedback / optimization | W.I.N.S. |
 |---|---|---|
@@ -175,7 +175,7 @@ SOVOS consumes four customer/setup modes:
 | Wirebot Direct | always available | governed by Direct offer; distinct from Network membership |
 | Wirebot Network | always available | governed by Network participation policy |
 
-The four setup modes are not numeric entitlement levels. `Wirebot Sovereign Operator` is not synonymous with the technical `sovereign_builder` admin role.
+The four setup modes are not numeric entitlement levels. `Wirebot Sovereign Operator` is not synonymous with the technical `sovereign_builder` admin role. Direct/Network/shared Wirebot service may exist without SOVOS; if either relationship overlays SOVOS, the dedicated owner VPS + Tailscale local mesh invariant still applies.
 
 
 ## Economic / public-value reference
