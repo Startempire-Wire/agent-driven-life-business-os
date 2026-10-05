@@ -13,15 +13,26 @@
     "digest"
   ],
   "delivery": {
-    "channel_refs": ["channel://wirebot-app", "channel://ntfy/owner-example"],
-    "fallback_channel_refs": ["channel://wirebot-app"]
+    "channel_refs": [
+      "channel://text-message/example",
+      "channel://wirebot-app",
+      "channel://ntfy/owner-example"
+    ],
+    "fallback_channel_refs": [
+      "channel://wirebot-app"
+    ],
+    "primary_channel_ref": "channel://text-message/example",
+    "routing_strategy": "primary_then_fallback"
   },
   "quiet_hours": {
     "enabled": true,
     "timezone": "America/Los_Angeles",
     "start_local": "22:00",
     "end_local": "07:00",
-    "urgent_override_classes": ["needs_you", "failure_recovery"]
+    "urgent_override_classes": [
+      "needs_you",
+      "failure_recovery"
+    ]
   },
   "coalescing": {
     "mode": "correlation",
@@ -41,7 +52,9 @@
   },
   "privacy": {
     "lock_screen_detail": "redacted",
-    "blocked_domain_refs": ["life-domain://health-sensitive"],
+    "blocked_domain_refs": [
+      "life-domain://health-sensitive"
+    ],
     "attachments_allowed": false,
     "contains_private_payload": false,
     "contains_secret_material": false

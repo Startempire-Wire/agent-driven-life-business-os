@@ -170,19 +170,24 @@ Adapters, projections, caches and indexes are allowed when their owner/freshness
 
 ---
 
-## 5.1 Mandatory Operator substrate
+## 5.1 Mandatory Sovereign Operator Environment
 
-Treat these as normal ADLBOS architecture, not optional convenience:
+For a deployment to be called **SOVOS**, treat the following as required invariants, not optional convenience:
 
 ```text
-OpenClaw Operating Partner runtime
-Focusa governed work plane
-UIAI Engine execution capability
-Tailscale private mesh
-at least one persistent remote VPS
+one owner-specific Operator Environment
+one dedicated persistent VPS for that owner
+one owner-specific Tailscale private mesh / tailnet
+at least one owner-controlled local computer/body on that mesh
+one durable Operating Partner identity across bodies
+shared cross-owner runtime = forbidden by default
 ```
 
-Individual bodies/models/hosts remain replaceable. The remote VPS is the default always-available body for OpenClaw and durable headless scheduling/services when appropriate. Tailscale reachability is transport, never authority.
+Validate this through `operator.environment.v1`.
+
+The VPS is the default always-available cloud body for OpenClaw and durable headless scheduling/services. The Operating Partner may reside on the VPS, locally on an owner-controlled computer/body, or in a hybrid cloud+local topology. Residency may move; partner identity and owner authority do not.
+
+Tailscale reachability is transport, never authority. A healthy shared Wirebot gateway or shared service tier does **not** satisfy the SOVOS deployment invariant.
 
 Use OpenClaw's built-in automations scheduler for recurring agent/system-event work when it fits rather than inventing a parallel ADLBOS scheduler. A scheduled wake still requires a valid Focusa-governed assignment and current grants before consequential work.
 
@@ -206,7 +211,7 @@ W.I.N.S. policy:
 - **Direct:** W.I.N.S. follows the Direct offer; do not infer Network membership or federation from it.
 - **Network:** W.I.N.S. participation follows the Network relationship and its owning participation/sharing policy.
 
-The private feedback/optimization loop is base ADLBOS behavior for all four setup modes. W.I.N.S. is never required to calculate routine health, leverage, momentum, accepted-outcome effects or Quiet Kaizen proposals.
+The private feedback/optimization loop is base Wirebot behavior across these relationship modes. However, **SOVOS deployment status is separate**: a customer is only operating SOVOS when the owner-specific Operator Environment invariant is satisfied. Direct/Network/shared Wirebot service by itself is not SOVOS. W.I.N.S. is never required to calculate routine health, leverage, momentum, accepted-outcome effects or Quiet Kaizen proposals.
 
 ## 6. Portfolio, routines and workforce model
 
@@ -476,9 +481,11 @@ Ready authorized work should continue without repeated permission prompts until:
 Use `CROSS_PRODUCT_SEAM_CONTRACT.md` plus the ADLBOS contract families rather than inventing product-local equivalents:
 
 ```text
+operator.environment.v1
 operator.partner_profile.v1
 operator.surface_handoff.v1
 operator.attention.v1
+operator.attention_policy.v1
 operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
@@ -523,7 +530,9 @@ Rules:
 
 Do not create parallel owner-inbox semantics in every product.
 
-Approved delivery channels such as ntfy are presenters/transports over the same source-bearing attention/follow-up/follow-through state. A notification acknowledgement, clear/delete action, or owner reply does not create source resolution or consequential authority by itself. Owner replies must return through an attributable Wirebot/OpenClaw ingress and revalidate the current source/authority before action.
+Approved owner channels are presenters/transports over the same source-bearing attention/follow-up/follow-through state. SMS is the preferred conversational route when available and owner-approved; ntfy is a secondary rich-push/redundant route. A channel acknowledgement, clear/delete action, or owner reply does not create source resolution or consequential authority by itself. Owner replies must return through an attributable Wirebot/OpenClaw ingress and revalidate the current source/authority before action.
+
+Every new channel proposal must include downside analysis—reach/install friction, reply quality, delivery/latency guarantees, compliance, privacy, white-label identity, dependencies, cost/scaling, outage behavior, replay, revocation and fallback—not only happy-path API capability.
 
 Human attention may include:
 

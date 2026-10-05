@@ -166,7 +166,7 @@ Current responsibility map:
 
 ## Wirebot setup modes
 
-SOVOS consumes four customer/setup modes:
+Wirebot exposes four customer/relationship setup modes. **These modes do not define whether a customer has a complete SOVOS deployment; `operator.environment.v1` does.**
 
 | Setup | Base feedback / optimization | W.I.N.S. |
 |---|---|---|
@@ -175,7 +175,7 @@ SOVOS consumes four customer/setup modes:
 | Wirebot Direct | always available | governed by Direct offer; distinct from Network membership |
 | Wirebot Network | always available | governed by Network participation policy |
 
-The four setup modes are not numeric entitlement levels. `Wirebot Sovereign Operator` is not synonymous with the technical `sovereign_builder` admin role.
+The four setup modes are not numeric entitlement levels. `Wirebot Sovereign Operator` is not synonymous with the technical `sovereign_builder` admin role. Direct/Network/shared Wirebot service may exist without SOVOS; if either relationship overlays SOVOS, the dedicated owner VPS + Tailscale local mesh invariant still applies.
 
 
 ## Economic / public-value reference
@@ -292,9 +292,30 @@ federation / sharing
 interface / access
 ```
 
-A normal Operator deployment includes OpenClaw, Focusa, UIAI Engine, a Tailscale-connected private fleet and at least one persistent remote VPS. Individual machines and models remain replaceable.
+### Required Sovereign Operator Environment
 
-A typical private Operator deployment may include:
+A **complete SOVOS deployment is always owner-specific and Sovereign**. It is not a shared multi-customer runtime.
+
+Every SOVOS customer deployment MUST have:
+
+~~~text
+one Canonical Owner Principal
++ one owner-specific persistent VPS
++ one owner-specific Tailscale private mesh / tailnet
++ at least one owner-controlled local computer/body joined to that mesh
++ one durable Operating Partner identity
++ no cross-owner runtime/state by default
+~~~
+
+The VPS is the always-available cloud body and durable service/scheduling anchor. The Operating Partner may actively reside on the VPS, on an owner-controlled local body, or across both in a hybrid topology. Moving between cloud and local bodies MUST NOT create a new partner identity or merge authority/state across owners.
+
+The VPS may be customer-managed, operator-managed on the customer's behalf, or hybrid, but it remains **dedicated to that owner**. Shared Wirebot service tiers may exist as Wirebot offerings; they are not by themselves a complete SOVOS Operator deployment.
+
+This invariant is machine-readable as `operator.environment.v1`.
+
+Individual machines and models remain replaceable inside that private environment.
+
+A SOVOS Operator deployment includes:
 
 ```text
 customer owner
@@ -353,6 +374,7 @@ Cross-product joins belong to SOVOS as small portable reference envelopes, not a
 Current families:
 
 ```text
+operator.environment.v1
 operator.partner_profile.v1
 operator.surface_handoff.v1
 operator.attention.v1
@@ -467,8 +489,8 @@ The working process remains:
 Engage
 → workstation substrate
 → Operating Partner genesis
-→ cloud/primary runtime where applicable
-→ mesh + identity
+→ required owner-specific persistent VPS
+→ required Tailscale private mesh + local-body identity
 → knowledge + audit
 → primary administration/cutover
 → operating plane + workforce

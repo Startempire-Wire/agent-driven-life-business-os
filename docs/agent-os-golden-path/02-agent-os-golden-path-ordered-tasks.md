@@ -114,6 +114,24 @@ A command returning zero, an agent saying “done,” a route existing, or a UI 
 
 The expected real effect must be verified.
 
+### Sovereign environment floor
+
+A customer does not have a complete SOVOS deployment until:
+
+~~~text
+owner-specific persistent VPS exists
++ owner-specific Tailscale tailnet exists
++ VPS is joined to that tailnet
++ at least one owner-controlled local computer/body is joined
++ Operating Partner identity is bound to that environment
++ cloud/local/hybrid residency is explicit
++ shared cross-owner runtime is not the SOVOS execution substrate
+~~~
+
+Validate the portable envelope as `operator.environment.v1`.
+
+The environment may be customer-managed, operator-managed on the customer's behalf, or hybrid, but it remains dedicated to that owner.
+
 ---
 
 # The deployment spine

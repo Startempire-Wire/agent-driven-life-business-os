@@ -54,6 +54,7 @@ Examples of reference kinds include:
 
 ```text
 owner
+environment
 partner
 delegation
 project
@@ -74,6 +75,34 @@ credential_use
 ```
 
 Product-specific kinds remain owned by their product contracts.
+
+### 2A. SOVOS Operator Environment seam
+
+`operator.environment.v1` identifies the owner-specific deployment substrate. It is a portable projection, not a provisioning authority.
+
+For a complete SOVOS deployment it MUST establish:
+
+~~~text
+one Canonical Owner Principal
+one dedicated persistent VPS for that owner
+one owner-specific Tailscale tailnet/private mesh
+at least one owner-controlled local body on that tailnet
+one durable Operating Partner ref
+cloud_vps | local_body | hybrid residency
+single-writer/reconcile coordination
+shared_runtime_allowed = false
+~~~
+
+Consumers MUST NOT infer this state from:
+
+- a Wirebot tier label;
+- a workspace being active;
+- a shared LBI existing;
+- Tailscale reachability alone;
+- a VPS hostname alone;
+- an OpenClaw process being healthy.
+
+Moving the Operating Partner between cloud/local bodies changes runtime placement, not owner identity or partner identity.
 
 ---
 

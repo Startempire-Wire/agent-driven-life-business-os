@@ -45,6 +45,7 @@ The following are no longer open architecture questions:
 - Startempire Wire federation is explicit and optional;
 - one Operator's multiple daemons/bodies are a fleet/aggregation, not sovereign federation;
 - Operator Deployment is an implementation/deployment offer mapped onto existing dimensions, not a new authority/runtime tier;
+- complete SOVOS operation requires an owner-specific persistent VPS plus owner-specific Tailscale mesh with at least one owner-controlled local body; shared Wirebot service is not a SOVOS deployment;
 - capability support, entitlement, activation, authority and consent are distinct;
 - raw long-lived secrets do not cross normal product handoffs;
 - actionable shared projections require explicit compatibility/freshness/replay semantics;
@@ -128,11 +129,41 @@ Prove one template across two different owner/business/life bindings so generali
 
 **Required closure:** bounded delegation envelope carrying owner/partner refs, project/workstream target where known, desired outcome, constraints, context refs, budget/authority/acceptance refs and correlation ID. Focusa remains responsible for validating/resolving the Workstream, Foreman, Workpoint and execution plan.
 
+### NEW-P0-13 — SOVOS Operator Environment provisioning and residency proof
+
+**Gap:** the SOVOS deployment invariant is now machine-readable as `operator.environment.v1`, but no end-to-end customer proof yet establishes one dedicated owner VPS + owner-specific Tailscale tailnet + owner-controlled local body + cloud/local/hybrid partner residency with split-brain prevention.
+
+**Required closure:** prove one real customer environment through:
+
+~~~text
+dedicated VPS provision
+→ Tailscale tailnet binding
+→ local body enrollment
+→ runtime/body identity
+→ Operating Partner binding
+→ cloud/local/hybrid residency selection
+→ single-writer/reconcile coordination
+→ disconnect/revoke
+→ VPS loss / local-body loss / network-partition recovery
+→ partner identity continuity
+~~~
+
+Negative acceptance MUST reject:
+
+- shared cross-customer VPS/runtime as SOVOS;
+- VPS without Tailscale;
+- tailnet without an owner-controlled local body;
+- local/cloud replicas that can write competing canonical state;
+- partner identity changing merely because residency moves;
+- cross-owner mesh access without explicit governed federation/delegation.
+
+Management may be customer-managed, operator-managed on the customer's behalf or hybrid; the environment remains dedicated to that owner.
+
 ### NEW-P0-12 — OpenClaw operating-partner continuity
 
 **Gap:** The shared OpenClaw gateway and private KnownHost Core → OVH route are deployed, and the WordPress plugin already owns MemberPress tier/lifecycle plus Core tenant/workspace provisioning. The missing seam is narrower: provisioning does not create, persist, verify, revoke or recover the entitled tenant LBI on that gateway, and WordPress may mark the lifecycle active before runtime proof. Remote reachability, tenant/workspace creation or a healthy sovereign-operator agent is not member-runtime proof.
 
-**Required closure:** complete Wirebot App `R00.01`–`R00.09` and the intertwined level seam `L00.01`–`L00.08`, beginning by unifying entitlement mappings and extending the existing WordPress → Core provisioning path rather than creating new infrastructure. Shared eligible tiers bind to the existing OVH gateway; only an explicitly approved Sovereign flow may create a dedicated runtime. Identity, consent, capability, receipts, outcomes and learning remain in their owning systems. Unsupported tenants retain explicit `unavailable` state, and wrong-tenant/operator-agent fallback probes fail closed.
+**Required closure:** complete Wirebot App `R00.01`–`R00.09` and the intertwined level seam `L00.01`–`L00.08`. Shared eligible Wirebot tiers may continue on the existing OVH gateway only as non-SOVOS service tiers. A SOVOS customer must resolve `operator.environment.v1`: one dedicated persistent VPS, one owner-specific Tailscale tailnet, at least one owner-controlled local body, and explicit cloud/local/hybrid Operating Partner residency with identity continuity. Identity, consent, capability, receipts, outcomes and learning remain in their owning systems. Unsupported tenants retain explicit `unavailable` state, and wrong-tenant/operator-agent fallback probes fail closed.
 
 ### SAG-20 — complete work lifecycle
 

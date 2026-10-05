@@ -119,6 +119,75 @@ A Follow-Up can complete successfully while Follow-Through remains open.
 
 ---
 
+## 2A. Channel priority — SMS first
+
+For owner-facing interruption and conversational continuity, **SMS is the preferred first-class channel when the deployment can provide it safely and lawfully**.
+
+Default owner-channel hierarchy:
+
+~~~text
+PRIMARY
+  true two-way SMS
+
+SECONDARY / RICH PUSH
+  ntfy / branded push
+
+IN-APP
+  Wirebot App exact object + full evidence/context
+
+OPTIONAL ADDITIONAL
+  iMessage / WhatsApp / Signal / Telegram / email
+~~~
+
+This is a delivery preference, not a rule that every routine sends SMS. Perpetua and the attention policy still decide whether interruption is useful.
+
+### SMS paths that avoid 10DLC specifically
+
+1. **Direct-SIM Android / Agent Computer SMS**
+   - phone-capable Android node with a real SIM/eSIM;
+   - OpenClaw can expose `sms.send` and `sms.search` when device permissions and Gateway policy both allow them;
+   - best fit: Sovereign/private owner channel and low-volume two-way owner conversation;
+   - no 10DLC registration because this is not a cloud 10-digit A2P long-code route;
+   - carrier terms, anti-spam controls and practical throughput limits still apply.
+
+2. **Apple Messages / carrier-SMS relay**
+   - OpenClaw's iMessage path can explicitly address `sms:+1555...`;
+   - best fit: a dedicated Mac/iPhone/SIM relay;
+   - basic send/receive does not require advanced private-API mode.
+
+3. **Verified Toll-Free SMS**
+   - US/Canada toll-free messaging is outside A2P 10DLC;
+   - toll-free verification is still required;
+   - supports two-way SMS plus provider webhooks/delivery state;
+   - best fit: scalable hosted Wirebot;
+   - OpenClaw's official SMS plugin can use an SMS-capable Twilio toll-free number.
+
+4. **Dedicated Short Code**
+   - outside 10DLC and designed for high-throughput two-way A2P SMS;
+   - use only when volume justifies the substantially higher monthly/onboarding cost.
+
+Avoiding 10DLC does not remove consent, anti-spam, carrier or provider requirements. SOVOS should choose a sanctioned route rather than disguising business traffic as consumer messaging.
+
+Recommended product posture:
+
+~~~text
+Sovereign / private owner
+  dedicated Android SIM relay preferred
+  Apple relay optional
+  ntfy rich-push fallback
+
+Hosted / scalable Wirebot
+  verified toll-free SMS preferred
+  ntfy rich-push fallback
+
+High-volume platform
+  toll-free or short code according to throughput and brand model
+~~~
+
+For white-label deployments, the SMS sender identity should match the actual commercial/brand posture. A client-branded sender should use its own appropriate sender/verification arrangement rather than silently reusing another brand's identity.
+
+---
+
 ## 3. ntfy channel role
 
 [ntfy](https://ntfy.sh/) is a strong optional owner-notification transport for SOVOS because it supports:
@@ -147,6 +216,72 @@ SOVOS treats ntfy as a **channel adapter under Wirebot/OpenClaw**, not as:
 
 A deployment may choose another transport with equivalent semantics.
 
+### 3A. ntfy downside analysis
+
+ntfy is useful because it is simple, open and self-hostable, but SOVOS MUST preserve these downsides:
+
+| Downside | Architectural consequence |
+|---|---|
+| **Not SMS** | Owner must install/use ntfy app/PWA or a branded client |
+| **Lower reach than SMS** | Enrollment, notification permission and client health become prerequisites |
+| **No portable inline free-text notification reply** | Free text usually requires opening ntfy/Wirebot; one-tap actions fit bounded choices better |
+| **Self-hosted iOS instant push has an upstream dependency by default** | Official iOS client normally needs an APNs/FCM-capable upstream such as ntfy.sh unless Wirebot builds its own push stack |
+| **Self-hosted Android can require a persistent connection** | Avoiding Firebase can increase background/battery/operability burden |
+| **Browser/PWA behavior varies** | Background delivery/actions depend on browser/platform and long-unused web push can pause |
+| **Topic/ACL setup is a security footgun** | Never use guessable public topics for Sovereign control; require auth/default-deny ACLs |
+| **Messages are cached, not a durable ledger** | ntfy must never own Evidence, conversation truth or Follow-Through state |
+| **No built-in E2E guarantee for message content** | Use TLS, self-hosting, redacted payloads and deep links for sensitive detail |
+| **Hosted ntfy is best-effort** | Critical routine continuity cannot depend on ntfy delivery |
+| **Full white-label mobile UX is not turnkey** | Native rebranding means maintaining client forks, signing and push credentials |
+| **Payload/push size limits** | Keep owner alerts concise; use Wirebot for detail |
+
+### 3B. White-label posture
+
+**Yes, ntfy can be made effectively white-label.**
+
+1. **Invisible backend — recommended**
+   - self-host ntfy;
+   - disable its web UI if desired;
+   - expose no ntfy branding to the owner;
+   - keep Wirebot App and SMS as the branded owner experience.
+
+2. **Branded endpoint / web surface**
+   - serve on a Wirebot/client domain;
+   - fork/rebrand the open-source web app if exposed;
+   - preserve required open-source notices;
+   - do not use ntfy trademarks/logo as if owned by Wirebot.
+
+3. **Fully branded native client**
+   - Android source is open under Apache 2.0;
+   - iOS source is open under MIT;
+   - use Wirebot/client app IDs, icons, signing and push credentials;
+   - maintain the fork as ntfy evolves.
+
+For Wirebot, the default SHOULD be **invisible ntfy backend + branded Wirebot App + SMS primary**.
+
+### 3C. Mandatory downside-review law
+
+Before adopting any owner channel, record:
+
+~~~text
+reach / install friction
+two-way reply quality
+latency / delivery guarantees
+carrier / provider compliance
+privacy / lock-screen exposure
+identity / white-label behavior
+platform dependencies
+self-host burden
+cost / scaling
+failure / outage mode
+replay / duplication
+revocation
+accessibility
+fallback path
+~~~
+
+No channel is promoted merely because its happy-path API is easy.
+
 ---
 
 ## 4. Chief-of-Staff notification loop
@@ -163,9 +298,10 @@ Should the owner be interrupted?
 source-linked notification projection
 correlation · source ref · expiry · action class
              ↓
-OpenClaw channel adapter
+OpenClaw Owner Channel Router
              ↓
-ntfy publish
+primary SMS when available
+        + ntfy / Wirebot App / approved fallbacks
              ↓
 owner device
              ↓
@@ -410,7 +546,14 @@ when_to_notify
   recovered
   digest
 
+primary_channel_ref
+  owner SMS when available and approved
+
+routing_strategy
+  primary_then_fallback | fanout | class_specific
+
 channel_refs
+  SMS
   ntfy owner channel
   Wirebot App
   other approved channels

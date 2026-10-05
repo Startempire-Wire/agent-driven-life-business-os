@@ -376,6 +376,40 @@ At scale this is the substrate that carries human-and-agent task collaboration a
 
 ---
 
+## 3A. Required SOVOS Operator Environment
+
+A deployment is not a complete SOVOS Operator merely because it has a Wirebot account, workspace, shared agent, shared gateway or cloud service.
+
+Every SOVOS customer has an **owner-specific Sovereign Operator Environment**:
+
+~~~text
+Canonical Owner Principal
+        ↓
+dedicated persistent VPS for that owner
+        ↕
+owner-specific Tailscale tailnet / private mesh
+        ↕
+one or more owner-controlled local computers / Agent Computers / bodies
+        ↓
+Operating Partner may reside cloud, local or hybrid
+~~~
+
+Required invariants:
+
+- the VPS is dedicated to one owner/environment rather than shared cross-customer runtime;
+- the VPS is persistent/always-available enough to anchor durable services and scheduling;
+- the VPS and at least one owner-controlled local body are joined through the owner's Tailscale private mesh;
+- cross-owner access is denied by default and requires an explicit separately governed federation/delegation path;
+- the Operating Partner identity survives movement between VPS and local bodies;
+- cloud/local/hybrid residency changes placement, not owner identity, partner identity or authority;
+- management may be customer-managed, operator-managed on the customer's behalf, or hybrid, but the environment remains owner-specific.
+
+The portable machine contract is `operator.environment.v1`.
+
+Shared Wirebot service tiers may still exist as Wirebot products. They are **not themselves SOVOS deployments** until this environment invariant is satisfied.
+
+---
+
 ## 4. Wirebot setup modes and the base optimization loop
 
 Customer-facing architecture recognizes four Wirebot setup modes:
@@ -402,6 +436,8 @@ Wirebot setup mode
 ```
 
 For Sovereign Operator and Sovereign, W.I.N.S.-off is a complete valid operating state.
+
+**SOVOS status is independent of this table.** A Direct or Network relationship may overlay a SOVOS environment, and a shared Wirebot runtime may serve Direct/Network without being SOVOS. The determining evidence is `operator.environment.v1`, not the commercial label.
 
 The mandatory feedback loop is:
 
@@ -658,9 +694,11 @@ Cross-product seams are ADLBOS-level portable contracts. Individual products imp
 Required shared contract families:
 
 ```text
+operator.environment.v1
 operator.partner_profile.v1
 operator.surface_handoff.v1
 operator.attention.v1
+operator.attention_policy.v1
 operator.correlation.v1
 operator.capability_posture.v1
 operator.closure.v1
