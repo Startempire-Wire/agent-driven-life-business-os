@@ -170,19 +170,24 @@ Adapters, projections, caches and indexes are allowed when their owner/freshness
 
 ---
 
-## 5.1 Mandatory Operator substrate
+## 5.1 Mandatory Sovereign Operator Environment
 
-Treat these as normal ADLBOS architecture, not optional convenience:
+For a deployment to be called **SOVOS**, treat the following as required invariants, not optional convenience:
 
 ```text
-OpenClaw Operating Partner runtime
-Focusa governed work plane
-UIAI Engine execution capability
-Tailscale private mesh
-at least one persistent remote VPS
+one owner-specific Operator Environment
+one dedicated persistent VPS for that owner
+one owner-specific Tailscale private mesh / tailnet
+at least one owner-controlled local computer/body on that mesh
+one durable Operating Partner identity across bodies
+shared cross-owner runtime = forbidden by default
 ```
 
-Individual bodies/models/hosts remain replaceable. The remote VPS is the default always-available body for OpenClaw and durable headless scheduling/services when appropriate. Tailscale reachability is transport, never authority.
+Validate this through `operator.environment.v1`.
+
+The VPS is the default always-available cloud body for OpenClaw and durable headless scheduling/services. The Operating Partner may reside on the VPS, locally on an owner-controlled computer/body, or in a hybrid cloud+local topology. Residency may move; partner identity and owner authority do not.
+
+Tailscale reachability is transport, never authority. A healthy shared Wirebot gateway or shared service tier does **not** satisfy the SOVOS deployment invariant.
 
 Use OpenClaw's built-in automations scheduler for recurring agent/system-event work when it fits rather than inventing a parallel ADLBOS scheduler. A scheduled wake still requires a valid Focusa-governed assignment and current grants before consequential work.
 
@@ -206,7 +211,7 @@ W.I.N.S. policy:
 - **Direct:** W.I.N.S. follows the Direct offer; do not infer Network membership or federation from it.
 - **Network:** W.I.N.S. participation follows the Network relationship and its owning participation/sharing policy.
 
-The private feedback/optimization loop is base ADLBOS behavior for all four setup modes. W.I.N.S. is never required to calculate routine health, leverage, momentum, accepted-outcome effects or Quiet Kaizen proposals.
+The private feedback/optimization loop is base Wirebot behavior across these relationship modes. However, **SOVOS deployment status is separate**: a customer is only operating SOVOS when the owner-specific Operator Environment invariant is satisfied. Direct/Network/shared Wirebot service by itself is not SOVOS. W.I.N.S. is never required to calculate routine health, leverage, momentum, accepted-outcome effects or Quiet Kaizen proposals.
 
 ## 6. Portfolio, routines and workforce model
 
