@@ -1,0 +1,123 @@
+{
+  "schema_version": "operator.routine_instance.v1",
+  "instance_id": "routine-instance://operator/inquiry-triage/main",
+  "status": "active",
+  "template_ref": "routine-template://business/inquiry-triage@1.0.0",
+  "blueprint_ref": "operator://routine-blueprint/inquiry-triage",
+  "blueprint_revision": "rev-2026-10-03-a",
+  "scope": {
+    "owner_ref": "owner://example",
+    "portfolio_ref": "portfolio://example",
+    "business_refs": [
+      "business://example"
+    ],
+    "life_domain_refs": []
+  },
+  "trigger_binding": {
+    "kind": "schedule",
+    "binding_ref": "trigger://inquiry-reconcile",
+    "scheduler_class": "openclaw_automation",
+    "scheduler_owner_ref": "openclaw://gateway/example",
+    "schedule_ref": "openclaw://automation/inquiry-reconcile",
+    "timezone": "America/Los_Angeles",
+    "event_ref": null,
+    "condition_ref": null
+  },
+  "supervision": {
+    "operating_partner_ref": "wirebot://partner/example",
+    "focusa_assignment_ref": "focusa://assignment/inquiry-triage",
+    "workstream_ref": "focusa://workstream/revenue-ops",
+    "foreman_ref": "focusa://foreman/revenue-ops"
+  },
+  "compiled_steps": [
+    {
+      "step_id": "ingest",
+      "kind": "deterministic",
+      "determinism": "deterministic",
+      "operation_ref": "gmail://operation/list-new-inquiries",
+      "decision_policy_ref": null,
+      "prompt_contract_ref": null,
+      "attention_policy_ref": null,
+      "input_binding_refs": [
+        "gmail://account/sales"
+      ],
+      "output_schema_ref": "schema://candidate-inquiries.v1",
+      "consequence_class": "read",
+      "idempotency_key_strategy": "source-message-id"
+    },
+    {
+      "step_id": "classify",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "operation_ref": null,
+      "decision_policy_ref": "policy://inquiry-classification.v1",
+      "prompt_contract_ref": "prompt://inquiry-classifier.v1",
+      "attention_policy_ref": null,
+      "input_binding_refs": [
+        "schema://candidate-inquiries.v1"
+      ],
+      "output_schema_ref": "schema://qualified-inquiry.v1",
+      "consequence_class": "prepare",
+      "idempotency_key_strategy": "source-message-id+policy-version"
+    },
+    {
+      "step_id": "commit",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "operation_ref": null,
+      "decision_policy_ref": null,
+      "prompt_contract_ref": null,
+      "attention_policy_ref": "attention://external-commitment",
+      "input_binding_refs": [
+        "schema://response-draft.v1"
+      ],
+      "output_schema_ref": "schema://authorized-action.v1",
+      "consequence_class": "human_reserved",
+      "idempotency_key_strategy": "correlation-id"
+    }
+  ],
+  "authority_binding": {
+    "grant_refs": [
+      "grant://inquiry-read",
+      "grant://response-prepare"
+    ],
+    "credential_use_refs": [
+      "credential-use://gmail/sales"
+    ],
+    "budget_ref": "budget://routine/inquiry",
+    "human_boundary_policy_ref": "policy://human-boundary/inquiry",
+    "expires_at": null
+  },
+  "reliability_binding": {
+    "lock_ref": "lock://routine/inquiry-triage",
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "timeout_seconds": 900,
+    "retry_policy_ref": "retry://bounded-backoff",
+    "failure_attention_ref": "attention://routine-failure/inquiry",
+    "rollback_ref": null,
+    "revoke_ref": "revoke://routine/inquiry"
+  },
+  "acceptance": {
+    "evidence_requirement_refs": [
+      "evidence-requirement://source-receipt",
+      "evidence-requirement://next-action"
+    ],
+    "acceptance_policy_ref": "acceptance://routine/inquiry",
+    "accepted_outcome_refs": [
+      "outcome://timely-qualified-inquiry"
+    ]
+  },
+  "lifecycle": {
+    "compiled_at": "2026-10-03T12:00:00Z",
+    "compiler_version": "routine-compiler/0.1",
+    "instance_revision": "instance-rev-1",
+    "activated_at": "2026-10-03T12:30:00Z",
+    "paused_at": null,
+    "retired_at": null
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/renewal-expiry-review",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "life",
+      "business",
+      "cross_domain"
+    ],
+    "routine_family": "renewal_expiry",
+    "archetype_tags": [
+      "household-administration",
+      "business-operations",
+      "personal-finance-oversight"
+    ]
+  },
+  "purpose": {
+    "summary": "Track expiring obligations, subscriptions, contracts, credentials or maintenance windows and route only exceptions that require human choice.",
+    "outcome_classes": [
+      "renewal_visibility",
+      "expiry_risk_reduced",
+      "next_action_set"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "time_bound_obligation_source"
+    ],
+    "optional_signal_classes": [
+      "billing_source",
+      "contract_source",
+      "credential_metadata"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "condition",
+    "allowed_kinds": [
+      "condition",
+      "schedule",
+      "event"
+    ],
+    "event_preferred": false,
+    "default_cadence": "weekly reconciliation"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "scan",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Find obligations entering configured review windows.",
+      "operation_class": "typed_operation",
+      "required_input_classes": [
+        "time_bound_obligation_source"
+      ],
+      "output_classes": [
+        "expiring_items"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "assess",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Classify impact, owner decision need and available next action.",
+      "operation_class": null,
+      "required_input_classes": [
+        "expiring_items"
+      ],
+      "output_classes": [
+        "renewal_decisions_needed",
+        "routine_actions"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "decide",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "purpose": "Reserve spending, cancellation, legal or material commitment changes to applicable authority.",
+      "operation_class": null,
+      "required_input_classes": [
+        "renewal_decisions_needed"
+      ],
+      "output_classes": [
+        "renewal_decisions"
+      ],
+      "consequence_class": "human_reserved"
+    },
+    {
+      "step_key": "record",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Record source decision/status and next review.",
+      "operation_class": "source_record_update",
+      "required_input_classes": [
+        "renewal_decisions",
+        "routine_actions"
+      ],
+      "output_classes": [
+        "renewal_receipts"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "spending",
+      "cancellation",
+      "legal_commitment",
+      "material_terms_change"
+    ],
+    "escalation_conditions": [
+      "financial_commitment",
+      "contract_change",
+      "unknown_owner"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_obligation_ref",
+      "decision_receipt"
+    ],
+    "outcome_classes": [
+      "renewal_visibility",
+      "expiry_risk_reduced",
+      "next_action_set"
+    ],
+    "leverage_dimensions": [
+      "risk_reduction",
+      "attention_reduction",
+      "reliability"
+    ]
+  },
+  "parameters": [],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

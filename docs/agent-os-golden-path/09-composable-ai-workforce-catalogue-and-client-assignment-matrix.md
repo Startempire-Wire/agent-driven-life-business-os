@@ -1,6 +1,7 @@
 # Composable AI Workforce Catalogue and Client Assignment Matrix
 
-- **Status:** proposed reusable workforce-design baseline grounded in current Focusa/UIAI capabilities and operator-provided duty examples; profiles do not grant authority or prove deployment
+- **Status:** CURRENT reusable workforce-design baseline; capability evidence remains snapshot-bound and profiles do not grant authority or prove deployment
+- **Capability evidence snapshot:** 2026-09-13; runtime/version observations in this document MUST be re-verified in Focusa/UIAI before assignment or capability claims
 - **Applies to:** new and existing Agent-Driven Life and Business OS clients
 - **Execution substrate:** Focusa-governed work plus UIAI Engine browser/computer/evidence capabilities
 - **Supervisor model:** one client-scoped Chief of Staff delegates to bounded workers through Workpoints, tasks, CallGraphs or approved recurring schedules
@@ -96,10 +97,10 @@ Before general activation, compare isolated per-worker stores, client-shared mem
 | Work Loop | Focusa Work Loop under writer/budget controls | continuous progression across ready authorized tasks | never self-renews exhausted budget |
 | Background job | `focusa_bg_run` / `focusa_bg_run_many` | builds, tests, scans, terminal-blocking work | accepted dispatch is not completion |
 | Event-driven | approved webhook, queue event, evidence/health signal | intake, triage, receipt handling | event payload cannot mint authority |
-| Scheduled | canonical client scheduler/cron launches a typed assignment | reports, health, reconciliations, maintenance | schedule is separate from Silent Sessions and must carry scope, budget and idempotency |
+| Scheduled | OpenClaw Gateway automations on the Operator's persistent Tailscale-connected VPS by default; another explicit product/provider scheduler when appropriate | reports, health, reconciliations, maintenance | schedule launches/revalidates a typed Focusa-governed assignment and must carry scope, budget, idempotency, overlap/missed-run/retry and revoke policy |
 | Manual supervised | Chief of Staff or operator delegates one exact packet | sensitive/high-consequence work | confirmation and external consent remain explicit |
 
-Focusa Silent Sessions currently expose lifecycle controls, not a blanket cron grant. A schedule invokes an approved assignment; it does not turn a dormant profile into an always-authorized employee.
+Focusa Silent Sessions expose execution lifecycle controls, not a blanket scheduler grant. OpenClaw owns the default durable automations plane; Focusa owns governed work/authority. A schedule wakes or launches an approved assignment; it does not turn a dormant profile into an always-authorized employee.
 
 ## 6. Capability bundles
 
@@ -486,9 +487,15 @@ roles:
 
 The shared catalogue contains no client secrets or personal data. The private roster references canonical client-scoped records.
 
-## 11. Scheduling policy
+## 11. Scheduling and placement policy
 
-A role is cron-eligible only when:
+Every normal Operator deployment has a Tailscale-connected persistent remote VPS. Prefer that body for durable headless scheduling/services so owner laptops/Chromebooks can sleep without silently stopping business routines.
+
+OpenClaw's Gateway automations scheduler is the default for recurring agent-turn, system-event and condition-triggered work where its semantics fit. Use native deterministic services/systemd timers, webhooks, queues or provider schedulers when they are the stronger canonical mechanism. Do not wrap deterministic code in an LLM turn solely because OpenClaw can schedule it.
+
+### 11.1 Eligibility
+
+A role/routine is schedule-eligible only when:
 
 - inputs and scope are deterministic;
 - the client has approved the cadence and resource budget;
@@ -500,6 +507,10 @@ A role is cron-eligible only when:
 - missed-run, overlap, retry, pause and revoke behavior are defined.
 
 Use event-driven activation instead of polling where reliable events exist. Use scheduled observation plus exception escalation rather than continuous agent processes. Permanent staff profiles should usually wake episodically.
+
+### 11.2 Routine analytics contract
+
+A scheduled routine declares its intended outcome and measurement plan before promotion. Retain source-backed dimensions such as reliability, latency, retries, cost, owner interruptions, automation/delegation buyback, defects/reversals and authoritative business/life outcome metrics. W.I.N.S. may project momentum/leverage from accepted outcomes but does not become the routine execution store.
 
 ## 12. Chief-of-Staff supervision contract
 
@@ -582,7 +593,7 @@ Profiles are reusable templates. Assignments are client-specific employment pack
 - **Dispatch/Work Rail:** ready/running/completed/blocked instances with receipts and escalation.
 - **Schedule:** preview/commit/pause/revoke cadence, budget, overlap and missed-run policy.
 - **Skills and Tools:** live-discovered Focusa/UIAI capabilities—not static marketing claims.
-- **Performance/W.I.N.S.:** accepted outcomes, reliability, evidence, disputes and corrections—not vanity activity counts.
+- **Performance / optional W.I.N.S. projection:** source-domain accepted-outcome refs, reliability, Evidence, disputes/corrections and optional progression presentation—not a second outcome store and not vanity activity counts.
 - **Authority Preview:** exact capabilities, data scopes, confirmations and external commitments before assignment.
 
 ### 14.4 API/CLI-first operation requirements

@@ -20,6 +20,10 @@ or a certification that a model will behave correctly.
   authority across operators and interfaces. Quoted text or a voice is not a grant.
 - **Evidence:** Distinguish a visible feature from a tested workflow. Investigate
   only what the decision needs; retain required safety and delivery proof.
+- **Contract evolution:** A failure may justify a bounded proposal, not automatic policy.
+  Material semantic changes use source-bearing evidence plus held-out regression cases.
+  Low frequency, token cost or non-compliance alone never justifies weakening/removing
+  constitutional, safety/authority or architecture-boundary rules.
 - **Proportionality:** No mandatory conversational footer, draft quota, new tool or
   process unless the current outcome actually requires it. Reuse satisfied lifecycle
   stages and existing specs/graphs rather than restarting the process for ceremony.
@@ -32,4 +36,6 @@ or a certification that a model will behave correctly.
   do not prove that an existing session refreshed. No custom injection or CI is needed.
 
 Before publishing, review the diff and run `git diff --check`. Observe real agent
-behavior during use; change the contract when evidence shows a meaningful gap.
+behavior during use; change the contract when evidence shows a meaningful gap. When
+agent-contract semantics change, run `bash tests/run-contract-tests.sh`; when loading
+or placement changes, also verify the native consumer discovers/reloads/triggers it.

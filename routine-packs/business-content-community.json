@@ -1,0 +1,37 @@
+{
+  "schema_version": "operator.routine_pack.v1",
+  "pack_id": "routine-pack://business/content-community",
+  "pack_version": "1.1.0",
+  "status": "recommended",
+  "domain_class": "business",
+  "summary": "Content/community/education pack for orientation, follow-up, planning, renewals, evidence-backed publishing, receiver-side closure and outcome learning.",
+  "fit_signals": [
+    "recurring publishing",
+    "events or classes",
+    "community membership",
+    "audience follow-up",
+    "renewals"
+  ],
+  "template_refs": [
+    "routine-template://cross-domain/orientation@1.0.0",
+    "routine-template://cross-domain/follow-up@1.2.0",
+    "routine-template://cross-domain/follow-through@1.0.0",
+    "routine-template://cross-domain/weekly-planning@1.0.0",
+    "routine-template://cross-domain/renewal-expiry@1.0.0",
+    "routine-template://business/content-distribution@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0",
+    "routine-template://cross-domain/quiet-kaizen@1.0.0"
+  ],
+  "composition": {
+    "may_combine_with": [
+      "routine-pack://life/research-creator",
+      "routine-pack://business/founder-portfolio"
+    ],
+    "selection_rule": "Publishing/contact effects remain gated by source truth, claims policy, audience consent and exact authority.",
+    "archetype_not_identity": true
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

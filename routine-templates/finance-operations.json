@@ -1,0 +1,171 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/finance-operations",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "cross_domain"
+    ],
+    "routine_family": "finance_ops",
+    "archetype_tags": [
+      "personal-finance",
+      "professional-services",
+      "ecommerce",
+      "membership",
+      "founder-portfolio"
+    ]
+  },
+  "purpose": {
+    "summary": "Reconcile invoices, payment events, settlements, recurring obligations and costs into source-qualified financial state without treating notifications as ledger truth.",
+    "outcome_classes": [
+      "financial_state_reconciled",
+      "settlement_gap_identified",
+      "cash_truth_current"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "financial_record_source"
+    ],
+    "optional_signal_classes": [
+      "invoice_source",
+      "payment_processor_source",
+      "bank_settlement_source",
+      "subscription_source",
+      "cost_source"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "schedule",
+      "condition",
+      "manual"
+    ],
+    "event_preferred": true,
+    "default_cadence": "event-driven with periodic reconciliation"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Read financial events and current source-owned records using stable identifiers.",
+      "operation_class": "financial_source_read",
+      "required_input_classes": [
+        "financial_record_source"
+      ],
+      "output_classes": [
+        "financial_source_snapshots"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "reconcile",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Join invoice, processor, settlement and obligation states without inventing missing truth.",
+      "operation_class": "financial_reconciliation",
+      "required_input_classes": [
+        "financial_source_snapshots"
+      ],
+      "output_classes": [
+        "financial_difference_set"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "classify_exceptions",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Classify unresolved differences, ownership and the next bounded reconciliation action.",
+      "operation_class": null,
+      "required_input_classes": [
+        "financial_difference_set"
+      ],
+      "output_classes": [
+        "financial_exception_set",
+        "reconciliation_action_plan"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "record",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Write only authorized reconciliation state or exception refs back to the owning system.",
+      "operation_class": "financial_reconciliation_record",
+      "required_input_classes": [
+        "reconciliation_action_plan"
+      ],
+      "output_classes": [
+        "financial_reconciliation_receipt"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "money_movement",
+      "pricing_or_terms_change",
+      "refund_or_credit_commitment",
+      "legal_or_tax_interpretation"
+    ],
+    "escalation_conditions": [
+      "unmatched_settlement",
+      "material_amount_conflict",
+      "missing_canonical_financial_source",
+      "fraud_or_security_signal"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 1200,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "financial_source_receipt",
+      "reconciliation_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "financial_state_reconciled",
+      "settlement_gap_identified",
+      "cash_truth_current"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "reliability",
+      "risk_reduction",
+      "cycle_time",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "financial_source_refs",
+      "value_type": "ref_list",
+      "required": true,
+      "description": "Owner-approved financial, billing and settlement sources to reconcile."
+    },
+    {
+      "name": "reconciliation_window",
+      "value_type": "string",
+      "required": true,
+      "description": "Bounded time or event window used for the reconciliation pass."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

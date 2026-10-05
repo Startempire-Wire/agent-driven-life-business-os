@@ -1,0 +1,148 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://business/delivery-case-review",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "business"
+    ],
+    "routine_family": "delivery_review",
+    "archetype_tags": [
+      "professional-services",
+      "saas",
+      "membership-community",
+      "local-service"
+    ]
+  },
+  "purpose": {
+    "summary": "Review unresolved customer/delivery cases, blockers, acceptance state and next handoff until the receiver-side outcome closes.",
+    "outcome_classes": [
+      "case_advanced",
+      "blocker_routed",
+      "accepted_delivery"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "case_or_work_source"
+    ],
+    "optional_signal_classes": [
+      "customer_communications",
+      "evidence_store",
+      "contract_scope"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "queue",
+      "schedule"
+    ],
+    "event_preferred": true,
+    "default_cadence": "daily unresolved-case reconciliation"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect open cases/work and current source status.",
+      "operation_class": "typed_operation",
+      "required_input_classes": [
+        "case_or_work_source"
+      ],
+      "output_classes": [
+        "open_cases"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "assess",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Identify blocker, next handoff and acceptance gap.",
+      "operation_class": null,
+      "required_input_classes": [
+        "open_cases"
+      ],
+      "output_classes": [
+        "case_actions"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "dispatch",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Dispatch already-authorized deterministic next actions or exact work refs.",
+      "operation_class": "governed_dispatch",
+      "required_input_classes": [
+        "case_actions"
+      ],
+      "output_classes": [
+        "dispatch_receipts"
+      ],
+      "consequence_class": "mutate"
+    },
+    {
+      "step_key": "verify",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Compare delivery evidence with receiver-side acceptance requirements.",
+      "operation_class": null,
+      "required_input_classes": [
+        "dispatch_receipts"
+      ],
+      "output_classes": [
+        "acceptance_findings"
+      ],
+      "consequence_class": "prepare"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "scope_change",
+      "material_customer_commitment"
+    ],
+    "escalation_conditions": [
+      "scope_ambiguous",
+      "customer_relationship_sensitive",
+      "acceptance_dispute"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "work_receipt",
+      "receiver_acceptance_ref"
+    ],
+    "outcome_classes": [
+      "case_advanced",
+      "blocker_routed",
+      "accepted_delivery"
+    ],
+    "leverage_dimensions": [
+      "outcome",
+      "cycle_time",
+      "reliability",
+      "attention_reduction"
+    ]
+  },
+  "parameters": [],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

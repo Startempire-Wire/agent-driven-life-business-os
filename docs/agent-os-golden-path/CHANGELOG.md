@@ -2,11 +2,149 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.5 Sovereign Operator Environment refinement — 2026-10-04
+
+- **SOVOS deployment floor made invariant:** every complete customer deployment has its own dedicated persistent VPS, owner-specific Tailscale tailnet/private mesh and at least one owner-controlled local body.
+- **Shared Wirebot service separated from SOVOS:** shared gateway tiers may remain Wirebot products but cannot be represented as complete SOVOS deployments.
+- **Cloud/local/hybrid residency clarified:** the Operating Partner may execute on the owner VPS, local body or both while retaining one durable identity and owner-rooted authority.
+- **Portable environment contract added:** `operator.environment.v1` carries the owner/environment/VPS/tailnet/local-body/residency/management posture without carrying secrets.
+- **Negative regressions added:** shared runtime, missing local body, non-Tailscale mesh, non-dedicated VPS and missing residency fail validation.
+- **Management separated from sovereignty:** the environment may be customer-managed, operator-managed on the customer's behalf or hybrid, but the execution environment remains owner-specific.
+
+## 0.2.5 follow-up/follow-through + owner-channel refinement — 2026-10-04
+
+- **Follow-Up and Follow-Through separated:** `follow_up` now means keeping momentum alive after an initial contact/action; new first-class `follow_through` owns the full desired result through verified outcome, momentum and leverage.
+- **Canonical Follow-Through template added:** `routine-template://cross-domain/follow-through@1.0.0`.
+- **Follow-Up advanced to 1.2.0:** no longer claims final outcome closure; it hands larger threads into Follow-Through when needed.
+- **Routine packs composed explicitly:** existing packs that used Follow-Up now reference both Follow-Up and Follow-Through rather than conflating them.
+- **Schema/regression expanded:** `follow_through` is a required canonical routine family.
+- **Owner notification / response doctrine added:** approved channel transports (initial ntfy reference) project Needs You, Follow-Up, Follow-Through, verified outcomes and momentum without owning source state.
+- **Two-way owner response direction added:** ntfy Android/web publishing can return owner text through an authenticated Wirebot/OpenClaw ingress; inbound channel text is attributed input, not direct tool authority.
+- **ntfy security posture clarified:** self-hosted/default-deny/authenticated deployment is preferred for Sovereign control; ntfy push/pub-sub is explicitly distinct from carrier SMS.
+- **Routine attention seam reused:** compiled routines bind notification behavior through existing `attention_policy_ref`; no new scheduler/inbox authority is introduced.
+
+## 0.2.5 follow-through refinement — 2026-10-04
+
+- **Perpetua continuity restored explicitly:** Perpetua is the app-wide continuous intelligence/continuity posture around SOVOS, not a second scheduler/store/persona or an occasional recommendation feed. Continuous does not mean constantly busy; unresolved important outcomes persist across time.
+- **Follow-up template advanced to 1.1.0:** important messages/events/commitments now bind desired outcome, expected momentum, next-check state, authorized follow-up, outcome verification and terminal disposition.
+- **False closure rejected:** send/read/task/agent receipts do not close an important thread when the desired result remains unknown.
+- **Event + reconciliation posture added:** event-driven observation is preferred, with periodic reconciliation so missed provider events or external silence cannot strand important follow-through.
+- **Momentum check made explicit:** verified completion and expected downstream momentum are separate observations; Perpetua may revise the hypothesis or propose a next bounded move when momentum fails to appear.
+- **Routine packs version-aligned:** every pack referencing canonical follow-up now points at `follow-up@1.1.0`.
+- **Ownership preserved:** source/commitment/work/CRM/financial/outcome systems retain canonical state; Perpetua/Wirebot project continuity and intelligence without creating a universal follow-up database.
+
+
+## 0.2.5-candidate — 2026-10-03
+
+### Routine library and runtime-closure planning completion
+
+- **Core routine-family artifacts completed:** added canonical finance-operations, incident-response, Evidence/closure and Quiet Kaizen templates; added the additive `evidence_closure` routine-family contract value.
+- **Starter operating-shape coverage completed:** added household/family, personal-finance, wellness/care, e-commerce/product and local/field-service Routine Packs while preserving non-identitarian composition rules.
+- **Existing packs strengthened:** professional-services, software/SaaS, content/community and founder-portfolio packs now compose the relevant finance, incident, closure, workforce and Quiet Kaizen patterns.
+- **Catalog drift guarded:** added a regression that validates all canonical templates/packs, requires the doctrine's core routine families and starter pack IDs, and rejects pack refs to missing canonical templates.
+- **Canonical catalog documentation cleaned:** removed duplicate routine-template catalog rows/path guidance and made the portable/private boundary explicit.
+- **Runtime closure plan added:** `14-routine-compiler-runtime-closure-plan.md` defines an inquiry-triage vertical slice from source observation through candidate/template/blueprint, Focusa binding, immutable Routine Instance, durable trigger, shadow/pilot, Evidence/receiver acceptance, leverage and Quiet Kaizen.
+- **Negative-path proof made explicit:** duplicate events, stale grants, wrong tenant, provider timeout, ambiguous completion, missed runs, overlap, takeover/revoke and incomplete Evidence are required acceptance cases.
+- **Generalization proof made explicit:** the same canonical inquiry-triage template must pass across two isolated owner-specific business bindings without portable-template mutation or cross-binding leakage.
+
+### Preservation and honest status
+
+- Portable templates and packs do not absorb private Drive/customer payload, credentials, active grants, schedules or canonical work state.
+- OpenClaw remains the default durable automation owner where appropriate; Focusa remains work/authority/Evidence owner; source domains retain accepted-outcome truth; Wirebot/Perpetua owns private leverage/Quiet Kaizen synthesis.
+- W.I.N.S. remains optional/setup-aware according to 0.2.4.
+- `SAG-10` and `SAG-18` remain open. This candidate completes the portable planning/library and exact acceptance plan; it does **not** claim the end-to-end runtime compiler or steady routine execution has passed.
+
+
+## 0.2.4-candidate — 2026-09-27
+
+### Base feedback loop and four Wirebot setup correction
+
+- **W.I.N.S. removed from the mandatory causal path:** routine analytics, accepted-outcome interpretation, momentum/leverage and Quiet Kaizen now operate privately without W.I.N.S.
+- **Four customer/setup modes made explicit:** Wirebot Sovereign Operator, Wirebot Sovereign, Wirebot Direct and Wirebot Network. These are distinct from internal numeric entitlement levels and from the `sovereign_builder` admin role.
+- **Top-two W.I.N.S. policy corrected:** Sovereign Operator and Sovereign are complete with W.I.N.S. disabled; W.I.N.S. requires explicit opt-in.
+- **Base leverage contract clarified:** `operator.leverage_snapshot.v1` is W.I.N.S.-independent; the valid fixture carries source-domain outcome refs and Wirebot/Perpetua producer refs rather than W.I.N.S. refs.
+- **Optional projection test added:** the same valid leverage snapshot can accept W.I.N.S.-specific season/milestone presentation metadata without making that metadata required.
+- **Ownership corrected:** source domains/owner acceptance own outcome truth, Focusa owns Evidence/settlement, Wirebot/Perpetua owns private cross-domain optimization synthesis, and W.I.N.S. owns optional setup-aware progression/recognition/community presentation.
+
+### Preservation
+
+- W.I.N.S. remains deeply valuable where enabled.
+- Direct and Network W.I.N.S. behavior remains governed by their owning offer/participation contracts.
+- No new analytics database or optimization runtime is introduced.
+
+## 0.2.3-candidate — 2026-09-27
+
+### Portfolio Business Compiler, routine analytics and leverage progression
+
+- **Portfolio scope made explicit:** several businesses plus life/operating domains are a normal owner topology.
+- **Portfolio Business Compiler added:** source coverage → portfolio map → routine blueprints → workforce/software/schedule proposal → owner composition → Focusa binding → execution → analytics/Evidence → W.I.N.S. outcome/momentum/leverage → Quiet Kaizen.
+- **Routine blueprint direction added:** trigger, inputs, deterministic/semantic/human steps, placement, authority, reliability, measurement, Evidence, outcome and revoke/retire semantics.
+- **OpenClaw substrate corrected:** OpenClaw is the standard Operating Partner runtime/automations plane; normal deployments include Tailscale and at least one persistent remote VPS. Individual VPS/model/Pi/body instances remain replaceable.
+- **Durable scheduling owner clarified:** prefer OpenClaw Gateway automations on the persistent VPS for recurring agent/system-event work; Focusa remains governed work/authority owner.
+- **Historical 0.2.3 W.I.N.S. role expansion — superseded by 0.2.4:** this release assigned W.I.N.S. the accepted-outcome portfolio plus momentum/leverage projection. The 0.2.4 correction supersedes that ownership: source domains/owner acceptance retain outcome truth, Wirebot/Perpetua owns the private base feedback/leverage loop, and W.I.N.S. is an optional progression/recognition/community projection.
+- **Meaningful game dynamics constrained:** seasons/streaks/progression should motivate verified life/business advancement, compounding leverage and reduced burden—not raw engagement, agent activity or streak pressure.
+- **Routine analytics made causal:** reliability, latency, retries, cost, attention, buyback, quality and authoritative outcome metrics stay visible; universal scores cannot hide dimensions.
+- **New closure gaps added:** portfolio routine analytics/leverage and meaningful progression are explicit P0 seams.
+- **Portable machine contracts added:** `operator.routine_blueprint.v1` and `operator.leverage_snapshot.v1` now have JSON Schemas, valid fixtures and regression tests; OpenClaw is encoded as the scheduling default without excluding explicit provider/native scheduler owners.
+- **Cross-product seam contract extended:** routine and leverage envelopes are reference projections only; they do not become schedule, task, Evidence, outcome or telemetry authorities.
+
+### Preservation
+
+- No canonical product owner is replaced.
+- No second scheduler, analytics warehouse, workforce database or outcome store is created.
+- OpenClaw scheduling does not grant work authority; Focusa-governed assignments and current grants remain required.
+- UIAI remains the browser/computer execution owner, and stable deterministic steps still prefer typed code/API/CLI over repeated LLM improvisation.
+
+## 0.2.2-candidate — 2026-09-27
+
+### Contract-optimization hardening
+
+- **Supersession path closed:** repeated `superseded` observations are explicitly contextual and no longer count as harm evidence; active semantic weakening by supersession requires an exact authority-bearing `supersedes_ref`.
+- **Portable promotion floor enforced:** `portable_operational` changes cannot reach `approved`, `rolled_out`, or `verified` from one causal incident.
+- **Tradeoff authority enforced:** `tradeoff_approved` requires owner/architecture-delegate authority and an approval reference rather than functioning as an evaluator self-exception.
+- **Extraction proof made executable:** promoted `extract` changes require a recorded native loader/trigger validation case so context savings cannot silently reduce effective capability.
+- **Regression coverage extended:** the portable policy test now rejects supersession-by-opinion, single-incident portable promotion, unapproved tradeoffs and extraction without native-load proof.
+
+### Preservation
+
+- No existing capability, product boundary, authority invariant, Golden Path step or operating lesson is intentionally removed.
+- Ordinary additive improvements remain evidence-gated but are not forced through new owner ceremony unless they cross an authority-bearing boundary.
+- This is a hardening release over 0.2.1, not a new runtime, optimizer service, memory store or architecture tier.
+
+## 0.2.1-candidate — 2026-09-27
+
+### Evidence-gated contract evolution
+
+- **Portable optimization profile added:** `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md` defines how real operating evidence may propose bounded improvements without allowing transcripts, repeated incidents or model judgments to self-promote into memory, policy, architecture or authority.
+- **Protected evolution classes added:** constitutional, safety/authority and architecture-boundary rules cannot be weakened merely because they are infrequent, token-costly, ignored, duplicated-looking or absent from recent sessions. Product-local lessons remain with their canonical owner.
+- **Independent corroboration required:** repeated records from one causal incident share one correlation identity; raw session count is not treated as independent evidence.
+- **Held-out regression gate added:** material semantic changes separate derivation/training cases from held-out behavioral cases and preserve explicit protected-invariant checks before promotion.
+- **Bounded proposal envelope added:** `contracts/agent-contract-change.v1.schema.json` carries target/base revision, evolution class, change hypothesis, source-bearing observations, held-out evaluation, authority, rollout/revert posture and privacy metadata without creating a new database.
+- **Executable regression policy added:** `tests/agent-contract-optimization-test.py`, its valid fixture and `tests/run-contract-tests.sh` reject ungrounded removal/weakening, duplicate-incident corroboration, protected changes without owner-rooted authority, derivation/holdout overlap, missing approval references, rollout without rollback, verified state without post-rollout observation, and private payload in portable proposals.
+- **Golden Path and build-agent surfaces reconciled:** `AGENTS.md`, current architecture, Golden Path spine, README, collaboration checklist and server handoff now reference the same evidence-gated evolution law and native-loader verification requirement.
+- **Version record added:** `0.2.1.md` records this candidate as an additive refinement over 0.2.0 rather than a replacement of existing product ownership or open acceptance work.
+
+### Non-regression / preservation statement
+
+- No existing constitutional, safety, authority, product-ownership, evidence/outcome or recovery law is intentionally removed or weakened by this candidate.
+- Semantic deletion remains exceptional; semantic-preserving relocation/extraction is preferred when placement is the problem.
+- ADLBOS does not become a runtime learning store, transcript store, Evidence store, memory authority or accepted-outcome authority.
+- Existing 0.2.0 gaps remain open unless separately proven closed.
+
+### Honest limits
+
+- This candidate adds contract infrastructure and regression policy, not a transcript collector or central optimizer runtime.
+- Automated proposal generation still depends on source-system/harness adapters that preserve privacy and ownership.
+- Source-level regression proof does not itself establish long-term behavioral gain; post-rollout real-operation evidence is still required before a candidate change is called verified.
+
 ## 0.2.0-candidate — 2026-09-13
 
 ### Recorded work and bounded evidence
 
-- **OpenClaw operating-partner seam made explicit:** added the tenant-isolated conversation → consented context → typed accepted operation → governed execution/recovery → verified outcome → corrected later behavior contract, with Wirebot App `R00.01`–`R00.09` and Golden Path `GP-23`; no runtime completion or release is claimed.
+- **OpenClaw operating-partner seam made explicit:** added tenant-isolated conversation → consented context → typed accepted operation → governed execution/recovery → verified outcome → corrected later behavior, bound to Wirebot App `R00.01`–`R00.09` and Golden Path `NEW-P0-12`; no runtime completion or release is claimed.
+- **Post-migration provisioning ownership reconciled:** recorded Startempire Wire as entitlement/lifecycle trigger owner, KnownHost Core as tenant/OpenClaw adapter owner, and the existing OVH gateway as shared runtime; narrowed the gap to missing tenant LBI bind/verify/revoke/recover rather than missing infrastructure.
+- **Wirebot levels intertwined with the Full Trajectory:** added the level 0-5 relationship matrix, canonical entitlement projection, lifecycle-transition rules, Sovereign/Builder boundaries, and level × journey × transition × topology/failure release proof; bound to App `L00.01`–`L00.08`.
+- **Entitlement integrity hardened:** source now produces/consumes the versioned projection, rejects inference/admin bypass/mismatches, deterministically resolves sibling tiers, persists/exposes only owner-scoped Core receipts, and keeps Builder administration separate from tenant runtime; coordinated deployment/live parity remains explicitly open.
 - **Seamless-autonomy handoff audit added:** reviewed the complete current Golden Path against the operation contract, parity audit, composable workforce, layered memory, proposed Wirebot Web/PWA/Desktop/Mobile family, Startempire Wire, AI Draftees, Focusa, UIAI, W.I.N.S., Veragensia and executable scripts. Recorded 44 observed handoff gaps without presenting candidate architecture as implementation.
 - **Autonomy ladder and critical dependency trains added:** defined bounded A0–A6 semantics and ordered the work around executable project governance, client execution packets, worker runtime, professional application shell, evidence/W.I.N.S. closure, recovery and lifecycle economics.
 - **Golden Path extended through GP-22:** added client execution-contract compilation, autonomous worker runtime proof, unified evidence-to-W.I.N.S. closure, a Wirebot application-family Community vertical slice, replacement/offboarding/economics and machine-executable project governance.

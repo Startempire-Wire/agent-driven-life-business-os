@@ -1,6 +1,8 @@
 # Wirebot Ecosystem Agent-Operation Parity Audit
 
-- **Status:** first-pass source audit; not product conformance or release certification
+- **Status:** DATED SOURCE-AUDIT SNAPSHOT; not current product conformance, implementation inventory, or release certification
+- **Snapshot date:** 2026-09-13
+- **Current-state rule:** use this ledger as provenance for gaps and audit method; re-query the owning product repository/runtime before treating any version, branch, route, CLI, app-presence, or parity cell below as current.
 - **Contract:** [Agent-Operation-Complete Software Contract](./07-agent-operation-complete-software-contract.md)
 - **Primary acceptance machine:** qualified Veragensia Chromebook
 - **Audit rule:** source presence, internal endpoints and CLI names are evidence only; operation-level parity requires accepted producer and consumer proof

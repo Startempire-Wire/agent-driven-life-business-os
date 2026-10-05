@@ -1,0 +1,76 @@
+{
+  "schema_version": "agent.contract_change.v1",
+  "proposal_id": "adlbos-2026-09-27-contract-opt-example",
+  "status": "regression_tested",
+  "target": {
+    "ref": "AGENTS.md#build-agent-lifecycle",
+    "base_revision": "c0f1ab9297ff38839cb984faba6ae65ecfe3b2dc",
+    "evolution_class": "portable_operational"
+  },
+  "hypothesis": "Clarifying an evidence-gated verification step will reduce false completion without increasing owner interruptions.",
+  "change": {
+    "kind": "add",
+    "summary": "Add a bounded verification requirement after implementation.",
+    "semantic_weakening": false,
+    "destination_ref": null,
+    "supersedes_ref": null
+  },
+  "observations": [
+    {
+      "source_ref": "evidence://example/run-1",
+      "observation_class": "gap",
+      "correlation_key": "incident-example-1",
+      "task_family": "software-delivery",
+      "observed_at": "2026-09-20T18:00:00Z",
+      "project_ref": "project://example-a",
+      "deployment_ref": null,
+      "harness_ref": "harness://pi",
+      "model_ref": "model://example",
+      "evidence_ref": "evidence://example/run-1",
+      "outcome_ref": null
+    },
+    {
+      "source_ref": "evidence://example/run-2",
+      "observation_class": "gap",
+      "correlation_key": "incident-example-2",
+      "task_family": "software-delivery",
+      "observed_at": "2026-09-22T18:00:00Z",
+      "project_ref": "project://example-b",
+      "deployment_ref": null,
+      "harness_ref": "harness://codex",
+      "model_ref": "model://example",
+      "evidence_ref": "evidence://example/run-2",
+      "outcome_ref": null
+    }
+  ],
+  "evaluation": {
+    "derived_case_refs": [
+      "case://example/derived-1"
+    ],
+    "holdout_case_refs": [
+      "case://example/holdout-1",
+      "case://example/holdout-2"
+    ],
+    "protected_invariant_refs": [
+      "AGENTS.md#architecture-authority-hard-stop",
+      "AGENTS.md#authentication-and-secrets"
+    ],
+    "baseline_ref": "git://c0f1ab9297ff38839cb984faba6ae65ecfe3b2dc",
+    "candidate_ref": "git://example-candidate",
+    "verdict": "pass"
+  },
+  "authority": {
+    "requirement": "none",
+    "approval_ref": null
+  },
+  "rollout": {
+    "scope": "portable ADLBOS build-agent contract after review",
+    "rollback_ref": "git://c0f1ab9297ff38839cb984faba6ae65ecfe3b2dc",
+    "post_rollout_observation_ref": null
+  },
+  "privacy": {
+    "portable_material": "references_only",
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

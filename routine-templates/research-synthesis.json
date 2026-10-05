@@ -1,0 +1,141 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://life/research-synthesis",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "life"
+    ],
+    "routine_family": "learning_improvement",
+    "archetype_tags": [
+      "researcher",
+      "author",
+      "student",
+      "creator"
+    ]
+  },
+  "purpose": {
+    "summary": "Maintain a source-backed research queue, verify claims, synthesize learning, and surface unresolved questions without flattening uncertainty.",
+    "outcome_classes": [
+      "research_synthesis",
+      "source_map_updated",
+      "open_questions_identified"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "research_queue_source"
+    ],
+    "optional_signal_classes": [
+      "notes_source",
+      "bibliography_source",
+      "experiment_source"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "schedule",
+    "allowed_kinds": [
+      "schedule",
+      "event",
+      "manual"
+    ],
+    "event_preferred": false,
+    "default_cadence": "weekly or project-defined"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect unread/updated source references and prior open questions.",
+      "operation_class": "source_read",
+      "required_input_classes": [
+        "research_queue_source"
+      ],
+      "output_classes": [
+        "research_inputs"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "analyze",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Synthesize claims, evidence classes, contradictions and open questions.",
+      "operation_class": null,
+      "required_input_classes": [
+        "research_inputs"
+      ],
+      "output_classes": [
+        "research_synthesis",
+        "open_questions_identified"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "record",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Write only source-linked synthesis/provenance into the approved knowledge surface.",
+      "operation_class": "knowledge_record_update",
+      "required_input_classes": [
+        "research_synthesis"
+      ],
+      "output_classes": [
+        "source_map_updated"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "theological_or_philosophical_judgment",
+      "publication_claim"
+    ],
+    "escalation_conditions": [
+      "source_conflict",
+      "low_evidence_high_claim"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "research_synthesis",
+      "source_map_updated",
+      "open_questions_identified"
+    ],
+    "leverage_dimensions": [
+      "reuse",
+      "compounding",
+      "attention_reduction",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "research_scope_ref",
+      "value_type": "ref",
+      "required": true,
+      "description": "Approved research topic/project scope."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

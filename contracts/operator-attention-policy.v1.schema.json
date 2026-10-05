@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://startempire-wire.github.io/agent-driven-life-business-os/contracts/operator-attention-policy.v1.schema.json",
+  "title": "Operator Attention Policy v1",
+  "description": "Owner-scoped portable policy for projecting source-bearing attention, Follow-Up, Follow-Through, outcome and momentum state through approved channels. It grants no source resolution or execution authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "policy_id",
+    "owner_ref",
+    "notification_classes",
+    "delivery",
+    "quiet_hours",
+    "coalescing",
+    "replies",
+    "privacy",
+    "lifecycle"
+  ],
+  "properties": {
+    "schema_version": { "const": "operator.attention_policy.v1" },
+    "policy_id": { "type": "string", "minLength": 1 },
+    "owner_ref": { "type": "string", "minLength": 1 },
+    "notification_classes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "needs_you",
+          "follow_up_due",
+          "follow_through_progress",
+          "follow_through_stalled",
+          "verified_outcome",
+          "momentum_leverage",
+          "failure_recovery",
+          "digest"
+        ]
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary_channel_ref", "routing_strategy", "channel_refs", "fallback_channel_refs"],
+      "properties": {
+        "primary_channel_ref": { "type": "string", "minLength": 1 },
+        "routing_strategy": { "enum": ["primary_then_fallback", "fanout", "class_specific"] },
+        "channel_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "fallback_channel_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "quiet_hours": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "timezone", "start_local", "end_local", "urgent_override_classes"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "timezone": { "type": "string", "minLength": 1 },
+        "start_local": {
+          "type": ["string", "null"],
+          "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+        },
+        "end_local": {
+          "type": ["string", "null"],
+          "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+        },
+        "urgent_override_classes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "needs_you",
+              "follow_up_due",
+              "follow_through_progress",
+              "follow_through_stalled",
+              "verified_outcome",
+              "momentum_leverage",
+              "failure_recovery",
+              "digest"
+            ]
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "enabled": { "const": true } } },
+          "then": {
+            "properties": {
+              "start_local": { "type": "string" },
+              "end_local": { "type": "string" }
+            }
+          }
+        }
+      ]
+    },
+    "coalescing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "min_update_interval_seconds"],
+      "properties": {
+        "mode": { "enum": ["none", "correlation", "digest"] },
+        "min_update_interval_seconds": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "replies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowed",
+        "free_text_allowed",
+        "allowed_notification_classes",
+        "consequence_ceiling",
+        "source_revalidation_required"
+      ],
+      "properties": {
+        "allowed": { "type": "boolean" },
+        "free_text_allowed": { "type": "boolean" },
+        "allowed_notification_classes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "needs_you",
+              "follow_up_due",
+              "follow_through_progress",
+              "follow_through_stalled",
+              "verified_outcome",
+              "momentum_leverage",
+              "failure_recovery",
+              "digest"
+            ]
+          }
+        },
+        "consequence_ceiling": {
+          "enum": ["none", "acknowledge_only", "low_reversible", "open_wirebot_for_consequence"]
+        },
+        "source_revalidation_required": { "const": true }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "allowed": { "const": false } } },
+          "then": {
+            "properties": {
+              "free_text_allowed": { "const": false },
+              "allowed_notification_classes": { "maxItems": 0 },
+              "consequence_ceiling": { "const": "none" }
+            }
+          }
+        }
+      ]
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lock_screen_detail",
+        "blocked_domain_refs",
+        "attachments_allowed",
+        "contains_private_payload",
+        "contains_secret_material"
+      ],
+      "properties": {
+        "lock_screen_detail": { "enum": ["full", "redacted", "title_only"] },
+        "blocked_domain_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "attachments_allowed": { "type": "boolean" },
+        "contains_private_payload": { "const": false },
+        "contains_secret_material": { "const": false }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "effective_at"],
+      "properties": {
+        "revision": { "type": "string", "minLength": 1 },
+        "effective_at": { "type": "string", "format": "date-time" },
+        "expires_at": { "type": ["string", "null"], "format": "date-time" }
+      }
+    }
+  }
+}

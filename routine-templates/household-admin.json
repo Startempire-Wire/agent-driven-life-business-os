@@ -1,0 +1,142 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://life/household-admin-review",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "life"
+    ],
+    "routine_family": "orientation",
+    "archetype_tags": [
+      "household-administrator",
+      "family",
+      "caregiver"
+    ]
+  },
+  "purpose": {
+    "summary": "Reconcile household logistics, upcoming obligations, renewals and maintenance into an exception-oriented household brief.",
+    "outcome_classes": [
+      "household_orientation",
+      "upcoming_exception_identified",
+      "household_follow_up_set"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "household_commitment_source"
+    ],
+    "optional_signal_classes": [
+      "calendar_source",
+      "bill_source",
+      "maintenance_source",
+      "document_source"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "schedule",
+    "allowed_kinds": [
+      "schedule",
+      "event",
+      "manual"
+    ],
+    "event_preferred": false,
+    "default_cadence": "weekly with event-driven exceptions where available"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect upcoming household commitments and source-owned exceptions.",
+      "operation_class": "source_read",
+      "required_input_classes": [
+        "household_commitment_source"
+      ],
+      "output_classes": [
+        "household_inputs"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "synthesize",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Prepare a concise household orientation and next actions.",
+      "operation_class": null,
+      "required_input_classes": [
+        "household_inputs"
+      ],
+      "output_classes": [
+        "household_orientation",
+        "household_follow_up_set"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "route",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Create source-bearing exception attention only where required.",
+      "operation_class": "attention_projection_write",
+      "required_input_classes": [
+        "household_follow_up_set"
+      ],
+      "output_classes": [
+        "upcoming_exception_identified"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "family_judgment",
+      "spend_commitment",
+      "care_decision"
+    ],
+    "escalation_conditions": [
+      "sensitive_relationship",
+      "authority_missing",
+      "high_consequence"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "household_orientation",
+      "upcoming_exception_identified",
+      "household_follow_up_set"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "reliability",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "household_scope_ref",
+      "value_type": "ref",
+      "required": true,
+      "description": "Owner-approved household/family operating scope."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "operator.routine_pack.v1",
+  "pack_id": "routine-pack://business/ecommerce-product",
+  "pack_version": "1.0.0",
+  "status": "recommended",
+  "domain_class": "business",
+  "summary": "E-commerce and product-commerce pack for customer intake, fulfillment exceptions, payment truth, follow-through and evidence-backed distribution.",
+  "fit_signals": [
+    "orders or product purchases",
+    "fulfillment or delivery state",
+    "customer inquiries",
+    "returns or payment exceptions",
+    "product content or repeat-customer workflows"
+  ],
+  "template_refs": [
+    "routine-template://business/inquiry-triage@1.0.0",
+    "routine-template://business/delivery-case-review@1.0.0",
+    "routine-template://cross-domain/finance-operations@1.0.0",
+    "routine-template://cross-domain/reconciliation@1.0.0",
+    "routine-template://cross-domain/follow-up@1.2.0",
+    "routine-template://cross-domain/follow-through@1.0.0",
+    "routine-template://business/content-distribution@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0"
+  ],
+  "composition": {
+    "may_combine_with": [
+      "routine-pack://business/founder-portfolio",
+      "routine-pack://business/content-community"
+    ],
+    "selection_rule": "Prefer provider-native order and payment events; automate fulfillment and customer effects only where exact policy, authority and receiver-side verification are available.",
+    "archetype_not_identity": true
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

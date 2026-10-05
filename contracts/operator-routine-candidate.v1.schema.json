@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://startempire-wire.github.io/agent-driven-life-business-os/contracts/operator-routine-candidate.v1.schema.json",
+  "title": "Operator Routine Candidate v1",
+  "description": "Source-backed audit inference for a possible routine. A candidate explains why a routine may be useful and what templates match; it is not a schedule, assignment, authority grant, or active routine.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","candidate_id","scope","evidence_basis","purpose","fit_dimensions","template_matches","current_state","human_boundary","readiness","privacy"],
+  "properties": {
+    "schema_version": {"const":"operator.routine_candidate.v1"},
+    "candidate_id": {"type":"string","minLength":1},
+    "scope": {
+      "type":"object","additionalProperties":false,
+      "required":["owner_ref","business_refs","life_domain_refs"],
+      "properties":{
+        "owner_ref":{"type":"string","minLength":1},
+        "business_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+        "life_domain_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+        "portfolio_ref":{"type":["string","null"]}
+      },
+      "anyOf":[
+        {"properties":{"business_refs":{"minItems":1}}},
+        {"properties":{"life_domain_refs":{"minItems":1}}}
+      ]
+    },
+    "evidence_basis":{
+      "type":"object","additionalProperties":false,
+      "required":["classes","source_refs","summary","confidence"],
+      "properties":{
+        "classes":{"type":"array","minItems":1,"uniqueItems":true,"items":{"enum":["observed_recurring","owner_declared","historical_recurring","archetype_expected","gap_inferred","existing_automation"]}},
+        "source_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+        "summary":{"type":"string","minLength":1},
+        "confidence":{"enum":["low","medium","high"]}
+      }
+    },
+    "purpose":{"type":"object","additionalProperties":false,"required":["summary","desired_outcome"],"properties":{
+      "summary":{"type":"string","minLength":1},
+      "desired_outcome":{"type":"string","minLength":1},
+      "leverage_hypothesis":{"type":["string","null"]}
+    }},
+    "fit_dimensions":{"type":"object","additionalProperties":false,"required":["recurrence","owner_burden","outcome_importance","determinism_potential","integration_readiness","consequence_risk","privacy_sensitivity","reuse_potential"],"properties":{
+      "recurrence":{"enum":["unknown","low","medium","high"]},
+      "owner_burden":{"enum":["unknown","low","medium","high"]},
+      "outcome_importance":{"enum":["low","medium","high"]},
+      "determinism_potential":{"enum":["D0","D1","D2","D3"]},
+      "integration_readiness":{"enum":["blocked","partial","ready"]},
+      "consequence_risk":{"enum":["low","medium","high"]},
+      "privacy_sensitivity":{"enum":["low","medium","high"]},
+      "reuse_potential":{"enum":["single_scope","cross_domain","cross_business","portable_template"]}
+    }},
+    "template_matches":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["template_ref","match_class","reason"],"properties":{
+      "template_ref":{"type":"string","minLength":1},
+      "match_class":{"enum":["strong_match","partial_match","novel_pattern","template_suggestion_only","not_applicable"]},
+      "reason":{"type":"string","minLength":1}
+    }}},
+    "current_state":{"type":"object","additionalProperties":false,"required":["implementation","preferred_trigger","current_burden"],"properties":{
+      "implementation":{"enum":["none","manual","partial_job","existing_automation"]},
+      "preferred_trigger":{"enum":["manual","schedule","event","condition","queue"]},
+      "current_burden":{"type":"string","minLength":1}
+    }},
+    "human_boundary":{"type":"object","additionalProperties":false,"required":["reserved_decisions","escalation_conditions"],"properties":{
+      "reserved_decisions":{"type":"array","items":{"type":"string","minLength":1}},
+      "escalation_conditions":{"type":"array","items":{"type":"string","minLength":1}}
+    }},
+    "readiness":{"type":"object","additionalProperties":false,"required":["authority_gaps","reliability_gaps","required_source_classes","evidence_requirement","accepted_outcome_requirement","next_state"],"properties":{
+      "authority_gaps":{"type":"array","items":{"type":"string","minLength":1}},
+      "reliability_gaps":{"type":"array","items":{"type":"string","minLength":1}},
+      "required_source_classes":{"type":"array","items":{"type":"string","minLength":1}},
+      "evidence_requirement":{"type":"string","minLength":1},
+      "accepted_outcome_requirement":{"type":"string","minLength":1},
+      "next_state":{"enum":["reject","blueprint","shadow","pilot","compile","activate"]}
+    }},
+    "privacy":{"type":"object","additionalProperties":false,"required":["contains_secret_material"],"properties":{
+      "contains_secret_material":{"const":false},
+      "private_payload_ref":{"type":["string","null"]}
+    }}
+  }
+}

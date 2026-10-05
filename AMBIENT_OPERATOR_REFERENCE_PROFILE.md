@@ -1,6 +1,7 @@
 # Ambient Operator Reference Profile
 
-**Status:** portable reference integration contract, 2026-09-05.  
+**Status:** CURRENT portable reference profile; owning product specifications remain implementation authority.  
+**Reference verification:** Focusa Specs 181–184 and Veragensia Doc 199 re-verified in owning repositories on 2026-09-30.  
 **Architecture authority:** deployment Canonical Owner Principal under `OWNER_AUTHORITY_CONSTITUTION.md`.  
 **Startempire binding:** Verious Smith III.  
 **Reference implementation:** Focusa Specs 181–184 + Veragensia Doc 199 + UIAI Engine + Wirebot Context Core/Chief-of-Staff adapters.

@@ -1,0 +1,34 @@
+{
+  "schema_version": "operator.routine_pack.v1",
+  "pack_id": "routine-pack://life/wellness-care",
+  "pack_version": "1.0.0",
+  "status": "recommended",
+  "domain_class": "life",
+  "summary": "Wellness and care-coordination pack for appointments, records, logistics, follow-through and expiring obligations while reserving clinical decisions for humans and professionals.",
+  "fit_signals": [
+    "recurring appointments or care logistics",
+    "records distributed across providers",
+    "preparation or follow-up burden",
+    "time-bound care-related obligations"
+  ],
+  "template_refs": [
+    "routine-template://cross-domain/orientation@1.0.0",
+    "routine-template://cross-domain/follow-up@1.2.0",
+    "routine-template://cross-domain/follow-through@1.0.0",
+    "routine-template://cross-domain/reconciliation@1.0.0",
+    "routine-template://cross-domain/renewal-expiry@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0"
+  ],
+  "composition": {
+    "may_combine_with": [
+      "routine-pack://life/personal-executive",
+      "routine-pack://life/household-family"
+    ],
+    "selection_rule": "Use these templates for logistics, preparation, records and follow-through only. Diagnosis, treatment changes and other clinical decisions remain in their human/professional owning systems.",
+    "archetype_not_identity": true
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

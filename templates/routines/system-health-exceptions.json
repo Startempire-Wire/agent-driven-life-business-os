@@ -1,0 +1,164 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://business/system-health-exceptions",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "business"
+    ],
+    "routine_family": "system_health",
+    "archetype_tags": [
+      "saas",
+      "software",
+      "multi-business",
+      "digital-operations"
+    ]
+  },
+  "purpose": {
+    "summary": "Monitor infrastructure and surface only impact-bearing exceptions, with bounded diagnosis and recovery.",
+    "outcome_classes": [
+      "impactful_exception_detected",
+      "recovery_verified",
+      "noise_suppressed"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "health_signal_source"
+    ],
+    "optional_signal_classes": [
+      "backup_status",
+      "security_signal",
+      "capacity_signal",
+      "consumer_health"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "condition",
+      "schedule"
+    ],
+    "event_preferred": true,
+    "default_cadence": "periodic reconciliation fallback"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Collect health/status refs and suppress known healthy/noise signals.",
+      "operation_class": "typed_operation",
+      "required_input_classes": [
+        "health_signal_source"
+      ],
+      "output_classes": [
+        "exception_candidates"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "correlate",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Correlate duplicate alerts and consumer impact.",
+      "operation_class": "health_correlation",
+      "required_input_classes": [
+        "exception_candidates"
+      ],
+      "output_classes": [
+        "impact_groups"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "diagnose",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Produce bounded diagnosis and allowed recovery plan.",
+      "operation_class": null,
+      "required_input_classes": [
+        "impact_groups"
+      ],
+      "output_classes": [
+        "recovery_plan"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "boundary",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "purpose": "Escalate irreversible, security-sensitive or authority-exceeding recovery.",
+      "operation_class": null,
+      "required_input_classes": [
+        "recovery_plan"
+      ],
+      "output_classes": [
+        "authorized_recovery"
+      ],
+      "consequence_class": "human_reserved"
+    },
+    {
+      "step_key": "verify",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Verify receiver/service recovery after action.",
+      "operation_class": "consumer_verification",
+      "required_input_classes": [
+        "authorized_recovery"
+      ],
+      "output_classes": [
+        "recovery_receipt"
+      ],
+      "consequence_class": "read"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "irreversible_change",
+      "security_boundary_change",
+      "authority_expansion"
+    ],
+    "escalation_conditions": [
+      "customer_impact_high",
+      "security_unknown",
+      "rollback_unavailable"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "health_ref",
+      "recovery_receipt",
+      "consumer_verification_ref"
+    ],
+    "outcome_classes": [
+      "impactful_exception_detected",
+      "recovery_verified",
+      "noise_suppressed"
+    ],
+    "leverage_dimensions": [
+      "risk_reduction",
+      "reliability",
+      "attention_reduction"
+    ]
+  },
+  "parameters": [],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

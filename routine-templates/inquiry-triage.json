@@ -1,0 +1,168 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://business/inquiry-triage",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "business"
+    ],
+    "routine_family": "intake_triage",
+    "archetype_tags": [
+      "professional-services",
+      "saas",
+      "local-service",
+      "ecommerce"
+    ]
+  },
+  "purpose": {
+    "summary": "Triage new buyer or customer inquiries, deduplicate, qualify and establish the next authorized action.",
+    "outcome_classes": [
+      "qualified_inquiry",
+      "response_prepared",
+      "next_action_set"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "inbound_inquiry_source"
+    ],
+    "optional_signal_classes": [
+      "crm_history",
+      "offer_catalog"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "queue",
+      "schedule"
+    ],
+    "event_preferred": true,
+    "default_cadence": "twice-daily reconciliation fallback"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "ingest",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Read new inquiry refs without duplication.",
+      "operation_class": "message_list_read",
+      "required_input_classes": [
+        "inbound_inquiry_source"
+      ],
+      "output_classes": [
+        "candidate_inquiry_refs"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "classify",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Classify fit, urgency and next action under bounded schema.",
+      "operation_class": null,
+      "required_input_classes": [
+        "candidate_inquiry_refs"
+      ],
+      "output_classes": [
+        "qualified_inquiry"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "prepare",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Prepare response or internal next action from verified offer/context.",
+      "operation_class": null,
+      "required_input_classes": [
+        "qualified_inquiry"
+      ],
+      "output_classes": [
+        "response_prepared",
+        "next_action_set"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "commit",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "purpose": "Escalate external commitments not covered by standing grant.",
+      "operation_class": null,
+      "required_input_classes": [
+        "response_prepared"
+      ],
+      "output_classes": [
+        "authorized_external_action"
+      ],
+      "consequence_class": "human_reserved"
+    },
+    {
+      "step_key": "record",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Record receipt, deduplication state and next action.",
+      "operation_class": "source_record_update",
+      "required_input_classes": [
+        "authorized_external_action"
+      ],
+      "output_classes": [
+        "receipt_ref"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "new_external_commitment"
+    ],
+    "escalation_conditions": [
+      "unknown_offer",
+      "relationship_sensitive",
+      "authority_missing"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "delivery_receipt"
+    ],
+    "outcome_classes": [
+      "qualified_inquiry",
+      "response_prepared",
+      "next_action_set"
+    ],
+    "leverage_dimensions": [
+      "attention_reduction",
+      "cycle_time",
+      "reliability",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "response_sla",
+      "value_type": "string",
+      "required": false,
+      "description": "Owner-approved response target."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

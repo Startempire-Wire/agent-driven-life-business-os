@@ -1,0 +1,33 @@
+{
+  "schema_version": "operator.routine_pack.v1",
+  "pack_id": "routine-pack://life/personal-finance",
+  "pack_version": "1.0.0",
+  "status": "recommended",
+  "domain_class": "life",
+  "summary": "Personal finance oversight pack for source reconciliation, recurring obligations, renewal exceptions and owner-facing cash orientation.",
+  "fit_signals": [
+    "multiple financial accounts or bills",
+    "recurring subscriptions or obligations",
+    "invoice or reimbursement tracking",
+    "cash-flow attention burden"
+  ],
+  "template_refs": [
+    "routine-template://cross-domain/finance-operations@1.0.0",
+    "routine-template://cross-domain/reconciliation@1.0.0",
+    "routine-template://cross-domain/renewal-expiry@1.0.0",
+    "routine-template://cross-domain/orientation@1.0.0"
+  ],
+  "composition": {
+    "may_combine_with": [
+      "routine-pack://life/personal-executive",
+      "routine-pack://life/household-family",
+      "routine-pack://business/founder-portfolio"
+    ],
+    "selection_rule": "Default to read, reconcile, prepare and escalate. Money movement, account changes, tax/legal interpretation and material commitments require the applicable explicit authority.",
+    "archetype_not_identity": true
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/follow-up",
+  "template_version": "1.2.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": ["cross_domain"],
+    "routine_family": "follow_up",
+    "archetype_tags": [
+      "professional-services",
+      "sales",
+      "household-administrator",
+      "creator",
+      "multi-business",
+      "relationship-stewardship",
+      "financial-recovery",
+      "personal-executive"
+    ]
+  },
+  "purpose": {
+    "summary": "Maintain momentum after an initial contact, message, decision or action by ensuring the next appropriate touch or bounded next action happens at the right time without confusing that intermediate motion with final outcome closure.",
+    "outcome_classes": [
+      "follow_up_due",
+      "follow_up_attempted",
+      "response_or_progress_observed",
+      "follow_up_handoff",
+      "follow_up_exhausted"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": ["important_contact_or_action"],
+    "optional_signal_classes": [
+      "message_history",
+      "email",
+      "text_or_chat_message",
+      "crm_history",
+      "task_state",
+      "calendar",
+      "payment_or_financial_event",
+      "relationship_context"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": ["event", "condition", "queue", "schedule"],
+    "event_preferred": true,
+    "default_cadence": "event-driven plus daily reconciliation fallback"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "detect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Detect important contacts/actions whose next touch, response check or bounded next action is due.",
+      "operation_class": "source_read",
+      "required_input_classes": ["important_contact_or_action"],
+      "output_classes": ["follow_up_candidate_refs"],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "decide",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Choose the smallest useful next follow-up that preserves momentum without over-contacting, creating a new commitment or violating relationship/channel policy.",
+      "operation_class": null,
+      "required_input_classes": ["follow_up_candidate_refs"],
+      "output_classes": ["next_follow_up_action"],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "act",
+      "kind": "deterministic",
+      "determinism": "prefer_deterministic",
+      "purpose": "Perform or queue only already-authorized follow-up and record the exact attempt/receipt.",
+      "operation_class": "authorized_follow_up",
+      "required_input_classes": ["next_follow_up_action"],
+      "output_classes": ["follow_up_receipt"],
+      "consequence_class": "mutate"
+    },
+    {
+      "step_key": "reconcile",
+      "kind": "deterministic",
+      "determinism": "prefer_deterministic",
+      "purpose": "Re-read the source/receiver state to see whether a response, next-step progression or handoff occurred after the follow-up.",
+      "operation_class": "follow_up_reconciliation",
+      "required_input_classes": ["follow_up_receipt"],
+      "output_classes": ["follow_up_progress_observation"],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "handoff",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Decide whether another follow-up is warranted, the thread should hand to Follow-Through for full outcome ownership, or policy says to stop/escalate.",
+      "operation_class": null,
+      "required_input_classes": ["follow_up_progress_observation"],
+      "output_classes": ["follow_up_handoff", "next_check_state"],
+      "consequence_class": "prepare"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "new_external_commitment",
+      "sensitive_relationship_judgment",
+      "material_legal_or_financial_commitment"
+    ],
+    "escalation_conditions": [
+      "authority_missing",
+      "relationship_sensitive",
+      "policy_ambiguous",
+      "repeated_follow_up_without_progress",
+      "material_consequence_changed"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": ["source_receipt", "routine_run_receipt", "follow_up_receipt"],
+    "outcome_classes": [
+      "follow_up_due",
+      "follow_up_attempted",
+      "response_or_progress_observed",
+      "follow_up_handoff",
+      "follow_up_exhausted"
+    ],
+    "leverage_dimensions": ["attention_reduction", "cycle_time", "reliability", "outcome"]
+  },
+  "parameters": [
+    {
+      "name": "source_refs",
+      "value_type": "ref_list",
+      "required": true,
+      "description": "Owner-approved message, CRM, task, calendar, financial or other sources from which follow-up candidates may be observed."
+    },
+    {
+      "name": "follow_up_policy_ref",
+      "value_type": "ref",
+      "required": true,
+      "description": "Policy for importance, attempt spacing, channel authority, suppression, maximum attempts and handoff/escalation."
+    },
+    {
+      "name": "default_staleness_window",
+      "value_type": "string",
+      "required": false,
+      "description": "Fallback age after which an unresolved contact/action is reconciled when no stronger event/condition exists."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

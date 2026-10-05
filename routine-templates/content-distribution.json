@@ -1,0 +1,102 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://business/content-distribution",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": ["business"],
+    "routine_family": "content_distribution",
+    "archetype_tags": ["content-media","membership-community","education","saas","professional-services"]
+  },
+  "purpose": {
+    "summary": "Turn accepted evidence, ideas or milestones into reviewed distribution assets and prove publication/delivery.",
+    "outcome_classes": ["approved_asset","publication_receipt","audience_response"]
+  },
+  "fit": {
+    "required_signal_classes": ["approved_source_material"],
+    "optional_signal_classes": ["content_calendar","audience_policy","channel_plan","outcome_evidence"],
+    "exclusion_signal_classes": ["unverified_claims","missing_publication_authority"],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": ["event","queue","schedule","manual"],
+    "event_preferred": true,
+    "default_cadence": "scheduled reconciliation may supplement milestone-driven publication"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "collect",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Resolve approved source/evidence refs and target channel constraints.",
+      "operation_class": "source_ref_resolution",
+      "required_input_classes": ["approved_source_material"],
+      "output_classes": ["bounded_source_pack"],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "compose",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Draft channel-appropriate asset from bounded verified source material.",
+      "operation_class": null,
+      "required_input_classes": ["bounded_source_pack"],
+      "output_classes": ["draft_asset"],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "validate",
+      "kind": "deterministic",
+      "determinism": "prefer_deterministic",
+      "purpose": "Check required claims, source refs, audience/consent and channel policy.",
+      "operation_class": "content_policy_validation",
+      "required_input_classes": ["draft_asset"],
+      "output_classes": ["validated_asset"],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "publish",
+      "kind": "human",
+      "determinism": "human_reserved",
+      "purpose": "Escalate publication when no standing publication grant covers the exact asset/channel.",
+      "operation_class": null,
+      "required_input_classes": ["validated_asset"],
+      "output_classes": ["authorized_publication"],
+      "consequence_class": "human_reserved"
+    },
+    {
+      "step_key": "receipt",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Capture publication/delivery receipt and audience-response refs.",
+      "operation_class": "publication_receipt_capture",
+      "required_input_classes": ["authorized_publication"],
+      "output_classes": ["publication_receipt","audience_response"],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": ["new_public_claim","new_audience_commitment","unapproved_publication"],
+    "escalation_conditions": ["claim_not_source_backed","audience_policy_unknown","publication_grant_missing"],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 1800,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": ["source_evidence","publication_receipt"],
+    "outcome_classes": ["approved_asset","publication_receipt","audience_response"],
+    "leverage_dimensions": ["attention_reduction","cycle_time","reuse","outcome"]
+  },
+  "parameters": [
+    {"name":"channel_refs","value_type":"ref_list","required":true,"description":"Bound target channels/surfaces."},
+    {"name":"audience_policy_ref","value_type":"ref","required":false,"description":"Audience consent/suppression/publication policy."}
+  ],
+  "privacy": {"contains_private_payload":false,"contains_secret_material":false}
+}

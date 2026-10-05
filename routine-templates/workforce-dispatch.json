@@ -1,0 +1,92 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://business/workforce-dispatch",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": ["business","cross_domain"],
+    "routine_family": "workforce_dispatch",
+    "archetype_tags": ["founder-portfolio","saas","professional-services","multi-business"]
+  },
+  "purpose": {
+    "summary": "Match accepted ready work to approved bounded workers without creating ambient authority.",
+    "outcome_classes": ["accepted_dispatch","bounded_assignment","work_receipt"]
+  },
+  "fit": {
+    "required_signal_classes": ["ready_work_frontier","approved_role_or_worker_pool"],
+    "optional_signal_classes": ["capacity_state","priority_state","budget_state"],
+    "exclusion_signal_classes": ["unaccepted_work","missing_authority"],
+    "evidence_floor": "corroborated"
+  },
+  "trigger_policy": {
+    "preferred_kind": "queue",
+    "allowed_kinds": ["queue","event","condition","schedule"],
+    "event_preferred": true,
+    "default_cadence": "event/queue preferred; periodic reconciliation only for missed/stale work"
+  },
+  "step_skeleton": [
+    {
+      "step_key":"discover_ready",
+      "kind":"deterministic",
+      "determinism":"must_be_deterministic",
+      "purpose":"Read accepted ready work and eligible assignment refs.",
+      "operation_class":"ready_work_projection",
+      "required_input_classes":["ready_work_frontier"],
+      "output_classes":["eligible_work_refs"],
+      "consequence_class":"read"
+    },
+    {
+      "step_key":"match",
+      "kind":"agentic",
+      "determinism":"bounded_semantic",
+      "purpose":"Choose the smallest suitable approved role/capability bundle under typed matching policy.",
+      "operation_class":null,
+      "required_input_classes":["eligible_work_refs","approved_role_or_worker_pool"],
+      "output_classes":["dispatch_proposal"],
+      "consequence_class":"prepare"
+    },
+    {
+      "step_key":"authorize",
+      "kind":"deterministic",
+      "determinism":"must_be_deterministic",
+      "purpose":"Revalidate assignment scope, capability, budget and current authority.",
+      "operation_class":"assignment_authority_validation",
+      "required_input_classes":["dispatch_proposal"],
+      "output_classes":["accepted_dispatch"],
+      "consequence_class":"mutate"
+    },
+    {
+      "step_key":"dispatch",
+      "kind":"deterministic",
+      "determinism":"must_be_deterministic",
+      "purpose":"Start the exact governed assignment and record receipt.",
+      "operation_class":"governed_worker_dispatch",
+      "required_input_classes":["accepted_dispatch"],
+      "output_classes":["bounded_assignment","work_receipt"],
+      "consequence_class":"mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes":["new_role_creation","authority_expansion","budget_expansion"],
+    "escalation_conditions":["no_eligible_worker","authority_missing","budget_exceeded","scope_conflict"],
+    "confirmation_posture":"exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy":"reconcile",
+    "missed_run_policy":"reconcile",
+    "idempotency_required":true,
+    "timeout_seconds":900,
+    "retry_policy_class":"bounded_backoff",
+    "failure_destination_class":"owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes":["dispatch_receipt","assignment_receipt"],
+    "outcome_classes":["accepted_dispatch","bounded_assignment","work_receipt"],
+    "leverage_dimensions":["attention_reduction","cycle_time","reliability","reuse"]
+  },
+  "parameters": [
+    {"name":"work_frontier_ref","value_type":"ref","required":true,"description":"Canonical ready-work projection."},
+    {"name":"approved_roster_ref","value_type":"ref","required":true,"description":"Approved role/worker pool."}
+  ],
+  "privacy":{"contains_private_payload":false,"contains_secret_material":false}
+}

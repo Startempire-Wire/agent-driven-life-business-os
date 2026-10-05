@@ -1,0 +1,155 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/knowledge-freshness",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "cross_domain"
+    ],
+    "routine_family": "knowledge_freshness",
+    "archetype_tags": [
+      "researcher",
+      "creator",
+      "software-company",
+      "professional-services",
+      "multi-business"
+    ]
+  },
+  "purpose": {
+    "summary": "Detect stale procedures, superseded facts and unresolved contradictions so agents do not operate from obsolete knowledge.",
+    "outcome_classes": [
+      "stale_knowledge_identified",
+      "freshness_restored",
+      "contradiction_resolved"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "knowledge_source"
+    ],
+    "optional_signal_classes": [
+      "runtime_source",
+      "policy_source",
+      "source_revision_feed"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "schedule",
+      "condition"
+    ],
+    "event_preferred": true,
+    "default_cadence": "weekly reconciliation fallback"
+  },
+  "step_skeleton": [
+    {
+      "step_key": "inventory",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Read source revisions and freshness metadata.",
+      "operation_class": "source_read",
+      "required_input_classes": [
+        "knowledge_source"
+      ],
+      "output_classes": [
+        "knowledge_freshness_set"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "detect_drift",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Compare accepted state to current sources.",
+      "operation_class": "freshness_diff",
+      "required_input_classes": [
+        "knowledge_freshness_set"
+      ],
+      "output_classes": [
+        "drift_candidates"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "classify",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Classify stale, superseded, disputed or unknown material.",
+      "operation_class": null,
+      "required_input_classes": [
+        "drift_candidates"
+      ],
+      "output_classes": [
+        "freshness_actions"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "update_projection",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Update allowed projections or open governed correction work.",
+      "operation_class": "knowledge_projection_update",
+      "required_input_classes": [
+        "freshness_actions"
+      ],
+      "output_classes": [
+        "freshness_receipt"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "policy_change",
+      "contested_truth"
+    ],
+    "escalation_conditions": [
+      "source_conflict",
+      "authority_bearing_change"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "coalesce",
+    "missed_run_policy": "reconcile",
+    "idempotency_required": true,
+    "timeout_seconds": 900,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "source_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "stale_knowledge_identified",
+      "freshness_restored",
+      "contradiction_resolved"
+    ],
+    "leverage_dimensions": [
+      "reliability",
+      "risk_reduction",
+      "reuse",
+      "compounding"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "knowledge_scope_ref",
+      "value_type": "ref",
+      "required": true,
+      "description": "Canonical knowledge scope to audit."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}

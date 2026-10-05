@@ -1,0 +1,186 @@
+{
+  "schema_version": "operator.routine_template.v1",
+  "template_id": "routine-template://cross-domain/incident-response",
+  "template_version": "1.0.0",
+  "status": "recommended",
+  "classification": {
+    "domain_classes": [
+      "cross_domain"
+    ],
+    "routine_family": "incident_response",
+    "archetype_tags": [
+      "software",
+      "infrastructure",
+      "operations",
+      "household-technology"
+    ]
+  },
+  "purpose": {
+    "summary": "Turn a verified impact signal into bounded diagnosis, authorized recovery, consumer-side verification and a terminal incident receipt.",
+    "outcome_classes": [
+      "incident_contained",
+      "service_recovered",
+      "consumer_recovery_verified"
+    ]
+  },
+  "fit": {
+    "required_signal_classes": [
+      "impact_signal"
+    ],
+    "optional_signal_classes": [
+      "health_source",
+      "alert_source",
+      "runbook_source",
+      "rollback_capability",
+      "consumer_check"
+    ],
+    "exclusion_signal_classes": [],
+    "evidence_floor": "one_source"
+  },
+  "trigger_policy": {
+    "preferred_kind": "event",
+    "allowed_kinds": [
+      "event",
+      "condition",
+      "queue",
+      "manual"
+    ],
+    "event_preferred": true,
+    "default_cadence": null
+  },
+  "step_skeleton": [
+    {
+      "step_key": "confirm_impact",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Correlate the triggering signal with current impact evidence and deduplicate the incident.",
+      "operation_class": "incident_admission",
+      "required_input_classes": [
+        "impact_signal"
+      ],
+      "output_classes": [
+        "admitted_incident"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "diagnose",
+      "kind": "agentic",
+      "determinism": "bounded_semantic",
+      "purpose": "Classify likely cause, blast radius and the smallest safe recovery path under a bounded incident policy.",
+      "operation_class": null,
+      "required_input_classes": [
+        "admitted_incident"
+      ],
+      "output_classes": [
+        "incident_diagnosis",
+        "recovery_plan"
+      ],
+      "consequence_class": "prepare"
+    },
+    {
+      "step_key": "recover",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Execute only a pre-authorized deterministic repair or rollback operation.",
+      "operation_class": "authorized_incident_recovery",
+      "required_input_classes": [
+        "recovery_plan"
+      ],
+      "output_classes": [
+        "recovery_receipt"
+      ],
+      "consequence_class": "mutate"
+    },
+    {
+      "step_key": "verify_consumer",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Verify recovery at the affected consumer or receiver, not only at the service process.",
+      "operation_class": "consumer_recovery_verify",
+      "required_input_classes": [
+        "recovery_receipt"
+      ],
+      "output_classes": [
+        "consumer_recovery_verified"
+      ],
+      "consequence_class": "read"
+    },
+    {
+      "step_key": "close_or_escalate",
+      "kind": "deterministic",
+      "determinism": "must_be_deterministic",
+      "purpose": "Close with a terminal receipt or route unresolved impact to the configured attention sink.",
+      "operation_class": "incident_terminal_record",
+      "required_input_classes": [
+        "consumer_recovery_verified"
+      ],
+      "output_classes": [
+        "incident_terminal_receipt"
+      ],
+      "consequence_class": "mutate"
+    }
+  ],
+  "human_boundary": {
+    "reserved_decision_classes": [
+      "irreversible_recovery",
+      "security_boundary_change",
+      "material_data_loss_acceptance",
+      "high_consequence_outage_tradeoff"
+    ],
+    "escalation_conditions": [
+      "impact_uncertain",
+      "recovery_not_pre_authorized",
+      "rollback_failed",
+      "consumer_verification_failed",
+      "scope_expands"
+    ],
+    "confirmation_posture": "exception_only"
+  },
+  "reliability_defaults": {
+    "overlap_policy": "reconcile",
+    "missed_run_policy": "owner_attention",
+    "idempotency_required": true,
+    "timeout_seconds": 1800,
+    "retry_policy_class": "bounded_backoff",
+    "failure_destination_class": "owner_attention"
+  },
+  "measurement_defaults": {
+    "evidence_classes": [
+      "impact_evidence",
+      "recovery_receipt",
+      "consumer_verification_receipt",
+      "routine_run_receipt"
+    ],
+    "outcome_classes": [
+      "incident_contained",
+      "service_recovered",
+      "consumer_recovery_verified"
+    ],
+    "leverage_dimensions": [
+      "reliability",
+      "risk_reduction",
+      "cycle_time",
+      "attention_reduction",
+      "outcome"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "impact_source_refs",
+      "value_type": "ref_list",
+      "required": true,
+      "description": "Sources used to confirm actual impact and affected scope."
+    },
+    {
+      "name": "recovery_operation_refs",
+      "value_type": "ref_list",
+      "required": true,
+      "description": "Pre-authorized deterministic repair or rollback operations eligible for this routine."
+    }
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
