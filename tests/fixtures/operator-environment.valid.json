@@ -13,7 +13,9 @@
     "provider": "tailscale",
     "tailnet_ref": "tailscale://tailnet/example",
     "vps_member_ref": "body://vps/example",
-    "local_body_refs": ["body://local-workstation/example"],
+    "local_body_refs": [
+      "body://local-workstation/example"
+    ],
     "cross_owner_default": "deny"
   },
   "residency": {
@@ -23,7 +25,9 @@
       "body://vps/example",
       "body://local-workstation/example"
     ],
-    "partner_identity_continuity_required": true
+    "partner_identity_continuity_required": true,
+    "runtime_coordinator_ref": "runtime://coordinator/example",
+    "state_conflict_policy": "single_writer_reconcile"
   },
   "management": {
     "model": "operator_managed",
