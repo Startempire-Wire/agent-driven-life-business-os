@@ -11,12 +11,13 @@ This file exists to make the repository legible to a replacement human or agent 
 Read current truth in this order:
 
 1. `OWNER_AUTHORITY_CONSTITUTION.md` — who may establish/supersede architecture.
-2. `CURRENT_ECOSYSTEM_ARCHITECTURE.md` — current cross-product ownership and topology.
-3. `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md` — current capacity/economic/financial-recovery/life-enrichment completion model.
-4. `AGENTS.md` — portable build/operations behavior.
-5. `AGENT_OS_GOLDEN_PATH.md` — current deployment/operations doctrine and version target.
-6. `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` — field-tested current working spine.
-7. owning product repository/spec — implementation truth for the component being changed.
+2. `docs/README.md` — purpose-based documentation router; navigation only, never a competing authority.
+3. `CURRENT_ECOSYSTEM_ARCHITECTURE.md` — current cross-product ownership and topology.
+4. `SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md` — current capacity/economic/financial-recovery/life-enrichment completion model.
+5. `AGENTS.md` — portable build/operations behavior.
+6. `AGENT_OS_GOLDEN_PATH.md` — current deployment/operations doctrine and version target.
+7. `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` — field-tested current working spine.
+8. owning product repository/spec — implementation truth for the component being changed.
 
 Supporting LIVE contracts control their declared concern. A version snapshot, changelog entry, issue, audit, compatibility path, or Git history entry never outranks current architecture merely because it is more detailed.
 
@@ -91,6 +92,7 @@ A repository-wide architecture/docs change is incomplete until:
 7. `tests/repository-integrity-test.py` passes;
 8. stale issue language touched by the change is reconciled;
 9. the resulting diff is reviewed for accidental semantic deletion.
+10. `docs/README.md` still routes every newly introduced current/canonical concern without duplicating the concern's substantive content.
 
 Run `bash tests/run-contract-tests.sh`. A clean prose diff without these checks is not a completed integrity sweep.
 
