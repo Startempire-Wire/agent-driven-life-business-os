@@ -42,6 +42,14 @@ def main():
     no_residency["residency"]["active_body_refs"] = []
     invalid(validator, no_residency, "environment without active partner residency")
 
+    no_coordinator = copy.deepcopy(env)
+    del no_coordinator["residency"]["runtime_coordinator_ref"]
+    invalid(validator, no_coordinator, "environment without runtime coordinator")
+
+    bad_conflict_policy = copy.deepcopy(env)
+    bad_conflict_policy["residency"]["state_conflict_policy"] = "multi_writer"
+    invalid(validator, bad_conflict_policy, "environment permitting split-brain state writes")
+
     secret = copy.deepcopy(env)
     secret["privacy"]["contains_secret_material"] = True
     invalid(validator, secret, "portable environment contract carrying secrets")
