@@ -2,6 +2,15 @@
 
 This changelog tracks the Golden Path version stream independently from the repository's foundational Agent OS contract version.
 
+## 0.2.5 Sovereign Operator Environment refinement — 2026-10-04
+
+- **SOVOS deployment floor made invariant:** every complete customer deployment has its own dedicated persistent VPS, owner-specific Tailscale tailnet/private mesh and at least one owner-controlled local body.
+- **Shared Wirebot service separated from SOVOS:** shared gateway tiers may remain Wirebot products but cannot be represented as complete SOVOS deployments.
+- **Cloud/local/hybrid residency clarified:** the Operating Partner may execute on the owner VPS, local body or both while retaining one durable identity and owner-rooted authority.
+- **Portable environment contract added:** `operator.environment.v1` carries the owner/environment/VPS/tailnet/local-body/residency/management posture without carrying secrets.
+- **Negative regressions added:** shared runtime, missing local body, non-Tailscale mesh, non-dedicated VPS and missing residency fail validation.
+- **Management separated from sovereignty:** the environment may be customer-managed, operator-managed on the customer's behalf or hybrid, but the execution environment remains owner-specific.
+
 ## 0.2.5 follow-up/follow-through + owner-channel refinement — 2026-10-04
 
 - **Follow-Up and Follow-Through separated:** `follow_up` now means keeping momentum alive after an initial contact/action; new first-class `follow_through` owns the full desired result through verified outcome, momentum and leverage.
