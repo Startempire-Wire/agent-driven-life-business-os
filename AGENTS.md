@@ -8,6 +8,8 @@
 **Cross-product seam contract:** `CROSS_PRODUCT_SEAM_CONTRACT.md`  
 **Agent-contract evolution:** `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`<br>
 **Golden Path:** `AGENT_OS_GOLDEN_PATH.md`  
+**Server/current-state handoff:** `docs/agent-os-golden-path/SERVER_AGENT_HANDOFF.md`  
+**Mathematical intelligence target:** `SOVOS_MATHEMATICAL_INTELLIGENCE_AND_COMPOSABLE_EXPERIENCE.md`
 **Repository integrity / status map:** `docs/REPOSITORY_INTEGRITY.md`
 
 This contract tells build/operations agents how to work inside an Agent-Driven Life & Business OS deployment. It deliberately points to canonical owners instead of copying their entire product specifications.
