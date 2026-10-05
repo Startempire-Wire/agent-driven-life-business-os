@@ -292,9 +292,30 @@ federation / sharing
 interface / access
 ```
 
-A normal Operator deployment includes OpenClaw, Focusa, UIAI Engine, a Tailscale-connected private fleet and at least one persistent remote VPS. Individual machines and models remain replaceable.
+### Required Sovereign Operator Environment
 
-A typical private Operator deployment may include:
+A **complete SOVOS deployment is always owner-specific and Sovereign**. It is not a shared multi-customer runtime.
+
+Every SOVOS customer deployment MUST have:
+
+~~~text
+one Canonical Owner Principal
++ one owner-specific persistent VPS
++ one owner-specific Tailscale private mesh / tailnet
++ at least one owner-controlled local computer/body joined to that mesh
++ one durable Operating Partner identity
++ no cross-owner runtime/state by default
+~~~
+
+The VPS is the always-available cloud body and durable service/scheduling anchor. The Operating Partner may actively reside on the VPS, on an owner-controlled local body, or across both in a hybrid topology. Moving between cloud and local bodies MUST NOT create a new partner identity or merge authority/state across owners.
+
+The VPS may be customer-managed, operator-managed on the customer's behalf, or hybrid, but it remains **dedicated to that owner**. Shared Wirebot service tiers may exist as Wirebot offerings; they are not by themselves a complete SOVOS Operator deployment.
+
+This invariant is machine-readable as `operator.environment.v1`.
+
+Individual machines and models remain replaceable inside that private environment.
+
+A SOVOS Operator deployment includes:
 
 ```text
 customer owner
