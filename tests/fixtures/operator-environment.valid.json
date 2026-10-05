@@ -1,0 +1,36 @@
+{
+  "schema_version": "operator.environment.v1",
+  "environment_id": "operator-environment://example",
+  "owner_ref": "owner://example",
+  "deployment_posture": "sovereign_operator",
+  "persistent_vps": {
+    "body_ref": "body://vps/example",
+    "provider_ref": "provider://vps/example",
+    "dedicated_to_owner": true,
+    "always_available_required": true
+  },
+  "private_mesh": {
+    "provider": "tailscale",
+    "tailnet_ref": "tailscale://tailnet/example",
+    "vps_member_ref": "body://vps/example",
+    "local_body_refs": ["body://local-workstation/example"],
+    "cross_owner_default": "deny"
+  },
+  "residency": {
+    "operating_partner_ref": "wirebot://partner/example",
+    "mode": "hybrid",
+    "active_body_refs": [
+      "body://vps/example",
+      "body://local-workstation/example"
+    ],
+    "partner_identity_continuity_required": true
+  },
+  "management": {
+    "model": "operator_managed",
+    "shared_runtime_allowed": false
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
