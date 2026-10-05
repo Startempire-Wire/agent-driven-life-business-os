@@ -360,19 +360,20 @@ These are coverage labels, not a second workflow engine.
 
 The next architectural closures are not additional products. They are seams:
 
-1. Operating Partner principal + white-label presentation;
-2. delegated-human principal/grant/revoke proof;
-3. Chief-of-Staff → Focusa/Foreman delegation;
-4. Workforce Composer → governed assignment → Workforce lifecycle;
-5. shared `Needs You` attention projection + source-resolution semantics;
-6. exact surface handoff between Wirebot/Workforce/UIAI/Veragensia;
-7. cross-product correlation envelope;
-8. capability/entitlement/activation posture;
-9. opaque credential-use reference path;
-10. shared contract compatibility/freshness/replay behavior;
-11. Evidence → settlement → source-domain accepted outcome → base leverage/feedback closure, with optional W.I.N.S. projection;
-12. sovereign federation account/link/revoke proof;
-13. executable Focusa binding for Golden Path/task-ledger work without another task authority.
+1. `operator.environment.v1` runtime proof: dedicated owner VPS + Tailscale tailnet + local body + cloud/local/hybrid residency + split-brain recovery;
+2. Operating Partner principal + white-label presentation;
+3. delegated-human principal/grant/revoke proof;
+4. Chief-of-Staff → Focusa/Foreman delegation;
+5. Workforce Composer → governed assignment → Workforce lifecycle;
+6. shared `Needs You` attention projection + source-resolution semantics;
+7. exact surface handoff between Wirebot/Workforce/UIAI/Veragensia;
+8. cross-product correlation envelope;
+9. capability/entitlement/activation posture;
+10. opaque credential-use reference path;
+11. shared contract compatibility/freshness/replay behavior;
+12. Evidence → settlement → source-domain accepted outcome → base leverage/feedback closure, with optional W.I.N.S. projection;
+13. sovereign federation account/link/revoke proof;
+14. executable Focusa binding for Golden Path/task-ledger work without another task authority.
 
 ## Iteration discipline
 
