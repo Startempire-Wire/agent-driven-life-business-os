@@ -374,6 +374,7 @@ Cross-product joins belong to SOVOS as small portable reference envelopes, not a
 Current families:
 
 ```text
+operator.environment.v1
 operator.partner_profile.v1
 operator.surface_handoff.v1
 operator.attention.v1
@@ -488,8 +489,8 @@ The working process remains:
 Engage
 → workstation substrate
 → Operating Partner genesis
-→ cloud/primary runtime where applicable
-→ mesh + identity
+→ required owner-specific persistent VPS
+→ required Tailscale private mesh + local-body identity
 → knowledge + audit
 → primary administration/cutover
 → operating plane + workforce
