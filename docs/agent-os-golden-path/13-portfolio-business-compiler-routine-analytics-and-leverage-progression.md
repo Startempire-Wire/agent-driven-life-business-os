@@ -165,9 +165,9 @@ A routine scope may be one business, one product/service, a life domain, a share
 
 Cross-business routines must retain per-business data/authority boundaries and explicit attribution. "Primary business" is a UI convenience only.
 
-## 5. Mandatory operating substrate
+## 5. Execution substrate by accepted hosting profile
 
-The current architecture assumes:
+The **full-Sovereign dedicated** profile assumes:
 
 ```text
 OpenClaw
@@ -188,7 +188,9 @@ persistent remote VPS
 
 Specific runtime incarnations and hosts are replaceable.
 
-The remote VPS is where unattended recurring work normally lives. The user's Chromebook/laptop remains an interactive body and may execute work, but routine continuity does not depend on it being awake.
+The dedicated remote VPS is where unattended recurring work normally lives **for full-Sovereign profiles**. The user's Chromebook/laptop remains an interactive body and may execute work, but routine continuity does not depend on it being awake. For non-full-Sovereign Wirebot offers, use the operator/Startempire-managed isolated runtime/container and the same OpenClaw/Focusa work contract where actually supported; no customer VPS, local computer or Tailscale setup is imposed by the routine compiler.
+
+An early owner-valued supervised routine may begin as soon as its narrow source and consent exist. It need not wait for the full portfolio audit, complete generalized instance compiler or Wirebot App GUI; these continue in parallel. Do not label such a pilot as a fully closed compiler/runtime proof.
 
 ## 5A. Routine object model
 
