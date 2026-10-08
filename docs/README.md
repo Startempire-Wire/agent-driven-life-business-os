@@ -36,6 +36,14 @@ Use these as a connected set, not competing plans:
 - [`agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md`](agent-os-golden-path/13-portfolio-business-compiler-routine-analytics-and-leverage-progression.md) — compiler/analytics target.
 - [`agent-os-golden-path/14-routine-compiler-runtime-closure-plan.md`](agent-os-golden-path/14-routine-compiler-runtime-closure-plan.md) — exact runtime closure plan; `SAG-10` / `SAG-18` remain open until proven.
 
+## Environment evaluation and agent activation handoff
+
+- `../scripts/substrate-bootstrap.sh` — host-local CLI/runtime/environment observations, **not** complete tenant or business readiness.
+- `../scripts/brownfield-audit.sh` — value-free setup markers, service/fleet reports and missing-capability observations; Bash/SSH sweeps do not establish Windows/managed-host parity.
+- `../scripts/fleet-diff.py` — observed fleet drift, not a work authorization.
+- `../scripts/activation-blueprint.py` — local read-only owner-private first-value plan plus long-form receiving-agent instructions; uses existing report JSON and separate confirmed business/hosting intent.
+- `agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` — canonical operating sequence including first-value lane. No parallel Golden Path document.
+
 ## Portable machine contracts and catalogs
 
 - `contracts/` — versioned portable schemas; contracts are not runtime proof.
