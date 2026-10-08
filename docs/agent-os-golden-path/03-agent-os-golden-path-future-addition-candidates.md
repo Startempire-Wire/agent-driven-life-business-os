@@ -7,7 +7,7 @@
 
 | # | Candidate | What it adds | Why it could matter later | Inclusion trigger |
 |---|---|---|---|---|
-| 1 | Outcome-level fast-start recipes | Tested first-value recipes (recurring report, correspondence flow) selected from the client's actual needs | Shortens setup-to-"this is helping me" distance | After GP-09 proves the first slices; recipes accumulate per real deployment |
+| 1 | Outcome-level fast-start recipes | **First-value lane and advisory blueprint preview promoted to the current Golden Path (2026-10-08).** Customer-proven executable recipes remain follow-up implementation work | Shortens setup-to-\"this is helping me\" distance | Generalize only after a real verified routine runs successfully in two isolated bindings; don't confuse preview with implementation |
 | 2 | Ranked improvement shortlist | Audit-derived automation candidates ranked by owner goals, frequency, burden, feasibility, permissions | Aims effort at the most valuable work | First real audit shows the briefing needs a work-backlog view |
 | 3 | Non-disruptive execution behaviour | Background-first routing; visible desktop control coordinated; resource/approved-window awareness | Makes "quiet presence" literal | First deployment shows agent/customer desktop contention |
 | 4 | Mobile continuity via the CoS web UI | Owner approves or inspects pending work from a phone | Work moves without returning to the workstation | CoS UI deployed (Stage 6) and the owner asks for it |
