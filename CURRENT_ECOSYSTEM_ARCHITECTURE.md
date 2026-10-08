@@ -390,11 +390,11 @@ At scale this is the substrate that carries human-and-agent task collaboration a
 
 ---
 
-## 3A. Required SOVOS Operator Environment
+## 3A. Required **full-Sovereign** Operator Environment
 
-A deployment is not a complete SOVOS Operator merely because it has a Wirebot account, workspace, shared agent, shared gateway or cloud service.
+A deployment is not a **complete full-Sovereign** Operator merely because it has a Wirebot account, workspace, shared agent, shared gateway or managed cloud service.
 
-Every SOVOS customer has an **owner-specific Sovereign Operator Environment**:
+Every **full-Sovereign** Operator deployment has an **owner-specific dedicated environment**:
 
 ~~~text
 Canonical Owner Principal
@@ -420,7 +420,7 @@ Required invariants:
 
 The portable machine contract is `operator.environment.v1`.
 
-Shared Wirebot service tiers may still exist as Wirebot products. They are **not themselves SOVOS deployments** until this environment invariant is satisfied.
+Non-full-Sovereign Wirebot customers use operator/Startempire-managed customer-isolated runtime/container infrastructure under the accepted offer; they are **not falsely represented as dedicated full-Sovereign** environments. Their tenant/workload identity, isolation, source scopes and revocation must be proven through the existing managed service owners, rather than by reusing the dedicated `operator.environment.v1` schema.
 
 ---
 
@@ -451,7 +451,7 @@ Wirebot setup mode
 
 For Sovereign Operator and Sovereign, W.I.N.S.-off is a complete valid operating state.
 
-**SOVOS status is independent of this table.** A Direct or Network relationship may overlay a SOVOS environment, and a shared Wirebot runtime may serve Direct/Network without being SOVOS. The determining evidence is `operator.environment.v1`, not the commercial label.
+**Hosting status is independent of this table.** Full-Sovereign delivery is verified by the dedicated `operator.environment.v1` contract. Other customer offerings may use managed isolated infrastructure under their owning provider/tenant contracts. The accepted offer—not an entitlement number or the commercial mode name—selects the applicable profile.
 
 The mandatory feedback loop is:
 
@@ -585,9 +585,9 @@ The Chief of Staff MUST NOT become a global Foreman simply because it has broad 
 
 ---
 
-## 7. Mandatory operating substrate and replaceable bodies
+## 7. Operating substrate by hosting profile and replaceable bodies
 
-A normal ADLBOS Operator deployment includes:
+A **full-Sovereign dedicated** Operator deployment includes:
 
 ```text
 OpenClaw
@@ -608,7 +608,9 @@ at least one persistent remote VPS
 
 These architectural roles are stable while individual implementations and bodies remain replaceable. Replacing one VPS, model, Pi worker, browser, or machine does not replace the Operating Partner identity or widen authority.
 
-The remote VPS is the default placement for durable headless/scheduled coordination when the workload fits. Reachability never grants authority. Focusa validates governed work and assignment authority; OpenClaw scheduling never turns a schedule into a grant.
+For **managed** offers, a provider-hosted, tenant-isolated container/workload is the durable execution body; do not demand a customer VPS, tailnet or local computer unless a selected use case requires an approved local integration. The dedicated topology above is not a universal Wirebot onboarding gate.
+
+The remote VPS is the default placement for durable headless/scheduled coordination **in full-Sovereign deployments** when the workload fits. Reachability never grants authority. Focusa validates governed work and assignment authority; OpenClaw scheduling never turns a schedule into a grant.
 
 OpenClaw's built-in Gateway automations scheduler is the preferred default scheduler for recurring agent-turn/system-event/condition-triggered work where its contract fits. Native deterministic services, systemd timers, provider schedulers, queues or webhooks remain valid when they are the correct owner/mechanism.
 
