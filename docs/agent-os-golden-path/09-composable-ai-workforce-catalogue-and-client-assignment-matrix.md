@@ -55,6 +55,19 @@ Every employee instance carries a CRIST envelope:
 
 Every profile uses CRIST “to some degree”; no profile bypasses Context, Role, Spec or Tasks. Avoiding repetitive interviews is not permission to infer missing authority.
 
+### 3.2 Default operating composition for early client value (2026-10-08)
+
+Start with the existing **OpenClaw Operating Partner / Chief of Staff** and one useful, deterministic-shell routine. Do **not** require the whole catalogue, a new GUI or a full OpenClaw installation for every future department manager.
+
+1. **Routines own cadence and stable mechanics.** Use an existing OpenClaw/provider-native scheduler, source API/CLI, exact work refs and narrowly bounded judgment. Routine survival must not depend on a model remembering it.
+2. **Department heads own continuing functional accountability.** Marketing, management or another head is a durable role/profile, client/domain-scoped memory projection and Focusa Workstream/Foreman relationship; the process/model/session may change. Only create a head where sustained judgment, human supervision or cross-task ownership actually exists.
+3. **Stateless/sessional specialists own bounded work.** On demand, delegate through exact Focusa assignments, Work Loop/Workpoints or daemon-native Silent Sessions *when supported on the current host*. They receive only the required scoped context, return Evidence and expire. Silent Sessions are not a scheduler and a created session is not a permission grant.
+4. **Human VAs are delegated human principals.** Their work goes through existing task/CRM sources and scoped identity; do not equate employed human assistants with stateless software workers.
+5. **Memory is a product-owned seam, not an additional SOVOS database.** Wirebot/Core Memory's ongoing redesign may provide owner-wide Chief of Staff recall and narrower departmental projections; Focusa owns task/continuity/Evidence; CRM, files and accounting systems keep business truth. Until Wirebot Core issue #33 and the owning memory rewrite prove role-scoped reads/writes, use currently verified isolated project/workspace context, not a speculative shared database or full-chief-of-staff memory exposure to every manager.
+6. **Hosting follows the offer.** Full-Sovereign work is owner VPS/private mesh; non-full-Sovereign service is operator-managed isolated runtime. Both share the same routine and assignment pattern, not the same private tenant state.
+
+Department-head structure comes **after** identifying actual recurring business work, except where an existing manager/team already operates it. Owner-facing progress uses existing Discord/chat/CLI/portal and verifies outcomes.
+
 ## 4. Worker lifetime and state model
 
 | Code | Worker form | Typical duration | State posture | Activation |
