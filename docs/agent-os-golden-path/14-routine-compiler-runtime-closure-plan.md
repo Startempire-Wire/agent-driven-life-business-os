@@ -5,6 +5,14 @@
 **Depends on:** `SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md`, Stage 5 discovery, Portfolio Business Compiler, Focusa authority/Evidence, OpenClaw durable automations  
 **Closes when proven:** `SAG-10` and `SAG-18` in `11-agent-os-golden-path-seamless-autonomy-gap-audit.md`
 
+## Operating fast path versus full compiler closure
+
+The Golden Path's first-value activation lane permits **existing, explicitly authorized tasks** to run through current Pi/Focusa/OpenClaw/API/CLI mechanisms before the generalized candidate-to-instance compiler is complete. A useful supervised task is a customer benefit, **not** proof of the full SAG-10/SAG-18 contract.
+
+Sequence for early deployment: source/intent/authority → supervised verified outcome → reuse canonical template family → deterministic shell and exact existing scheduler/work scope → repeated verified run → progressively typed compiler implementation. Use the minimum negative-path/rollback checks required by actual consequences; keep broader formal compiler acceptance for promoting the *generalized capability*. No Wirebot GUI or W.I.N.S. gate is implied.
+
+For read-only initial decision support, `scripts/activation-blueprint.py` consumes the existing substrate/brownfield JSON and operator-private verified facts. This preview does not issue Focusa grants, create an instance or close either gap.
+
 ## 1. Purpose
 
 SOVOS now has the portable object model and starter library needed to describe reusable routines. The remaining problem is not another layer of architecture. It is one executable path from an evidence-backed audit finding to a steady, revocable, measurable routine.
