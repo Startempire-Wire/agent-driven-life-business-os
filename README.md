@@ -170,7 +170,7 @@ Current responsibility map:
 
 ## Wirebot setup modes
 
-Wirebot exposes four customer/relationship setup modes. **These modes do not define whether a customer has a complete SOVOS deployment; `operator.environment.v1` does.**
+Wirebot exposes four customer/relationship setup modes. **These modes do not by themselves prove a complete full-Sovereign deployment; `operator.environment.v1` covers the dedicated full-Sovereign substrate, not managed hosting.**
 
 | Setup | Base feedback / optimization | W.I.N.S. |
 |---|---|---|
@@ -179,7 +179,7 @@ Wirebot exposes four customer/relationship setup modes. **These modes do not def
 | Wirebot Direct | always available | governed by Direct offer; distinct from Network membership |
 | Wirebot Network | always available | governed by Network participation policy |
 
-The four setup modes are not numeric entitlement levels. `Wirebot Sovereign Operator` is not synonymous with the technical `sovereign_builder` admin role. Direct/Network/shared Wirebot service may exist without SOVOS; if either relationship overlays SOVOS, the dedicated owner VPS + Tailscale local mesh invariant still applies.
+The four setup modes are not numeric entitlement levels. `Wirebot Sovereign Operator` is not synonymous with the technical `sovereign_builder` admin role. Direct/Network and other non-full-Sovereign managed Wirebot services do not need a customer-owned VPS or tailnet. Where an owner purchases a **full-Sovereign** deployment, the dedicated owner VPS + Tailscale local mesh invariant applies, regardless of how the partner is presented.
 
 
 ## Economic / public-value reference
@@ -298,9 +298,9 @@ interface / access
 
 ### Required Sovereign Operator Environment
 
-A **complete SOVOS deployment is always owner-specific and Sovereign**. It is not a shared multi-customer runtime.
+A **complete full-Sovereign SOVOS Operator Environment** is owner-specific and dedicated. Non-full-Sovereign Wirebot offerings are delivered through operator/Startempire-managed, customer-isolated workloads rather than requiring each customer to own a VPS. See `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §0.3.
 
-Every SOVOS customer deployment MUST have:
+Every **full-Sovereign** deployment MUST have:
 
 ~~~text
 one Canonical Owner Principal
@@ -313,13 +313,13 @@ one Canonical Owner Principal
 
 The VPS is the always-available cloud body and durable service/scheduling anchor. The Operating Partner may actively reside on the VPS, on an owner-controlled local body, or across both in a hybrid topology. Moving between cloud and local bodies MUST NOT create a new partner identity or merge authority/state across owners.
 
-The VPS may be customer-managed, operator-managed on the customer's behalf, or hybrid, but it remains **dedicated to that owner**. Shared Wirebot service tiers may exist as Wirebot offerings; they are not by themselves a complete SOVOS Operator deployment.
+The VPS may be customer-managed, operator-managed on the customer's behalf, or hybrid, but it remains **dedicated to that owner**. Managed Wirebot offerings may use isolated provider-owned infrastructure; they are not by themselves a complete **full-Sovereign Operator Environment**. The Golden Path's first-value routine methodology applies to both.
 
 This invariant is machine-readable as `operator.environment.v1`.
 
 Individual machines and models remain replaceable inside that private environment.
 
-A SOVOS Operator deployment includes:
+A **full-Sovereign** SOVOS Operator deployment includes:
 
 ```text
 customer owner
