@@ -249,8 +249,8 @@ The field-tested Stage 0–8 spine remains the operational ordering aid:
 0 Engage
 1 Workstation substrate
 2 Operating Partner genesis
-3 Required owner-specific persistent VPS landing
-4 Required Tailscale private mesh + local-body identity
+3 Resolve hosting profile: dedicated VPS or managed isolated runtime
+4 Verify applicable private mesh/local body OR managed tenant isolation
 5 Knowledge + audit
 6 Primary runtime/administration cutover
 7 Operating plane + workforce
@@ -271,7 +271,7 @@ federation/sharing
 interface/access
 ```
 
-A SOVOS customer Operator deployment MUST combine:
+A **full-Sovereign** SOVOS customer Operator deployment MUST combine:
 
 ```text
 customer Canonical Owner Principal
@@ -286,9 +286,9 @@ customer Canonical Owner Principal
 + optional Startempire federation
 ```
 
-The VPS and Tailscale mesh are deployment invariants, not tier perks. The Operating Partner may execute cloud-resident, local-resident or hybrid while preserving one durable identity.
+For **full-Sovereign** deployments the dedicated VPS and private mesh remain invariant; the Operating Partner may execute cloud-resident, local-resident or hybrid while preserving one durable identity. For non-full-Sovereign Wirebot offerings, the Startempire/operator-managed service supplies customer-isolated container/workload execution and the customer need not own a VPS or tailnet. The managed isolation contract does not claim the dedicated `operator.environment.v1` certification.
 
-Shared Wirebot runtimes may serve non-SOVOS product tiers. They do not satisfy this SOVOS Operator Environment contract.
+The early-value activation lane in `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md` operates through the customer's existing authorized channel, without waiting for the future Wirebot GUI or full audit. Preview only: `scripts/activation-blueprint.py`.
 
 No new mode engine is required.
 
