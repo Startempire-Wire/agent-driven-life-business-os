@@ -3,6 +3,16 @@
 **Status:** CURRENT  
 **Audience:** build/operations agents with authorized access to the real server, Chromebook, cloud and customer deployment environments.
 
+## Immediate value and hosting correction — October 2026
+
+Resolve hosting from the accepted customer offer: **full-Sovereign = dedicated customer VPS, private mesh and local body; other Wirebot offers = Startempire/operator-managed isolated workloads**. Do not force all managed customers into the dedicated `operator.environment.v1` schema. A working Discord/CLI/current portal is an acceptable first owner channel; Wirebot App is not a precondition for a private operating routine.
+
+**Read-only first-value handoff**: `scripts/brownfield-audit.sh` (local evidence) + an owner-private outcome, hosting and capability decision JSON → `scripts/activation-blueprint.py` (advisory Markdown or JSON). Use the current Golden Path's value-first lane. Mark every condition as observed, owner-declared or verified; an install, connected agent, healthy endpoint, configured schedule or generated plan is not accepted customer value.
+
+Operational default: existing Chief of Staff → deterministic trigger and bounded task → Focusa-governed handoff → optional lightweight departmental head → on-demand stateless specialists/Silent Sessions → accepted source outcome → owner-visible result. No separate OpenClaw per head, parallel scheduler or speculative shared memory store. Wirebot Core memory rewrite and issue #33 remain owning-product work, not permission to claim current role-projection implementation.
+
+This blueprint requires no in-person engineer visit in the **standard** Golden Path. Exception support/commercial personal-presence terms require the owning approved agreement; do not infer a price from old notes.
+
 ## Assignment
 
 Improve and execute the Agent-Driven Life & Business OS using the existing product owners and the current Golden Path. Do not rediscover the architecture from old conversation history or create a parallel system because one seam is incomplete.
