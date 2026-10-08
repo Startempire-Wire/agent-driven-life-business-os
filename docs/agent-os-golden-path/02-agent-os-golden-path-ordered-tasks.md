@@ -114,23 +114,16 @@ A command returning zero, an agent saying “done,” a route existing, or a UI 
 
 The expected real effect must be verified.
 
-### Sovereign environment floor
+### Hosting profile and isolation floor
 
-A customer does not have a complete SOVOS deployment until:
+Classify the **accepted offer** independently of setup mode, runtime implementation, branding or interface:
 
-~~~text
-owner-specific persistent VPS exists
-+ owner-specific Tailscale tailnet exists
-+ VPS is joined to that tailnet
-+ at least one owner-controlled local computer/body is joined
-+ Operating Partner identity is bound to that environment
-+ cloud/local/hybrid residency is explicit
-+ shared cross-owner runtime is not the SOVOS execution substrate
-~~~
+- **Full-Sovereign**: customer-owned/dedicated persistent VPS, customer private Tailscale mesh, at least one owner-controlled local body and durable Operating Partner. Only this path uses the existing `operator.environment.v1` dedicated-environment proof.
+- **Managed**: Startempire/operator-hosted customer-isolated workload/container (or equivalent approved deployment). No customer VPS, Tailscale enrollment or local-body installation is inherently required. Reuse existing runtime/tenant provisioners; verify customer scope, service identity, credentials, memory/data isolation and lifecycle before private effects.
 
-Validate the portable envelope as `operator.environment.v1`.
+The four Wirebot relationship modes remain separate from hosting, entitlement levels, W.I.N.S. and the partner's white-label name. Resolve the exact Full-Sovereign eligibility from the approved offer—never infer it from the word "Sovereign" or a number. A managed offering is not a dedicated `operator.environment.v1` environment.
 
-The environment may be customer-managed, operator-managed on the customer's behalf, or hybrid, but it remains dedicated to that owner.
+Use the current transport/channel (e.g. Discord, API, CLI or existing portal) for the earliest useful work; the later Wirebot graphical application is not a gate. A customer should never need the engineer physically present for the standard remote setup path.
 
 ---
 
@@ -149,6 +142,30 @@ Stage 8  Ongoing operation, outcomes and handoff
 ```
 
 Stages are dependency guides, not rigid calendar phases. Work can proceed in parallel when prerequisites do not conflict.
+
+## Value-first operational activation lane (parallel to Stages 0–8)
+
+The **first customer-valued verified outcome** is the earliest operating milestone. A complete full-surface audit, staff roster, Wirebot App, W.I.N.S., and public SaaS launch are **not** its prerequisites.
+
+```text
+accepted offer + owner outcome
+  → Greenfield/Brownfield observation and existing-capability reuse
+  → minimum relevant hosted/dedicated connection + scoped source/authority
+  → one supervised real task → verify outcome in source system
+  → determinize stable parts → existing scheduler/Focusa assignment
+  → prove recurrence, failure visibility and pause → report through current channel
+  → expand routines/departments while discovery continues
+```
+
+Reuse `scripts/substrate-bootstrap.sh` and `scripts/brownfield-audit.sh` as **value-free observations**. Their marker-based fresh/partial/configured labels and global substrate score are not a customer-ready verdict, an authority grant, or a requirement to install every missing CLI. On Windows or managed/container hosts, use approved platform-native diagnostics for the capabilities those Bash/SSH scripts cannot observe. `--sweep` SSH failure is unknown, not proof that a machine is absent.
+
+`scripts/activation-blueprint.py` accepts one local audit JSON plus an owner-private intent/status JSON and emits a read-only agent handoff. This is an **advisory preview**, not a second scheduler, authority system, installer or auto-grant. Run `python3 scripts/activation-blueprint.py --help` from the repository. Owner intent must identify the specific hosting profile, the first desired outcome and currently verified source access; do not guess authorization from installed tools.
+
+Greenfield: provision only the correct minimal dedicated or managed runtime for the accepted offer, then immediately pilot one useful routine. Brownfield: inspect and reuse existing agents, schedules, accounts and evidence; repair only blockers relevant to first value. A low-consequence supervised pilot may run before an entire full-Sovereign environment is certified, but the **complete deployment designation** must still meet its actual contract.
+
+Use the current canonical `routine-templates/` and `routine-packs/` patterns. Dispatch only justified department managers and stateless specialists (Focusa Workstream/Foreman + Silent Sessions where supported), not an arbitrary staff org chart. Never install a full OpenClaw per departmental head by default.
+
+**Service-level aim, not a guarantee:** useful verified work on first contact/day where lawful access exists; a tested recurring operation next; continuous owner-visible results thereafter. Progress, not architecture completion theater, is the governing priority.
 
 Each stage follows:
 
@@ -333,7 +350,7 @@ Create or bind the customer's persistent Operating Partner relationship on OpenC
 4. Create a git-backed source/config workspace where source belongs in Git.
 5. Bind current customer/deployment references rather than hardcoding Startempire identity.
 6. Begin CRIST/business orientation for the first useful outcome.
-7. Establish the initial owner-facing Wirebot App route/surface.
+7. Establish an initial authorized owner-facing channel (existing Discord, CLI, supported chat or portal); a Wirebot App route is an optional later presentation surface.
 8. Verify partner identity survives restart/runtime changes.
 
 ## Current architecture correction
@@ -398,7 +415,7 @@ A persistent customer-owned partner relationship exists with source/runtime boun
 
 Establish the Operator's persistent remote execution body and private control path.
 
-Every normal ADLBOS deployment includes at least one remote VPS connected through the Operator's Tailscale private mesh. This is the always-available home for the OpenClaw Operating Partner runtime, durable automations and other approved headless services. Additional cloud/Agent Computer capacity remains conditional on workload.
+Every **full-Sovereign** deployment includes at least one dedicated remote VPS connected through the Operator's Tailscale private mesh. **Managed** deployments instead use verified customer-isolated operator/Startempire runtime/container infrastructure without requiring the customer to provision a VPS or tailnet. This is the always-available home for the OpenClaw Operating Partner runtime, durable automations and other approved headless services. Additional cloud/Agent Computer capacity remains conditional on workload.
 
 ## Steps
 
@@ -443,7 +460,7 @@ The required cloud/private execution body exists and is safe to enroll into the 
 
 ## Purpose
 
-Connect the customer's approved machines and runtimes without confusing reachability with ownership or authority.
+For full-Sovereign deployments, connect the customer's approved machines and runtimes without confusing reachability with ownership or authority. In managed deployments, verify scoped tenant/workload routing and isolation; a customer computer/mesh is optional unless the chosen task requires it.
 
 ## Steps
 
@@ -610,7 +627,7 @@ Primary administration/execution posture is explicit and verified.
 
 ## Purpose
 
-Turn the audited system into a real operating organization: recurring workflows, governed roles, temporary workers, scheduled work and owner-visible results.
+Turn the customer's **already-started operational work** into a reliable organization: recurring workflows, governed roles, temporary workers, scheduled work and owner-visible results. Full-surface discovery can remain ongoing while the first authorized routine operates.
 
 ## Steps
 
