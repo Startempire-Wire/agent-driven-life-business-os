@@ -80,7 +80,7 @@ Product-specific kinds remain owned by their product contracts.
 
 `operator.environment.v1` identifies the owner-specific deployment substrate. It is a portable projection, not a provisioning authority.
 
-For a complete SOVOS deployment it MUST establish:
+For a complete **dedicated full-Sovereign Operator Environment** it MUST establish:
 
 ~~~text
 one Canonical Owner Principal
@@ -101,6 +101,8 @@ Consumers MUST NOT infer this state from:
 - Tailscale reachability alone;
 - a VPS hostname alone;
 - an OpenClaw process being healthy.
+
+This v1 contract deliberately does **not** model non-full-Sovereign Startempire/operator-managed isolated containers. Managed execution must use the existing owning provider/tenant identity, isolation, grants and lifecycle authority; it is not equivalent to a dedicated VPS/mesh merely because a customer has a Wirebot identity. Do not modify the v1 schema or reuse its status label as a shortcut. A broader portable contract requires separate proven consumer demand and versioned migration.
 
 Moving the Operating Partner between cloud/local bodies changes runtime placement, not owner identity or partner identity.
 
