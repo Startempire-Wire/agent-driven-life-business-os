@@ -104,6 +104,20 @@ See `SOVOS_DRIVERLESS_BUSINESS_DOCTRINE.md`.
 
 ---
 
+## 0.3 Delivery/hosting profiles — October 2026 owner clarification
+
+The **four Wirebot setup/relationship modes** remain `Wirebot Sovereign Operator`, `Wirebot Sovereign`, `Wirebot Direct` and `Wirebot Network`. Do not infer hosting, permission or network membership from a numeric entitlement. The accepted customer offer must explicitly resolve the hosting profile.
+
+- **Full-Sovereign dedicated deployment**: the customer has their own persistent VPS, private Tailscale mesh and owner-controlled local body. `operator.environment.v1` remains the existing dedicated-environment contract; its meaning must not be weakened for shared hosting. A customer-branded Operating Partner is the Wirebot implementation family, not a fork.
+- **Startempire/operator-managed deployment**: non-full-Sovereign offerings are operated on infrastructure managed by Verious/Startempire Wire, using isolated customer container/workload boundaries or an equivalent supported mechanism. The customer does **not** need to rent a VPS or establish a private Tailscale mesh to receive the managed service. The owning provisioning/runtime services must verify tenant routing, isolation of data, memory and credentials, lifecycle, resource limits and revoke/recovery. Container presence alone is not isolation proof.
+- Hosting, support, branding, interface and optional W.I.N.S./network participation are separate dimensions. The exact boundary between the Sovereign Operator and Sovereign offers is resolved by the current offer contract; no agent invents one.
+- Both deployment paths can use the **same value-first routine discovery, governed work, execution and feedback methodology**. Only a dedicated deployment may claim complete full-Sovereign Operator Environment status under `operator.environment.v1`. Managed customer environments are valid Wirebot services, not falsely certified dedicated environments.
+- An owner-facing **GUI is not required** for early private operation. Discord, supported chat/voice, existing customer portal or CLI can present the Operating Partner while the Wirebot App matures.
+
+For actual installation sequencing, the canonical editable source is `docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`; for executable environment observations reuse `scripts/substrate-bootstrap.sh` and `scripts/brownfield-audit.sh`.
+
+---
+
 ## 1. System law
 
 > **One concern, one canonical owner. Many surfaces may project it; no surface becomes a second authority merely because it renders or initiates an operation.**
