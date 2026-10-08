@@ -2,7 +2,8 @@
 
 > **Status:** CURRENT Stage 5 operating procedure; adoption/evidence remains deployment-specific, and it is not a new data store, architecture authority, credential grant, workforce deployment or automatic customer contact.
 > **Applies to:** owner-authorized fresh and brownfield Agent-Driven Life & Business OS deployments.
-> **Canonical sequence:** Golden Path Stage 5 discovery → Wirebot Workforce Composer proposal → owner/governance acceptance → Focusa Workstream/Foreman/CRIST assignment → bounded execution → evidence and accepted outcome.
+> **Full-discovery sequence:** Golden Path Stage 5 full audit → Wirebot Workforce Composer proposal → owner/governance acceptance → Focusa Workstream/Foreman/CRIST assignment → bounded execution → evidence and accepted outcome.
+> **Parallel first-value lane:** a minimum source/intent/authority check → an already-supported, supervised customer-valued action → verified outcome → repeatable routine. Do not postpone this lane until the whole portfolio is mapped; do not bypass consequential grants.
 
 ## Purpose and finish line
 
