@@ -173,9 +173,9 @@ Adapters, projections, caches and indexes are allowed when their owner/freshness
 
 ---
 
-## 5.1 Mandatory Sovereign Operator Environment
+## 5.1 Full-Sovereign Operator Environment versus managed Wirebot delivery
 
-For a deployment to be called **SOVOS**, treat the following as required invariants, not optional convenience:
+For a **complete full-Sovereign Operator Environment**, treat the following as required invariants, not optional convenience:
 
 ```text
 one owner-specific Operator Environment
@@ -190,7 +190,7 @@ Validate this through `operator.environment.v1`.
 
 The VPS is the default always-available cloud body for OpenClaw and durable headless scheduling/services. The Operating Partner may reside on the VPS, locally on an owner-controlled computer/body, or in a hybrid cloud+local topology. Residency may move; partner identity and owner authority do not.
 
-Tailscale reachability is transport, never authority. A healthy shared Wirebot gateway or shared service tier does **not** satisfy the SOVOS deployment invariant.
+Tailscale reachability is transport, never authority. A healthy shared Wirebot gateway or provider-managed container does **not** satisfy the **full-Sovereign dedicated-environment** invariant. Non-full-Sovereign offers instead use Startempire/operator-managed isolated workloads: validate tenant routing, source/memory/secret isolation, runtime lifecycle and recovery through their owning product, without requiring a customer VPS or tailnet. Keep the `operator.environment.v1` contract dedicated-only until separately versioned with consumer migration.
 
 Use OpenClaw's built-in automations scheduler for recurring agent/system-event work when it fits rather than inventing a parallel ADLBOS scheduler. A scheduled wake still requires a valid Focusa-governed assignment and current grants before consequential work.
 
@@ -214,7 +214,7 @@ W.I.N.S. policy:
 - **Direct:** W.I.N.S. follows the Direct offer; do not infer Network membership or federation from it.
 - **Network:** W.I.N.S. participation follows the Network relationship and its owning participation/sharing policy.
 
-The private feedback/optimization loop is base Wirebot behavior across these relationship modes. However, **SOVOS deployment status is separate**: a customer is only operating SOVOS when the owner-specific Operator Environment invariant is satisfied. Direct/Network/shared Wirebot service by itself is not SOVOS. W.I.N.S. is never required to calculate routine health, leverage, momentum, accepted-outcome effects or Quiet Kaizen proposals.
+The private feedback/optimization loop is base Wirebot behavior across these relationship modes. However, **full-Sovereign deployment status is separate**: it requires the dedicated owner-specific Operator Environment. Non-full-Sovereign managed Wirebot services can follow SOVOS operating doctrine and routines, but must not claim the dedicated environment contract. W.I.N.S. is never required to calculate routine health, leverage, momentum, accepted-outcome effects or Quiet Kaizen proposals.
 
 ## 6. Portfolio, routines and workforce model
 
