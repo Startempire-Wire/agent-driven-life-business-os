@@ -275,7 +275,7 @@ Handoff envelopes carry references and intent, not broad credentials or transfer
 
 `Operator Deployment` is a professional implementation/deployment offer. It is not another product runtime or authority class.
 
-A complete SOVOS Operator deployment MUST include:
+A complete **full-Sovereign dedicated** SOVOS Operator deployment MUST include:
 
 ```text
 customer Canonical Owner Principal
@@ -290,7 +290,9 @@ optional additional Veragensia Agent Computers/bodies
 optional Startempire federation
 ```
 
-Wirebot App is the natural owner-facing application for such deployments.
+For **non-full-Sovereign managed** Wirebot offerings, operator/Startempire infrastructure supplies isolated customer workload/container execution rather than requiring each customer to own a VPS and private mesh. This service must prove tenant/data/memory/secret isolation through the owning runtime. Do not represent a hosted tenant as a dedicated `operator.environment.v1` environment.
+
+Wirebot App is the natural future owner-facing application for these setups, **not a required prerequisite for operating routines**. Existing supported Discord, chat, API, CLI or customer portal surfaces can deliver outcomes now.
 
 A branded route may present the customer's partner identity without creating a separate app implementation.
 
