@@ -490,15 +490,14 @@ The Golden Path is the field-derived deployment/operations doctrine for assembli
 The working process remains:
 
 ```text
-Engage
-→ workstation substrate
-→ Operating Partner genesis
-→ required owner-specific persistent VPS
-→ required Tailscale private mesh + local-body identity
-→ knowledge + audit
-→ primary administration/cutover
-→ operating plane + workforce
-→ ongoing operation / handoff
+Engage + resolve accepted hosting offer
+→ Greenfield/Brownfield capability evaluation
+→ minimum dedicated VPS/mesh OR managed isolated runtime
+→ Operating Partner on existing owner channel
+→ one supervised verified useful outcome
+→ repeatable routine and customer-visible result
+→ discovery, workforce and full Golden Path in parallel
+→ ongoing operations / optimization / handoff
 ```
 
 See `AGENT_OS_GOLDEN_PATH.md` and the detailed field-tested spine under `docs/agent-os-golden-path/`.
