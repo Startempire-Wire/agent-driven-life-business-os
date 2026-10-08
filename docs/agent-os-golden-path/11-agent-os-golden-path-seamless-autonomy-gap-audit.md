@@ -45,7 +45,7 @@ The following are no longer open architecture questions:
 - Startempire Wire federation is explicit and optional;
 - one Operator's multiple daemons/bodies are a fleet/aggregation, not sovereign federation;
 - Operator Deployment is an implementation/deployment offer mapped onto existing dimensions, not a new authority/runtime tier;
-- complete SOVOS operation requires an owner-specific persistent VPS plus owner-specific Tailscale mesh with at least one owner-controlled local body; shared Wirebot service is not a SOVOS deployment;
+- **full-Sovereign dedicated** operation requires an owner-specific persistent VPS and Tailscale mesh with at least one owner-controlled local body; other Wirebot offerings use operator/Startempire-managed tenant-isolated workloads and cannot claim the dedicated contract;
 - capability support, entitlement, activation, authority and consent are distinct;
 - raw long-lived secrets do not cross normal product handoffs;
 - actionable shared projections require explicit compatibility/freshness/replay semantics;
@@ -131,7 +131,7 @@ Prove one template across two different owner/business/life bindings so generali
 
 ### NEW-P0-13 — SOVOS Operator Environment provisioning and residency proof
 
-**Gap:** the SOVOS deployment invariant is now machine-readable as `operator.environment.v1`, but no end-to-end customer proof yet establishes one dedicated owner VPS + owner-specific Tailscale tailnet + owner-controlled local body + cloud/local/hybrid partner residency with split-brain prevention.
+**Gap:** the **full-Sovereign dedicated** invariant is machine-readable as `operator.environment.v1`, but no end-to-end customer proof yet establishes one dedicated owner VPS + owner-specific Tailscale tailnet + owner-controlled local body + cloud/local/hybrid partner residency with split-brain prevention. This gap must not gate managed customers whose actual obligation is tenant-isolated hosted execution under their provider/offer.
 
 **Required closure:** prove one real customer environment through:
 
