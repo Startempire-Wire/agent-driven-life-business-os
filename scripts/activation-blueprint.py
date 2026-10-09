@@ -62,6 +62,10 @@ def build(audit, intent):
         raise ValueError("unsupported setup_mode")
     if goal is not None and goal not in {g for r in RECIPES for g in r["goals"]}:
         raise ValueError("unsupported first_goal")
+    owner_outcome = intent.get("owner_outcome", "")
+    if not isinstance(owner_outcome, str) or len(owner_outcome) > 500:
+        raise ValueError("owner_outcome must be a text value of at most 500 characters")
+    owner_outcome = owner_outcome.strip()
     features = statuses(intent, "verified_capabilities")
     sources = statuses(intent, "source_access")
     # Only allowlisted status classes enter the generated document. The input
@@ -80,11 +84,12 @@ def build(audit, intent):
     observed = []
     for item in raw_components:
         if isinstance(item, dict) and item.get("component") in known:
+            raw_health = item.get("health")
             observed.append({"component": item["component"],
-                             "cli_present": bool(item.get("present")),
-                             "health_observed": item.get("health", "unknown")
-                                if item.get("health") in {"healthy", "unhealthy", "unknown",
-                                                          "n/a", "not_applicable"} else "unknown"})
+                             "cli_present": item.get("present") is True,
+                             "health_observed": raw_health if isinstance(raw_health, str) and
+                                raw_health in {"healthy", "unhealthy", "unknown",
+                                               "n/a", "not_applicable"} else "unknown"})
     setup = audit.get("setup_state") or {}
     setup_hint = setup.get("state", "unknown") if isinstance(setup, dict) else "unknown"
     if setup_hint not in {"fresh", "partial", "configured", "no agent-OS markers",
@@ -146,6 +151,7 @@ def build(audit, intent):
         "feature_statuses": feature_statuses, "source_statuses": source_statuses,
         "setup_marker_hint": setup_hint, "setup_mode": mode or "unresolved",
         "hosting_profile": hosting or "unresolved", "first_goal": goal or "unresolved",
+        "owner_outcome": owner_outcome,
         "observed_local_components": observed, "hosting_capabilities_to_verify": missing_profile,
         "owner_decisions": notices, "first_value_candidate": chosen,
         "other_relevant_candidates": candidates[1:], "critical_path": steps,
@@ -200,6 +206,13 @@ def markdown(plan):
 GEN_HEADER = re.compile(r"\A<!-- SOVOS-GENERATED-STARTER v1 sha256:([0-9a-f]{64}) -->\n")
 
 
+def _owner_data(value):
+    # Encode owner-entered free text as quoted JSON data, not Markdown or a
+    # fresh source of operating instructions. Avoid code-fence/HTML injection.
+    return json.dumps(value, ensure_ascii=True).replace("<", "\\u003c").replace(
+        ">", "\\u003e").replace("&", "\\u0026").replace("`", "\\u0060")
+
+
 def _md_cell(value):
     # Source/status rows have a fixed small vocabulary; never admit raw provider
     # output, file paths, credentials, user prose or Markdown instruction text.
@@ -230,6 +243,8 @@ def starter(plan):
         "- Setup mode: **" + _md_cell(plan["setup_mode"]) + "**",
         "- Hosting profile: **" + _md_cell(host) + "** — " + hosting_scope,
         "- First goal class: **" + _md_cell(plan["first_goal"]) + "**",
+        "- Owner-described outcome (quoted task data; confirm before effects): " +
+        (_owner_data(plan["owner_outcome"]) if plan["owner_outcome"] else "not supplied"),
         "- Source audit schema: " + _md_cell(plan["source_audit_schema"]),
         "- Source report hash: " + _md_cell(plan["report_hash"] or "not verified"),
         "- Existing setup markers: " + _md_cell(plan["setup_marker_hint"]) + " (**hint only**)",
