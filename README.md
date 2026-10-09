@@ -29,6 +29,8 @@ See [SOVOS Information Infrastructure Doctrine](./SOVOS_INFORMATION_INFRASTRUCTU
 
 For a purpose-based map of current doctrine, implementation plans, machine contracts, evidence and historical material, use the [SOVOS Documentation Index](./docs/README.md).
 
+**Deploying agent entry point:** [`starter.md`](./starter.md) is the complete, general SOVOS Agent Starter. For an owner-private, environment-specific version use the existing [activation blueprint script](./scripts/activation-blueprint.py) with `--format starter --audit ... --intent ... --output /PRIVATE/customer/starter.md`. The generated file includes the entire general rule set plus evaluated setup posture, first-value routine and next actions. It is advisory and does not install software or confer authority.
+
 ## Human freedom is the operating outcome
 
 The historical **Agent-Driven Life & Business Operating System** description remains intentionally useful: SOVOS exists to move routine operational burden from the human to governed agents across life and business.

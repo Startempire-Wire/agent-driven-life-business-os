@@ -1,0 +1,30 @@
+name: SOVOS Starter regression
+
+on:
+  pull_request:
+    paths:
+      - 'starter.md'
+      - 'scripts/activation-blueprint.py'
+      - 'tests/activation-blueprint-test.py'
+      - 'docs/README.md'
+      - 'README.md'
+      - '.github/workflows/starter-regression.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  starter-offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax check
+        run: python3 -m py_compile scripts/activation-blueprint.py tests/activation-blueprint-test.py
+      - name: Generated Starter and legacy blueprint regression
+        run: python3 tests/activation-blueprint-test.py
+      - name: Repository link and status integrity
+        run: python3 tests/repository-integrity-test.py
