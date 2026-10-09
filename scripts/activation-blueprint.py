@@ -46,21 +46,21 @@ def statuses(obj, name):
     if not isinstance(val, dict):
         raise ValueError(f"{name} must be a JSON object")
     for key, state in val.items():
-        if not isinstance(key, str) or state not in STATES:
+        if not isinstance(key, str) or not isinstance(state, str) or state not in STATES:
             raise ValueError(f"{name} entries must use verified/configured/missing/blocked/unknown")
     return val
 
 def build(audit, intent):
-    if audit.get("schema") not in {"agent-os-brownfield-audit.v5", "agent-os-substrate-check.v5"}:
+    if not isinstance(audit.get("schema"), str) or audit["schema"] not in {"agent-os-brownfield-audit.v5", "agent-os-substrate-check.v5"}:
         raise ValueError("expected existing audit v5 or substrate check v5")
     hosting = intent.get("hosting_profile")
     mode = intent.get("setup_mode")
     goal = intent.get("first_goal")
-    if hosting is not None and hosting not in HOSTING:
+    if hosting is not None and (not isinstance(hosting, str) or hosting not in HOSTING):
         raise ValueError("unsupported hosting_profile")
-    if mode is not None and mode not in SETUP_MODES:
+    if mode is not None and (not isinstance(mode, str) or mode not in SETUP_MODES):
         raise ValueError("unsupported setup_mode")
-    if goal is not None and goal not in {g for r in RECIPES for g in r["goals"]}:
+    if goal is not None and (not isinstance(goal, str) or goal not in {g for r in RECIPES for g in r["goals"]}):
         raise ValueError("unsupported first_goal")
     owner_outcome = intent.get("owner_outcome", "")
     if not isinstance(owner_outcome, str) or len(owner_outcome) > 500:
@@ -83,7 +83,7 @@ def build(audit, intent):
              "wrangler", "gog", "bd", "tailscale", "agent-kb", "openclaw", "uiai"}
     observed = []
     for item in raw_components:
-        if isinstance(item, dict) and item.get("component") in known:
+        if isinstance(item, dict) and isinstance(item.get("component"), str) and item["component"] in known:
             raw_health = item.get("health")
             observed.append({"component": item["component"],
                              "cli_present": item.get("present") is True,
@@ -92,7 +92,7 @@ def build(audit, intent):
                                                "n/a", "not_applicable"} else "unknown"})
     setup = audit.get("setup_state") or {}
     setup_hint = setup.get("state", "unknown") if isinstance(setup, dict) else "unknown"
-    if setup_hint not in {"fresh", "partial", "configured", "no agent-OS markers",
+    if not isinstance(setup_hint, str) or setup_hint not in {"fresh", "partial", "configured", "no agent-OS markers",
                           "partially configured", "agent-OS markers present"}:
         setup_hint = "unknown"
     report_hash = audit.get("report_hash")
