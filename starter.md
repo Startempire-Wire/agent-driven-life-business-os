@@ -41,6 +41,49 @@ The four Wirebot relationship modes are **Sovereign Operator**, **Sovereign**, *
 
 **Gotchas:** Payment, machine access, a Gist, an installed application or a generated plan grants no business authority. Don't claim a full-Sovereign installation merely because a customer bought a Wirebot tier.
 
+### Customer-private intent input (example, **not** a live authorization)
+
+Place a JSON file **outside the SOVOS source repository**, e.g. `/PRIVATE/owner-intent.json`. The deploying agent can prepare it from the customer's accepted offer, verified connectors and one short owner conversation. Leave unknown values as unknown instead of manufacturing success.
+
+```json
+{
+  "setup_mode": null,
+  "hosting_profile": null,
+  "first_goal": null,
+  "owner_outcome": "Owner's actual first useful outcome, in ordinary words",
+  "verified_capabilities": {
+    "operating_partner": "unknown",
+    "owner_channel": "unknown",
+    "customer_vps": "unknown",
+    "private_mesh": "unknown",
+    "local_body": "unknown",
+    "hosted_runtime": "unknown",
+    "tenant_isolation": "unknown"
+  },
+  "source_access": {
+    "email": "unknown",
+    "calendar": "unknown",
+    "tasks": "unknown",
+    "crm": "unknown",
+    "documents": "unknown",
+    "billing": "unknown"
+  }
+}
+```
+
+Valid `setup_mode` values: `wirebot_sovereign_operator`, `wirebot_sovereign`, `wirebot_direct` or `wirebot_network`. Hosting is `dedicated_vps` or `managed_isolated` according to the **accepted offer**, independently of setup mode. `first_goal` is a current supported category such as `revenue`, `service`, `team`, `operations`, `capacity`, `administration`, or `finance`; expanding that list is an iterative generator improvement, not permission to invent customer intent. Status values are `verified`, `configured`, `missing`, `blocked` or `unknown`. A `verified` assertion still requires fresh owning-provider confirmation before effects.
+
+After local read-only audit, generate a **complete, customer-specific** Starter containing this entire general guide and the bounded assessment:
+
+```sh
+python3 scripts/activation-blueprint.py \
+  --audit /PRIVATE/observations/brownfield.json \
+  --intent /PRIVATE/owner-intent.json \
+  --format starter --output /PRIVATE/customer/starter.md
+```
+
+Regenerate it when the environment changes. Do not commit the private output or add secrets to the intent JSON; use provider credential grants by reference.
+
 ## Phase 1 — Detect the environment (read-only)
 
 **Do:** On a suitable Linux/macOS/WSL host with the packaged SOVOS repository available, run supported local checks. The checkout should not be treated as a production install:
