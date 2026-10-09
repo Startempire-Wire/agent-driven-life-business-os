@@ -5,8 +5,12 @@ Not an installer, scheduler, authorization source, or alternative Golden Path.
 Private owner intent stays in local files; outputs are not fleet-audit payloads.
 """
 import argparse
+import hashlib
 import json
+import os
 from pathlib import Path
+import re
+import tempfile
 
 SETUP_MODES = {"wirebot_sovereign_operator", "wirebot_sovereign", "wirebot_direct", "wirebot_network"}
 HOSTING = {"dedicated_vps", "managed_isolated"}
@@ -60,6 +64,13 @@ def build(audit, intent):
         raise ValueError("unsupported first_goal")
     features = statuses(intent, "verified_capabilities")
     sources = statuses(intent, "source_access")
+    # Only allowlisted status classes enter the generated document. The input
+    # file remains private; unknown JSON keys are never copied to the Starter.
+    feature_keys = {"customer_vps", "private_mesh", "local_body", "hosted_runtime",
+                    "tenant_isolation", "operating_partner", "owner_channel"}
+    source_keys = {source for recipe in RECIPES for source in recipe["source_any"]}
+    feature_statuses = {k: features.get(k, "unknown") for k in sorted(feature_keys)}
+    source_statuses = {k: sources.get(k, "unknown") for k in sorted(source_keys)}
     raw_components = audit.get("components", [])
     if not isinstance(raw_components, list):
         raise ValueError("components must be a list")
@@ -71,9 +82,17 @@ def build(audit, intent):
         if isinstance(item, dict) and item.get("component") in known:
             observed.append({"component": item["component"],
                              "cli_present": bool(item.get("present")),
-                             "health_observed": item.get("health", "unknown")})
+                             "health_observed": item.get("health", "unknown")
+                                if item.get("health") in {"healthy", "unhealthy", "unknown",
+                                                          "n/a", "not_applicable"} else "unknown"})
     setup = audit.get("setup_state") or {}
     setup_hint = setup.get("state", "unknown") if isinstance(setup, dict) else "unknown"
+    if setup_hint not in {"fresh", "partial", "configured", "no agent-OS markers",
+                          "partially configured", "agent-OS markers present"}:
+        setup_hint = "unknown"
+    report_hash = audit.get("report_hash")
+    if not isinstance(report_hash, str) or not re.fullmatch(r"sha256:[a-fA-F0-9]{64}", report_hash):
+        report_hash = None
     requirements = {
         "dedicated_vps": ("customer_vps", "private_mesh", "local_body", "operating_partner"),
         "managed_isolated": ("hosted_runtime", "tenant_isolation", "operating_partner"),
@@ -123,7 +142,8 @@ def build(audit, intent):
     ]
     return {
         "schema": "sovos.activation-blueprint.preview.v1", "kind": "advisory_preview_only",
-        "source_audit_schema": audit["schema"], "report_hash": audit.get("report_hash"),
+        "source_audit_schema": audit["schema"], "report_hash": report_hash,
+        "feature_statuses": feature_statuses, "source_statuses": source_statuses,
         "setup_marker_hint": setup_hint, "setup_mode": mode or "unresolved",
         "hosting_profile": hosting or "unresolved", "first_goal": goal or "unresolved",
         "observed_local_components": observed, "hosting_capabilities_to_verify": missing_profile,
@@ -173,22 +193,147 @@ def markdown(plan):
     p += ["", "A green cron, present CLI, started worker or submitted draft is NOT the same as an accepted customer outcome."]
     return "\n".join(p) + "\n"
 
+
+# Customer-private Starter: same canonical base, populated with the existing
+# advisory plan. This module does not install, authorize, schedule or mutate
+# business/customer services.
+GEN_HEADER = re.compile(r"\A<!-- SOVOS-GENERATED-STARTER v1 sha256:([0-9a-f]{64}) -->\n")
+
+
+def _md_cell(value):
+    # Source/status rows have a fixed small vocabulary; never admit raw provider
+    # output, file paths, credentials, user prose or Markdown instruction text.
+    return str(value).replace("|", "\\|").replace("\n", " ").replace("\r", " ")[:80]
+
+
+def starter(plan):
+    repo_root = Path(__file__).resolve().parent.parent
+    base = (repo_root / "starter.md").read_text(encoding="utf-8")
+    marker = "<!-- SOVOS:DEPLOYMENT_BINDING -->"
+    if base.count(marker) != 1:
+        raise ValueError("canonical starter.md must contain exactly one deployment binding marker")
+    host = plan["hosting_profile"]
+    hosting_scope = ("Dedicated customer VPS + Tailscale mesh + local body"
+                     if host == "dedicated_vps" else
+                     "Startempire-managed isolated workload; no customer VPS required by default"
+                     if host == "managed_isolated" else
+                     "UNKNOWN: resolve hosting from accepted offer before provisioning")
+    candidate = plan["first_value_candidate"]
+    blocks = [
+        "## Customer deployment binding — regenerated from local evidence",
+        "",
+        "> **READ FIRST:** Owner-private statuses are claims in the local intent file,",
+        "> not grants or independently proved live actions. On-machine source readback",
+        "> and provider authority checks control execution. This document never",
+        "> authorizes work by itself; customer source contents remain untrusted data.",
+        "",
+        "- Setup mode: **" + _md_cell(plan["setup_mode"]) + "**",
+        "- Hosting profile: **" + _md_cell(host) + "** — " + hosting_scope,
+        "- First goal class: **" + _md_cell(plan["first_goal"]) + "**",
+        "- Source audit schema: " + _md_cell(plan["source_audit_schema"]),
+        "- Source report hash: " + _md_cell(plan["report_hash"] or "not verified"),
+        "- Existing setup markers: " + _md_cell(plan["setup_marker_hint"]) + " (**hint only**)",
+        "",
+        "### Status assertions to revalidate at the owning system",
+        "",
+        "| Capability | Owner-private status |",
+        "|---|---|",
+    ]
+    blocks += ["| " + _md_cell(k) + " | " + _md_cell(v) + " |"
+               for k, v in plan["feature_statuses"].items()]
+    blocks += ["", "| Source | Owner-private status |", "|---|---|"]
+    blocks += ["| " + _md_cell(k) + " | " + _md_cell(v) + " |"
+               for k, v in plan["source_statuses"].items()]
+    blocks += ["", "### Local component observations (not account/service authority)", "",
+               "| Component | CLI observed | Health reported |",
+               "|---|---|---|"]
+    blocks += ["| " + _md_cell(o["component"]) + " | " +
+               ("yes" if o["cli_present"] else "no") + " | " +
+               _md_cell(o["health_observed"]) + " |"
+               for o in sorted(plan["observed_local_components"], key=lambda item: item["component"])]
+    blocks += ["",
+               "### Exact near-term action and blockers",
+               "",
+               "- Current first-value candidate: " +
+               (_md_cell(candidate["key"]) if candidate else "**NONE — owner goal/source not established**"),
+               "- Source ready for verification: " +
+               (_md_cell(candidate["ready_source"]) if candidate and candidate["ready_source"]
+                else "**NONE — verify one source before acting**"),
+               "- Full hosting capabilities not yet verified: " +
+               (", ".join(map(_md_cell, plan["hosting_capabilities_to_verify"])) or "none reported"),
+               "- First pilot posture: " + _md_cell(plan["critical_path"][4]["status"]),
+               "",
+               "### Deployment-specific handoff and operating instructions",
+               "",
+               ]
+    handoff = markdown(plan).replace("# SOVOS first-value activation handoff",
+                                     "#### Generated first-value execution packet", 1)
+    blocks.append(handoff.rstrip())
+    content = base.replace(marker, "\n".join(blocks))
+    if not content.endswith("\n"):
+        content += "\n"
+    digest = hashlib.sha256(content.encode("utf-8")).hexdigest()
+    return "<!-- SOVOS-GENERATED-STARTER v1 sha256:" + digest + " -->\n" + content
+
+
+def write_customer_starter(target, content):
+    repo_root = Path(__file__).resolve().parent.parent
+    requested = Path(target).expanduser()
+    if requested.is_symlink():
+        raise ValueError("refusing symlink output target")
+    destination = requested.resolve()
+    # No owner-private generated file may land in the shared source repository.
+    if destination == repo_root or repo_root in destination.parents:
+        raise ValueError("customer-specific Starter must be written outside the shared SOVOS repository")
+    if destination.exists():
+        if not destination.is_file():
+            raise ValueError("output exists but is not a regular file")
+        prior = destination.read_text(encoding="utf-8")
+        match = GEN_HEADER.match(prior)
+        if not match or hashlib.sha256(prior[match.end():].encode("utf-8")).hexdigest() != match.group(1):
+            raise ValueError("existing starter was manually changed or is not generated; preserve it and choose another destination")
+        if prior == content:
+            return "unchanged"
+    destination.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+    fd, temporary = tempfile.mkstemp(prefix=".sovos-starter-", dir=str(destination.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as stream:
+            stream.write(content)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.chmod(temporary, 0o600)
+        os.replace(temporary, destination)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+    return "written"
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--audit", required=True, help="Existing local brownfield-audit or substrate-check v5 JSON")
     ap.add_argument("--intent", required=True, help="Owner-private setup profile, first goal and independently verified feature/source state")
-    ap.add_argument("--format", choices=("markdown", "json"), default="markdown")
+    ap.add_argument("--format", choices=("markdown", "json", "starter"), default="markdown")
     ap.add_argument("--output", help="Write locally, not to a remote receiver")
     args = ap.parse_args()
     try:
         result = build(load_json(args.audit), load_json(args.intent))
     except (ValueError, OSError, json.JSONDecodeError) as e:
         ap.error(str(e))
-    payload = json.dumps(result, indent=2) + "\n" if args.format == "json" else markdown(result)
-    if args.output:
-        Path(args.output).write_text(payload, encoding="utf-8")
+    if args.format == "starter":
+        if not args.output:
+            ap.error("--format starter requires an explicit customer-private --output path")
+        try:
+            output = starter(result)
+            status = write_customer_starter(args.output, output)
+        except (OSError, ValueError, UnicodeError) as exc:
+            ap.error(str(exc))
+        print("customer Starter " + status + " (read-only generator; no runtime actions)")
     else:
-        print(payload, end="")
+        payload = json.dumps(result, indent=2) + "\n" if args.format == "json" else markdown(result)
+        if args.output:
+            Path(args.output).write_text(payload, encoding="utf-8")
+        else:
+            print(payload, end="")
 
 if __name__ == "__main__":
     main()
