@@ -1,12 +1,13 @@
 # SOVOS Master Loop — Alarm Fabric, Scenarios and Integration Experiments
 
 **Status:** INCUBATING — draft behavior/acceptance design, not executable schemas or implementation tasks.<br>
-**Draft revision:** 0.5.0, 2026-10-11 — complete worked decisions and bounded operational/IIT proposal.<br>
+**Draft revision:** 0.6.0, 2026-10-11 — base plus modular conformance, with memory bindings provisional.<br>
 **Parent:** [Master Loop draft](02-sovos-master-loop-draft.md).
 **Bindings, coverage and unresolved decisions:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
 **Detailed contracts and lifecycles:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
 **Native/proposed binding sheets and policies:** [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md).<br>
-**Instantiated quiet/absence/recovery/contention decisions:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).
+**Instantiated quiet/absence/recovery/contention decisions:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).<br>
+**Module/memory/upgrades and additional predicates:** [modular evolution](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md), §§7–9.
 
 ## 1. Alarm semantics and vocabulary
 
@@ -199,7 +200,7 @@ These are required scenario predicates, not executed tests.
 
 ### 8.1 Design-level falsification predicates
 
-These are planned test obligations, not executed fixtures or Tasks. Requirement IDs point to the [blueprint](05-sovos-master-loop-integration-blueprint.md); one future check may prove several obligations when it genuinely exercises them. Preserve independent ground truth and evaluation policy before model exposure.
+These are planned test obligations, not executed fixtures or Tasks. Requirement IDs point to the [blueprint](05-sovos-master-loop-integration-blueprint.md); one future check may prove several obligations when it genuinely exercises them. Preserve independent ground truth and evaluation policy before model exposure. T01–T24 are defined here; T25–T36 are defined only in [modular §9](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md), covering provider substitution, hooks/dependencies/shadow, in-flight upgrades/state rollback, evolving memory agreement, retrieval generations, unmanaged host entries, artifacts and isolated growth.
 
 | Test | Controlled change | Binary required predicate / requirement |
 |---|---|---|
@@ -486,4 +487,4 @@ No executed network, IIT calculation, model installation or experimental result 
 
 Every scenario requires reviewed expectations, boundary conditions, supported source/operation mappings, failure transitions, independent success predicates and labeled simulation limits. A beautiful diagram or a synthetic pass cannot close runtime integration gaps.
 
-The bounded planning package is complete for owner review: 24 planned predicates, concrete trace/whole-Workstream overlay and the closure's instantiated decision worlds, finite operational protocol and explicit toy transitions. No simulator, executable fixture, benchmark, model call, alarm, schedule or worker was created. Fixture limits and hand-worked loss examples are not approved production policy or measured performance. Owner/product acceptance, actual operation/parameter commissioning and separate numerical IIT conformance remain honest boundaries; they are not an invitation to another general planning audit. No decomposition or implementation is granted.
+The expanded candidate includes 24 base plus 12 modular planned predicates, concrete trace/whole-Workstream overlay and the closure's instantiated decision worlds, finite operational protocol and explicit toy transitions. The unfinished memory-owner plug-in blueprint must be reconciled through modular §7 before dependent interfaces are frozen; it is not assumed implemented or final. No simulator, executable fixture, benchmark, model call, alarm, schedule or worker was created. Fixture limits and hand-worked loss examples are not approved production policy or measured performance. Owner/product acceptance, actual operation/parameter commissioning and separate numerical IIT conformance remain honest boundaries; they are not an invitation to another general planning audit. No decomposition or implementation is granted.

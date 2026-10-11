@@ -1,16 +1,19 @@
 # SOVOS Master Loop — Detailed Integration Blueprint
 
 **Status:** INCUBATING — proposed paper design; no implementation or activation authority.<br>
-**Draft revision:** 0.5.0, 2026-10-11 — completed planning with worked recovery, contention and acceptance boundary.<br>
+**Draft revision:** 0.6.0, 2026-10-11 — modular composition and safe evolution integrated; memory agreement provisional.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Evidence and unresolved bindings:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
 **Scenario/proof design:** [alarm and simulation annex](03-sovos-master-loop-alarm-and-simulation-design.md).<br>
 **Exact/proposed handoffs and policy parameters:** [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md).<br>
-**Instantiated decisions and final review packet:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).
+**Instantiated decisions and final review packet:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).<br>
+**Module profiles, hooks, memory extension and future evolution:** [modular blueprint](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md).
 
 ## 1. Purpose and interpretation
 
 Make the agreed organism sufficiently precise that a builder cannot invent the missing joins. This annex owns proposed cross-product behavior, not another Golden Path, scheduler, database, compiler, ontology or authority. Current product contracts remain controlling. The owner's request authorizes refinement of this draft; promotion into canonical product contracts and execution remain separate.
+
+The [modular blueprint](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md) specializes these same obligations for capability/profile/version linking, typed hooks, dependencies, lifecycle, provider replacement and multi-axis upgrades. It uses the existing owners/registries/compiler/control boundaries, not a new kernel, module service or requirement registry. Stable capability contracts separate from implementation/binding/instance/state generations; current grants are never inherited by a swap. Memory's exact future plug-in agreement stays provisional under its owning blueprint.
 
 Requirement IDs below identify design/acceptance obligations, NOT tasks, CallGraph nodes or ready work. Operation labels are logical signatures, NOT registered APIs, routes, tool names or new schemas. A product binding must map them to verified existing operations or an explicitly accepted extension before decomposition.
 
@@ -64,7 +67,7 @@ Reuse [routine compiler doctrine](../SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY
 
 **ML-COMP-05:** semantic judgment answers bounded questions; response drafting is a different step with its own output/offer/privacy contract. A typed Jev choice cannot satisfy a free-text preparation contract. Missing required outputs stop dependent work; optional outputs require an explicit fallback.
 
-**ML-COMP-06:** each accepted material change creates a new proposed/accepted instance revision. Do not alter an active instance in place. Migration declares old-run drain/fence/reconcile, trigger replacement, case/watch continuity, logical-effect deduplication, rollback limits and old/new consumer compatibility. Template changes alone do not trigger migration.
+**ML-COMP-06:** each accepted material change creates a new proposed/accepted instance revision. Do not alter an active instance in place. Migration declares old-run drain/fence/reconcile, trigger replacement, case/watch continuity, logical-effect deduplication, rollback limits and old/new consumer compatibility. Template changes alone do not trigger migration. Modular §§5–8 defines dependency/exclusive-role linking, lifecycle, old callback routing, state versus code rollback and compatible-read/shadow/canary/drain/state-migration methods for the chosen upgrade dimension.
 
 ### 3.2 Source qualification concerns
 
@@ -333,4 +336,4 @@ Review gates:
 
 IIT research remains separate: its version, assumptions, finite model and measurement method require precise review if included; neither a chosen Phi target nor platform consciousness is a deployment prerequisite. Optional algorithms/models/UI do not block a correct deterministic first binding merely by being unimplemented. However, unsupported required dependencies must be resolved or explicitly excluded, never silently treated as optional.
 
-**Current disposition:** bounded planning is finished as an INCUBATING owner-review candidate. [Closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md) supplies worked cases/races, shared-capacity and cost decisions, human-visible behavior, finite source/compatibility dispositions and the final acceptance packet. The 50 obligations remain unchanged. Concern persistence, conversation/capture/retention and required owning extensions are precise proposals awaiting acceptance, not missing coder choices. Current API/consumer support, writer fencing and actual deployment policies still require their own qualification. Optional scientific conformance is separately gated. No Tasks, implementation or activation is granted by this revision.
+**Current disposition:** whole-loop behavior and modular composition/evolution are detailed architecture proposals, not runtime. The 50 obligations remain unchanged, with 24 base and 12 additional modular planned proofs. Closure's cases/review packet now include modular §10's future maturity boundaries. Concern persistence, conversation/capture/retention and required extensions need owning acceptance/qualification. The memory plug-in blueprint is still developing: its exact role/port/lifecycle/migration bindings must be reconciled under modular §7 before dependent decomposition or implementation, rather than guessed or frozen here. No Tasks, code, new registry or activation is granted.

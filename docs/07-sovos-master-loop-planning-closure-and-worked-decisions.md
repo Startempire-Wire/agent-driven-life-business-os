@@ -1,19 +1,20 @@
 # SOVOS Master Loop — Planning Closure and Worked Decisions
 
-**Status:** PLANNING PACKAGE COMPLETE — owner-review candidate, not approved architecture or executable work.<br>
-**Draft revision:** 0.5.0, 2026-10-11.<br>
+**Status:** INCUBATING — worked planning candidate retained; modular extension added; memory agreement provisional.<br>
+**Draft revision:** 0.6.0, 2026-10-11.<br>
 **Purpose:** finish the bounded paper design, not prolong planning or authorize building.<br>
 **Parent:** [whole organism](02-sovos-master-loop-draft.md).<br>
 **Behavior/obligations:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
 **Actual/proposed interfaces:** [contract sheets](06-sovos-master-loop-contract-and-policy-resolution.md).<br>
 **Evidence:** [source register](04-sovos-master-loop-source-and-integration-register.md).<br>
-**Planned proofs/research:** [scenario annex](03-sovos-master-loop-alarm-and-simulation-design.md).
+**Planned proofs/research:** [scenario annex](03-sovos-master-loop-alarm-and-simulation-design.md).<br>
+**Growth/interchangeability/upgrades:** [modular evolution](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md).
 
-## 1. The completed planning boundary
+## 1. Planning boundary and added growth requirement
 
 The planning deliverable is one portable Chief of Staff coordinating life, multiple businesses and existing teams through sensing, expectations, alarms, mathematical interpretation, routines, permitted action, independent verification, follow-through, memory, recovery and learning. Full Workstream/Trajectory coverage remains load-bearing. A model pipeline, notification service or single inquiry routine is not the whole design.
 
-The package now fixes its recommended responsibilities, handoff semantics, guarded transitions, failure behavior, policy parameter types, worked decisions and proof obligations. Final recommendations remain visibly proposals until the owner accepts them. Finishing planning does not claim that the products already implement the extensions, the specification has been approved, the runtime is ready, or another agent loaded it.
+Revision 0.5.0 completed the preceding bounded planning assignment; the owner has since added load-bearing growth/composability and clarified that memory's plug-in blueprint is unfinished. Revision 0.6.0 retains these worked decisions while adding modular §3–§10's profiles/hooks/linking/lifecycle/upgrade/conformance and planned build maturity boundaries. Final recommendations remain proposals; exact memory-dependent interfaces are provisional until two-sided reconciliation. No installed extension, owner approval, build-ready runtime or agent-loading claim follows from publication.
 
 | Planning decision fixed in this package | Later binding/qualification, not missing architectural invention |
 |---|---|
@@ -34,11 +35,12 @@ Private account IDs, credentials and empirically calibrated thresholds are not p
 | 02 | Purpose, whole-organism anatomy and reading path | A second runtime specification |
 | 05 | The 50 stable behavioral obligations and logical lifecycles | Tasks, registered APIs or domain records |
 | 06 | B01–B12 native/proposed handoffs, routine-v1 mapping and policy types | Another schema/queue/writer or implementation proof |
-| 03 | The 24 planned falsification predicates, scenarios and separate research protocol | Executed test results or a production world-state store |
+| 03 | The 24 base planned predicates, scenarios and separate research protocol; links to modular cases | Executed test results or a production world-state store |
 | 04 | Source provenance, support limitations and accepted-versus-unaccepted dispositions | Architectural approval or an endless all-repository audit |
-| 07 | Worked decisions, finite applicability and final review/qualification boundary | Another requirement registry or competing canonical contract |
+| 07 | Worked decisions, finite applicability and review/qualification boundary | Another requirement registry or competing canonical contract |
+| 08 | Module/port/linking/lifecycle/evolution profile, pending memory agreement and 12 additional planned cases T25–T36 | A new loader/registry/store, final memory ABI or executable roadmap |
 
-A reader follows the relevant row, not six repeated formulations. Controlling owner contracts outrank this candidate. A conflict is returned as a bounded revision to the owning section, not resolved by copying a seventh rule. This annex specializes existing obligations; it adds no `ML-*` requirement IDs or executable graph nodes.
+A reader follows the relevant row, not six repeated formulations. Controlling owner contracts outrank this candidate. A conflict is returned as a bounded revision to the owning section, not resolved by copying another rule. This annex specializes existing obligations; it adds no `ML-*` requirement IDs or executable graph nodes.
 
 ## 2. A complete case, including healthy quiet
 
@@ -227,7 +229,7 @@ These are the recommended crosswalks, not amendments applied to sibling reposito
 
 ### 7.1 Operational experiment definition
 
-Use the existing scenarios A–C, normal/absence/correction worlds above, full-scope A/B/shared-D overlay and 24 predicates. Each simulated case uses a finite ordered event list, immutable initial binding/authority/budget, declared source coverage and ground truth held by the evaluator. A transition consumes the next eligible source/owner event and applies 05's guarded lifecycle; event time triggers only bound checks, not new permission. Tied events follow owning revisions/causal predecessors; unresolved concurrency branches into explicitly separate worlds rather than arbitrary timestamp winners.
+Use the existing scenarios A–C, normal/absence/correction worlds above, full-scope A/B/shared-D overlay and 24 base plus 12 module-specific predicates in modular §9. Each simulated case uses a finite ordered event list, immutable initial binding/authority/budget, declared source coverage and ground truth held by the evaluator. A transition consumes the next eligible source/owner event and applies 05's guarded lifecycle; event time triggers only bound checks, not new permission. Tied events follow owning revisions/causal predecessors; unresolved concurrency branches into explicitly separate worlds rather than arbitrary timestamp winners.
 
 Effects are isolated synthetic intent/receipt records; no real calls, grants, jobs or credentials. Before each effect, evaluate current eligibility/actor/generation/argument/budget and record admission or denial. A simulated provider response may be accepted, rejected, partial or lost; unknown responses enter reconciliation. Replays rebuild projections; they do not reapply effects. Exogenous owner corrections remain outside model control.
 
@@ -270,13 +272,13 @@ The remaining work is no longer an open-ended planning prompt. It is a finite ac
 
 | Disposition | What is finished now | What must occur later |
 |---|---|---|
-| Planning deliverable | Whole-organism purpose, 50 obligations, 12 handoff sheets, 24 proof predicates, worked normal/adverse/contention/policy cases, finite applicability and scientific proposal | Owner may accept/amend the finite candidate; no implied approval from publication |
+| Planning deliverable | Whole-organism purpose, 50 obligations, 12 handoff sheets, 36 base/modular planned predicates, worked decisions, finite applicability and separate scientific proposal | Owner may accept/amend the finite candidate; no implied approval from publication |
 | Consequential architecture | Recommended source/concern/watch/work/conversation/capture/retention/memory responsibilities and extensions are explicit | Owner-rooted acceptance and reconciliation in controlling homes; no second authority or memory-agent takeover |
-| Product semantics | Required extension pre/postconditions, errors, replay, concurrency, privacy, correction and acceptance described in 05/06 | Owning contract version/producer-consumer agreement before decomposing that dependent seam |
+| Product semantics | Required behavior and module profile/hook/dependency/lifecycle/evolution semantics in 05/06/08; existing owners only | Owning accepted contract/extensions and exact pending memory-layer agreement before dependent decomposition/build |
 | Deployment | Parameter types/bounds/owners and missing-value behavior are fixed | Actual account/actor/channel/calendar/operation/policy values privately verified before affected activation |
 | Empirical qualification | Producer/consumer/interop/live, matched burden/model and adversity obligations declared | Actual execution under separately authorized scope; historical/static checks are not passes |
 | Scientific research | Operational simulation protocol and finite IIT proposal are explicit, separate and bounded | Approved experiment protocol and version-pure software/mathematical conformance; not a prerequisite for ordinary operational building |
 
-**Recommended final decision:** accept the deterministic, source-owned, existing-team-first whole-loop design and its explicit owning-product extensions; keep native memory cutover, generalized worker recall, optional hosted/local models, computer bodies, ambient collection, federation and finite IIT numerics conditional on their own approved bindings/qualification. Conditional paths remain part of the architecture; selecting one makes its requirements mandatory. Do not shrink the organism into the first implementation case or activate every reservoir capability at once.
+**Recommended final decision:** accept the deterministic, source-owned, existing-team-first whole loop as composable capability contracts rather than hard-coded products, with existing-owner typed hooks/linking, lifecycle and upgrade protocol. Reconcile the developing memory blueprint through modular §7 before final dependent bindings. Keep native cutover/worker recall, optional models/bodies/ambient/federation/IIT conditional on their own approved bindings/qualification. Conditional paths remain architectural capabilities; selecting one makes its requirements mandatory. Do not shrink the organism to its first case or activate the entire reservoir.
 
-The candidate is finished for this planning assignment. A substantive owner correction changes its affected section; it does not require another general audit or ceremonial interview. Task/CallGraph decomposition, code, schedules, customer data access, model installation, runtime deployment and instruction activation remain outside the current grant. The next authorized activity must be chosen explicitly; no unattended implementation is promised.
+The added modular/evolution planning is explicit; the exact memory interface remains provisional until its owning blueprint is available and accepted. That revision affects named sheets/compositions, not every routine or another general audit. Modular §10 supplies staged design-maturity criteria over existing work owners, not Tasks/graphs/deadlines. Code, schedules, customer data access, installation, cutover and instruction activation remain outside the grant; no unattended implementation/reconciliation watcher is promised.

@@ -1,12 +1,13 @@
 # SOVOS Master Loop — Contract and Policy Resolution
 
 **Status:** INCUBATING — proposed binding decisions and paper contracts; not runtime authority.<br>
-**Draft revision:** 0.5.0, 2026-10-11.<br>
+**Draft revision:** 0.6.0, 2026-10-11.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Design obligations:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
 **Coverage and evidence:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
 **Planned falsification:** [scenario annex](03-sovos-master-loop-alarm-and-simulation-design.md), §8.<br>
-**Concrete decisions and final acceptance boundary:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).
+**Concrete decisions and final acceptance boundary:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).<br>
+**Module/hook/upgrade and provisional memory agreement:** [modular composition](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md).
 
 ## 1. What this pass resolves
 
@@ -194,6 +195,8 @@ Screenshot tools can deliver a share artifact automatically. Before private-sour
 
 ## 8. Outcomes and memory interfaces
 
+**Memory plug-in agreement is provisional.** The operator confirms its blueprint is not finished. B09–B12 document inspected current source and required semantics, not the final new memory-layer ABI. [Modular §7](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md) defines required roles and two-sided reconciliation: map the future owning blueprint, revise affected sheets/version/state/lifecycle guarantees and obtain acceptance before freezing or decomposing dependent memory interfaces. This pass does not prescribe its loader/registry/field layout or edit that agent's implementation.
+
 ### B08 — VerifyOutcome / ContinueOrClose → state, gap and next work
 
 Declare receiver predicate, allowed source read, completion meaning, independent verifier, objection/dispute handling, freshness and terminal policy before dispatch. Return accepted/failed/partial/unknown/disputed outcome through its owner to Focusa verification/settlement, state/gap and whole-coverage assessment; then choose the valid frontier, refinement, bounded wait or true scoped completion. Missing proof remains a gap.
@@ -276,4 +279,4 @@ A synthetic fixture may choose finite caps to test exhaustion and comparison. Th
 | Consumer acceptance | T17–T24 augment the existing 16 predicates; B01–B12 specify native-source, denial, replay/correction and return-path proof obligations | Producer/consumer/cross-version/live checks after authorized implementation; source/descriptors alone do not pass them |
 | Complete specification | Preserve the whole organism and full-outcome coverage; exact required dependencies or accepted extension/exclusion | Resolve remaining relevant source/contract contradictions and owner review before Tasks, not every future optional engine or UI |
 
-The bounded planning package is finished, not self-approved. [Closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md) instantiates these same sheets in complete quiet/absence worlds, dispatch/correction/recall/restore races, a shared-capacity allocation and a hand-worked calibrated cost example; its final packet distinguishes owner/product acceptance, private parameter commissioning and later empirical qualification. No additional registry or general planning loop is needed. Actual operation availability, consumer isolation and outcomes remain separately qualified. The existing memory implementation agent retains its assignment; publication neither proves it fetched this revision nor changes its writer.
+The candidate now integrates [modular composition/evolution](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md): exact capability profiles/hooks, existing-owner compiler linking, lifecycle and thirteen upgrade dimensions. Closure's worked decisions remain, with 24 base plus 12 modular planned predicates. The unfinished memory blueprint triggers the explicit targeted agreement/revision above, not unilateral frozen APIs or another general architecture audit. Owner/product acceptance, actual operation/consumer support, private values and empirical outcomes remain separate. The existing memory agent retains its assignment; publication neither proves it fetched this revision nor changes its writer.

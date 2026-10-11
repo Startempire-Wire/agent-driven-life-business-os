@@ -1,10 +1,10 @@
 # SOVOS Master Loop — Integrated Chief-of-Staff Organism
 
-**Status:** INCUBATING — planning package complete for owner review; not approved architecture or implementation authority.<br>
-**Draft revision:** 0.5.0, 2026-10-11 — completed bounded planning, worked decisions and final acceptance boundary.<br>
+**Status:** INCUBATING — modular architecture planned; memory plug-in agreement provisional; not implementation authority.<br>
+**Draft revision:** 0.6.0, 2026-10-11 — composable capabilities, interchangeable modules and safe multidimensional evolution.<br>
 **Activity ceiling:** preserve, research, reconcile and enrich the specification; no implementation, activation, task/CallGraph decomposition, schedule creation or model installation.<br>
 **Authority:** [Owner Constitution](../OWNER_AUTHORITY_CONSTITUTION.md); existing [ecosystem architecture](../CURRENT_ECOSYSTEM_ARCHITECTURE.md) and concern-owning contracts remain controlling.
-**Companions:** [alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md); [source, integration and completeness register](04-sovos-master-loop-source-and-integration-register.md); [detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md); [contract and policy resolution](06-sovos-master-loop-contract-and-policy-resolution.md); [planning closure and worked decisions](07-sovos-master-loop-planning-closure-and-worked-decisions.md).
+**Companions:** [alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md); [source, integration and completeness register](04-sovos-master-loop-source-and-integration-register.md); [detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md); [contract and policy resolution](06-sovos-master-loop-contract-and-policy-resolution.md); [planning closure and worked decisions](07-sovos-master-loop-planning-closure-and-worked-decisions.md); [modular composition and evolution](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md).
 
 ## 1. Purpose, preservation and draft boundaries
 
@@ -32,6 +32,8 @@ This synthesis is not another Golden Path, product, scheduler, database, ontolog
 | Memory survives correction and change safely | Current V1/native compatibility, role isolation, retention and one qualified writer | §11 |
 | Human capacity, not automation volume, is success | Capacity, Economic and Life Enrichment frontiers; usable and felt margin | §2, §12 |
 | No improvisation at missing integration seams | Exact owner/interface/proof and unresolved decisions before decomposition | integration register |
+| Growth, interchangeable/composable modules and multidimensional upgrades | Stable coordination, typed capability/hook profiles, existing-owner linking, guarded lifecycle and state/effect handover | modular annex |
+| Memory's plug-in blueprint is still developing | Master Loop declares required semantics without freezing memory internals; exact two-sided agreement reconciled before dependent build | modular annex §7 |
 
 ## 2. Outcomes and invariants
 
@@ -110,6 +112,8 @@ Identity, authority constitution and runtime attestation are separate under the 
                                |
        feedback to expectations, policies, context and source cells
 ```
+
+The [modular blueprint](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md) makes this anatomy interchangeable by capability rather than hard-coding products into each routine. Stable coordination means existing-owner control semantics, not a new kernel service. Every selected connector, engine, routine, worker, verifier, memory adapter or surface has exact typed ports, scope/state ownership, dependencies, lifecycle, budgets and upgrade evidence; local functions and existing human providers are valid modules. Package discovery never grants execution. Feedback remains scoped, delayed/bounded and source-qualified.
 
 Supporting planes:
 
@@ -376,11 +380,11 @@ A separate finite-model IIT experiment may calculate a precisely defined quantit
 
 ## 14. Specification completeness before decomposition
 
-The bounded planning package is complete as an owner-review candidate, not approved for decomposition or implementation. [Planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md) fixes worked normal/absence/recovery/contention decisions, finite source applicability and the exact acceptance/qualification boundary. Completion here means finished planning, not self-approved architecture, exhaustive source review or deployed support.
+The worked planning candidate in [closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md) is retained, now extended by the owner's explicit growth/composability requirement in [modular evolution](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md). Modules, ports, linking, lifecycle, state/effect handover and upgrade dimensions are planned, not installed. The memory plug-in blueprint is unfinished; its exact dependent bindings remain provisional and require targeted two-sided reconciliation before freezing/decomposing them. No complete-memory-ABI, exhaustive source review or build-ready claim is made.
 
 Before any implementation task graph is compiled, every required capability must have: requirement/source; current owner; precise inputs/outputs and state transitions; verified source implementation seam or explicit accepted new design; consumer binding; scope/authority/privacy; failure/recovery/replay/revoke; performance envelope; migration/compatibility; acceptance and evidence requirements. Unresolved consequential choices must be settled, explicitly excluded or covered by an accepted supported design—not delegated to coder improvisation.
 
-The completed source-grounded design records responsibility/contract recommendations, adversarial predicates and worked choices. Remaining owner/product acceptance is a finite disposition of this candidate, not another open-ended planning loop. Future rollout may use one complete vertical slice and expand through proven seams, but decomposition remains prohibited until the bounded specification and required owning extensions are accepted; actual implementation/qualification needs its own grant.
+The source-grounded design records responsibility/contract recommendations, 36 planned predicates across the base/modular annexes, worked choices and the future build maturity boundaries. The memory-owner blueprint can revise affected ports/state/lifecycle guarantees; that specific reconciliation and owner/product acceptance are finite, not a new general planning loop. Future rollout may use one complete vertical slice and expand through proven seams, but decomposition remains prohibited until the bounded specification and required owning extensions are accepted; actual implementation/qualification needs its own grant.
 
 The [detailed blueprint](05-sovos-master-loop-integration-blueprint.md) is the design-level closure crosswalk: compiler linking and semantic identity; source commitments and watch ownership; optional asynchronous judgment; existing-human acceptance and competing effects; correction/pause/restart; independent receiver acceptance and reciprocal memory. Its requirement IDs are not work items. The register distinguishes paper-defined proposals, supported-source-only seams and still-unqualified operations rather than checking readiness from prose volume.
 
@@ -392,10 +396,11 @@ The [closure annex](07-sovos-master-loop-planning-closure-and-worked-decisions.m
 
 ## 15. Change log and preservation record
 
+- **0.6.0:** makes composability/interchangeability/evolution load-bearing through logical module profiles and hooks, existing compiler/descriptor linking, lifecycle/dependencies, scoped state, thirteen upgrade dimensions and migration/rollback/return routing; explicitly accommodates the unfinished memory plug-in layer with a two-sided later reconciliation; adds twelve planned modularity proofs without altering memory implementation, schemas or runtime.
 - **0.5.0:** completes the bounded planning assignment with worked normal/absence/recovery/contention/policy decisions, human-visible meaning, finite source/contradiction dispositions, isolated operational protocol and an explicit sixteen-state IIT proposal; separates finished planning from owner/product approval, commissioning values and later empirical qualification; adds no requirement registry, Tasks or runtime change.
 - **0.4.0:** narrows ownership proposals to source commitments, a minimal Wirebot concern projection, existing scheduler watches and Spec 181 conversation lineage/capture/retention separation; adds twelve exact/proposed handoff sheets, current routine-field mappings, scheduler privilege/declaration/CAS/delivery boundaries, review/recall/writer contracts and typed operating-policy parameters; adds eight planned native-seam counterexamples without changing code, schemas or concurrent memory work.
 - **0.3.0:** adds a detailed integration blueprint with proposed responsibility allocation, compiler/effect crosswalk, logical pre/postconditions, guarded lifecycles, asynchronous judgment validity, human/VA coordination, stable effect identity across retries/migration, correction/recovery and receiver/memory closure; integrates whole Workstreams, full Trajectory coverage and the relevant Focusa core primitives under #618; adds concrete synthetic trace and negative predicates; qualifies actual compiler/settlement code and remaining source concerns without changing it.
 - **0.2.0:** deepens Tononi/Koch primary-source grounding; distinguishes integration from rich causal structure and intelligent improvement from blind Phi maximization; specifies reciprocal Master Loop–memory seams, correction/eligibility/delivery boundaries and receiving-memory-agent questions. Documentation publication is authorized; code, runtime, schemas and decomposition remain excluded.
 - **0.1.0:** preserves the full session concept; restores alarms, mathematical intelligence, routines, existing humans, memory, owner channels, bodies, outcome/momentum and IIT alongside—not underneath—the decision models. Adds source/integration register and detailed alarm/simulation annex. All proposed contracts remain prose, no runtime changes.
-- Revision 0.5.0 starts from published SOVOS `541717ed549474d2d755c2f383cc30efe9c28b6f`; 0.4.0 started from `6c74b7edd31d3b290dbbac7b1239bd0ba2b95e8c`; 0.3.0 started at `1bde0f4ecf6336c01f9df034890d1d1cba92e9a8`, and the original draft at `695738c42745720c563c2956fea586e49bc38fa4`. Source review date is 2026-10-11. Sibling working trees contain concurrent changes and were not edited.
-- Claimed: completion of this bounded planning package for owner review. Not claimed: owner/product approval; exhaustive repository/spec review; exact deployed bindings; measured model comparison; simulator/IIT results; decomposition or implementation readiness; any new active routine or worker.
+- Revision 0.6.0 starts from published SOVOS `a3b68922b361e921312e84abd8bc4add96d73ff1`; 0.5.0 started from `541717ed549474d2d755c2f383cc30efe9c28b6f`; 0.4.0 started from `6c74b7edd31d3b290dbbac7b1239bd0ba2b95e8c`; 0.3.0 started at `1bde0f4ecf6336c01f9df034890d1d1cba92e9a8`, and the original draft at `695738c42745720c563c2956fea586e49bc38fa4`. Source review date is 2026-10-11. Sibling working trees contain concurrent changes and were not edited.
+- Claimed: whole-loop worked design plus explicit module/growth/evolution planning and provisional memory agreement/reconciliation. Not claimed: final new memory plug-in ABI; owner/product approval; exhaustive source review; deployed bindings; empirical/model/IIT results; decomposition/build readiness; any new active module/routine/worker.

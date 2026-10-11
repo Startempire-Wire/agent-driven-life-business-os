@@ -1,12 +1,13 @@
 # SOVOS Master Loop — Source Coverage, Integration Seams and Completeness
 
 **Status:** INCUBATING — source-backed draft register; not a task queue, runtime registry or approval.<br>
-**Draft revision:** 0.5.0, 2026-10-11 — completed bounded planning and finite review/qualification dispositions.<br>
+**Draft revision:** 0.6.0, 2026-10-11 — modular evolution integrated, with memory-layer agreement explicitly provisional.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Behavioral annex:** [alarms and simulations](03-sovos-master-loop-alarm-and-simulation-design.md).<br>
 **Detailed paper contract:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
 **Exact/proposed handoffs and policy resolution:** [contract sheets](06-sovos-master-loop-contract-and-policy-resolution.md).<br>
-**Worked decisions, finite applicability and final review:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).
+**Worked decisions, finite applicability and final review:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).<br>
+**Module/upgrade architecture and developing memory interface:** [modular blueprint](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md).
 
 ## 1. Evidence discipline
 
@@ -14,13 +15,13 @@ The operator requested grounding in the ecosystem's documentation, repositories 
 
 Evidence levels are separate: indexed; content-reviewed; source-implemented; installed/configured; reachable; authorized for exact operation; consumer-verified; outcome-accepted. A document's LIVE/CURRENT label describes its contractual role, not runtime proof. Dated proof remains dated unless revalidated. An incomplete read is not a whole-corpus audit.
 
-Current activity: owner-directed detailed paper refinement, not implementation. Revision 0.2.0 added primary IIT/memory research; 0.3.0 added full-Workstream/core integration under #618; 0.4.0 supplies twelve native/proposed handoff sheets, exact routine fields, responsibility recommendations and typed operating-policy constraints. Current Focusa remains pinned; installed OpenClaw package sources and local memory handlers were additionally inspected. No private CRM/mailbox/capture/job contents were ingested, service/demo modified, schema created, Tasks/CallGraphs decomposed or canonical Ladder activated. Existing sibling changes were preserved.
+Current activity: owner-directed modular/growth/evolution planning, not implementation. Earlier revisions preserve IIT/memory, full Workstreams/core, twelve handoff sheets, exact routine fields and worked cases. Revision 0.6.0 adds typed module/hook/linking/lifecycle profiles, thirteen upgrade dimensions and twelve additional planned predicates; memory's unfinished plug-in blueprint is an explicit future two-sided agreement. Focusa stays source-pinned; existing slot/bridge/native memory sources are reviewed only as recorded below, not a completed new ABI. No private source/job/capture data, product code/schema, Tasks/graphs, services/demos or runtime activation changed; sibling work is preserved.
 
 ### 1.1 Working-tree provenance
 
 | Repository/path | Observed local baseline | Review boundary |
 |---|---|---|
-| SOVOS `/root/agent-driven-life-business-os` | `541717ed549474d2d755c2f383cc30efe9c28b6f`, published 0.4.0, clean before 0.5.0; earlier 0.3.0 `6c74b7e`, 0.2.0 `1bde0f4`, original `695738c` | Only Master Loop companions/index and numbered contract-resolution annex changed |
+| SOVOS `/root/agent-driven-life-business-os` | `a3b68922b361e921312e84abd8bc4add96d73ff1`, published 0.5.0, clean before 0.6.0; earlier 0.4.0 `541717e`, 0.3.0 `6c74b7e`, 0.2.0 `1bde0f4`, original `695738c` | Only Master Loop companions/index and the new numbered modular-evolution annex changed |
 | Focusa `/home/wirebot/focusa` | Older local `16f2eeef0`; local identity/task artifacts preserved | Local selected source is not latest public main; no checkout/update/installation performed |
 | Focusa published source | `b10c605e1e0ccbdb43d9650945adde7a87fec25d`, GitHub main observed 2026-10-11 | Current guide and selected core documents/code cached read-only; not installed/runtime qualification |
 | Wirebot Core `/home/wirebot/wirebot-core` | `84eee29`; extensive staged/unstaged concurrent work | Current file contents may exceed HEAD; memory/native transition and other staged work are not certified deployed |
@@ -124,6 +125,8 @@ Paths below are exact inspected or session-carried references, not cross-reposit
 | Veragensia docs 193/194/195/199/201 | Exact paths inventoried and portable profile reviewed; machine-enforcement/control/transfer/ambient acceptance not re-proven |
 | OpenClaw package `docs/automation/cron-jobs.md`, `concepts/session.md`, `reference/session-management-compaction.md` | Full installed-source doc review: SQLite cron, payload/admin boundary, delivery versus message, trigger/retention behavior, Gateway capture/reset/compaction/maintenance; no customer config/session/job access or modifications |
 | OpenClaw bundled `server-cron-Cwg2hJro.js`, `cron-cli-CUWsIakL.js`, `cron-tool-C9qaFGtt.js` | Selected source review: declaration-key convergence can update definitions; actual CLI forwards that key; internal conditional update is not demonstrated public CAS. Installed artifacts are not runtime acceptance |
+| Core `MEMORY.md` slot section, `MEMORY_BRIDGE_STRATEGY.md` selected anchors, bridge manifest/source inventory, current delivery doc selected section | 0.6.0: existing memory-tool slot/extension bridge and native V1/provider delivery owners are evidence, not a finished general plug-in ABI. Historical status claims remain unqualified; extensive concurrent Core changes preserved |
+| Operator's developing memory plug-in blueprint | Operator-stated unfinished work; required Master Loop roles in 08 §7 remain provisional. Exact future document/revision/ports/lifecycle/compatibility must be supplied/reconciled by its owner, not fabricated here |
 | JARVIS archived original | Earlier full-session review carried forward; seven-domain intent preserved, live claims rejected without new proof |
 
 ### 2.4 External research carried from this session
@@ -240,7 +243,7 @@ Every real seam needs a sheet with: source and consumer repo/revision; owner; ex
 
 ### 6.1 Handoff to the agent owning memory implementation
 
-**Reading path:** [Master Loop](02-sovos-master-loop-draft.md), §11.1 → [detailed blueprint](05-sovos-master-loop-integration-blueprint.md), §§8–9,11 → [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md), B09–B12/§9 → [joint memory simulation](03-sovos-master-loop-alarm-and-simulation-design.md), §10.1 → [IIT research](03-sovos-master-loop-alarm-and-simulation-design.md), §12 → [portable memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md), §§2–13 and ownership routing. These are revision 0.5.0 design proposals, not a memory cutover or implementation assignment. Cite the exact fetched Git revision; being pushed does not prove a running agent loaded it.
+**Reading path:** [Master Loop](02-sovos-master-loop-draft.md), §11.1 → [detailed blueprint](05-sovos-master-loop-integration-blueprint.md), §§8–9,11 → [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md), B09–B12/§9 → [joint memory simulation](03-sovos-master-loop-alarm-and-simulation-design.md), §10.1 → [IIT research](03-sovos-master-loop-alarm-and-simulation-design.md), §12 → [portable memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md), §§2–13 and ownership routing. These are revision 0.6.0 design proposals, not a memory cutover or implementation assignment. Also read [modular §7](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md): the new plug-in blueprint is unfinished, and our required roles must be mapped/revised against its exact owning revision before dependent interfaces are frozen. Cite the exact fetched Git revision; being pushed does not prove a running agent loaded it.
 
 **Respect active ownership:** this revision does not edit the portable memory profile, Wirebot memory docs/code, review queue, sink jobs, native bindings or V1 runtime. The memory agent continues its existing verified assignment. Its findings can revise these same documents; this handoff does not create another memory backlog, authority or writer.
 
@@ -269,7 +272,7 @@ These are inspected source/doc anchors, not declared public callable contracts. 
 
 **Receiving-agent disposition:** record each seam as supported-source-only, deployed/consumer-proven, unsupported, conflicting, or proposed extension, with evidence and exact source revision. Return corrections as bounded revisions to this register; never convert the gut–brain metaphor, a memory retrieval, or a simulated Phi into new permission. Proposed callback names/fields in §11.1 are design requirements, not registrations to implement blindly.
 
-### 6.2 Revision 0.5.0 planning and qualification dispositions
+### 6.2 Revision 0.6.0 planning and qualification dispositions
 
 | Concern | Paper disposition now | Remaining admission condition |
 |---|---|---|
@@ -279,11 +282,13 @@ These are inspected source/doc anchors, not declared public callable contracts. 
 | Human ownership/competing effects/resources | Accepted handoff, incumbent reuse, stable logical effect across retry/migration and no-self-renew rules defined | Real actor/provider/lease/conditional-write and budget policies |
 | Correction/receiver proof/memory | Dependency-limited invalidation, independent acceptance and current eligibility boundaries defined | Transcript/retention/writer ownership and actual review/delivery/consumer proofs |
 | Whole Workstreams and core primitives | #618 Full/Medium/Short, no-orphan coverage, existing progression loop and family guard matrix defined | Exact current semantic/work/verifier/operation support and representative whole-outcome/native consumer acceptance |
-| Adversarial acceptance | Twenty-four falsification predicates, concrete inquiry trace and two-branch/shared-dependency overlay defined; native B01–B12 source/extension sheets | Owner review, applicable executable fixtures after admission, producer/consumer/interop/live evidence |
+| Adversarial acceptance | Twenty-four base plus twelve modular predicates, worked cases and full-scope overlay; B01–B12 and module hook/version/state/upgrade profile | Owner review and future actual producer/consumer/interop/live execution; no pass from prose |
 | Scientific/math scope | Version-pure research protocol and explicit complete four-unit next-state proposal; independent operational controls preserved | Actual IIT software/mathematical conformance before optional numerics; no consciousness or operational-dependency claim |
-| Final planning closure | Normal/absence/quiet worlds, dispatch/correction/takeover/restore races, contention, calibrated cost example, human experience and finite applicability all instantiated in 07 | Owner may accept/amend this finite candidate; actual contracts/parameters/proofs still qualify separately |
+| Worked planning closure | Normal/absence/quiet, recovery races, shared capacity, calibrated cost and human/finite applicability decisions retained in 07 | Original 0.5.0 assignment complete; 0.6.0 explicitly adds the owner's growth requirement rather than claiming the earlier module ABI was final |
+| Composable growth/evolution | 08 profiles/hooks/dependencies/lifecycle and thirteen upgrade dimensions, state/effect return/migration/rollback and maturity conditions specified | Exact owning descriptors/extensions/qualification; no new module service or plug-in runtime |
+| Developing memory agreement | Required roles/guarantees and six-step two-sided reconciliation in 08 §7 | Current memory ABI is NOT complete; future blueprint can change affected sheets/bindings before dependent build |
 
-Planning is complete for this bounded assignment. Twelve handoff sheets and the 50 obligations have worked decision/proof homes; the closure distinguishes approval, actual operation support, deployment-specific values and future empirical results. None is fabricated or silently treated as delivered. Remaining acceptance/qualification is not another registry, blanket whole-corpus audit or new general planning loop.
+The architecture now plans growth/interchangeability/adaptation explicitly. Fifty existing obligations and 36 planned base/modular predicates have owned homes; approval, source support, private parameters and empirical results remain separate. Memory's unfinished interface is an expected targeted reconciliation dependency, not a final invented API or a reason to restart a blanket ecosystem audit.
 
 ## 7. Finished planning versus admission to later work
 
@@ -302,11 +307,13 @@ A single unchecked checklist previously mixed design, approval, commissioning an
 | Receiver outcome, bounded momentum, useful capacity and human-facing meanings | 05 §§9–10; 06 B08; 07 §§2,5 | Independent predicates/source acceptance; matched total burden, not notification/task counts |
 | Memory review/delivery/recall/retention/writer and V1 compatibility | 02 §11.1; 06 B09–B12; 03 §10.1; 07 §3 | Existing memory-owner acceptance/qualification; native disabled until separate cutover proof |
 | Isolation, reserved powers, credential/body/channel/trusted surface control | 02 §§2,11–12; 05 §11.4; 06 B07/B12; 03 T12/T19/T23 | Exact current grants, permitted projections, safe takeover, cleanup and applicable consumer evidence |
-| Three scenarios, quiet/adverse branches and 24 independent predicates | 03 §§8–11; 07 §§2–5,7.1 | Future isolated producer/consumer/interop/live execution, no invented pass results |
+| Three scenarios/quiet/adversity and 36 base/modular predicates | 03 §§8–11; 07 §§2–5,7.1; 08 §9 | Future isolated producer/consumer/interop/live execution, no invented pass results |
+| Module/hook/assembly/lifecycle/multiple upgrade paths | 08 §§2–6,8–10; 05 compiler/control obligations | Exact accepted owner profile/extensions, provenance/guarded host and state/effect/consumer compatibility |
+| Developing pluggable-memory agreement | 08 §7; 06 B09–B12 | Exact future memory blueprint/ports reconciled and affected bindings revised before dependent decomposition/build |
 | Operational ablations and version-pure finite IIT research | 03 §§10–12; 07 §7 | Separate empirical protocol/math/software conformance and experiment grant; off operational critical path |
 | Migration and final stopping/review conditions | 05 §§8,12; 06 §10; 07 §8 | Required owner/product acceptance, separately authorized decomposition/build and affected commissioning |
 
-The planning assignment is complete; the candidate is not self-approved. No code must already exist merely to finish paper design, and no private IDs/secrets/calibrated values must be published. Conversely, approval of a design cannot make an unsupported operation callable. Actual empirical results belong to later authorized implementation/qualification. A substantive correction revises the affected home, not an automatic restart of all planning.
+The expanded module/evolution planning is specified; the candidate is not self-approved or fully bound to memory's unfinished plug-in layer. No code must already exist to plan it, and private IDs/secrets/calibrated values are not published. Exact two-sided required interface acceptance must precede dependent decomposition; actual support/empirical qualification belongs to separately authorized building. A future memory revision updates affected homes/compositions without automatically restarting all planning.
 
 ## 8. Preservation and verification record
 
@@ -328,4 +335,6 @@ Publication is documentation-only to the existing `Startempire-Wire/agent-driven
 
 Revision 0.5.0 completes the bounded planning package with 07's worked normal/absence/recovery/contention/cost/human decisions, finite source and contradiction dispositions, operational protocol and hand-specified four-unit transition proposal. It adds no obligations, Tasks, schema or runtime. Static/document/transition checks and publication identities belong in the receipt; no full suite, model, simulator, native consumer or IIT calculation was run.
 
-The next activity is not automatically resumed from old state. Read the current owner ask and the finite final packet in 07 §8; preserve concurrent changes and the existing memory assignment. Owner/product review, decomposition or implementation need their own scope as applicable. Planning is finished for this assignment, not a claim that publication grants approval or execution.
+Revision 0.6.0 adds 08's first-class modularity/composition/hook/lifecycle/evolution design, provisional memory role/port agreement and later reconciliation, plus twelve planned conformance cases. All eight documents are reconciled to that scope; existing 50 obligations and current memory/V1/disabled-write ownership remain. No module schema/runtime/loader/registry, source data or product implementation changes.
+
+Read current owner steering rather than auto-resuming old tasks. 08 §7's targeted reconciliation is required when the actual memory blueprint is available; 08 §10 is a design trajectory, not created Tasks. Preserve the existing memory assignment and exact source/consumer support limitations. Publication grants neither implementation nor finished memory-ABI authority.
