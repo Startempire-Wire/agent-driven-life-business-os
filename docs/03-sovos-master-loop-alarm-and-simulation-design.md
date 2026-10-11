@@ -1,10 +1,11 @@
 # SOVOS Master Loop — Alarm Fabric, Scenarios and Integration Experiments
 
 **Status:** INCUBATING — draft behavior/acceptance design, not executable schemas or implementation tasks.<br>
-**Draft revision:** 0.3.0, 2026-10-11 — concrete integration predicates and whole-Workstream coverage.<br>
+**Draft revision:** 0.4.0, 2026-10-11 — native handoff/policy counterexamples with whole-Workstream coverage.<br>
 **Parent:** [Master Loop draft](02-sovos-master-loop-draft.md).
 **Bindings, coverage and unresolved decisions:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
-**Detailed contracts and lifecycles:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).
+**Detailed contracts and lifecycles:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
+**Native/proposed binding sheets and policies:** [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md).
 
 ## 1. Alarm semantics and vocabulary
 
@@ -217,10 +218,18 @@ These are planned test obligations, not executed fixtures or Tasks. Requirement 
 | ML-T14 projection | Compact view hides other branch; UI reconnect receives out-of-order revision | Depth/omissions disclosed; same current owner revision restored; no stale action/success (`ML-WS-03`, `ML-EXPLAIN-01`) |
 | ML-T15 anti-runaway | Mirror events, repeated no-evidence model work, busy worker, exhausted budget | Bound/coalesce/defer/escalate; no recursive wake, starvation or self-renewal (`ML-RESOURCE-01–03`) |
 | ML-T16 value | Faster runs with added review/maintenance and unverified customer result | No claimed net capacity or accepted win without appropriate evidence (`ML-VALUE-01–02`) |
+| ML-T17 declaration drift | Same scheduler declaration key, changed payload/template/instance semantics | Unaccepted change rejected; migration fences/reconciles old definition; provider-effect key remains stable (`ML-COMP-02,06`, `ML-EFFECT-01`) |
+| ML-T18 false CAS | Two mutators read same job; public update has no expected revision although an internal conditional helper exists | No atomicity claim; owning conditional/fenced writer denies stale update/admission (`ML-RECOVER-01`, `ML-CORE-04`) |
+| ML-T19 admin/quiet bypass | Admin command executes outside agent exec policy; agent turn uses message with delivery none | Actual entry/send authority independently checked; quiet flag grants nothing (`ML-COMP-04`, `ML-ATTN-01`, `ML-CORE-04`) |
+| ML-T20 scheduler truth | DST/host timezone/stagger/DOM-DOW OR, fire-false/no run history, or success with incomplete source coverage | Accepted time intent and coverage prevail; no false absence, fresh health or effect replay (`ML-WATCH-01–03`, `ML-HEALTH-01`) |
+| ML-T21 transcript lifecycle | Reset/compaction/maintenance removes capture; speaker/content correction or legal erasure changes eligibility | No assumed complete ledger/retention or memory promotion; current lineage/policy and missing coverage explicit (`ML-MEM-01–02`, `ML-CORR-01`) |
+| ML-T22 review ambiguity | Queue POST succeeds but reply lost; repeat changed review; trace includes private text | Same scoped intent reconciled without duplicate submission; conditional review and authorized trace minimization (`ML-EFFECT-01–02`, `ML-MEM-01`) |
+| ML-T23 attribution/disclosure | Forged reviewer header, tenant worker calls operator recall, or unsupported purpose fields hidden in text | Authenticated authority/namespace enforced; no invented worker access or text-field policy enforcement (`ML-TEAM-02`, `ML-MEM-02`, `ML-CORE-04`) |
+| ML-T24 native writer | Two bodies use a process mutex; old lease completes after takeover/source revision change | Qualified generation/conditional boundary rejects stale write; native remains disabled if unqualified (`ML-RECOVER-01`, `ML-MEM-02`) |
 
 ### 8.2 Requirement-to-proof coverage crosswalk
 
-This accounts for every blueprint requirement family. It assigns planned predicates, not pass results. Binding-specific checks must additionally exercise the actual product contract, real consumer and applicable cross-version/live surface; synthetic totals or matching text cannot replace those proofs.
+This accounts for every blueprint requirement family. It assigns planned predicates, not pass results. Binding-specific checks must additionally exercise the actual product contract, real consumer and applicable cross-version/live surface; synthetic totals or matching text cannot replace those proofs. T17–T24 additionally map to the twelve [native/proposed handoff sheets](06-sovos-master-loop-contract-and-policy-resolution.md), B01–B12: declaration/CAS/entry guard, coverage/calendar, review/recall, transcript and writer boundaries.
 
 | Blueprint obligations | Planned proof locations |
 |---|---|

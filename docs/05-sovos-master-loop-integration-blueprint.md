@@ -1,10 +1,11 @@
 # SOVOS Master Loop — Detailed Integration Blueprint
 
 **Status:** INCUBATING — proposed paper design; no implementation or activation authority.<br>
-**Draft revision:** 0.3.0, 2026-10-11 — compiler-to-outcome closure pass.<br>
+**Draft revision:** 0.4.0, 2026-10-11 — binding and operating-policy resolution pass.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Evidence and unresolved bindings:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
-**Scenario/proof design:** [alarm and simulation annex](03-sovos-master-loop-alarm-and-simulation-design.md).
+**Scenario/proof design:** [alarm and simulation annex](03-sovos-master-loop-alarm-and-simulation-design.md).<br>
+**Exact/proposed handoffs and policy parameters:** [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md).
 
 ## 1. Purpose and interpretation
 
@@ -34,7 +35,7 @@ This revision proposes a concrete allocation instead of leaving every alarm owne
 
 **ML-OWN-01:** the concern projection may persist only information it owns: scoped correlation identity, source-qualified links, projection revision, relation/uncertainty disposition and continuity metadata. Source facts, tasks, grants and accepted outcomes stay elsewhere. Exact existing Wirebot persistence and consumer operations remain a binding gate; this table does not authorize a new database.
 
-**ML-OWN-02:** if a source lacks a commitment record, the accepted design must name the actual existing product owner for the owner-declared commitment. Until that is settled, observation/proposal is allowed but authoritative absence detection is unavailable. A model's inferred expectation cannot fill this gap.
+**ML-OWN-02:** an authenticated explicit owner instruction can itself supply accepted expectation intent. Bind its durable source revision, exact target/time and correction/cancel authority through existing capture/conversation and watch owners; use a native task/calendar/provider record only when the actual domain requires one. Focusa Temporal Authority represents time within its applicable scope. Missing attribution, acceptance or durable binding leaves authoritative absence unavailable. This [responsibility resolution](06-sovos-master-loop-contract-and-policy-resolution.md) creates neither a compulsory task for every reminder nor a Wirebot commitment database or model-inferred deadline.
 
 ## 3. Compiler handoff crosswalk
 
@@ -316,7 +317,7 @@ Issue #618 is currently closed in GitHub, with source-level closure recorded on 
 
 ## 12. Paper acceptance and admission to later building
 
-Every requirement above must have a design section, actual/proposed owner binding, producer and consumer version, pre/postconditions, failure/correction/replay/revoke behavior, consequence/budget policy and proof predicate. Shared metadata must be mapped rather than appended into strict v1 schemas without review.
+Every requirement above must have a design section, actual/proposed owner binding, producer and consumer version, pre/postconditions, failure/correction/replay/revoke behavior, consequence/budget policy and proof predicate. Shared metadata must be mapped rather than appended into strict v1 schemas without review. The [resolution annex](06-sovos-master-loop-contract-and-policy-resolution.md) maps current v1 paths, twelve handoff sheets, exact native memory/scheduler entry findings, recommended extensions and typed policy constraints; it preserves the same 50 obligations rather than another requirement registry.
 
 The [scenario annex](03-sovos-master-loop-alarm-and-simulation-design.md) owns concrete fixtures and negative predicates; the [integration register](04-sovos-master-loop-source-and-integration-register.md) owns verified support versus proposed extension and unresolved decisions. These requirements are not passed by document length or matching keywords.
 
@@ -331,4 +332,4 @@ Review gates:
 
 IIT research remains separate: its version, assumptions, finite model and measurement method require precise review if included; neither a chosen Phi target nor platform consciousness is a deployment prerequisite. Optional algorithms/models/UI do not block a correct deterministic first binding merely by being unimplemented. However, unsupported required dependencies must be resolved or explicitly excluded, never silently treated as optional.
 
-**Current disposition:** much stronger paper design, still INCUBATING. The proposed concern owner and logical contracts are not yet product-approved/operation-qualified. Current source/API consumer parity, numerical model policies, transcript/writer ownership and full required-source coverage remain honest admission gaps. No implementation decomposition or activation is performed by this revision.
+**Current disposition:** concrete responsibilities, native-interface findings, proposed missing-operation behavior and operating-parameter contracts now have a dedicated resolution annex; still INCUBATING. Concern persistence, transcript convergence and required extensions need owner/product review. Actual API/consumer qualification and writer fencing remain evidence gates; deployment-specific numerical values/calibration are required before affected activation, not fabricated portable constants. Remaining required source/contract coverage and complete-specification review precede decomposition. No implementation or activation is performed by this revision.

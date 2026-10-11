@@ -1,10 +1,11 @@
 # SOVOS Master Loop — Source Coverage, Integration Seams and Completeness
 
 **Status:** INCUBATING — source-backed draft register; not a task queue, runtime registry or approval.<br>
-**Draft revision:** 0.3.0, 2026-10-11 — detailed joins, full Workstreams/Trajectory and core-primitive crosswalk.<br>
+**Draft revision:** 0.4.0, 2026-10-11 — native interfaces, recommended ownership and operating-policy contracts.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Behavioral annex:** [alarms and simulations](03-sovos-master-loop-alarm-and-simulation-design.md).<br>
-**Detailed paper contract:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).
+**Detailed paper contract:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
+**Exact/proposed handoffs and policy resolution:** [contract sheets](06-sovos-master-loop-contract-and-policy-resolution.md).
 
 ## 1. Evidence discipline
 
@@ -12,19 +13,20 @@ The operator requested grounding in the ecosystem's documentation, repositories 
 
 Evidence levels are separate: indexed; content-reviewed; source-implemented; installed/configured; reachable; authorized for exact operation; consumer-verified; outcome-accepted. A document's LIVE/CURRENT label describes its contractual role, not runtime proof. Dated proof remains dated unless revalidated. An incomplete read is not a whole-corpus audit.
 
-Current activity: owner-directed detailed paper refinement, not implementation. Revision 0.2.0 added primary IIT/memory research; 0.3.0 adds compiler/expectation/concern/judgment/recovery/receiver contracts and whole-Workstream integration under Focusa #618. Current public Focusa source and late issue comments were inspected at a pinned revision; previous remote runtime gaps remain gaps. No private CRM/mailbox data was ingested, service/demo modified, schema created, Tasks/CallGraphs decomposed or canonical Ladder activated. Existing sibling changes were preserved.
+Current activity: owner-directed detailed paper refinement, not implementation. Revision 0.2.0 added primary IIT/memory research; 0.3.0 added full-Workstream/core integration under #618; 0.4.0 supplies twelve native/proposed handoff sheets, exact routine fields, responsibility recommendations and typed operating-policy constraints. Current Focusa remains pinned; installed OpenClaw package sources and local memory handlers were additionally inspected. No private CRM/mailbox/capture/job contents were ingested, service/demo modified, schema created, Tasks/CallGraphs decomposed or canonical Ladder activated. Existing sibling changes were preserved.
 
 ### 1.1 Working-tree provenance
 
 | Repository/path | Observed local baseline | Review boundary |
 |---|---|---|
-| SOVOS `/root/agent-driven-life-business-os` | `1bde0f4ecf6336c01f9df034890d1d1cba92e9a8`, published 0.2.0, clean before 0.3.0; original draft baseline `695738c` | Only Master Loop companions and index navigation changed |
+| SOVOS `/root/agent-driven-life-business-os` | `6c74b7edd31d3b290dbbac7b1239bd0ba2b95e8c`, published 0.3.0, clean before 0.4.0; earlier 0.2.0 `1bde0f4`, original `695738c` | Only Master Loop companions/index and numbered contract-resolution annex changed |
 | Focusa `/home/wirebot/focusa` | Older local `16f2eeef0`; local identity/task artifacts preserved | Local selected source is not latest public main; no checkout/update/installation performed |
 | Focusa published source | `b10c605e1e0ccbdb43d9650945adde7a87fec25d`, GitHub main observed 2026-10-11 | Current guide and selected core documents/code cached read-only; not installed/runtime qualification |
 | Wirebot Core `/home/wirebot/wirebot-core` | `84eee29`; extensive staged/unstaged concurrent work | Current file contents may exceed HEAD; memory/native transition and other staged work are not certified deployed |
 | Wirebot App `/home/wirebot/Wirebot-App` | `631a544`; local task artifacts modified, AGENTS untracked | Product process/specs plus selected pure TypeScript projections; runtime wiring unverified |
 | Veragensia `/home/wirebot/veragensia` | `847eaee` | Profile/owning-spec inventory and cross-product boundaries; no hardware/actuation acceptance |
 | UIAI `/home/wirebot/uiai-lab` | Directory contains demo/workforce material and is not itself a Git root | Not identified as authoritative UIAI Engine checkout; no product-source ownership inferred |
+| OpenClaw installed package | `2026.7.1-2 (0790d9f)` reported by CLI; package cron/session docs and selected bundled code | Installed artifact/source observation only, not configured/live scheduler or private data inspection |
 
 These are local observations, not a statement that every remote branch/runtime matches. Short hashes are provenance aids only. Private runtime configuration and secrets are deliberately excluded from public draft content.
 
@@ -101,7 +103,9 @@ Paths below are exact inspected or session-carried references, not cross-reposit
 | Exact Workset Flow Ledger Spec 149; proposal-to-settlement Spec 136 | Pinned authority/Workset-Trajectory-Workpoint and verifier/completion/settlement sections read; not full corpus or every operation/call-site conformance |
 | Focusa `docs/135b-crist-project-genesis-context-role-interview-spec-tasks.md` | Status, CRIST sequence, iterative state machine and corpus-versus-prompt sections re-read; draft requires approved Spec before Tasks and does not silently rewrite accepted artifacts |
 | Focusa `docs/135f-domain-general-ontology-core-semantic-graph-domain-packs-and-reactive-context-spec.md` | Status, foundations/partial implementation and candidate-to-canonical graph/projection sections re-read; domain packs do not create independent runtimes or grant authority |
-| Focusa specs 153/181–184, 156, 174/175; remaining 149/136/138 sections | Inventory/prior-session or selected-section basis only; exact applicable contracts/call-sites, current supported operation and conformance review still pending |
+| Focusa Spec 181 conversation and Spec 175 roles | Full pinned source read in 0.4.0: 181 names Core meaning/lineage/ledger and runtime/provider boundaries but is DRAFT; 175 is concept, not an installed universal permission gate |
+| Focusa Spec 137 + `routes/temporal.rs`, core `temporal.rs` | Selected actual scope/request/claim/commit/revise definitions and calendar/authority sections: project-bound time, versioned result/receipt, optional filters not exact-subject proof; no real claim committed |
+| Focusa specs 153/182–184, 156, 174; remaining 149/136/138/137 sections | Inventory/prior-session or selected-section basis only; applicable contract/call-site/runtime conformance remains pending |
 | Focusa `apps/focusa-awareness/{README.md,index.ts,openclaw.plugin.json}` | Earlier session source/installed divergence evidence; current remote parity not reverified |
 | Wirebot Core `docs/specs/PROACTIVE_KERNEL_v3.md` | Relevant historical quality/continuity/sensor/anti-duplication portions re-read; not a runtime prompt or current architecture authority |
 | Wirebot Core `docs/MEMORY_DELIVERY_JOBS.md` | Full re-read on 2026-10-11; current concurrent native source work, V1 production, disabled native writes, incomplete cutover/single-writer qualification |
@@ -109,13 +113,16 @@ Paths below are exact inspected or session-carried references, not cross-reposit
 | Wirebot Core `cmd/scoreboard/letta_memory_delivery.go` | Full inspected local source: `deliverNativeLettaMemory` reconciles committed source-qualified content, returns bound provider receipt; not a separate reasoning loop |
 | Wirebot Core `cmd/scoreboard/letta_approved_recall.go` | Full inspected local source: current approval, payload hash, exact native/provider binding and committed content checked before disclosure; lexical bounded operator-only recall, not generalized workforce memory |
 | Wirebot Core `plugins/wirebot-sensors/index.ts` | Selected local source inspected; synchronous poll functions and prompt hooks coexist with timers; do not generalize historical OVH repair to this checkout |
-| Wirebot Core memory/Context Core/integration/operations docs and bridge/native code | Earlier session sources; exact deployed wiring and role-scoped disclosure need new proof |
+| Wirebot Core `main.go`, `tenant.go`, `auth.go`, selected `memory.go` and native state/recall handlers | 0.4.0 registration/auth/source inspection: queue/review/delivery/trace scoped; native recall/state operator-only main routes; unversioned generated-ID submission lacks inspected caller dedupe/CAS; trace is private-content. Payload-sensitive job resets/guarded completion already exist; no older correction-deduplication diagnosis revived |
+| Wirebot Core memory/Context Core/integration/operations docs and bridge/native code | Earlier session sources plus selected 0.4.0 reads; actual deployed wiring and generalized role disclosure remain unproven |
 | Wirebot App `docs/04-wirebot-app-system-map.md` | Current foundation/availability/Google/Flow Mesh/campaign/Perpetua sections re-read; remaining IA/source conformance pending |
 | Wirebot App `docs/05-wirebot-app-core-process-contracts.md` | Full process content reviewed, including P1–P11: discovery, correction, routines/research, UI parity, optional participation and commerce |
 | Wirebot App `docs/07-wirebot-perpetua-demo-pivot-spec.md`, `docs/10-wirebot-body-independent-partner-continuity-addendum.md` | Full re-read; public demo distinct, one persistent relationship across bodies |
 | Wirebot App `src/lib/contracts/perpetua.ts` | Selected pure projection helpers reviewed; active capabilities, routine history/research controls are not backend enforcement or compiler proof |
 | Wirebot App `src/lib/ui/trusted-catalog.json` | Exact artifact located; upstream owner and component/version/action conformance need verification |
 | Veragensia docs 193/194/195/199/201 | Exact paths inventoried and portable profile reviewed; machine-enforcement/control/transfer/ambient acceptance not re-proven |
+| OpenClaw package `docs/automation/cron-jobs.md`, `concepts/session.md`, `reference/session-management-compaction.md` | Full installed-source doc review: SQLite cron, payload/admin boundary, delivery versus message, trigger/retention behavior, Gateway capture/reset/compaction/maintenance; no customer config/session/job access or modifications |
+| OpenClaw bundled `server-cron-Cwg2hJro.js`, `cron-cli-CUWsIakL.js`, `cron-tool-C9qaFGtt.js` | Selected source review: declaration-key convergence can update definitions; actual CLI forwards that key; internal conditional update is not demonstrated public CAS. Installed artifacts are not runtime acceptance |
 | JARVIS archived original | Earlier full-session review carried forward; seven-domain intent preserved, live claims rejected without new proof |
 
 ### 2.4 External research carried from this session
@@ -163,7 +170,7 @@ Issue #618 is closed, with source-level closure on 2026-09-22 and later publicat
 
 ## 4. Integration contract sheets required before code
 
-Every real seam needs a sheet with: source and consumer repo/revision; owner; exact entry operation/call-site; supported input/output and error versions; source identity/tenant/domain; data minimization/retention; current authority and credential-use; causal cursor/time/revision; replay/idempotency; lease/concurrency; timeout/backpressure; unavailable behavior; receipt/evidence/outcome; correction/pause/revoke; compatibility/migration; producer/consumer/interop/live acceptance. Missing facts are explicit gaps, not implementation defaults.
+Every real seam needs a sheet with: source and consumer repo/revision; owner; exact entry operation/call-site; supported input/output and error versions; source identity/tenant/domain; data minimization/retention; current authority and credential-use; causal cursor/time/revision; replay/idempotency; lease/concurrency; timeout/backpressure; unavailable behavior; receipt/evidence/outcome; correction/pause/revoke; compatibility/migration; producer/consumer/interop/live acceptance. The [resolution annex](06-sovos-master-loop-contract-and-policy-resolution.md), B01–B12, now specifies the shared minimum and exact inspected/proposed entries. Missing facts remain explicit qualification/extension gates, not coder defaults.
 
 | Seam | Existing anchor | Proposed connection / missing proof |
 |---|---|---|
@@ -212,16 +219,16 @@ Each must be settled in its owning specification or explicitly accepted crosswal
 
 | Question | Current draft posture | Resolution evidence required |
 |---|---|---|
-| Who persists alarm case/expectation state? | Paper proposal: source commitment owner; Wirebot concern projection; existing scheduler watch; Focusa work | Accept/amend allocation, then qualify exact owner create/update/merge/split/watch/resolve/replay contracts; no new universal store |
+| Who persists alarm case/expectation state? | Source-native or authenticated explicit-owner intent; durable attributable source/watch binding; minimal conditionally revised Wirebot projection; existing scheduler; Focusa work. No compulsory external task per reminder | Owner/product review; exact extension and consumer qualification in contract sheets §§2–6, not a new commitment/task database |
 | What is the minimum connector/result contract? | Reuse existing source/signal/ref/Intelligence Result seams first | Field/error/version crosswalk and old/new consumers |
-| How are relevance/severity/uncertainty prioritized? | Blueprint separates purpose/time/consequence/evidence/capacity; bounds storms and starvation | Exact production error-cost/priority/resource policy and held-out noisy/missed-event cases; synthetic limits are not adopted defaults |
+| How are relevance/severity/uncertainty prioritized? | Contract sheet §9 specifies owner/time/consequence/critical path, fairness and parameter types/units/missing-value behavior | Binding-specific values/error costs and held-out calibration before affected activation; not fabricated portable constants |
 | Which math engines improve actual cases? | Methods are reservoir, not mandatory footprint | Defined inputs/assumptions/baseline and measured benefit |
 | Where does fast judgment execute? | Async; Kai local candidate; hosted only permitted | Hardware/licensing/quality/privacy/budget plus consumer latency |
 | What are calibration/abstention thresholds? | No fabricated universal numeric threshold | Shared held-out cases, error costs and approved risk policy |
 | How are existing humans bound? | Paper-defined offered/accepted/declined/unacknowledged responsibility; incumbent reuse and fenced reassignment | Actual assignee identity/state/handoff/capacity interfaces and current allowed role/context |
-| Which current scheduler/run owners are usable? | OpenClaw default where appropriate, native alternatives | Installed API/revision/grant/retry/revoke and completion receipt |
-| Who maintains native business state? | Primary-loop maintenance and writer qualification not assumed | Current product design, stale-update denial and cross-host fencing |
-| Who owns transcript truth and retention? | Explicitly unresolved in portable profile | Owner-rooted assignment, privacy classes and accepted correction/deletion rules |
+| Which current scheduler/run owners are usable? | Installed OpenClaw docs/selected code qualify native command/trigger/declaration surfaces on source level; B03 specifies entry guard and readback | Public conditional mutation/fenced writer, actual current grants and terminal/receiver consumer acceptance; no admin/quiet flag bypass |
+| Who maintains native business state? | Recommended primary-loop proposal → sole existing memory-owner sink writer; native disabled/V1 preserved | B11 writer generation, source revision, expiry/takeover, ambiguous completion and restore proof before cutover |
+| Who owns transcript truth and retention? | Recommended Spec 181/Core meaning/lineage; actual runtime capture; deployment-owned retention; portable profile's unassigned status is not silently amended | Owner review of this exact crosswalk, B12 adapter/support, collection/correction/erasure/retention acceptance |
 | How does outcome-then-momentum close? | Paper-defined independent receiver acceptance, bounded optional momentum, explicit terminal dispositions | Exact source predicates/verifier/settlement policy and horizon; receipt-only workflow completion cannot substitute |
 | How does the full Workstream remain connected? | Blueprint §11: project HLT, goal branches, requirements/Worksets, graphs/Workpoints, core primitives and state/gap return paths | Exact supported relations and full coverage/Short-Medium-Full/native surface parity; no strict-container duplication or source-only runtime claim |
 | Which setup/channel combinations are supported? | Provider-neutral, explicit hosting and SMS/push limits | Deployment-specific identity, consent, outage, accessibility and cost |
@@ -230,7 +237,7 @@ Each must be settled in its owning specification or explicitly accepted crosswal
 
 ### 6.1 Handoff to the agent owning memory implementation
 
-**Reading path:** [Master Loop](02-sovos-master-loop-draft.md), §11.1 → [detailed blueprint](05-sovos-master-loop-integration-blueprint.md), §§8–9,11 → [joint memory simulation](03-sovos-master-loop-alarm-and-simulation-design.md), §10.1 → [IIT research](03-sovos-master-loop-alarm-and-simulation-design.md), §12 → [portable memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md), §§2–13 and ownership routing. These are revision 0.3.0 design proposals, not a memory cutover or implementation assignment. Cite the exact fetched Git revision; being pushed does not prove a running agent loaded it.
+**Reading path:** [Master Loop](02-sovos-master-loop-draft.md), §11.1 → [detailed blueprint](05-sovos-master-loop-integration-blueprint.md), §§8–9,11 → [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md), B09–B12/§9 → [joint memory simulation](03-sovos-master-loop-alarm-and-simulation-design.md), §10.1 → [IIT research](03-sovos-master-loop-alarm-and-simulation-design.md), §12 → [portable memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md), §§2–13 and ownership routing. These are revision 0.4.0 design proposals, not a memory cutover or implementation assignment. Cite the exact fetched Git revision; being pushed does not prove a running agent loaded it.
 
 **Respect active ownership:** this revision does not edit the portable memory profile, Wirebot memory docs/code, review queue, sink jobs, native bindings or V1 runtime. The memory agent continues its existing verified assignment. Its findings can revise these same documents; this handoff does not create another memory backlog, authority or writer.
 
@@ -259,7 +266,7 @@ These are inspected source/doc anchors, not declared public callable contracts. 
 
 **Receiving-agent disposition:** record each seam as supported-source-only, deployed/consumer-proven, unsupported, conflicting, or proposed extension, with evidence and exact source revision. Return corrections as bounded revisions to this register; never convert the gut–brain metaphor, a memory retrieval, or a simulated Phi into new permission. Proposed callback names/fields in §11.1 are design requirements, not registrations to implement blindly.
 
-### 6.2 Revision 0.3.0 review dispositions — not completion claims
+### 6.2 Revision 0.4.0 review dispositions — not completion claims
 
 | Concern | Paper disposition now | Remaining admission condition |
 |---|---|---|
@@ -269,10 +276,10 @@ These are inspected source/doc anchors, not declared public callable contracts. 
 | Human ownership/competing effects/resources | Accepted handoff, incumbent reuse, stable logical effect across retry/migration and no-self-renew rules defined | Real actor/provider/lease/conditional-write and budget policies |
 | Correction/receiver proof/memory | Dependency-limited invalidation, independent acceptance and current eligibility boundaries defined | Transcript/retention/writer ownership and actual review/delivery/consumer proofs |
 | Whole Workstreams and core primitives | #618 Full/Medium/Short, no-orphan coverage, existing progression loop and family guard matrix defined | Exact current semantic/work/verifier/operation support and representative whole-outcome/native consumer acceptance |
-| Adversarial acceptance | Sixteen falsification predicates, concrete inquiry trace and two-branch/shared-dependency overlay defined | Owner review, applicable executable fixtures after admission, producer/consumer/interop/live evidence |
+| Adversarial acceptance | Twenty-four falsification predicates, concrete inquiry trace and two-branch/shared-dependency overlay defined; native B01–B12 source/extension sheets | Owner review, applicable executable fixtures after admission, producer/consumer/interop/live evidence |
 | Scientific/math scope | Existing IIT/source distinctions and independent operational controls preserved | Exact finite formulation/TPM/software review if included; no Phi target or consciousness assumption |
 
-This closes ambiguity on paper by choosing explicit proposals and predicates, not by claiming product support or owner approval. Remaining constraints are exact qualification, quantitative policy, bounded source coverage and review—not a request for a new registry or more abstract architecture.
+This resolves ordinary paper semantics through explicit proposals, exact native findings and parameter contracts, not by claiming support or owner approval. Twelve handoff sheets now name actual/proposed operations, current field/error/version constraints, unknown behavior and tests. Remaining boundaries are accepted ownership/extensions, relevant source/consumer qualification and deployment-specific policies—not another registry or blanket prerequisite that every future feature already exists.
 
 ## 7. Specification-completeness gate
 
@@ -289,7 +296,7 @@ The entire bounded Master Loop specification must pass this gate BEFORE task or 
 - [ ] Decision-model applicability, privacy routes, calibration/abstention, resource placement and failure behavior specified; no vendor claim substitutes for proof.
 - [ ] Mathematical-engine applicability/assumptions and normalized result/composition bindings specified.
 - [ ] Memory/transcript/correction/retention/writer boundaries and V1/native compatibility settled for intended use.
-- [ ] Reciprocal episode/review/delivery/eligible-recall/invalidation seams mapped to memory-owner operations; joint controls prove contribution without a second store or worker-wide disclosure.
+- [ ] Reciprocal episode/review/delivery/eligible-recall/invalidation seams mapped to supported/accepted memory-owner contracts; joint controls define observable contribution/rejection without a second store or worker-wide disclosure.
 - [ ] Scope, delegated authority, credentials, human-reserved decisions, takeover, pause/revoke and cross-client denial covered.
 - [ ] Three whole-loop synthetic scenarios and adverse variants have independently specified success/failure predicates.
 - [ ] Virtual intact/partition/ablation model is precise; IIT version, equations, state/grain/independence, normalized partitions, software bounds and paper-vector reproduction are reviewed.
@@ -301,7 +308,7 @@ The entire bounded Master Loop specification must pass this gate BEFORE task or 
 - [ ] All consequential contradictions resolved or explicitly excluded; exclusions preserve the agreed system intent.
 - [ ] Operator review/corrections incorporated; draft revision and intended future implementation ceiling explicit.
 
-Completeness does not mean every future feature is included or every product already implements the needed change. It means the agreed system boundary is sufficiently specified that necessary changes can be decomposed without inventing responsibilities, policy, contracts or acceptance while coding.
+Completeness does not mean every future feature is included or every product already implements the needed change. It means the agreed system boundary is sufficiently specified that necessary changes can be decomposed without inventing responsibilities, policy, contracts or acceptance while coding. Required extension behavior and future proof predicates must be accepted before Tasks; executing those proofs and qualifying new code belongs to later authorized building. Actual private values are commissioned through typed accepted parameter contracts, not exposed in portable source.
 
 ## 8. Preservation and verification record
 
@@ -316,6 +323,8 @@ Those 0.2.0 checks were NOT the full repository/contract suite: the execution-ho
 Revision 0.3.0's change is paper-only: four revised companions/index plus one numbered integration blueprint, with proposed signatures, 50 stable requirement IDs and 16 design-level falsification predicates—not runtime schemas, Tasks or CallGraphs. Current pinned Focusa guide/issue/core source and preserved concurrent memory anchors inform it. Five-file static checks cover 106 relative links, version/status, fences, size, secret-like patterns and requirement-to-proof-family coverage. Each companion remains below 500 lines. These checks validate document consistency, not scenario execution or semantic correctness by themselves.
 
 The 0.3.0 approved-host offline-suite launch was not accepted either; a successful diagnostic ledger read found no matching job. The suite was not run, not failed, and no local/raw heavy fallback was substituted. Validation/publication details belong in the delivery receipt. No runtime, simulator, model, memory cutover or cross-surface activation is claimed.
+
+Revision 0.4.0 adds only the numbered contract-resolution annex and reconciles the four existing companions/index: 50 design obligations remain, now linked to twelve handoff sheets and 24 planned predicates. OpenClaw package code/docs, pinned Focusa temporal/conversation/role contracts and current local memory routes were reviewed; no customer data or runtime API effects were exercised. Static-check counts/publication identities belong in the delivery receipt. Full suites/model/simulation/consumer results were not run; unchanged unadmitted execution is not retried or replaced with raw/local heavy work.
 
 Publication is documentation-only to the existing `Startempire-Wire/agent-driven-life-business-os` repository on `main`; branch/source presence is not installed runtime or proof that another agent loaded the revision. The publication commit and remote readback belong in the delivery receipt rather than a self-referential commit hash in these documents.
 

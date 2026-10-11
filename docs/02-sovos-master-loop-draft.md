@@ -1,10 +1,10 @@
 # SOVOS Master Loop — Integrated Chief-of-Staff Organism
 
 **Status:** INCUBATING — operator-requested draft; specification incomplete; not implementation authority.<br>
-**Draft revision:** 0.3.0, 2026-10-11 — detailed compiler-to-outcome integration blueprint.<br>
+**Draft revision:** 0.4.0, 2026-10-11 — exact handoff, ownership and policy resolution pass.<br>
 **Activity ceiling:** preserve, research, reconcile and enrich the specification; no implementation, activation, task/CallGraph decomposition, schedule creation or model installation.<br>
 **Authority:** [Owner Constitution](../OWNER_AUTHORITY_CONSTITUTION.md); existing [ecosystem architecture](../CURRENT_ECOSYSTEM_ARCHITECTURE.md) and concern-owning contracts remain controlling.
-**Companions:** [alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md); [source, integration and completeness register](04-sovos-master-loop-source-and-integration-register.md); [detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md).
+**Companions:** [alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md); [source, integration and completeness register](04-sovos-master-loop-source-and-integration-register.md); [detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md); [contract and policy resolution](06-sovos-master-loop-contract-and-policy-resolution.md).
 
 ## 1. Purpose, preservation and draft boundaries
 
@@ -346,7 +346,7 @@ The lower arrow is real only when eligible recall demonstrably changes the next 
 - Replayed accepted episodes deduplicate by source identity/revision and destination; copied sinks are not independent evidence.
 - Native state maintenance and memory delivery are distinct operations. No second native writer or reasoning feeder is activated by this connection.
 - Allowed failover stays within explicit residency/disclosure policy. Portable profile failover guidance does not permit private local records to escape to a hosted provider.
-- Transcript ownership remains unresolved; a source-backed episode is not blanket permission to retain raw conversations, audio, location or customer payloads.
+- Transcript ownership remains unapproved; [the resolution annex](06-sovos-master-loop-contract-and-policy-resolution.md) recommends Focusa Spec 181 for qualified conversation meaning/lineage, runtime capture custody and deployment-owned retention. Draft ledger direction is not installed support or permission to retain raw conversations, audio, location or customer payloads.
 
 **Worked example:** a prior approved handoff says a VA already owns a payout investigation. The current billing complaint retrieves that fact, then rechecks live assignment/case status before routing. The VA's verified outcome supplies a new reviewable episode. A later correction withdraws the stale ownership fact and invalidates dependent routing context; it does not replay a refund. A recurrence must retrieve the accepted correction, avoid duplicate assignment and confirm the receiver outcome. Unknown retrieval coverage preserves the concern rather than manufacturing "no existing work."
 
@@ -384,12 +384,15 @@ Draft maturation is source review → reconciliation → detailed contracts/beha
 
 The [detailed blueprint](05-sovos-master-loop-integration-blueprint.md) is the design-level closure crosswalk: compiler linking and semantic identity; source commitments and watch ownership; optional asynchronous judgment; existing-human acceptance and competing effects; correction/pause/restart; independent receiver acceptance and reciprocal memory. Its requirement IDs are not work items. The register distinguishes paper-defined proposals, supported-source-only seams and still-unqualified operations rather than checking readiness from prose volume.
 
-Paper readiness does not require every future algorithm or UI to exist. Required dependencies need exact supported interfaces or reviewed extension designs; optional research must be explicitly off-path. No implementation begins merely because a draft revision is published.
+The [contract/policy annex](06-sovos-master-loop-contract-and-policy-resolution.md) supplies twelve producer/consumer sheets, exact routine-v1 reference paths, native scheduler/memory interface findings and proposed missing-operation behavior. It separates unresolved semantics from parameterized deployment values and source implementation from actual consumer support. Admin scheduling, a quiet delivery flag, a reviewer header, source code or a stored transcript cannot substitute for current authorization/acceptance.
+
+Paper readiness does not require every future algorithm or UI to exist. Required dependencies need exact supported interfaces or reviewed extension designs; optional research must be explicitly off-path. Planned producer/consumer/interop/live predicates need to be precise before Tasks; their execution belongs to later authorized implementation/qualification, not a circular demand that unbuilt extensions already pass. No implementation begins merely because a draft revision is published.
 
 ## 15. Change log and preservation record
 
+- **0.4.0:** narrows ownership proposals to source commitments, a minimal Wirebot concern projection, existing scheduler watches and Spec 181 conversation lineage/capture/retention separation; adds twelve exact/proposed handoff sheets, current routine-field mappings, scheduler privilege/declaration/CAS/delivery boundaries, review/recall/writer contracts and typed operating-policy parameters; adds eight planned native-seam counterexamples without changing code, schemas or concurrent memory work.
 - **0.3.0:** adds a detailed integration blueprint with proposed responsibility allocation, compiler/effect crosswalk, logical pre/postconditions, guarded lifecycles, asynchronous judgment validity, human/VA coordination, stable effect identity across retries/migration, correction/recovery and receiver/memory closure; integrates whole Workstreams, full Trajectory coverage and the relevant Focusa core primitives under #618; adds concrete synthetic trace and negative predicates; qualifies actual compiler/settlement code and remaining source concerns without changing it.
 - **0.2.0:** deepens Tononi/Koch primary-source grounding; distinguishes integration from rich causal structure and intelligent improvement from blind Phi maximization; specifies reciprocal Master Loop–memory seams, correction/eligibility/delivery boundaries and receiving-memory-agent questions. Documentation publication is authorized; code, runtime, schemas and decomposition remain excluded.
 - **0.1.0:** preserves the full session concept; restores alarms, mathematical intelligence, routines, existing humans, memory, owner channels, bodies, outcome/momentum and IIT alongside—not underneath—the decision models. Adds source/integration register and detailed alarm/simulation annex. All proposed contracts remain prose, no runtime changes.
-- Revision 0.3.0 starts from published SOVOS `1bde0f4ecf6336c01f9df034890d1d1cba92e9a8`; the original draft baseline was `695738c42745720c563c2956fea586e49bc38fa4`. Source review date is 2026-10-11. Sibling working trees contain concurrent changes and were not edited.
+- Revision 0.4.0 starts from published SOVOS `6c74b7edd31d3b290dbbac7b1239bd0ba2b95e8c`; 0.3.0 started at `1bde0f4ecf6336c01f9df034890d1d1cba92e9a8`, and the original draft at `695738c42745720c563c2956fea586e49bc38fa4`. Source review date is 2026-10-11. Sibling working trees contain concurrent changes and were not edited.
 - Not yet claimed: exhaustive repository/spec review; exact deployed bindings; measured model comparison; simulated run results; completed specification; implementation readiness; new active routine or worker.
