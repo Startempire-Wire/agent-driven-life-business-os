@@ -1,11 +1,12 @@
 # SOVOS Master Loop — Detailed Integration Blueprint
 
 **Status:** INCUBATING — proposed paper design; no implementation or activation authority.<br>
-**Draft revision:** 0.4.0, 2026-10-11 — binding and operating-policy resolution pass.<br>
+**Draft revision:** 0.5.0, 2026-10-11 — completed planning with worked recovery, contention and acceptance boundary.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Evidence and unresolved bindings:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
 **Scenario/proof design:** [alarm and simulation annex](03-sovos-master-loop-alarm-and-simulation-design.md).<br>
-**Exact/proposed handoffs and policy parameters:** [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md).
+**Exact/proposed handoffs and policy parameters:** [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md).<br>
+**Instantiated decisions and final review packet:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).
 
 ## 1. Purpose and interpretation
 
@@ -173,7 +174,7 @@ A result retains: request/question/information-set identity; provider/model/meth
 
 **ML-RESOURCE-01:** bind per-instance and shared limits for event buffers, concurrent attempts/models/specialists, source API rate, retries, wall time, money, CPU/memory and notification/owner attention. Hard caps are enforced by the actual owner. Missing mandatory limits block the corresponding optional workload; exhaustion does not self-renew.
 
-**ML-RESOURCE-02:** priority considers owner purpose, authoritative time, consequence, evidence quality, dependencies and capacity as distinct dimensions. Reserve useful capacity for genuine exceptions and prevent indefinite starvation across permitted domains. Policies name preemption, wait, coalescing and fairness behavior; no invented emergency, overtime or hiring.
+**ML-RESOURCE-02:** priority considers owner purpose, authoritative time, consequence, evidence quality, dependencies and capacity as distinct dimensions. Reserve useful capacity for genuine exceptions and prevent indefinite starvation across permitted domains. Policies name preemption, wait, coalescing and fairness behavior; no invented emergency, overtime or hiring. The [worked contention/cost rule](07-sovos-master-loop-planning-closure-and-worked-decisions.md), §4, instantiates this requirement through existing owners, showing reservations, safe preemption, infeasible allocation and separately calibrated error costs rather than a new priority store.
 
 **ML-RESOURCE-03:** self-generated events and mirrors retain origin/causal lineage. Repeated no-new-evidence activity is coalesced, deferred or escalated under a bounded policy, not recursively reinjected. Suppression cannot erase a serious independent event. Report affected dropped/deferred coverage rather than claim complete sensing.
 
@@ -332,4 +333,4 @@ Review gates:
 
 IIT research remains separate: its version, assumptions, finite model and measurement method require precise review if included; neither a chosen Phi target nor platform consciousness is a deployment prerequisite. Optional algorithms/models/UI do not block a correct deterministic first binding merely by being unimplemented. However, unsupported required dependencies must be resolved or explicitly excluded, never silently treated as optional.
 
-**Current disposition:** concrete responsibilities, native-interface findings, proposed missing-operation behavior and operating-parameter contracts now have a dedicated resolution annex; still INCUBATING. Concern persistence, transcript convergence and required extensions need owner/product review. Actual API/consumer qualification and writer fencing remain evidence gates; deployment-specific numerical values/calibration are required before affected activation, not fabricated portable constants. Remaining required source/contract coverage and complete-specification review precede decomposition. No implementation or activation is performed by this revision.
+**Current disposition:** bounded planning is finished as an INCUBATING owner-review candidate. [Closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md) supplies worked cases/races, shared-capacity and cost decisions, human-visible behavior, finite source/compatibility dispositions and the final acceptance packet. The 50 obligations remain unchanged. Concern persistence, conversation/capture/retention and required owning extensions are precise proposals awaiting acceptance, not missing coder choices. Current API/consumer support, writer fencing and actual deployment policies still require their own qualification. Optional scientific conformance is separately gated. No Tasks, implementation or activation is granted by this revision.

@@ -1,11 +1,12 @@
 # SOVOS Master Loop — Source Coverage, Integration Seams and Completeness
 
 **Status:** INCUBATING — source-backed draft register; not a task queue, runtime registry or approval.<br>
-**Draft revision:** 0.4.0, 2026-10-11 — native interfaces, recommended ownership and operating-policy contracts.<br>
+**Draft revision:** 0.5.0, 2026-10-11 — completed bounded planning and finite review/qualification dispositions.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Behavioral annex:** [alarms and simulations](03-sovos-master-loop-alarm-and-simulation-design.md).<br>
 **Detailed paper contract:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
-**Exact/proposed handoffs and policy resolution:** [contract sheets](06-sovos-master-loop-contract-and-policy-resolution.md).
+**Exact/proposed handoffs and policy resolution:** [contract sheets](06-sovos-master-loop-contract-and-policy-resolution.md).<br>
+**Worked decisions, finite applicability and final review:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).
 
 ## 1. Evidence discipline
 
@@ -19,7 +20,7 @@ Current activity: owner-directed detailed paper refinement, not implementation. 
 
 | Repository/path | Observed local baseline | Review boundary |
 |---|---|---|
-| SOVOS `/root/agent-driven-life-business-os` | `6c74b7edd31d3b290dbbac7b1239bd0ba2b95e8c`, published 0.3.0, clean before 0.4.0; earlier 0.2.0 `1bde0f4`, original `695738c` | Only Master Loop companions/index and numbered contract-resolution annex changed |
+| SOVOS `/root/agent-driven-life-business-os` | `541717ed549474d2d755c2f383cc30efe9c28b6f`, published 0.4.0, clean before 0.5.0; earlier 0.3.0 `6c74b7e`, 0.2.0 `1bde0f4`, original `695738c` | Only Master Loop companions/index and numbered contract-resolution annex changed |
 | Focusa `/home/wirebot/focusa` | Older local `16f2eeef0`; local identity/task artifacts preserved | Local selected source is not latest public main; no checkout/update/installation performed |
 | Focusa published source | `b10c605e1e0ccbdb43d9650945adde7a87fec25d`, GitHub main observed 2026-10-11 | Current guide and selected core documents/code cached read-only; not installed/runtime qualification |
 | Wirebot Core `/home/wirebot/wirebot-core` | `84eee29`; extensive staged/unstaged concurrent work | Current file contents may exceed HEAD; memory/native transition and other staged work are not certified deployed |
@@ -143,11 +144,11 @@ These primary sources ground candidate selection, not a new live benchmark. No l
 | [Kleiner/Tull formalization](https://doi.org/10.3389/fams.2020.602973) | Supplementary generalized mathematical treatment, not the requested primary lineage or assumed 4.0 identity |
 | [IIT simulation design](03-sovos-master-loop-alarm-and-simulation-design.md), §12 | Versioned source-to-principle-to-test crosswalk, finite-model requirements and constrained multi-objective improvement; no numerical computation or deployed Phi |
 
-## 3. Repository coverage that remains necessary
+## 3. Source coverage and affected-use qualification
 
-"All repositories" must become a finite, owner-scoped source manifest. Do not scan unrelated customers, private accounts or backups to satisfy that phrase. Use the architecture router and each product's authoritative checkout/spec index; record exclusions and inaccessible regions explicitly.
+The finite design denominator is now dispositioned in [closure §6](07-sovos-master-loop-planning-closure-and-worked-decisions.md): included contract boundaries, conditional capabilities, historical/unreviewed regions and excluded operational mutations. This is not a claim all repositories/code were audited. The table below retains source limitations and affected-use qualification; it is not an invitation to scan unrelated customers, private accounts, backups or every optional product before finishing planning. Actual source/contract contradictions in a selected seam still require resolution before its dependent decomposition.
 
-| Owning area | Current coverage | Required reconciliation before completeness |
+| Owning area | Current coverage | Required qualification when selected |
 |---|---|---|
 | SOVOS doctrine/contracts/library | Central current sources reviewed; tracked Markdown inventory observed | Full disposition of remaining root profiles, Golden Path 02/05–11/handoff, structured artifacts and compatibility/history |
 | Focusa core/API/harness/Workforce | Selected specs and source seams reviewed | Current source/runtime version; operation-specific inputs/outputs, grants, dispatch/settlement, continuation and consumer proof |
@@ -213,18 +214,20 @@ Every real seam needs a sheet with: source and consumer repo/revision; owner; ex
 11. **Full-Sovereign versus managed service:** dedicated VPS/mesh/body contract is not a label for any container; local Kai or tailnet access alone proves neither tenant isolation nor sovereignty.
 12. **Forecast versus deadline:** hazard/response estimates inform checks; they do not alter accepted source deadlines or waive temporal ownership.
 
-Each must be settled in its owning specification or explicitly accepted crosswalk before coding the affected seam. Recording a conflict is not resolving it.
+[Closure §6.1](07-sovos-master-loop-planning-closure-and-worked-decisions.md) now records a definite recommended crosswalk for each of these twelve concerns. The paper no longer leaves their interpretation to a coder. Owner/product acceptance and actual consumer qualification remain separate; no sibling contract or runtime was silently amended.
 
-## 6. Unresolved design register — not tasks
+## 6. Final design dispositions — not Tasks or approval
 
-| Question | Current draft posture | Resolution evidence required |
+[Closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md) finishes the bounded design recommendations. The following table distinguishes specified design from owner acceptance, deployment values and empirical qualification. These are finite dispositions, not a fresh open-ended planning queue.
+
+| Design subject | Final candidate / parameter boundary | Later acceptance or qualification |
 |---|---|---|
 | Who persists alarm case/expectation state? | Source-native or authenticated explicit-owner intent; durable attributable source/watch binding; minimal conditionally revised Wirebot projection; existing scheduler; Focusa work. No compulsory external task per reminder | Owner/product review; exact extension and consumer qualification in contract sheets §§2–6, not a new commitment/task database |
-| What is the minimum connector/result contract? | Reuse existing source/signal/ref/Intelligence Result seams first | Field/error/version crosswalk and old/new consumers |
+| What is the minimum connector/result contract? | 06 B01/common handoff table and closure §4.3 fix typed source/result, coverage, units, assumptions, uncertainty and unavailable behavior; existing registries only | Exact native/accepted extension mapping and versioned producer/consumer proof |
 | How are relevance/severity/uncertainty prioritized? | Contract sheet §9 specifies owner/time/consequence/critical path, fairness and parameter types/units/missing-value behavior | Binding-specific values/error costs and held-out calibration before affected activation; not fabricated portable constants |
 | Which math engines improve actual cases? | Methods are reservoir, not mandatory footprint | Defined inputs/assumptions/baseline and measured benefit |
 | Where does fast judgment execute? | Async; Kai local candidate; hosted only permitted | Hardware/licensing/quality/privacy/budget plus consumer latency |
-| What are calibration/abstention thresholds? | No fabricated universal numeric threshold | Shared held-out cases, error costs and approved risk policy |
+| What are calibration/abstention thresholds? | Closure §4.2 fixes permitted-choice/error-cost procedure and two worked synthetic losses, not a universal threshold | Actual held-out calibration and owner-approved consequence costs before affected use |
 | How are existing humans bound? | Paper-defined offered/accepted/declined/unacknowledged responsibility; incumbent reuse and fenced reassignment | Actual assignee identity/state/handoff/capacity interfaces and current allowed role/context |
 | Which current scheduler/run owners are usable? | Installed OpenClaw docs/selected code qualify native command/trigger/declaration surfaces on source level; B03 specifies entry guard and readback | Public conditional mutation/fenced writer, actual current grants and terminal/receiver consumer acceptance; no admin/quiet flag bypass |
 | Who maintains native business state? | Recommended primary-loop proposal → sole existing memory-owner sink writer; native disabled/V1 preserved | B11 writer generation, source revision, expiry/takeover, ambiguous completion and restore proof before cutover |
@@ -232,12 +235,12 @@ Each must be settled in its owning specification or explicitly accepted crosswal
 | How does outcome-then-momentum close? | Paper-defined independent receiver acceptance, bounded optional momentum, explicit terminal dispositions | Exact source predicates/verifier/settlement policy and horizon; receipt-only workflow completion cannot substitute |
 | How does the full Workstream remain connected? | Blueprint §11: project HLT, goal branches, requirements/Worksets, graphs/Workpoints, core primitives and state/gap return paths | Exact supported relations and full coverage/Short-Medium-Full/native surface parity; no strict-container duplication or source-only runtime claim |
 | Which setup/channel combinations are supported? | Provider-neutral, explicit hosting and SMS/push limits | Deployment-specific identity, consent, outage, accessibility and cost |
-| What does the IIT experiment actually calculate? | Separate small finite network, not deployed Phi | Reviewed formulation, transition model, temporal grain and reproducible method |
-| What is the complete source denominator? | Relevant repo/spec inventory in progress | Each required area reviewed, excluded with rationale, superseded or unavailable with accepted design |
+| What does the IIT experiment actually calculate? | Closure §7.2 fixes a four-unit/sixteen-state synchronous IIT 4.0 proposal, priors/background/grain/subset search and separate system/structure targets; off operational path | Numerical software/equation/partition conformance and published-vector reproduction before separately authorized scientific implementation |
+| What is the complete source denominator? | Closure §6 assigns included/conditional/historical/excluded areas; current ledger preserves exactly reviewed sources | Accept bounded applicability; qualify actual selected bindings, never claim unreviewed corpus is audited |
 
 ### 6.1 Handoff to the agent owning memory implementation
 
-**Reading path:** [Master Loop](02-sovos-master-loop-draft.md), §11.1 → [detailed blueprint](05-sovos-master-loop-integration-blueprint.md), §§8–9,11 → [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md), B09–B12/§9 → [joint memory simulation](03-sovos-master-loop-alarm-and-simulation-design.md), §10.1 → [IIT research](03-sovos-master-loop-alarm-and-simulation-design.md), §12 → [portable memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md), §§2–13 and ownership routing. These are revision 0.4.0 design proposals, not a memory cutover or implementation assignment. Cite the exact fetched Git revision; being pushed does not prove a running agent loaded it.
+**Reading path:** [Master Loop](02-sovos-master-loop-draft.md), §11.1 → [detailed blueprint](05-sovos-master-loop-integration-blueprint.md), §§8–9,11 → [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md), B09–B12/§9 → [joint memory simulation](03-sovos-master-loop-alarm-and-simulation-design.md), §10.1 → [IIT research](03-sovos-master-loop-alarm-and-simulation-design.md), §12 → [portable memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md), §§2–13 and ownership routing. These are revision 0.5.0 design proposals, not a memory cutover or implementation assignment. Cite the exact fetched Git revision; being pushed does not prove a running agent loaded it.
 
 **Respect active ownership:** this revision does not edit the portable memory profile, Wirebot memory docs/code, review queue, sink jobs, native bindings or V1 runtime. The memory agent continues its existing verified assignment. Its findings can revise these same documents; this handoff does not create another memory backlog, authority or writer.
 
@@ -266,7 +269,7 @@ These are inspected source/doc anchors, not declared public callable contracts. 
 
 **Receiving-agent disposition:** record each seam as supported-source-only, deployed/consumer-proven, unsupported, conflicting, or proposed extension, with evidence and exact source revision. Return corrections as bounded revisions to this register; never convert the gut–brain metaphor, a memory retrieval, or a simulated Phi into new permission. Proposed callback names/fields in §11.1 are design requirements, not registrations to implement blindly.
 
-### 6.2 Revision 0.4.0 review dispositions — not completion claims
+### 6.2 Revision 0.5.0 planning and qualification dispositions
 
 | Concern | Paper disposition now | Remaining admission condition |
 |---|---|---|
@@ -277,38 +280,33 @@ These are inspected source/doc anchors, not declared public callable contracts. 
 | Correction/receiver proof/memory | Dependency-limited invalidation, independent acceptance and current eligibility boundaries defined | Transcript/retention/writer ownership and actual review/delivery/consumer proofs |
 | Whole Workstreams and core primitives | #618 Full/Medium/Short, no-orphan coverage, existing progression loop and family guard matrix defined | Exact current semantic/work/verifier/operation support and representative whole-outcome/native consumer acceptance |
 | Adversarial acceptance | Twenty-four falsification predicates, concrete inquiry trace and two-branch/shared-dependency overlay defined; native B01–B12 source/extension sheets | Owner review, applicable executable fixtures after admission, producer/consumer/interop/live evidence |
-| Scientific/math scope | Existing IIT/source distinctions and independent operational controls preserved | Exact finite formulation/TPM/software review if included; no Phi target or consciousness assumption |
+| Scientific/math scope | Version-pure research protocol and explicit complete four-unit next-state proposal; independent operational controls preserved | Actual IIT software/mathematical conformance before optional numerics; no consciousness or operational-dependency claim |
+| Final planning closure | Normal/absence/quiet worlds, dispatch/correction/takeover/restore races, contention, calibrated cost example, human experience and finite applicability all instantiated in 07 | Owner may accept/amend this finite candidate; actual contracts/parameters/proofs still qualify separately |
 
-This resolves ordinary paper semantics through explicit proposals, exact native findings and parameter contracts, not by claiming support or owner approval. Twelve handoff sheets now name actual/proposed operations, current field/error/version constraints, unknown behavior and tests. Remaining boundaries are accepted ownership/extensions, relevant source/consumer qualification and deployment-specific policies—not another registry or blanket prerequisite that every future feature already exists.
+Planning is complete for this bounded assignment. Twelve handoff sheets and the 50 obligations have worked decision/proof homes; the closure distinguishes approval, actual operation support, deployment-specific values and future empirical results. None is fabricated or silently treated as delivered. Remaining acceptance/qualification is not another registry, blanket whole-corpus audit or new general planning loop.
 
-## 7. Specification-completeness gate
+## 7. Finished planning versus admission to later work
 
-The entire bounded Master Loop specification must pass this gate BEFORE task or CallGraph decomposition. No checkbox is checked merely by writing a more detailed revision. Paper-defined proposals and inspected code are distinct from accepted contracts, operation qualification and executed proof.
+A single unchecked checklist previously mixed design, approval, commissioning and runtime proofs. Replace that ambiguity with this finite matrix. **Specified** means the candidate contains the semantics and proof obligation; it does not mean approved, installed or empirically passed. Decomposition still requires acceptance of the bounded design and required owning extensions.
 
-- [ ] Finite ecosystem repository/spec/contract manifest reconciled; current owners, baselines, coverage and unavailable regions recorded.
-- [ ] All session requirements trace to a design section, source basis, owning component and acceptance predicate; no alarm/model/IIT narrowing.
-- [ ] Every required integration sheet names exact behavior and supported interfaces or an explicitly accepted new design—not a guess.
-- [ ] Signal/expectation/case/attention/work/run/outcome/momentum ownership and transitions settled without parallel authorities.
-- [ ] Whole-Workstream/full-Trajectory coverage and core primitive inputs/consumers/guards mapped; shared work counted once; no orphan requirements/actions or false last-leaf completion.
-- [ ] Receipt/verification/settlement returns to current state/gap, affected dependency refinement and next frontier under #618; relevant surfaces consume the same scoped records.
-- [ ] All alarm families, absent events, correlation/split/dedupe and health/recovery paths reviewed.
-- [ ] Existing routines, Standup, sensors, employees/managers/VAs and in-flight work reconciled before any new activation.
-- [ ] Decision-model applicability, privacy routes, calibration/abstention, resource placement and failure behavior specified; no vendor claim substitutes for proof.
-- [ ] Mathematical-engine applicability/assumptions and normalized result/composition bindings specified.
-- [ ] Memory/transcript/correction/retention/writer boundaries and V1/native compatibility settled for intended use.
-- [ ] Reciprocal episode/review/delivery/eligible-recall/invalidation seams mapped to supported/accepted memory-owner contracts; joint controls define observable contribution/rejection without a second store or worker-wide disclosure.
-- [ ] Scope, delegated authority, credentials, human-reserved decisions, takeover, pause/revoke and cross-client denial covered.
-- [ ] Three whole-loop synthetic scenarios and adverse variants have independently specified success/failure predicates.
-- [ ] Virtual intact/partition/ablation model is precise; IIT version, equations, state/grain/independence, normalized partitions, software bounds and paper-vector reproduction are reviewed.
-- [ ] Intelligent integration has predeclared hypotheses, held-out controls, separate `φ_s`/structure `Φ`/outcome dimensions, rejection rules and hard privacy/authority constraints.
-- [ ] Outcome verification, follow-through, momentum, leverage and optional W.I.N.S./federation semantics reconciled.
-- [ ] Timing, concurrency, backpressure, budgets, observability, source outage, replay and disaster recovery designed to the actual consequence.
-- [ ] UI/API/CLI/voice semantics and trusted components map to the same operations; unavailable behavior is honest.
-- [ ] Producer/consumer/cross-version/live proof obligations and migration/rollback described per product owner.
-- [ ] All consequential contradictions resolved or explicitly excluded; exclusions preserve the agreed system intent.
-- [ ] Operator review/corrections incorporated; draft revision and intended future implementation ceiling explicit.
+| Planning coverage now specified | Authoritative design/proof home | Acceptance / later evidence boundary |
+|---|---|---|
+| Whole purpose, life/business/team scope and no model/IIT narrowing | 02 §§1–3; 05 §11; 07 §1 | Owner acceptance of this exact boundary/revision |
+| Finite source denominator, lineage and all twelve conflicts | 04 §§1–5; 07 §6 | Accept crosswalks; current selected-source qualification, no exhaustive-corpus claim |
+| Ownership, guarded states, source/watch/concern/attention | 05 §§2,4–5; 06 B01–B03; 07 §2 | Accept proposed persistence/conversation/capture/retention extensions |
+| Compiler semantics, version/effect translation and current authority | 05 §3; 06 §4/B06; 03 T01–T03 | Owning versioned contract and compiler/settlement findings addressed before affected work |
+| Whole Workstream coverage, core inputs/guards and verified-state advancement | 05 §11; 03 §§8.2,9.2 | Actual native relation/frontier/verifier/consumer support |
+| Incumbent employees/routines, acknowledgement and competing resources | 05 §7; 06 B05/§9; 07 §4.1 | Actual source responsibility/capacity/leases and existing automations reconciled before activation |
+| Optional judgment and mathematical results/composition | 02 §§6,8; 05 §6; 06 B04; 07 §§4.2–4.3 | Exact supported method/route/assumptions, policy values and held-out benefit |
+| Effects, correction, pause/revoke, restart, partial recovery and disaster restore | 05 §§7–8; 06 B03/B06; 07 §3 | Actual conditional/fenced commit boundaries, generations, intent reconciliation and recovery proof |
+| Receiver outcome, bounded momentum, useful capacity and human-facing meanings | 05 §§9–10; 06 B08; 07 §§2,5 | Independent predicates/source acceptance; matched total burden, not notification/task counts |
+| Memory review/delivery/recall/retention/writer and V1 compatibility | 02 §11.1; 06 B09–B12; 03 §10.1; 07 §3 | Existing memory-owner acceptance/qualification; native disabled until separate cutover proof |
+| Isolation, reserved powers, credential/body/channel/trusted surface control | 02 §§2,11–12; 05 §11.4; 06 B07/B12; 03 T12/T19/T23 | Exact current grants, permitted projections, safe takeover, cleanup and applicable consumer evidence |
+| Three scenarios, quiet/adverse branches and 24 independent predicates | 03 §§8–11; 07 §§2–5,7.1 | Future isolated producer/consumer/interop/live execution, no invented pass results |
+| Operational ablations and version-pure finite IIT research | 03 §§10–12; 07 §7 | Separate empirical protocol/math/software conformance and experiment grant; off operational critical path |
+| Migration and final stopping/review conditions | 05 §§8,12; 06 §10; 07 §8 | Required owner/product acceptance, separately authorized decomposition/build and affected commissioning |
 
-Completeness does not mean every future feature is included or every product already implements the needed change. It means the agreed system boundary is sufficiently specified that necessary changes can be decomposed without inventing responsibilities, policy, contracts or acceptance while coding. Required extension behavior and future proof predicates must be accepted before Tasks; executing those proofs and qualifying new code belongs to later authorized building. Actual private values are commissioned through typed accepted parameter contracts, not exposed in portable source.
+The planning assignment is complete; the candidate is not self-approved. No code must already exist merely to finish paper design, and no private IDs/secrets/calibrated values must be published. Conversely, approval of a design cannot make an unsupported operation callable. Actual empirical results belong to later authorized implementation/qualification. A substantive correction revises the affected home, not an automatic restart of all planning.
 
 ## 8. Preservation and verification record
 
@@ -328,4 +326,6 @@ Revision 0.4.0 adds only the numbered contract-resolution annex and reconciles t
 
 Publication is documentation-only to the existing `Startempire-Wire/agent-driven-life-business-os` repository on `main`; branch/source presence is not installed runtime or proof that another agent loaded the revision. The publication commit and remote readback belong in the delivery receipt rather than a self-referential commit hash in these documents.
 
-Next authorized activity remains source-grounded paper review and exact binding/policy reconciliation—not implementation decomposition. A replacement agent should read the parent, detailed blueprint, proof annex and §6.1 handoff, verify current sources, preserve concurrent changes and address the explicit remaining admission conditions. Requirement IDs and synthetic references here do not become native canonical work merely by being published.
+Revision 0.5.0 completes the bounded planning package with 07's worked normal/absence/recovery/contention/cost/human decisions, finite source and contradiction dispositions, operational protocol and hand-specified four-unit transition proposal. It adds no obligations, Tasks, schema or runtime. Static/document/transition checks and publication identities belong in the receipt; no full suite, model, simulator, native consumer or IIT calculation was run.
+
+The next activity is not automatically resumed from old state. Read the current owner ask and the finite final packet in 07 §8; preserve concurrent changes and the existing memory assignment. Owner/product review, decomposition or implementation need their own scope as applicable. Planning is finished for this assignment, not a claim that publication grants approval or execution.

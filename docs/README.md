@@ -26,19 +26,20 @@
 | Owner notification / response channels | [`../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md`](../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md) |
 | Cross-product refs / freshness / replay | [`../CROSS_PRODUCT_SEAM_CONTRACT.md`](../CROSS_PRODUCT_SEAM_CONTRACT.md) |
 
-## Master Loop — incubating whole-system draft
+## Master Loop — completed planning package, pending acceptance
 
-**Latest draft revision: 0.4.0, 2026-10-11.** This operator-requested draft preserves the whole Chief-of-Staff organism, Tononi/Koch research and reciprocal memory connection. It connects full Workstreams/Trajectory and core primitives under #618, now with twelve native/proposed handoff sheets, exact routine-v1 field mapping, recommended responsibility assignments and typed operating policies. It references current owners rather than replacing their doctrine.
+**Latest draft revision: 0.5.0, 2026-10-11. Planning complete for this bounded assignment; not approved or implemented.** The whole Chief-of-Staff organism, full Workstreams/Trajectory/core primitives, Tononi/Koch research and reciprocal memory connection remain central. Fifty obligations, twelve handoff sheets and twenty-four planned predicates now have worked normal/absence/recovery/contention/cost/human decisions and a finite final acceptance packet. Current product owners remain controlling.
 
+- [Planning closure and worked decisions](07-sovos-master-loop-planning-closure-and-worked-decisions.md) — start here for the finished planning packet: quiet/absence worlds, dispatch/correction/takeover/restore races, shared resources and calibrated cost choices, human experience, finite source/contradiction dispositions, operational protocol and explicit sixteen-state IIT proposal; §8 separates acceptance, commissioning and empirical qualification.
 - [Master Loop draft](02-sovos-master-loop-draft.md) — integrated architecture; §3.2 connects the full Focusa journey, §11.1 the reciprocal memory seam.
 - [Detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md) — proposed owners, compiler linking/effect mapping, logical pre/postconditions, guarded lifecycles, Jev/local judgment, human coordination, correction/recovery and receiver proof; §11 maps Workstreams, Full/Medium/Short, CallGraphs and core primitive consumers/guards.
 - [Contract and policy resolution](06-sovos-master-loop-contract-and-policy-resolution.md) — exact/proposed source/time/scheduler/judgment/actor/effect/outcome/memory/conversation handoffs; admin scheduling, declaration/revision, quiet delivery, review attribution and retention/writer boundaries; production parameters versus fabricated defaults.
 - [Alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md) — twenty-four planned falsification predicates, concrete synthetic inquiry/absence/memory trace, two-branch/shared-dependency Workstream overlay, original life/business/client scenarios and independent IIT/operational controls.
-- [Source and integration register](04-sovos-master-loop-source-and-integration-register.md) — pinned/installed-source versus actual runtime evidence, exact-support gaps and review dispositions; §6.1 is the memory-agent handoff, §6.2 separates paper-defined recommendations from approval/qualification, §7 gates decomposition.
+- [Source and integration register](04-sovos-master-loop-source-and-integration-register.md) — pinned/installed-source versus actual runtime evidence and finite dispositions; §6.1 is the memory-agent handoff, §6.2 separates finished planning from approval/qualification, §7 maps design homes to later admission conditions without an open-ended review loop.
 
 Memory agents should read that handoff alongside the existing [portable memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md). Publishing these proposals does not promote them to canonical memory policy, activate native writes, or supersede another agent's verified assignment.
 
-**INCUBATING; not implementation-ready.** No coding, activation or task/CallGraph decomposition until the complete bounded specification is reviewed. A saved draft or existing source artifact is not a deployed capability.
+**INCUBATING owner-review candidate; planning finished, not implementation-ready.** The final recommendation is explicit; owner/product acceptance and separately authorized decomposition/build still remain. Actual private bindings, empirical qualification and optional IIT numerics are not fabricated or activated by publication. A substantive correction revises its affected section; there is no automatic next general planning pass.
 
 ## Commercial revenue work — first consumer Wirebot
 

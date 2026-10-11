@@ -1,10 +1,10 @@
 # SOVOS Master Loop — Integrated Chief-of-Staff Organism
 
-**Status:** INCUBATING — operator-requested draft; specification incomplete; not implementation authority.<br>
-**Draft revision:** 0.4.0, 2026-10-11 — exact handoff, ownership and policy resolution pass.<br>
+**Status:** INCUBATING — planning package complete for owner review; not approved architecture or implementation authority.<br>
+**Draft revision:** 0.5.0, 2026-10-11 — completed bounded planning, worked decisions and final acceptance boundary.<br>
 **Activity ceiling:** preserve, research, reconcile and enrich the specification; no implementation, activation, task/CallGraph decomposition, schedule creation or model installation.<br>
 **Authority:** [Owner Constitution](../OWNER_AUTHORITY_CONSTITUTION.md); existing [ecosystem architecture](../CURRENT_ECOSYSTEM_ARCHITECTURE.md) and concern-owning contracts remain controlling.
-**Companions:** [alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md); [source, integration and completeness register](04-sovos-master-loop-source-and-integration-register.md); [detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md); [contract and policy resolution](06-sovos-master-loop-contract-and-policy-resolution.md).
+**Companions:** [alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md); [source, integration and completeness register](04-sovos-master-loop-source-and-integration-register.md); [detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md); [contract and policy resolution](06-sovos-master-loop-contract-and-policy-resolution.md); [planning closure and worked decisions](07-sovos-master-loop-planning-closure-and-worked-decisions.md).
 
 ## 1. Purpose, preservation and draft boundaries
 
@@ -208,7 +208,7 @@ Normalize relevant findings to source-linked Intelligence Results: subject, find
 
 Use the current [routine compiler doctrine](../SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md), canonical `routine-templates/` and `routine-packs/`, discovery procedure 12, portfolio compiler 13 and runtime closure 14.
 
-C.R.I.S.T. remains Context → Role → Interview → Spec → Tasks. Source coverage and discovered relationships inform the relevant expert role; targeted interviews resolve consequential unknowns and corrections, not every ordinary implementation choice. New context creates a revision candidate, not a silent rewrite of accepted roles/specifications. This draft is still in Context/Role/Interview/Spec refinement; Tasks are deliberately withheld. A large project corpus is served through bounded projections, not squeezed wholesale into one prompt. Never union the superseded `templates/routines/` path as a second catalog.
+C.R.I.S.T. remains Context → Role → Interview → Spec → Tasks. Source coverage and discovered relationships inform the relevant expert role; targeted interviews resolve consequential unknowns and corrections, not every ordinary implementation choice. New context creates a revision candidate, not a silent rewrite of accepted roles/specifications. This bounded Context/Role/Spec planning package is finished for owner review; its finite decision packet is in [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md), §8. Tasks are deliberately withheld. A large project corpus is served through bounded projections, not squeezed wholesale into one prompt. Never union the superseded `templates/routines/` path as a second catalog.
 
 ```text
 source-backed audit → candidate → pack/template fit → owner-specific blueprint
@@ -293,7 +293,7 @@ Use the [incubating memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md), [A
 - Separate working, stable prefactor, episodic, semantic and archive roles; deployment mappings may vary.
 - Every consequential recall has source, scope, trust, revision, freshness and correction lineage.
 - Broad Chief-of-Staff context does not imply employee/worker disclosure. Role/domain projections must be denied across unauthorized boundaries.
-- Transcript provenance, promoted memory, policy and authority are distinct. Named transcript retention ownership remains an unresolved design item.
+- Transcript provenance, promoted memory, policy and authority are distinct. The final candidate assigns semantic lineage, runtime capture custody and deployment retention separately; this proposal does not amend the portable memory profile or prove an installed ledger.
 - Forgetting/eviction is not erasure; authorized deletion must address derived indexes/caches/archives under the actual retention law.
 - Existing review and durable delivery owners must be reused. Approval, enqueue acceptance, individual sink delivery and real consumer retrieval are separate receipts.
 - Production Letta V1 must not be cut over merely to implement the loop. Native state writes remain disabled by default until migration, bindings, recovery and a cross-host single-writer generation are separately qualified.
@@ -376,11 +376,11 @@ A separate finite-model IIT experiment may calculate a precisely defined quantit
 
 ## 14. Specification completeness before decomposition
 
-This draft is intentionally NOT ready to decompose. The integration register enumerates source coverage, contradictions, missing bindings and explicit readiness criteria. Completing a document revision is not completing the specification.
+The bounded planning package is complete as an owner-review candidate, not approved for decomposition or implementation. [Planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md) fixes worked normal/absence/recovery/contention decisions, finite source applicability and the exact acceptance/qualification boundary. Completion here means finished planning, not self-approved architecture, exhaustive source review or deployed support.
 
 Before any implementation task graph is compiled, every required capability must have: requirement/source; current owner; precise inputs/outputs and state transitions; verified source implementation seam or explicit accepted new design; consumer binding; scope/authority/privacy; failure/recovery/replay/revoke; performance envelope; migration/compatibility; acceptance and evidence requirements. Unresolved consequential choices must be settled, explicitly excluded or covered by an accepted supported design—not delegated to coder improvisation.
 
-Draft maturation is source review → reconciliation → detailed contracts/behavior → adversarial scenario review → operator revision → completeness review. These are specification activities, not executable implementation nodes. Future rollout may use one complete vertical slice and then expand through proven seams, but its task decomposition is prohibited until the full bounded specification passes review.
+The completed source-grounded design records responsibility/contract recommendations, adversarial predicates and worked choices. Remaining owner/product acceptance is a finite disposition of this candidate, not another open-ended planning loop. Future rollout may use one complete vertical slice and expand through proven seams, but decomposition remains prohibited until the bounded specification and required owning extensions are accepted; actual implementation/qualification needs its own grant.
 
 The [detailed blueprint](05-sovos-master-loop-integration-blueprint.md) is the design-level closure crosswalk: compiler linking and semantic identity; source commitments and watch ownership; optional asynchronous judgment; existing-human acceptance and competing effects; correction/pause/restart; independent receiver acceptance and reciprocal memory. Its requirement IDs are not work items. The register distinguishes paper-defined proposals, supported-source-only seams and still-unqualified operations rather than checking readiness from prose volume.
 
@@ -388,11 +388,14 @@ The [contract/policy annex](06-sovos-master-loop-contract-and-policy-resolution.
 
 Paper readiness does not require every future algorithm or UI to exist. Required dependencies need exact supported interfaces or reviewed extension designs; optional research must be explicitly off-path. Planned producer/consumer/interop/live predicates need to be precise before Tasks; their execution belongs to later authorized implementation/qualification, not a circular demand that unbuilt extensions already pass. No implementation begins merely because a draft revision is published.
 
+The [closure annex](07-sovos-master-loop-planning-closure-and-worked-decisions.md) assigns one home to each rule, extends the existing inquiry trace with a quiet success world, specifies correction/unknown-effect/takeover/restore boundaries, works shared-capacity and calibrated error-cost examples, defines the human experience and dispositions all existing source/compatibility concerns. Its hypothetical four-unit transition table is scientific proposal data, not a calculation of Phi. No implementation or experiment was executed.
+
 ## 15. Change log and preservation record
 
+- **0.5.0:** completes the bounded planning assignment with worked normal/absence/recovery/contention/policy decisions, human-visible meaning, finite source/contradiction dispositions, isolated operational protocol and an explicit sixteen-state IIT proposal; separates finished planning from owner/product approval, commissioning values and later empirical qualification; adds no requirement registry, Tasks or runtime change.
 - **0.4.0:** narrows ownership proposals to source commitments, a minimal Wirebot concern projection, existing scheduler watches and Spec 181 conversation lineage/capture/retention separation; adds twelve exact/proposed handoff sheets, current routine-field mappings, scheduler privilege/declaration/CAS/delivery boundaries, review/recall/writer contracts and typed operating-policy parameters; adds eight planned native-seam counterexamples without changing code, schemas or concurrent memory work.
 - **0.3.0:** adds a detailed integration blueprint with proposed responsibility allocation, compiler/effect crosswalk, logical pre/postconditions, guarded lifecycles, asynchronous judgment validity, human/VA coordination, stable effect identity across retries/migration, correction/recovery and receiver/memory closure; integrates whole Workstreams, full Trajectory coverage and the relevant Focusa core primitives under #618; adds concrete synthetic trace and negative predicates; qualifies actual compiler/settlement code and remaining source concerns without changing it.
 - **0.2.0:** deepens Tononi/Koch primary-source grounding; distinguishes integration from rich causal structure and intelligent improvement from blind Phi maximization; specifies reciprocal Master Loop–memory seams, correction/eligibility/delivery boundaries and receiving-memory-agent questions. Documentation publication is authorized; code, runtime, schemas and decomposition remain excluded.
 - **0.1.0:** preserves the full session concept; restores alarms, mathematical intelligence, routines, existing humans, memory, owner channels, bodies, outcome/momentum and IIT alongside—not underneath—the decision models. Adds source/integration register and detailed alarm/simulation annex. All proposed contracts remain prose, no runtime changes.
-- Revision 0.4.0 starts from published SOVOS `6c74b7edd31d3b290dbbac7b1239bd0ba2b95e8c`; 0.3.0 started at `1bde0f4ecf6336c01f9df034890d1d1cba92e9a8`, and the original draft at `695738c42745720c563c2956fea586e49bc38fa4`. Source review date is 2026-10-11. Sibling working trees contain concurrent changes and were not edited.
-- Not yet claimed: exhaustive repository/spec review; exact deployed bindings; measured model comparison; simulated run results; completed specification; implementation readiness; new active routine or worker.
+- Revision 0.5.0 starts from published SOVOS `541717ed549474d2d755c2f383cc30efe9c28b6f`; 0.4.0 started from `6c74b7edd31d3b290dbbac7b1239bd0ba2b95e8c`; 0.3.0 started at `1bde0f4ecf6336c01f9df034890d1d1cba92e9a8`, and the original draft at `695738c42745720c563c2956fea586e49bc38fa4`. Source review date is 2026-10-11. Sibling working trees contain concurrent changes and were not edited.
+- Claimed: completion of this bounded planning package for owner review. Not claimed: owner/product approval; exhaustive repository/spec review; exact deployed bindings; measured model comparison; simulator/IIT results; decomposition or implementation readiness; any new active routine or worker.

@@ -1,11 +1,12 @@
 # SOVOS Master Loop — Alarm Fabric, Scenarios and Integration Experiments
 
 **Status:** INCUBATING — draft behavior/acceptance design, not executable schemas or implementation tasks.<br>
-**Draft revision:** 0.4.0, 2026-10-11 — native handoff/policy counterexamples with whole-Workstream coverage.<br>
+**Draft revision:** 0.5.0, 2026-10-11 — complete worked decisions and bounded operational/IIT proposal.<br>
 **Parent:** [Master Loop draft](02-sovos-master-loop-draft.md).
 **Bindings, coverage and unresolved decisions:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
 **Detailed contracts and lifecycles:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
-**Native/proposed binding sheets and policies:** [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md).
+**Native/proposed binding sheets and policies:** [contract resolution](06-sovos-master-loop-contract-and-policy-resolution.md).<br>
+**Instantiated quiet/absence/recovery/contention decisions:** [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md).
 
 ## 1. Alarm semantics and vocabulary
 
@@ -337,7 +338,7 @@ All labels below are synthetic design references, NOT provider accounts, new run
 
 **Adverse branches:** an answer arriving after source/steering correction is rejected; unavailable due-window coverage yields unknown, not absent; cancelled commitment disarms affected future work; receipt lookup unavailable preserves unknown effect; changed actor/generation does not reset `F7`; rejected old memory cannot guide a recurrence; missing receiver evidence leaves outcome unverified. No branch imports evaluation ground truth into an earlier model input.
 
-**Expected base totals:** one concern, incumbent VA ownership, one logical internal notice, zero automated customer sends/payments/new assignments, one independently accepted outcome. Net attention/capacity remains unknown until matched costs and human effort are measured; these totals are expected predicates, not results.
+**Expected base totals:** one concern, incumbent VA ownership, one logical internal notice, zero automated customer sends/payments/new assignments, one independently accepted outcome. Net attention/capacity remains unknown until matched costs and human effort are measured; these totals are expected predicates, not results. [Closure §§2–5](07-sovos-master-loop-planning-closure-and-worked-decisions.md) instantiates the same binding in separate normal/absence/adverse worlds, with quiet success, commit-point races, shared-capacity and calibrated cost decisions; it creates no new requirements or executed cases.
 
 ### 9.2 Whole-Workstream and core-primitive overlay
 
@@ -442,7 +443,7 @@ IIT 4.0's Fig. 6 contrasts a six-unit copy cycle with a specialized lattice: bot
 
 First reproduce a published small example under its exact formulation. The IIT 4.0 article links its [example notebook](https://colab.research.google.com/github/wmayner/pyphi/blob/feature/iit-4.0/docs/examples/IIT_4.0_demo.ipynb) and historical `iit-4.0` software branch. Verify present implementation/version/commit and equations before any installation; a 2023 branch statement is not current package qualification. Preserve paper test vectors, source parameters and expected intermediate results.
 
-Then propose a minimal organism-derived model, initially about four units, rather than the whole platform. Possible abstractions are concern, attention, response-readiness and outcome verification; an alternative explicitly includes retained memory. Compare these choices rather than declaring them equivalent physical units. Four binary units have 16 states and a complete 16 × 16 state-to-state TPM. The meaning of every state, including inconvenient combinations, must be specified rather than inferred from successful traces.
+The [closure §7.2](07-sovos-master-loop-planning-closure-and-worked-decisions.md) now fixes a hypothetical IIT 4.0 proposal: four binary `C,A,R,V` units, all sixteen states, synchronous Boolean laws and the complete next-state table, uniform perturbation priors, declared current/background state and finite subset/grain boundary. Its state-to-state TPM is thereby specified as a 16 × 16 deterministic matrix, not numerically implemented or measured. An alternative incorporating retained memory requires a separately labeled revision; these abstractions are not equivalent physical units. Mathematical/software conformance and published-example reproduction remain required before numerical implementation, separately from operational planning.
 
 Required specification:
 
@@ -479,10 +480,10 @@ Predeclare hypotheses, case distribution, consequences, comparison arms, outcome
 
 Tononi/Koch's 2015 §5(h) explicitly distinguishes a virtual simulation from the implementing machine's physical causal substrate. No toy result proves that our distributed software is conscious, biologically alive, a single organism or a superordinate consciousness of its human team. “Living” here names sustained sensing, differentiated response, recovery, memory-informed adaptation and outcome follow-through, with independently verified behavior. These are worthwhile capabilities even if IIT is ultimately revised or rejected.
 
-No network, calculation, model installation or experimental result is supplied by this draft revision.
+No executed network, IIT calculation, model installation or experimental result is supplied by this revision; the closure's Boolean table and loss examples are hand-specified paper data.
 
 ## 13. Review gate and current evidence
 
 Every scenario requires reviewed expectations, boundary conditions, supported source/operation mappings, failure transitions, independent success predicates and labeled simulation limits. A beautiful diagram or a synthetic pass cannot close runtime integration gaps.
 
-Current revision provides a concrete paper trace, core-primitive/whole-Workstream overlay and falsification predicates only. No simulator, executable fixture, benchmark, model call, alarm, schedule or worker was created. Synthetic fixture limits are not approved production policy or measured performance. The blueprint proposes correlation/watch responsibility; exact actual operation bindings, production thresholds/envelopes and toy-network mathematics remain admission gates in the register. No implementation decomposition may use the detail of this annex as a substitute for the whole specification's readiness.
+The bounded planning package is complete for owner review: 24 planned predicates, concrete trace/whole-Workstream overlay and the closure's instantiated decision worlds, finite operational protocol and explicit toy transitions. No simulator, executable fixture, benchmark, model call, alarm, schedule or worker was created. Fixture limits and hand-worked loss examples are not approved production policy or measured performance. Owner/product acceptance, actual operation/parameter commissioning and separate numerical IIT conformance remain honest boundaries; they are not an invitation to another general planning audit. No decomposition or implementation is granted.
