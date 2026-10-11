@@ -1,0 +1,39 @@
+{
+  "schema_version": "operator.routine_pack.v1",
+  "pack_id": "routine-pack://business/revenue-engine",
+  "pack_version": "1.0.0",
+  "status": "candidate",
+  "domain_class": "business",
+  "summary": "Owner-neutral source-backed revenue work: prospect discovery/qualification, CRM continuity, outreach preparation, reply handling, follow-up, deal advancement, terms, settled cash, delivery acceptance and expansion. New commercial stages are governed by operator.commercial_work.v1 pending additive routine family evolution.",
+  "fit_signals": [
+    "owner-approved revenue or sales objective",
+    "actual market/relationship sources",
+    "existing CRM or a chosen customer record system",
+    "verified offer and payment/status source"
+  ],
+  "template_refs": [
+    "routine-template://business/inquiry-triage@1.0.0",
+    "routine-template://cross-domain/follow-up@1.2.0",
+    "routine-template://cross-domain/follow-through@1.0.0",
+    "routine-template://cross-domain/reconciliation@1.0.0",
+    "routine-template://cross-domain/finance-operations@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0",
+    "routine-template://cross-domain/quiet-kaizen@1.0.0",
+    "routine-template://business/workforce-dispatch@1.0.0",
+    "routine-template://business/delivery-case-review@1.0.0",
+    "routine-template://cross-domain/weekly-planning@1.0.0"
+  ],
+  "composition": {
+    "may_combine_with": [
+      "routine-pack://business/professional-services",
+      "routine-pack://business/software-saas",
+      "routine-pack://business/founder-portfolio"
+    ],
+    "selection_rule": "Select only evidenced or owner-declared stages; instantiate template candidates through the existing compiler. No schedule/CRM writes/contact are authorized by the pack. Use commercial-work contract stages to select bounded workers; new family-specific templates wait for additive vNext contract.",
+    "archetype_not_identity": true
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
