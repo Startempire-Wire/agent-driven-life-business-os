@@ -1,0 +1,94 @@
+{
+  "schema_version": "operator.commercial_work_binding.v1",
+  "profile_ref": "commercial-work://business/revenue-engine@1.0.0",
+  "binding_id": "commercial-binding://example/software-company",
+  "binding_revision": 1,
+  "status": "proposed",
+  "scope": {
+    "owner_ref": "owner://example/founder",
+    "business_ref": "business://example/software-company",
+    "additional_business_refs": []
+  },
+  "source_bindings": [
+    {
+      "source_class": "primary_crm",
+      "provider": "hubspot",
+      "source_ref": "crm://example/software-hubspot",
+      "access_state": "unverified",
+      "credential_use_refs": []
+    },
+    {
+      "source_class": "relationship_crm",
+      "provider": "hubspot",
+      "source_ref": "crm://example/parent-hubspot",
+      "access_state": "unverified",
+      "credential_use_refs": []
+    },
+    {
+      "source_class": "communication",
+      "provider": "mail",
+      "source_ref": "mail://example/owner",
+      "access_state": "unverified",
+      "credential_use_refs": []
+    },
+    {
+      "source_class": "offer_catalog",
+      "provider": "business-owned",
+      "source_ref": "catalog://example/offers",
+      "access_state": "unverified",
+      "credential_use_refs": []
+    },
+    {
+      "source_class": "payment",
+      "provider": "accounting-or-payment",
+      "source_ref": "payments://example/settlement",
+      "access_state": "unverified",
+      "credential_use_refs": []
+    },
+    {
+      "source_class": "delivery",
+      "provider": "business-owned",
+      "source_ref": "delivery://example/acceptance",
+      "access_state": "unverified",
+      "credential_use_refs": []
+    }
+  ],
+  "product_routes": [
+    {
+      "offer_ref": "offer://example/operator-deployment",
+      "offer_class": "operator_deployment",
+      "setup_mode": "wirebot_sovereign_operator",
+      "terms_policy_ref": "terms://example/five-or-fewer-payments",
+      "readiness_ref": "product://example/readiness",
+      "environment_ref": null
+    }
+  ],
+  "supervision": {
+    "chief_of_staff_ref": "partner://example/chief-of-staff",
+    "chief_of_staff_role_ref": "COS-01",
+    "focusa_workstream_ref": null,
+    "focusa_assignment_ref": null
+  },
+  "automation": {
+    "state": "unbound",
+    "routine_instance_refs": [],
+    "scheduler_binding_refs": []
+  },
+  "governance": {
+    "contact_policy_ref": "policy://example/contact",
+    "communications_policy_ref": "policy://example/outbound",
+    "outbound_grant_refs": [],
+    "crm_write_grant_refs": [],
+    "opt_out_source_ref": "suppression://example/contact"
+  },
+  "verification": {
+    "payment_source_ref": "payments://example/settlement",
+    "delivery_acceptance_ref": "delivery://example/acceptance",
+    "first_value_evidence_ref": null,
+    "cash_status": "unknown"
+  },
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
