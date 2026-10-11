@@ -38,6 +38,17 @@ Use these as a connected set, not competing plans:
 
 ## Environment evaluation and agent activation handoff
 
+- [`../starter.md`](../starter.md) — single-page **canonical general SOVOS Agent Starter**: setup rules, supported commands, phase checks, common failures and handoff. Does not contain any customer-specific details.
+- `../scripts/activation-blueprint.py --format starter` — compiles a **complete customer-specific starter.md** from the general Starter plus the existing read-only host audit and an owner-private intent/status JSON. This is a local, advisory document generator, not an installer or authority grant. Output MUST be outside the shared repository. Example:
+
+  ```sh
+  python3 scripts/activation-blueprint.py --audit /PRIVATE/observations/brownfield.json \
+    --intent /PRIVATE/owner-intent.json --format starter \
+    --output /PRIVATE/customer/starter.md
+  ```
+
+  Rerunning with new evidence updates a previously generated, unedited file; manual edits or unknown existing files are never overwritten silently. Refine the same canonical base and generator and add focused regression cases for newly found setup failures; do not create a parallel Golden Path.
+
 - `../scripts/substrate-bootstrap.sh` — host-local CLI/runtime/environment observations, **not** complete tenant or business readiness.
 - `../scripts/brownfield-audit.sh` — value-free setup markers, service/fleet reports and missing-capability observations; Bash/SSH sweeps do not establish Windows/managed-host parity.
 - `../scripts/fleet-diff.py` — observed fleet drift, not a work authorization.
