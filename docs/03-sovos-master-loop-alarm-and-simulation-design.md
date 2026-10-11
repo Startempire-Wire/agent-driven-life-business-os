@@ -1,9 +1,10 @@
 # SOVOS Master Loop — Alarm Fabric, Scenarios and Integration Experiments
 
 **Status:** INCUBATING — draft behavior/acceptance design, not executable schemas or implementation tasks.<br>
-**Draft revision:** 0.2.0, 2026-10-11 — version-pinned IIT research, intelligent integration and joint memory controls.<br>
+**Draft revision:** 0.3.0, 2026-10-11 — concrete integration predicates and whole-Workstream coverage.<br>
 **Parent:** [Master Loop draft](02-sovos-master-loop-draft.md).
-**Bindings, coverage and unresolved decisions:** [integration register](04-sovos-master-loop-source-and-integration-register.md).
+**Bindings, coverage and unresolved decisions:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
+**Detailed contracts and lifecycles:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).
 
 ## 1. Alarm semantics and vocabulary
 
@@ -16,7 +17,7 @@ Use these conceptual distinctions; exact product types/enums must be mapped befo
 | Observation | A source supplied this revision/reading/event | Source truth; an email claim is not a bank fact |
 | Expectation | Something should occur under a commitment or policy | Source/owner-backed obligation; inferred watches labeled separately |
 | Signal | Possible relevance or deviation | Explainable projection; no action authority |
-| Alarm case | Correlated concern with evidence and disposition | Exact case/correlation persistence owner still unresolved |
+| Alarm case | Correlated concern with evidence and disposition | Blueprint proposes Wirebot concern projection over source commitments; actual product binding still requires review |
 | Attention item | What an actor may need to notice or decide | Presenter acknowledgement is not source resolution |
 | Assignment | Accepted responsibility for bounded work | Current work/authority owner and assignee |
 | Execution | An operation and its actual receipt | Executor/source; timeout can leave outcome unknown |
@@ -125,7 +126,7 @@ validate tenant/domain and source revision
 - During backpressure, record dropped/deferred coverage according to owner policy; never silently imply full monitoring.
 - Self-generated events and task mirrors must not cause recursive dispatch or cyclic notification storms.
 
-Unresolved design: exact persistence/lease ownership and durable case merge/split operations. No coder may invent a universal alarm database to fill that gap.
+The blueprint §§2,4–5 proposes responsibility, logical merge/split/revision guards and watch ownership. Exact existing product persistence, lease and consumer operations still require qualification or accepted extension design. No coder may invent a universal alarm database to fill that gap.
 
 ## 6. Reflex, cognition and human wake policy
 
@@ -194,6 +195,48 @@ These are required scenario predicates, not executed tests.
 | Model/embedding upgrade | Versioned regression/migration; no mixed-generation cache/index |
 | Public/demo/federation route | Only explicitly permitted public-safe projection; no private credential/context transfer |
 
+### 8.1 Design-level falsification predicates
+
+These are planned test obligations, not executed fixtures or Tasks. Requirement IDs point to the [blueprint](05-sovos-master-loop-integration-blueprint.md); one future check may prove several obligations when it genuinely exercises them. Preserve independent ground truth and evaluation policy before model exposure.
+
+| Test | Controlled change | Binary required predicate / requirement |
+|---|---|---|
+| ML-T01 linking | Valid JSON with nonexistent/foreign operation or schema ref | No executable instance; exact unresolved binding reported (`ML-COMP-01`) |
+| ML-T02 identity | Same commands/IDs, changed version/effect/kind/confirmation/rollback; different structured values with identical concatenation | Material semantics change digest; structured inputs cannot alias (`ML-COMP-02`) |
+| ML-T03 adapter effects | Translate a financial/security/destructive or human-reserved step | Required confirmation/role boundary preserved; no guessed effect mapping (`ML-COMP-04`) |
+| ML-T04 late model | Source/assignment/goal revision changes while question is pending | Stale answer cannot change current routing or effects (`ML-JUDGE-01`) |
+| ML-T05 competing owners | Two triggers plus an already accepted VA assignment | One logical concern; incumbent retained; no duplicate unaccepted actor/effect (`ML-TEAM-01`, `ML-EFFECT-01`) |
+| ML-T06 lost reply / migration | Provider accepts intent; caller loses response; worker/compatible instance changes | Reconciliation recovers one effect under stable identity, not a new key (`ML-EFFECT-01–02`) |
+| ML-T07 absence | Due window reached while source denied/stale; late/cancelled event variant | Unknown/disputed/satisfied disposition as appropriate; no false absent or duplicate outreach (`ML-WATCH-01–03`) |
+| ML-T08 correction | Old recalled fact survives provider history after rejection; effect already happened | Current recall denied/invalidated; pending dependents re-observed; no unapproved reversal (`ML-CORR-01`, `ML-MEM-02`) |
+| ML-T09 compensation | Failed receipt followed by required compensation, never-executed rollback or unsettled branch | Outcome preserved; only applicable authorized effects compensated; no success while recovery/proof remains pending (`ML-EFFECT-03`, `ML-OUT-01–02`) |
+| ML-T10 restart / stop | Restart with pending feedback, revoked grant or expired worker generation | Same lineage reconstructed, old writer fenced, no effect replay; independent valid branch may advance (`ML-RECOVER-01`, `ML-WS-05`) |
+| ML-T11 coverage | One of two required goal branches succeeds; queue read fails or other branch remains unmapped | Whole outcome stays incomplete; Full view exposes remainder; next action is valid work/refinement/block, never false completion (`ML-WS-02–04`) |
+| ML-T12 semantics | Model relation matches same bare ID across clients; ontology proposal or reflex suggestion present | Wrong-scope use denied; candidate/discovery confers no canonical truth, permission or effect (`ML-LINK-01`, `ML-CORE-01–02`) |
+| ML-T13 verifier | Executor claims success; source disagrees or verifier unavailable | Typed objections/unknown proof preserved; dependent settlement blocked (`ML-CORE-03`) |
+| ML-T14 projection | Compact view hides other branch; UI reconnect receives out-of-order revision | Depth/omissions disclosed; same current owner revision restored; no stale action/success (`ML-WS-03`, `ML-EXPLAIN-01`) |
+| ML-T15 anti-runaway | Mirror events, repeated no-evidence model work, busy worker, exhausted budget | Bound/coalesce/defer/escalate; no recursive wake, starvation or self-renewal (`ML-RESOURCE-01–03`) |
+| ML-T16 value | Faster runs with added review/maintenance and unverified customer result | No claimed net capacity or accepted win without appropriate evidence (`ML-VALUE-01–02`) |
+
+### 8.2 Requirement-to-proof coverage crosswalk
+
+This accounts for every blueprint requirement family. It assigns planned predicates, not pass results. Binding-specific checks must additionally exercise the actual product contract, real consumer and applicable cross-version/live surface; synthetic totals or matching text cannot replace those proofs.
+
+| Blueprint obligations | Planned proof locations |
+|---|---|
+| `ML-OWN-01–02`, `ML-LINK-01–02` | T01/T05/T06/T12, case A/C and §9.1: source ownership, ambiguous identity, projection versus authority, stable effect identity |
+| `ML-COMP-01–06` | T01/T02/T03/T06, blueprint §3 qualification, §9.1: linking, digest/translation, distinct semantic/text outputs and migration |
+| `ML-WATCH-01–03`, `ML-CASE-01–02` | T05/T07/T10/T11/T15, cases A/B and §9.1: healthy coverage, cancellation, reversible relation and nonterminal continuity |
+| `ML-ATTN-01`, `ML-EXPLAIN-01` | T06/T07/T08/T14, case B and §9.2: delivery/snooze/reply cannot resolve source; source revision and omitted coverage remain visible |
+| `ML-JUDGE-01–03` | T04/T12/T15, blueprint §6 matched evaluation and §9.1: typed/expired answers, denied route, applicability, adversarial/wrong confident output and consumer calibration |
+| `ML-TEAM-01–02`, `ML-EFFECT-01–03` | T05/T06/T09/T10/T12, cases A/C: incumbent acceptance, independent verifier, fenced generation, minimal disclosure, ambiguous/competing effects and applicable compensation |
+| `ML-RESOURCE-01–03`, `ML-HEALTH-01–02` | T07/T10/T15/T16, case C and §11 controls: caps, fair independent progress, no storm, no scope-widening recovery or invented healthy coverage |
+| `ML-CORR-01`, `ML-RECOVER-01` | T04/T08/T10/T14, cases B/C: targeted invalidation, paused/revoked continuation, source-order recovery and no retroactive effect replay |
+| `ML-OUT-01–03` | T09/T11/T13/T16, cases A–C and §9.2: receiver proof, branch/compensation settlement, bounded momentum/terminal conditions |
+| `ML-MEM-01–03` | T08, §9.1 and §10.1: review/delivery/eligible recall/use, corrected eligibility, roles/writers and controlled reciprocal contribution |
+| `ML-VALUE-01–02` | T16 and §§10–11 operational comparisons: net human effort/cost, attribution, unknown benefit, retirement and healthy quiet |
+| `ML-WS-01–06`, `ML-CORE-01–04` | T10/T11/T12/T13/T14, §9.2 and blueprint §11: complete coverage, core promotion boundaries, same-record projections, no-orphan advancement, native activation and managed-effect inventory |
+
 ## 9. Required end-to-end synthetic scenarios
 
 All names, messages, amounts, clocks and identities used in future fixtures must be synthetic. No real customer outreach, financial action, medical action or private source ingestion is authorized by designing a scenario.
@@ -261,6 +304,41 @@ All names, messages, amounts, clocks and identities used in future fixtures must
 **Variants:** same bare IDs across clients; stale template; wrong portal; another manager already acted; capacity starvation; inactive W.I.N.S.; declined reassignment; unsupported provider; source outage; payment accepted but customer value absent.
 
 **Pass conditions:** same reusable semantics, different exact bindings; no private/grant leakage; no double-counted shared leverage; independent complete base loop with optional projections off.
+
+### 9.1 Fully specified paper trace: inquiry, missing response and memory
+
+All labels below are synthetic design references, NOT provider accounts, new runtime enums or real grants. The simulated provider exposes complete window/cursor coverage and intent-receipt lookup; an actual provider lacking either requires a different reviewed design, not this assumption. This trace complements A–C rather than replacing their higher-consequence and cross-client cases.
+
+**Initial binding:** owner/client A, business A, source inquiry `I7`, accepted response commitment `C7` due 14:10 UTC on synthetic day T, concern `K7`, existing VA's accepted work `W7`, exact accepted instance `R7`. Synthetic permissions allow reading A's source, maintaining A's concern/watch, one internal attention update and reviewable episode submission; no automated customer send, money movement, new assignment or access to client B. The source owns commitment and work truth. Fictional judgments contain no real payload.
+
+**Fixture limits, not production defaults:** one active attempt, one pending semantic question per subject revision with 60-second expiry, one logical internal notice intent `F7`, at most two failed read retries, no spending. Provider timeout after possible effect enters reconciliation, not a new send attempt. Actual limits/error costs must be bound before any real routine activation.
+
+| Synthetic time / input | Expected state and permitted output | Observable proof |
+|---|---|---|
+| 14:00: accepted `C7` and `R7`; provider confirms watch binding | Watching; due predicate and calendar/source revision fixed; incumbent `W7` reused | Acceptance, binding and assignee refs, current required goal links |
+| 14:01: identical `I7` revision arrives twice | One logical concern, no new assignment or repeated trigger effect | Duplicate disposition and source identity; case/actor count unchanged |
+| 14:02: optional typed relation question | Minimized scoped snapshot; same-case/different-case/insufficient-evidence answer remains advisory | Question/policy/input-set/model refs; validated current subject revision; no permission inferred |
+| 14:10: due check, complete source coverage, no qualifying response, no cancellation | Expectation absent; internal attention due under standing synthetic policy | Source cursor/window and expectation revision; existing worker still accountable |
+| 14:10:05: repeated unchanged check | Same concern/intent; notice coalesced, no severity rise from repetition alone | Stable `F7` and suppression reason |
+| 14:10:10: provider accepted `F7`, caller timed out | Effect unknown locally; no second send | Source lookup of the same logical intent recovers one notice receipt |
+| 14:11: VA response `RSP7` appears in source | Expectation satisfied; outcome not yet automatically accepted | Actual source response ref, not task status or notification receipt |
+| 14:12: receiver confirms required usable answer and acceptance predicates pass | Accepted outcome `O7`; reconcile current state/gap, not stale pre-response state | Independent receiver/source evidence plus verification/settlement lineage |
+| 14:13: minimal episode `M7` submitted; no optional further momentum required | Candidate only; close `K7` under policy and disarm obsolete case check; routine may handle future cases | Closure predicate, outcome refs and terminal next-check disposition; no native write cutover |
+| Later review/delivery/recurrence | Accepted episode revision and bound sink receipt precede eligible recall; current assignment/source still revalidated | Review/enqueue/provider/recall/use/outcome separately proven; null-memory control remains available |
+
+**Adverse branches:** an answer arriving after source/steering correction is rejected; unavailable due-window coverage yields unknown, not absent; cancelled commitment disarms affected future work; receipt lookup unavailable preserves unknown effect; changed actor/generation does not reset `F7`; rejected old memory cannot guide a recurrence; missing receiver evidence leaves outcome unverified. No branch imports evaluation ground truth into an earlier model input.
+
+**Expected base totals:** one concern, incumbent VA ownership, one logical internal notice, zero automated customer sends/payments/new assignments, one independently accepted outcome. Net attention/capacity remains unknown until matched costs and human effort are measured; these totals are expected predicates, not results.
+
+### 9.2 Whole-Workstream and core-primitive overlay
+
+Give this simulated Workstream two required accepted-outcome branches: **A, reliable inquiry follow-through**, and **B, customer handoff readiness**. Cross-cutting prerequisite **D** supports both through typed links and is counted once. These are design labels, not a compiled CallGraph or task decomposition.
+
+A's accepted `O7` cannot complete the Workstream while B lacks receiver proof or D is unresolved. Full must expose A/B/D and all dispositions; Medium retains the selected subtree and shared prerequisite; Short shows the current exact gap/frontier with ancestry and omitted-coverage refs. An unavailable queue is not empty. A missing prerequisite returns an owned refinement proposal, not a fabricated executable frame or changed HLT.
+
+Use ontology candidates for source relations; verification/reducer promotion for eligible semantic use; reflexes for exact scope/replay/evidence checks; nonblocking Intuition for weak salience; secondary cognition for bounded proposal/critique; independent verifiers for receiver predicates; Workset membership for required-scope accounting; CallGraph for actual dependencies/joins/recovery; Workpoint for the admitted immediate action. Their detailed guard/consumer matrix is in blueprint §11.4. A model, ontology link or valid structural graph cannot self-promote readiness.
+
+Test receipt → verified source state → updated Trajectory gap → correct next permitted action without another chat turn, plus pause/compaction/restart with pending feedback. With B blocked, independent admitted A-side work may advance within budget; if no lane can advance, report the exact block/resume condition without manufacturing work. Whole acceptance requires all mandatory branches/proofs and unresolved effects reconciled under their actual policies.
 
 ## 10. Virtual-organism transition model
 
@@ -398,4 +476,4 @@ No network, calculation, model installation or experimental result is supplied b
 
 Every scenario requires reviewed expectations, boundary conditions, supported source/operation mappings, failure transitions, independent success predicates and labeled simulation limits. A beautiful diagram or a synthetic pass cannot close runtime integration gaps.
 
-Current revision preserves the scenario and acceptance design only. No simulator, executable fixture, benchmark, model call, alarm, schedule or worker was created. Exact thresholds, performance envelopes, durable correlation ownership and toy-network mathematics remain open in the integration register. No implementation decomposition may use the completeness of this annex as a substitute for the whole specification's readiness.
+Current revision provides a concrete paper trace, core-primitive/whole-Workstream overlay and falsification predicates only. No simulator, executable fixture, benchmark, model call, alarm, schedule or worker was created. Synthetic fixture limits are not approved production policy or measured performance. The blueprint proposes correlation/watch responsibility; exact actual operation bindings, production thresholds/envelopes and toy-network mathematics remain admission gates in the register. No implementation decomposition may use the detail of this annex as a substitute for the whole specification's readiness.

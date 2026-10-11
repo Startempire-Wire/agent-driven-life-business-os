@@ -28,11 +28,12 @@
 
 ## Master Loop — incubating whole-system draft
 
-**Latest draft revision: 0.2.0, 2026-10-11.** This operator-requested draft preserves and enriches the integrated Chief-of-Staff design across alarms, routines, mathematical intelligence, existing human/VA teams, decision models, memory, outcomes, follow-through and simulation. It references current owners rather than replacing their doctrine. The latest revision centers Tononi/Koch's primary IIT research, intelligent integration rather than blind Phi maximization, and the reciprocal Master Loop–portable-memory “gut–brain” connection.
+**Latest draft revision: 0.3.0, 2026-10-11.** This operator-requested draft preserves the whole Chief-of-Staff organism, Tononi/Koch research and reciprocal Master Loop–memory connection. The new pass makes compiler-to-outcome handoffs and failure behavior precise, including whole Workstreams/full Trajectory and relevant Focusa core primitives under issue #618. It references current owners rather than replacing their doctrine.
 
-- [Master Loop draft](02-sovos-master-loop-draft.md) — whole-organism architecture and ownership; §11.1 specifies proposed episode, recall, correction, delivery-health and outcome feedback seams.
-- [Alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md) — expected absences, correlation, failure behavior and three end-to-end cases; §10.1 adds joint memory controls, §12 adds source-linked IIT principles, finite mathematics and constrained experiments.
-- [Source and integration register](04-sovos-master-loop-source-and-integration-register.md) — reviewed sources, implementation seams, contradictions and completeness gate; §6.1 is the receiving-memory-agent handoff and unresolved interface checklist.
+- [Master Loop draft](02-sovos-master-loop-draft.md) — integrated architecture; §3.2 connects the full Focusa journey, §11.1 the reciprocal memory seam.
+- [Detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md) — proposed owners, compiler linking/effect mapping, logical pre/postconditions, guarded lifecycles, Jev/local judgment, human coordination, correction/recovery and receiver proof; §11 maps Workstreams, Full/Medium/Short, CallGraphs and core primitive consumers/guards.
+- [Alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md) — sixteen falsification predicates, concrete synthetic inquiry/absence/memory trace, two-branch/shared-dependency Workstream overlay, original life/business/client scenarios and independent IIT/operational controls.
+- [Source and integration register](04-sovos-master-loop-source-and-integration-register.md) — pinned current versus older local source, exact-support gaps and review dispositions; §6.1 is the memory-agent handoff, §6.2 separates paper-defined proposals from remaining qualification, §7 gates decomposition.
 
 Memory agents should read that handoff alongside the existing [portable memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md). Publishing these proposals does not promote them to canonical memory policy, activate native writes, or supersede another agent's verified assignment.
 

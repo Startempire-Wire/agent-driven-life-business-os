@@ -1,10 +1,10 @@
 # SOVOS Master Loop — Integrated Chief-of-Staff Organism
 
 **Status:** INCUBATING — operator-requested draft; specification incomplete; not implementation authority.<br>
-**Draft revision:** 0.2.0, 2026-10-11 — Tononi/Koch mathematical grounding and Master Loop–memory integration.<br>
+**Draft revision:** 0.3.0, 2026-10-11 — detailed compiler-to-outcome integration blueprint.<br>
 **Activity ceiling:** preserve, research, reconcile and enrich the specification; no implementation, activation, task/CallGraph decomposition, schedule creation or model installation.<br>
 **Authority:** [Owner Constitution](../OWNER_AUTHORITY_CONSTITUTION.md); existing [ecosystem architecture](../CURRENT_ECOSYSTEM_ARCHITECTURE.md) and concern-owning contracts remain controlling.
-**Companions:** [alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md); [source, integration and completeness register](04-sovos-master-loop-source-and-integration-register.md).
+**Companions:** [alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md); [source, integration and completeness register](04-sovos-master-loop-source-and-integration-register.md); [detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md).
 
 ## 1. Purpose, preservation and draft boundaries
 
@@ -93,8 +93,9 @@ Identity, authority constitution and runtime attestation are separate under the 
         Kai | permitted Jev | optional Lux | narrow GLiClass
                    Laya / Kev as evaluated alternatives
                                ↕
-                 FOCUSA GOVERNED ATTENTION
-          evidence • scope • authority • bounded continuation
+                  FOCUSA WHOLE WORKSTREAMS
+        full Trajectory • Worksets • CallGraphs • Workpoints
+          ontology • reflexes • verifiers • governed attention
                                ↕
                 PERPETUA / ROUTINE COORDINATION
         existing routines + accepted work + workforce/capacity
@@ -124,7 +125,7 @@ Supporting planes:
 |---|---|---|
 | Purpose/portfolio | Desired life, businesses, constraints, goals and strengths | Owner; Wirebot synthesis |
 | Awareness | Observe relevant reality and changing context | Source systems; connector adapters; Context Core for owner context |
-| Alarm | Detect meaningful deviation or absent expectation; correlate and route | Domain policy + product-owned observation/case adapters; exact owner unresolved |
+| Alarm | Detect meaningful deviation or absent expectation; correlate and route | Proposed Wirebot concern projection over source-owned commitments; scheduler-owned watches and Focusa work; exact product bindings still require review |
 | Routine | Run repeatable accepted procedures and reconcile missed events | SOVOS contracts; owning compiler and scheduler |
 | Workforce | Match responsibility/capacity and supervise bounded work | Wirebot Composer proposals; Focusa work; existing human/task owners |
 | Human | Clarify truth, consent, judgment, correction and takeover | Verified owner/delegated human; attributed ingress |
@@ -136,6 +137,14 @@ Supporting planes:
 Reciprocity is explicit: workforce capacity changes routing; source-side outcomes revise expectations; corrections revise interpretations; sensor health changes certainty; owner attention changes presentation; accepted learning changes only permitted policies. None of these feedback links broaden data access or grants.
 
 The semantic relationship layer must distinguish source claims, proposed entity matches and verified/canonical relations. Focusa Spec 135F's candidate graph → evidence/verification → reducer promotion → bounded projections is the design anchor, not permission to centralize every domain's facts. Domain packs extend meaning without forking product authority. Subscription/event replay, entity ambiguity, unknown versions and candidate rejection require exact binding before code.
+
+### 3.2 Whole Workstreams and Focusa core, not task-only delegation
+
+Integrate at the complete accepted-outcome level under [Focusa issue #618](https://github.com/Startempire-Wire/focusa/issues/618) and its owning contracts. Project → HLT → distinct MLG/STG branches → waypoints → assessed gaps connect through specification/acceptance to Workset membership, CallGraph dependencies/frontiers and exact Workpoints. Workstreams supply coherent continuity/ownership; they are not necessarily strict subtrees. Wirebot references this truth instead of creating its own Trajectory, graph or supervisor.
+
+Full/Medium/Short are coverage projections of the same records, not three goals, plans or lifecycle stages. The nearest ready action and ultimate accepted outcome remain distinct. A corrected source, missing response or failed verification returns to state/gap reassessment and affected route refinement; one completed branch cannot settle remaining required scope. Prepare → Act → Reconcile → Advance is one existing-owner progression loop, not a new state machine or a requirement for repeated replanning.
+
+The [blueprint §11](05-sovos-master-loop-integration-blueprint.md) maps ontology/domain packs, reflexes, Intuition, secondary cognition, context/working sets, verifiers/receipts, temporal/epistemic authority, credentials/instruction integrity, resource/control/continuity and trusted surfaces into that loop. Every chosen primitive requires exact typed inputs, consumer, authority, failure and proof—not merely a box marked “use Focusa.” Paper mappings create no canonical Ladder, Workset, Task or execution lease.
 
 ## 4. Connector-cell design
 
@@ -164,7 +173,7 @@ Calendar, email, SMS, CRM, finance, task systems, documents, repository/deployme
 
 An alarm is a source-backed condition that warrants tracking or a permitted response. It is not necessarily an owner interruption. A signal may remain quietly watched, enrich an existing case, trigger an already-permitted exact reflex, request bounded investigation or reach a genuine Needs You boundary.
 
-The alarm annex specifies family coverage, conceptual fields, lifecycle, correlation, expected-absence semantics and adversarial cases. Its proposed names are not installed enums or APIs.
+The alarm annex specifies family coverage, conceptual fields, correlation, expected-absence semantics and concrete adversarial predicates. The [integration blueprint](05-sovos-master-loop-integration-blueprint.md), §§2–5, proposes explicit owners, logical handoff signatures and guarded expectation/concern lifecycles. Its proposed names are not installed enums or APIs; supported source and consumer contracts must be mapped before code.
 
 Preserve these distinct objects: source observation; expectation/commitment; inference; correlated concern/case; attention projection; accepted work; routine run; execution receipt; accepted outcome. Joining them through refs must not collapse their owners.
 
@@ -373,9 +382,14 @@ Before any implementation task graph is compiled, every required capability must
 
 Draft maturation is source review → reconciliation → detailed contracts/behavior → adversarial scenario review → operator revision → completeness review. These are specification activities, not executable implementation nodes. Future rollout may use one complete vertical slice and then expand through proven seams, but its task decomposition is prohibited until the full bounded specification passes review.
 
+The [detailed blueprint](05-sovos-master-loop-integration-blueprint.md) is the design-level closure crosswalk: compiler linking and semantic identity; source commitments and watch ownership; optional asynchronous judgment; existing-human acceptance and competing effects; correction/pause/restart; independent receiver acceptance and reciprocal memory. Its requirement IDs are not work items. The register distinguishes paper-defined proposals, supported-source-only seams and still-unqualified operations rather than checking readiness from prose volume.
+
+Paper readiness does not require every future algorithm or UI to exist. Required dependencies need exact supported interfaces or reviewed extension designs; optional research must be explicitly off-path. No implementation begins merely because a draft revision is published.
+
 ## 15. Change log and preservation record
 
+- **0.3.0:** adds a detailed integration blueprint with proposed responsibility allocation, compiler/effect crosswalk, logical pre/postconditions, guarded lifecycles, asynchronous judgment validity, human/VA coordination, stable effect identity across retries/migration, correction/recovery and receiver/memory closure; integrates whole Workstreams, full Trajectory coverage and the relevant Focusa core primitives under #618; adds concrete synthetic trace and negative predicates; qualifies actual compiler/settlement code and remaining source concerns without changing it.
 - **0.2.0:** deepens Tononi/Koch primary-source grounding; distinguishes integration from rich causal structure and intelligent improvement from blind Phi maximization; specifies reciprocal Master Loop–memory seams, correction/eligibility/delivery boundaries and receiving-memory-agent questions. Documentation publication is authorized; code, runtime, schemas and decomposition remain excluded.
 - **0.1.0:** preserves the full session concept; restores alarms, mathematical intelligence, routines, existing humans, memory, owner channels, bodies, outcome/momentum and IIT alongside—not underneath—the decision models. Adds source/integration register and detailed alarm/simulation annex. All proposed contracts remain prose, no runtime changes.
-- The source baseline is SOVOS `695738c42745720c563c2956fea586e49bc38fa4`; source review date is 2026-10-11. Sibling working trees contain concurrent changes and were not edited.
+- Revision 0.3.0 starts from published SOVOS `1bde0f4ecf6336c01f9df034890d1d1cba92e9a8`; the original draft baseline was `695738c42745720c563c2956fea586e49bc38fa4`. Source review date is 2026-10-11. Sibling working trees contain concurrent changes and were not edited.
 - Not yet claimed: exhaustive repository/spec review; exact deployed bindings; measured model comparison; simulated run results; completed specification; implementation readiness; new active routine or worker.
