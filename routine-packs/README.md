@@ -24,6 +24,7 @@ A pack is **not a classification of a person or company**. One owner or business
 - `business-ecommerce-product.json`
 - `business-local-field-service.json`
 - `business-founder-portfolio.json`
+- `business-revenue-engine.json` — CANDIDATE source-grounded sales-to-cash composition reusing canonical v1 templates (commercial stage semantics in `../commercial-work/revenue-engine.v1.json`)
 
 These packs intentionally overlap. A founder may also be a creator and household administrator; a business may combine software, services, commerce and community. Composition follows evidence and owner goals rather than assigning a rigid identity.
 
@@ -45,7 +46,7 @@ Pack references are regression-tested against the canonical `routine-templates/`
 
 The next additive pack layer is mapped in `../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`. Candidate compositions include:
 
-- **business revenue engine** — opportunity, prospecting, CRM continuity, pipeline, offer/close, invoice-to-cash, retention/expansion/referral;
+- **business revenue engine** — now materialized as a **candidate v1 composition pack** over existing templates; dedicated prospecting/commercial family templates and activated runtime instances still await additive schema evolution and proof.
 - **life financial freedom** — liabilities/exposure discovery, financial stability, lawful debt resolution, credit rehabilitation and cash-flow recovery;
 - **life relationship & enrichment** — relationship stewardship, social/experience planning, explicit opt-in relationship formation and capacity reinvestment.
 
