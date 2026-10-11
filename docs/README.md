@@ -26,6 +26,14 @@
 | Owner notification / response channels | [`../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md`](../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md) |
 | Cross-product refs / freshness / replay | [`../CROSS_PRODUCT_SEAM_CONTRACT.md`](../CROSS_PRODUCT_SEAM_CONTRACT.md) |
 
+## Commercial revenue work — first consumer Wirebot
+
+- [Commercial Work v1 profile](../commercial-work/revenue-engine.v1.json) — portable, owner-neutral lifecycle composition; not an activated customer job.
+- [Commercial Work contract](../contracts/operator-commercial-work.v1.schema.json) and [private customer binding contract](../contracts/operator-commercial-work-binding.v1.schema.json) — versioned machine-readable conformance; all customer grants and source refs remain private.
+- [Business Revenue Engine Routine Pack](../routine-packs/business-revenue-engine.json) — reuses canonical v1 routines without introducing v1 prospecting enum drift.
+- [Read-only customer binding validator](../scripts/validate-commercial-work.py) — static version/shape/source-ref checks only, no provider authentication or effects.\n- [Agent skill](../skills/sovos-revenue-work/SKILL.md) — existing Wirebot/OpenClaw/Focusa-consumable first-value procedure; loading/activation remains deployment-specific.
+- [Wirebot × HubSpot pilot](commercial-work/WIREBOT_HUBSPOT_PILOT.md) — read-only observed baseline, tier-aware offer routing and acceptance path.
+
 ## Golden Path implementation set
 
 Use these as a connected set, not competing plans:
