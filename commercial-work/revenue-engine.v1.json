@@ -1,0 +1,332 @@
+{
+  "schema_version": "operator.commercial_work.v1",
+  "profile_id": "commercial-work://business/revenue-engine",
+  "profile_version": "1.0.0",
+  "status": "candidate",
+  "description": "Owner-neutral, provider-replaceable prospecting-to-cash-to-customer-success process compiled per owner/business. The source CRM and financial providers retain truth; the Chief of Staff supervises governed assignments.",
+  "fit_signals": [
+    "owner declares revenue growth goal",
+    "business has or wants a legitimate lead source",
+    "sales lifecycle needs recurring follow-up",
+    "offer catalog and payment truth can be identified"
+  ],
+  "contraindications": [
+    "no business/offer authority",
+    "source consent or suppression unavailable",
+    "prohibited or restricted outreach channel",
+    "unverified product claims/pricing"
+  ],
+  "stages": [
+    {
+      "stage_key": "discover",
+      "step_class": "bounded_semantic",
+      "trigger_kind": "schedule",
+      "task_pack_refs": [
+        "TP-OPPORTUNITY-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://cross-domain/reconciliation@1.0.0"
+      ],
+      "input_classes": [
+        "market_evidence",
+        "excluded_segments"
+      ],
+      "result_class": "sourced_opportunity",
+      "evidence_requirement": "public_or_permitted_source_ref",
+      "external_effect": "none"
+    },
+    {
+      "stage_key": "qualify",
+      "step_class": "bounded_semantic",
+      "trigger_kind": "event",
+      "task_pack_refs": [
+        "TP-OPPORTUNITY-01",
+        "TP-CRM-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://cross-domain/reconciliation@1.0.0"
+      ],
+      "input_classes": [
+        "prospect_ref",
+        "offer_readiness"
+      ],
+      "result_class": "reasoned_fit_or_rejection",
+      "evidence_requirement": "fit_rationale_with_source",
+      "external_effect": "prepare"
+    },
+    {
+      "stage_key": "admit_to_crm",
+      "step_class": "deterministic",
+      "trigger_kind": "event",
+      "task_pack_refs": [
+        "TP-CRM-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://cross-domain/reconciliation@1.0.0"
+      ],
+      "input_classes": [
+        "qualified_prospect",
+        "dedupe_sources",
+        "consent_status"
+      ],
+      "result_class": "crm_record_ref_or_noop",
+      "evidence_requirement": "exact_crm_record_and_dedupe_receipt",
+      "external_effect": "source_mutation"
+    },
+    {
+      "stage_key": "prepare_outreach",
+      "step_class": "bounded_semantic",
+      "trigger_kind": "event",
+      "task_pack_refs": [
+        "TP-CUSTOMER-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://business/inquiry-triage@1.0.0"
+      ],
+      "input_classes": [
+        "crm_record_ref",
+        "verified_offer",
+        "contact_policy"
+      ],
+      "result_class": "personalized_draft",
+      "evidence_requirement": "approved_source_and_no_unverified_claims",
+      "external_effect": "prepare"
+    },
+    {
+      "stage_key": "engage",
+      "step_class": "deterministic",
+      "trigger_kind": "manual",
+      "task_pack_refs": [
+        "TP-CUSTOMER-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://cross-domain/follow-up@1.2.0"
+      ],
+      "input_classes": [
+        "draft_ref",
+        "suppressions",
+        "send_authority"
+      ],
+      "result_class": "verified_send_or_blocked",
+      "evidence_requirement": "provider_message_receipt_or_blocked_reason",
+      "external_effect": "external_contact"
+    },
+    {
+      "stage_key": "triage_reply",
+      "step_class": "bounded_semantic",
+      "trigger_kind": "event",
+      "task_pack_refs": [
+        "TP-CUSTOMER-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://business/inquiry-triage@1.0.0"
+      ],
+      "input_classes": [
+        "provider_message_ref",
+        "crm_history"
+      ],
+      "result_class": "qualified_reply_next_step",
+      "evidence_requirement": "classification_and_next_action_ref",
+      "external_effect": "prepare"
+    },
+    {
+      "stage_key": "advance_opportunity",
+      "step_class": "deterministic",
+      "trigger_kind": "event",
+      "task_pack_refs": [
+        "TP-CRM-01",
+        "TP-FOLLOWUP-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://cross-domain/follow-up@1.2.0",
+        "routine-template://cross-domain/follow-through@1.0.0"
+      ],
+      "input_classes": [
+        "crm_stage",
+        "response_state",
+        "commitment_refs"
+      ],
+      "result_class": "next_due_action_or_terminal",
+      "evidence_requirement": "source_stage_and_follow_through_ref",
+      "external_effect": "source_mutation"
+    },
+    {
+      "stage_key": "prepare_offer",
+      "step_class": "bounded_semantic",
+      "trigger_kind": "manual",
+      "task_pack_refs": [
+        "TP-CUSTOMER-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://cross-domain/follow-through@1.0.0"
+      ],
+      "input_classes": [
+        "fit_result",
+        "offer_catalog_ref",
+        "entitlement_rules"
+      ],
+      "result_class": "reviewable_offer",
+      "evidence_requirement": "versioned_scope_pricing_and_terms",
+      "external_effect": "prepare"
+    },
+    {
+      "stage_key": "accept_commitment",
+      "step_class": "deterministic",
+      "trigger_kind": "manual",
+      "task_pack_refs": [
+        "TP-CUSTOMER-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://cross-domain/follow-through@1.0.0"
+      ],
+      "input_classes": [
+        "offer_ref",
+        "authorized_acceptance"
+      ],
+      "result_class": "accepted_commitment_ref",
+      "evidence_requirement": "signed_or_source_verified_acceptance",
+      "external_effect": "financial_commitment"
+    },
+    {
+      "stage_key": "reconcile_settled_cash",
+      "step_class": "deterministic",
+      "trigger_kind": "event",
+      "task_pack_refs": [
+        "TP-CRM-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://cross-domain/finance-operations@1.0.0",
+        "routine-template://cross-domain/reconciliation@1.0.0"
+      ],
+      "input_classes": [
+        "payment_provider_ref",
+        "invoice_state"
+      ],
+      "result_class": "settled_cash_or_unsettled",
+      "evidence_requirement": "authoritative_settlement_receipt_currency",
+      "external_effect": "none"
+    },
+    {
+      "stage_key": "verify_customer_value",
+      "step_class": "deterministic",
+      "trigger_kind": "event",
+      "task_pack_refs": [
+        "TP-REPORT-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://business/delivery-case-review@1.0.0",
+        "routine-template://cross-domain/evidence-closure@1.0.0"
+      ],
+      "input_classes": [
+        "accepted_commitment",
+        "delivery_source"
+      ],
+      "result_class": "customer_accepted_or_open",
+      "evidence_requirement": "customer_receiver_acceptance_ref",
+      "external_effect": "none"
+    },
+    {
+      "stage_key": "retain_expand_refer",
+      "step_class": "bounded_semantic",
+      "trigger_kind": "condition",
+      "task_pack_refs": [
+        "TP-OPPORTUNITY-01",
+        "TP-ANALYTICS-01"
+      ],
+      "routine_template_refs": [
+        "routine-template://cross-domain/quiet-kaizen@1.0.0",
+        "routine-template://cross-domain/follow-through@1.0.0"
+      ],
+      "input_classes": [
+        "customer_accepted_outcome",
+        "relationship_policy"
+      ],
+      "result_class": "follow_on_opportunity_or_noop",
+      "evidence_requirement": "consented_relationship_and_outcome_provenance",
+      "external_effect": "prepare"
+    }
+  ],
+  "workforce": {
+    "chief_of_staff_role_ref": "COS-01",
+    "specialist_role_refs": [
+      "OPP-01",
+      "EAA-01",
+      "COM-01",
+      "OFF-01",
+      "PAY-01",
+      "CST-01",
+      "OUT-01"
+    ],
+    "task_pack_refs": [
+      "TP-OPPORTUNITY-01",
+      "TP-CRM-01",
+      "TP-CUSTOMER-01",
+      "TP-FOLLOWUP-01",
+      "TP-ANALYTICS-01",
+      "TP-ADAPTER-01",
+      "TP-REPORT-01"
+    ],
+    "assignment_model": "owner-scoped CRIST to Focusa, episodic workers as justified"
+  },
+  "routine_pack_ref": "routine-pack://business/revenue-engine@1.0.0",
+  "routine_template_refs": [
+    "routine-template://business/inquiry-triage@1.0.0",
+    "routine-template://cross-domain/follow-up@1.2.0",
+    "routine-template://cross-domain/follow-through@1.0.0",
+    "routine-template://cross-domain/reconciliation@1.0.0",
+    "routine-template://cross-domain/finance-operations@1.0.0",
+    "routine-template://cross-domain/evidence-closure@1.0.0",
+    "routine-template://cross-domain/quiet-kaizen@1.0.0",
+    "routine-template://business/workforce-dispatch@1.0.0",
+    "routine-template://business/delivery-case-review@1.0.0",
+    "routine-template://cross-domain/weekly-planning@1.0.0"
+  ],
+  "source_truth": {
+    "crm": "owning CRM per account/business",
+    "mail": "owning communication provider",
+    "payment": "owning payment/accounting provider",
+    "work": "Focusa governed work",
+    "accepted_outcome": "owning business/source and owner acceptance as applicable",
+    "cross_portal_merging_default": false
+  },
+  "authority_law": {
+    "external_send_default": "prepare_only",
+    "outbound_requires_scoped_grant": true,
+    "contact_suppression_check": true,
+    "new_pricing_or_commitment_reserved": true,
+    "entitlement_not_authority": true,
+    "cross_business_least_access": true
+  },
+  "reliability_law": {
+    "scheduler_owner": "OpenClaw or applicable provider-native owner",
+    "separate_scheduler_forbidden": true,
+    "replay_safe_actions_required": true,
+    "missed_runs_reconcile": true,
+    "revalidate_before_effect": true,
+    "failed_delivery_is_not_success": true
+  },
+  "outcome_law": {
+    "qualified_prospect_is_sale": false,
+    "crm_closed_won_is_settled_cash": false,
+    "invoice_is_settled_cash": false,
+    "provider_payment_evidence_required": true,
+    "customer_delivery_separate_from_payment": true,
+    "verified_outcomes_measure_leverage": true
+  },
+  "required_private_binding_keys": [
+    "owner_ref",
+    "business_ref",
+    "crm_source_refs",
+    "offer_catalog_ref",
+    "contact_policy_ref",
+    "communications_policy_ref",
+    "payment_source_ref",
+    "delivery_acceptance_ref",
+    "chief_of_staff_ref",
+    "focusa_assignment_ref"
+  ],
+  "privacy": {
+    "contains_private_payload": false,
+    "contains_secret_material": false
+  }
+}
