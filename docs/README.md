@@ -26,6 +26,18 @@
 | Owner notification / response channels | [`../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md`](../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md) |
 | Cross-product refs / freshness / replay | [`../CROSS_PRODUCT_SEAM_CONTRACT.md`](../CROSS_PRODUCT_SEAM_CONTRACT.md) |
 
+## Master Loop — incubating whole-system draft
+
+**Latest draft revision: 0.2.0, 2026-10-11.** This operator-requested draft preserves and enriches the integrated Chief-of-Staff design across alarms, routines, mathematical intelligence, existing human/VA teams, decision models, memory, outcomes, follow-through and simulation. It references current owners rather than replacing their doctrine. The latest revision centers Tononi/Koch's primary IIT research, intelligent integration rather than blind Phi maximization, and the reciprocal Master Loop–portable-memory “gut–brain” connection.
+
+- [Master Loop draft](02-sovos-master-loop-draft.md) — whole-organism architecture and ownership; §11.1 specifies proposed episode, recall, correction, delivery-health and outcome feedback seams.
+- [Alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md) — expected absences, correlation, failure behavior and three end-to-end cases; §10.1 adds joint memory controls, §12 adds source-linked IIT principles, finite mathematics and constrained experiments.
+- [Source and integration register](04-sovos-master-loop-source-and-integration-register.md) — reviewed sources, implementation seams, contradictions and completeness gate; §6.1 is the receiving-memory-agent handoff and unresolved interface checklist.
+
+Memory agents should read that handoff alongside the existing [portable memory profile](../PORTABLE_MEMORY_REFERENCE_PROFILE.md). Publishing these proposals does not promote them to canonical memory policy, activate native writes, or supersede another agent's verified assignment.
+
+**INCUBATING; not implementation-ready.** No coding, activation or task/CallGraph decomposition until the complete bounded specification is reviewed. A saved draft or existing source artifact is not a deployed capability.
+
 ## Commercial revenue work — first consumer Wirebot
 
 - [Commercial Work v1 profile](../commercial-work/revenue-engine.v1.json) — portable, owner-neutral lifecycle composition; not an activated customer job.
