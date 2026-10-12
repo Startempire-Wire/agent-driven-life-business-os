@@ -1,7 +1,7 @@
 # SOVOS Master Loop — Contract and Policy Resolution
 
 **Status:** INCUBATING — proposed binding decisions and paper contracts; not runtime authority.<br>
-**Draft revision:** 0.6.0, 2026-10-11.<br>
+**Draft revision:** 0.7.0, 2026-10-12.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Design obligations:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
 **Coverage and evidence:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
@@ -271,6 +271,8 @@ A synthetic fixture may choose finite caps to test exhaustion and comparison. Th
 
 ## 10. Review decisions and remaining evidence
 
+**Prototype selection:** [closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) now closes the bounded seam choices: current source/owner intent, minimal Core conditional concern projection, one pinned native watch, incumbent responsibility, one permitted internal effect, receiver/source verification and existing memory. No new transcript/capture canon, worker-general recall, native writer, idempotency-port redesign or plug-in migration is selected. Ambiguous existing queue/effect acknowledgements stop automatic replay rather than require a new distributed platform. The table below describes wider conditional product review, not five extra planning programs before prototype code.
+
 | Decision package | Recommended paper result | Required review/evidence |
 |---|---|---|
 | Responsibility | Source commitments; minimal Wirebot concerns; native/OpenClaw watches; Focusa governed work and Spec 181 conversation lineage; capture custody separate | Accept/amend the exact assignment, especially transcript convergence versus portable profile's unresolved ownership |
@@ -279,4 +281,4 @@ A synthetic fixture may choose finite caps to test exhaustion and comparison. Th
 | Consumer acceptance | T17–T24 augment the existing 16 predicates; B01–B12 specify native-source, denial, replay/correction and return-path proof obligations | Producer/consumer/cross-version/live checks after authorized implementation; source/descriptors alone do not pass them |
 | Complete specification | Preserve the whole organism and full-outcome coverage; exact required dependencies or accepted extension/exclusion | Resolve remaining relevant source/contract contradictions and owner review before Tasks, not every future optional engine or UI |
 
-The candidate now integrates [modular composition/evolution](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md): exact capability profiles/hooks, existing-owner compiler linking, lifecycle and thirteen upgrade dimensions. Closure's worked decisions remain, with 24 base plus 12 modular planned predicates. The unfinished memory blueprint triggers the explicit targeted agreement/revision above, not unilateral frozen APIs or another general architecture audit. Owner/product acceptance, actual operation/consumer support, private values and empirical outcomes remain separate. The existing memory agent retains its assignment; publication neither proves it fetched this revision nor changes its writer.
+Modular evolution remains the destination, not upfront machinery. The owner requests a working end-to-end prototype before broad testing; closure §8 is the authoritative minimal handoff. T01–T36 qualify selected future risks, while three demonstrations suffice for prototype progress subject to actual product hard boundaries. Future memory agreement is still targeted, not a blocker on unchanged existing memory use. The existing memory agent/V1/disabled-native-write assignment is untouched; publication does not prove agent consumption or actual runtime support.

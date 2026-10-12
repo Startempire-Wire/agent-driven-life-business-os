@@ -1,7 +1,7 @@
 # SOVOS Master Loop — Source Coverage, Integration Seams and Completeness
 
 **Status:** INCUBATING — source-backed draft register; not a task queue, runtime registry or approval.<br>
-**Draft revision:** 0.6.0, 2026-10-11 — modular evolution integrated, with memory-layer agreement explicitly provisional.<br>
+**Draft revision:** 0.7.0, 2026-10-12 — lean prototype seam closure, future qualification deferred.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Behavioral annex:** [alarms and simulations](03-sovos-master-loop-alarm-and-simulation-design.md).<br>
 **Detailed paper contract:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
@@ -15,13 +15,13 @@ The operator requested grounding in the ecosystem's documentation, repositories 
 
 Evidence levels are separate: indexed; content-reviewed; source-implemented; installed/configured; reachable; authorized for exact operation; consumer-verified; outcome-accepted. A document's LIVE/CURRENT label describes its contractual role, not runtime proof. Dated proof remains dated unless revalidated. An incomplete read is not a whole-corpus audit.
 
-Current activity: owner-directed modular/growth/evolution planning, not implementation. Earlier revisions preserve IIT/memory, full Workstreams/core, twelve handoff sheets, exact routine fields and worked cases. Revision 0.6.0 adds typed module/hook/linking/lifecycle profiles, thirteen upgrade dimensions and twelve additional planned predicates; memory's unfinished plug-in blueprint is an explicit future two-sided agreement. Focusa stays source-pinned; existing slot/bridge/native memory sources are reviewed only as recorded below, not a completed new ABI. No private source/job/capture data, product code/schema, Tasks/graphs, services/demos or runtime activation changed; sibling work is preserved.
+Current activity: close selected prototype seams and prepare implementation under the owner's Leverage² correction. [Closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) selects a complete deterministic case, minimal existing-owner glue, current-memory connection, three demonstrations during building and dependency order; broad qualification/models/migrations wait. SOVOS bootstrap is blocked by the real owner/daemon UID boundary, but the doctrine repository is not the runtime owner. Core is independently verified with ready baseline/Genesis; the current request still needs its own matching Core Trajectory/Workpoint before code/dispatch admission. The future memory ABI stays provisional. No private data, product code/schema, Tasks/graphs, services/demos or runtime activation changed; sibling work is preserved.
 
 ### 1.1 Working-tree provenance
 
 | Repository/path | Observed local baseline | Review boundary |
 |---|---|---|
-| SOVOS `/root/agent-driven-life-business-os` | `a3b68922b361e921312e84abd8bc4add96d73ff1`, published 0.5.0, clean before 0.6.0; earlier 0.4.0 `541717e`, 0.3.0 `6c74b7e`, 0.2.0 `1bde0f4`, original `695738c` | Only Master Loop companions/index and the new numbered modular-evolution annex changed |
+| SOVOS `/root/agent-driven-life-business-os` | `62dbd9d8a3a388fb7cea409aaaf6732926b56eab`, published 0.6.0, clean before 0.7.0; prior 0.5.0 `a3b6892`; earlier 0.4.0 `541717e`, 0.3.0 `6c74b7e`, 0.2.0 `1bde0f4`, original `695738c` | Only the eight existing Master Loop documents/index changed; no new annex or product code |
 | Focusa `/home/wirebot/focusa` | Older local `16f2eeef0`; local identity/task artifacts preserved | Local selected source is not latest public main; no checkout/update/installation performed |
 | Focusa published source | `b10c605e1e0ccbdb43d9650945adde7a87fec25d`, GitHub main observed 2026-10-11 | Current guide and selected core documents/code cached read-only; not installed/runtime qualification |
 | Wirebot Core `/home/wirebot/wirebot-core` | `84eee29`; extensive staged/unstaged concurrent work | Current file contents may exceed HEAD; memory/native transition and other staged work are not certified deployed |
@@ -313,7 +313,7 @@ A single unchecked checklist previously mixed design, approval, commissioning an
 | Operational ablations and version-pure finite IIT research | 03 §§10–12; 07 §7 | Separate empirical protocol/math/software conformance and experiment grant; off operational critical path |
 | Migration and final stopping/review conditions | 05 §§8,12; 06 §10; 07 §8 | Required owner/product acceptance, separately authorized decomposition/build and affected commissioning |
 
-The expanded module/evolution planning is specified; the candidate is not self-approved or fully bound to memory's unfinished plug-in layer. No code must already exist to plan it, and private IDs/secrets/calibrated values are not published. Exact two-sided required interface acceptance must precede dependent decomposition; actual support/empirical qualification belongs to separately authorized building. A future memory revision updates affected homes/compositions without automatically restarting all planning.
+The narrowed prototype seam choices and implementation handoff are explicit in 07 §8, without claiming a built runtime. Future memory agreement applies to new dependent interfaces, not unchanged current-memory use. Thirty-six planned cases are a point-of-need risk catalog, not blanket prebuild admission. Native scope/executor admission and actual effect/receiver permissions remain real requirements; this does not restart an ecosystem audit or force private bindings into public docs.
 
 ## 8. Preservation and verification record
 
@@ -337,4 +337,6 @@ Revision 0.5.0 completes the bounded planning package with 07's worked normal/ab
 
 Revision 0.6.0 adds 08's first-class modularity/composition/hook/lifecycle/evolution design, provisional memory role/port agreement and later reconciliation, plus twelve planned conformance cases. All eight documents are reconciled to that scope; existing 50 obligations and current memory/V1/disabled-write ownership remain. No module schema/runtime/loader/registry, source data or product implementation changes.
 
-Read current owner steering rather than auto-resuming old tasks. 08 §7's targeted reconciliation is required when the actual memory blueprint is available; 08 §10 is a design trajectory, not created Tasks. Preserve the existing memory assignment and exact source/consumer support limitations. Publication grants neither implementation nor finished memory-ABI authority.
+Revision 0.7.0 applies the owner's Leverage² correction without new documents/test machinery: selected prototype seam contracts and Core glue, current-memory route, deleted optional prerequisites, three essential demonstrations during implementation and finite dependency order in 07 §8. Readback of Core main/tenant memory registrations confirms source routes, not deployed consumer support. SOVOS preview's preserved error is HTTP 403 `owner_runner_required`: ancestor uid 0 differs from daemon uid 549. Its missing project artifacts are not repaired by changing ownership/hardening. Eliminate unnecessary execution onboarding of the doctrine repo: Core's actual code owner is verified high-confidence, bootstrap/Genesis ready, but current-continuity Trajectory/Workpoint not found. Establish this request's matching Core work rather than borrow an unrelated packet.
+
+Current owner steering requests progression rather than another planning loop. Preserve the existing memory assignment, sibling work and actual source/consumer limitations. No runtime build, Tasks/graph, tests, scheduler or native memory activation has been performed by this revision; publication grants no missing execution authority.

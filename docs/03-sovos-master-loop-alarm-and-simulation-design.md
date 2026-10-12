@@ -1,7 +1,7 @@
 # SOVOS Master Loop — Alarm Fabric, Scenarios and Integration Experiments
 
 **Status:** INCUBATING — draft behavior/acceptance design, not executable schemas or implementation tasks.<br>
-**Draft revision:** 0.6.0, 2026-10-11 — base plus modular conformance, with memory bindings provisional.<br>
+**Draft revision:** 0.7.0, 2026-10-12 — future proof catalog, not a blanket pre-prototype gate.<br>
 **Parent:** [Master Loop draft](02-sovos-master-loop-draft.md).
 **Bindings, coverage and unresolved decisions:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
 **Detailed contracts and lifecycles:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
@@ -169,6 +169,8 @@ Wake conditions must name purpose, input evidence, required output, budget, stop
 Revenue-engine composition additionally spans opportunity → prospect → CRM → conversation → offer/commitment → invoice → settled cash → customer value → retention/expansion/referral. Financial recovery and life enrichment require their explicitly designed boundaries; missing v1 routine enums cannot be bypassed by labeling everything custom.
 
 ## 8. Failure behavior and negative acceptance design
+
+**Leverage² staging:** these 36 base/modular cases are a future risk catalog, not required test machinery before coding. [Closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) selects one complete working prototype and three necessary demonstrations during implementation: whole loop/quiet, scope/uncertainty, duplicate/resume. Add only a small real-defect regression or an actually applicable mandatory product check; optional provider/model/migration cases wait until selected.
 
 These are required scenario predicates, not executed tests.
 
@@ -487,4 +489,4 @@ No executed network, IIT calculation, model installation or experimental result 
 
 Every scenario requires reviewed expectations, boundary conditions, supported source/operation mappings, failure transitions, independent success predicates and labeled simulation limits. A beautiful diagram or a synthetic pass cannot close runtime integration gaps.
 
-The expanded candidate includes 24 base plus 12 modular planned predicates, concrete trace/whole-Workstream overlay and the closure's instantiated decision worlds, finite operational protocol and explicit toy transitions. The unfinished memory-owner plug-in blueprint must be reconciled through modular §7 before dependent interfaces are frozen; it is not assumed implemented or final. No simulator, executable fixture, benchmark, model call, alarm, schedule or worker was created. Fixture limits and hand-worked loss examples are not approved production policy or measured performance. Owner/product acceptance, actual operation/parameter commissioning and separate numerical IIT conformance remain honest boundaries; they are not an invitation to another general planning audit. No decomposition or implementation is granted.
+The 36 planned cases remain future risk coverage, not prototype blockers or executed tests. Current owner steering requests seam closure and implementation progression; closure §8 supplies the lean handoff and three checks during building. Use existing memory for the first composition; future plug-in-dependent interfaces still reconcile under 08 §7. No simulator/test suite/model/watch/worker/runtime was created by this revision. Fixture values are not production policy; source, receiver and scope honesty remain required. Optional numerical IIT is separate, not on the prototype path.

@@ -1,7 +1,7 @@
 # SOVOS Master Loop — Planning Closure and Worked Decisions
 
-**Status:** INCUBATING — worked planning candidate retained; modular extension added; memory agreement provisional.<br>
-**Draft revision:** 0.6.0, 2026-10-11.<br>
+**Status:** INCUBATING — lean end-to-end prototype handoff selected; no runtime completion claimed.<br>
+**Draft revision:** 0.7.0, 2026-10-12.<br>
 **Purpose:** finish the bounded paper design, not prolong planning or authorize building.<br>
 **Parent:** [whole organism](02-sovos-master-loop-draft.md).<br>
 **Behavior/obligations:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
@@ -266,19 +266,61 @@ Each next unit is deterministic conditional on x, so the state-to-state row fact
 
 Integration candidates/controls follow 03 §§11–12: remove a declared feedback edge with independent noise, compare a feed-forward/common-input/copy-cycle alternative and retain smaller/simpler boundaries. Operational benefits and this toy model's causal quantities are different experiments. The fictional Boolean dynamics cannot validate the deployed organism, biological life, consciousness or additional permissions.
 
-## 8. Final review and implementation boundary
+## 8. Lean prototype closure and implementation handoff
 
-The remaining work is no longer an open-ended planning prompt. It is a finite acceptance/qualification package over this exact revision:
+**Current owner steering:** apply Leverage² and the question → delete → simplify → accelerate → automate sequence; close the final seams and progress toward a working end-to-end prototype. The previous planning-only ceiling is superseded for that requested progression. It does not grant unrelated production changes, customer data access, installations, paid CI, new credentials or memory cutover. The blueprint itself still grants no execution authority.
 
-| Disposition | What is finished now | What must occur later |
+The 36 future proof cases are **not a wall before coding**. Keep the full organism as the destination; implement one complete useful path before spending on permutations, interchangeable providers or exhaustive regression machinery. Preserve real consent/source/effect boundaries, not process created to manage process.
+
+### 8.1 Selected first composition and explicit deletions
+
+Select §2's inquiry/response case: one owner, one business, one accepted commitment, its incumbent responsible actor and one permitted internal attention intent. Carry purpose → observe/expect → concern → responsibility → governed effect → independent receiver/source verification → current state/gap → bounded follow-through/quiet → existing memory connection. A completed leaf does not close unrelated required work.
+
+Bring-up may use the explicitly fictional `I7` inputs in an isolated owning-product development scope. Execute actual owner components and inspect their real persisted state, trigger, effect receipt and memory disposition. Fixture data is not a live-business proof; mocked adapters or a pure transition simulator cannot be described as a wired end-to-end prototype. Real customer/account/channel bindings require exact scope before use; compiling source-neutral adapters does not require publishing those private values.
+
+**Delete from prototype prerequisites:** model installation/comparison, hosted fallback, IIT calculation, statistical leverage benchmarks, general plug-in loader/registry, second provider/client/domain, native memory migration, generalized worker recall, new UI/body, ambient capture, transcript-canon allocation and automatic reassignment. No automatic routine-pack activation or twenty-four/twelve-case testing project. These remain later selectable capabilities, not silently abandoned whole-loop responsibilities.
+
+### 8.2 Final seam choices for the prototype
+
+These are selected implementation contracts, not claims that their proposed operations are installed. Existing 05/06 laws apply; only the missing product-owned glue is built.
+
+| Seam | Selected smallest binding | Consequential behavior fixed now |
 |---|---|---|
-| Planning deliverable | Whole-organism purpose, 50 obligations, 12 handoff sheets, 36 base/modular planned predicates, worked decisions, finite applicability and separate scientific proposal | Owner may accept/amend the finite candidate; no implied approval from publication |
-| Consequential architecture | Recommended source/concern/watch/work/conversation/capture/retention/memory responsibilities and extensions are explicit | Owner-rooted acceptance and reconciliation in controlling homes; no second authority or memory-agent takeover |
-| Product semantics | Required behavior and module profile/hook/dependency/lifecycle/evolution semantics in 05/06/08; existing owners only | Owning accepted contract/extensions and exact pending memory-layer agreement before dependent decomposition/build |
-| Deployment | Parameter types/bounds/owners and missing-value behavior are fixed | Actual account/actor/channel/calendar/operation/policy values privately verified before affected activation |
-| Empirical qualification | Producer/consumer/interop/live, matched burden/model and adversity obligations declared | Actual execution under separately authorized scope; historical/static checks are not passes |
-| Scientific research | Operational simulation protocol and finite IIT proposal are explicit, separate and bounded | Approved experiment protocol and version-pure software/mathematical conformance; not a prerequisite for ordinary operational building |
+| Intent and observation | Existing provider or attributable accepted owner instruction; one source adapter with current revision/coverage | Required target/time/response/cancellation predicate are explicit; incomplete/denied coverage means unknown, never absence. No broad inbox ingestion or memory-derived deadline |
+| Concern persistence | Minimal conditional projection in Wirebot Core's existing tenant-bound persistence | One concern per scoped source origin; retain source/assignment/watch/intent/outcome refs and expected revision. No new service/task authority or copied source canon |
+| Watch | Existing source-native trigger when adequate; otherwise one OpenClaw persisted definition invoking the bounded owner adapter | Pin/read back one definition; no in-place edit or takeover needed for this prototype. Current entry guard rejects changed source/instance/definition; cancellation disarms and reconciles, not undoes a sent effect. No new scheduler |
+| Responsibility and governed work | Retain the actual incumbent assignment; bind accepted work to the correct Focusa scope/frontier | No new workforce composer, automatic reassignment or role-name acceptance. Deterministic judgment only; no inference wait |
+| Internal effect | One exact owner-approved attention action through its owning operation/transport | Persist its stable logical intent before invocation. Retry observations freely within bounds, not effects. If receipt lookup is unavailable or acknowledgement is lost, retain unknown and stop automatic resend; never invent exactly-once delivery |
+| Verification and follow-through | Re-read source response and obtain the separately defined receiver acceptance | Notice delivery/task completion is not usable-answer acceptance. Reconcile remaining coverage; release capacity and retire the obsolete watch when satisfied |
+| Memory | Existing scoped approved context/recall plus minimal contribution through the current review queue | No new plug-in ABI, feeder, store or native writer. Reviewer approval stays explicit; show candidate/pending/rejected/delivered/eligible separately. A lost queue acknowledgement remains ambiguous and is not blindly submitted again |
 
-**Recommended final decision:** accept the deterministic, source-owned, existing-team-first whole loop as composable capability contracts rather than hard-coded products, with existing-owner typed hooks/linking, lifecycle and upgrade protocol. Reconcile the developing memory blueprint through modular §7 before final dependent bindings. Keep native cutover/worker recall, optional models/bodies/ambient/federation/IIT conditional on their own approved bindings/qualification. Conditional paths remain architectural capabilities; selecting one makes its requirements mandatory. Do not shrink the organism to its first case or activate the entire reservoir.
+**Core glue interface selected for development:** a tenant-authenticated bounded step handler and source-qualified concern readback, registered through the existing Scoreboard server and tenant routing. Proposed route names are `POST /v1/master-loop/step` and `GET /v1/master-loop/concerns/{id}`; they are NOT available APIs. The step binds exact instance/source/observation/coverage/assignment refs, expected concern revision and event identity; owner/tenant comes from authenticated server binding, never an override in the request. Arbitrary observation claims are not trusted as provider coverage. Outputs identify concern/revision, disposition/next event, intent/receipt state, outcome proof and memory disposition; permission/source/coverage/conflict/unknown errors retain their actual meaning. Effect arguments remain source-bound and allow-listed, not arbitrary commands/URLs.
 
-The added modular/evolution planning is explicit; the exact memory interface remains provisional until its owning blueprint is available and accepted. That revision affects named sheets/compositions, not every routine or another general audit. Modular §10 supplies staged design-maturity criteria over existing work owners, not Tasks/graphs/deadlines. Code, schedules, customer data access, installation, cutover and instruction activation remain outside the grant; no unattended implementation/reconciliation watcher is promised.
+Use the existing database transaction/conditional revision to reserve concern intent before an outbound attempt. One reservation permits one attempt; ambiguous transport completion never clears it for replay. Completed effects and original intent IDs survive duplicate events/restarts. A new independently accepted intent is distinct only after reconciliation. The projection is not a substitute execution ledger, grant or receiver authority.
+
+**Memory is narrowed, not fabricated:** the future layer in 08 §7 remains provisional. The prototype uses only currently supported scoped context and queue fields; optional new promotion/idempotency/worker ports are not invented to delay everything else. Core's tenant queue/trace registrations exist in selected source; operator-only native state/recall routes are not worker-general bindings. An approved existing memory read can inform the case; an outcome candidate can remain awaiting its actual reviewer without holding the accepted business outcome open. The demonstration must show these actual boundaries, not count queue acknowledgement as learning. Future plug-in-dependent code still waits for its owning agreement; unchanged V1 work and its implementation agent are preserved.
+
+Raw transcript/audio canon is not selected. Retain minimum source-qualified intent/receipt/evidence through existing owning runtime/work/product records under the actual permitted treatment. This does not assign the portable profile's unresolved transcript ownership or introduce a conversation ledger.
+
+### 8.3 Three necessary demonstrations, during implementation
+
+1. **Whole loop:** run the scoped inquiry through the actual products; show a warranted internal notice, actual responsible actor, independently usable response/accepted outcome, retired check and honest memory disposition. Repeat the satisfied case to show healthy quiet. No manufactured win or forced notice.
+2. **Scope/uncertainty:** wrong-scope or cancelled/stale input and missing coverage cannot cause the internal effect or false closure. Inspect the actual resulting state; no large generic denial framework.
+3. **Repeat/resume:** deliver the same event again and resume around a persisted pending effect. Observe one concern/stable intent and no automatic duplicate effect; retain unknown if the provider cannot settle it.
+
+Record compact actual receipts and observed outputs. Do not build a new test service, generated suite or simulator as a prerequisite. Add a small regression only for a real defect found, or when the affected product's existing mandatory contract requires it. Product release/install gates still apply to actual delivery; they do not justify unrelated pre-prototype test expansion. The remaining T01–T36 cases are point-of-need qualification for selected later risk, not a blanket admission score.
+
+### 8.4 Implementation order and stop boundary
+
+| Dependency order | Owning work / bounded result |
+|---|---|
+| 1. Native implementation scope | SOVOS owns this blueprint, not prototype runtime. Use Wirebot Core's verified existing baseline and establish this request's matching Trajectory/Workpoint there; no unnecessary SOVOS execution onboarding. Do not borrow unrelated Core work or root Beads |
+| 2. Minimal Core glue | Inspect current concurrent Core changes; extend its existing tenant persistence, bounded handlers and main/tenant registration. Candidate files: `cmd/scoreboard/master_loop.go`, `main.go`, `tenant.go`; reuse existing auth/transaction/attention/memory helpers. No second store or broad refactor |
+| 3. Native watch + actual effect/receiver bindings | Bind the existing scheduler and executor to that exact prototype revision; choose the permitted source/actor/recipient and actual verification operation before activation. No production/demo service churn |
+| 4. Demonstrate, remove friction, keep | Run the three checks above through admitted OVH execution, inspect actual product/receiver state, fix only demonstrated blockers, update the same task/spec and retain healthy quiet |
+
+These rows are the bounded implementation handoff, not fabricated Tasks, registered operations or a compiled CallGraph. Materialize them once under the actual owning scopes; reuse adequate existing tasks. The next stage is native admission and implementation, not another broad architecture review. No all-36-test, future-memory-ABI or optional-model prerequisite applies to this narrowed composition.
+
+**Observed scope boundary on 2026-10-12:** SOVOS preview rejects with HTTP 403 `owner_runner_required` because ancestor owner uid 0 differs from daemon uid 549; status also lacks project marker/tasks/Genesis/receipt. Do not change ownership/hardening or hand-write a marker. That doctrine repository need not become an execution project just to implement product-owned glue. Wirebot Core is independently verified high-confidence and its native bootstrap/Genesis status report ready, but this session's Core Trajectory/Workpoint are not found. Establish the current request's canonical work there without borrowing another agent's mission; aggregate ready alone is not admission. Existing memory work stays untouched.
+
+**Current disposition:** lean prototype seams and implementation order are explicit. This revision changes documentation only; no prototype runtime, provider binding, Tasks/graph, schedule, memory write, installation or end-to-end result is claimed. The broader modular architecture remains intact, with optional growth/migration qualified when actually selected.
