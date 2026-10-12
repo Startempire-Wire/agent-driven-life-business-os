@@ -1,7 +1,7 @@
 # SOVOS Master Loop — Detailed Integration Blueprint
 
-**Status:** INCUBATING — whole-loop design with selected lean prototype handoff; no runtime proof.<br>
-**Draft revision:** 0.7.0, 2026-10-12 — only required prototype seams precede implementation.<br>
+**Status:** INCUBATING — full whole-loop implementation scope; no runtime proof.<br>
+**Draft revision:** 0.8.0, 2026-10-12 — all 50 obligations and specified capabilities remain required.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Evidence and unresolved bindings:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
 **Scenario/proof design:** [alarm and simulation annex](03-sovos-master-loop-alarm-and-simulation-design.md).<br>
@@ -336,4 +336,4 @@ Review gates:
 
 IIT research remains separate: its version, assumptions, finite model and measurement method require precise review if included; neither a chosen Phi target nor platform consciousness is a deployment prerequisite. Optional algorithms/models/UI do not block a correct deterministic first binding merely by being unimplemented. However, unsupported required dependencies must be resolved or explicitly excluded, never silently treated as optional.
 
-**Current disposition:** the 50 obligations and full modular destination remain; the 36 cases are a future risk catalog, not an all-tests-before-code prerequisite. [Closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) selects the smallest complete composition, exact minimal Core extension and existing watch/actor/effect/receiver/memory behavior, implementation dependencies and three essential demonstrations. No model/loader/stateful migration/transcript canon/new UI is needed for it. Future memory plug-in interfaces stay provisional while current supported memory is used. Implementation uses independently verified Core's existing baseline; the current request still needs matching native Core work, not a new SOVOS runtime project. This revision creates no Tasks, code, runtime or activation.
+**Current disposition:** all 50 obligations and every specified Master Loop capability remain required. [Closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) supersedes unauthorized 0.7.0 exclusions: first-case Core/watch/actor/effect/receiver/memory glue is an initial milestone, not the final scope. Implement the complete engines/workforce/context/memory/recovery/composition/upgrades/surfaces and full-coverage behavior through their owners. Relevant running checks follow implementation, without a prebuild test wall. Evolving memory interfaces remain required dependencies, not omissions. Native Core coordination is unresolved; no Tasks/code/runtime/activation is claimed.

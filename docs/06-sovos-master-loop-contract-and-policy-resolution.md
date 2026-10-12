@@ -1,7 +1,7 @@
 # SOVOS Master Loop — Contract and Policy Resolution
 
 **Status:** INCUBATING — proposed binding decisions and paper contracts; not runtime authority.<br>
-**Draft revision:** 0.7.0, 2026-10-12.<br>
+**Draft revision:** 0.8.0, 2026-10-12.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>
 **Design obligations:** [integration blueprint](05-sovos-master-loop-integration-blueprint.md).<br>
 **Coverage and evidence:** [integration register](04-sovos-master-loop-source-and-integration-register.md).<br>
@@ -271,7 +271,7 @@ A synthetic fixture may choose finite caps to test exhaustion and comparison. Th
 
 ## 10. Review decisions and remaining evidence
 
-**Prototype selection:** [closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) now closes the bounded seam choices: current source/owner intent, minimal Core conditional concern projection, one pinned native watch, incumbent responsibility, one permitted internal effect, receiver/source verification and existing memory. No new transcript/capture canon, worker-general recall, native writer, idempotency-port redesign or plug-in migration is selected. Ambiguous existing queue/effect acknowledgements stop automatic replay rather than require a new distributed platform. The table below describes wider conditional product review, not five extra planning programs before prototype code.
+**Full implementation scope:** [closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) preserves the first concrete seam choices but supersedes exclusions. Complete all specified source/concern/watch/judgment/workforce/effect/receiver/memory/conversation/control extensions through their owners. Existing paths can support early wiring; they do not replace required idempotency/review/disclosure/writer/upgrade guarantees. Ambiguous results stop unsafe replay while their required owning solution remains unfinished work. Use focused contract closure and running checks, not another broad planning program.
 
 | Decision package | Recommended paper result | Required review/evidence |
 |---|---|---|
@@ -281,4 +281,4 @@ A synthetic fixture may choose finite caps to test exhaustion and comparison. Th
 | Consumer acceptance | T17–T24 augment the existing 16 predicates; B01–B12 specify native-source, denial, replay/correction and return-path proof obligations | Producer/consumer/cross-version/live checks after authorized implementation; source/descriptors alone do not pass them |
 | Complete specification | Preserve the whole organism and full-outcome coverage; exact required dependencies or accepted extension/exclusion | Resolve remaining relevant source/contract contradictions and owner review before Tasks, not every future optional engine or UI |
 
-Modular evolution remains the destination, not upfront machinery. The owner requests a working end-to-end prototype before broad testing; closure §8 is the authoritative minimal handoff. T01–T36 qualify selected future risks, while three demonstrations suffice for prototype progress subject to actual product hard boundaries. Future memory agreement is still targeted, not a blocker on unchanged existing memory use. The existing memory agent/V1/disabled-native-write assignment is untouched; publication does not prove agent consumption or actual runtime support.
+The owner requires implementation of everything specified; modular growth/upgrade and complete memory are part of that outcome, not authorized feature deferrals. First demonstrations support progression but cannot substitute for full capability/receiver acceptance. Apply relevant T01–T36 checks during actual implementation without creating a test wall. The unfinished memory agreement is targeted required work; preserve its implementation agent and V1/disabled-write conditions. This correction creates no runtime and publication proves no consumer support.

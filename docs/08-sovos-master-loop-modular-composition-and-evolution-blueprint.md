@@ -1,7 +1,7 @@
 # SOVOS Master Loop — Modular Composition and Safe Evolution
 
 **Status:** INCUBATING — detailed architecture candidate; memory-provider bindings provisional.<br>
-**Draft revision:** 0.7.0, 2026-10-12.<br>
+**Draft revision:** 0.8.0, 2026-10-12.<br>
 **Owner intent:** growth, interchangeable/composable elements and several upgrade paths must be designed before building.<br>
 **Boundary:** documentation only; no plug-in loader, schema, module installation, executable graph or activation created.<br>
 **Parent:** [whole organism](02-sovos-master-loop-draft.md).<br>
@@ -258,7 +258,7 @@ Migration work has explicit allowed data projection, retention, destinations, bu
 
 ## 9. Planned module and memory-extension conformance
 
-**Not a pre-prototype gate:** the owner selects a working complete loop before this broad qualification catalog. [Closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) owns the narrowed seam contracts, three necessary checks during implementation and dependency order. Required safety/permission/source checks remain; provider interchangeability, migration, additional clients and model comparisons wait until those capabilities are actually selected. Do not build test machinery to postpone the prototype.
+**Full scope, focused verification:** the owner requires all specified capabilities, not a narrowed prototype deliverable. [Closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) removes unauthorized deferrals while preserving a first working milestone. Interchangeability, lifecycle, migration, isolation and resource behavior remain required; demonstrate relevant predicates as their implementations become ready. Do not create an unnecessary prebuild test platform or mark absent capability as qualified.
 
 These twelve cases extend the base 24 predicates in 03; **ML-T25–T36 are defined only here**. They are planned proof obligations, not executed tests or Tasks. Selected owning implementations need independent producer/consumer/interop/live evidence; logical manifests and future claims cannot pass them.
 
@@ -297,6 +297,6 @@ Acceptance requires positive substitution plus negative boundaries: adding a qua
 | Multi-domain/client growth | New routines/engines/sources/surfaces within exact isolated bindings and aggregate limits | T35–T36, A/B/second-client/whole-Workstream proof; no private scope expansion from reusable code |
 | Evidence-based adaptation | Bounded configuration/policy/module improvement, retirement of harmful complexity | Held-out outcome/burden/denial regression and owning promotion; preserve healthy quiet/free capacity |
 
-These are later capability-maturity conditions over existing owners, not created Tasks/graphs/deadlines or a new roadmap. Current owner steering closes the lean prototype path in 07 §8 and requests progression to implementation. Use its existing-memory binding now; align the unfinished future plug-in layer only before new dependent interfaces. Build and observe one complete composition before interchangeable providers/state migrations/multi-client/adaptation programs. Scope/admission and actual permission/receiver controls remain mandatory; optional features and all 36 cases are not prerequisites.
+These boundaries order the full specified implementation over existing owners; none authorizes feature deferral or a reduced completion claim. The first composition is an initial working milestone. Complete interchangeability, stateful evolution, multi-domain/client behavior and adaptation as specified, with actual scope/permission/treatment/receiver conditions. Reconcile the unfinished memory blueprint as required dependency work; existing wiring is not its final replacement. Verify running implementations progressively, not via an upfront all-cases test platform.
 
-**Current disposition:** full modular growth is preserved; lean prototype seam choices and implementation handoff are selected in 07 §8. Existing memory use does not wait for the unfinished future plug-in ABI, which stays provisional for new dependent code. No actual execution admission, built prototype, safe hot swap, production cutover or completed new memory ABI is claimed. This revision changes documentation only; existing memory work and runtime remain untouched.
+**Current disposition:** all specified module/hooks/composition/lifecycle/upgrade/memory capabilities remain in implementation scope. 0.7.0's unauthorized deferral interpretation is superseded in 07 §8. Evolving memory bindings are required unfinished work, not omitted features or invented APIs. Implementation is not automatic activation/cutover. No admitted code execution, built runtime, safe hot swap or completed memory ABI is claimed; this correction changes documentation only and preserves existing memory work.
