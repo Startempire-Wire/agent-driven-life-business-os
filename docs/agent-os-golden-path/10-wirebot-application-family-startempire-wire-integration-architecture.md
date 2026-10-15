@@ -294,6 +294,8 @@ For **non-full-Sovereign managed** Wirebot offerings, operator/Startempire infra
 
 Wirebot App is the natural future owner-facing application for these setups, **not a required prerequisite for operating routines**. Existing supported Discord, chat, API, CLI or customer portal surfaces can deliver outcomes now.
 
+Memory is a foundational Chief-of-Staff capability productizing the same client setup, not an App-specific store or sign-in domain. Apply [Portable Memory §1.1/§19](../../PORTABLE_MEMORY_REFERENCE_PROFILE.md#11-required-portability-and-ecosystem-acceptance): Windows/Linux/macOS and every supported surface use the installation's existing identity, scoped memory connection and lifecycle through qualified adapters. Customer ownership, worker permissions and domain-source truth remain separate. Personal host paths, tokens and setup rituals are not portable dependencies; another backend credential is not the presumed cure for a connection mismatch. Cross-platform deployment/migration and actual consumer tests are required before claiming parity.
+
 A branded route may present the customer's partner identity without creating a separate app implementation.
 
 Example:

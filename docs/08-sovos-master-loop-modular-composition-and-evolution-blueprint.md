@@ -1,7 +1,7 @@
 # SOVOS Master Loop — Modular Composition and Safe Evolution
 
 **Status:** INCUBATING — detailed architecture candidate; memory-provider bindings provisional.<br>
-**Draft revision:** 0.8.0, 2026-10-12.<br>
+**Draft revision:** 0.8.1, 2026-10-15 — memory portability reconciliation; no activation or parity claim.<br>
 **Owner intent:** growth, interchangeable/composable elements and several upgrade paths must be designed before building.<br>
 **Boundary:** documentation only; no plug-in loader, schema, module installation, executable graph or activation created.<br>
 **Parent:** [whole organism](02-sovos-master-loop-draft.md).<br>
@@ -55,6 +55,10 @@ A “module descriptor” below is a logical contract profile mapped onto the ow
 | Health/value/learning | Diagnostic or analytical instrument | Coverage honesty, hard boundaries, accepted outcomes and total burden |
 
 A module swap does not change owner/Operating Partner identity, create a new obligation, renew a budget, adopt a different project, reset a provider idempotency key or confer old credentials. Replacement availability, functional compatibility, data treatment and authorization are separate determinations.
+
+### 2.1 Memory portability is part of composition acceptance
+
+Apply [Portable Memory §1.1/§19](../PORTABLE_MEMORY_REFERENCE_PROFILE.md#11-required-portability-and-ecosystem-acceptance) to the same memory capability used by Wirebot, its App, selected channels and delegated workers. Windows, Linux and macOS bindings replace supervision/filesystem/transport/provider mechanics without replacing the owner, grants, memory truth or WRITE/MANAGE/READ lifecycle. Reference KH/OVH routes, Linux commands and personal namespaces cannot become product requirements. Resolve one existing installation's scoped memory connection, not a per-surface login or an owner/admin token shared with workers. Selected optional modules remain optional; required capabilities and source revision, correction/deletion propagation, latency/resource and recovery checks remain load-bearing on each supported combination. Same-client moves and fresh-client isolation use the existing migration/credential owners, not a second control plane. Unproven platform or consumer agreement is a readiness gap, not accepted interchangeability.
 
 ## 3. Logical module contract profile
 

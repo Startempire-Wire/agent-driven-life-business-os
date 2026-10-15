@@ -4,8 +4,8 @@
 **Schema family:** `agent.memory_contract.v1`<br>
 **Applies with:** `AGENTS.md`, `OWNER_AUTHORITY_CONSTITUTION.md`, `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`, `CURRENT_ECOSYSTEM_ARCHITECTURE.md`, `AMBIENT_OPERATOR_REFERENCE_PROFILE.md`<br>
 **Evolution class:** `portable_operational` (portions touching privacy, tenancy, deletion and authority are `safety_authority`)<br>
-**Version:** `0.3.0` (incubating — runnable substrate and evaluation now ship)<br>
-**Last substantive revision:** 2026-10-04<br>
+**Version:** `0.4.0` (incubating — explicit cross-platform and ecosystem acceptance; runtime parity unproven)<br>
+**Last substantive revision:** 2026-10-15<br>
 **Architecture authority:** deployment Canonical Owner Principal under `OWNER_AUTHORITY_CONSTITUTION.md`<br>
 **Startempire binding:** Verious Smith III<br>
 **Reference implementation:** Wirebot/OpenClaw memory stack (memory-core, memory-wiki, active-memory, wirebot-memory-bridge, Mem0, Letta), Focusa, Agent Wiki, Context Core<br>
@@ -32,6 +32,19 @@ EVICTABLE    forgetting is a first-class, audited, restorable operation
 ```
 
 A system with durable storage but no lifecycle discipline is a liability, not an asset. Stale or hallucinated recall is worse than no recall, because the owner cannot tell the difference.
+
+### 1.1 Required portability and ecosystem acceptance
+
+The Golden Path productizes the owner's repeatable, in-person client setup through **Wirebot as Chief of Staff and the Wirebot App as its owner-facing surface**. Memory is a foundational layer of that composition, not a separately installed memory product. **Windows, Linux and macOS are required deployment targets.** Every supported surface must obey the same memory contract; a working reference server is not portable acceptance.
+
+- **Stable semantics, replaceable adapters.** Preserve capture, authorized review/settings, durable delivery, eligible recall/use, correction, forgetting and recovery across platforms. The five tiers describe roles and guarantees, not five compulsory databases. Bind selected capabilities to existing product owners; do not create a second store, scheduler, credential authority, task system or agent loop. Providers may be substituted only with equivalent required behavior and verified conversion where needed.
+- **Platform boundary.** Resolve data/config/cache/backup locations, filesystem permissions, secret references, process supervision, transports and dependencies through the owning product's deployment adapters. Linux paths, root/sudo, UID checks, systemd, Bash scripts, loopback ports, hostnames and personal namespaces are reference bindings, not universal prerequisites. Windows/macOS enforcement must be equivalent, not absent. Qualify path separators, case/Unicode and filename constraints, line endings, durable atomic writes/locking and time normalization; logical record identity must survive physical path changes. Declare supported OS versions, architectures and required capabilities; an unavailable dependency is blocked, not silently skipped.
+- **Deployment modes.** Declare native/local, approved container or approved remote-provider profiles, resource requirements, residency, network/offline behavior and failure semantics. A Windows browser talking to the reference Linux server does not prove a Windows-local runtime. Neither WSL nor a hidden Linux server is an undeclared prerequisite. Hardware-dependent latency is measured per profile; it does not excuse weaker lifecycle or isolation semantics.
+- **One installation identity and memory binding.** Use the installation's existing owner, Operating Partner/runtime, workspace and authorization contracts. App, selected WINS/Discord/chat/CLI/voice surfaces and workers resolve that same scoped memory connection rather than making independent owner mappings or duplicate queues. Reuse normal sign-in; no memory-specific account, PIN or login. Service-to-service credentials remain purpose/consumer scoped through the existing credential authority: first reconcile connection, issuer, audience, scope and current grants, not ad-hoc token replacement or legacy operator bypass. Endpoint changes do not themselves authorize new grants or secret copying. Real renewal or scope changes follow the owning authorization flow, not manual per-client memory patches.
+- **Ecosystem ownership.** Preserve the product boundaries in `CURRENT_ECOSYSTEM_ARCHITECTURE.md` and the reciprocal contracts in `CROSS_PRODUCT_SEAM_CONTRACT.md`. Wirebot coordinates; the App projects/operates supported capabilities; Focusa owns governed work/continuity; domain sources retain their truth; workers receive only delegated role/purpose slices. A channel, tool, model or host change neither creates a new Chief of Staff nor transfers owner authority to a worker. Optional integrations are declared selections, not hidden compulsory infrastructure.
+- **Move a client, never leak a client.** Same-client export/import and upgrade/rollback preserve record IDs, provenance, revisions, privacy/retention, corrections, deletion/tombstone state, receipts, checkpoints and stable partner identity. Rebind platform paths, endpoint references and valid target credentials through existing owners; do not replay expired or machine-bound grants. Use the owning export/import protocol, flush/quiesce and fence the old writer before target activation, preserve uncertain delivery/idempotency state, and prove rollback without two active writers; copying live database files is not a portable migration protocol. Fresh-client setup establishes its own owner/namespace and contains no source client's data, credentials or authority. The portable package contains contracts/templates/adapters, not this owner's state.
+
+Acceptance uses the platform/surface matrix in §19. These are required outcomes, **not a claim of installed Windows, Linux or macOS parity**. Unknown or untested combinations remain explicitly unaccepted.
 
 ## 2. Memory is a lifecycle, not a store
 
@@ -253,14 +266,16 @@ Probes should cover accurate retrieval, test-time learning, long-range understan
 | Authority / work continuity | Focusa |
 | Sync / reconciliation | wirebot-memory-syncd (transport only) |
 | Evaluation | retrieval-eval + a causal (with/without) harness |
+| Owner/worker surfaces | Wirebot App and selected WINS, Discord, chat, CLI or voice adapters consuming the same scoped memory |
 
 Mapping is illustrative. A deployment may substitute adapters, but the roles, authority, and budgets above are the portable contract.
 
 ## 16. Install and setup contract
 
-This is the section that makes the profile deployable. Everything above is a
-description of correct behaviour; this is the ordered procedure to reach it, plus
-the traps that a competent engineer will otherwise hit.
+This section defines the ordered deployment procedure that the existing owning
+products implement for each declared platform/profile, plus observed traps.
+It is not itself an installer, proof of foreign-host support, or permission to
+apply the reference deployment's commands and credentials to a client.
 
 **Standing:** this is the minimum viable memory substrate. It is not the whole
 system, and it is not a substitute for the tier and governance rules above.
@@ -269,11 +284,11 @@ system, and it is not a substitute for the tier and governance rules above.
 
 | Requirement | Why it is not optional |
 |---|---|
-| A durable file store | `MEMORY.md` and the structured store are the substrate; everything else indexes them |
+| A durable memory record store under the existing product owner | Preserve authoritative accepted records; the reference file-backed mapping uses `MEMORY.md` and structured state, not a compulsory file layout or replacement for domain-source truth |
 | One embedding model, pinned by version | An unpinned embedder silently invalidates every existing vector |
-| One LLM endpoint with a **verified billing path** | See 16.7 — an authenticated key that returns HTTP 402/401 is not a working endpoint |
-| A process supervisor with restart ordering | Components depend on each other's readiness, not just their existence |
-| One named owner for transcript memory | Currently unowned (§18.1); a deployment MUST assign it before go-live |
+| An approved reasoning endpoint with usable capacity | See 16.7 — paid routes require working authorization/billing; local/offline routes require actual model readiness and approved resources, not a compulsory cloud account |
+| Platform-appropriate lifecycle/readiness enforcement | Components depend on readiness and recovery; use the declared Windows, Linux or macOS adapter, not a universal systemd/shell prerequisite |
+| One named owner for transcript memory | Bind the installation's existing runtime/transcript owner before go-live; §18.1 records the reference deployment's unresolved ownership, not an instruction to create a new store |
 
 ### 16.2 Install order
 
@@ -281,14 +296,14 @@ Order is load-bearing. Each step is verified before the next begins.
 
 | # | Step | Done when |
 |---|---|---|
-| 1 | Create the file store and seed the tiered files | Tier files exist and are readable |
-| 2 | Bring up the embedding + vector store | A stored document is findable by paraphrase |
-| 3 | Wire the structured state store (goals, KPIs, checklists) | An agent can read and write its own state |
-| 4 | Add the cross-surface episodic store | A fact written through one surface is retrievable from another |
-| 5 | Add **attribution and tenancy enforcement** | A write without a source is rejected |
+| 1 | Bind the existing record store and selected tier adapters | Existing data is preserved; required roles are readable/writable under the correct client identity and platform permissions |
+| 2 | Verify the selected embedding/retrieval adapter and pinned generation | A stored document is findable by paraphrase; reuse existing providers rather than require another local vector service |
+| 3 | Bind the existing structured-state owner (goals, KPIs, checklists) | The permitted agent can read/write its own scoped state without creating a competing database |
+| 4 | Bind cross-surface episodic access through the same memory owner | A permitted fact written through one selected surface is retrievable through another under the same installation binding |
+| 5 | Prove **attribution and tenancy enforcement**, established before step 1 permits data writes | Source-less/unauthorized writes and foreign-client reads are rejected; setup never temporarily shares an owner/admin namespace |
 | 6 | Add the LLM endpoint | A live reasoning request returns a response |
 | 7 | **Establish checkpoints deliberately** | Feeders resume from a known position |
-| 8 | Add async write path | A write returns before indexing completes |
+| 8 | Bind the existing bounded async delivery path | Admission/queued state is distinguished from durable delivery, receipt/readback and eligible use; no additional queue authority |
 | 9 | Add verified backups and prove a restore | A restore rehearsal passes |
 | 10 | Add evaluation with a null-memory arm | Recall can be measured *and can fail* |
 
@@ -341,15 +356,21 @@ Each of these was found in a real deployment, not a design review.
 
 Before any agent is declared operational, prove the reasoning path end to end:
 
-1. Does the endpoint authenticate? (401 means no)
-2. Does it have **balance**? (402 means a valid key with no funds — the most
-   deceptive failure, because the key is real)
+1. Does the approved endpoint authorize the intended consumer? (401 means no;
+   a local route still enforces its declared access policy)
+2. Does it have usable capacity? For paid providers prove **balance** (402 means
+   no funds); for approved local/offline models prove load/readiness/resources.
+   Do not introduce a billing account as an offline installation prerequisite.
 3. Does it complete a **real** request, not a models list?
 4. Does the agent return actual reasoning content?
 5. Does it survive a restart, and a **second** restart?
 
 Then: **do not run a memory agent on a single endpoint.** Route every call through
 an ordered failover chain. A dead provider must be a log line, not an outage.
+Every alternative must already satisfy the client's grants, privacy and residency
+policy; portability is not permission to add a cloud account or copy another
+client's key. With no approved alternative, hold/report unavailable honestly and
+keep failover acceptance unproven rather than inventing a successful fallback.
 
 ### 16.8 What this section does not settle
 
@@ -359,20 +380,26 @@ an ordered failover chain. A dead provider must be a log line, not an outage.
   redundancy is not.
 - **No regulated-data posture.** §11 states the classes; a deployment in a
   regulated jurisdiction must add its own retention and residency controls.
-- **Migration between substrates is unspecified.** §12 covers model migration, not
-  memory-substrate migration.
+- **Cross-platform/provider migration is required but not yet qualified here.**
+  §1.1/§19 require same-client state preservation and target credential rebinding;
+  §12 covers model/index migration. A particular backend conversion still needs
+  its owning product's verified path, rehearsal and rollback; absence of that path
+  is an acceptance gap, not an exemption from portability.
 - **The upgrade path is unproven here.** A deployment running a materially older
   engine should treat its first version jump as a separate, independently verified
   project — and should not attempt one while its reasoning path is dead.
 
-### 16.9 What now ships, and what it replaced
+### 16.9 Reference qualification artifacts, not another production store
 
-Two runnable artifacts back this section. Both are standard-library only and run
-on a bare `python3` with no install step.
+Two standard-library Python artifacts provide reference qualification. They do
+not install Wirebot's production memory or supersede its existing providers.
+A supported Python/SQLite build with the required features must already exist or
+be installed through the approved platform setup; it is not bundled with every OS.
+Their execution alone does not prove product or cross-platform acceptance.
 
 | Artifact | Purpose |
 |---|---|
-| `scripts/sovereign-memory.py` | The substrate: one SQLite file, hybrid FTS5 + vector retrieval, mandatory attribution, decay-ranked forgetting, offline by contract |
+| `scripts/sovereign-memory.py` | Isolated reference harness: SQLite/FTS5 + vector retrieval, attribution and forgetting; not an additional client production store |
 | `scripts/sovereign-memory-eval.py` | The evaluation: seven gates including the null-memory control arm. Wired into `tests/run-contract-tests.sh` |
 
 ```bash
@@ -401,7 +428,7 @@ Two lessons from building the replacement, both recorded because they will recur
 
 | Gate | Result | Reading |
 |---|---|---|
-| G0 installability | bare python3.12, **zero third-party imports** | runs anywhere python3 runs |
+| G0 reference installability | recorded Python 3.12 run, **zero third-party imports** | OS/architecture and SQLite-feature parity are unproven; this is not a Wirebot installer result |
 | G1 reachability | write→read traverses | not merely process-alive |
 | G2 mirror trap | no self-reference | score is not self-scored |
 | G3 retrieval | **recall@3 = 0.50 — WARN** | hashed embedder cannot paraphrase |
@@ -412,12 +439,15 @@ Two lessons from building the replacement, both recorded because they will recur
 **G3 is knowingly weak.** The shipped embedder is a hashed n-gram projection: it
 captures lexical overlap and nothing more, which is why "what does the client
 actually sell" misses. It is a deliberate offline default, not a claim of
-semantic understanding. Replacing `encode()` with a real 384-d sentence encoder
-is a drop-in change that does not alter stored data.
+semantic understanding. A real sentence encoder is a candidate adapter, not a
+proven drop-in replacement: pin its generation/dimensions and apply §12 migration
+and reindex checks while preserving source facts and a working rollback.
 
 **Unproven at scale:** the harness has run on 13 documents, not a production
-corpus. Brute-force cosine is correct at this size and wrong at a million rows,
-where `sqlite-vec` must take over. That substitution is designed for and untested.
+corpus. Brute-force cosine has not established production-scale suitability.
+A scalable retrieval adapter (for example `sqlite-vec` for this reference harness)
+needs corpus/resource evidence and platform qualification; no particular extension
+is a universal product prerequisite.
 
 ---
 
@@ -483,11 +513,13 @@ A commit is not `verified`. A transcript is not `approved`. A passing model crit
 | 0.1.1 | 2026-09-28 | Quality pass. Verified all 8 research citations resolve to the cited titles. Mapped the two omitted substrate primitives (`Capability + policy`, `Resource + leverage`). Added the explicit doctrine-versus-runtime-truth boundary required by `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3, and recorded that **transcript memory currently has no named owner** (§18.1). Not yet addressed: no customer install path (§18 checklist is not a setup contract), memory is not a declared cross-product seam, and vertical worked examples are thin. | incubating |
 | 0.2.0 | 2026-10-03 | **Install and setup contract added (§16)** — the profile had descriptions of correct behaviour but no ordered procedure to reach it. Adds prerequisites, a load-bearing 10-step install order with per-step done-conditions, reachability-not-process-alive verification, verified-backup and restore-rehearsal rules, deliberate checkpoint establishment, and eight **known install traps** each recorded from a real deployment rather than a design review. Adds the §16.7 LLM endpoint rule: an authenticated key that returns 402 is not a working endpoint, and no memory agent should run on a single endpoint. Adds seven deployment-readiness checklist items and four new not-done conditions. Sections renumbered 16–20 → 17–21 and cross-references corrected. Still unaddressed: memory is not a declared cross-product seam, and vertical worked examples remain thin. | incubating |
 | 0.3.0 | 2026-10-04 | **Runnable substrate and evaluation now ship.** `scripts/sovereign-memory.py` (one SQLite file, hybrid FTS5 + vector, mandatory attribution, decay-ranked forgetting, offline by contract) and `scripts/sovereign-memory-eval.py` (seven gates incl. the null-memory control arm, wired into the regression suite). Both are standard-library only. This **replaces** the similarity-against-mirror-baseline evaluation, whose metrics held frozen across four days of total backend failure. Two construction lessons recorded: a control arm must be built so it can differ (the first version pinned lift at 0.00 by handing the null arm the answers), and a similarity score can understate value (G3 warns at 0.50 recall while G4 shows memory load-bearing at +0.50 lift). G3 is knowingly weak — the shipped hashed embedder does not paraphrase and is a placeholder behind a 3-call interface. Unproven: everything above 13 documents, and the sqlite-vec substitution at scale. | incubating |
+| 0.4.0 | 2026-10-15 | Required Windows/Linux/macOS and surface acceptance (§1.1/§19), existing installation identity and ecosystem ownership, same-client transfer/fresh-client isolation, platform adapters, and explicit unproven parity. Removed reference-host/file-store/cloud-billing assumptions and universal Python/installability/encoder-swap claims; qualification scripts remain reference harnesses, not a replacement production store. | incubating |
 
 ### Known unproven
 
-- **The shipped substrate has never run on a second machine.** Installability is proven by static
-  analysis (zero third-party imports) and by an air-gapped lifecycle, not by a foreign install.
+- **The reference harness has no recorded second-machine installation.** Static import
+  checks and one air-gapped lifecycle do not establish foreign installation,
+  Windows/Linux/macOS parity or product deployment.
 - **§16 install order has been derived from one real deployment, not several.** The traps in 16.6 are observed; the ordering itself is reasoned, not A/B validated.
 - Tier latency budgets are starting targets, not measured on any deployment.
 - Hybrid fusion parameters and rerank depth are unspecified; a deployment must measure its own Pareto frontier.
@@ -515,7 +547,17 @@ product-specific memory behavior                 -> owning product repository
 
 ## 19. Implementation and adoption checklist
 
-A deployment should not claim portable memory parity until it proves:
+A deployment should not claim portable memory parity until it proves the §1.1 contract and records a platform/surface acceptance matrix. At minimum:
+
+| Required host | Install and existing-identity binding | Capture/review/delivery/recall/use; correction/deletion isolation | Restart/restore/upgrade/rollback and same-client transfer |
+|---|---|---|---|
+| Windows | Required; not established by this document | Required for every supported surface/profile; not established | Required; not established |
+| Linux | Required; reference evidence is not full parity | Required for every supported surface/profile; partial evidence is not acceptance | Required; not established |
+| macOS | Required; not established by this document | Required for every supported surface/profile; not established | Required; not established |
+
+For each cell record OS/version/architecture, native/container/remote mode, provider and contract versions, actual Wirebot/App and selected channel/worker consumers, evidence, and failures. Include fresh client A/B isolation, cross-surface readback and invalidation, two restarts, missing-provider/expired-credential and interrupted-write cases, and same-client Windows/Linux/macOS transfers with rollback. Unsupported surfaces or optional providers have explicit dispositions; no whole required OS may be silently excluded. Source tests, a prototype harness or a remote browser alone cannot mark a cell accepted.
+
+Existing lifecycle requirements remain:
 
 - [ ] five tiers exist with distinct scopes, latency budgets, and retention;
 - [ ] governed promotion path from observation to durable state;
@@ -549,6 +591,10 @@ A deployment should not claim portable memory parity until it proves:
 ## 20. Not-done conditions
 
 Portable memory is not recovered if:
+
+- any required Windows/Linux/macOS deployment or supported surface depends on undocumented reference-host paths, authority, credentials or manual memory-specific login;
+- same-client cross-platform movement loses provenance, corrections/deletion state, isolation, receipts or recovery, or fresh-client setup inherits another client's state;
+- the product bypasses an existing owner/worker/domain boundary, duplicates runtime truth, or claims parity from source/reference-harness evidence alone;
 
 - a derived index is the only surviving copy of a record;
 - the evaluation can pass without the memory being used;

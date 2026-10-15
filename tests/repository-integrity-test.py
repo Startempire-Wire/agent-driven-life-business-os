@@ -151,9 +151,39 @@ def check_economics():
         if value not in fact:
             raise AssertionError(f"public fact sheet missing derived value {value}")
 
+def check_memory_portability_contract():
+    """Guard documentation requirements, not installed OS/runtime acceptance."""
+    rel = "PORTABLE_MEMORY_REFERENCE_PROFILE.md"
+    for os_name in ("Windows", "Linux", "macOS"):
+        assert_contains(rel, f"| {os_name} | Required;")
+    for phrase in (
+        "### 1.1 Required portability and ecosystem acceptance",
+        "One installation identity and memory binding.",
+        "Move a client, never leak a client.",
+        "not a compulsory file layout",
+        "not a Wirebot installer result",
+        "no whole required OS may be silently excluded",
+    ):
+        assert_contains(rel, phrase)
+    for unsupported_claim in (
+        "runs anywhere python3 runs",
+        "is a drop-in change that does not alter stored data",
+        "**Migration between substrates is unspecified.**",
+    ):
+        if unsupported_claim in read(rel):
+            raise AssertionError(f"unsupported portable-memory claim: {unsupported_claim}")
+    for consumer in (
+        GOLDEN_PATH_RELPATH,
+        "docs/08-sovos-master-loop-modular-composition-and-evolution-blueprint.md",
+        "docs/agent-os-golden-path/10-wirebot-application-family-startempire-wire-integration-architecture.md",
+    ):
+        assert_contains(consumer, "PORTABLE_MEMORY_REFERENCE_PROFILE.md#11-required-portability-and-ecosystem-acceptance")
+
+
 def main():
     assert_contains("AGENT_OS_GOLDEN_PATH.md", "**Status:** CURRENT deployment and operations doctrine")
     check_golden_path_version_consistency()
+    check_memory_portability_contract()
     assert_contains("docs/agent-os-golden-path/05-agent-os-golden-path-fleet-receiver-contract.md", "**Status:** CURRENT portable receiver contract")
     assert_contains("docs/ADLBOS_PUBLIC_VALUE_FACT_SHEET.md", "**Status:** CURRENT derived public-copy source / fact-check reference")
     assert_contains("docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md", "targeting `")

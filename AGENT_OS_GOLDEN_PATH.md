@@ -32,6 +32,8 @@ The Golden Path is not another runtime, application, workforce database, task sy
 
 It is the repeatable implementation doctrine for composing the ecosystem correctly.
 
+The Wirebot/Wirebot App composition productizes this same real-client deployment process; it is not a reference-host-only shortcut. Memory must meet the [portable memory requirements](PORTABLE_MEMORY_REFERENCE_PROFILE.md#11-required-portability-and-ecosystem-acceptance) on **Windows, Linux and macOS**, across every supported surface and the selected existing deployment profile. Reuse installation identity, product owners and scoped authorization; platform/provider adapters replace local mechanisms, not the contract. §19 of that profile owns the platform/surface acceptance matrix. A working personal installation, browser against a remote Linux server or prototype script does not establish client/platform parity.
+
 ## Architecture relationship
 
 Current product/system ownership is defined by `CURRENT_ECOSYSTEM_ARCHITECTURE.md`.
@@ -231,7 +233,7 @@ Product-local lessons remain with their product owner. ADLBOS defines the portab
 
 ## Golden Path phase contract
 
-Each deployment phase retains the same useful shape:
+Each deployment phase retains the same useful shape. Its implementation and checks name the actual OS/architecture, owning installer/adapters and selected surfaces; Linux shell/service commands are reference bindings, not proof for Windows or macOS. Preserve the existing hosting/isolation profile contracts rather than invent a new topology to make a memory test pass:
 
 ```text
 PURPOSE
