@@ -1,8 +1,8 @@
 # SOVOS Master Loop — Integrated Chief-of-Staff Organism
 
 **Status:** INCUBATING — full specified Master Loop implementation required; evolving memory agreement retained.<br>
-**Draft revision:** 0.8.0, 2026-10-12 — no unauthorized feature deferrals.<br>
-**Activity ceiling:** preserve, research, reconcile and enrich the specification; no implementation, activation, task/CallGraph decomposition, schedule creation or model installation.<br>
+**Draft revision:** 0.8.1, 2026-10-15 — reconcile the superseded planning-only ceiling.<br>
+**Execution boundary:** the full implementation handoff in [planning closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md#8-full-master-loop-implementation-handoff) supersedes the earlier planning-only ceiling, including task/CallGraph withholding. Work follows the current owner assignment and owning runtime gates; this document alone grants no activation, schedule creation, installation, credentials or unrelated production changes.<br>
 **Authority:** [Owner Constitution](../OWNER_AUTHORITY_CONSTITUTION.md); existing [ecosystem architecture](../CURRENT_ECOSYSTEM_ARCHITECTURE.md) and concern-owning contracts remain controlling.
 **Companions:** [alarm and simulation design](03-sovos-master-loop-alarm-and-simulation-design.md); [source, integration and completeness register](04-sovos-master-loop-source-and-integration-register.md); [detailed integration blueprint](05-sovos-master-loop-integration-blueprint.md); [contract and policy resolution](06-sovos-master-loop-contract-and-policy-resolution.md); [planning closure and worked decisions](07-sovos-master-loop-planning-closure-and-worked-decisions.md); [modular composition and evolution](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md).
 
@@ -212,7 +212,7 @@ Normalize relevant findings to source-linked Intelligence Results: subject, find
 
 Use the current [routine compiler doctrine](../SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md), canonical `routine-templates/` and `routine-packs/`, discovery procedure 12, portfolio compiler 13 and runtime closure 14.
 
-C.R.I.S.T. remains Context → Role → Interview → Spec → Tasks. Source coverage and discovered relationships inform the relevant expert role; targeted interviews resolve consequential unknowns and corrections, not every ordinary implementation choice. New context creates a revision candidate, not a silent rewrite of accepted roles/specifications. This bounded Context/Role/Spec planning package is finished for owner review; its finite decision packet is in [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md), §8. Tasks are deliberately withheld. A large project corpus is served through bounded projections, not squeezed wholesale into one prompt. Never union the superseded `templates/routines/` path as a second catalog.
+C.R.I.S.T. remains Context → Role → Interview → Spec → Tasks. Source coverage and discovered relationships inform the relevant expert role; targeted interviews resolve consequential unknowns and corrections, not every ordinary implementation choice. New context creates a revision candidate, not a silent rewrite of accepted roles/specifications. This bounded Context/Role/Spec planning package is finished for owner review; its finite decision packet is in [planning closure](07-sovos-master-loop-planning-closure-and-worked-decisions.md), §8. The earlier task-withholding ceiling is superseded by planning closure §8's full implementation handoff; all specified behavior remains in construction and acceptance scope under the current owner assignment. A large project corpus is served through bounded projections, not squeezed wholesale into one prompt. Never union the superseded `templates/routines/` path as a second catalog.
 
 ```text
 source-backed audit → candidate → pack/template fit → owner-specific blueprint
