@@ -28,6 +28,13 @@
 
 ## Master Loop — full specified implementation
 
+**Owner clarification:** [09 — Composable, transparent and agent-first components](09-sovos-master-loop-composable-provenance-and-agent-first-contract.md)
+applies across documents02–08 and existing component tasks. The Master Loop is
+one coordinating loop containing distinguishable interacting/nested loops, with
+attributable feedback, exact evidence, visible origin/consequence traces and
+machine-readable agent interfaces. This is a requirement, not a claim that full
+instrumentation or every consumer is already implemented.
+
 **Latest draft revision: 0.8.0, 2026-10-12.** The owner explicitly requires implementation of everything specified. Revision 0.7.0's unauthorized feature deferrals are superseded. [Closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md) keeps every capability family and all 50 obligations in scope; a first end-to-end case is a milestone, not completion. Leverage² removes unnecessary process, not requested functionality. Implement and demonstrate the complete loop through existing owners, including full memory, context, engines, workforce, recovery, composition/upgrades and surfaces. No prebuild test wall; focused running verification still proves actual scope/receiver behavior. Evolving memory bindings remain required work, not omissions.
 
 - [Planning closure and worked decisions](07-sovos-master-loop-planning-closure-and-worked-decisions.md) — **start at §8 for implementation:** full capability coverage, concrete first seams and dependency order through full acceptance; supersedes 0.7.0 exclusions. Initial demonstrations cannot finish the remaining Master Loop.

@@ -1,5 +1,11 @@
 # SOVOS Master Loop — Contract and Policy Resolution
 
+Owner clarification [09](09-sovos-master-loop-composable-provenance-and-agent-first-contract.md)
+is load-bearing for all resolutions: composition does not delegate authority;
+provenance distinguishes origin, performer and verifier; observed effects differ
+from inferred relationships. Agent-readable contracts and visible uncertainty are
+required. Existing owner/source responsibilities and hard boundaries are preserved.
+
 **Status:** INCUBATING — proposed binding decisions and paper contracts; not runtime authority.<br>
 **Draft revision:** 0.8.0, 2026-10-12.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>

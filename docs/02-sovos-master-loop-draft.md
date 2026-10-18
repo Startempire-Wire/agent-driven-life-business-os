@@ -1,5 +1,11 @@
 # SOVOS Master Loop — Integrated Chief-of-Staff Organism
 
+**Owner clarification:** one coordinating loop contains composable interacting
+and nested loops, not a monolithic workflow. Distinct component identities,
+attributable feedback, visible origin/consequence traces and agent-first API/CLI
+are mandatory across this design. Human interfaces remain friendly. See the
+[shared component contract09](09-sovos-master-loop-composable-provenance-and-agent-first-contract.md).
+
 **Status:** INCUBATING — full specified Master Loop implementation required; evolving memory agreement retained.<br>
 **Draft revision:** 0.8.1, 2026-10-15 — reconcile the superseded planning-only ceiling.<br>
 **Execution boundary:** the full implementation handoff in [planning closure §8](07-sovos-master-loop-planning-closure-and-worked-decisions.md#8-full-master-loop-implementation-handoff) supersedes the earlier planning-only ceiling, including task/CallGraph withholding. Work follows the current owner assignment and owning runtime gates; this document alone grants no activation, schedule creation, installation, credentials or unrelated production changes.<br>

@@ -1,5 +1,10 @@
 # SOVOS Master Loop — Alarm Fabric, Scenarios and Integration Experiments
 
+Every scenario also qualifies the [component contract09](09-sovos-master-loop-composable-provenance-and-agent-first-contract.md):
+composable nested loops, origin/initiator/performer/verifier distinction, exact
+feedback and evidence, visible consequences, agent API/CLI discovery and friendly
+human tracing. Simulated diagrams and fixture logs are not live outcome proof.
+
 **Status:** INCUBATING — draft behavior/acceptance design, not executable schemas or implementation tasks.<br>
 **Draft revision:** 0.8.0, 2026-10-12 — full-scope acceptance without a prebuild test wall.<br>
 **Parent:** [Master Loop draft](02-sovos-master-loop-draft.md).

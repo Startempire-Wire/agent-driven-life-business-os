@@ -1,5 +1,11 @@
 # SOVOS Master Loop — Detailed Integration Blueprint
 
+The [component contract09](09-sovos-master-loop-composable-provenance-and-agent-first-contract.md)
+applies to every binding and component here: composable nested/interacting loops,
+explicit identity/purpose, attributable feedback and consequence records, fully
+machine-readable agent interfaces and appropriate human-friendly visual traces.
+A connected tool without those contracts is not a completed integration.
+
 **Status:** INCUBATING — full whole-loop implementation scope; no runtime proof.<br>
 **Draft revision:** 0.8.0, 2026-10-12 — all 50 obligations and specified capabilities remain required.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>

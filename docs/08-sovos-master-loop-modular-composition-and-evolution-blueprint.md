@@ -1,5 +1,11 @@
 # SOVOS Master Loop — Modular Composition and Safe Evolution
 
+Composition and evolution also obey [contract09](09-sovos-master-loop-composable-provenance-and-agent-first-contract.md):
+separate definitions/instances/invocations; preserve each component's identity,
+purpose, typed boundaries and evidence; trace effects across nested loops without
+inventing causality. API/CLI are agent-first; shared visible maps and records must
+remain understandable and disclose incomplete coverage as components evolve.
+
 **Status:** INCUBATING — detailed architecture candidate; memory-provider bindings provisional.<br>
 **Draft revision:** 0.8.1, 2026-10-15 — memory portability reconciliation; no activation or parity claim.<br>
 **Owner intent:** growth, interchangeable/composable elements and several upgrade paths must be designed before building.<br>

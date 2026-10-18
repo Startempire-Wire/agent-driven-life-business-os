@@ -1,5 +1,10 @@
 # SOVOS Master Loop — Source Coverage, Integration Seams and Completeness
 
+Integration completeness includes the [component contract09](09-sovos-master-loop-composable-provenance-and-agent-first-contract.md).
+Every source and seam declares identity, purpose, typed composition boundaries,
+feedback/evidence coverage, errors and machine interfaces. Preserve origin and
+scope across handoffs; missing coverage remains explicit, never an invisible blob.
+
 **Status:** INCUBATING — source-backed draft register; not a task queue, runtime registry or approval.<br>
 **Draft revision:** 0.8.0, 2026-10-12 — full specified implementation scope restored.<br>
 **Parent:** [Master Loop](02-sovos-master-loop-draft.md).<br>

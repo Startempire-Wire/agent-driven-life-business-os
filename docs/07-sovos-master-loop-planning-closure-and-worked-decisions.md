@@ -1,5 +1,10 @@
 # SOVOS Master Loop — Planning Closure and Worked Decisions
 
+Planning closure is subject to the [component contract09](09-sovos-master-loop-composable-provenance-and-agent-first-contract.md).
+Every worked decision must preserve named composable components, feedback and
+origin/consequence evidence, machine-readable operation boundaries and clear
+visible traces. Historical planning closure is not completion of this extension.
+
 **Status:** INCUBATING — full Master Loop implementation scope; no runtime completion claimed.<br>
 **Draft revision:** 0.8.0, 2026-10-12 — unauthorized feature deferrals superseded.<br>
 **Purpose:** finish the bounded paper design, not prolong planning or authorize building.<br>
