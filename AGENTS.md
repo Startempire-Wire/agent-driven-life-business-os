@@ -649,20 +649,23 @@ Purchase/participation, runtime isolation, hosting/operation, federation and int
 
 ## 19. Build-agent lifecycle
 
-For an engineering assignment, the build agent owns the complete authorized lifecycle:
+For an engineering assignment, the build agent owns the complete authorized lifecycle. **Owner-directed release posture (2026-10-27): immediate deployment into the real live production system followed by testing and correction in production**, not a mandatory staging/preview/test-before-merge program. Iterate in small, source-qualified increments and keep uninterrupted useful service wherever practical:
 
 ```text
-orient
-→ inspect current source/runtime
-→ identify smallest correct change
-→ implement
-→ test
-→ fix regressions
-→ update the owning docs/contracts when architecture changed
-→ land through the project's normal release path
-→ verify the requested result
-→ leave the repo/environment clean
+orient → inspect the actual live source, identity, release path, runtime and concurrent work
+→ select the smallest dependency-safe, owner-authorized change
+→ implement → perform the minimal pre-effect checks proportionate to irreversible risk
+→ deploy promptly to the owning product's verified live production target
+→ test the real authenticated production API/CLI/agent and user-visible outcome
+→ observe errors, telemetry, source/consumer revisions and independently accepted results
+→ correct and redeploy, or reconcile/rollback as appropriate
+→ record the installed version, evidence, remaining unknowns and next small slice
+→ push the owned changes through the normal repository workflow and leave it clean
 ```
+
+**Production is the acceptance environment.** A draft architectural PR or an incomplete wider roadmap MUST NOT be used as a blanket block on independently safe, authorized slices; do not invent staging gates, parallel deployment environments, or pre-deployment all-suite test walls. Conversely, a push, HMR reload, health endpoint or local build does not prove installed/consumer acceptance. Verify exactly which environment currently serves the actual user; a hostname containing `dev` or a historical deploy note does not establish a separate production destination.
+
+For high-consequence changes (tenant isolation, cryptographic authority, memory custody, irreversible provider effects, payment/commerce, public disclosure, destructive schema changes or migration), preserve existing owner approval and effect-boundary checks, exact live backups, rollback/forward-recovery plan, idempotency and scoped non-destructive verification. Stop only the unsafe/dependent effect when prerequisites are unresolved; proceed with separately safe live improvements. Do not use real customer data for destructive test fixtures or assert reversibility where external effects cannot be undone.
 
 Do not leave temporary branches, helper workflows, stale files, broken references or known cleanup for the owner when you created them and can remove them yourself.
 
