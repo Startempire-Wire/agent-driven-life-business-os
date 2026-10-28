@@ -724,6 +724,49 @@ Unknown is preferable to invented ROI.
 
 ---
 
+## 11A. W.I.N.S.-derived operating intelligence: capacity, progression and compounding assets (2026-10-27 target)
+
+The W.I.N.S. Portal's original Buyback, Three Planes, Five Scoreboard Zones, Daily Intent, seasons, possession/focus, score differential, asset hierarchy, What-If, Wrapped/retrospectives, correction/training and adaptive Pairing hold valuable **operating semantics**, even when the legacy Scoreboard implementation is incomplete. These belong in the **base private** Wirebot/Perpetua flywheel, independent of the W.I.N.S. PWA, its scores, public Network participation or any optional W.I.N.S. enrollment. W.I.N.S. remains a real, separately repaired global community PWA; Wirebot App is the primary ecosystem app. Both reuse the same source-qualified information through headless APIs, CLIs and agent tools.
+
+### Buyback is capacity returned, not points awarded
+
+An owner may recover capacity by automating, delegating, simplifying, combining or deleting work; removing unnecessary meetings, preventing failures, improving memory relevance, reducing coordination or retiring maintenance-heavy systems. Track, per source-bound recurring burden and comparable window:
+
+- **gross avoided work** — counterfactual baseline and observed reduced effort, with evidence and assumptions;
+- **estimated** versus **realized** Buyback — a proposal is not achieved time; one-time is not recurring;
+- **net capacity returned** — subtract owner review, staff/worker oversight, exceptions, model/tool cost, maintenance, migration, additional coordination and risk exposure; preserve money and time as separate units;
+- **protected margin** — capacity not silently refilled by new agent demands or new owner obligations;
+- **owner-chosen reinvestment** — optional rest, relationships, creative work, asset development, commercial growth, reserve, or open space; never an automatic queue;
+- **compounding capacity** — demonstrated reuse of the same qualified capability across distinct routines/domains/time windows, without double-counting and with portability cost disclosed.
+
+Only qualified net benefit over a stated baseline is an accepted improvement. Unknown source coverage, comparison quality, causation or resource cost remains explicit. Negative, mixed, delayed and ambiguous effects remain in evaluation. A single numeric score is insufficient for benefit or sovereign value. The current operator.leverage_snapshot.v1 is the existing private projection; a later additive contract/version may carry the richer measurements after exact producer/consumer qualification.
+
+### Three Planes become an epistemic separation
+
+1. **Reality:** verified, source-owned consequences and accepted external outcomes; not mere execution receipts.
+2. **Behavior:** work method, effort, delay, focus switching, repairs, supervision, retries and reliability; useful diagnostic context but not proof of life success.
+3. **Reflection:** private, consented, corrigible owner observations on energy, satisfaction, quality of life and choices; never public W.I.N.S. standing, self-issued psychological truth, or a performance penalty.
+
+Healthy quiet, lawful abandonment, necessary rest and eliminated work may be optimal even when an old Scoreboard ship counter is zero.
+
+### Five Zones become a multi-dimensional operating lens
+
+- **Game Clock:** meaningful horizons, deadlines, cadence, season/experiment epochs; existing source/Focusa temporal authority governs real deadlines.
+- **Score/Reality:** independently accepted changes toward current owner-defined goals; optional Scoreboard points are a separate presentation metric.
+- **Possession:** which initiative merits the owner's scarce attention; agent work may proceed independently within existing grants; UI focus never becomes a project/work authority.
+- **Momentum:** sustainable follow-through, recovery, useful persistence and verified progress, not streak length or activity rate alone.
+- **Score Differential:** source-backed gap between the owner's accepted target and actual result, including dependency and remaining cost, not an invented percentage.
+
+**Seasons and Wrapped** provide bounded comparative review and learning; historical numbers must keep their original score formula/version. **Asset hierarchy** is a contextual lens on cash-generating, distribution, reusable knowledge/IP, software/automation and network/community assets; prioritize current survival constraints and operator choice, not a compulsory fixed sequence. **What-If** is a labeled simulation, not a promise or authorization. **Daily Intent** preserves one owner-chosen meaningful outcome, the smallest valid step and deliberately ignorable work.
+
+**Pairing/complementarity** may help adapt communication, pace, review and emphasis through explicit preferences and qualified context, distinguishing slower preferences from temporary conditions. Old psychometric classifications, inferred mood, the Pairing constructs labeled Φ1–Φ7 and W.I.N.S. engagement are not IIT Φ, validated clinical traits, authority or user-defined meaning. The operator may inspect, correct, reject or disable inference. Focusa Spec 138 owns governed epistemic promotion; Portable Memory governs eligible memory treatment; the Owner Constitution governs action.
+
+### The evolutionary return path
+
+Verified outcome and burden → bounded private Buyback/leverage synthesis → Master Observer compares causal organization and alternative components using held-out/ablation cases → Focusa-governed improvement candidate → sandbox/shadow/canary under actual authority → accepted improvement or revert → Perpetua chooses the next useful opportunity or **healthy quiet**. Observer investigation cost and attention burden count against the improvement. More integration, data, connection count or IIT-model Φ alone never proves net benefit. The cycle aims at a virtuous flywheel; it cannot guarantee every external event or change is positive.
+
+---
+
 ## 12. Wirebot integration — one partner, not a second life engine
 
 Wirebot already owns the owner-facing relationship and its Partner Intent Model already spans life, business, relationships, communities, aspirations, finances, social context, opportunities and preferences.
