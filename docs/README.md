@@ -49,6 +49,10 @@ Memory agents should read that handoff alongside the existing [portable memory p
 
 **Full implementation required; runtime not built.** Use actual product-owning scopes and the current request's matching native work, not another agent's mission. Existing Core coordination conflicts are explicit blockers, not permission to take over or reduce scope. Implement all ready required families and retain exact unresolved dependencies. Private targets and native-write/cutover permissions remain separately controlled; existing memory work stays protected. No unrelated production/demo changes or paid CI.
 
+**2026-10-27 cross-product evolution/progression direction:** [Master Loop 08 §11](08-sovos-master-loop-modular-composition-and-evolution-blueprint.md#11-master-observer--second-order-integration-and-evolutionary-improvement-contract-2026-10-27-owner-direction) is the bounded Master Observer requirement (not a new runtime); [Freedom & Leverage §11A](../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md#11a-wins-derived-operating-intelligence-capacity-progression-and-compounding-assets-2026-10-27-target) owns W.I.N.S.-derived Buyback/Three Planes/Five Zones/asset semantics; [Cross-Product Seam §12.1](../CROSS_PRODUCT_SEAM_CONTRACT.md#121-agent-first-progression-buyback-and-evolutionary-inspection-seam--target-contract) owns agent-first/no-PWA access. Wirebot App is the primary ecosystem app; the Core-owned W.I.N.S. PWA is a separate restored global community/progression app. Private progression remains available with W.I.N.S. off. All are target contracts until owner-specific producer, consumer and independent outcome proof exists.
+
+---
+
 ## Commercial revenue work — first consumer Wirebot
 
 - [Commercial Work v1 profile](../commercial-work/revenue-engine.v1.json) — portable, owner-neutral lifecycle composition; not an activated customer job.
