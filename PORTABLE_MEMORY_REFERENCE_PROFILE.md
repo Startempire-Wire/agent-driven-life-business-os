@@ -4,8 +4,8 @@
 **Schema family:** `agent.memory_contract.v1`<br>
 **Applies with:** `AGENTS.md`, `OWNER_AUTHORITY_CONSTITUTION.md`, `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`, `CURRENT_ECOSYSTEM_ARCHITECTURE.md`, `AMBIENT_OPERATOR_REFERENCE_PROFILE.md`<br>
 **Evolution class:** `portable_operational` (portions touching privacy, tenancy, deletion and authority are `safety_authority`)<br>
-**Version:** `0.4.0` (incubating — explicit cross-platform and ecosystem acceptance; runtime parity unproven)<br>
-**Last substantive revision:** 2026-10-15<br>
+**Version:** `0.4.2` (incubating profile; replacement scope approved 2026-10-29; cross-platform runtime parity unproven)<br>
+**Last substantive revision:** 2026-10-29<br>
 **Architecture authority:** deployment Canonical Owner Principal under `OWNER_AUTHORITY_CONSTITUTION.md`<br>
 **Startempire binding:** Verious Smith III<br>
 **Reference implementation:** Wirebot/OpenClaw memory stack (memory-core, memory-wiki, active-memory, wirebot-memory-bridge, Mem0, Letta), Focusa, Agent Wiki, Context Core<br>
@@ -34,6 +34,16 @@ EVICTABLE    forgetting is a first-class, audited, restorable operation
 A system with durable storage but no lifecycle discipline is a liability, not an asset. Stale or hallucinated recall is worse than no recall, because the owner cannot tell the difference.
 
 ### 1.1 Required portability and ecosystem acceptance
+
+**Owner clarification — 2026-10-20:** portable memory must fully replace the current memory setup, not merely supplement it or repackage the incumbent stack. Reusing native OpenClaw capabilities or other proven primitives is an implementation option inside that replacement, not a requirement to retain existing providers or services. Final acceptance requires capability coverage, safe migration of existing memories and their provenance/restrictions, verified consumer use, controlled cutover with rollback, and retirement of superseded memory components. Preserve existing data and service continuity during transition; this documentation correction does not itself authorize stopping services, deleting data or deploying a replacement. The current role mapping in §15 describes the baseline, not the mandatory final architecture. Domain-source truth, installation identity and existing authority boundaries remain intact.
+
+**Owner approval — 2026-10-29 (America/Los_Angeles):** the replacement scope above is approved as the memory half of the portable port mechanism, together with [contract10](docs/10-sovos-master-loop-distribution-portability-and-extension-contract.md) §1–§8. It is recorded here because the two documents describe one mechanism: replaceable adapters over owner-owned state, negotiated versions, visible uncertainty, and differential acceptance. Approving either alone would recreate the copy problem this profile exists to prevent.
+
+What the approval does and does not mean:
+
+- It authorises building and qualifying the port family. It is **not** a claim that replacement is complete, that parity across Windows/macOS/Linux exists, or that an incumbent provider may now be stopped.
+- It does **not** authorise deleting memories, stopping services, or cutting over a writer. Those remain separate, evidence-gated acts under §17 and the owning products' change procedures.
+- Memory keeps its own acceptance: capability coverage, migrated provenance and restrictions, verified consumer use, single-writer cutover with rollback, and retirement of superseded components.
 
 The Golden Path productizes the owner's repeatable, in-person client setup through **Wirebot as Chief of Staff and the Wirebot App as its owner-facing surface**. Memory is a foundational layer of that composition, not a separately installed memory product. **Windows, Linux and macOS are required deployment targets.** Every supported surface must obey the same memory contract; a working reference server is not portable acceptance.
 
@@ -187,6 +197,25 @@ evidence_ref (receipt or handle)     privacy_class
 ```
 
 Memory is not an authority surface. A remembered fact never grants permission, scope, or consent. Authority comes from the owner and the owner-rooted delegation chain, not from what an agent once stored.
+
+### 10.1 A memory port is reciprocal or it is declared
+
+A delivery sink that cannot be read back is not a memory integration; it is a
+write-only archive, and the owner cannot distinguish "stored" from "silently
+dropped". Every memory port therefore declares one of:
+
+- **reciprocal** — durable delivery plus an independent, qualified readback of what
+  the owner's store actually holds;
+- **one-directional** — delivery only, with the missing readback named, owned and
+  visible wherever delivery is recorded.
+
+The readback returns a reference or digest of owner-held state, not content copied
+into the loop — a verifier that returns payloads is an exfiltration path (§11).
+Reconciliation is the recovery path for an unqualified read; retry is not.
+
+Delivery, eligible recall/use, and independently verified effect remain three
+separate facts. `succeeded` on a delivery job proves the sink accepted a write; it
+does not prove recall works, and it does not prove the outcome.
 
 ## 11. Privacy classes and retention
 
@@ -513,6 +542,8 @@ A commit is not `verified`. A transcript is not `approved`. A passing model crit
 | 0.1.1 | 2026-09-28 | Quality pass. Verified all 8 research citations resolve to the cited titles. Mapped the two omitted substrate primitives (`Capability + policy`, `Resource + leverage`). Added the explicit doctrine-versus-runtime-truth boundary required by `CURRENT_ECOSYSTEM_ARCHITECTURE.md` §3, and recorded that **transcript memory currently has no named owner** (§18.1). Not yet addressed: no customer install path (§18 checklist is not a setup contract), memory is not a declared cross-product seam, and vertical worked examples are thin. | incubating |
 | 0.2.0 | 2026-10-03 | **Install and setup contract added (§16)** — the profile had descriptions of correct behaviour but no ordered procedure to reach it. Adds prerequisites, a load-bearing 10-step install order with per-step done-conditions, reachability-not-process-alive verification, verified-backup and restore-rehearsal rules, deliberate checkpoint establishment, and eight **known install traps** each recorded from a real deployment rather than a design review. Adds the §16.7 LLM endpoint rule: an authenticated key that returns 402 is not a working endpoint, and no memory agent should run on a single endpoint. Adds seven deployment-readiness checklist items and four new not-done conditions. Sections renumbered 16–20 → 17–21 and cross-references corrected. Still unaddressed: memory is not a declared cross-product seam, and vertical worked examples remain thin. | incubating |
 | 0.3.0 | 2026-10-04 | **Runnable substrate and evaluation now ship.** `scripts/sovereign-memory.py` (one SQLite file, hybrid FTS5 + vector, mandatory attribution, decay-ranked forgetting, offline by contract) and `scripts/sovereign-memory-eval.py` (seven gates incl. the null-memory control arm, wired into the regression suite). Both are standard-library only. This **replaces** the similarity-against-mirror-baseline evaluation, whose metrics held frozen across four days of total backend failure. Two construction lessons recorded: a control arm must be built so it can differ (the first version pinned lift at 0.00 by handing the null arm the answers), and a similarity score can understate value (G3 warns at 0.50 recall while G4 shows memory load-bearing at +0.50 lift). G3 is knowingly weak — the shipped hashed embedder does not paraphrase and is a placeholder behind a 3-call interface. Unproven: everything above 13 documents, and the sqlite-vec substitution at scale. | incubating |
+| 0.4.2 | 2026-10-29 | Owner approved the replacement scope as the memory half of the portable port mechanism alongside contract10 §1–§8, and §10.1 was added: a memory port is reciprocal (delivery plus qualified readback) or explicitly declared one-directional with an owned gap. Restates that delivery ≠ recall ≠ verified effect, and that a verifier returning payloads is an exfiltration path. No runtime change; no parity or completion claim. | incubating |
+| 0.4.1 | 2026-10-20 | Owner clarified full replacement of the current memory setup; native reuse is an implementation option, not incumbent-stack retention. Acceptance includes migration, consumer verification, controlled cutover/rollback and retirement of superseded components; no runtime change or parity claim. | incubating |
 | 0.4.0 | 2026-10-15 | Required Windows/Linux/macOS and surface acceptance (§1.1/§19), existing installation identity and ecosystem ownership, same-client transfer/fresh-client isolation, platform adapters, and explicit unproven parity. Removed reference-host/file-store/cloud-billing assumptions and universal Python/installability/encoder-swap claims; qualification scripts remain reference harnesses, not a replacement production store. | incubating |
 
 ### Known unproven

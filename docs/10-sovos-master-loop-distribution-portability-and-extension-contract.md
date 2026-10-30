@@ -1,7 +1,10 @@
 # SOVOS Master Loop — Distribution, Portability and Extension Contract
 
-**Status:** PROPOSED amendment to [contract09](./09-sovos-master-loop-composable-provenance-and-agent-first-contract.md).
-Drafted 2026-10-28. **Not canonical until the Canonical Owner Principal approves it.**
+**Status:** CANONICAL amendment to [contract09](./09-sovos-master-loop-composable-provenance-and-agent-first-contract.md).
+Approved 2026-10-29 (America/Los_Angeles) by the Canonical Owner Principal
+(Startempire reference binding: Verious Smith III), together with the portable-memory
+replacement scope in [`PORTABLE_MEMORY_REFERENCE_PROFILE.md`](../PORTABLE_MEMORY_REFERENCE_PROFILE.md) §1.1.
+Drafted 2026-10-28. See [§9](#9-approval) for the approval record and its limits.
 Nothing here expands execution permission, credential scope or architecture authority.
 
 ## Why this amendment exists
@@ -48,6 +51,30 @@ diverged once.
 - Generated consumers are build-reproducible; a check fails when a generated
   consumer is stale.
 
+### 2.1 Four independent version axes
+
+A component version number alone is not compatibility. Four axes are declared and
+negotiated separately, because each one fails differently:
+
+| Axis | Declares | Failure if collapsed |
+|---|---|---|
+| **Contract version** | schema and vocabulary generation of the facts and calls a port speaks | an old reader misreads a newer fact as if it were a known older one |
+| **Semantic generation** | model, embedding, dimensionality and derived-index generation that produced a record | a migrated index mixes generations and retrieval degrades with no error |
+| **Privacy class version** | class and retention rules attached to a record and to a port's disclosure boundary | a verifier becomes an exfiltration path, or deletion stops at the derived index |
+| **Deployment profile** | production, staging, qualification | a fixture source is presented as a business outcome |
+
+Negotiation is fail-closed on every axis:
+
+- Adapter declares a contract version the runtime does not know: **refused with a
+  stated reason**, never silently downgraded and never parsed best-effort.
+- Adapter declares only older versions still inside the runtime's supported window:
+  usable, with any declared degradation visible on the invocation.
+- No intersection, missing credential reference, wrong profile, or unknown semantic
+  generation: the port is **listed and marked unavailable with a reason**, never
+  omitted and never faked into availability.
+- The negotiated values for all four axes are recorded on the invocation, so a later
+  reader knows which generation produced what it is reading.
+
 ## 3. Tenancy is explicit at every boundary
 
 - No ambient tenant on a shared singleton. Every read, write, schedule decision and
@@ -77,6 +104,24 @@ enforce, the following; where it cannot, it must say so instead of implying safe
   fact logs plus cursors are the read model.
 - **Opt-in + conditional writes** remain the concurrency primitive for projections;
   a stale expected revision is refused by the owning writer, not by caller etiquette.
+
+### 4.1 Ports declare their direction and the distinction they preserve
+
+Every port declares one of:
+
+- **reciprocal** — accepts writes or calls *and* exposes an independent readback cut;
+- **one-directional** — accepts writes only, or produces reads only, with the missing
+  direction and the owner of that gap stated explicitly.
+
+A write-only sink or a read-only archive is not reciprocal merely by being connected.
+Where a port is one-directional, the deployment says so at the point the effect is
+recorded, and the recovery path is reconciliation against whatever independent
+readback exists, or an explicit unresolved state owned by a named party.
+
+Every port also states **which distinction it preserves that would otherwise be
+lost** — for example unavailable versus denied versus absent versus resolved;
+correction versus repetition; quiet versus inactivated. A port that erases such a
+distinction is non-conforming even when every call returns success.
 
 ## 5. Portability is configuration, not code branches
 
@@ -118,6 +163,19 @@ A deployment satisfies this amendment only when these hold as automated checks:
 8. A production profile refuses a fixture source; a qualification profile accepts it.
 9. A surface artifact can be replaced and pinned by digest without rebuilding the
    runtime, and the runtime reports which artifact it serves.
+10. Every port declares contract version, semantic generation, privacy class version
+    and supported profiles; an unknown value on any axis is refused with a reason.
+11. Every reciprocal port passes a cut between its write and its read direction;
+    every one-directional port is visibly declared as such with its owning gap.
+12. Acceptance is differential, not presence-based. On matched inputs, budgets and
+    windows, a port is compared across: intact; ablated (port removed); partitioned
+    (read cut from write); copy-equivalent (pass-through substitute); duplicated
+    (two nodes, one expected record); perturbation (correction or erasure propagated);
+    and quiet-versus-inactivated. A port that shows no behavioural difference when
+    ablated is recorded as contributing nothing, whatever it reports about itself.
+13. No composite integration score may conceal a privacy, tenancy or authority
+    violation, and negative or censored results are preserved with the run that
+    produced them.
 
 Absent evidence for any item remains *unknown*, never satisfied.
 
@@ -129,8 +187,24 @@ Absent evidence for any item remains *unknown*, never satisfied.
 - No component catalogue that becomes an execution surface.
 - No specification-by-code: a mechanic that changes semantics is written here first.
 
-## 9. Owner decision required
+## 9. Approval
 
-Approval of this amendment is the Canonical Owner Principal's. Until approved it is
-a proposal, and implementations must not claim conformance to it. The Core adapter
-records its own coverage and gaps; its presence does not prove portable conformance.
+**Approved** 2026-10-29 (America/Los_Angeles) by the Canonical Owner Principal
+(Startempire reference binding: Verious Smith III). The approval covers §1–§8 as the
+canonical portable mechanics, and was given together with the portable-memory
+replacement scope in [`PORTABLE_MEMORY_REFERENCE_PROFILE.md`](../PORTABLE_MEMORY_REFERENCE_PROFILE.md) §1.1:
+both describe one mechanism, and approving only one of them is how a portable
+requirement turns back into a deployment-specific copy.
+
+Approval limits, recorded deliberately:
+
+- It does **not** assert that any deployment implements these mechanics. Conformance
+  is claimed only where §7 evidence exists; absent evidence remains *unknown*.
+- It does **not** expand execution permission, credential scope or architecture
+  authority, and does **not** authorize stopping services, deleting data, or
+  deploying a replacement.
+- A deployment that cannot meet an item must say so where the affected effect is
+  recorded. Silence is never conformance.
+
+The Core implementation adapter records its own coverage and gaps; its presence does
+not prove portable conformance.
