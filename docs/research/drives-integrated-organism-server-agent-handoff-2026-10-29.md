@@ -1,5 +1,8 @@
 # Drives and Integrated Organism — Server-Agent Research Handoff (2026-10-29)
 
+> **2026-10-29 deeper follow-up:** The substantive [source, dependency, runtime-evidence and IIT integration audit](drives-organism-dependency-and-runtime-evidence-audit-2026-10-29.md) supersedes the abbreviated primitive descriptions below where more precise. In particular, Spec 71 is governing *prior-band precedence*, not merely conflict weighting; Spec 73's exact CompletionDrive remains unverified in current ontology runtime; Spec 80 route/CLI implementation has advanced beyond its old planned-status header; Spec 78 has narrow historic production closure proofs; Spec 138 has partial real authority code; Spec 183 Radar remains draft. Master Observer §11 is on open PR #31, and Portable Memory is incubating. This is still research, **not** a final accepted specification or execution grant.
+
+
 **Status:** RESEARCH HANDOFF / INCOMPLETE TRACE — not an accepted implementation specification, approval, or production activation.
 **Purpose:** Make the current findings accessible to the server agent without inventing completion or reducing the intended full scope.
 
