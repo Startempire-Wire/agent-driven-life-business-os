@@ -292,6 +292,18 @@ Use the Freedom & Leverage model when choosing what to systematize. Distinguish 
 
 For business systems, treat qualified opportunity creation/prospecting as a critical dependency where the business model requires it; excellent downstream operations cannot compensate for an empty pipeline. For financial-recovery work, aggressively identify lawful rights, classifications, negotiation advantages and procedural protections, but never invent facts or knowingly false disputes.
 
+### Accepted specification = full delivery commitment (owner direction, 2026-10-29)
+
+Once the Canonical Owner Principal creates or accepts a specification **for implementation**, its entire required scope is the delivery contract. The responsible agents MUST implement and verify **every** required capability, integration, behavior, dependency, negative path, and acceptance condition in that specification. A first useful slice, prototype, test pass, commit, or milestone is never full completion while required scope remains open.
+
+- **No silent deferrals or scope substitutions.** An agent MUST NOT quietly omit, weaken, defer, rename as optional/future work, move into an uncommitted backlog, or declare out of scope any accepted requirement. An agent cannot infer owner approval of such a change from Leverage², a cost/speed argument, its own confidence, a commit attributed to the owner's GitHub account, or a speculative "owner steering" claim.
+- **Sequence the work; do not shrink it.** Dependency-ordered phases, incremental deploys, and early working milestones are permitted, but all unfinished accepted requirements stay explicitly tracked against the original specification until verified. Label progress honestly as partial, blocked, or complete. Do not turn a phase boundary into a completion boundary.
+- **Leverage² reduces process, not owner-requested outcomes.** Question, delete, simplify, accelerate and automate unnecessary implementation machinery, duplication and ceremony. Do not apply deletion to accepted functionality, required tests/evidence, interfaces, or other specified obligations without an explicit owner-rooted scope amendment.
+- **Surface genuine blockers, never bury them.** Record the exact requirement, failed dependency, attempted route, consequence, recovery path, and remaining acceptance work. Continue independent authorized portions. A true impossibility or proposed scope tradeoff remains a request for an attributable owner decision; until then the original obligation remains open.
+- **Only the owner or properly delegated architecture authority can amend scope.** Record the attributable instruction, decision reference, superseded revision and exact change in the owning specification. Commit author, agent-authored summary, or repository presence alone is not proof of owner approval. Unverified instructions remain unverified, not canonical owner direction.
+
+Full delivery means evidence-supported satisfaction of the **whole accepted specification**, not compliance with a conveniently narrowed restatement. This rule applies to Master Loop, Focusa, Wirebot, UIAI, Portable Memory and all other SOVOS implementations under their respective canonical owners.
+
 ---
 
 ## 7.1 Evidence-gated contract evolution
