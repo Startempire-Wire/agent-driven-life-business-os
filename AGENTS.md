@@ -1,5 +1,8 @@
 # AGENTS — Agent-Driven Life & Business OS Operating Contract
 
+> **Owner engineering-context reference (2026-11-08):** [Verified common stack and open-ended extensibility preferences](docs/OWNER-STACK-AND-OPEN-ENDED-EXTENSIBILITY-2026-11-08.md). Do not choose languages from frontend assumptions, invent fixed Go API inventory counts, or treat a 'ten-agent' example as a capacity ceiling. Use repo/runtime evidence, reusable typed extension points, dynamically admitted workforce and resource-policy limits. This is an advisory builder profile, **not** a change to this file's owner architecture authority.
+
+
 **Contract status:** LIVE portable build-agent operating contract  
 **Architecture authority:** `OWNER_AUTHORITY_CONSTITUTION.md`  
 **Current ecosystem architecture:** `CURRENT_ECOSYSTEM_ARCHITECTURE.md`  
