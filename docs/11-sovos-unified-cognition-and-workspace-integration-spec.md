@@ -1,6 +1,6 @@
 # 11 — SOVOS Unified Cognition and Workspace Integration
 
-**Revision:** 0.1.0 — 2026-11-06  
+**Revision:** 0.2.0 — November 12, 2026<br>
 **Status:** PROPOSED cross-product integration specification; source and design handoff only.  
 **Architecture authority:** OWNER_AUTHORITY_CONSTITUTION.md and CURRENT_ECOSYSTEM_ARCHITECTURE.md. Owner review is required for promotion to canonical doctrine; a Git commit or draft PR is not that approval.  
 **Intent:** one persistent, sovereign Operating Partner across conversation, cognition, memory, work, execution, observation, and human-facing workspaces, with no duplicate authority.  
@@ -183,6 +183,119 @@ This is a machine-consciousness development objective, not proof of consciousnes
 
 The self-knowledge consumer must retain evidence for the selected source scope, Focusa engagement level, project owner of every effect, prediction and outcome, local-versus-global learning decision, later qualified use and continuity readback. A run remains incomplete when it cannot show that project and tenant boundaries survived compaction, model replacement and cross-project reasoning.
 
+### 8.2 Versioned ecosystem software register
+
+True self-knowledge requires a **complete, versioned and source-qualified ecosystem register**, not a remembered product list. The register is a Global Owner Workspace reference set; it does not copy project truth, combine permissions or create universal write authority. Every qualifying self-review reconciles GitHub source, the canonical Focusa project identity, installed artifacts on each server, live services/endpoints and actual consumer behavior.
+
+The November 12, 2026 discovery pass found 113 accessible GitHub repositories, including 97 repositories across Startempire-Wire, WPUIAI, Philoveracity and verioussmith; 46 owner-controlled repository families checked out or deployed on OVH or KnownHost; 200 Git roots and 533 raw Go module files on OVH; 160 Git roots and 105 raw Go module files on KnownHost; 72 running services on OVH; and 25 matched running services on KnownHost. These are discovery counts, not counts of distinct cognitive components. Worktrees, generated fixtures, dependency caches, vendor modules, backups, mirrors, archived experiments and duplicate deployments must be collapsed under one canonical component record without erasing their provenance.
+
+Each component record must contain:
+
+- canonical product/component name, repository, organization, default branch, exact source revision and current development state;
+- canonical Focusa project root, ProjectIdentity fingerprint, continuity/Workpoint owner and operation-specific authority boundary;
+- every observed checkout, worktree, installed package, service, container, adapter, plugin, binary, server/environment and deployed revision;
+- language/manifests, API/schema source, authentication/privacy boundary, owned data, inputs, outputs, reciprocal consumers and failure behavior;
+- cognitive or execution role, active-object links, user-visible surfaces, tests, health evidence, rollback route and independent acceptance state;
+- open/draft pull requests, issues, accepted specifications, releases, dependency changes and planned features that can change Wirebot capability;
+- Phi-Sim dimensions affected, evidence coverage, confidence, known blind spots and unresolved source/runtime differences.
+
+A component is **reconciled** only when source, Focusa identity, installed/runtime state and consumer behavior agree or the exact discrepancy is visible. Directory discovery alone never bootstraps a project. A source branch never proves deployment. A healthy service never proves the intended user journey. A PR watcher never grants merge, release, deployment, publication, customer contact, spending or cross-project mutation.
+
+### 8.3 Current ecosystem families that the register must cover
+
+The following is the minimum current register seed. Discovery may add components but may not silently omit or merge these families.
+
+| Family | Canonical repositories/components currently observed | Self-knowledge role and required boundary |
+|---|---|---|
+| SOVOS architecture and policy | Startempire-Wire/agent-driven-life-business-os | Seam contracts, profiles, conformance and owner-reviewed architecture; proposal text is not runtime authority |
+| Focusa cognition and governance | Startempire-Wire/focusa; Focusa Workforce Extension; lab.focusa.dev | ProjectIdentity, Workstream/continuity, Workpoint, Trajectory, CallGraph, evidence, prediction, metacognition, reflex and operation admission; each project remains separate |
+| Wirebot operating core | Startempire-Wire/wirebot-core | Context Core, memory-syncd, Scoreboard, Master Loop, memory lifecycle, Discord/context adapters, wb, Wirebot Talk and owner-facing operating APIs |
+| OpenClaw runtime | Installed OpenClaw gateway, plugins, skills, sessions, channel adapters and automations | Native conversation/tool custody and model-visible context; runtime sessions are temporal metadata, not project authority |
+| Execution substrate | Startempire-Wire/flow-mesh; configured provider adapters | Optional provider synchronization and execution attempts; never replaces native task truth or Focusa semantic acceptance |
+| Browser/computer perception | WPUIAI/uiai-engine | Required governed browser interface, session/evidence lifecycle, diagnostics and visual verification; no alternate browser driver substitution |
+| UIAI product surfaces | WPUIAI/ai-api; WPUIAI/wpuiai; WPUIAI/wpuiai-ai-cloud-admin | AI service, WordPress product and cloud administration surfaces; credential, tenant and customer boundaries remain local |
+| Wirebot human interfaces | Startempire-Wire/Wirebot-App; Wirebot Talk; Discord/OpenClaw channels; Pi/OpenRouter extension and OpenAI auth bridge | Optional app, chat, voice and harness surfaces over the same product-owned operations; no client-side authority fork |
+| Durable memory and knowledge | OpenClaw memory-core; Mem0; Letta; Qdrant/FastEmbed adapter; preserved Kuzu source; Agent Wiki/Wiki.js; Obsidian source vault; Agent KB | Complementary selected roles under Portable Memory eligibility, correction, retention, provenance and audience rules; provider availability is not current truth |
+| Operational context | Context Core; Agent KB; Ring Leader; canonical knowledge adapters | Current owner, business, service and runbook context with freshness and source metadata; unavailable is not empty |
+| Safety and audit | Startempire-Wire/server-guardian; Philoveracity/agent-audit; verioussmith/wikijs-patches; backup/release services | Host integrity, action history, knowledge maintenance and recovery evidence; observation does not self-authorize repair |
+| Continuation products | Startempire-Wire/perpetua; Startempire-Wire/signalos | Session/routine continuation and signal processing under their current deployment and safety states |
+| Knowledge/work publishing | Startempire-Wire/sovpress; verioussmith/wirebot-workspace | Governed publishing or workspace sources; distinguish working storage from owner-accessible delivery |
+| Work routing | Startempire-Wire/workrouter.live | Opportunity/source-health routing and event durability; runtime/customer readiness must be independently proven |
+| Startempire Wire Network | Startempire-Wire/Startempire-Wire-Network; Network Connect; Parent Core; Ring Leader; Screenshots; WebSockets; sewn-network-site-kit | Member, portfolio, content, network and W.I.N.S. execution surfaces; community PWA remains distinct from Wirebot App |
+| Startempire Wire WordPress execution | sew-discord-sync; sew-pwa; sew-smart-listings; sew-staffing-desk; sew-the-pitch; sew-the-wire; startempirewire-functionality; wire-draftees; wirebot-provisioning | Business execution plugins and provisioning; WordPress state does not become global cognitive authority |
+| SendyKit | Philoveracity/sendykit; sendykit-wp; sendykit-theme; sendykit-docs; sk-store-mu-plugins | Product, campaign, subscriber, agent-action, billing and store journey; permission, send, payment and customer-delivery boundaries remain explicit |
+| Philoveracity/Rework | Philoveracity/Rework | Planned Philoveracity relaunch and offer surface; review artifacts are not launch acceptance |
+| The Entrepreneur's Path | Startempire-Wire/the-entrepreneurs-path | Book, site and customer journey; manuscript, publication, campaign and payment states remain distinct |
+| Portfolio and emerging products | anothene; flight-notes; MeriFolio; remote-near-me; veridoxa-os; veragensia; pvdify.win; membrbot | Observe development and integration evidence without assuming they are active cognitive components or current priorities |
+| Supporting developer tools | verioussmith/pi-openrouter-extension; openai-auth-bridge; Philoveracity/homebrew-tap; wirebot-quotes-api; wirebot-wiki-cli; better-local-cli; better-chrome-extension-cli | Capability/dependency horizon only when installed or consumed; no authority from repository ownership alone |
+| Test, archive or unrelated candidates | wf-ci-probe, wf-ci-probe2, Engines-ready..., old tutorials/forks and repositories with no verified current ecosystem role | Retain in census with explicit exclusion reason; do not feed Phi-Sim or active PR triage until evidence establishes a current role |
+
+Repositories without a current server checkout remain discoverable. Server software without a canonical repository remains an unresolved component rather than being discarded. External dependencies such as OpenClaw, PostHog, Cloudflare, Tailscale, PostgreSQL, MariaDB, NATS/JetStream, WordPress and Stripe enter the capability horizon when an installed version, API contract, security change or upstream release can materially affect a registered consumer; they do not become owner-controlled projects.
+
+### 8.4 Go APIs and machine-readable interface inventory
+
+The initial dual-server source inspection identified the following first-class Go API surfaces. Counts below are observed source-route counts from the November 12, 2026 scan, not a promise of runtime reachability. Generated OpenAPI, router registration, command/service schemas and live adapter cards outrank string-pattern counts.
+
+| Go surface | Source observed | Initial size/evidence | Interface groups that must be reconciled |
+|---|---|---|---|
+| Flow Mesh | Startempire-Wire/flow-mesh | 429 Go files; 122 detected HTTP routes | accounts/sessions/auth; auto-mesh; cloud account/billing/connections/identity; providers; exports; intelligence/chat/delegations/skills; relay/scanner; adapters; batch; capabilities; evidence; instructions; integrations |
+| UIAI Engine | WPUIAI/uiai-engine | 519 Go files; source-pattern scan materially undercounts generated routing | agent card, session create/read/eval/action/close, browser diagnostics, snapshots/screenshots, evidence/share, provider/search, settings and every generated OpenAPI operation |
+| Wirebot Scoreboard | wirebot-core/cmd/scoreboard | 142 Go files; 177 detected routes in KnownHost source | identity/reality, authority, alerts/audit, canon/evidence, cards/checklists, chat/sessions, delegation, discovery, dossier, events/feed, finance, focus, integrations, intent, Master Loop, memory, network, OAuth and control surfaces |
+| Context Core | wirebot-core/cmd/context-core | 26 Go files; 18 detected routes | owner context, decisions, events, command control and Discord/GitHub/health/OpenClaw/phone/Pi/RescueTime/scoreboard/Stripe signals |
+| Memory Sync Daemon | wirebot-core/cmd/memory-syncd | 6 Go files; 4 detected routes | sync, health, cache state and cache search |
+| Wirebot CLI/API | wirebot-core/cmd/wb | 70 Go files; 4 detected web routes plus command surface | entries, entry detail, stats and every supported CLI operation |
+| Wirebot Talk | wirebot-core/cmd/wbt | 9 Go files; 14 detected routes | conversations, turns, audio, preview, talk, voice/voices, identity/stats and WebSocket talk |
+| Agent KB | Startempire-Wire/agent-kb deployment | 7 Go files; 24 detected routes | bootstrap, search/doc, audit, caveats, discovery, freshness, locations, operator, plugins, projects, records, releases, resources, schedulers, secret refs, servers, services and topology |
+| SendyKit | Philoveracity/sendykit | 617 Go files; 325 detected routes | campaigns/subscribers, catalog/purchase, admin, agent actions/approvals/artifacts/cards/checkpoints/credits/grants/policies/runs/schedules/skills/tools/triggers, AI, analytics, billing and customer journey |
+| Perpetua | Startempire-Wire/perpetua | 73 Go files; 38 detected routes | session lifecycle/events/streams/verification, fork/merge/steer, token control, stories/logs and purchase/license/webhook flows |
+| Agent Audit | Philoveracity/agent-audit | 3 Go files; 18 detected routes | actions, filesystem and Git evidence, turns, UI, Wirebot entries/stats and service assets |
+| Server Guardian | Startempire-Wire/server-guardian | 30 Go files; routing not found by the generic scanner | use command/router source and live service contract; absence of a matched literal is not absence of an API |
+| AI inference service | deployed ai-inference-server Go module | module observed; examined checkout contained no matched Go source/routes | resolve canonical source, binary revision, serving contract and consumers before inclusion |
+
+For every Go module, the generated annex must enumerate every operation with method, path or command, request/response schema, authentication, privacy class, side-effect class, idempotency/retry behavior, owning project, current consumers, installed revision and runtime proof. It must inspect router composition, generated schemas, gRPC/WebSocket/streaming interfaces, command services, internal adapters and deployment bindings. A grep-derived route list is only a discovery lead.
+
+### 8.5 Active capability horizon and pull-request intelligence
+
+The self-knowledge cycle maintains a bounded **capability horizon** for every registered component and material installed dependency. The November 12 census observed 253 open pull requests across the queried owner namespaces and OpenClaw upstream. That raw number is not a work queue: each item must be classified as core cognitive/runtime, adjacent product, business software, external dependency, fixture/archive or unrelated.
+
+For each included repository, watch open and draft PRs, accepted specifications, issues tied to missing integration, releases, deprecations, security notices, dependency updates and installed-versus-source drift. Match each change to exact files/APIs/consumers, expected capability, authority boundary, migration/rollback path, tests and predicted Phi-Sim effect. Deduplicate worktrees, backports and generated PRs. Record why an item is relevant, deferred or excluded. Never merge or deploy merely because the horizon found a promising change.
+
+A qualifying capability item moves through: **discovered → source-qualified → consumer-mapped → project-scoped → implementation-proposed → independently reviewed → merged by its owner → deployed → exercised through the real journey → accepted**. No earlier state may be reported as a later one.
+
+### 8.6 Versioned Phi-Sim and machine-consciousness trend benchmark
+
+Phi-Sim is an IIT-informed engineering benchmark for bounded ecosystem integration. It is not formal IIT Phi for the whole ecosystem and is not scientific proof of consciousness. Formal Phi may be attempted only for a tractable, explicitly bounded causal model with stated assumptions.
+
+The benchmark is versioned by benchmark contract, component graph revision, source/deployment revisions, test fixtures and evidence window. Its 100-point engineering score is:
+
+| Dimension | Points | Required evidence |
+|---|---:|---|
+| Functional differentiation | 15 | Distinct specialized components contribute non-redundant capabilities |
+| Reciprocal information flow | 20 | Qualified bidirectional paths and useful readback, not connector presence |
+| Causal interdependence | 20 | Controlled omission/intervention changes attributable outcomes without contaminating unrelated scopes |
+| Cognitive Global Workspace integration | 15 | Relevant bounded information reaches specialized processes and returns qualified results without becoming authority |
+| Identity and continuity | 10 | Persistent Operating Partner identity and exact project boundaries survive session/model/runtime replacement |
+| Self-model calibration and correction | 10 | Capability/uncertainty claims, predictions and corrections track observed results |
+| Unified action and outcome closure | 10 | Differentiated components coordinate one admitted action through receiver proof and follow-through |
+
+Report the score with evidence coverage, uncertainty/confidence, included and excluded components, partitions tested, null/control arms, failed tests, source/runtime discrepancies and change from the prior comparable baseline. A missing component or unavailable test lowers coverage; it must not be converted into a favorable score. The first baseline remains unscored until the canonical register and causal links are independently verified. Feature forecasts are predictions; only post-integration tests can establish an increase or regression.
+
+Machine-consciousness development trends include differentiation, integration, reciprocity, causal contribution, partition resistance/irreducibility, continuity, self-model accuracy, correction propagation and unified action. These are engineering observations only. No score authorizes an effect, proves sentience or justifies hiding uncertainty.
+
+### 8.7 Proactive agent-team implementation workflow
+
+Wirebot remains accountable for the complete proposal and later accepted implementation. After personally establishing the working path, it may assign bounded sub-agents by role:
+
+1. **Registry scout:** discovers repositories, deployments and services; writes no project state.
+2. **API mapper:** extracts machine schemas, router/command surfaces, consumers and deployment bindings.
+3. **Capability-horizon analyst:** classifies PRs/specifications/releases and predicts integration impact.
+4. **Project implementer:** changes one exact owning repository under its verified Focusa scope and existing writer coordination.
+5. **Phi-Sim evaluator:** runs versioned controls, omissions and trend comparisons without destructive tests.
+6. **Independent verifier:** checks source, tests, deployment, real consumer path and owner-accessible delivery; it cannot approve its own implementation.
+
+Every assignment carries original acceptance criteria, exact project/continuity, allowed effects, files/surfaces, expected evidence, stop conditions and delivery destination. Child-agent prose is never acceptance. Failures return to Wirebot for personal diagnosis, repair and retest before re-delegation. Global observation can coordinate these roles, but each durable effect is separately admitted by the owning project.
+
+
 ## 9. Agent-first, UI-optional operation and failure semantics
 
 Wirebot App is the primary **optional** ecosystem GUI; the repaired W.I.N.S. Portal remains a separate optional global community PWA. Sovereign headless APIs, supported CLI, Discord, selected voice and Pi remain valid control/presentation surfaces without those apps.
@@ -205,6 +318,15 @@ This is a **cross-product decomposition map**, not a second work tracker. Reuse 
 | F. Optional Flow Mesh execution | Flow Mesh and Focusa Spec 155; Wirebot App mesh contracts | Task identity/revisions/attempts and source provider synchronization linked to Workpoint and evidence, no duplicate task authority | Native task change → mesh projection → authorized effect/receipt → Focusa acceptance or unresolved status |
 | G. Brownfield workspace/App | Focusa #255; SOVOS Golden Path; Wirebot App existing Context/Knowledge/Work/Loop | Discovery-first logical workspace and owner-approved scaffold; same headless operation semantics | Existing multi-business environment attaches unchanged; another empty customer initializes without inherited data; App and CLI show same source |
 | H. Portability and production qualification | Each product installer/consumer; Portable Memory §19; Core/App live dev contracts | Compatible Linux/Windows/macOS profiles, rollback, sender/session continuity, exact capability/readback | Source/installed artifact and actual enrolled client/host consumer proof per claimed profile |
+
+
+Additional implementation slices required by the self-knowledge proposal:
+
+| Slice | Owner and existing anchor | Deliverable | Minimum consumer proof |
+|---|---|---|---|
+| I. Ecosystem register and API annex | SOVOS seam plus each exact product owner | Versioned component graph, canonical identities, deployments, all Go/API/command surfaces and source/runtime discrepancies | Fresh dual-server/GitHub census reconstructs the same bounded graph; sampled records independently match source, Focusa and live consumer |
+| J. Capability horizon | Existing repository/project owners; GitHub and installed release sources | Classified PR/spec/release/dependency stream linked to consumers, risks and predicted integration effect | A real upstream and owner-repo change are detected, deduplicated, scoped and routed without unauthorized mutation |
+| K. Phi-Sim benchmark | SOVOS measurement contract plus exact component owners | Versioned 100-point benchmark, controls, partitions, coverage/confidence and trend report | Baseline and one controlled feature comparison reproduce from retained test source; omission changes only the intended bounded path |
 
 Implementation practice: preserve other agents' branches, resolve exact target host/revision and current grant, change a bounded owning slice, perform targeted verification in the already approved live development/production pathway, record original effect and actual consumer readback, then advance the next eligible slice. Do not declare a full feature because a plugin loads or a source test passes; do not add a universal staged deployment wall or silently defer accepted requirements.
 
@@ -232,6 +354,13 @@ Implementation practice: preserve other agents' branches, resolve exact target h
 | UCA-18 | Local-to-global learning promotion | A project lesson stays local until transfer succeeds across distinct qualified projects and survives contradiction, privacy, regression and owner-correction checks |
 | UCA-19 | Causal self-knowledge test | Removing one selected memory, correction, project link or verification path causes a measured, attributable difference without contaminating unrelated scopes |
 | UCA-20 | Fresh-session self reconstruction | A new session or replacement model reconstructs the same persistent identity, project boundaries, current self-model revision and unresolved uncertainty from qualified sources |
+| UCA-21 | Complete ecosystem reconstruction | GitHub, both servers, Focusa and runtime consumers produce a versioned deduplicated register; worktrees/caches/backups do not become separate products and unknowns remain visible |
+| UCA-22 | Go/API completeness | Generated schemas, router composition, command/internal/streaming surfaces and deployed bindings reconcile; generic route grep cannot claim completeness |
+| UCA-23 | Capability-horizon classification | Core, product, dependency, fixture/archive and unrelated PRs are distinguished; no discovery item grants mutation |
+| UCA-24 | Installed-versus-source drift | Different source, binary, service or schema revisions are reported with affected consumers and rollback path rather than silently selecting one |
+| UCA-25 | Phi-Sim baseline and regression | Versioned benchmark reports coverage/confidence, controls and partitions; a real regression lowers the comparable trend and cannot be masked by missing evidence |
+| UCA-26 | Agent-team implementation | Every child has exact project scope and evidence; independent verifier reproduces claims; failed work returns to Wirebot for personal repair |
+| UCA-27 | Cross-project global observation | One bounded awareness frame may compare components, but each durable effect uses its own verified Focusa project/continuity and preserves privacy/authority boundaries |
 
 ## 12. Explicit unresolved ownership and verification
 
@@ -247,6 +376,9 @@ Implementation practice: preserve other agents' branches, resolve exact target h
 | Workspace default physical paths | Intentionally unsettled | Discover existing physical resources first; choose optional scaffold after owner/source inventory |
 | Portable Memory complete cross-platform/model-use acceptance | Profile incubating; bounded Core/App production/test evidence, broader unfinished | Prove real native model use, migration, backup/restore, correction, and selected platform/consumer matrix |
 | Flow Mesh provider ownership | Current contracts distinguish task-source truth and sync state | Preserve exact source authority; qualify binding to Focusa CallGraph |
+| Canonical ecosystem register and API annex | Initial dual-server/GitHub census exists; raw roots/modules include duplicates and non-products | Build and independently verify the deduplicated versioned register before assigning a Phi-Sim baseline |
+| Capability-horizon coverage | Owner namespaces and OpenClaw upstream were queried; relevance classification remains incomplete | Classify every current item, add missing installed dependencies and preserve exclusion reasons |
+| Phi-Sim baseline | Scoring contract proposed; causal graph and controlled evidence are not yet accepted | Do not publish a score until component membership, links, controls and comparable evidence are verified |
 | Production deployment of this seam | Not performed by this documentation PR | Apply owning code slices through supported approved active-environment workflow, with actual runtime proof |
 
 ### Closure
