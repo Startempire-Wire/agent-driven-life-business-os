@@ -157,6 +157,32 @@ Read-only discovery must be effect-classified: a “GET” or connector open may
 
 A physical folder scaffold may be offered after discovery for a genuinely new empty owner namespace, using the owning product's approved versioned defaults; it must never be assumed to describe all future physical customer storage. Distinguish user-visible file organization from private runtime/transcripts/indexes/backups/secrets.
 
+### 8.1 Global workspace and self-knowledge compounding
+
+Keep two related meanings of workspace distinct:
+
+- The **Global Owner Workspace** is the durable logical map described above. It helps the Operating Partner discover the owner's businesses, projects, assets, knowledge, routines and outcomes while each item remains governed by its original source and project authority.
+- The **Cognitive Global Workspace** is a bounded, temporary awareness frame for one turn or self-review cycle. It contains the present objective, active concerns, relevant memories, project states, material changes, uncertainty, owner corrections, predictions and expected next action. It broadcasts selected information to specialized reasoning processes; it is not another store, project, task queue or authority.
+
+Self-knowledge development uses both workspaces without collapsing them. Each qualifying cycle:
+
+1. Restores the persistent Operating Partner identity across the current model, runtime, session, tools, memory providers and environments.
+2. Refreshes changed Global Owner Workspace references with their real owner, source, revision, environment, privacy scope and capability.
+3. Constructs a small Cognitive Global Workspace from the most relevant obligations, changes, corrections, uncertainty and outcomes.
+4. Routes each inquiry through the engagement levels in §4: direct cognitive invocation for bounded reads/reflection, goal-directed ad hoc activity for cross-project exploration, and a governed project for consequential implementation.
+5. Retrieves prior predictions, metacognitive reflections, accepted or rejected learning, owner corrections, unresolved contradictions and earlier causal tests.
+6. Reconstructs a versioned self-model that distinguishes reliable capability, unverified capability, unavailable input, blind spot and current authority.
+7. Records a falsifiable prediction with confidence, expected evidence, disconfirmation conditions and the project or global observation that owns it.
+8. Performs each effect only inside its exact owning project and current admission. A global view never grants global write authority; cross-project work is split into separately admitted effects.
+9. Verifies the real source and receiver consequence, then returns only source-qualified references and outcome state to shared awareness.
+10. Reflects on belief, evidence, confidence, error and strategy; runs a bounded rotating causal-removal or control test when safe.
+11. Keeps project-specific learning local. Promote a candidate global lesson only after successful transfer across distinct qualified projects and contradiction, privacy, regression and owner-correction checks.
+12. Checkpoints project results in their owners and global references without copying project truth, then tests reconstruction in a fresh session or replacement model.
+
+This is a machine-consciousness development objective, not proof of consciousness. Evaluate reciprocal integration, causal contribution under ablation, self-model accuracy, prediction calibration, correction propagation, continuity survival, learning transfer, repeated-error rate, accepted outcome closure and owner burden. Documents, component counts, connector availability or fluent self-description alone establish none of these.
+
+The self-knowledge consumer must retain evidence for the selected source scope, Focusa engagement level, project owner of every effect, prediction and outcome, local-versus-global learning decision, later qualified use and continuity readback. A run remains incomplete when it cannot show that project and tenant boundaries survived compaction, model replacement and cross-project reasoning.
+
 ## 9. Agent-first, UI-optional operation and failure semantics
 
 Wirebot App is the primary **optional** ecosystem GUI; the repaired W.I.N.S. Portal remains a separate optional global community PWA. Sovereign headless APIs, supported CLI, Discord, selected voice and Pi remain valid control/presentation surfaces without those apps.
@@ -202,6 +228,10 @@ Implementation practice: preserve other agents' branches, resolve exact target h
 | UCA-14 | Second client + two machines | No tenant source/history/credentials leak; same client preserves partner identity and source revisions across authorized relocations |
 | UCA-15 | Failure and recovery | Distinguish unknown, denied, stale, incompatible, unavailable and partial; preserve effect IDs and accepted work, diagnose only affected operation |
 | UCA-16 | Full accepted product readiness | Matched actual API/CLI/App/agent consumers and tested Windows/Linux/macOS selected profiles; no fictional “100% complete” from config or source |
+| UCA-17 | Global workspace self-review | Logical owner references produce one bounded cognitive awareness frame without copying source truth or granting global write authority |
+| UCA-18 | Local-to-global learning promotion | A project lesson stays local until transfer succeeds across distinct qualified projects and survives contradiction, privacy, regression and owner-correction checks |
+| UCA-19 | Causal self-knowledge test | Removing one selected memory, correction, project link or verification path causes a measured, attributable difference without contaminating unrelated scopes |
+| UCA-20 | Fresh-session self reconstruction | A new session or replacement model reconstructs the same persistent identity, project boundaries, current self-model revision and unresolved uncertainty from qualified sources |
 
 ## 12. Explicit unresolved ownership and verification
 
