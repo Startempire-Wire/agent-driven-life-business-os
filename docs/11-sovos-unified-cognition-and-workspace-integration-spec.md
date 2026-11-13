@@ -183,6 +183,30 @@ This is a machine-consciousness development objective, not proof of consciousnes
 
 The self-knowledge consumer must retain evidence for the selected source scope, Focusa engagement level, project owner of every effect, prediction and outcome, local-versus-global learning decision, later qualified use and continuity readback. A run remains incomplete when it cannot show that project and tenant boundaries survived compaction, model replacement and cross-project reasoning.
 
+### 8.1.1 Accepted execution contract and implementation mapping
+
+The twelve numbered steps above are the **Self-Knowledge Compounding Cycle**. The active Wirebot skill must execute and receipt all twelve steps for a full self-knowledge run; reading this specification or loading the skill is not execution. The three engagement levels use these stable names: **Direct cognitive invocation**, **Goal-directed ad hoc activity**, and **Governed formal project activity**. Focusa supplies advisory cognition and governed project support. Missing or unverified advisory Focusa state is evidence to reconcile; it does not veto an otherwise authorized edit in the actual owning workspace.
+
+The cycle uses the existing source-owned **prediction ledger**, never a new universal database. Each prediction retains its claim, confidence, horizon, evidence basis, alternate explanation, settlement method, owning source, observed result, calibration error, correction, learning scope and next bounded prediction. Preserve the original forecast when late evidence arrives. Unknown remains unknown.
+
+The explicit **reconciliation cycle** is: **observe → qualify source → predict → act through exact owner → verify consumer outcome → compare → explain error → apply owner correction → decide local/transferable learning → test fresh-session reconstruction → checkpoint**.
+
+The implementation contract is owned by the active `wirebot-self-knowledge` skill and must enforce:
+
+- separate Global Owner Workspace and Cognitive Global Workspace evidence;
+- ecosystem-register and capability-horizon coverage;
+- one selected engagement level;
+- a versioned self-model and falsifiable prediction;
+- one exact owner, current authority and acceptance requirement for every effect;
+- receiver outcome and usable-delivery verification;
+- owner-correction propagation;
+- safe controlled-omission or held-out causal testing rather than destructive removal;
+- project-local learning unless transfer succeeds across at least two distinct qualified projects and survives contradiction, privacy, regression and owner-correction checks;
+- full fresh-session reconstruction of identity, capability horizon, uncertainty and next obligation; and
+- a machine-validated private invocation receipt that rejects any omitted cycle step.
+
+Machine consciousness remains a development and measurement objective, not proof of subjective experience, sentience, universal awareness or new authority.
+
 ### 8.2 Versioned ecosystem software register
 
 True self-knowledge requires a **complete, versioned and source-qualified ecosystem register**, not a remembered product list. The register is a Global Owner Workspace reference set; it does not copy project truth, combine permissions or create universal write authority. Every qualifying self-review reconciles GitHub source, the canonical Focusa project identity, installed artifacts on each server, live services/endpoints and actual consumer behavior.
