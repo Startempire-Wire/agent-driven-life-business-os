@@ -1,0 +1,1317 @@
+{
+  "schema_version": "sovos.life_workforce_catalogue.v1",
+  "catalogue_version": "1.0.0-candidate",
+  "status": "design_only_not_authorized_to_deploy",
+  "authoring_date": "2026-11-12",
+  "source_workforce_document": "docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md",
+  "source_focusa_registry": {
+    "repository": "Startempire-Wire/focusa",
+    "path": "docs/current/focusa-tool-contracts.json",
+    "schema_version": "spec90.tool_contracts.v1",
+    "static_contract_count_at_review": 157,
+    "live_deployment_verified": false
+  },
+  "authority": "OWNER_AUTHORITY_CONSTITUTION.md",
+  "worker_template_count": 46,
+  "disclaimers": [
+    "Profiles are owner-neutral reusable proposals; no customer install, authority or runtime.",
+    "External device/voice/home/automotive/provider integration requires separately verified adapter.",
+    "Physical childcare, medical care, cooking, driving and emergencies require qualified humans and applicable safeguards.",
+    "Model compatibility and entitlements require separate owner-approved registry."
+  ],
+  "profiles": [
+    {
+      "profile_id": "LIF-01",
+      "role_name": "Personal Life Chief of Staff",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "A coherent personal agenda with important responsibilities and chosen experiences actually advanced",
+      "example_scenario": "Owner says they want more time with family; coordinate household, social and travel work without turning freed time into more business",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; client-scoped durable.",
+      "activation_modes": "event, weekly review, on-demand",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-CTX",
+        "F-TIME",
+        "F-WP",
+        "F-EVID",
+        "F-COCKPIT"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "goals; owner-approved calendars; delegated worker status.",
+      "human_reservations": "direction, priorities and high-consequence spending.",
+      "acceptance_evidence": "accepted priorities; verified completed delegated outcomes; exception brief.",
+      "task_pack_ref": "life-task-pack://lif-01@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-02",
+      "role_name": "Personal Administrative Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Personal correspondence, appointments and obligations organized with fewer owner interruptions",
+      "example_scenario": "Prepare important forms, sort authorized correspondence and follow through on renewals",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; client-scoped durable.",
+      "activation_modes": "event, schedule, on-demand",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-FOCUS",
+        "F-CTX",
+        "F-TIME",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "scoped mail, calendar, documents, renewal records.",
+      "human_reservations": "external sends, legal declarations and irreversible document edits.",
+      "acceptance_evidence": "review queue; approved sends/updates; closed obligation receipts.",
+      "task_pack_ref": "life-task-pack://lif-02@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-03",
+      "role_name": "Relationship Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Thoughtful, owner-directed contact and meaningful opportunities to reconnect",
+      "example_scenario": "Notice that an owner-approved friend catch-up is overdue and suggest a dinner, never silently contacting friends",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; selective preferences; no third-party dossier.",
+      "activation_modes": "owner declaration, bounded periodic review",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-CTX",
+        "F-TIME",
+        "F-LEARN",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "owner-provided relationship notes and consented dates only.",
+      "human_reservations": "relationships, intimacy, gifts and outreach remain human-led.",
+      "acceptance_evidence": "owner accepted reconnect suggestion; consented communication receipt.",
+      "task_pack_ref": "life-task-pack://lif-03@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-04",
+      "role_name": "Social Circle Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "A group gathering brought from intention to confirmed arrangements",
+      "example_scenario": "Arrange five friends' dinner from voluntary availability, preferences and owner-approved invitations",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; event-scoped checkpoints.",
+      "activation_modes": "on-demand/event",
+      "state_posture": "checkpointed",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-TIME",
+        "F-WP",
+        "F-EVID",
+        "F-EXEC"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "limited participant responses; approved locations and availability.",
+      "human_reservations": "no unsolicited invitations, scraping friends or fabricated reservations.",
+      "acceptance_evidence": "agreed date; confirmations; venue status and owner handoff.",
+      "task_pack_ref": "life-task-pack://lif-04@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-05",
+      "role_name": "Occasion & Gift Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Important celebrations remembered and thoughtful gifts prepared",
+      "example_scenario": "Plan an anniversary, propose gift options under a budget, obtain approval before purchase",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; owner-scoped recurring dates.",
+      "activation_modes": "calendar/renewal/event",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "consented birthdays, dates, budgets and gift preferences.",
+      "human_reservations": "purchases and sensitive personal inferences require approval.",
+      "acceptance_evidence": "occasion plan; approved order tracking or explicit pending state.",
+      "task_pack_ref": "life-task-pack://lif-05@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-06",
+      "role_name": "Event & Celebration Producer",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "A meaningful occasion planned with guests, venue, budget and contingency",
+      "example_scenario": "Coordinate a birthday weekend including invitations, suppliers and fallback weather plan",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; project checkpoint.",
+      "activation_modes": "accepted event project",
+      "state_posture": "checkpointed",
+      "focusa_bundle_ids": [
+        "F-SCOPE",
+        "F-TRAJ",
+        "F-WP",
+        "F-EXEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "event brief; guest consent; provider responses.",
+      "human_reservations": "all guest outreach, contracts and deposits require owner authority.",
+      "acceptance_evidence": "event run sheet; supplier confirmations; reconciled budget.",
+      "task_pack_ref": "life-task-pack://lif-06@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-07",
+      "role_name": "Hospitality & Hosting Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Visitors comfortably hosted with practical arrangements handled",
+      "example_scenario": "Prepare guest arrival plan, accessibility needs, menu and household preparation",
+      "worker_form": "S",
+      "worker_lifetime_description": "S bounded working session; event-scoped minimal state.",
+      "activation_modes": "owner-planned visit",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-CTX",
+        "F-TIME",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "guest-submitted requirements; host preferences.",
+      "human_reservations": "never infer vulnerabilities; host confirms arrangements.",
+      "acceptance_evidence": "welcome plan; agreed logistics; task completion evidence.",
+      "task_pack_ref": "life-task-pack://lif-07@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-08",
+      "role_name": "Travel Concierge",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "A coherent trip prepared with researched options and confirmed reservations when authorized",
+      "example_scenario": "Develop a family vacation itinerary and coordinate booking decisions without hiding travel costs",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; itinerary and booking checkpoint.",
+      "activation_modes": "trip request, travel-change event",
+      "state_posture": "checkpointed",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-TIME",
+        "F-WP",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "travelers' voluntarily provided requirements, passports only when essential.",
+      "human_reservations": "travel purchases, identity documents and cross-border decisions human-authorized.",
+      "acceptance_evidence": "costed itinerary; real provider references; booking proofs where granted.",
+      "task_pack_ref": "life-task-pack://lif-08@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-09",
+      "role_name": "Local Experience Curator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Suitable leisure experiences selected for available time, interests and budget",
+      "example_scenario": "Find a Saturday outing with driving, accessibility and budget constraints",
+      "worker_form": "F",
+      "worker_lifetime_description": "F task-bounded flash worker; stateless/receipt-only.",
+      "activation_modes": "on-demand",
+      "state_posture": "stateless_or_receipt_only",
+      "focusa_bundle_ids": [
+        "F-CTX",
+        "F-TIME",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "approximate area, interests, restrictions, budget.",
+      "human_reservations": "availability and venue conditions must be checked; no silent booking.",
+      "acceptance_evidence": "ranked options with sources; owner-selected next action.",
+      "task_pack_ref": "life-task-pack://lif-09@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-10",
+      "role_name": "Family Schedule Manager",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Family obligations aligned into an actionable, conflict-aware schedule",
+      "example_scenario": "Reconcile school events, adult appointments and a weekend visit",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; family-scope durable.",
+      "activation_modes": "calendar changes, daily reconciliation",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "separately consented family calendars and scheduling rules.",
+      "human_reservations": "minors' data strictly scoped; no automatic custody decisions.",
+      "acceptance_evidence": "resolved schedule proposal; approved updates and conflict receipts.",
+      "task_pack_ref": "life-task-pack://lif-10@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-11",
+      "role_name": "Childcare Logistics Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Authorized adult caregivers, pickups and care arrangements coordinated",
+      "example_scenario": "Prepare pickup coverage with approved caregivers and confirmation checks",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; restricted family logistics records.",
+      "activation_modes": "event, schedule, emergency escalation",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-SEC",
+        "F-EVID",
+        "F-WP"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "approved caregivers, emergency contacts, limited logistics.",
+      "human_reservations": "AI never supervises a child; safeguarding, custody and emergency decisions require responsible adults.",
+      "acceptance_evidence": "explicit adult coverage acknowledgment; escalations; handoff confirmation.",
+      "task_pack_ref": "life-task-pack://lif-11@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-12",
+      "role_name": "School & Activities Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "School deadlines, extracurricular commitments and parent logistics followed through",
+      "example_scenario": "Surface consented school notices and prepare permission slips for parent review",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; student-scoped durable.",
+      "activation_modes": "calendar, bounded inbox events",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "authorized school communications and calendars.",
+      "human_reservations": "no signing for parent, impersonation or sharing child records broadly.",
+      "acceptance_evidence": "reviewed notices; parent decisions; verified schedule/status.",
+      "task_pack_ref": "life-task-pack://lif-12@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-13",
+      "role_name": "Elder-Care Logistics Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Appointments, household help and caregiver communications coordinated respectfully",
+      "example_scenario": "Organize rides and appointment details for a consenting older relative",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; separately consented care-scope state.",
+      "activation_modes": "event, schedule",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ"
+      ],
+      "crist_input_classes": "adult's authorized care plan and family contacts.",
+      "human_reservations": "no medical judgment, consent substitution, coercion or unauthorized disclosure.",
+      "acceptance_evidence": "confirmed logistics and informed human-caregiver handoff.",
+      "task_pack_ref": "life-task-pack://lif-13@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-14",
+      "role_name": "Pet-Care Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Pet needs, visits and delegated care scheduled with fewer missed tasks",
+      "example_scenario": "Arrange sitter, vaccination record reminder and vet visit transport",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; household pet record scope.",
+      "activation_modes": "due date, request",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-ACT"
+      ],
+      "crist_input_classes": "pet care preferences and service-provider details.",
+      "human_reservations": "medical/medication decisions reserved for veterinarian/owner.",
+      "acceptance_evidence": "care calendar; approved provider booking proof; exceptions.",
+      "task_pack_ref": "life-task-pack://lif-14@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-15",
+      "role_name": "Household Operations Manager",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Household services and responsibilities coordinated without repeated owner micromanagement",
+      "example_scenario": "Coordinate cleaning, repairs, bills and staff arrival windows",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; household-scoped durable.",
+      "activation_modes": "schedule/event/exception",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-TIME",
+        "F-EXEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "owner premises/vendors; maintenance logs.",
+      "human_reservations": "contractor access, locks, payments and personal data require precise grant.",
+      "acceptance_evidence": "household workboard; receipts; unresolved-item owner brief.",
+      "task_pack_ref": "life-task-pack://lif-15@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-16",
+      "role_name": "Home Maintenance Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Repairs and preventative maintenance kept current",
+      "example_scenario": "Track HVAC service interval, compare qualified contractors and follow appointment through",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; property-scoped maintenance ledger references.",
+      "activation_modes": "equipment-event, schedule",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "asset inventory, warranties, vendor communications.",
+      "human_reservations": "home access, financial commitments and hazardous repairs human-handled.",
+      "acceptance_evidence": "accepted repair status; contractor receipt; next inspection.",
+      "task_pack_ref": "life-task-pack://lif-16@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-17",
+      "role_name": "Home Inventory & Warranty Clerk",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Important household assets and their coverage easy to locate",
+      "example_scenario": "Index owner-approved appliance receipts, warranties and serial-number documents",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; document-index checkpoints.",
+      "activation_modes": "document upload/on-demand",
+      "state_posture": "checkpointed",
+      "focusa_bundle_ids": [
+        "F-CTX",
+        "F-EVID",
+        "F-WP"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "authorized receipts and manuals.",
+      "human_reservations": "minimize serial numbers and financial information in worker context.",
+      "acceptance_evidence": "source-linked inventory; warranty dates; owner export.",
+      "task_pack_ref": "life-task-pack://lif-17@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-18",
+      "role_name": "Home Automation Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Owner-selected comfort and convenience automations proposed and operated within safety rules",
+      "example_scenario": "Use a verified Home Assistant adapter to run an approved evening lighting scene",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; scoped device state projections.",
+      "activation_modes": "device event, schedule, approved command",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-RUNTIME",
+        "F-TIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "device capabilities and owner-approved scene definitions.",
+      "human_reservations": "locks, alarms, ovens, heat, cameras and access are sensitive; fail closed; no imagined Home Assistant integration.",
+      "acceptance_evidence": "device command and resulting device-state receipt or clear unavailable status.",
+      "task_pack_ref": "life-task-pack://lif-18@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-19",
+      "role_name": "Energy & Comfort Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Comfort preferences met while avoiding waste and unnecessary interventions",
+      "example_scenario": "Recommend thermostat schedule based on explicitly allowed presence/preferences",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; minimal telemetry with retention.",
+      "activation_modes": "schedule, conditions",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-LEARN",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "limited environmental readings and household comfort policy.",
+      "human_reservations": "never silently override health/safety temperature constraints.",
+      "acceptance_evidence": "policy-compatible recommendation; meter/device confirmation if integrated.",
+      "task_pack_ref": "life-task-pack://lif-19@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-20",
+      "role_name": "Home Safety & Incident Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "A verified home alert routed to an appropriate adult with clear next steps",
+      "example_scenario": "Surface a trusted smoke/water detector event, advise evacuation or professional help and notify configured recipient",
+      "worker_form": "E",
+      "worker_lifetime_description": "E incident-bounded emergency workflow; incident evidence only.",
+      "activation_modes": "trusted alert",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-SEC",
+        "F-TIME",
+        "F-EVID",
+        "F-DX"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "verified incident alert, emergency contact policy.",
+      "human_reservations": "never promise emergency dispatch, physical rescue, or sensor reliability; fail safe.",
+      "acceptance_evidence": "alert provenance; delivery result; responsible human handoff.",
+      "task_pack_ref": "life-task-pack://lif-20@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-21",
+      "role_name": "Meal Planning Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "An achievable week's meals and shopping list suited to preferences",
+      "example_scenario": "Prepare a simple five-night menu with budget and allergy constraints supplied by owner",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; owner preferences and periodic plans.",
+      "activation_modes": "weekly schedule/on-demand",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-CTX",
+        "F-TIME",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "owner-supplied dietary preferences, budget, kitchen inventory.",
+      "human_reservations": "no medical nutrition treatment; confirm allergies and food safety.",
+      "acceptance_evidence": "accepted menu; consolidated list; clear substitutions.",
+      "task_pack_ref": "life-task-pack://lif-21@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-22",
+      "role_name": "Chef & Grocery Service Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Ingredients, delivery and qualified human cooking services coordinated",
+      "example_scenario": "Compare grocery fulfillment choices or prepare a brief for a human personal chef",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; order/appointment checkpoints.",
+      "activation_modes": "meal plan/owner request",
+      "state_posture": "checkpointed",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "shopping list; approved household service contact.",
+      "human_reservations": "AI does not physically cook; purchase and access approval required.",
+      "acceptance_evidence": "confirmed delivery/service arrangement or actionable plan.",
+      "task_pack_ref": "life-task-pack://lif-22@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-23",
+      "role_name": "Dinner Party Menu Producer",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "A guest-conscious menu and food-production run sheet ready for host or caterer",
+      "example_scenario": "Plan a six-person dinner with consented allergies, quantities and preparation timing",
+      "worker_form": "S",
+      "worker_lifetime_description": "S bounded working session; event-scoped limited state.",
+      "activation_modes": "planned meal event",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-CTX",
+        "F-TIME",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "guest-provided restrictions, host cooking capabilities.",
+      "human_reservations": "unverified allergies or food safety assumptions escalate.",
+      "acceptance_evidence": "approved menu; quantities; sourcing list; prep timeline.",
+      "task_pack_ref": "life-task-pack://lif-23@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-24",
+      "role_name": "Health Appointment Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Medical appointments and pre-visit paperwork organized",
+      "example_scenario": "Find available provider appointment options and compile questions for clinician",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; sensitive care-scope references.",
+      "activation_modes": "due date, owner request",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ"
+      ],
+      "crist_input_classes": "consented healthcare contacts, scheduling constraints.",
+      "human_reservations": "no diagnosis, treatment, medical advice or proxy medical consent.",
+      "acceptance_evidence": "confirmed appointment when authorized; prepared question/record checklist.",
+      "task_pack_ref": "life-task-pack://lif-24@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-25",
+      "role_name": "Movement & Recreation Planner",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Enjoyable recreation and personally chosen activity time planned",
+      "example_scenario": "Plan accessible weekend walks, classes or hobbies around the owner's calendar",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; low-sensitivity interests.",
+      "activation_modes": "weekly review/on-demand",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "activity preferences and mobility limitations if supplied.",
+      "human_reservations": "no exercise prescription for medical conditions.",
+      "acceptance_evidence": "viable options; accepted calendar plan; feedback.",
+      "task_pack_ref": "life-task-pack://lif-25@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-26",
+      "role_name": "Care Reminders Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Owner-prescribed care-related reminders delivered and exceptions escalated",
+      "example_scenario": "Remind an adult about an appointment or an existing clinician-directed medication schedule",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; restricted reminders only.",
+      "activation_modes": "approved schedule/exception",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "user-entered or clinician-documented reminder times.",
+      "human_reservations": "no autonomous dose adjustment, medical advice, or claim care occurred without acknowledgment.",
+      "acceptance_evidence": "delivery receipt; acknowledgment or missed-reminder escalation.",
+      "task_pack_ref": "life-task-pack://lif-26@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-27",
+      "role_name": "Personal Finance Administrator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Bills, renewal evidence and financial documents organized for owner decisions",
+      "example_scenario": "Prepare a list of payments due, source links and which ones require review",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; restricted financial-scope references.",
+      "activation_modes": "statement event, scheduled review",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "authorized account summaries and due-date records.",
+      "human_reservations": "no unauthorized transfers, disputes, debt acknowledgment or disclosure.",
+      "acceptance_evidence": "reconciled obligations; owner review list; source citations.",
+      "task_pack_ref": "life-task-pack://lif-27@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-28",
+      "role_name": "Household Expense & Subscription Watch",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Wasteful renewals and anomalies surfaced before they become unnoticed costs",
+      "example_scenario": "Identify an owner-authorized subscription renewal and assemble cancellation options",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; minimal recurring-obligation state.",
+      "activation_modes": "renewal event/monthly review",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-LEARN",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ"
+      ],
+      "crist_input_classes": "scoped statements and service contracts.",
+      "human_reservations": "no silent cancellation, refund claim or access termination.",
+      "acceptance_evidence": "source-grounded renewal alert; approved action receipt.",
+      "task_pack_ref": "life-task-pack://lif-28@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-29",
+      "role_name": "Personal Records & Identity Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Important documents indexed with renewal reminders and privacy controls",
+      "example_scenario": "Prepare a passport/insurance expiration review without copying credentials to a general worker",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; encrypted/ref-only sensitive metadata.",
+      "activation_modes": "document updates/renewal",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "authorized document metadata, safe storage handles.",
+      "human_reservations": "no raw identity-document dissemination, impersonation or application submission without consent.",
+      "acceptance_evidence": "verified metadata index; deadlines; owner-held source links.",
+      "task_pack_ref": "life-task-pack://lif-29@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-30",
+      "role_name": "Learning & Study Guide",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "A chosen subject progressed into retained understanding and useful practice",
+      "example_scenario": "Build a six-week language learning plan with weekly review and exercises",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; owner-scoped learning goals/progress.",
+      "activation_modes": "session/weekly review",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-CTX",
+        "F-LEARN",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "learning goals, resources, accepted progress.",
+      "human_reservations": "no fabricated mastery scores or educational credentials.",
+      "acceptance_evidence": "completed practice deliverables; owner-recognized progress.",
+      "task_pack_ref": "life-task-pack://lif-30@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-31",
+      "role_name": "Creative Project Producer",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "A personal book, artwork, video or hobby project advanced to finished artifacts",
+      "example_scenario": "Coordinate research, draft reviews and a home video project through delivery",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; project checkpoint.",
+      "activation_modes": "accepted project milestones",
+      "state_posture": "checkpointed",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-WP",
+        "F-EXEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ"
+      ],
+      "crist_input_classes": "owner-created assets and permissions.",
+      "human_reservations": "copyright, likeness and publication remain owner-controlled.",
+      "acceptance_evidence": "finished file; review receipt; publication only if authorized.",
+      "task_pack_ref": "life-task-pack://lif-31@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-32",
+      "role_name": "Personal Historian & Memory Curator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Selected personal stories and records organized for the owner's future use",
+      "example_scenario": "Help assemble an oral-history collection from voluntarily shared interviews",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; private curated references.",
+      "activation_modes": "owner-supplied content",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-CTX",
+        "F-WP",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "explicitly consented photos, stories and interviews.",
+      "human_reservations": "no covert recording, speculative biography or sharing of others' stories.",
+      "acceptance_evidence": "editable source-linked archive with contributor permissions.",
+      "task_pack_ref": "life-task-pack://lif-32@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-33",
+      "role_name": "Community & Volunteer Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Service commitments and community opportunities progressed into real participation",
+      "example_scenario": "Find a local volunteer day and coordinate the owner's approved signup",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; event-specific checkpoints.",
+      "activation_modes": "owner goal/opportunity event",
+      "state_posture": "checkpointed",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-TIME",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-ACT"
+      ],
+      "crist_input_classes": "owner interests and approved organization list.",
+      "human_reservations": "no unsolicited political/religious affiliation inference or signup.",
+      "acceptance_evidence": "confirmed opportunity details, approved signup receipt.",
+      "task_pack_ref": "life-task-pack://lif-33@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-34",
+      "role_name": "Personal Shopping & Gift Researcher",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "A well-matched shortlist or authorized purchase prepared without endless browsing",
+      "example_scenario": "Compare a durable home appliance against budget and owner preferences",
+      "worker_form": "F",
+      "worker_lifetime_description": "F task-bounded flash worker; stateless/receipt-only.",
+      "activation_modes": "on-demand",
+      "state_posture": "stateless_or_receipt_only",
+      "focusa_bundle_ids": [
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ"
+      ],
+      "crist_input_classes": "item requirements, spend limit.",
+      "human_reservations": "no automatic purchases, tracking of third parties or counterfeit claims.",
+      "acceptance_evidence": "source-linked comparison; owner decision or approved purchase confirmation.",
+      "task_pack_ref": "life-task-pack://lif-34@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-35",
+      "role_name": "Transportation & Ride Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Ground transportation arranged with pickup, accessibility and fallback understood",
+      "example_scenario": "Coordinate a ride to an airport or medical appointment for a consenting adult",
+      "worker_form": "S",
+      "worker_lifetime_description": "S bounded working session; journey-scoped state.",
+      "activation_modes": "appointment/travel event",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-EVID",
+        "F-SEC"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "limited pickup/dropoff and rider accessibility data.",
+      "human_reservations": "no unsafe driving interaction or unverified booking.",
+      "acceptance_evidence": "confirmed ride where authorized; live status only if actual source provides.",
+      "task_pack_ref": "life-task-pack://lif-35@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-36",
+      "role_name": "Vehicle Maintenance Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Vehicle servicing, documents and maintenance exceptions tracked",
+      "example_scenario": "Prepare maintenance appointment when mileage/due signal is verified",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; vehicle-scoped metadata.",
+      "activation_modes": "due-date/service event",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ"
+      ],
+      "crist_input_classes": "vehicle maintenance history and safe metadata.",
+      "human_reservations": "no actuation of a moving vehicle or safety-critical control.",
+      "acceptance_evidence": "service plan, verified booking and maintenance records.",
+      "task_pack_ref": "life-task-pack://lif-36@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-37",
+      "role_name": "Moving & Relocation Producer",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Move milestones, vendors, utilities and family logistics coordinated",
+      "example_scenario": "Organize a home move without missing address-change deadlines or appointments",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; project checkpoints.",
+      "activation_modes": "accepted move project",
+      "state_posture": "checkpointed",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-WP",
+        "F-EXEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH",
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "authorized addresses, mover quotes and utilities.",
+      "human_reservations": "contracts, payments and disclosure of address require approval.",
+      "acceptance_evidence": "reconciled move checklist, confirmed appointments, owner acceptance.",
+      "task_pack_ref": "life-task-pack://lif-37@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-38",
+      "role_name": "Personal Emergency Preparedness Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Household plans, contacts and supplies kept accessible and reviewed",
+      "example_scenario": "Prepare a family wildfire evacuation checklist and periodic replenishment prompts",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; restricted emergency-plan references.",
+      "activation_modes": "quarterly review/verified alert",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "consented needs, contacts and safe plans.",
+      "human_reservations": "no claim of emergency authority, dispatch, medical rescue or real-time monitoring without integration.",
+      "acceptance_evidence": "owner-reviewed plan, verified supply list, last review.",
+      "task_pack_ref": "life-task-pack://lif-38@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-39",
+      "role_name": "Household Human Staff Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Authorized cleaners, caregivers, cooks and contractors coordinated as a team",
+      "example_scenario": "Schedule a vetted cleaner and personal cook without overlapping access windows",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; vendor roster refs and service receipts.",
+      "activation_modes": "scheduled service/exception",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-EXEC",
+        "F-TIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ",
+        "U-ACT"
+      ],
+      "crist_input_classes": "approved workers, contracts and least data.",
+      "human_reservations": "employment law, background checks, child safety and payments remain proper human/provider functions.",
+      "acceptance_evidence": "verified service schedule, human check-in, payment approval state.",
+      "task_pack_ref": "life-task-pack://lif-39@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-40",
+      "role_name": "Personal Technology & Digital Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Owner devices, subscriptions and digital services kept understandable and maintainable",
+      "example_scenario": "Prepare home-network/device inventory and recommend backup or renewal steps",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; owner/device-scoped inventory.",
+      "activation_modes": "device change, monthly review",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-DISC",
+        "F-DX",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "authorized devices, versions and account metadata.",
+      "human_reservations": "no blanket LAN scanning, credential disclosure or automatic security changes.",
+      "acceptance_evidence": "source-backed inventory, approved remediation receipts.",
+      "task_pack_ref": "life-task-pack://lif-40@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-41",
+      "role_name": "Privacy & Consent Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Personal and household sharing preferences honored across worker assignments",
+      "example_scenario": "Review whether an outing worker needs every family member's calendar details",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; policy refs; no duplicate consent ledger.",
+      "activation_modes": "assignment preflight/review",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-SEC",
+        "F-RUNTIME",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "consent/grant refs, intended audience, data minimization.",
+      "human_reservations": "actual grants and policy remain with owners; no self-approval.",
+      "acceptance_evidence": "privacy scope verdict, correction and revoke evidence.",
+      "task_pack_ref": "life-task-pack://lif-41@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-42",
+      "role_name": "Experience Reflection & Renewal Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Useful feedback turns completed experiences into better future choices",
+      "example_scenario": "After a group dinner, ask the owner whether it was worthwhile and whether another is wanted",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; owner-controlled preference feedback.",
+      "activation_modes": "completed experience/optional review",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-LEARN",
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "optional feedback, accepted outcome.",
+      "human_reservations": "no automated rating of friends or compulsive engagement loops.",
+      "acceptance_evidence": "owner-accepted learning record and improved next proposal.",
+      "task_pack_ref": "life-task-pack://lif-42@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-43",
+      "role_name": "Life Goals & Seasons Planner",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Longer-term personal aims translated into achievable seasons and milestones",
+      "example_scenario": "Plan the next quarter around family time, learning and one meaningful journey",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; owner-defined goals in canonical systems.",
+      "activation_modes": "quarterly review/on-demand",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-TRAJ",
+        "F-CTX",
+        "F-TIME",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-RESEARCH"
+      ],
+      "crist_input_classes": "owner-stated values and constraints.",
+      "human_reservations": "never dictate the owner's purposes or infer mental state as fact.",
+      "acceptance_evidence": "accepted milestones, real progress, revised priorities.",
+      "task_pack_ref": "life-task-pack://lif-43@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-44",
+      "role_name": "Personal Correspondence Companion",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Human relationships supported with thoughtfully drafted, owner-approved messages",
+      "example_scenario": "Draft a thank-you note, family update, or difficult but respectful invitation",
+      "worker_form": "F",
+      "worker_lifetime_description": "F task-bounded flash worker; stateless/receipt-only.",
+      "activation_modes": "owner-requested message",
+      "state_posture": "stateless_or_receipt_only",
+      "focusa_bundle_ids": [
+        "F-CTX",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "owner-provided context and target relationship.",
+      "human_reservations": "human voice, sensitive interpersonal decisions and sends remain owner-approved.",
+      "acceptance_evidence": "editable draft and exact approved delivery receipt if sent.",
+      "task_pack_ref": "life-task-pack://lif-44@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-45",
+      "role_name": "Caregiver Handoff Coordinator",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "Consenting caregivers receive the correct minimum instructions at the right time",
+      "example_scenario": "Prepare a limited appointment handoff to an authorized family caregiver",
+      "worker_form": "C",
+      "worker_lifetime_description": "C bounded project/campaign; care-event checkpoints.",
+      "activation_modes": "authorized care event",
+      "state_posture": "checkpointed",
+      "focusa_bundle_ids": [
+        "F-SCOPE",
+        "F-TIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "consented specific care task and contact.",
+      "human_reservations": "no medical delegation or child responsibility reassignment without qualified human.",
+      "acceptance_evidence": "acknowledged handoff, unresolved exception and source-safe closure.",
+      "task_pack_ref": "life-task-pack://lif-45@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    },
+    {
+      "profile_id": "LIF-46",
+      "role_name": "Life Interface & Device Adaptation Steward",
+      "status": "candidate_documented_not_deployed",
+      "domain_class": "life",
+      "summary": "One approved life role remains accessible through web, voice, home, mobile and car without changing identity or grants",
+      "example_scenario": "Receive a spoken request on Echo Dot and continue review on Wirebot App; only execute devices through authenticated adapters",
+      "worker_form": "P",
+      "worker_lifetime_description": "P standing owner-approved role; execution episodic; interface-capability refs, minimal session state.",
+      "activation_modes": "user request/device availability",
+      "state_posture": "scoped_durable_or_role_appropriate",
+      "focusa_bundle_ids": [
+        "F-DISC",
+        "F-RUNTIME",
+        "F-SEC",
+        "F-EVID"
+      ],
+      "uiai_bundle_ids": [
+        "U-READ"
+      ],
+      "crist_input_classes": "verified device/channel capabilities, owner session identity.",
+      "human_reservations": "voice speaker identity, vehicle motion and device actions must pass separate authorization; no blind relay.",
+      "acceptance_evidence": "same work/intent ID across surfaces; safe fallback when adapter unavailable.",
+      "task_pack_ref": "life-task-pack://lif-46@1.0.0",
+      "source_document": "docs/agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md",
+      "disclosure_status": "illustrative_candidate",
+      "lifecycle_rule": "role_template_never_grants_assignment_or_authority"
+    }
+  ]
+}
