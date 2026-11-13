@@ -130,6 +130,30 @@ Rules:
 4. Writes are asynchronous by default. Deferring storage until after the response removes memory cost from turn latency.
 5. Absence of a record is not absence of a fact. Do not store "user declined to state" as a preference.
 
+### 5.1 Post-conversation reflection and selective memory placement — owner direction, 2026-11-13
+
+**Status: target requirement, not deployed or validated consumer behavior.** After a genuinely completed conversation, or a qualified session checkpoint/handoff, the **same installation-bound Operating Partner** MAY ask Focusa Doc 78 bounded secondary cognition to reflect over the **permitted, finalized** Focusa Spec 181 conversation transcript/turn revisions and any explicitly consented audio-cue projection. Silence, temporary network loss, mid-thought hesitation and a speaker's pause are **not** proof a conversation ended. Do not run duplicate reflections on client reconnect or channel transfer: bind to conversation ID, exact final transcript revision, owner/workspace, privacy treatment and an idempotent review key.
+
+Reflection should identify **what matters**, not summarize everything: explicit owner preferences and corrections; commitments, decisions, open questions, follow-up obligations and their owners; meaningful experiences with proper context; facts supported by evidence; unresolved contradictions; and the assistant's own behavioral mistakes or recovery needs. It should also identify what to **discard**, what needs clarification, and what is only a speculative interpretation. Distinguish direct utterance, speech hypothesis, contextual inference, verified result, and model critique in provenance. Do not promote an inferred feeling, personality trait, diagnosis or hidden motive into owner truth.
+
+**Memory placement through the existing single WRITE/MANAGE/READ owner:**
+
+| Content and test | Placement / disposition |
+| --- | --- |
+| Active dialogue, provisional context and unfinished thoughts | Working; session-scoped only; expire/compact at appropriate handoff |
+| Explicit stable conversational preference (e.g. "do not interrupt me") | Prefactor candidate **after** owner-authored preference is qualified; supports future immediate turn-taking and responsiveness |
+| Meaningful attributable interaction, correction, commitment and outcome with temporal context | Episodic candidate, subject to review, retention and consent |
+| Repeated supported lessons, stable decisions, transferable preferences | Semantic candidate after contradiction and source review; do not infer identity or sensitive characteristics from acoustic tone |
+| Older/superseded records retained by authorized policy | Archive/retired, not silently promoted to active context; erasure is separately governed |
+| Temporary voice frustration/urgency/prosody estimates | Volatile interaction cue; **no durable emotional profile by default**; retain only an explicitly necessary, permitted, carefully qualified episode or user correction |
+| Raw audio and complete transcript | Separate Spec 181 content/retention domains; **not** automatically memory; no universal replay, background upload or private cross-context pooling |
+
+If permitted acoustic data exists, tone-sensitive observation may suggest pace, emphasis, tension, hesitation or urgency **with uncertainty and source/time bounds**. Language, accent, disability, environment, microphone quality and individual expression can confound these cues. Do not equate pitch/volume with a definite emotion, use such estimates as medical diagnoses, or infer sensitive mental traits. Human-stated feeling/correction outranks guessed vocal affect. Respond gently in the moment, without assigning a permanent label.
+
+**Reciprocal learning:** later authorized correction or observed outcome supersedes flawed interpretation; the memory owner manages conflict, retraction, expiry, access and erasure across indexes and consumers. A confirmed behavioral preference should affect the *next actual conversation* through a qualified prefactor/read path; merely capturing, writing or acknowledging a lesson is not proof of improved behavior. Link a conversation interruption event and subsequent turn-taking adjustment only as inspectable safety/performance feedback, not a clinical emotional record.
+
+**Acceptance:** one verified consented conversation ends, a bounded review extracts three different candidate categories and discards irrelevant/sensitive guesses, the owning memory reviewer determines placement, sink delivery is read back, a subsequent App/phone conversation **actually uses** the approved preference and no longer interrupts at tested pause points. Exercise transcript revisions, cross-speaker attribution, rescinded consent, correction, deletion, duplicate review and absent audio. Verify exactly-once logical candidate treatment and no new store, reviewer, transcript owner, or per-surface memory account.
+
 ## 6. The manage path — consolidation, versioning, decay, forgetting
 
 Long-lived stores accumulate stale records. Without mechanisms, an agent cannot distinguish the 2024 value from the 2022 one.
