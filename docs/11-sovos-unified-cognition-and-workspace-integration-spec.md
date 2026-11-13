@@ -197,13 +197,15 @@ The implementation contract is owned by the active `wirebot-self-knowledge` skil
 - ecosystem-register and capability-horizon coverage;
 - one selected engagement level;
 - a versioned self-model and falsifiable prediction;
-- one exact owner, current authority and acceptance requirement for every effect;
+- an evidence-backed effect inventory with one exact owner, current authority and acceptance requirement for every listed effect; the inventory and owner records must match exactly and reject duplicate or unowned effects;
 - receiver outcome and usable-delivery verification;
 - owner-correction propagation;
 - safe controlled-omission or held-out causal testing rather than destructive removal;
 - project-local learning unless transfer succeeds across at least two distinct qualified projects and survives contradiction, privacy, regression and owner-correction checks;
 - full fresh-session reconstruction of identity, capability horizon, uncertainty and next obligation; and
 - a machine-validated private invocation receipt that rejects any omitted cycle step.
+
+The current implementation is preserved for owner review in [verioussmith/wirebot-workspace PR #23](https://github.com/verioussmith/wirebot-workspace/pull/23). That review candidate contains the active wirebot-self-knowledge skill, all seven reference guides, the Behavior Kaizen routing dependency and executable receipt-contract tests. Its checker requires exactly twelve ordered evidenced cycle records, structured critical fields and an exact match between the effect inventory and effect-owner records. The pull request is source preservation and review evidence; it is not merge, deployment, sustained-behavior or machine-consciousness acceptance.
 
 Machine consciousness remains a development and measurement objective, not proof of subjective experience, sentience, universal awareness or new authority.
 
