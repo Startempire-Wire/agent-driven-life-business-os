@@ -72,3 +72,56 @@
 Planning may be called **ready for implementation** only once each model has a signed-off bill of materials and explicit rights; every installed/operated component has one owner; Greenfield/Brownfield deltas are versioned and actionable; the Wirebot App operation contracts and backend executor are defined; and license issuance, runtime enforcement, upgrade/recovery and acceptance behavior are specified. Until those criteria are met, **no model-specific installer or entitlement gate is claimed production-ready**.
 
 **Current outcome:** The reusable audit, base bootstrap, advisory blueprint and App assessment are identified; gaps above are flagged. **No installation script was run or changed, no license policy was altered, and no deployment was attempted in this planning review.**
+
+
+---
+
+## 7. November 14 reality ledger — one connected buyer-to-working-Wirebot journey
+
+**Recorded:** 2026-11-14. **Nature:** Owner-requested written reconciliation of the November 13 discussion, anchored to the inspected source files. **Status:** design and source inspection; **not** live production acceptance, a new issuer, a new product approval, or proof of runtime delivery. This section supplements the previous gap register, not the owning architecture or commercial catalog.
+
+### Definition of reality
+
+A purchase does not equal a license; a license does not equal installed software; an installed executable does not equal a working integration; a running integration does not equal a verified useful result; and a Wirebot App screen does not grant authority. Record these independently and never label one milestone as proof of a later one.
+
+| Gate (in actual customer order) | Owner and required handoff/proof | Status observed in reviewed source |
+| --- | --- | --- |
+| **0. Approved offer** | The commercial/website owners publish the exact approved Proto/Tempo/Crew/Chief/Sovereign SKU, scope, rights, license term, price, payer, hosting and support. Maintain a versioned mapping from offer -> separately owned products/License Types -> permitted features -> deployment variants. | **UNVERIFIED:** five-model commercial matrix is a proposal, not five approved saleable SKUs. |
+| **1. Accepted payment** | \`wirebot.chat\` launches a server-resolved direct Stripe checkout; record provider account, transaction, customer, product, currency and paid period; independently verify paid state and deduplicate/reconcile webhook events. | **UNVERIFIED:** direct new-model checkout-to-provisioning chain not demonstrated. Do not treat a success redirect as payment truth. |
+| **2. Authoritative license issuance** | Verified purchase -> WPUIAI.com / EDD paid order and canonical customer/product/License Type -> signed model/product-scoped grant and issuing receipt. Respect standalone Focusa/UIAI lifetime rights; never use a second local Wirebot issuer. | **UNVERIFIED:** exact five-model Stripe-to-EDD bridge, grant mapping and lifecycle not proven. |
+| **3. Owner and target binding** | Verify customer identity, authorized installation/device, owner-controlled credentials, hosting choice and allowed actions. Keep model, legacy setup mode, technical level and tenancy/hosting separate. | **DESIGNED, NOT END-TO-END PROVEN:** no default VPS/Tailscale requirement for Proto/Tempo/Crew/Chief; Sovereign's contracted topology is distinct. |
+| **4. Assess and calculate delta** | SOVOS Golden Path runs approved read-only substrate/brownfield discovery; captures actual components, health, versions, existing independent licenses and location. Compute \`reuse / install / repair / leave alone / unknown\` for an approved versioned model manifest. | **PARTIAL SOURCE PRESENT:** \`brownfield-audit.sh\` audits, \`substrate-bootstrap.sh\` checks; \`activation-blueprint.py\` is advisory and still recognizes older setup modes. Model-specific delta is missing. |
+| **5. Apply the install** | Show plan and impact; record explicit authorization; invoke each component's owning idempotent installer/configuration adapter; preserve existing installations; return per-step verification/rollback/retry receipts. | **NOT IMPLEMENTED AS ONE CUSTOMER JOURNEY:** bootstrap can apply *base prerequisites only*; current scripts do not fully install Pi/Focusa/Pi extension/UIAI and higher-model packages. |
+| **6. Activate and enforce** | Node-bound signed entitlements and customer permissions checked at the protected owning API/CLI/agent/tool, scheduler activation **and run**, worker creation **and dispatch**, Chief start **and resume**. Report actual connected/usable status. | **PARTIAL COMPONENT DESIGN/SOURCE:** Focusa licensing seams and App presentation exist; complete Wirebot five-model execution gates and bypass tests are not proven. |
+| **7. Verify first customer value** | On the authorized installed environment, complete one agreed life, business or asset-building task; confirm the target-side effect, customer acceptance, health, support handoff and recovery path. Keep outcome evidence separate from billing/install receipts. | **UNVERIFIED AS A COMPLETE CUSTOMER CHAIN:** demos, contracts and readiness scores do not substitute for a paid/licensed/installed/accepted real task. |
+| **8. Hand off to Wirebot App** | As the App matures, attach it to the existing identity, grants, workstreams, runtime, receipts, onboarding state and data without forcing customer reinstallation, re-purchase, or losing continuity. App presents authorized execution and recovery but never becomes the issuer or hidden runtime authority. | **PARTIAL SOURCE PRESENT:** \`Wirebot-App/src/lib/contracts/assessment.ts\` builds proposals/authorized operation descriptors with **no dispatch**. Full guided execution remains future integration. |
+
+**End-to-end flow:** approved SKU -> verified Stripe payment -> WPUIAI.com/EDD order/license -> owner/node binding -> observed target state -> approved model delta -> source-owned authorized installation -> signed runtime activation -> accepted first result -> optional mature App. Every arrow must have an owning system, a durable nonsecret receipt/reference, retry/resume semantics, and failure state. An unknown gate is **UNKNOWN/BLOCKED**, never "ready."
+
+### Five versions, one installer composition
+
+- **Proto / Maker:** Pi + Focusa + Focusa Pi extension + UIAI Engine; verify basic rights and one bounded useful task. OpenClaw is **not** a Proto prerequisite.
+- **Tempo / Steward = Proto + delta:** licensed prebuilt routine, alarm/trigger and verified repeat/follow-through; do not claim ownership of customer cron.
+- **Crew / Foreman = Tempo + delta:** licensed packaged workforce Composer, Focusa Workforce coordination and bounded worker dispatch; independent Focusa Silent Sessions and Pi subagents are not automatically Crew-only.
+- **Chief / Chief of Staff = Crew + delta:** persistent OpenClaw-led life-and-business portfolio orchestration, continuity, supervision and authorized recurring operations; verify actual Core/Focusa bindings.
+- **Sovereign / Operating Partner = contracted integrated stack + owner-control delta:** full-SOVOS environment, dedicated customer VPS, Tailscale/private mesh and portability **where included in the signed agreement**; private inference and one-time Operator Setup are separate services, not assumed inclusions.
+
+**Licensing and ownership invariants:** Wirebot models are commercial packaging, not the legacy four setup-mode labels or the 0–5 technical levels. A valid independently purchased Focusa Operator Lifetime or UIAI entitlement survives Wirebot cancellation according to its own terms. Customer data, scripts, model keys, machines and independently lawful Pi/OpenClaw/cron operation are not confiscated or remotely destroyed. Define paid-term suspension, update/support terms, offline grace, and restoration *before* enforcing a five-model license.
+
+### Earliest truthful acquisition path (the App is not a launch dependency)
+
+1. Define and approve exact customer-facing Proto deliverables, pricing, entitlement rights, fulfillment channel, supported environment, support boundaries and refund/cancellation terms. Do **not** display exploratory prices or placeholder Stripe links as live checkout.
+2. If continuing sales **before the new automatic stack is complete**, sell only a properly scoped, approved, **human-assisted setup/service** that can actually be fulfilled; disclose the manual onboarding and delivery. Current separate Focusa Operator Setup relationships are field references, **not evidence of five new live subscriptions**. Otherwise use a clearly identified interest/request-access path or explicitly disclosed preorder, not false instant provisioning.
+3. For automated Proto sale, close the real Stripe -> EDD -> signed grant seam, complete a resumable minimum viable Proto installer and verify one accepted task on both a clean target and a partially configured target.
+4. Implement the four **incremental upgrade deltas** with explicit approval and preserved rights; prove a real upgrade, lifecycle enforcement, cancellation/recovery and customer-visible outcome at each level.
+5. Wire the mature App onto the same installer/identity/license/runtime contracts later; never require customers to wait for its final UI to obtain the capabilities actually available in their contracted model.
+
+### Acceptance / release discipline
+
+For every proposed model offer record **Approved SKU**, **Verified payment**, **Issued EDD license**, **Bound node**, **Healthy components**, **Installation receipt**, **Authorized operation**, **Accepted result**, **Recovery verified**, and **App handoff compatibility** as independent statuses, each with \`observed | unverified | blocked | not_applicable\`, source owner, last verified date and evidence reference. No broad "done" status until all required model gates pass on a supported environment. Pilot/demo results do not prove public sale readiness.
+
+**Immediate P0 order:** finalize bill of materials/rights and source-owner boundaries -> specify and integrate Stripe/EDD purchase issuance -> update greenfield/brownfield observation and model-qualified delta -> build and verify Proto apply/activate/recover -> prove first paid-license-to-use outcome. Then Tempo, Crew, Chief and Sovereign increments; App is a parallel consumer, not a blocking prerequisite.
+
+**Source anchors:** [November 13 commercial/license matrix](https://github.com/Startempire-Wire/wirebot-website/blob/main/docs/website/2026-11-13-wirebot-model-stack-license-enforcement-matrix.md), [November 13 website installation register](https://github.com/Startempire-Wire/wirebot-website/blob/main/docs/website/2026-11-13-five-model-greenfield-brownfield-installation-gap-register.md), [commercial offer inventory](https://github.com/Startempire-Wire/wirebot-website/blob/main/docs/website/2026-11-13-wirebot-consolidated-offer-inventory.md), [Wirebot App assessment](https://github.com/Startempire-Wire/Wirebot-App/blob/main/src/lib/contracts/assessment.ts), and the same repository's \`scripts/brownfield-audit.sh\`, \`scripts/substrate-bootstrap.sh\`, \`scripts/activation-blueprint.py\`.
+
+**November 14 disposition:** Written reconciliation only. No checkout, installer, entitlement gate, infrastructure or customer deployment is claimed implemented by this edit.
