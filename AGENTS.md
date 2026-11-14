@@ -726,3 +726,8 @@ Do not infer causal order from independent wall clocks.
 Prove the result in running reality.
 Leave no mess you can clean yourself.
 ```
+
+
+## 2026-11-10 SOVOS standardization cross-product handoff
+
+Before continuing Master Loop, Portable Memory, Wirebot Core/OpenClaw integration, or Wirebot App operating-model work, read [the cross-product handoff](docs/handoffs/2026-11-10-sovos-standardization-cross-product.md) and [SOVOS draft PR #37](https://github.com/Startempire-Wire/agent-driven-life-business-os/pull/37). Align with domain-owned specs and source; this is a proposed future contract, not proof of implementation or new execution permission. Do not wait on PR #23 implementation defects to draft or align specifications. Preserve existing task/Workpoint and deployment authorities.
