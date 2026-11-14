@@ -1,6 +1,6 @@
 # 11 — SOVOS Unified Cognition and Workspace Integration
 
-**Revision:** 0.2.1 — November 12, 2026<br>
+**Revision:** 0.2.0 — November 12, 2026<br>
 **Status:** PROPOSED cross-product integration specification; source and design handoff only.  
 **Architecture authority:** OWNER_AUTHORITY_CONSTITUTION.md and CURRENT_ECOSYSTEM_ARCHITECTURE.md. Owner review is required for promotion to canonical doctrine; a Git commit or draft PR is not that approval.  
 **Intent:** one persistent, sovereign Operating Partner across conversation, cognition, memory, work, execution, observation, and human-facing workspaces, with no duplicate authority.  
@@ -321,12 +321,6 @@ Wirebot remains accountable for the complete proposal and later accepted impleme
 
 Every assignment carries original acceptance criteria, exact project/continuity, allowed effects, files/surfaces, expected evidence, stop conditions and delivery destination. Child-agent prose is never acceptance. Failures return to Wirebot for personal diagnosis, repair and retest before re-delegation. Global observation can coordinate these roles, but each durable effect is separately admitted by the owning project.
 
-
-### 8.8 Living trajectory and controlled evolution
-
-The High-Level Trajectory (HLT) for this work is a **versioned direction, not a fixed final design**. It remains subject to owner-approved updates, improvements and changes as priorities, evidence, research, software and operating needs evolve.
-
-Each revision must preserve the reason for the change, source evidence, authority boundaries, prior trajectory history and comparable benchmark baselines. A revised HLT explicitly supersedes its predecessor; it does not rewrite history. Discovery, a model suggestion, a benchmark result or an implementation convenience may propose a revision, but none may silently change the owner-confirmed direction or grant new authority.
 
 ## 9. Agent-first, UI-optional operation and failure semantics
 
