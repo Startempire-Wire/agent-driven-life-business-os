@@ -26,6 +26,14 @@
 | Owner notification / response channels | [`../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md`](../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md) |
 | Cross-product refs / freshness / replay | [`../CROSS_PRODUCT_SEAM_CONTRACT.md`](../CROSS_PRODUCT_SEAM_CONTRACT.md) |
 
+## Life workforce — source-designed worker catalogue (2026-11-12)
+
+- [Comprehensive Life Workforce Catalogue](agent-os-golden-path/15-life-workforce-catalogue-and-composable-worker-profiles.md) — **46 detailed, candidate-only life worker profiles** with outcomes, examples, Focusa/UIAI bundles, worker lifetime/state, activation, CRIST, consent, human boundary and evidence. Extends the 64-role general/business [workforce catalogue](agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md); no worker is installed merely by its profile.
+- [Portable life worker templates](../workforce-templates/life-worker-catalogue.v1.json), [46 life task packs](../workforce-templates/life-task-packs.v1.json), and [validation schema](../contracts/sovos-life-workforce-catalogue.v1.schema.json) — versioned source templates that do not mint runtime authority.
+- [Wirebot App and device adapter contract](agent-os-golden-path/16-life-workforce-app-and-device-adapter-contract.md) — first-class Life/Business/Both composer, scoped swapping, home/voice/Echo/car interface candidates, real provider confirmations and fail-closed physical-world controls. **Not proof of implemented GUI or installed Home Assistant/car/voice integrations.**
+
+The life catalogue uses the same CRIST, state/lifetime, tool, consent and acceptance model as the business catalogue and remains subordinate to SOVOS doctrine and current product-owned runtime capabilities.
+
 ## Master Loop — full specified implementation
 
 **Owner clarification:** [09 — Composable, transparent and agent-first components](09-sovos-master-loop-composable-provenance-and-agent-first-contract.md)
