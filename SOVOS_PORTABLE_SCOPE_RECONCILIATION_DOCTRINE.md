@@ -73,6 +73,42 @@ Inputs: project identifier, canonical owner/product, current owner grant, curren
 16. After attributable approval, update **the owning product specification** with decision ID, changed requirements, exact supersession and provenance, then update its governed tasks. Do not rewrite earlier decisions to appear as though they never existed.
 17. Implement only with appropriate task/deployment authorization, verify changed behavior in the running system, and retain evidence and explicit remaining gaps. Report *partial*, *blocked*, or *complete* accurately.
 
+## 4A. Preventing coding-agent churn and CallGraph thrash
+
+**Scope drift** means work no longer matches the accepted specification. **Churn** means repeated expenditure of agent time, tokens, retries, tool calls, task creation, dependency changes or graph re-planning **without a correspondingly verified advance toward an accepted outcome**. A project can churn severely while staying nominally in scope; both failure modes must be treated separately.
+
+This section applies to the Focusa **CallGraph** execution/replay projection and to the owning spec/task dependency graph or Workset. Do not confuse a tool-discovery graph, CallGraph control flow, and task-provider dependencies. Respect their existing owners; do not create another graph authority or a supervisory agent.
+
+### Prevention at graph construction
+
+1. Bind each proposed CallFrame/work item to the **current approved spec revision**, exact accepted outcome and owning Workpoint/work-item reference. A new frame, child, edge, blocker or prerequisite must have a **specific causal necessity** for the accepted outcome. “Best practice,” model enthusiasm and hypothetical future scaling are not dependencies.
+2. **Start with the smallest sufficient executable graph**: straight-line or one vertical slice unless actual dependencies require a fork, join, subgraph, retry or branch. Keep parallel independent work unblocked; do not serially gate it on unrelated reviews, release rituals or infrastructure.
+3. Preserve a stable graph/task revision for the active admitted run. Agents may **propose** changes, but they may not continuously rebuild the graph, add requirements or alter accepted outcomes based on their own intermediate commentary. A legitimate new fact or approved scope change should produce a *bounded diff* to affected nodes and their dependents, not a whole-graph reset.
+4. Reuse existing completed actions, receipts and valid evidence. Avoid duplicate child tasks, repeated exploratory actions and identical dispatches after resume/model changes. Use existing stable identities/revisions and idempotency where available.
+
+### Prevention during execution
+
+5. At each task boundary, compare **expected progress** with the newly verified result: accepted requirement/Workpoint advanced, blocking dependency resolved, evidence accepted, or a real outside constraint discovered. Mere files touched, plans produced or agents invoked are not progress.
+6. Detect **no-progress loops**: same failed command after identical conditions; repeated code rewrites with no new evidence; bouncing between blocked children; oscillating task/graph revisions; same research or review reopened; expanding a graph to fix an unproven blocker; repeated build/test/release gates without a changed risk.
+7. Treat retries and cycles as **bounded recovery**, not permission to keep working forever. Reuse CallGraph's existing cycle/retry/depth/budget and dispatch/lease/replay semantics where actually installed; do not claim they currently enforce outcome-aware anti-churn. If the same failure persists without changed conditions, stop repeating that route, identify the actual cause and choose the smallest supported alternative within scope. Genuine blockers are precise, attributable and observable; independent admitted work continues.
+8. No new mandatory production gate without an actual current risk, accepted requirement, or platform obligation. Validate changed behavior with source-backed running evidence and targeted consequential-risk checks. Development progress does not require the entire graph to be complete before an authorized safe incremental deploy.
+9. When context compacts or workers hand off, hydrate the *same* Workstream/Workpoint/graph revision with previous accepted evidence and next actionable frontier. Do not restart planning or duplicate finished tasks merely because the session, model or worker changed.
+
+### Minimum anti-churn observability and response
+
+Use existing Focusa work/evidence/CallGraph/receipt streams to compare, over a bounded active run:
+- successive graph/task revisions **without new approved scope or relevant evidence**;
+- retry count and repeated identical failures with unchanged inputs/conditions;
+- duplicate child work/edges/dispatches and re-opened settled tasks;
+- elapsed time, tokens, cost and tool invocations **since the last accepted state transition**;
+- actual newly verified requirements, completed dependency edges and next safe production advance.
+
+Distinguish one legitimate recovery attempt from a persistent no-progress loop. **Thresholds must be calibrated using actual run evidence; no fabricated universal limits**. When a no-progress loop is detected, suppress the redundant branch or repeat attempt, preserve the accepted mission and state, explain the underlying blocker or smallest correction, and resume another admitted path. Escalate only if an actual owner decision or authorization is necessary. Never stop the entire mission simply because an independent branch failed.
+
+**Enforcement placement in Focusa (proposed integration, not implemented by this doctrine):** bind accepted-spec/task references during CRIST/Workpoint admission; evaluate newly added CallFrames/dependencies through the existing CallGraph validator and current authority/preflight controls; measure no-progress against existing execution receipts; and project a bounded churn signal into the Workstream/Foreman context. Do not add another approval database, autonomous project-wide replan daemon, or unconditional per-tool LLM judge. This integration requires a separate Focusa-owned approved specification and implementation proof.
+
+**Exit check:** the next production-relevant outcome advanced with fewer repeated attempts, no unapproved graph expansion, and no loss of approved obligations. Report actual counts or state deltas when measured; do not infer improvement from doctrine prose alone.
+
 ## 5. Minimal reconciliation record (portable report, not a new authority)
 
 For each item, include only the fields needed to make its status and consequence inspectable:
