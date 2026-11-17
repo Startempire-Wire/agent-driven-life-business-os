@@ -309,6 +309,10 @@ Full delivery means evidence-supported satisfaction of the **whole accepted spec
 
 ---
 
+### Portable and retroactive scope reconciliation (2026-11-17 proposal)
+
+See [`SOVOS_PORTABLE_SCOPE_RECONCILIATION_DOCTRINE.md`](SOVOS_PORTABLE_SCOPE_RECONCILIATION_DOCTRINE.md) for the portable, project-neutral review procedure, **pending owner-authorized promotion**. This supplements (and does not replace) the accepted-specification contract above: **no silent additions and no silent trims**; classify owner-approved decisions separately from proposals, explicit deferrals, and unverified historical material; reconcile legacy scope against provenance before proposing a minimal, attributable correction. Reviewing scope does not grant authority to mutate it.
+
 ## 7.1 Evidence-gated contract evolution
 
 Improve agent-facing contracts from real operating evidence under `AGENT_CONTRACT_OPTIMIZATION_PROFILE.md`.

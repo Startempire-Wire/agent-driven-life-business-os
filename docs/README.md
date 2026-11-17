@@ -23,6 +23,7 @@
 | Freedom, leverage, Perpetua, frontiers | [`../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`](../SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md) |
 | Routine compiler / templates | [`../SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md`](../SOVOS_ROUTINE_COMPILER_AND_TEMPLATE_LIBRARY.md) |
 | Mathematical intelligence / composable UX target | [`../SOVOS_MATHEMATICAL_INTELLIGENCE_AND_COMPOSABLE_EXPERIENCE.md`](../SOVOS_MATHEMATICAL_INTELLIGENCE_AND_COMPOSABLE_EXPERIENCE.md) |
+| Portable scope reconciliation / decision closure (proposed) | [`../SOVOS_PORTABLE_SCOPE_RECONCILIATION_DOCTRINE.md`](../SOVOS_PORTABLE_SCOPE_RECONCILIATION_DOCTRINE.md) — retrospective procedure; not live until owner-authorized promotion |
 | Owner notification / response channels | [`../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md`](../SOVOS_OWNER_NOTIFICATION_AND_RESPONSE_CHANNEL.md) |
 | Cross-product refs / freshness / replay | [`../CROSS_PRODUCT_SEAM_CONTRACT.md`](../CROSS_PRODUCT_SEAM_CONTRACT.md) |
 
