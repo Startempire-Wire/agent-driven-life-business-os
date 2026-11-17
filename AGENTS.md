@@ -309,6 +309,10 @@ Full delivery means evidence-supported satisfaction of the **whole accepted spec
 
 ---
 
+### Coding-agent no-churn rule (2026-11-17 proposal)
+
+**No drift and no churn are separate objectives.** A task can remain nominally in scope while repeatedly rebuilding the graph, rerunning failed steps, adding speculative prerequisites, or bouncing between dependent agents. Preserve accepted spec and current Workpoint/CallGraph revision; reuse accepted evidence; do not expand task dependencies without an attributable causal need. Detect repeated no-progress attempts and recover by a minimal in-scope alternative instead of replanning or adding delivery gates. See §4A of [the proposed portable scope reconciliation doctrine](SOVOS_PORTABLE_SCOPE_RECONCILIATION_DOCTRINE.md) for the proposed Focusa integration. This paragraph is a proposal, **not proof that a runtime anti-churn control is already installed**.
+
 ### Portable and retroactive scope reconciliation (2026-11-17 proposal)
 
 See [`SOVOS_PORTABLE_SCOPE_RECONCILIATION_DOCTRINE.md`](SOVOS_PORTABLE_SCOPE_RECONCILIATION_DOCTRINE.md) for the portable, project-neutral review procedure, **pending owner-authorized promotion**. This supplements (and does not replace) the accepted-specification contract above: **no silent additions and no silent trims**; classify owner-approved decisions separately from proposals, explicit deferrals, and unverified historical material; reconcile legacy scope against provenance before proposing a minimal, attributable correction. Reviewing scope does not grant authority to mutate it.
