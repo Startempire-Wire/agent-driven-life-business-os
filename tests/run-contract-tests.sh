@@ -20,6 +20,7 @@ fi
 "$PYTHON" "$ROOT/tests/activation-blueprint-test.py"
 "$PYTHON" "$ROOT/tests/wirebot-expression-install-review-test.py"
 "$PYTHON" "$ROOT/tests/substrate-bootstrap-python-order-test.py"
+"$PYTHON" "$ROOT/tests/substrate-bootstrap-report-test.py"
 "$PYTHON" "$ROOT/tests/repository-integrity-test.py"
   # Portable memory evaluation. Runs its own gates; a non-zero exit means the
   # memory substrate stopped being installable, reachable, sovereign, or
