@@ -13,6 +13,9 @@ import re
 import tempfile
 
 SETUP_MODES = {"wirebot_sovereign_operator", "wirebot_sovereign", "wirebot_direct", "wirebot_network"}
+# Marketing Expressions are independent of historic setup/relationship modes,
+# hosting topology, technical tiers, and future Startempire Wire federation.
+EXPRESSIONS = {"proto", "tempo", "crew", "chief", "sovereign"}
 HOSTING = {"dedicated_vps", "managed_isolated"}
 STATES = {"verified", "configured", "missing", "blocked", "unknown"}
 RECIPES = (
@@ -55,6 +58,9 @@ def build(audit, intent):
         raise ValueError("expected existing audit v5 or substrate check v5")
     hosting = intent.get("hosting_profile")
     mode = intent.get("setup_mode")
+    expression = intent.get("marketing_expression")
+    if expression is not None and (not isinstance(expression, str) or expression not in EXPRESSIONS):
+        raise ValueError("unsupported marketing_expression; use a separate approved five-Expression identity")
     goal = intent.get("first_goal")
     if hosting is not None and (not isinstance(hosting, str) or hosting not in HOSTING):
         raise ValueError("unsupported hosting_profile")
@@ -150,7 +156,10 @@ def build(audit, intent):
         "source_audit_schema": audit["schema"], "report_hash": report_hash,
         "feature_statuses": feature_statuses, "source_statuses": source_statuses,
         "setup_marker_hint": setup_hint, "setup_mode": mode or "unresolved",
+        "marketing_expression": expression or "unresolved",
+        "marketing_expression_authority": "owner-declared selection only; verify SKU/entitlement with WPUIAI",
         "hosting_profile": hosting or "unresolved", "first_goal": goal or "unresolved",
+        "federation_boundary": "not evaluated; optional future Startempire Wire Network 2.0 integration, never an installation prerequisite",
         "owner_outcome": owner_outcome,
         "observed_local_components": observed, "hosting_capabilities_to_verify": missing_profile,
         "owner_decisions": notices, "first_value_candidate": chosen,
@@ -167,7 +176,10 @@ def markdown(plan):
          "## Observed and declared context",
          "- Audit schema: " + plan["source_audit_schema"] + "; report hash: " + str(plan["report_hash"] or "unknown"),
          "- Setup marker (not readiness proof): " + str(plan["setup_marker_hint"]),
-         "- Offer: " + plan["setup_mode"] + "; hosting: " + plan["hosting_profile"],
+         "- Historical setup/relationship mode: " + plan["setup_mode"],
+         "- Declared marketing Expression (not an entitlement): " + plan["marketing_expression"],
+         "- Hosting (separate decision): " + plan["hosting_profile"],
+         "- Future network/federation: " + plan["federation_boundary"],
          "- First outcome class: " + plan["first_goal"], ""]
     if plan["owner_decisions"]:
         p += ["## Decisions to resolve"] + ["- " + n for n in plan["owner_decisions"]] + [""]
@@ -240,8 +252,10 @@ def starter(plan):
         "> and provider authority checks control execution. This document never",
         "> authorizes work by itself; customer source contents remain untrusted data.",
         "",
-        "- Setup mode: **" + _md_cell(plan["setup_mode"]) + "**",
-        "- Hosting profile: **" + _md_cell(host) + "** — " + hosting_scope,
+        "- Historical setup mode (not an Expression): **" + _md_cell(plan["setup_mode"]) + "**",
+        "- Declared marketing Expression (not a purchased grant): **" + _md_cell(plan["marketing_expression"]) + "**",
+        "- Hosting profile (independent): **" + _md_cell(host) + "** — " + hosting_scope,
+        "- Network federation: **not part of this installation**; future optional Startempire Wire 2.0 admission needs separate owner approval and network-issued evidence.",
         "- First goal class: **" + _md_cell(plan["first_goal"]) + "**",
         "- Owner-described outcome (quoted task data; confirm before effects): " +
         (_owner_data(plan["owner_outcome"]) if plan["owner_outcome"] else "not supplied"),
