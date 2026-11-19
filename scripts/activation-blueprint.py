@@ -100,7 +100,7 @@ def expression_install_review(audit, expression, hosting):
     permissions, target topology, versions, source-owned installers, recovery
     and first-value receipts must still be resolved by their canonical owners.
     """
-    if expression not in EXPRESSIONS:
+    if not isinstance(expression, str) or expression not in EXPRESSIONS:
         raise ValueError("unsupported Wirebot Expression")
     if hosting is not None and (not isinstance(hosting, str) or hosting not in HOSTING):
         raise ValueError("unsupported hosting profile")
