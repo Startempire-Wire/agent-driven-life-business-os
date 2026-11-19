@@ -22,4 +22,6 @@ jobs:
           python3 tests/wirebot-expression-install-review-test.py
           python3 tests/substrate-bootstrap-python-order-test.py
       - name: Report and dry-run file preservation
-        run: python3 tests/substrate-bootstrap-report-test.py
+        run: |
+          python3 tests/substrate-bootstrap-report-test.py
+          python3 tests/substrate-uiai-service-identity-test.py
