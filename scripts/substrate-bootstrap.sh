@@ -255,8 +255,23 @@ for c in "${COMPONENTS[@]}"; do
     IFS='|' read -r rname rendpoint rnote <<< "$rp"
     [ "$rname" = "$name" ] || continue
     runtime_endpoint="$rendpoint"
-    rbody="$($TIMEOUT_CMD curl -sS --max-time 5 "$rendpoint" 2>/dev/null || true)"
-    if printf '%s' "$rbody" | grep -Eq '"(status|ok)"[[:space:]]*:[[:space:]]*("healthy"|true|"live"|"ok")'; then
+    rbody="$($TIMEOUT_CMD curl --fail --silent --show-error --max-time 5 "$rendpoint" 2>/dev/null || true)"
+    # An HTTP 200 / generic "healthy" string is not proof of UIAI Engine.
+    # The UIAI owner's /health contract explicitly returns:
+    # {"status":"healthy","service":"uiai-engine", ...}. Fail closed for
+    # another service, proxy fallback or malformed response.
+    if printf '%s' "$rbody" | python3 -c '
+import json,sys
+name=sys.argv[1]
+try: d=json.load(sys.stdin)
+except (ValueError, TypeError): raise SystemExit(1)
+if not isinstance(d,dict): raise SystemExit(1)
+if name=="uiai":
+    good=d.get("status")=="healthy" and d.get("service")=="uiai-engine"
+else:
+    good=d.get("ok") is True or d.get("status") in ("live","ok")
+raise SystemExit(0 if good else 1)
+' "$name" >/dev/null 2>&1; then
       runtime_state="runtime_healthy"; runtime_healthy="yes"
     else
       runtime_state="endpoint_unreachable"
