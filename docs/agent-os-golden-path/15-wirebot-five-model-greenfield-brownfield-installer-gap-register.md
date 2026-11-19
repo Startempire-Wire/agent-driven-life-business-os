@@ -1,5 +1,8 @@
 # Wirebot Five-Model Golden Path: Greenfield/Brownfield Gap Register
 
+**2026-11-19 candidate code increment:** The existing `scripts/activation-blueprint.py` gains an opt-in, read-only five-Expression purchase preflight. It uses the existing audit v5, preserves older setup modes, distinguishes source-reported CLIs from verified services and returns a non-executable component/delta checklist. It **never** authorizes a payment, license or installation; this is a bounded P0 input to the same Golden Path, not a second installer or complete #43 acceptance. The App, Core, Focusa and UIAI product owners must supply signed entitlements and executable install/reuse/repair adapters before applying any plan. See the website [purchase-to-installer bridge PR #16](https://github.com/Startempire-Wire/wirebot-website/pull/16).
+
+
 **Date:** 2026-11-13  
 **Status:** Planning review; gap flags and acceptance criteria only. **Not** an installation, entitlement implementation, price approval, or production-readiness certification.  
 **Scope:** Reuse the existing Golden Path discovery/bootstrap assets and Wirebot App onboarding contracts to plan the five models: Proto, Tempo, Crew, Chief, Sovereign. The four models above Proto must be integrated into the Wirebot App.  
