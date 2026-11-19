@@ -33,6 +33,11 @@ def check():
         assert isinstance(record["install_plan"], list)
         if os.name != "nt":
             assert stat.S_IMODE(target.stat().st_mode) == 0o600, "report is not owner-private"
+        # --apply base in dry-run mode must not contaminate JSON stdout with
+        # human-readable package-manager messages or install anything.
+        preview = invoke("--apply", "base", "--dry-run", "--json")
+        assert preview.returncode in (0, 1, 3), (preview.returncode, preview.stderr)
+        assert json.loads(preview.stdout)["schema"] == record["schema"]
         again = invoke("--check", "--json", "--output", target)
         assert again.returncode in (0, 1, 3), (again.returncode, again.stderr)
         assert json.loads(target.read_text(encoding="utf-8"))["schema"] == record["schema"]
