@@ -20,6 +20,9 @@
 
 ## 2. Proposed model bill of materials — confirm rights and deployments before code
 
+The detailed behavioral and installer package contract is [Wirebot five-expression package bill of materials](16-wirebot-five-expression-package-bill-of-materials.md). It fixes the automation/alarm/workforce/Chief boundaries for installer development while leaving unapproved commercial limits and pricing open.
+
+
 | Model | Shared baseline | Added, pre-integrated offering | What the installer must select/verify | Status |
 | --- | --- | --- | --- | --- |
 | **Proto** | Pi + Focusa + Focusa Pi extension + UIAI Engine; owner identity, license, evidence and first useful task | No higher orchestration assumed. Custom customer Pi subagents are independent | Detect/reuse/install baseline; verify real Focusa/UIAI connectivity and permissions, first task and recovery | **Baseline to formalize** |
