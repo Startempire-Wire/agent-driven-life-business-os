@@ -38,6 +38,134 @@ RECIPES = (
      "outcome": "One document-driven commitment reaches a verified next action."},
 )
 
+
+# Source-owned, read-only per-Expression installation delta. This is not a
+# customer binary manifest, a software installer, a paid entitlement policy,
+# a command dispatcher, or a promise that any component is shipping.
+# The existing product owners must supply release metadata and typed operations.
+EXPRESSION_COMPONENT_FAMILIES = {
+    "proto": ("pi", "focusa", "focusa_pi_extension", "uiai"),
+    "tempo": ("recurring_routines", "scheduler_binding", "follow_through"),
+    "crew": ("workforce_composer", "focusa_workforce", "worker_dispatch"),
+    "chief": ("openclaw", "wirebot_core", "chief_coordination"),
+    "sovereign": ("owner_control", "portability"),
+}
+EXPRESSION_COMPONENT_OWNERS = {
+    "pi": "Pi", "focusa": "Focusa", "focusa_pi_extension": "Focusa",
+    "uiai": "UIAI Engine", "recurring_routines": "Wirebot / Focusa",
+    "scheduler_binding": "owning scheduler", "follow_through": "Focusa / Wirebot",
+    "workforce_composer": "Wirebot", "focusa_workforce": "Focusa Workforce",
+    "worker_dispatch": "Focusa", "openclaw": "OpenClaw",
+    "wirebot_core": "Wirebot Core", "chief_coordination": "Wirebot Core / Wirebot",
+    "owner_control": "SOVOS Golden Path", "portability": "SOVOS Golden Path",
+    "customer_vps": "customer / SOVOS", "private_mesh": "customer / Tailscale",
+    "local_body": "customer / SOVOS",
+}
+# Names already observed by substrate-bootstrap.v5. Missing an unprobed
+# component does NOT prove absence. Do not reinstall working remote services.
+INSTALL_PROBE_NAMES = frozenset(("pi", "focusa", "uiai", "openclaw"))
+# Stage 1 order from the existing ordered Golden Path; no Focusa prerequisite
+# for launching the initial installer, especially on Greenfield systems.
+INSTALL_SEQUENCE = (
+    "inspect_target", "base_prerequisites", "model_provider_access", "pi",
+    "focusa", "focusa_pi_extension", "uiai", "higher_expression_delta",
+    "verify_first_mission",
+)
+
+
+def _component_observation(row):
+    """Presence of a CLI is distinct from a healthy local or remote runtime."""
+    runtime = row.get("runtime")
+    if isinstance(runtime, dict):
+        if runtime.get("state") == "runtime_healthy" and runtime.get("healthy") is True:
+            return "healthy_remote", "reuse"
+        if runtime.get("state") == "endpoint_unreachable":
+            return "endpoint_unknown", "unknown"
+    if row.get("present") is True:
+        if row.get("health") == "healthy":
+            return "healthy_local", "reuse"
+        if row.get("health") == "unhealthy":
+            return "unhealthy", "repair"
+        return "present_unverified", "unknown"
+    if row.get("present") is False:
+        return "absent_cli_unconfirmed_runtime", "unknown"
+    return "unknown", "unknown"
+
+
+def expression_install_review(audit, expression, hosting):
+    """Review the exact approved Expression against existing v5 observations.
+
+    Deliberately no write/apply path: a missing CLI is not proof of a missing
+    runtime, and a marketing model is not an issued signed license. Owner
+    permissions, target topology, versions, source-owned installers, recovery
+    and first-value receipts must still be resolved by their canonical owners.
+    """
+    if expression not in EXPRESSIONS:
+        raise ValueError("unsupported Wirebot Expression")
+    if hosting is not None and (not isinstance(hosting, str) or hosting not in HOSTING):
+        raise ValueError("unsupported hosting profile")
+    source_rows = audit.get("components", [])
+    if not isinstance(source_rows, list):
+        raise ValueError("audit components must be an array")
+    observed = {}
+    for row in source_rows:
+        if not isinstance(row, dict):
+            continue
+        name = row.get("component")
+        if not isinstance(name, str) or name not in INSTALL_PROBE_NAMES:
+            continue
+        verdict = _component_observation(row)
+        observed[name] = verdict if name not in observed else ("conflict", "unknown")
+    required = []
+    for level in ("proto", "tempo", "crew", "chief", "sovereign"):
+        required.extend(EXPRESSION_COMPONENT_FAMILIES[level])
+        if level == expression:
+            break
+    # Dedicated requirements come from the contractually chosen hosting mode,
+    # NOT from the name/rank of a Wirebot Expression or Network membership.
+    if hosting == "dedicated_vps":
+        required.extend(("customer_vps", "private_mesh", "local_body"))
+    entries = []
+    for name in required:
+        state, decision = observed.get(name, ("not_observed", "unknown"))
+        entries.append({
+            "component": name,
+            "source_owner": EXPRESSION_COMPONENT_OWNERS[name],
+            "observed_state": state,
+            "decision": decision,
+            "proposed_only": True,
+            "release_and_entitlement_verified": False,
+            "apply_operation_bound": False,
+        })
+    # Do not touch non-required existing software or customer-owned agents.
+    for name in ("pi", "focusa", "uiai", "openclaw"):
+        if name in observed and name not in required:
+            entries.append({
+                "component": name,
+                "source_owner": EXPRESSION_COMPONENT_OWNERS[name],
+                "observed_state": observed[name][0],
+                "decision": "leave_alone",
+                "proposed_only": True,
+                "release_and_entitlement_verified": False,
+                "apply_operation_bound": False,
+            })
+    return {
+        "schema": "sovos.wirebot.install_review.v1",
+        "kind": "read_only_component_decisions",
+        "expression": expression,
+        "hosting_profile": hosting or "unresolved",
+        "target_scope": "audit_target_only; verify owner/target binding before any operation",
+        "sequence": list(INSTALL_SEQUENCE),
+        "components": entries,
+        "authorization_recorded": False,
+        "license_issued_verified": False,
+        "apply_available": False,
+        "runtime_ready": False,
+        "first_mission_accepted": False,
+        "network_federation": "future_optional_separate_authority",
+        "blocker": "source-owned versioned manifests, licenses, native operations and verification receipts are required",
+    }
+
 def load_json(path):
     obj = json.loads(Path(path).read_text(encoding="utf-8"))
     if not isinstance(obj, dict):
@@ -158,6 +286,7 @@ def build(audit, intent):
         "setup_marker_hint": setup_hint, "setup_mode": mode or "unresolved",
         "marketing_expression": expression or "unresolved",
         "marketing_expression_authority": "owner-declared selection only; verify SKU/entitlement with WPUIAI",
+        "installation_review": expression_install_review(audit, expression, hosting) if expression else None,
         "hosting_profile": hosting or "unresolved", "first_goal": goal or "unresolved",
         "federation_boundary": "not evaluated; optional future Startempire Wire Network 2.0 integration, never an installation prerequisite",
         "owner_outcome": owner_outcome,
@@ -181,6 +310,16 @@ def markdown(plan):
          "- Hosting (separate decision): " + plan["hosting_profile"],
          "- Future network/federation: " + plan["federation_boundary"],
          "- First outcome class: " + plan["first_goal"], ""]
+    review = plan.get("installation_review")
+    if review:
+        p += ["## Expression installation review (not an executable installer)",
+              "This only classifies existing evidence; absent CLIs are not assumed absent services.",
+              "Product owners must verify the signed license, versioned manifest and typed operations.",
+              "- Order: " + " -> ".join(review["sequence"])]
+        for component in review["components"]:
+            p.append("- " + component["component"] + ": " + component["decision"] +
+                     " (" + component["observed_state"] + "; owner: " + component["source_owner"] + ")")
+        p += ["- Apply available: no; runtime ready: unverified; accepted first mission: unverified", ""]
     if plan["owner_decisions"]:
         p += ["## Decisions to resolve"] + ["- " + n for n in plan["owner_decisions"]] + [""]
     if plan["hosting_capabilities_to_verify"]:
