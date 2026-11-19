@@ -37,6 +37,12 @@ while [ $# -gt 0 ]; do
   esac
 done
 
+# Output has a parseable contract only in JSON mode; do not silently ignore a path.
+if [ -n "$OUTPUT" ] && [ "$JSON" != "1" ]; then
+  echo "--output requires --json; no report written" >&2
+  exit 64
+fi
+
 # --- single-run lock (best-effort; advisory if flock unavailable) ---
 if command -v flock >/dev/null 2>&1; then
   exec 9>/tmp/agent-os-substrate.$(id -u).lock
@@ -146,6 +152,7 @@ if [ -r /etc/os-release ]; then
   os_version="$(. /etc/os-release && echo "${VERSION_ID:--}")"
   os_name="$(. /etc/os-release && echo "${PRETTY_NAME:--}")"
 fi
+[ "$os_type" = "Darwin" ] && os_id="darwin"
 os_kernel="$(uname -r 2>/dev/null || echo '-')"
 is_wsl="no"; [ -r /proc/version ] && grep -qi microsoft /proc/version 2>/dev/null && is_wsl="yes"
 
@@ -171,7 +178,7 @@ if command -v free >/dev/null 2>&1; then mem_avail_mb="$(free -m 2>/dev/null | a
 
 # --- network + clock (reachability facts, value-free) ---
 net_dns="unknown"; net_tcp443="unknown"; clock_ntp="unknown"
-NET_JSON="$(timeout 10 python3 -c '
+NET_JSON="$($TIMEOUT_CMD python3 -c '
 import json,socket
 r={"dns":"unknown","tcp443":"unknown"}
 try:
@@ -191,7 +198,7 @@ fi
 # hostname/os/online only; no IPs, no keys, no routes. Observation, not enrollment.
 mesh_json='[]'; mesh_self='-'; mesh_online=0; mesh_total=0
 if command -v tailscale >/dev/null 2>&1; then
-  MESH_RAW="$(timeout 15 tailscale status --json 2>/dev/null)" || MESH_RAW=""
+  MESH_RAW="$($TIMEOUT_CMD tailscale status --json 2>/dev/null)" || MESH_RAW=""
   if [ -n "$MESH_RAW" ]; then
     mesh_json="$(printf '%s' "$MESH_RAW" | python3 -c '
 import json,sys
@@ -380,7 +387,7 @@ if [ "$MODE" = "apply" ]; then
 fi
 
 if [ "$JSON" = "1" ]; then
-  python3 -c '
+  json_report="$(python3 -c '
 import json,sys
 rows=json.loads(sys.argv[1])
 plan=[{"component":r["component"],"route":r["route"],"route_kind":r["route_kind"],
@@ -410,8 +417,40 @@ env={"platform":{"os":os.environ["ENV_OS"],"distro_id":os.environ["ENV_ID"],
  "network":{"dns":os.environ["ENV_DNS"],"tcp443":os.environ["ENV_TCP"]},"clock_ntp":os.environ["ENV_NTP"],
  "mesh":json.loads(os.environ["ENV_MESH"]),
  "commentary":"presence/kind facts; resources, network and clock gates drive install-plan feasibility; mesh lists connected machines (hostname/os/online only, no IPs/keys/routes)"}
-print(json.dumps(env))')"
-  [ -n "$OUTPUT" ] && cp <(python3 -c 'import json,sys;rows=json.loads(sys.argv[1])' "$rows_json") "$OUTPUT" 2>/dev/null || true
+print(json.dumps(env))')")" || { echo "JSON report generation failed; output not modified." >&2; exit 69; }
+  if [ -n "$OUTPUT" ]; then
+    printf '%s\n' "$json_report" | python3 -c '
+import json, os, pathlib, sys, tempfile
+report = sys.stdin.read()
+if json.loads(report).get("schema") != "agent-os-substrate-check.v5":
+    raise SystemExit("refusing invalid substrate report")
+target = pathlib.Path(sys.argv[1]).expanduser()
+if target.is_symlink():
+    raise SystemExit("refusing symlink output target")
+if not target.parent.is_dir():
+    raise SystemExit("report parent directory must exist")
+if target.exists():
+    if not target.is_file():
+        raise SystemExit("refusing non-file output target")
+    try:
+        if json.loads(target.read_text(encoding="utf-8")).get("schema") != "agent-os-substrate-check.v5":
+            raise ValueError("unmanaged output")
+    except (ValueError, UnicodeError, OSError):
+        raise SystemExit("refusing to overwrite unrelated or invalid existing report")
+fd, tmp = tempfile.mkstemp(prefix=".sovos-substrate-", dir=str(target.parent))
+try:
+    with os.fdopen(fd, "w", encoding="utf-8") as stream:
+        stream.write(report)
+        stream.flush()
+        os.fsync(stream.fileno())
+    os.chmod(tmp, 0o600)
+    os.replace(tmp, target)
+finally:
+    if os.path.exists(tmp):
+        os.unlink(tmp)
+' "$OUTPUT" || { echo "refusing invalid or unsafe JSON report destination." >&2; exit 69; }
+  fi
+  printf '%s\n' "$json_report"
 else
   printf '%s\n' "$rows_json" | python3 -c '
 import json,sys
