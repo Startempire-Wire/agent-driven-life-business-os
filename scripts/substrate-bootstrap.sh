@@ -43,11 +43,55 @@ if command -v flock >/dev/null 2>&1; then
   flock -n 9 || { echo "another substrate run holds the lock; refusing concurrent run" >&2; exit 67; }
 fi
 
-# --- preflight: report building requires python3 (fail-closed, honest) ---
+# --- Stage 1 bootstrap: Python is a base prerequisite, not an entry prerequisite. ---
+# On a fresh customer machine the preflight cannot render JSON until Python is
+# installed. The ONLY permitted early mutation is this explicitly requested,
+# authorized base primitive. No Focusa/Pi/UIAI runtime or customer state is touched.
 if ! command -v python3 >/dev/null 2>&1; then
-  echo "PREFLIGHT FAILED: python3 is required to build the report but is not installed." >&2
-  echo "Base install route: sudo dnf install -y python3 | sudo apt-get install -y python3 | brew install python3" >&2
-  exit 68
+  if [ "$MODE" = "apply" ] && [ "$DRYRUN" = "1" ]; then
+    echo "DRY-RUN: python3 is missing; first bootstrap Python using the host's supported package manager."
+    echo "DRY-RUN: full nonmutating component inspection resumes after Python is available; no changes made."
+    exit 0
+  fi
+  if [ "$MODE" = "apply" ] && [ "$CONFIRM" != "1" ]; then
+    echo "REFUSED: --apply base requires --yes or --dry-run; no prerequisite was installed." >&2
+    exit 64
+  fi
+  if [ "$MODE" = "apply" ] && [ "$CONFIRM" = "1" ]; then
+    boot_os="-"
+    [ -r /etc/os-release ] && boot_os="$(. /etc/os-release && printf '%s' "${ID:--}")"
+    boot_cmd=""
+    case "$boot_os" in
+      ubuntu|debian) command -v apt-get >/dev/null 2>&1 && boot_cmd="apt-get" ;;
+      almalinux|rhel|centos|rocky|fedora)
+        command -v dnf >/dev/null 2>&1 && boot_cmd="dnf" ;;
+    esac
+    if [ "$(uname -s 2>/dev/null)" = "Darwin" ] && command -v brew >/dev/null 2>&1; then
+      boot_cmd="brew"
+    fi
+    if [ -z "$boot_cmd" ]; then
+      echo "PREFLIGHT FAILED: no supported Python bootstrap manager found; preserve existing system." >&2
+      exit 68
+    fi
+    if [ "$boot_cmd" != "brew" ] && [ "$(id -u)" != "0" ]; then
+      echo "PREFLIGHT BLOCKED: Python bootstrap requires a separately authorized administrator context; no sudo was invoked." >&2
+      exit 68
+    fi
+    echo "APPLY: bootstrapping missing Python prerequisite using $boot_cmd before Stage 1 inspection." >&2
+    if [ "$boot_cmd" = "brew" ]; then
+      "$boot_cmd" install python3
+    else
+      "$boot_cmd" install -y python3
+    fi
+    if ! command -v python3 >/dev/null 2>&1; then
+      echo "PREFLIGHT FAILED: Python bootstrap did not yield a usable python3; no further work attempted." >&2
+      exit 68
+    fi
+    echo "APPLY: Python available; continuing with the existing read-only substrate checks." >&2
+  else
+    echo "PREFLIGHT FAILED: Python is missing. First run --apply base --dry-run, then an authorized --apply base --yes." >&2
+    exit 68
+  fi
 fi
 
 TIMEOUT_CMD=""
