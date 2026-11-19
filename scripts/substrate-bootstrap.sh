@@ -327,10 +327,10 @@ if [ "$MODE" = "apply" ]; then
   if [ "$missing_base" = "0" ]; then
     if [ "$DRYRUN" = "1" ]; then
       apply_result="dry-run: all base primitives present; nothing to install"
-      echo "DRY-RUN: $apply_result"
+      echo "DRY-RUN: $apply_result" >&2
     else
       apply_result="all base primitives present; nothing to install"
-      echo "APPLY: $apply_result"
+      echo "APPLY: $apply_result" >&2
     fi
   else
     applied=""; failed=""
@@ -344,7 +344,7 @@ if [ "$MODE" = "apply" ]; then
       echo "APPLY FAILED: no supported package manager detected for $os_id (dnf/apt-get/brew)" >&2
       apply_result="failed: no supported package manager"
     elif [ "$DRYRUN" = "1" ]; then
-      echo "DRY-RUN: no packages will be installed; the following commands WOULD run on an operator-authorized execution:"
+      echo "DRY-RUN: no packages will be installed; the following commands WOULD run on an operator-authorized execution:" >&2
       for c in "${COMPONENTS[@]}"; do
         IFS='|' read -r name vcmd hcmd route critical kind base order priv deps <<< "$c"
         [ "$base" = "true" ] || continue
@@ -357,11 +357,11 @@ if [ "$MODE" = "apply" ]; then
           curl) target="curl" ;;
         esac
         admin="user-local"; [ "$priv" = "admin" ] && admin="requires root/sudo"
-        echo "  DRY-RUN: $pkg $target   # $name ($admin)"
+        echo "  DRY-RUN: $pkg $target   # $name ($admin)" >&2
       done
       apply_result="dry-run: commands printed; nothing executed"
     else
-      echo "APPLY: installing missing base primitives via '$pkg' (admin routes need root/sudo)"
+      echo "APPLY: installing missing base primitives via '$pkg' (admin routes need root/sudo)" >&2
       for c in "${COMPONENTS[@]}"; do
         IFS='|' read -r name vcmd hcmd route critical kind base order priv deps <<< "$c"
         [ "$base" = "true" ] || continue
@@ -381,7 +381,7 @@ if [ "$MODE" = "apply" ]; then
         fi
       done
       apply_result="applied:${applied:- none}; failed:${failed:- none}"
-      echo "APPLY RESULT:$apply_result"
+      echo "APPLY RESULT:$apply_result" >&2
     fi
   fi
 fi
