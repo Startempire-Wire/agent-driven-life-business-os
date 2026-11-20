@@ -119,7 +119,7 @@ COMPONENTS=(
   "curl|curl --version|-|curl via package manager|true|pkg|true|0|admin|"
   "python3|python3 --version|-|python3 via package manager|true|pkg|true|0|admin|"
   "node|node --version|-|nodejs via package manager or nodesource|true|pkg|true|0|admin|"
-  "npm|npm --version|-|npm ships with nodejs|true|pkg|true|0|user|node"
+  "npm|npm --version|-|npm bundled with node on macOS; distro npm package where separate|true|pkg|true|0|admin|node"
   "pi|pi --version|-|npm install -g @earendil-works/pi-coding-agent|true|npm|false|1|user|npm"
   "focusa|focusa --version|focusa status --agent --json|focusa official upgrade channel|true|script|false|2|admin|"
   "rbw|rbw --version|-|official rbw release per vault runbook|false|binary|false|2|user|"
@@ -365,8 +365,13 @@ if [ "$MODE" = "apply" ]; then
         [ "$base" = "true" ] || continue
         find_bin "$name" >/dev/null 2>&1 && continue
         case "$name" in
-          npm) find_bin node >/dev/null 2>&1 || continue ;;  # node's install provides npm; listed once under node
-          node) target="nodejs" ;;
+          npm)
+            if [ "$os_id" = "darwin" ]; then
+              echo "  DRY-RUN: npm must come from the Homebrew node formula; if it remains missing after node install, repair manually (no implicit reinstall)." >&2
+              continue
+            fi
+            target="npm" ;;
+          node) if [ "$os_id" = "darwin" ]; then target="node"; else target="nodejs"; fi ;;
           python3) target="python3" ;;
           git) target="git" ;;
           curl) target="curl" ;;
@@ -381,17 +386,26 @@ if [ "$MODE" = "apply" ]; then
         IFS='|' read -r name vcmd hcmd route critical kind base order priv deps <<< "$c"
         [ "$base" = "true" ] || continue
         find_bin "$name" >/dev/null 2>&1 && continue
-        # npm depends on node; nodejs package provides both — listed/installed once under node
+        # Node and npm are distinct packages on some supported Linux hosts.
+        # On macOS Homebrew's node formula bundles npm; never reinstall an
+        # existing Node installation automatically merely because npm is missing.
         case "$name" in
-          npm) continue ;;  # node's install provides npm; node entry covers it when node is missing
-          node) target="nodejs" ;;
+          npm)
+            if [ "$os_id" = "darwin" ]; then
+              echo "APPLY FAILED: npm is missing after checking Homebrew node; manual repair needed. No existing Node installation was modified." >&2
+              failed="$failed npm"
+              continue
+            fi
+            target="npm" ;;
+          node) if [ "$os_id" = "darwin" ]; then target="node"; else target="nodejs"; fi ;;
           python3) target="python3" ;;
           git) target="git" ;;
           curl) target="curl" ;;
         esac
-        if $pkg "$target" >/dev/null 2>&1; then
+        if $pkg "$target" >/dev/null 2>&1 && find_bin "$name" >/dev/null 2>&1; then
           applied="$applied $name"
         else
+          echo "APPLY FAILED: $name remains missing or the package manager failed; inspect the existing installation before retrying." >&2
           failed="$failed $name"
         fi
       done
