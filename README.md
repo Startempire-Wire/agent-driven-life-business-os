@@ -554,3 +554,10 @@ bash tests/run-contract-tests.sh
 ```
 
 Start implementation work with `AGENTS.md` plus the owning product repository/spec.
+
+## Ecosystem canonical docs (cross-repo intertwining)
+
+- **Core runtime + settings:** `wirebot-core/docs/12-wirebot-core-documentation-index.md` (router), `docs/20-wirebot-expression-settings-base-and-defaults.md` (prototype 0.1.0), `OPERATIONS.md` / `GATEWAY.md` (restart recap), `TIER_RUNTIME_CONTRACT.md` (BYOK).
+- **Website language:** `wirebot-website/docs/website/2026-11-14-wirebot-expressions-language-contract.md` (the five expressions).
+- **App:** `Wirebot-App/docs/README.md` (router), partner intent, level-operability contract.
+- **Installer chain:** this repo's golden-path docs (BOM doc 16, preflight PR #45, `activation-blueprint.py`).
