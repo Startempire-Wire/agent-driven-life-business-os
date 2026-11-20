@@ -21,6 +21,7 @@ jobs:
           python3 tests/activation-blueprint-test.py
           python3 tests/wirebot-expression-install-review-test.py
           python3 tests/substrate-bootstrap-python-order-test.py
+          python3 tests/substrate-bootstrap-npm-order-test.py
       - name: Report and dry-run file preservation
         run: |
           python3 tests/substrate-bootstrap-report-test.py
