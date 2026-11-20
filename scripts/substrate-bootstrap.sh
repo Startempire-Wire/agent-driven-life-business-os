@@ -37,17 +37,67 @@ while [ $# -gt 0 ]; do
   esac
 done
 
+# Output has a parseable contract only in JSON mode; do not silently ignore a path.
+if [ -n "$OUTPUT" ] && [ "$JSON" != "1" ]; then
+  echo "--output requires --json; no report written" >&2
+  exit 64
+fi
+
 # --- single-run lock (best-effort; advisory if flock unavailable) ---
 if command -v flock >/dev/null 2>&1; then
   exec 9>/tmp/agent-os-substrate.$(id -u).lock
   flock -n 9 || { echo "another substrate run holds the lock; refusing concurrent run" >&2; exit 67; }
 fi
 
-# --- preflight: report building requires python3 (fail-closed, honest) ---
+# --- Stage 1 bootstrap: Python is a base prerequisite, not an entry prerequisite. ---
+# On a fresh customer machine the preflight cannot render JSON until Python is
+# installed. The ONLY permitted early mutation is this explicitly requested,
+# authorized base primitive. No Focusa/Pi/UIAI runtime or customer state is touched.
 if ! command -v python3 >/dev/null 2>&1; then
-  echo "PREFLIGHT FAILED: python3 is required to build the report but is not installed." >&2
-  echo "Base install route: sudo dnf install -y python3 | sudo apt-get install -y python3 | brew install python3" >&2
-  exit 68
+  if [ "$MODE" = "apply" ] && [ "$DRYRUN" = "1" ]; then
+    echo "DRY-RUN: python3 is missing; first bootstrap Python using the host's supported package manager."
+    echo "DRY-RUN: full nonmutating component inspection resumes after Python is available; no changes made."
+    exit 0
+  fi
+  if [ "$MODE" = "apply" ] && [ "$CONFIRM" != "1" ]; then
+    echo "REFUSED: --apply base requires --yes or --dry-run; no prerequisite was installed." >&2
+    exit 64
+  fi
+  if [ "$MODE" = "apply" ] && [ "$CONFIRM" = "1" ]; then
+    boot_os="-"
+    [ -r /etc/os-release ] && boot_os="$(. /etc/os-release && printf '%s' "${ID:--}")"
+    boot_cmd=""
+    case "$boot_os" in
+      ubuntu|debian) command -v apt-get >/dev/null 2>&1 && boot_cmd="apt-get" ;;
+      almalinux|rhel|centos|rocky|fedora)
+        command -v dnf >/dev/null 2>&1 && boot_cmd="dnf" ;;
+    esac
+    if [ "$(uname -s 2>/dev/null)" = "Darwin" ] && command -v brew >/dev/null 2>&1; then
+      boot_cmd="brew"
+    fi
+    if [ -z "$boot_cmd" ]; then
+      echo "PREFLIGHT FAILED: no supported Python bootstrap manager found; preserve existing system." >&2
+      exit 68
+    fi
+    if [ "$boot_cmd" != "brew" ] && [ "$(id -u)" != "0" ]; then
+      echo "PREFLIGHT BLOCKED: Python bootstrap requires a separately authorized administrator context; no sudo was invoked." >&2
+      exit 68
+    fi
+    echo "APPLY: bootstrapping missing Python prerequisite using $boot_cmd before Stage 1 inspection." >&2
+    if [ "$boot_cmd" = "brew" ]; then
+      "$boot_cmd" install python3
+    else
+      "$boot_cmd" install -y python3
+    fi
+    if ! command -v python3 >/dev/null 2>&1; then
+      echo "PREFLIGHT FAILED: Python bootstrap did not yield a usable python3; no further work attempted." >&2
+      exit 68
+    fi
+    echo "APPLY: Python available; continuing with the existing read-only substrate checks." >&2
+  else
+    echo "PREFLIGHT FAILED: Python is missing. First run --apply base --dry-run, then an authorized --apply base --yes." >&2
+    exit 68
+  fi
 fi
 
 TIMEOUT_CMD=""
@@ -102,6 +152,7 @@ if [ -r /etc/os-release ]; then
   os_version="$(. /etc/os-release && echo "${VERSION_ID:--}")"
   os_name="$(. /etc/os-release && echo "${PRETTY_NAME:--}")"
 fi
+[ "$os_type" = "Darwin" ] && os_id="darwin"
 os_kernel="$(uname -r 2>/dev/null || echo '-')"
 is_wsl="no"; [ -r /proc/version ] && grep -qi microsoft /proc/version 2>/dev/null && is_wsl="yes"
 
@@ -127,7 +178,7 @@ if command -v free >/dev/null 2>&1; then mem_avail_mb="$(free -m 2>/dev/null | a
 
 # --- network + clock (reachability facts, value-free) ---
 net_dns="unknown"; net_tcp443="unknown"; clock_ntp="unknown"
-NET_JSON="$(timeout 10 python3 -c '
+NET_JSON="$($TIMEOUT_CMD python3 -c '
 import json,socket
 r={"dns":"unknown","tcp443":"unknown"}
 try:
@@ -147,7 +198,7 @@ fi
 # hostname/os/online only; no IPs, no keys, no routes. Observation, not enrollment.
 mesh_json='[]'; mesh_self='-'; mesh_online=0; mesh_total=0
 if command -v tailscale >/dev/null 2>&1; then
-  MESH_RAW="$(timeout 15 tailscale status --json 2>/dev/null)" || MESH_RAW=""
+  MESH_RAW="$($TIMEOUT_CMD tailscale status --json 2>/dev/null)" || MESH_RAW=""
   if [ -n "$MESH_RAW" ]; then
     mesh_json="$(printf '%s' "$MESH_RAW" | python3 -c '
 import json,sys
@@ -204,8 +255,23 @@ for c in "${COMPONENTS[@]}"; do
     IFS='|' read -r rname rendpoint rnote <<< "$rp"
     [ "$rname" = "$name" ] || continue
     runtime_endpoint="$rendpoint"
-    rbody="$($TIMEOUT_CMD curl -sS --max-time 5 "$rendpoint" 2>/dev/null || true)"
-    if printf '%s' "$rbody" | grep -Eq '"(status|ok)"[[:space:]]*:[[:space:]]*("healthy"|true|"live"|"ok")'; then
+    rbody="$($TIMEOUT_CMD curl --fail --silent --show-error --max-time 5 "$rendpoint" 2>/dev/null || true)"
+    # An HTTP 200 / generic "healthy" string is not proof of UIAI Engine.
+    # The UIAI owner's /health contract explicitly returns:
+    # {"status":"healthy","service":"uiai-engine", ...}. Fail closed for
+    # another service, proxy fallback or malformed response.
+    if printf '%s' "$rbody" | python3 -c '
+import json,sys
+name=sys.argv[1]
+try: d=json.load(sys.stdin)
+except (ValueError, TypeError): raise SystemExit(1)
+if not isinstance(d,dict): raise SystemExit(1)
+if name=="uiai":
+    good=d.get("status")=="healthy" and d.get("service")=="uiai-engine"
+else:
+    good=d.get("ok") is True or d.get("status") in ("live","ok")
+raise SystemExit(0 if good else 1)
+' "$name" >/dev/null 2>&1; then
       runtime_state="runtime_healthy"; runtime_healthy="yes"
     else
       runtime_state="endpoint_unreachable"
@@ -276,10 +342,10 @@ if [ "$MODE" = "apply" ]; then
   if [ "$missing_base" = "0" ]; then
     if [ "$DRYRUN" = "1" ]; then
       apply_result="dry-run: all base primitives present; nothing to install"
-      echo "DRY-RUN: $apply_result"
+      echo "DRY-RUN: $apply_result" >&2
     else
       apply_result="all base primitives present; nothing to install"
-      echo "APPLY: $apply_result"
+      echo "APPLY: $apply_result" >&2
     fi
   else
     applied=""; failed=""
@@ -293,7 +359,7 @@ if [ "$MODE" = "apply" ]; then
       echo "APPLY FAILED: no supported package manager detected for $os_id (dnf/apt-get/brew)" >&2
       apply_result="failed: no supported package manager"
     elif [ "$DRYRUN" = "1" ]; then
-      echo "DRY-RUN: no packages will be installed; the following commands WOULD run on an operator-authorized execution:"
+      echo "DRY-RUN: no packages will be installed; the following commands WOULD run on an operator-authorized execution:" >&2
       for c in "${COMPONENTS[@]}"; do
         IFS='|' read -r name vcmd hcmd route critical kind base order priv deps <<< "$c"
         [ "$base" = "true" ] || continue
@@ -306,11 +372,11 @@ if [ "$MODE" = "apply" ]; then
           curl) target="curl" ;;
         esac
         admin="user-local"; [ "$priv" = "admin" ] && admin="requires root/sudo"
-        echo "  DRY-RUN: $pkg $target   # $name ($admin)"
+        echo "  DRY-RUN: $pkg $target   # $name ($admin)" >&2
       done
       apply_result="dry-run: commands printed; nothing executed"
     else
-      echo "APPLY: installing missing base primitives via '$pkg' (admin routes need root/sudo)"
+      echo "APPLY: installing missing base primitives via '$pkg' (admin routes need root/sudo)" >&2
       for c in "${COMPONENTS[@]}"; do
         IFS='|' read -r name vcmd hcmd route critical kind base order priv deps <<< "$c"
         [ "$base" = "true" ] || continue
@@ -330,13 +396,13 @@ if [ "$MODE" = "apply" ]; then
         fi
       done
       apply_result="applied:${applied:- none}; failed:${failed:- none}"
-      echo "APPLY RESULT:$apply_result"
+      echo "APPLY RESULT:$apply_result" >&2
     fi
   fi
 fi
 
 if [ "$JSON" = "1" ]; then
-  python3 -c '
+  json_report="$(python3 -c '
 import json,sys
 rows=json.loads(sys.argv[1])
 plan=[{"component":r["component"],"route":r["route"],"route_kind":r["route_kind"],
@@ -366,8 +432,40 @@ env={"platform":{"os":os.environ["ENV_OS"],"distro_id":os.environ["ENV_ID"],
  "network":{"dns":os.environ["ENV_DNS"],"tcp443":os.environ["ENV_TCP"]},"clock_ntp":os.environ["ENV_NTP"],
  "mesh":json.loads(os.environ["ENV_MESH"]),
  "commentary":"presence/kind facts; resources, network and clock gates drive install-plan feasibility; mesh lists connected machines (hostname/os/online only, no IPs/keys/routes)"}
-print(json.dumps(env))')"
-  [ -n "$OUTPUT" ] && cp <(python3 -c 'import json,sys;rows=json.loads(sys.argv[1])' "$rows_json") "$OUTPUT" 2>/dev/null || true
+print(json.dumps(env))')")" || { echo "JSON report generation failed; output not modified." >&2; exit 69; }
+  if [ -n "$OUTPUT" ]; then
+    printf '%s\n' "$json_report" | python3 -c '
+import json, os, pathlib, sys, tempfile
+report = sys.stdin.read()
+if json.loads(report).get("schema") != "agent-os-substrate-check.v5":
+    raise SystemExit("refusing invalid substrate report")
+target = pathlib.Path(sys.argv[1]).expanduser()
+if target.is_symlink():
+    raise SystemExit("refusing symlink output target")
+if not target.parent.is_dir():
+    raise SystemExit("report parent directory must exist")
+if target.exists():
+    if not target.is_file():
+        raise SystemExit("refusing non-file output target")
+    try:
+        if json.loads(target.read_text(encoding="utf-8")).get("schema") != "agent-os-substrate-check.v5":
+            raise ValueError("unmanaged output")
+    except (ValueError, UnicodeError, OSError):
+        raise SystemExit("refusing to overwrite unrelated or invalid existing report")
+fd, tmp = tempfile.mkstemp(prefix=".sovos-substrate-", dir=str(target.parent))
+try:
+    with os.fdopen(fd, "w", encoding="utf-8") as stream:
+        stream.write(report)
+        stream.flush()
+        os.fsync(stream.fileno())
+    os.chmod(tmp, 0o600)
+    os.replace(tmp, target)
+finally:
+    if os.path.exists(tmp):
+        os.unlink(tmp)
+' "$OUTPUT" || { echo "refusing invalid or unsafe JSON report destination." >&2; exit 69; }
+  fi
+  printf '%s\n' "$json_report"
 else
   printf '%s\n' "$rows_json" | python3 -c '
 import json,sys
