@@ -25,7 +25,7 @@ Our contributions are fivefold. First, we specify a typed, owner-rooted *informa
 
 ReAct demonstrated an interleaving of language-model reasoning and external action [1]. AutoGen and AgentScope investigated flexible multi-agent communication and infrastructure, with AgentScope also employing actor-based distribution [2,3]. MemGPT framed persistent memory using an operating-system analogy, while AIOS investigated scheduling, resources, and an agent-oriented kernel [4,5]. WebArena and OSWorld provide reproducible browser and computer-use benchmarks [6,7]. These are complementary lines of work rather than substitutes for the particular problem considered here.
 
-The narrower question of this paper is: **Under what compositional contracts can independently implemented agent, cognition, browser, infrastructure, and application systems jointly execute long-horizon work without silently transferring authority or treating unverified activity as an accepted outcome?** Our emphasis is on semantic ownership and cross-system correctness conditions, rather than a new language model, a new agent scheduler, or an assertion that every component resides in one monolithic kernel. The architecture may use actor runtimes, persistent jobs, or multiple harnesses without making their particular implementation the source of owner authority.
+The narrower question of this paper is: **Under what compositional contracts can independently implemented agent, cognition, browser, infrastructure, and application systems jointly execute long-horizon work without silently transferring authority or treating unverified activity as an accepted outcome?** Our emphasis is on semantic ownership and cross-system correctness conditions, rather than a new language model, a new agent scheduler, or an assertion that every component resides in one monolithic kernel. The architecture may use actor runtimes, persistent jobs, or multiple harnesses without making their particular implementation the source of owner authority. A further **falsifiable portability claim** distinguishes this approach: the same source-agnostic cognitive and interaction invariants can be implemented across heterogeneous domain adapters, with successful outcomes confirmed by independent domain owners. Merely sharing a library, codebase, naming convention or model prompt is not evidence of that property.
 
 # 3. Method and Evidence Classification
 
@@ -347,6 +347,30 @@ Failure injection should include a replaced page between observe/act; DOM/visual
 
 Operational hypotheses are: **E1**, exact Workpoint binding reduces wrong-scope continuation after session churn; **E2**, observation-bound interaction reduces stale-target effects; **E3**, independently verified evidence reduces false-success reports; **E4**, deterministic routine compilation reduces human interruption and repeated inference for stable workflows; **E5**, exact verified Workstream and Attachment references eliminate identity collisions that root/continuity-only routing cannot distinguish. Statistical reports should include per-domain distributions, uncertainty intervals, failure classification, and ablations. We do not assert a positive result before this experiment is run.
 
+## 9.5 Portable-invariant conformance: the shared primitive is the unit of replication
+
+To distinguish a reusable intelligence substrate from a set of custom product integrations, we define a domain-independent invariant suite [S30] and evaluate it against independently owned source adapters. The same primitive law must hold when product vocabulary, synthetic entity IDs, session runtime, agent model and source-outcome oracle change. Candidate invariants include exact Workstream/ad hoc identity, current operator correction, uncertainty honesty, source-owned acceptance, idempotent retry, effect-bound revocation, tenant separation, model/session-independent continuity, versioned UIAI observation freshness, nonretroactive ad hoc evidence promotion, owner-source truth and empirically grounded competence self-knowledge.
+
+For each invariant $i$ and product domain $v$, record a **typed applicability and observation state**: `passed`, `failed`, `inconclusive`, `unmeasured` or `not_applicable`. Define a measured conformance ratio only over executed applicable cases, alongside the total eligible population, exact test/fixture version, and an independent source-state oracle. No `unmeasured` case may be silently converted into `passed` or included as a successful denominator. A generic synthetic reference adapter can establish the contract, while replication in two or more genuinely independent domain adapters tests real portability. One trial may evaluate multiple invariants, but it remains **one** sample with one trial identity rather than multiple independent observations.
+
+The underlying intervention need not be identical across verticals: WorkRouter's accepted outcome is route/delivery or receiver-state truth, Wirebase's is justified company/entity evidence, Market Lab's is deterministic financial risk/market-state reconciliation, and Wirebot's is an actual fulfilled owner obligation. **The shared scientific treatment is preservation of invariants, not pretending these outcomes mean the same thing.** For UIAI, observation freshness and browser evidence requirements are applicable only when the task legitimately invokes a computer/browser actuator; native typed-API tasks are distinct feasible routes.
+
+## 9.6 Fair interaction experiments and threats to validity
+
+The proposed $2\times2$ factorial for *equivalent browser-capable tasks* crosses Focusa governance/continuity enabled or disabled ($F\in\{0,1\}$) with UIAI's verified interaction interface enabled or replaced by a comparable independent permitted browser adapter ($U\in\{0,1\}$). Let $Y_{fu}$ be an independently graded outcome under task-matched, source-state-reset trials. The research interaction estimator
+
+$\Delta_{FU} = (Y_{11}-Y_{10})-(Y_{01}-Y_{00})$
+
+estimates departure from additivity under the declared sampling and randomization assumptions. It is not IIT integrated information, and it does not isolate a system effect if agent models, permissions, context budgets, task difficulty, latency constraints or underlying API access differ between arms. Incomparable cells are explicitly excluded from causal interpretation, with reasons and effect on coverage reported. Always report marginal $F$ and $U$ comparisons, cost/latency and adverse authorization effects beside the interaction estimate.
+
+The greatest **construct-validity** risk is rewarding activity that is not the actual source-confirmed result. Each domain therefore defines an independent postcondition; a tool acknowledgment, screenshot, model statement or signed run receipt is insufficient by itself. **Internal-validity** risks include differing arm affordances, benchmark ordering and warm caches, non-independent repeated trials, unbalanced compute budgets, model stochasticity and grader drift. **External-validity** risks include synthetic fixtures, author-selected tasks and private vertical applications not accessible to a public reviewer. Finally, **contamination** can occur if public prompts, reference answers, tool retrieval or source fixtures expose hidden expected outcomes to model training or inference-time search [11,12].
+
+Before collecting provider-backed measurements, freeze task versions, hypotheses, primary endpoint, exclusions, repetition/stopping rules, baseline parity, oracle versions, multiple-comparison strategy and treatment of missingness in a source-revisioned preregistration. Randomize paired arm order where practical and retain failures/censored runs. Use hidden fresh canaries and independent correctness checks, including deliberately incorrect success toasts and correct-but-differently-formatted outcomes. A real independent reviewer should reproduce at least one genuine success and failure from public-safe synthetic source fixtures and verify the scored run bundle against its hash/manifests. Existing Focusa `EvalLedger` in-memory FNV chaining is **not** a substitute for durable, tamper-evident experimental artifact records; published source/effect/oracle artifacts need independent SHA-256 digests and source-revision locks.
+
+**Security-claim qualification.** UIAI issue #313 describes a historical/currently open mismatch in which an API response marked `blocked` could coexist with persisted raw visual/DOM artifacts on disk; issue #299 separately tracks ad hoc authorized image delivery. The corresponding negative experiment must verify **actual artifact access controls** and truthful delivery state, not infer physical containment from an API label. This distinguishes the security test from ordinary UIAI pixel delivery success and prevents a privacy gap from being hidden by favorable task completion rates [S20].
+
+**Research-scope boundary.** These controlled studies evaluate agentic-system functionality, continuity, authority correctness, interaction and self-model calibration. The separate version-pinned IIT 4.0 finite-state experiment concerns a hypothetical causal model under its exact mathematical formulation; its result cannot be inferred from a higher task-success rate or a positive factorial interaction.
+
 # 10. Evidence State and Research Agenda
 
 The public sources already supply nontrivial engineering evidence. They also reveal source-level disagreements that a research manuscript should expose rather than smooth over: Focusa's explicit Workstream ID and canonical binding doctrine coexist with older path/continuity shorthand in some Focusa and UIAI consumers [S9–S14]; separately, a draft proposal-to-settlement specification documents stronger lifecycle distinctions than the short public workflow diagram alone can convey [S16]. Focusa contains typed work/session/remote-binding implementations, documented authority gates, and continuation paths [S3,S5]. UIAI contains a Go browser engine, Focusa packet generation, and typed action/observation/security contracts [S4,S6]. SOVOS contains an owner constitution, cross-product seam contract, deployment doctrine, routine contract schemas, and a clearly differentiated information infrastructure [S1,S2,S8]. Their joint methodological strength is **explicit ownership of concepts**, not an assertion that every integration path has passed an end-to-end acceptance test.
@@ -432,6 +456,8 @@ Public repository source snapshot inspected 22 November 2026:
 
 [V3] Startempire Wire. *Focusa Market Lab* private source snapshot `1f57f220a3826267bda2a0832003bfeb2445b9d2` (17 November 2026), system architecture and ADR-0014 two-timescale agent runtime. Research architecture and initial software slice; no independent multi-day cohort or financial efficacy claim.
 
+[S30] Startempire Wire. *SOVOS portable primitive conformance*, 12 proposed invariant tests, source-pinned in Focusa research PR #731 (`docs/research/SOVOS_PAPER_PORTABLE_PRIMITIVE_CONFORMANCE_v1.json`), authored 22 November 2026; design only, not measured trials. https://github.com/Startempire-Wire/focusa/pull/731.
+
 **Consciousness-science primary sources**
 
 [8] L. Albantakis et al. (2023). *Integrated information theory (IIT) 4.0: Formulating the properties of phenomenal existence in physical terms*. PLOS Computational Biology 19(10):e1011465. https://doi.org/10.1371/journal.pcbi.1011465.
@@ -442,6 +468,12 @@ Public repository source snapshot inspected 22 November 2026:
 
 
 **Research literature**
+
+[11] I. Badertdinov et al. (2025). *SWE-rebench: An Automated Pipeline for Task Collection and Decontaminated Evaluation of Software Engineering Agents*. arXiv:2505.20411. https://arxiv.org/abs/2505.20411.
+
+[12] Z. Zeng et al. (2025). *Benchmarking and Studying the LLM-based Agent System in End-to-End Software Development*. arXiv:2511.04064. https://arxiv.org/abs/2511.04064.
+
+
 
 [1] S. Yao et al. (2023). *ReAct: Synergizing Reasoning and Acting in Language Models.* [arXiv:2210.03629](https://arxiv.org/abs/2210.03629).
 
