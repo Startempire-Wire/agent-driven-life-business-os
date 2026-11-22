@@ -154,6 +154,39 @@ A second discrepancy is documentary: an older UIAI hand-in-glove draft states th
 
 We distinguish four often-conflated layers: **(1)** protocol connectivity among components, **(2)** recurrent, causally effective feedback that changes subsequent decisions, **(3)** measurable operational integration under controlled interventions, and **(4)** intrinsic integrated information in a specified hypothetical physical causal model under one version of IIT. None automatically entails the next. In particular, message exchange, network density, token count, a self-description, or high task success is not a measurement of conscious experience [8-10]. This separation makes the architecture inspectable without forcing a philosophical conclusion.
 
+## 5.9 Portable cognitive substrate and product-specific embedding
+
+The architectural contribution is not limited to Wirebot. **Focusa is a reusable governed cognitive runtime**, comprising durable scope/Workstream semantics, intention, Workpoint continuation, temporal and epistemic primitives, predictions, Evidence, Receipts, self-regulation, learning and exact authority. **UIAI Engine is a distinct, reusable observation/action/proof system** for browser and computer work. A host application provides domain-specific entities, deterministic operations, data ownership, accepted-outcome rules and interfaces. An agent harness such as Pi or OpenClaw supplies model/tool-loop execution without becoming another cognitive truth store.
+
+For a vertical $v$, a conceptual embodiment is
+
+$P_v = (F, U_v, H_v, D_v, G_v),$
+
+where $F$ denotes the shared Focusa cognitive contracts, $U_v$ the applicable UIAI interaction interface (or nonbrowser native alternative), $H_v$ the harness/runtime placement, $D_v$ the domain-owned source semantics and state, and $G_v$ the currently authorized operation/effect gates. This tuple describes **composable contracts**, not one new combined database or a process that must be running everywhere. A provider-native typed API/CLI takes precedence when it implements the required action; UIAI is used for appropriate computer/browser observation and actuation. Neither tool access nor observations grant new application authority.
+
+![Architecture of portable Focusa cognitive primitives and optional UIAI interaction shared across four applications; each application retains authoritative source outcomes.](figures/04_embedded_portable_substrate.svg)
+
+*Figure 4. Conceptual cross-vertical embedding and ownership boundaries. This figure illustrates a proposed testable reuse architecture, not measured portability or consciousness.*
+
+The inspected product repositories illustrate four distinct host contexts:
+
+| Host and use | Reused cognitive/interaction primitives | Domain-owned truth and independently checkable effect | Source maturity |
+|:--|:--|:--|:--|
+| **Wirebot**: owner-facing operating partner for life and business | Focusa intention, commitment, continuity, owner-scoped governance; UIAI computer observations when appropriate | Owner/delegated purpose, current source-of-record commitments, accepted follow-through; not a global Foreman | Source-defined Core/App runtime; complete cross-product acceptance unverified |
+| **WorkRouter**: agent-first opportunity discovery, matching and routing | Focusa temporal/prediction/semantic projections; UIAI browser read/research under a bounded lease | Opportunity, Route, provider, delivery and receiver outcome | Actual application Focusa conformance projection and UIAI client source; full conformance labeled `implemented_unverified` |
+| **Wirebase**: company/acquisition/counterparty intelligence | Focusa governed research, context, Evidence and metacognition; UIAI permitted web/source observation | Company identities, licensed records, contradictory claims, reports and source-policy decisions | Architecture and data-acquisition blueprint only; no deployed application yet |
+| **Focusa Market Lab**: specialized predictive and quantitative agent population | Focusa trusted time, prediction/learning and Workpoints; UIAI for research and oversight, not trading's latency-critical reflex path | Frozen market information sets, strategy/risk rules, broker receipts, accounting and fill settlement | Extensive source-specified design and initial executable slice; future continuous-operation and external-effect evidence separately required |
+
+These are **cross-domain design observations** from repositories available to the author, including privately scoped product sources [V1–V3]. Public reviewers cannot independently audit their full implementations without a public-safe source release or executable synthetic adapters. The public Focusa and UIAI contracts remain directly inspectable. Thus the portable-system proposition must be tested by released interfaces, source-pinned fixtures and independent domain oracles rather than assumed from private product plans.
+
+A meaningful portability claim is narrower than saying the same LLM prompt works everywhere: *the same semantic primitives and governance interfaces retain their invariants under different domains*, while domain-specific operations and evidence remain independently owned. Transfer should improve continuity, abstention/capability calibration and source-verified outcomes **without importing one tenant's private data or pretending that a market forecast, a company-identity claim and a customer lead have the same acceptance predicate**.
+
+## 5.10 Persistent autonomy across two timescales
+
+A 24-hour agent operating partner need not spend 24 hours generating model tokens. Durable identity, event subscriptions, deadlines, state checkpoints, schedules, deterministic routines, qualified observations and source reconciliation sustain the operating commitment; bounded inference is activated when interpretation or genuinely new judgment is useful. Market Lab's accepted two-timescale agent runtime design exemplifies this separation: logical trading-agent identity is independent of resident model processes, and latency-critical reflexes execute approved deterministic strategy/risk revisions rather than placing a language-model turn in a stop/cancellation path [V3].
+
+This suggests three independently testable dimensions: **(i) identity continuity** across process, provider and model changes; **(ii) operational availability** under sampled 24-hour synthetic-source stimuli, missed triggers and injected outages; and **(iii) reflective adaptation** from verified outcomes to permitted later decisions. A fast simulated clock may validate the state machine but cannot establish real wall-clock uptime. Continuous agentic presence is a systems capability; machine-consciousness research may ask whether increasingly differentiated, causally effective self/world models emerge from these controlled relationships, without presupposing subjective experience.
+
 # 6. Governed Interaction Protocol
 
 SOVOS's approved execution preference is **canonical typed operation/API/CLI → semantic application interface → computer use** [S15]. Consequently, not every governed operation passes through a browser. UIAI remains the first-party authoritative browser/computer execution owner when that route is chosen, while Veragensia supplies the applicable Agent Computer body, trusted-control, and machine-enforcement boundary. Read-qualified, goal-directed ad hoc orientation and separately authorized low-consequence operations need not fabricate a Workpoint. Known project-bound consequential work must resolve exact Focusa admission, with no downgrade by omitting scope metadata.
