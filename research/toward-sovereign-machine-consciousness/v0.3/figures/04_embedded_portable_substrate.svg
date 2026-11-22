@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="745" viewBox="0 0 1200 745" role="img" aria-labelledby="title desc">
+<title id="title">Reusable Focusa and UIAI substrate embedded across four independent products</title>
+<desc id="desc">The sovereign owner and SOVOS constitutional seams bind a Focusa cognitive runtime and a UIAI browser interaction engine. Four domain applications reuse these independently owned services: Wirebot, WorkRouter, Wirebase and Market Lab. Each retains its own authoritative data, deterministic operations and outcome oracle. An agent inference layer can be shared without continuous model calls. This is an architecture model, not measured benchmark data.</desc>
+<style>
+  text{font-family:Arial,Helvetica,sans-serif;fill:#151515}
+  .h1{font-weight:700;font-size:24px}.h2{font-weight:700;font-size:19px}.h3{font-weight:700;font-size:17px}.sub{font-size:15px}.note{font-size:13px;fill:#3f3f3f}
+  .base{stroke:#4a4a4a;stroke-width:2;fill:#fafafa}.major{stroke:#262626;stroke-width:2.5;fill:#eeeeee}.light{stroke:#888;stroke-width:1.3;fill:white}
+  .line{stroke:#333;stroke-width:2;fill:none}.dash{stroke:#777;stroke-width:1.8;stroke-dasharray:6 6;fill:none}
+</style>
+<text class="h1" x="38" y="38">PORTABLE AGENTIC INTELLIGENCE SUBSTRATE</text>
+<rect class="light" x="265" y="62" width="670" height="62" rx="9"/>
+<text class="h2" x="600" y="86" text-anchor="middle">SOVOS / Owner-Rooted Constitution</text>
+<text class="sub" x="600" y="108" text-anchor="middle">Purpose · consent · scoped delegation · typed seams · source ownership</text>
+<path class="line" d="M600 124 V153"/>
+<rect class="major" x="91" y="153" width="475" height="92" rx="12"/>
+<text class="h2" x="328" y="184" text-anchor="middle">FOCUSA</text>
+<text class="sub" x="328" y="207" text-anchor="middle">Cognitive runtime · Workpoints · Evidence</text>
+<text class="sub" x="328" y="227" text-anchor="middle">Intention · continuity · prediction · learning</text>
+<rect class="major" x="634" y="153" width="475" height="92" rx="12"/>
+<text class="h2" x="872" y="184" text-anchor="middle">UIAI ENGINE</text>
+<text class="sub" x="872" y="207" text-anchor="middle">Browser/computer observation and action</text>
+<text class="sub" x="872" y="227" text-anchor="middle">Versioned targets · diagnostics · proof handles</text>
+<path class="dash" d="M566 199 H634"/>
+<text class="note" x="600" y="143" text-anchor="middle">Independent execution and authorization domains</text>
+<path class="line" d="M328 245 V276 H872 V245"/>
+<path class="line" d="M600 276 V296"/>
+<rect class="base" x="180" y="296" width="840" height="63" rx="10"/>
+<text class="h2" x="600" y="321" text-anchor="middle">REUSABLE TYPED CAPABILITY INTERFACES</text>
+<text class="sub" x="600" y="344" text-anchor="middle">Agent/harness adapters · domain pack references · scope, freshness and effect admission</text>
+<path class="line" d="M600 359 V384 M152 384 H1048"/>
+<path class="line" d="M152 384 V401 M448 384 V401 M752 384 V401 M1048 384 V401"/>
+<rect class="base" x="26" y="401" width="252" height="106" rx="10"/>
+<text class="h2" x="152" y="433" text-anchor="middle">Wirebot</text>
+<text class="sub" x="152" y="458" text-anchor="middle">Operating partner</text>
+<text class="sub" x="152" y="480" text-anchor="middle">Life + business</text>
+<rect class="base" x="322" y="401" width="252" height="106" rx="10"/>
+<text class="h2" x="448" y="433" text-anchor="middle">WorkRouter</text>
+<text class="sub" x="448" y="458" text-anchor="middle">Opportunity routing</text>
+<text class="sub" x="448" y="480" text-anchor="middle">Source-to-receiver work</text>
+<rect class="base" x="626" y="401" width="252" height="106" rx="10"/>
+<text class="h2" x="752" y="433" text-anchor="middle">Wirebase</text>
+<text class="sub" x="752" y="458" text-anchor="middle">Company intelligence</text>
+<text class="sub" x="752" y="480" text-anchor="middle">Identity and evidence</text>
+<rect class="base" x="922" y="401" width="252" height="106" rx="10"/>
+<text class="h2" x="1048" y="433" text-anchor="middle">Market Lab</text>
+<text class="sub" x="1048" y="458" text-anchor="middle">Predictive agents</text>
+<text class="sub" x="1048" y="480" text-anchor="middle">Risk and reconciliation</text>
+<path class="line" d="M152 507 V533 M448 507 V533 M752 507 V533 M1048 507 V533"/>
+<rect class="light" x="26" y="533" width="252" height="77" rx="9"/>
+<rect class="light" x="322" y="533" width="252" height="77" rx="9"/>
+<rect class="light" x="626" y="533" width="252" height="77" rx="9"/>
+<rect class="light" x="922" y="533" width="252" height="77" rx="9"/>
+<text class="sub" x="152" y="560" text-anchor="middle">Owner source records</text><text class="note" x="152" y="587" text-anchor="middle">Outcome verification</text>
+<text class="sub" x="448" y="560" text-anchor="middle">Opportunity ledger</text><text class="note" x="448" y="587" text-anchor="middle">Receiver confirmation</text>
+<text class="sub" x="752" y="560" text-anchor="middle">Company claims</text><text class="note" x="752" y="587" text-anchor="middle">Source provenance</text>
+<text class="sub" x="1048" y="560" text-anchor="middle">Market / risk state</text><text class="note" x="1048" y="587" text-anchor="middle">Fill reconciliation</text>
+<rect class="light" x="198" y="638" width="804" height="56" rx="9"/>
+<text class="h3" x="600" y="661" text-anchor="middle">Continuous operation = persistent goals, qualified signals and bounded action</text>
+<text class="note" x="600" y="682" text-anchor="middle">Inference is activated when useful; deterministic event paths keep time-critical obligations</text>
+<text class="note" x="600" y="724" text-anchor="middle">Figure 4. Architecture and reusable ownership model, not empirical proof of performance or consciousness.</text>
+</svg>
