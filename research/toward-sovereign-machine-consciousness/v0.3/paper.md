@@ -2,14 +2,14 @@
 title: 'Toward Sovereign Machine Consciousness: A Falsifiable Architecture for Persistent Agentic Systems'
 subtitle: 'Wirebot, Focusa, UIAI Engine, and the SOVOS Information Constitution'
 author: 'Verious Smith III'
-date: '22 November 2026 — Research manuscript v0.3.2'
-revision: 'v0.3.2 · replicable portable-invariant method and contamination controls'
+date: '23 November 2026 — Research manuscript v0.3.3'
+revision: 'v0.3.3 · theory-led indicators and longitudinal causal tests'
 abstract: |
   Agent operating systems require more than persistent agents and tool access: they need durable goal identity, authorized action, memory correction, external outcome verification, and reciprocal feedback under owner control. We present SOVOS, a sovereign information constitution, and its compositional reference architecture integrating Wirebot's persistent operating-partner relationship, Focusa's governed cognition and Workstream continuation, UIAI Engine's observation-bound computer actuation, and independent execution and source systems. We examine how the same underlying primitives may be embedded across business opportunity routing, company intelligence and market-research agents, with domain-owned records and outcome predicates. We distinguish goal-directed ad hoc work from formally admitted projects and identify two explicit binding/evidence paths that prevent lightweight exploration from becoming an authorization bypass. We then formulate a testable research program motivated by machine consciousness, using functional self-modeling, persistent intention, feedback reciprocity, causal interventions, and carefully delimited Integrated Information Theory (IIT) 4.0 finite-model experiments. Theoretical IIT quantities, operational integration gains, and evidence of subjective experience are distinct. We supply conditional safety claims, source-traceable implementation boundaries, and a pre-specified, not-yet-preregistered ablation design rather than fabricated performance measurements. This paper positions a sovereign agentic operating partner as an experimentally tractable system while preserving the human owner as constitutional authority.
 keywords: 'machine consciousness; integrated information theory; agentic systems; sovereign computing; persistent agents; self-modeling; embodiment; evidence; causal integration; workstream continuity'
 ---
 
-**Manuscript status.** Revised source-grounded architecture and evaluation protocol (v0.3); not yet submitted to arXiv. The accompanying Cross-System Fidelity Audit and the ad hoc acceptance issues identify proposed software alignment decisions; the present manuscript does not approve them. Claims about implementations are tied to the public source snapshots in Appendix A. Normative specifications are not represented as completed deployments, and the results section intentionally contains no invented measurements.
+**Manuscript status.** Revised source-grounded architecture and evaluation protocol (v0.3.3); not yet submitted to arXiv. The accompanying Cross-System Fidelity Audit and the ad hoc acceptance issues identify proposed software alignment decisions; the present manuscript does not approve them. Claims about implementations are tied to the public source snapshots in Appendix A. Normative specifications are not represented as completed deployments, and the results section intentionally contains no invented measurements.
 
 # 1. Introduction
 
@@ -19,7 +19,7 @@ SOVOS (Sovereign Operating System) is an architecture and portable operating doc
 
 This paper makes a systems argument: **a credible agentic operating system must separate reasoning, action, observation, verification, and authority even when the user experiences them as one continuous relationship.** It develops a conceptual model of the Focusa–UIAI Engine seam within SOVOS and identifies assertions that can be evaluated or falsified. The reference design is motivated by long-horizon software work but applies also to bounded life and business operations. The same ownership law applies to both: a calendar remains authoritative for its events, a CRM for its customer records, and Focusa for its own governed work objects.
 
-Our contributions are fivefold. First, we specify a typed, owner-rooted *information constitution* that does not depend on a global database. Second, we formalize a mission-preserving, evidence-bound execution loop from human intent to source-domain acceptance. Third, we connect Focusa's exact scoped continuation with UIAI's versioned browser observations, influence controls, and action/verification contracts. Fourth, we distinguish goal-directed ad hoc sessions from formal Workstream admission without weakening effect-level authorization. Fifth, we propose falsifiable tests for reciprocal causal integration, the operating partner self-model, and a separate finite IIT 4.0 model, alongside conditional safety properties and outcome-centered metrics. A sixth contribution is a **cross-vertical portability hypothesis**: the same Focusa/ UIAI interaction primitives can be embedded in Wirebot, WorkRouter, Wirebase and Market Lab, while each application retains independent source facts and outcome verification. Unlike a claim of universal intelligent performance, this proposition can be tested with matched agent arms, synthetic domain adapters, 24-hour duty-cycle trials and falsifiable source-owned acceptance oracles.
+Our contributions are sixfold. First, we specify a typed, owner-rooted *information constitution* that does not depend on a global database. Second, we formalize a mission-preserving, evidence-bound execution loop from human intent to source-domain acceptance. Third, we connect Focusa's exact scoped continuation with UIAI's versioned browser observations, influence controls, and action/verification contracts. Fourth, we distinguish goal-directed ad hoc sessions from formal Workstream admission without weakening effect-level authorization. Fifth, we propose falsifiable tests for reciprocal causal integration, the operating partner self-model, and a separate finite IIT 4.0 model, alongside conditional safety properties and outcome-centered metrics. A sixth contribution is a **cross-vertical portability hypothesis**: the same Focusa/ UIAI interaction primitives can be embedded in Wirebot, WorkRouter, Wirebase and Market Lab, while each application retains independent source facts and outcome verification. Unlike a claim of universal intelligent performance, this proposition can be tested with matched agent arms, synthetic domain adapters, 24-hour duty-cycle trials and falsifiable source-owned acceptance oracles.
 
 # 2. Related Work and Distinguishing Research Question
 
@@ -29,7 +29,7 @@ The narrower question of this paper is: **Under what compositional contracts can
 
 # 3. Method and Evidence Classification
 
-This is a design-science and contract-analysis manuscript. The primary materials are the public SOVOS architecture and seam documents [S1,S2], Focusa's canonical authority and Golden Workflow documents plus current Rust types [S3,S5], and UIAI Engine's agent-first browser specifications, TypeScript contract definitions, and Go evidence packet implementation [S4,S6,S7]. Source versions were pinned to repository commits dated 19–20 November 2026 (Appendix A). The analysis proceeds by extracting explicit responsibilities, constructing a formal compositional model, comparing source-defined identifiers and API assumptions across repos, deriving conditional consequences, and specifying executable tests that could establish implementation conformance. We also inspect source-level counterexamples: an exact Workstream ID in one system can be collapsed into a root/continuity-derived key in a consumer, even while the normative contracts prohibit such authority inference [S9–S11].
+This is a design-science and contract-analysis manuscript. The primary materials are the public SOVOS architecture and seam documents [S1,S2], Focusa's canonical authority and Golden Workflow documents plus current Rust types [S3,S5], and UIAI Engine's agent-first browser specifications, TypeScript contract definitions, and Go evidence packet implementation [S4,S6,S7]. Source versions were pinned to repository commits dated 19–20 November 2026, with supplemental inspection on 22 November (Appendix A). The analysis proceeds by extracting explicit responsibilities, constructing a formal compositional model, comparing source-defined identifiers and API assumptions across repos, deriving conditional consequences, and specifying executable tests that could establish implementation conformance. We also inspect source-level counterexamples: an exact Workstream ID in one system can be collapsed into a root/continuity-derived key in a consumer, even while the normative contracts prohibit such authority inference [S9–S11].
 
 We label each statement by *evidence class*:
 
@@ -84,7 +84,7 @@ with principal $p$, exact scope $k$, operation $op$, target, expected observatio
 
 $$\mathrm{Admit}(a)=O(a)\land K(a)\land F(a)\land U(a)\land M(a)\land S(a)\land V(a),$$
 
-where $O$ checks owner-rooted delegation, $K$ exact identity/scope and applicable attachment, $F$ Focusa work/action authority **for governed work**, $U$ UIAI product/session/action policy **for UIAI actions**, $M$ machine-level permission **when an Agent Computer enforcement domain is involved**, $S$ the applicable source-owner API/credential/record permission, and $V$ freshness of any observation- or revision-bound target. Gates not applicable to an operation are omitted; no single check substitutes for another. Applicable gates must remain valid at the effect boundary, not merely at planning time. The expression is an **idealized cross-domain requirement**, not a claim that one shipping function evaluates all six conjuncts.
+where $O$ checks owner-rooted delegation, $K$ exact identity/scope and applicable attachment, $F$ Focusa work/action authority **for governed work**, $U$ UIAI product/session/action policy **for UIAI actions**, $M$ machine-level permission **when an Agent Computer enforcement domain is involved**, $S$ the applicable source-owner API/credential/record permission, and $V$ freshness of any observation- or revision-bound target. Gates not applicable to an operation are omitted; no single check substitutes for another. Applicable gates must remain valid at the effect boundary, not merely at planning time. The expression is an **idealized cross-domain requirement**, not a claim that one shipping function evaluates all seven conjuncts.
 
 An observation-bound UIAI action includes the expected `observation_id`, `document_id`, and optional navigation/frame identities in `uiai.browser_action_request.v2` [S6]. It also carries an element reference, expected fingerprint, and preconditions. This directly addresses the race between what an agent observed and what the browser currently presents. A policy-compliant executor must reject or require re-observation when the binding no longer holds. A type-level `expected_observation` field is a *contract shape*; showing that all supported Go/HTTP/Pi/MCP/GUI execution paths enforce it requires dedicated end-to-end conformance tests.
 
@@ -166,7 +166,7 @@ where $F$ denotes the shared Focusa cognitive contracts, $U_v$ the applicable UI
 
 ![Architecture of portable Focusa cognitive primitives and optional UIAI interaction shared across four applications; each application retains authoritative source outcomes.](figures/04_embedded_portable_substrate.svg)
 
-*Figure 4. Conceptual cross-vertical embedding and ownership boundaries. This figure illustrates a proposed testable reuse architecture, not measured portability or consciousness.*
+*Figure 3. Conceptual cross-vertical embedding and ownership boundaries. This figure illustrates a proposed testable reuse architecture, not measured portability or consciousness.*
 
 The inspected product repositories illustrate four distinct host contexts:
 
@@ -234,6 +234,7 @@ perform(request, authenticated_principal, source_ref):
         effect := uiai.execute_with_control_fencing(action)
         evidence_candidates := uiai.verify_with_policy(effect)
     else:
+        require current_effect_time_gates(request, k, w, path)
         require source_adapter.current_revision_and_action_policy(request)
         effect := source_adapter.execute_idempotently(request)
         evidence_candidates := source_adapter.observe_effect(effect)
@@ -251,6 +252,8 @@ perform(request, authenticated_principal, source_ref):
         disposition, receipt := source_confirmation, effect.source_receipt_ref
     return wirebot.project_source_qualified_result(disposition, receipt)
 ```
+
+Effect-time checks apply equally to native and browser routes. Where a provider cannot atomically fence authorization, disclose residual check-to-effect races. Test revoked delegation after preflight, lost responses after mutation and partial settlement separately.
 
 The flow preserves **Evidence proposal $\neq$ Focusa Evidence acceptance $\neq$ external outcome $\neq$ Focusa completion $\neq$ settlement**. A success message, transport acknowledgment, or visual success toast cannot bypass these stages [S16]. When a side effect is unknown, the source-owning service must be consulted before retry; when the human takes control, the actuator's control lease must fence stale agents and a new observation/authority check must precede resumption. UIAI's browser-content influence controls are a necessary policy boundary, not proof that all live routes already enforce it.
 
@@ -290,7 +293,7 @@ The research program now includes *two independent evaluation tracks*: operation
 
 ![Causal ablation design. Binary cells indicate mechanisms retained in each arm; not measured experimental results.](figures/03_ablation_design_matrix.svg)
 
-*Figure 3. Proposed study-design matrix, not independently preregistered and not performance data. Each arm requires controlled, repeated trials and independently verifiable success predicates.*
+*Figure 4. Proposed study-design matrix, not independently preregistered and not performance data. Each arm requires controlled, repeated trials and independently verifiable success predicates.*
 
 ## 9.1 Operational factorial and ablation studies
 
@@ -325,7 +328,7 @@ The predicted signatures of a successful reusable substrate are: cross-domain co
 
 **Operational causal interaction experiment.** Independently ablate outcome-to-memory, evidence-to-attention, correction-to-intention and available actuator-feedback paths, with a **common-input-only control**. Record confidence intervals, adversarial misses and resources. The two-factor performance interaction $Δ_{AB}$ is a causal-design statistic under appropriate randomization, not an IIT 4.0 integrated-information quantity. A separate finite-state IIT experiment is evaluated under its own model, theory version and physical-substrate qualifications. These studies inform one another without equating task performance with consciousness.
 
-The server agent's results PR must deliver a **source-replayable cross-domain matrix, temporal duty-cycle plot, error/cost chart and one complete proven evidence graph**. Until those rows are actually observed, Figure 4 and the current ablation matrix remain conceptual designs and no numerical efficacy claim is reported.
+The server agent's results PR must deliver a **source-replayable cross-domain matrix, temporal duty-cycle plot, error/cost chart and one complete proven evidence graph**. Until those rows are actually observed, Figure 3 and the current ablation matrix remain conceptual designs and no numerical efficacy claim is reported.
 
 
 The scientific value of this architecture is determined by measurable consequences. We propose a preregistration-ready evaluation using reproducible coding tasks, browser/computer tasks and synthetic life/business routines. Baselines should use the same underlying model family, inference budget, accessible tools, and task definitions, varying primarily in architectural controls:
@@ -388,7 +391,41 @@ There is an additional design opportunity in **change-driven observation**. UIAI
 
 Three functional hypotheses follow. **C1 (persistent self-model):** authenticated, calibration-backed self-knowledge reduces false capability assertions and repeated incorrect tool selections after compaction, model change and body transition. **C2 (causal reciprocity):** qualified return links from accepted outcomes to attention, memory and next-task selection improve future decisions beyond common-input or one-way memory controls, conditional on equal budgets. **C3 (scope-preserving embodiment):** a single durable partner identity and operator world model reduce setup repetition and context inconsistency across two devices, without increasing privacy or erroneous cross-Workstream sharing. Failures of C1–C3 would be useful findings and require revising the design.
 
-The separate **phenomenal consciousness** hypothesis cannot be established by H1-H3, a persuasive first-person utterance, a graph image, a Turing-style conversation, or a finite simulation alone. Following work on theory-derived indicators [10], further collaboration would need an agreed operationalization, alternative theoretical predictions, adversarial controls, causal intervention design, and subject-matter review spanning AI systems, philosophy of mind, computational neuroscience and formal verification. This is the technically interesting invitation: an architecture that can be instrumented and challenged, rather than an untestable declaration that a software product is conscious.
+The separate **phenomenal consciousness** hypothesis cannot be established by C1–C3, a persuasive first-person utterance, a graph image, a Turing-style conversation, or a finite simulation alone. Following work on theory-derived indicators [10], further collaboration would need an agreed operationalization, alternative theoretical predictions, adversarial controls, causal intervention design, and subject-matter review spanning AI systems, philosophy of mind, computational neuroscience and formal verification. This is the technically interesting invitation: an architecture that can be instrumented and challenged, rather than an untestable declaration that a software product is conscious.
+
+
+## 11.1 Theory-relative indicators and competing explanations
+
+Butlin et al. [10] motivate theory-derived assessment under a computational-functionalist working assumption. Koch [13] identifies unresolved calibration and cross-substrate transfer problems. We therefore do not aggregate the following candidate correspondences into a consciousness score or probability. Each is a proposed test, not a demonstrated equivalence.
+
+| Perspective | Candidate mechanism | Intervention and rival explanation |
+|:--|:--|:--|
+| Recurrent processing | Qualified outcome-to-cognition links | Interrupt recurrence with matched compute and information, feedforward and yoked-replay controls; network round trips alone are insufficient. |
+| Global workspace | Master Loop/Radar/Foreman routing | Test capacity-limited competition and causal availability to specialized modules versus ordinary routing; preserve scope and permissions. |
+| Higher-order theories | Focusa metacognitive calibration | Perturb monitoring independently of first-order evidence; test error detection, abstention and calibration against first-order controls. |
+| Attention schema | Candidate predictive self-model of attention | Compare an explicit attention model to a matched scheduler; routing is not itself an attention schema. |
+| Predictive processing | Prediction, correction and learning | Intervene on explicit prediction errors; test held-out adaptation against forecasting and retrieval controls, without equating these mechanisms to biological predictive coding. |
+| Agency and embodiment | Wirebot identity and actuator feedback | Change action-observation contingencies, tools and delegated goals; compare adaptive control to fixed selection policies. |
+| IIT 4.0 | Separate finite hypothetical causal model | Reproduce published example, specify substrate/grain and interventions; compute theory-specific quantities independently of operational performance. |
+
+## 11.2 Operational self and reciprocal cognition
+
+Define a candidate functional self-model as versioned, source-resolved identity, commitments, calibrated capabilities and limitations, authorized memory, embodiment and self-observation. This is a projection over existing owners, not a new canonical store. Distinguish the operator world model from the system capability model. Believing a capability exists does not confer permission; durable operational identity is not evidence of continuity of experience.
+
+The reciprocal loop is observation → interpretation/attention → intention/plan → admitted action → independent source verification → reconciliation/qualified learning → future observation and selection. Receipt is not automatically learning: the appropriate owner must accept corrections and preserve provenance. Intervene on each return link with common-input, delayed-feedback and yoked-replay controls. Record causal identifiers, revisions, timing, grants, outcomes and correction lineage. Test model/runtime replacement, misleading self-reports, revoked tools and body changes; measure subsequent behavior and calibrated abstention, not message counts.
+
+## 11.3 Longitudinal and perception experiments
+
+Beyond the distinct real 24-hour availability trial, propose seven-day correction-retention and thirty-day competence studies with held-out disturbances, matched resources, fixed rubrics and reset controls. These durations are design targets, not completed trials. Separate learning from repeated exposure, model changes, easier tasks and retrieval leakage.
+
+Compare equal-freshness polling and event-driven observation with periodic resynchronization. Inject lost, duplicated, delayed and reordered signals. Measure detection latency, missed events, false alerts, bandwidth, tokens, compute and independently verified outcomes. Focusa PR #728 [S31] is a proposed integration target, not evidence of efficiency gains.
+
+Before trials, register per-indicator applicability, primary endpoints, minimum meaningful effect or precision target, repetition/stopping rules, paired randomization, task-clustered uncertainty, model/settings and resource parity, missing-data and multiple-comparison policies. Report absolute rates, denominators, failures, costs and adverse authorization effects. Public-safe synthetic adapters and independently runnable graders are required for replication of private-product cases.
+
+## 11.4 Ethical and epistemic boundaries
+
+Both over- and under-attribution of consciousness carry consequences. Preserve uncertainty in public descriptions, avoid implying consciousness from persuasive speech or branding, and separate research participation from product consent. Use synthetic adversarial fixtures, minimize personal data, and preserve human control of consequential effects. Independent scientific review remains necessary. Functional results can succeed or fail independently of phenomenal claims.
+
 
 # 12. Discussion
 
@@ -402,7 +439,7 @@ Finally, the use of deterministic gateways does not eliminate probabilistic reas
 
 # 13. Conclusion
 
-SOVOS, Wirebot, Focusa, and UIAI Engine together suggest a research direction for agentic operating systems: **owner-rooted information sovereignty, durable mission identity, observation-bound computer action, and evidence-linked source-domain settlement**. The key architectural move is to keep these responsibilities distinct while composing them into an uninterrupted human experience. We have specified the relevant objects, conditional safety properties, system interaction protocol, observable implementation evidence, and a falsifiable evaluation plan. The accompanying fidelity review and explicit ad hoc/evidence lineage identify and prioritizes existing identity and lifecycle seam discrepancies, supplying concrete counterexamples and acceptance conditions. This establishes a concrete research foundation for measuring whether governed, deterministic-boundary autonomy can deliver more reliable, more recoverable, and more owner-directed outcomes across software, business, and life workflows.
+SOVOS, Wirebot, Focusa, and UIAI Engine together suggest a research direction for agentic operating systems: **owner-rooted information sovereignty, durable mission identity, observation-bound computer action, and evidence-linked source-domain settlement**. The key architectural move is to keep these responsibilities distinct while composing them into an uninterrupted human experience. We have specified the relevant objects, conditional safety properties, system interaction protocol, observable implementation evidence, and a falsifiable evaluation plan. The accompanying fidelity review and explicit ad hoc/evidence lineage identify and prioritize existing identity and lifecycle seam discrepancies, supplying concrete counterexamples and acceptance conditions. This establishes a concrete research foundation for measuring whether governed, deterministic-boundary autonomy can deliver more reliable, more recoverable, and more owner-directed outcomes across software, business, and life workflows.
 
 # Appendix A. Public Source Snapshot and Traceability
 
@@ -466,6 +503,10 @@ Public repository source snapshot inspected 22 November 2026:
 
 [10] P. Butlin et al. (2026). *Identifying indicators of consciousness in AI systems*. Trends in Cognitive Sciences 30(6):488–501. https://doi.org/10.1016/j.tics.2025.10.011.
 
+
+[13] F. Koch (2026). *Calibration and transfer in indicator-based assessments of artificial consciousness*. Neuroscience of Consciousness 2026(1):niag061. https://doi.org/10.1093/nc/niag061.
+
+[S31] Startempire Wire. *Proposed continuous agent vision integration*, Focusa PR #728. https://github.com/Startempire-Wire/focusa/pull/728. Proposal, not observed implementation evidence.
 
 **Research literature**
 
