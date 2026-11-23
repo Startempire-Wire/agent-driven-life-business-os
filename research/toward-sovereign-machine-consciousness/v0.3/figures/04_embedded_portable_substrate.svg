@@ -57,5 +57,5 @@
 <rect class="light" x="198" y="638" width="804" height="56" rx="9"/>
 <text class="h3" x="600" y="661" text-anchor="middle">Continuous operation = persistent goals, qualified signals and bounded action</text>
 <text class="note" x="600" y="682" text-anchor="middle">Inference is activated when useful; deterministic event paths keep time-critical obligations</text>
-<text class="note" x="600" y="724" text-anchor="middle">Figure 4. Architecture and reusable ownership model, not empirical proof of performance or consciousness.</text>
+<text class="note" x="600" y="724" text-anchor="middle">Figure 3. Architecture and reusable ownership model, not empirical proof of performance or consciousness.</text>
 </svg>
