@@ -1,6 +1,6 @@
-# Toward Sovereign Machine Consciousness — Research Manuscript v0.3.2
+# Toward Sovereign Machine Consciousness — Research Manuscript v0.3.3
 
-**Status:** DRAFT research preprint and evaluation protocol, dated 22 November 2026. This is a new research publication artifact, **not** an amendment to SOVOS constitutional or product architecture.
+**Status:** DRAFT research preprint and evaluation protocol, dated 23 November 2026. This is a new research publication artifact, **not** an amendment to SOVOS constitutional or product architecture.
 
 The research question is whether persistent agentic systems with source-qualified feedback, goal-directed ad hoc operation, governed Workstreams, a truthful capability self-model, and evidence-linked outcomes perform better than controlled alternatives under equal resources and authority constraints. The work does not report measured results or establish subjective consciousness.
 
@@ -14,7 +14,7 @@ Contents:
 
 ## Cross-vertical research and benchmark handoff
 
-The manuscript v0.3.2 adds a **portable Focusa + UIAI substrate** hypothesis across Wirebot, WorkRouter, Wirebase and Focusa Market Lab. Each application owns its own domain truth; reusable cognitive and interaction primitives are evaluated for continuity, correct authority, provenance and verified outcomes. A 24-hour monitored synthetic event workload is a proposed uptime experiment, distinct from simulated time and continuous LLM inference.
+The manuscript retains a **portable Focusa + UIAI substrate** hypothesis across Wirebot, WorkRouter, Wirebase and Focusa Market Lab. Each application owns its own domain truth; reusable cognitive and interaction primitives are evaluated for continuity, correct authority, provenance and verified outcomes. A 24-hour monitored synthetic event workload is a proposed uptime experiment, distinct from simulated time and continuous LLM inference.
 
 **Measured study owner:** [Focusa PR #731](https://github.com/Startempire-Wire/focusa/pull/731), extending public Spec 113/114 with the initial 18 live-task designs and a supplemental 12-case, four-domain design. No real benchmark results have been returned yet. Results should enter a separate implementation/evidence PR, including independent graders, model/arm/environment revisions, sample counts, failures, SHA-256 source artifacts and genuinely observed scientific charts.
 
@@ -24,7 +24,7 @@ The manuscript v0.3.2 adds a **portable Focusa + UIAI substrate** hypothesis acr
 
 ## Critical pre-submission tasks — source-of-truth gap check
 
-- Render the **current v0.3.2** text and all four figures to an actual checked PDF/LaTeX source package. Earlier PDFs are not proof of this source revision; validate math, reference links, figure labels and author metadata on exact current source.
+- Render the **current v0.3.3** text and all four figures to an actual checked PDF/LaTeX source package. Earlier PDFs are not proof of this source revision; validate math, reference links, figure labels and author metadata on exact current source.
 - Finish the source-owned Focusa empirical benchmark with real isolated runs, independent source-state oracles, contamination protection, reproducible artifacts and negative results; merge only reviewed measurements into the paper. Architecture/scientific-design publication can remain a separate clearly labeled research contribution.
 - Invite independent systems/ML-methodology reviewers to reproduce at least one synthetic successful case and one counterexample; record their critiques, versioned corrections and artifact hashes. A sole author can still disclose independent review without inventing coauthors.
 - Public product examples in WorkRouter, Wirebase and Market Lab currently come from private repositories; release only owner-approved synthetic adapters and source-agnostic methods, not confidential code, licensed data or raw browsing artifacts.
