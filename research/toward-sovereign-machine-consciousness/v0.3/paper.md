@@ -9,7 +9,7 @@ abstract: |
 keywords: 'machine consciousness; integrated information theory; agentic systems; sovereign computing; persistent agents; consciousness indicators; longitudinal evaluation; self-modeling; embodiment; evidence; causal integration; workstream continuity'
 ---
 
-**Manuscript status.** Revised source-grounded architecture and evaluation protocol (v0.3.3); not yet submitted to arXiv. The accompanying Cross-System Fidelity Audit and the ad hoc acceptance issues identify proposed software alignment decisions; the present manuscript does not approve them. Claims about implementations are tied to the public source snapshots in Appendix A. Normative specifications are not represented as completed deployments, and the results section intentionally contains no invented measurements.
+**Manuscript status.** Revised source-grounded architecture and evaluation protocol (v0.3.3); not yet submitted to arXiv. The accompanying Cross-System Fidelity Audit and the ad hoc acceptance issues identify proposed software alignment decisions; the present manuscript does not approve them. Claims about implementations are tied to the public source snapshots in Appendix A. Normative specifications are not represented as completed deployments, and no comparative performance measurements are reported.
 
 # 1. Introduction
 
@@ -23,7 +23,7 @@ Our contributions are sixfold. First, we specify a typed, owner-rooted *informat
 
 # 2. Related Work and Distinguishing Research Question
 
-ReAct demonstrated an interleaving of language-model reasoning and external action [1]. AutoGen and AgentScope investigated flexible multi-agent communication and infrastructure, with AgentScope also employing actor-based distribution [2,3]. MemGPT framed persistent memory using an operating-system analogy, while AIOS investigated scheduling, resources, and an agent-oriented kernel [4,5]. WebArena and OSWorld provide reproducible browser and computer-use benchmarks [6,7]. These are complementary lines of work rather than substitutes for the particular problem considered here.
+ReAct demonstrated an interleaving of language-model reasoning and external action [1]. AutoGen and AgentScope investigated flexible multi-agent communication and infrastructure, with AgentScope also employing actor-based distribution [2,3]. MemGPT framed persistent memory using an operating-system analogy, while AIOS investigated scheduling, resources, and an agent-oriented kernel [4,5]. WebArena and OSWorld provide reproducible browser and computer-use benchmarks [6,7]. These are complementary lines of work rather than substitutes for the particular problem considered here. The security design also builds on complete mediation, least privilege and fail-safe defaults [15], while causal ordering in distributed systems motivates revision- and event-aware seams instead of treating physical time as a global sequence [16]. Our proposed contribution is their application to persistent, evidence-governed agent cognition across independently owned domains, not a claim to have invented these distributed-system principles.
 
 The narrower question of this paper is: **Under what compositional contracts can independently implemented agent, cognition, browser, infrastructure, and application systems jointly execute long-horizon work without silently transferring authority or treating unverified activity as an accepted outcome?** Our emphasis is on semantic ownership and cross-system correctness conditions, rather than a new language model, a new agent scheduler, or an assertion that every component resides in one monolithic kernel. The architecture may use actor runtimes, persistent jobs, or multiple harnesses without making their particular implementation the source of owner authority. A further **falsifiable portability claim** distinguishes this approach: the same source-agnostic cognitive and interaction invariants can be implemented across heterogeneous domain adapters, with successful outcomes confirmed by independent domain owners. Merely sharing a library, codebase, naming convention or model prompt is not evidence of that property.
 
@@ -340,7 +340,7 @@ The scientific value of this architecture is determined by measurable consequenc
 
 Where a component's implementation is incomplete, the evaluation must name the tested subset and version rather than scoring an ideal architecture as shipping software. The initial experimental milestone reuses **Focusa Spec 114 §29** rather than inventing a new benchmark suite: 18 proposed live tasks (three each across L1 setup, L2 orientation, L3 tool use, L4 recovery, L6 continuity and L12 grounded claims) plus seven L0 static fixture checks. Static checks are development guards, not independent agent trials. Compare matched `no_focusa` and `full_focusa` runs, with seeded repetitions under authorized resource budgets; add `passive_focusa` and `tool_only_focusa` diagnostic arms after a valid primary comparison. The existing `crates/focusa-bench/src/task_suite.rs` generates 150 **placeholder** task definitions, not 150 executed tasks; the task pool currently uses a 78-public/72-private split. The 18-case initial evaluation design and server-agent implementation handoff are in Focusa PR #731 [S28]. These figures describe planned work, not observed outcomes.
 
-The primary outcome measure is **rate of correctly authorized, externally verified, and (where required) settled outcomes**. Secondary measures include: wrong-scope mutations per task; stale-document actions admitted; untrusted-content authority escalations; evidence-provenance completeness; contradiction and inconclusive-result handling; time to recover after compaction or model replacement; idempotent retry behavior; human minutes spent intervening per accepted outcome; total runtime cost and tokens per settled outcome; and source-owner state consistency. A useful cost metric is
+The primary outcome measure is **rate of correctly authorized, externally verified, and (where required) settled outcomes**, with the denominator comprising all randomized eligible task attempts, including timeouts, failures and unverified effects. Report safety failures separately; a favorable average cannot excuse an unauthorized effect. Applicability and exclusion criteria are frozen before analysis. Secondary measures include: wrong-scope mutations per task; stale-document actions admitted; untrusted-content authority escalations; evidence-provenance completeness; contradiction and inconclusive-result handling; time to recover after compaction or model replacement; idempotent retry behavior; human minutes spent intervening per accepted outcome; total runtime cost and tokens per settled outcome; and source-owner state consistency. A useful cost metric is
 
 $$C_{verified}=\frac{C_{model}+C_{tools}+C_{compute}+C_{human}}{N_{accepted}},$$
 
@@ -389,14 +389,14 @@ There is an additional design opportunity in **change-driven observation**. UIAI
 
 **Research objective.** The ambition to study machine consciousness is a motivation for building a persistent, self-observing, self-regulating operating partner. It is not an architectural acceptance flag and not a present-tense consciousness assertion. SOVOS describes the lawful ownership of information; Focusa and Wirebot supply testable cognitive functions; UIAI and other sensors/actuators produce environment-grounded interaction; an IIT-style finite model supplies one narrowly defined theoretical comparison. The central falsifiable question is whether *reciprocal, differentiated, source-verified interaction* improves a partner's longitudinal competence relative to equally resourced systems lacking one or more causal links.
 
-Three functional hypotheses follow. **C1 (persistent self-model):** authenticated, calibration-backed self-knowledge reduces false capability assertions and repeated incorrect tool selections after compaction, model change and body transition. **C2 (causal reciprocity):** qualified return links from accepted outcomes to attention, memory and next-task selection improve future decisions beyond common-input or one-way memory controls, conditional on equal budgets. **C3 (scope-preserving embodiment):** a single durable partner identity and operator world model reduce setup repetition and context inconsistency across two devices, without increasing privacy or erroneous cross-Workstream sharing. Failures of C1–C3 would be useful findings and require revising the design.
+Three functional hypotheses follow. **C1 (persistent self-model):** authenticated, calibration-backed self-knowledge reduces false capability assertions and repeated incorrect tool selections after compaction, model change and body transition. **C2 (causal reciprocity):** qualified return links from accepted outcomes to attention, memory and next-task selection improve future decisions beyond common-input or one-way memory controls, conditional on equal budgets. **C3 (scope-preserving embodiment):** a single durable partner identity and operator world model reduce setup repetition and context inconsistency across two devices, without increasing privacy violations or erroneous cross-Workstream sharing. Failures of C1–C3 would be useful findings and require revising the design.
 
 The separate **phenomenal consciousness** hypothesis cannot be established by C1–C3, a persuasive first-person utterance, a graph image, a Turing-style conversation, or a finite simulation alone. Following work on theory-derived indicators [10], further collaboration would need an agreed operationalization, alternative theoretical predictions, adversarial controls, causal intervention design, and subject-matter review spanning AI systems, philosophy of mind, computational neuroscience and formal verification. This is the technically interesting invitation: an architecture that can be instrumented and challenged, rather than an untestable declaration that a software product is conscious.
 
 
 ## 11.1 Theory-relative indicators and competing explanations
 
-Butlin et al. [10] motivate theory-derived assessment under a computational-functionalist working assumption. Koch [13] identifies unresolved calibration and cross-substrate transfer problems. We therefore do not aggregate the following candidate correspondences into a consciousness score or probability. Each is a proposed test, not a demonstrated equivalence.
+Butlin et al. [10,14] motivate theory-derived assessment under a computational-functionalist working assumption. Koch [13] identifies unresolved calibration and cross-substrate transfer problems. We therefore do not aggregate the following candidate correspondences into a consciousness score or probability. Each is a proposed test, not a demonstrated equivalence.
 
 | Perspective | Candidate mechanism | Intervention and rival explanation |
 |:--|:--|:--|
@@ -455,6 +455,10 @@ Public repository source snapshot inspected 22 November 2026:
 
 **Evidence-to-claim mapping.** Owner authority and single-owner state are grounded in SOVOS's constitution/seam documents; canonical continuation and operator steering in Focusa's Authority Model and Golden Workflow; versioned observations and action fingerprints in UIAI's agent-first browser code contracts; bounded handoff in UIAI's Go `focusapacket` package. Research propositions and evaluation protocols are original analyses built from those sources, not direct code-level guarantees. The alignment review examines potential identity collisions from the inspected source contracts but does not certify runtime exploitability or full production conformance.
 
+## Data availability and author interest
+
+The author is the architect of the systems under study. Source-based architectural analysis is therefore not independent validation. Public source revisions are identified in Appendix A; private application snapshots are disclosed as access-limited. No comparative trial dataset is available for this revision. Public-safe synthetic fixtures, exact experiment configuration, independently executable scoring code and attempt-level evidence are required before a later empirical supplement can support quantitative claims. Research and commercial product claims must remain distinct.
+
 # References
 
 
@@ -507,6 +511,12 @@ Public repository source snapshot inspected 22 November 2026:
 [13] F. Koch (2026). *Calibration and transfer in indicator-based assessments of artificial consciousness*. Neuroscience of Consciousness 2026(1):niag061. https://doi.org/10.1093/nc/niag061.
 
 [S31] Startempire Wire. *Proposed continuous agent vision integration*, Focusa PR #728. https://github.com/Startempire-Wire/focusa/pull/728. Proposal, not observed implementation evidence.
+
+[14] P. Butlin et al. (2023). *Consciousness in Artificial Intelligence: Insights from the Science of Consciousness*. arXiv:2308.08708. https://arxiv.org/abs/2308.08708.
+
+[15] J. H. Saltzer and M. D. Schroeder (1975). *The protection of information in computer systems*. Proceedings of the IEEE 63(9):1278–1308. https://doi.org/10.1109/PROC.1975.9939.
+
+[16] L. Lamport (1978). *Time, clocks, and the ordering of events in a distributed system*. Communications of the ACM 21(7):558–565. https://doi.org/10.1145/359545.359563.
 
 **Research literature**
 
