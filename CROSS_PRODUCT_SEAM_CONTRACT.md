@@ -360,6 +360,34 @@ Scheduled routine activation uses OpenClaw's persistent Automations scheduler by
 
 ---
 
+### 12.1 Agent-first progression, Buyback, and evolutionary inspection seam — target contract
+
+This is an **additive target** over the existing source-qualified operator.leverage_snapshot.v1, not an in-place redefinition, new authority, backend, event bus, score ledger or mandatory W.I.N.S. dependency. The base snapshot schema and its existing consumers remain compatible. Any necessary new numeric Buyback/retrospective fields require a separately versioned schema or a backwards-compatible existing projection; do not slip an undocumented field into the current v1 as if consumers have adopted it.
+
+Proposed **logical capabilities** (operation names, not claims of installed HTTP paths, CLI commands or activated grants):
+
+| Capability | Read/write and owning boundary | Required effect |
+|---|---|---|
+| operator.progression.read | Wirebot/Perpetua private source-qualified read projection | Current owner-goal gap, accepted outcome, momentum, leverage/capacity and incomplete coverage |
+| operator.buyback.inspect | Wirebot read synthesis over owner/source routine analytics | Gross/estimated/realized/net/protected/reinvested time or money, recurrence, cost, confidence and overlap |
+| operator.progression.lineage | Read, with current source resolution and redaction | Goal → work/routine → effect → receiver verification → memory-eligible learning → leverage and next candidate |
+| operator.evolution.inspect | Read Focusa-governed and Core component evidence | Baseline/variant, hypothesis, protocol, held-out results, current gate, costs, regression/rollback; no architecture change power |
+| operator.feedback.propose | Governed candidate through existing owner correction/approval path | Owner correction, objection, reflection or accept/reject; no silent direct memory promotion, grant or outcome settlement |
+
+Each operation MUST have equivalent meaning across authenticated API, CLI, agent tool/skill, Core/W.I.N.S. projection and Wirebot App. It may be offered through different approved transports; UI access is never a prerequisite. The owning product registers the exact operation, supported version, typed argument/error shapes and capability/entitlement before consumers advertise it. SOVOS does not assign fake endpoints or unverified command names. W.I.N.S. public/community reads are separate **disclosure projections**, not the private operations above.
+
+Minimum qualified read envelope (logical fields, NOT an implemented schema): schema/version; owner/tenant/workspace and subject/scope refs; source owner/type/revision/time; observed-at and effective window; permissions and privacy class; coverage/completeness/freshness; accepted outcome and independent receiver refs; routine/work/effect correlations; leverage_snapshot_ref; measured-vs-estimated-vs-owner-reported distinctions; attribution/contrary evidence; uncertainty/confidence; evaluation protocol/baseline; current disposition/next permitted action. Large or private bodies remain with owning sources and are fetched only via current least-privilege resolution. Sources disagreeing or unavailable stay disputed/unknown, never zero or green.
+
+**Buyback semantic distinctions:** Gross avoided work is not net capacity; reported or forecast time saved is not realized time; one-time savings never recur by default; monthly, weekly and annual windows require time-zone-aware normalization and validity periods; recurring savings expire or are revalidated when a routine fails, is retired, or the baseline changes. Net Buyback subtracts monitoring, human oversight, exception recovery, tool/compute, maintenance and new dependencies in commensurate units. Do not double-count a shared improvement across businesses, routines, workers, or overlapping time intervals. Protecting and choosing not to spend recovered capacity is a legitimate positive outcome. Score bonuses are optional W.I.N.S. presentation policy, never a causal or financial benefit claim.
+
+**Three evidence planes:** (1) verified external reality / accepted source outcome; (2) observed operational behavior / execution and resource cost; (3) owner-controlled private reflection and preference. Keep them separately typed and private; no happiness score, personality inference as permission, automatic behavioral penalty as value truth, or disclosure of reflection into W.I.N.S. public standing.
+
+**Agent-first negative conformance:** W.I.N.S. disabled / no browser / app unavailable still returns the identical private outcome/Buyback semantics by API/CLI/agent tool; foreign tenant, expired or revoked owner, missing source, partial pagination, stale source version, off-line cache, duplicate event, uncertain provider result, delayed correction, unsupported contract, inconsistent metric units and disallowed disclosure all fail with truthful scoped disposition. W.I.N.S. enablement never confers Network or federation rights. Operator feedback does not by itself approve an architectural change, authorize a financial effect or settle a source outcome. Prove API↔CLI↔agent↔App↔W.I.N.S. consumer parity against the **same** qualified refs, plus a second tenant/second business and a W.I.N.S.-off fixture.
+
+Canonical homes: Freedom & Leverage §11A for value semantics; Master Loop 08 §11 for the Observer; Core W.I.N.S. docs02/17 for restoration, community/public projections and legacy migrations; Wirebot App docs13/20 for the primary integrated UI. Current legacy /v1/scoreboard and /v1/buyback APIs must not be represented as already satisfying this seam.
+
+---
+
 ## 13. Offline and cached projections
 
 A cache is explicitly a projection.

@@ -310,3 +310,64 @@ Acceptance requires positive substitution plus negative boundaries: adding a qua
 These boundaries order the full specified implementation over existing owners; none authorizes feature deferral or a reduced completion claim. The first composition is an initial working milestone. Complete interchangeability, stateful evolution, multi-domain/client behavior and adaptation as specified, with actual scope/permission/treatment/receiver conditions. Reconcile the unfinished memory blueprint as required dependency work; existing wiring is not its final replacement. Verify running implementations progressively, not via an upfront all-cases test platform.
 
 **Current disposition:** all specified module/hooks/composition/lifecycle/upgrade/memory capabilities remain in implementation scope. 0.7.0's unauthorized deferral interpretation is superseded in 07 §8. Evolving memory bindings are required unfinished work, not omitted features or invented APIs. Implementation is not automatic activation/cutover. No admitted code execution, built runtime, safe hot swap or completed memory ABI is claimed; this correction changes documentation only and preserves existing memory work.
+
+---
+
+## 11. Master Observer — second-order integration and evolutionary improvement contract (2026-10-27 owner direction)
+
+**Status: specified target / not an implemented or activated separate runtime.** This refines the existing module-evolution capability, M07/L01–L03, V01–V06 agent-first provenance and X01–X02 scientific controls; it does not remove any of the original fifty full-scope requirements or redefine their acceptance. This section is the canonical SOVOS home for the **Master Observer responsibility**, not a new database, daemon, scheduler, executive agent, verifier, policy authority or separate consciousness claim.
+
+**Purpose:** maximize useful, differentiated, reciprocal *causal* contributions between Portable Memory, the Master Loop, Perpetua, Focusa, approved external sources and reusable capabilities, subject to owner-defined outcomes, recoverability, privacy, scope, full costs and human freedom. Integrating more services or raising a toy-model information score is not sufficient. Observer proposals remain advisory until admitted by the actual owning change/architecture process.
+
+### 11.1 Existing responsibilities and authority map
+
+| Component | Canonical function | Observer relationship |
+|---|---|---|
+| Focusa Radar (Spec 183, draft) | Scoped source observation, episode/dedup, attention routing | Consume qualified observations where actually supported; do not build a second Radar |
+| Core Master Loop and its V01–V06 component registry | Watches, concerns, source revisions, work/effect/outcome lineage | Read the real component/instance/invocation graph and record missing instrumentation |
+| Portable Memory / native producers and M00–M07 | Five-tier governed candidate/review/delivery/eligibility/use/correction | Evaluate effect of actual permitted recall/use, never mint memory approval or a new store |
+| Focusa Spec 138 and 152A | Scoped self-model, predictions, metacognition, experimental/statistical inference and governed learning | Reuse epistemic state and study/approval machinery; do not duplicate it |
+| Focusa Spec 176 Judge | Independently challenges completion claims with exact proof | Reuse verification principles, without treating the Observer as a settlement authority |
+| Perpetua / Wirebot | Continuous initiative, private leverage synthesis, Quiet Kaizen, follow-through | Supplies owner-facing needs and benefits from admitted improvements |
+| Owner/domain sources | Truth of goals, CRM, calendar, finances, community, accepted outcomes | Only owner-qualified evidence can adjudicate real benefit |
+| W.I.N.S. Portal | Optional progression/community projection and public sharing with separate consent | Repaired PWA consumer and inspiration, never an Observer prerequisite |
+
+The self-model is assembled from source-revision-qualified code/contract inventories, component definitions and typed edges, real runtime causal traces, effect/receiver evidence, memory source/approval/use revisions, operator-defined purpose and authorized context. It MUST distinguish current deployed version, repo HEAD, historical documentation, synthetic fixture, partial coverage, observed failure and target specification. Missing traces are unknown; a diagram or repeated AI narrative cannot create a causal edge.
+
+### 11.2 Evolution cycle and admission
+
+MO-01 **Observe on change, not churn.** Trigger investigation from novel material failures, drift, corrections, high-value bottlenecks, unacceptable cost/attention, version upgrades or owner request. Deduplicate by one causal incident; stable healthy periods back off. No perpetual screenshot, exhaustive repo scan or model critique loop.
+
+MO-02 **Diagnose with alternatives.** Differentiate bad recall/use, stale/missing source, false expectation, connector/work/effect mismatch, slow feedback, redundant component and wrong outcome objective. Preserve contradictory evidence, causally linked upstream/downstream context and current permission.
+
+MO-03 **Propose the smallest discriminating experiment.** Bind subject/component/contract/source revisions, baseline, goal, suspected mechanism, counterfactual/ablated configurations, hypotheses, resource and privacy caps, independent verifier, evaluation window, confidence, owner/architecture decision class, rollback and affected surfaces. No unfrozen metrics after seeing outcomes.
+
+MO-04 **Keep science separate.** IIT 4.0 research must pin formulation/version, TPM/grain, intervention assumptions and bounded model. Any φ_s/Φ result is a finite-model scientific report, NEVER a business KPI, privacy exception, consciousness claim or promotion authority. Operational integration uses controlled effect on actual accepted outcomes, differentiated contribution, resource usage and failure recovery.
+
+MO-05 **Separate evidence planes.** External reality/accepted outcome, observed operation and private owner reflection are not interchangeable. The Observer MUST distinguish a result receipt, receiver acceptance, downstream momentum and sourced net Buyback. Emotion or psychometric inference cannot silently alter owner-defined purpose.
+
+MO-06 **Govern changes through existing owners.** Shadow evaluation has no external effects. A candidate may enter a versioned constrained canary only with current permitted authority, scope, fixed policy epoch and recoverable data; protected constitutional, memory-treatment, payment, identity, federation and cross-owner boundaries require owner-rooted approval. No model self-grants, self-written verifier, policy self-approval, automatic cross-tenant transfer or live memory backend cutover.
+
+MO-07 **Reject harmful integration.** The target defect must improve, held-out and negative fixtures must pass, and consequential invariants cannot regress. Compare *all* costs including supervision, interruption, retries, compute, storage, deployment/rollback, privacy and new dependencies. Distinguish gross, estimated, realized, net, protected and recurring Buyback; shared value counted once. Unknown/mixed evidence yields inconclusive/hold, not success.
+
+MO-08 **Admit reversible learning.** Independently qualified positive evidence advances keep/canary/promote under its actual owner; failures, cost regressions and negative transfer yield revert/quarantine/retire with reason, incident lineage, current affected-state reconciliation and release-level version pinning. Already dispatched unknown effects are reconciled, never blind-replayed.
+
+MO-09 **Preserve healthy quiet.** Zero new work is valid when benefits do not exceed costs or no meaningful event is due. Never turn recovered human capacity automatically into additional work, score private reflection, chase momentum forever, or propose change merely to keep the Observer active.
+
+MO-10 **Agent-first and surface independent.** Qualified read/inspection and governed proposal operations MUST be discoverable to CLI, API and agent tools without opening W.I.N.S. or Wirebot App. Reuse Cross-Product Seam §12.1; register real owner operation names/versions before claiming availability. W.I.N.S. and Wirebot App are independent read/presentation consumers of the same private source-qualified leverage, with optional disclosed public projection only when consented.
+
+MO-11 **Survive failure.** Observatory outage, incomplete instrumentation, disconnected W.I.N.S. PWA, stale memory provider, slow receiver and absent model cannot stop independently authorized base Master Loop work. Hold only dependent introspection/change paths; make missing coverage and rollback burden visible.
+
+MO-12 **Continuously evaluate itself.** Attribute Observer token/CPU/disk/tool/review burden against benefits of its accepted proposals; sample bad recommendations and no-change controls; reduce scope/cadence when marginal value is absent. Observer recommendation quality is not self-certified by the same run that proposed the change.
+
+### 11.3 Required proof matrix (additive, not a second task graph)
+
+1. **M00/M04/M07 + L01–L03:** reconcile actual memory custody/eligibility and source-to-effect-to-receiver-use lineage; compare same case with/without eligible memory and with/without outcome feedback, counting negative/censored cases and cost.
+2. **V01–V06:** an agent discovers versioned definitions, instances, invocation ports and source/consumer ref provenance, plus explicit unknown/partial coverage. A reviewer can reconstruct an observed failure without invented ancestry.
+3. **Intervention:** one missing/faulty inter-component edge is isolated with matched simulation/holdout, fixed target and shadow candidate; after eligible admission the affected live consumer proves an actual better source-owned outcome or preserves inconclusive.
+4. **Regression/recovery:** delayed callback, concurrent memory correction, stale authority, second tenant, multiple businesses, unavailable W.I.N.S. and App, changed measure, negative transfer, in-flight rollback and Observer outage do not cross scope or falsely settle work.
+5. **Benefit:** source-backed net Buyback, owner attention and downstream useful capacity are compared with baseline, including externalities; a routine retirement/rest day can be a valid positive outcome. Same private results are inspectable through approved API/CLI/agent tools with both PWAs absent; W.I.N.S.-enabled view adds only separately permitted progression/share metadata.
+6. **Scientific X01/X02:** finite IIT conformance is a separate controlled report. A higher finite-model Φ with worse actual outcomes is rejected for operational promotion.
+
+**Existing implementation ownership:** Core docs08/11/20/21 retain the Master Loop's actual component/provenance and gaps; SOVOS Freedom & Leverage §11A supplies Buyback/Three-Planes/Five-Zones/asset/season semantics; Cross-Product Seam §12.1 supplies portable API/CLI meaning; Wirebot App docs13/20 own the primary UI; W.I.N.S. Core docs02/17 own the restored global community PWA. Focusa specs retain their cognition/learning/authorization and Judge/Radar boundaries. No runtime registration, final architecture delegation, production acceptance or guaranteed net benefit follows from writing this section.
+

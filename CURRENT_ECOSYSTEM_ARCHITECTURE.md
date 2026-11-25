@@ -664,6 +664,20 @@ Current rule:
 
 ---
 
+### 9.1 Two apps, one sovereign agent-first operating capability plane — owner direction 2026-10-27
+
+**Primary ecosystem app:** Wirebot App (Startempire-Wire/Wirebot-App) is the core application family for the entire life-and-business ecosystem. Its authenticated, source-qualified operating-partner experience may be presented through web/PWA, desktop/mobile adaptations, voice, and channels. It is not a second brain, memory authority, scheduler, or runtime. Wirebot remains the durable, owner-rooted Operating Partner, with OpenClaw as the canonical persistent Chief-of-Staff runtime, Focusa governed work/cognition, UIAI actuation, and existing source owners.
+
+**Distinct restored global community app:** The existing W.I.N.S. Portal is the Core-owned Svelte PWA at wins.wirebot.chat. It MUST be repaired and remain a real, maintained application, including evidence-backed Buyback, the Three Planes, the Five Scoreboard Zones, seasons, focus/possession, portfolio, retrospective/Wrapped, optional recognition and the connected global Startempire Wire community. Its older implementation and authorization faults are repair work, not grounds to delete its conceptual features. W.I.N.S. is NOT the primary Wirebot App and MUST NOT own the canonical private progress, memory, execution or accepted-outcome state.
+
+**Headless by construction:** The exact same qualified private outcome, momentum, Buyback, asset/portfolio and improvement intelligence MUST be discoverable and actionable through product-owned versioned APIs, agent-native tools and CLIs, whether either PWA is open or W.I.N.S. is off. Wirebot App consumes those capabilities as the default unified human experience; the W.I.N.S. PWA consumes qualified, consented projections as its dedicated progression/community experience. No operation requires a W.I.N.S. browser session, W.I.N.S. enrollment, or the Wirebot App renderer to execute valid headless work.
+
+**Sovereign boundary:** Self-hosted full-Sovereign operation retains the owner-specific persistent VPS, Tailscale mesh and owner-controlled local body invariant. Managed Direct/Network deployments use their actual approved isolated substrate and do not claim full-Sovereign topology. W.I.N.S. enablement, global Network participation, federation, publication, reputation, community collaboration and any agent commerce/spend are distinct explicit, revocable policies. Off/private is a complete operating state, not a fault. No owner memory, private history, reflection, contacts, credentials, financial figures, source objects or generated improvement evidence is made public by a shared reference or by opening a community surface.
+
+**Convergence:** The portable semantics belong to the SOVOS Freedom & Leverage model and Cross-Product Seam Contract. The causal/evolutionary mechanism belongs to Master Loop modular evolution (08 §11), reusing Focusa Spec 138/183/176, M07, L01–L03 and existing evidence/authority owners. Core W.I.N.S. Portal docs02/17 own PWA repair and community consumer behavior; Wirebot App docs13/20 own core-app composition. Product code, actual deployment and source/consumer proof control implementation status; this architecture direction alone is not an activated service or permission grant.
+
+---
+
 ## 10. Capability, entitlement, activation, authority, and consent
 
 These MUST remain separate:
