@@ -1,0 +1,27 @@
+name: Wirebot Golden Path installer preflight regressions
+on:
+  pull_request:
+    paths:
+      - 'scripts/substrate-bootstrap.sh'
+      - 'scripts/activation-blueprint.py'
+      - 'tests/*substrate*'
+      - 'tests/wirebot-expression-install-review-test.py'
+      - 'tests/activation-blueprint-test.py'
+      - '.github/workflows/wirebot-golden-path-preflight.yml'
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax
+        run: bash -n scripts/substrate-bootstrap.sh
+      - name: No-network/no-write component and order contracts
+        run: |
+          python3 tests/activation-blueprint-test.py
+          python3 tests/wirebot-expression-install-review-test.py
+          python3 tests/substrate-bootstrap-python-order-test.py
+      - name: Report and dry-run file preservation
+        run: |
+          python3 tests/substrate-bootstrap-report-test.py
+          python3 tests/substrate-uiai-service-identity-test.py

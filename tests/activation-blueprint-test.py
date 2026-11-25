@@ -51,6 +51,34 @@ def check():
             pass
         else:
             raise AssertionError("invalid intent must fail")
+    # Five current commercial Expressions are independent of historical modes,
+    # host selection, technical tier and future Startempire Wire 2.0 federation.
+    for expression in ("proto", "tempo", "crew", "chief", "sovereign"):
+        expressed = app.build(AUDIT, dict(managed, marketing_expression=expression))
+        assert expressed["marketing_expression"] == expression
+        assert expressed["setup_mode"] == "wirebot_direct"
+        assert expressed["hosting_profile"] == "managed_isolated"
+        assert expressed["federation_boundary"].startswith("not evaluated; optional future")
+        assert expressed["approval_recorded_here"] is False
+        assert expressed["can_claim_implemented"] is False
+        assert expression in app.markdown(expressed)
+        assert expression in app.starter(expressed)
+    assert app.build(AUDIT, managed)["marketing_expression"] == "unresolved"
+    # Network participation is not a current Expression, and neither an
+    # historical Network setup nor a model purchase can grant federation.
+    old_network = app.build(AUDIT, dict(managed, setup_mode="wirebot_network",
+                                        marketing_expression="proto"))
+    assert old_network["marketing_expression"] == "proto"
+    assert old_network["setup_mode"] == "wirebot_network"
+    assert old_network["federation_boundary"].startswith("not evaluated; optional future")
+    for expression in ("network", "wirebot_network", "freewire", "Direct", 2, [], "", True):
+        try:
+            app.build(AUDIT, dict(managed, marketing_expression=expression))
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("invalid marketing Expression must fail without inferring a product or Network grant")
+
     # Compiled Starter contains the entire general operating guide AND the
     # customer binding; no private audit paths, fingerprints or arbitrary intent
     # keys appear in the public or private instruction projection.
