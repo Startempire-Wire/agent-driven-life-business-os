@@ -502,7 +502,7 @@ Engage + resolve accepted hosting offer
 → ongoing operations / optimization / handoff
 ```
 
-See `AGENT_OS_GOLDEN_PATH.md` and the detailed field-tested spine under `docs/agent-os-golden-path/`.
+See [Agent OS Golden Path](AGENT_OS_GOLDEN_PATH.md) and the [single-server default for Wirebot-style agents](docs/agent-os-golden-path/wirebot-single-server-default.md).
 
 Historical packaging/productization details remain useful provenance but do not override current product ownership in `CURRENT_ECOSYSTEM_ARCHITECTURE.md`.
 

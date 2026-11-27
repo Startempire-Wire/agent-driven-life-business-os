@@ -12,6 +12,7 @@
 - **Reference Agent Computer profile:** [`AGENT_COMPUTER_REFERENCE_PROFILE.md`](./AGENT_COMPUTER_REFERENCE_PROFILE.md)
 - **Reference Ambient Operator profile:** [`AMBIENT_OPERATOR_REFERENCE_PROFILE.md`](./AMBIENT_OPERATOR_REFERENCE_PROFILE.md)
 - **Reference Portable Memory profile (incubating):** [`PORTABLE_MEMORY_REFERENCE_PROFILE.md`](./PORTABLE_MEMORY_REFERENCE_PROFILE.md)
+- **Default configuration for an approved single-server OpenClaw deployment:** [One server for a Wirebot-style agent](docs/agent-os-golden-path/wirebot-single-server-default.md)
 - **Field-tested working spine:** [`docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md`](./docs/agent-os-golden-path/02-agent-os-golden-path-ordered-tasks.md)
 - **Composable workforce catalogue:** [`docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md`](./docs/agent-os-golden-path/09-composable-ai-workforce-catalogue-and-client-assignment-matrix.md)
 - **Freedom & Leverage operating model:** [`SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md`](./SOVOS_FREEDOM_AND_LEVERAGE_OPERATING_MODEL.md)

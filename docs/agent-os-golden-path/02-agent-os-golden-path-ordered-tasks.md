@@ -269,7 +269,7 @@ Make the customer's existing computer usable as an agent-operated starting body 
 7. Establish GitHub and Cloudflare tooling when required by the engagement.
 8. Establish vault/credential retrieval through approved secret-safe paths.
 9. Consolidate scattered credentials only through owner-approved credential custody; never copy recovery codes into agent context.
-10. Capture a bounded machine/capability report.
+10. Capture a bounded machine/capability report. Plan the Operating Partner and product scope bindings before changing topology. Use the [single-server default](wirebot-single-server-default.md) if OpenClaw on one persistent server fits the approved deployment.
 
 ## Owner mechanisms
 
@@ -472,6 +472,8 @@ For full-Sovereign deployments, connect the customer's approved machines and run
 6. Verify one representative remote execution path.
 7. Record unavailable/offline/not-applicable devices honestly.
 
+For OpenClaw on one approved persistent server, use the [single-server default](wirebot-single-server-default.md#setup-and-verification) for workspace placement and exact Focusa binding. Do not add a second server or server-to-server SSH just to pair the services. Verify remote execution only where the selected profile uses it; full-Sovereign mesh and local-body checks still apply.
+
 ## Terminology
 
 One customer's nodes form a **fleet / multi-daemon aggregation**.
@@ -591,7 +593,7 @@ This may mean moving an Operating Partner runtime to a VPS, adopting a cloud Age
 6. Verify private mesh/admin routes.
 7. Cut over explicitly.
 8. Retain source body/runtime as rollback until destination proof passes.
-9. Verify Wirebot App/customer route continues to represent the same Operating Partner.
+9. Verify Wirebot App/customer route continues to represent the same Operating Partner. If the runtime or workspace root changed, [rebind and verify the same Focusa continuity](wirebot-single-server-default.md#setup-and-verification) in a fresh session before retiring rollback.
 
 ## Current application rule
 

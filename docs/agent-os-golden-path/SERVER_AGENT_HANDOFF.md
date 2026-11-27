@@ -13,6 +13,8 @@ Operational default: existing Chief of Staff → deterministic trigger and bound
 
 This blueprint requires no in-person engineer visit in the **standard** Golden Path. Exception support/commercial personal-presence terms require the owning approved agreement; do not infer a price from old notes.
 
+For an approved OpenClaw deployment with one persistent server, start with the [single-server default](wirebot-single-server-default.md). It gives replacement agents the workspace and Focusa verification steps without requiring access to an original deployment repository.
+
 ## Assignment
 
 Improve and execute the Agent-Driven Life & Business OS using the existing product owners and the current Golden Path. Do not rediscover the architecture from old conversation history or create a parallel system because one seam is incomplete.
