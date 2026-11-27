@@ -11,6 +11,8 @@ Every expression receives identity, owner/tenant binding, authority boundaries, 
 
 Every expression remains bounded by its licensed Wirebot package. Independent customer-owned Pi agents, Focusa rights, UIAI rights, schedulers, cron jobs, models, data, and machines are detected and preserved. The installer cannot disable or confiscate them because a Wirebot model is lower, expires, or changes.
 
+When the approved package and hosting profile call for OpenClaw on one persistent server, use the [single-server Golden Path default](wirebot-single-server-default.md). That placement default does not add packages, entitlements or hosting requirements.
+
 ## 2. Exact model deltas
 
 | Capability | Proto | Tempo | Crew | Chief | Sovereign |
